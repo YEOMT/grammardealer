@@ -1,6 +1,0 @@
-센텐스 발라트로 0.1 배포 안내
-
-이 ZIP을 풀고 index.html, assets 폴더, .nojekyll 등 내용 전체를 새 정적 호스팅 폴더에 올리세요. index.html 하나만 올리면 작동하지 않습니다.
-GitHub Pages: 새 저장소에 전체 업로드 → Settings → Pages → Deploy from a branch → main / (root). 기존 게임 저장소는 덮어쓰지 마세요. Node 설치나 소스 빌드는 필요 없습니다.
-로컬 파일 더블클릭(file://) 대신 정적 서버에서 실행하세요. 원본 수정은 별도 source ZIP의 README_KO.md를 참고하세요.
-현재 0.1은 시작의 초원 3전투를 제공합니다. 처음 로드 후 네트워크를 끊어 진행·로컬 저장할 수 있지만 오프라인 재시작/PWA/기기간 동기화는 지원하지 않습니다.
