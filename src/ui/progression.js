@@ -1,0 +1,152 @@
+import { el, button, heading, modal, confirmDialog, toast } from './dom.js';
+import { renderCombat } from './combat.js';
+import { isMixedOffer } from '../game/rewards.js';
+import { wordCard } from './cards.js';
+import { cardModel, runeDescription } from './models.js';
+import { RUNE_BY_ID } from '../data/runes.js';
+import { STAGE1, stageRoundsForRun } from '../data/stage1.js';
+
+const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar' },
+  el('span', { class: 'brand-small', text: 'SENTENCE BALATRO' }),
+  el('nav', {}, onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
+const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
+
+export function renderIntro(root, state, { onStart, onLobby } = {}) {
+  root.replaceChildren(nav({ onLobby }), el('main', { class: 'intro-page' },
+    el('span', { class: 'eyebrow', text: 'CHAPTER 01 · FIRST SENTENCE' }),
+    el('div', { class: 'intro-art', text: '🌾', role: 'img', 'aria-label': '시작의 초원' }),
+    el('h1', { text: STAGE1.nameKo }),
+    el('p', { text: '단어를 모아 당신의 첫 문장을 완성하세요.\n기본 1·2·3형식 공격은 이 지역에서 ×1.25의 위력을 얻습니다.' }),
+    el('div', { class: 'intro-encounters' }, stageRoundsForRun(state).map((round) => el('div', {},
+      el('b', { text: round.emoji }), el('strong', { text: round.nameKo }), el('small', { text: `1-${round.battleNumber} · HP ${round.hp}${round.kind === 'REGIONAL_BOSS' ? ' · 지역 보스' : ''}` })))),
+    el('p', { class: 'helper', text: '각 전투는 6턴입니다. 공격하거나 준비할 때 턴을 사용합니다. 초원 수호자에게 별도의 문법 면역은 없습니다.' }),
+    button('초원에 들어가기', onStart, 'primary start-button', { id: 'start-battle' })));
+}
+
+/** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
+function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } = {}) {
+  const offer = state.reward;
+  if (!offer) {
+    root.replaceChildren(nav({ onLobby }), el('main', { class: 'reward-page' }, heading('REWARD', '보상 정보를 확인할 수 없습니다.', '저장한 원정을 불러오거나 로비에서 다시 시작할 수 있습니다.')));
+    return;
+  }
+  const titles = { CARD_COMMON: '새로운 단어를 발견했습니다', CARD_UNCOMMON: '고급 단어를 발견했습니다', CARD_RARE: '희귀 단어를 발견했습니다',
+    CARD_ENHANCE: '한 장의 카드를 연마하세요', CARD_REMOVE: '덱에서 한 장을 제거하세요', RUNE: offer.firstRuneIntro ? '첫 룬을 선택하세요' : '당신의 문장에 룬을 더하세요' };
+  const description = { CARD_COMMON: '동일 등급의 후보 중 카드 한 장을 덱에 추가합니다.', CARD_UNCOMMON: '현재 판정 가능한 기본 용법으로 사용할 수 있는 카드입니다.', CARD_RARE: '카드에 등록된 현재 지원 용법으로 사용할 수 있습니다.',
+    CARD_ENHANCE: '연마 단계마다 카드 기본 점수가 +5 증가합니다. 최대 +3까지 강화합니다.', CARD_REMOVE: '선택한 실제 카드 한 장을 덱에서 제거합니다. 원정 사전에는 남습니다.',
+    RUNE: offer.firstRuneIntro ? '수정은 정확한 문장, 호박은 짧은 문장, 구리는 교환 횟수를 돕습니다.' : '같은 룬은 레벨이 오릅니다. 다른 룬은 빈 슬롯에 장착하거나 기존 룬과 교체합니다.' };
+  let pending = false;
+  const choose = async (choiceId, options = {}) => {
+    if (pending) return;
+    pending = true;
+    try {
+      const result = await command({ type: choiceId === 'SKIP' ? 'SKIP_REWARD' : 'CHOOSE_REWARD', offerId: offer.offerId, choiceId, ...options });
+      if (result?.needsReplacement) showReplacement(choiceId);
+      else if (result?.needsConfirmation) confirmDialog('카드 제거 확인', result.message, '확인하고 제거', () => choose(choiceId, { ...options, confirmRemoval: true }));
+      else if (!result?.ok && result?.message) toast(result.message);
+    } finally { pending = false; }
+  };
+  function showReplacement(choiceId) {
+    let dialog;
+    const replacementCards = state.runes.orderedInstanceIds.map((instanceId) => {
+      const instance = state.runes.instances[instanceId], definition = RUNE_BY_ID[instance.runeId];
+      return el('section', { class: 'reward-choice', style: `--rune-color:${definition.color}` },
+        el('div', { class: 'reward-gem', text: '◆' }), el('h3', { text: definition.nameKo }),
+        el('p', { text: `Lv.${instance.level} · ${runeDescription(definition, instance.level)}` }),
+        button('이 룬과 교체', () => { dialog.close(); choose(choiceId, { replaceRuneInstanceId: instanceId }); }, 'primary', { 'aria-label': `${definition.nameKo}와 교체` }));
+    });
+    dialog = modal('교체할 룬을 선택하세요', [el('p', { class: 'body-copy', text: '교체한 룬은 이번 원정에서 사라집니다. 취소하면 기존 룬과 현재 보상이 유지됩니다.' }),
+      el('div', { class: 'reward-choices' }, replacementCards), el('div', { class: 'dialog-actions' }, button('교체 취소', () => dialog.close(), 'secondary'))], { wide: true });
+  }
+  const isTargets = ['CARD_ENHANCE', 'CARD_REMOVE'].includes(offer.type);
+  const choices = offer.choices.map((choice) => {
+    if (choice.runeId) {
+      const definition = RUNE_BY_ID[choice.runeId];
+      const old = state.runes.orderedInstanceIds.map((id) => state.runes.instances[id]).find((entry) => entry.runeId === choice.runeId);
+      const level = (old?.level ?? 0) + 1;
+      return el('section', { class: 'reward-choice', style: `--rune-color:${definition.color}`, dataset: { choiceId: choice.choiceId, runeId: choice.runeId } },
+        el('div', { class: 'reward-gem', text: '◆' }), el('h3', { text: definition.nameKo }),
+        el('small', { text: old ? `Lv.${old.level} → Lv.${level}` : 'Lv.1 · 새 룬' }),
+        el('p', { text: runeDescription(definition, level) }),
+        button(old ? '레벨 올리기' : '이 룬 선택', () => choose(choice.choiceId), 'primary', { 'aria-label': `${definition.nameKo} 선택`, disabled: choice.disabled }));
+    }
+    const instance = choice.cardInstanceId ? state.cardInstances[choice.cardInstanceId] : { instanceId: `preview.${choice.choiceId}`, cardDefId: choice.cardDefId, polishLevel: 0, specialEffectId: null };
+    if (!instance) return el('section', { class: 'reward-target' }, el('p', { text: '현재 덱에 없는 카드입니다.' }));
+    const model = cardModel(instance);
+    const action = offer.type === 'CARD_ENHANCE' ? (choice.disabled ? '연마 최대 +3' : `연마 +${model.polish + 1}`) : offer.type === 'CARD_REMOVE' ? '이 카드 제거' : '이 카드 선택';
+    return el('section', { class: isTargets ? 'reward-target' : 'reward-choice', dataset: { choiceId: choice.choiceId, cardInstanceId: instance.instanceId } },
+      wordCard(model, { readonly: true, compact: isTargets }), !isTargets && el('p', { text: model.glossKo }),
+      choice.reasonKo && el('small', { text: choice.reasonKo }),
+      button(action, () => choose(choice.choiceId), choice.disabled ? 'secondary' : 'primary', { disabled: choice.disabled, 'aria-label': `${model.surface} ${action}` }));
+  });
+  root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'reward-page' },
+    el('div', { class: 'reward-heading' }, el('span', { class: 'eyebrow', text: `이전 버전 저장 · BATTLE 1-${state.progress.battleNumber} · VICTORY` }),
+      el('h1', { text: titles[offer.type] }), el('p', { text: description[offer.type] }), el('small', { text: `현재 재화 ${state.economy.gold} · 승리 재화 정산 완료` })),
+    offer.emptyReasonKo && el('p', { class: 'panel body-copy', text: offer.emptyReasonKo }),
+    el('div', { class: isTargets ? 'reward-grid' : 'reward-choices' }, choices),
+    el('div', { class: 'reward-footer' }, button(`건너뛰기 · +${offer.skipGold} 재화`, () => choose('SKIP'), 'secondary', { id: 'skip-reward' }))));
+}
+
+export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
+  const next = stageRoundsForRun(state)[state.progress.roundIndex + 1];
+  root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
+    el('span', { class: 'eyebrow', text: `CHAPTER 01 · ${state.progress.battleNumber} / 3` }),
+    el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
+    el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·재화는 유지됩니다.` }),
+    el('div', { class: 'record-grid' }, metric(state.activeCardIds.length, '현재 덱'), metric(state.runes.orderedInstanceIds.length, '장착 룬'), metric(state.economy.gold, '재화')),
+    el('div', { class: 'reward-footer' }, button('다음 전투', onNext, 'primary', { id: 'next-battle' }), button('여기서 저장', onSaves, 'secondary'))));
+}
+
+export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves, onLobby, onRecords } = {}) {
+  const complete = state.status === 'CONTENT_COMPLETE';
+  const enemy = state.combat?.enemyState;
+  const actions = complete ? [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), button('기록 보기', onRecords, 'secondary'), button('완료 상태 저장', onSaves, 'secondary')]
+    : [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), onRetrySeed && button('같은 시드로 재도전', onRetrySeed, 'secondary'), button('수동 저장 불러오기', onLoad, 'secondary')];
+  root.replaceChildren(nav({ onLobby }), el('main', { class: 'result-page' },
+    el('span', { class: 'eyebrow', text: complete ? 'CHAPTER COMPLETE · VERSION 0.1.1' : 'EXPEDITION ENDED' }),
+    el('div', { class: 'intro-art', text: complete ? '🌄' : '🍂' }),
+    el('h1', { text: complete ? '시작의 초원 클리어' : '이번 원정은 여기까지' }),
+    el('p', { text: complete ? '0.1.1 제공 구간을 완료했습니다.\n4형식 해금 — 2스테이지는 다음 버전에서 제공됩니다.' : `${enemy?.nameKo ?? '적'}의 남은 HP ${enemy?.hp ?? 0}.\n제한된 턴을 모두 사용했습니다. 새 덱으로 다시 도전할 수 있습니다.` }),
+    el('div', { class: 'record-grid' }, metric(state.stats.bestAttack, '이번 원정 최고 공격'), metric(state.economy.gold, '보유 재화'), metric(complete ? state.stats.attacks : state.combat?.exchangesRemaining ?? 0, complete ? '확정한 공격' : '남은 교환 횟수')),
+    complete && el('p', { class: 'helper', text: '전체 48전투 스토리 클리어 기록과는 구분됩니다. 여행자·난이도 1로 새 원정을 시작할 수 있습니다.' }),
+    el('div', { class: 'reward-footer' }, actions)));
+}
+
+/** Mixed reward UI holds only a temporary target view; frozen candidates stay in RunState. */
+export function renderReward(root,state,handlers={}){
+  if(!isMixedOffer(state.reward)){renderLegacyReward(root,state,handlers);return ()=>{};}
+  const {command,onSaves,onDeck,onLobby}=handlers,offer=state.reward;
+  const backdrop=renderCombat(root,state,{locked:true,openOverlay:()=>{}});
+  backdrop.element.classList.remove('presentation-locked');
+  backdrop.element.classList.add('reward-backdrop');
+  const access=el('div',{class:'reward-access'},button('보상 다시 열기',showChoices,'primary'),button('저장',onSaves,'secondary'),button('내 덱',onDeck,'secondary'),button('로비',onLobby,'quiet'));
+  root.append(access);
+  let pending=false;
+  async function choose(choice,options={}){
+    if(pending)return;pending=true;
+    try{
+      const result=await command({type:choice==='SKIP'?'SKIP_REWARD':'CHOOSE_REWARD',offerId:offer.offerId,choiceId:choice==='SKIP'?'SKIP':choice.choiceId,...options});
+      if(result?.needsReplacement)showReplacement(choice);
+      else if(result?.needsConfirmation){let d;d=modal('카드 제거 확인',[el('p',{text:result.message}),button('취소',()=>{d.close();showTargets(choice);},'secondary'),button('확인하고 제거',()=>choose(choice,{...options,confirmRemoval:true}),'primary')]);}
+      else if(!result?.ok&&result?.message)toast(result.message);
+    }finally{pending=false;}
+  }
+  function runeCard(choice,action){const def=RUNE_BY_ID[choice.runeId];return el('section',{class:'reward-choice',style:`--rune-color:${def.color}`,dataset:{choiceId:choice.choiceId,runeId:choice.runeId}},el('div',{class:'reward-gem',text:'◆'}),el('h3',{text:def.nameKo}),el('small',{text:choice.ownedLevel?`Lv.${choice.ownedLevel} → Lv.${choice.offeredLevel}`:'Lv.1 · 새 룬'}),el('p',{text:runeDescription(def,choice.offeredLevel)}),button('이 룬 선택',action,'primary'));}
+  function showReplacement(choice){modal('교체할 룬을 선택하세요',[el('p',{text:'취소하면 세 후보와 기존 룬이 그대로 유지됩니다.'}),el('div',{class:'reward-choices'},state.runes.orderedInstanceIds.map(id=>{const r=state.runes.instances[id],def=RUNE_BY_ID[r.runeId];return el('section',{class:'reward-choice'},el('h3',{text:`${def.nameKo} Lv.${r.level}`}),el('p',{text:runeDescription(def,r.level)}),button('이 룬과 교체',()=>choose(choice,{replaceRuneInstanceId:id}),'primary'));})),button('교체 취소',showChoices,'secondary')],{wide:true,onClose:()=>{}});}
+  function showTargets(choice){const polish=choice.serviceKind==='POLISH';modal(polish?'연마할 카드 한 장 선택':'제거할 카드 한 장 선택',[
+    el('p',{text:polish?'연마 단계 +1 · 기본 10점에 단계마다 +5점. 최대 +3.':'선택한 실제 카드만 제거합니다. 기본 문장 경로를 잃으면 추가 확인을 요청합니다.'}),
+    el('div',{class:'reward-target-grid'},choice.targetCardIds.map(id=>{const instance=state.cardInstances[id],model=cardModel(instance);return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>choose(choice,{targetCardInstanceId:id}),'primary'));})),
+    button('대상 선택 취소 · 원래 보상',showChoices,'secondary',{id:'cancel-reward-target'})],{wide:true});}
+  function showChoices(){const summary=state.combat.victorySummary;
+    modal(offer.firstRuneIntro?'첫 룬을 선택하세요':'전투 승리 · 보상 하나를 선택하세요',[
+      el('p',{class:'victory-summary',text:summary?`기본 재화 +${summary.baseGold} · 남은 턴 ${summary.turnsRemaining} × 1 = +${summary.turnBonusGold} · 총 +${summary.totalGold} 정산 완료`:'승리 재화 정산 완료'}),
+      el('p',{class:'helper',text:offer.firstRuneIntro?'수정은 완벽한 문장, 호박은 짧은 문장, 구리는 교환 횟수를 돕습니다.':'세 후보 중 하나만 받습니다. 연마·제거는 보유 카드 선택 후 확정됩니다.'}),
+      el('div',{class:'reward-choices mixed-rewards'},offer.choices.map(choice=>{
+        if(choice.kind==='RUNE')return runeCard(choice,()=>choose(choice));
+        if(choice.kind==='SERVICE')return el('section',{class:'reward-choice service-choice',dataset:{choiceId:choice.choiceId,serviceKind:choice.serviceKind}},el('div',{class:'service-symbol',text:choice.serviceKind==='POLISH'?'✦':'−'}),el('h3',{text:choice.serviceKind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:choice.serviceKind==='POLISH'?'보유 카드 한 장을 +1 연마합니다.':'보유 카드 한 장을 덱에서 제거합니다.'}),button('대상 선택',()=>showTargets(choice),'primary'));
+        const model=cardModel({instanceId:choice.choiceId,cardDefId:choice.cardDefId,polishLevel:0});return el('section',{class:'reward-choice',dataset:{choiceId:choice.choiceId}},wordCard(model,{readonly:true}),el('p',{text:model.glossKo}),button('이 카드 선택',()=>choose(choice),'primary'));
+      })),
+      el('div',{class:'reward-footer'},button(`건너뛰기 · +${offer.skipGold} 재화`,()=>choose('SKIP'),'secondary',{id:'skip-reward'}),button('저장',onSaves,'quiet'),button('내 덱',onDeck,'quiet'))],{wide:true});
+  }
+  showChoices();return backdrop.cleanup;
+}

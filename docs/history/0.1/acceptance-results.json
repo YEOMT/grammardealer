@@ -1,0 +1,4369 @@
+{
+  "schemaVersion": "1",
+  "source": "05_ACCEPTANCE_CASES_v0_1.json",
+  "sourceSha256": "426794ae4d718c0599277950f947a52a2dad1cb8a3a008204ca535d115c76314",
+  "description": "Actual implementation acceptance ledger. Planned test paths are intentions, not evidence. Update a case only after executing an assertion against the implementation.",
+  "counts": {
+    "defined": 138,
+    "PASS": 137,
+    "FAIL": 0,
+    "NOT RUN": 0,
+    "OUT OF SCOPE": 1
+  },
+  "cases": [
+    {
+      "id": "G01",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G01 I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G02",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She runs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G02 She runs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G03",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "They run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G03 They run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G04",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G04 She is happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G05",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "They are happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G05 They are happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G06",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "He is a student.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G06 He is a student.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G07",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like dogs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G07 I like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G08",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She likes music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G08 She likes music.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G09",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I eat.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G09 I eat.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G10",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I eat food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G10 I eat food.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G11",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I read books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G11 I read books.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G12",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G12 I read.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G13",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I feel happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G13 I feel happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G14",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "The student becomes tired.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G14 The student becomes tired.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G15",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She has a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G15 She has a book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G16",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I need information.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G16 I need information.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G17",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like an interesting book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G17 I like an interesting book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G18",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "My friend reads the book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G18 My friend reads the book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G19",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She likes the big dog.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G19 She likes the big dog.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G20",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She is very very very happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G20 She is very very very happy.",
+          "status": "PASS"
+        },
+        {
+          "title": "G20/G41 distinct very cards and invalid very exclusions remain physical-card based",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G21",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She really likes dogs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G21 She really likes dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G22",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She reads the book carefully.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G22 She reads the book carefully.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G23",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She carefully reads the book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G23 She carefully reads the book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G24",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I run in the park.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G24 I run in the park.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G25",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "The book likes music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G25 The book likes music.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G26",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "Her book is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G26 Her book is good.",
+          "status": "PASS"
+        },
+        {
+          "title": "G26/G27 hidden same-surface selection never forces the wrong her role; his is normalized",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G27",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G27 I like her.",
+          "status": "PASS"
+        },
+        {
+          "title": "G26/G27 hidden same-surface selection never forces the wrong her role; his is normalized",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G28",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "The books are good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G28 The books are good.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G29",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G29 I like that book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G30",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I go to school.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G30 I go to school.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G31",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I live in the room.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G31 I live in the room.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G32",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I see the dog in the park.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G32 I see the dog in the park.",
+          "status": "PASS"
+        },
+        {
+          "title": "G32 PP attachment alternatives normalize to one hit per actual PP",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G33",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She like dogs.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G33 She like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G34",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "They is happy.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G34 They is happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G35",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I have book.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "DETERMINER_REQUIRED"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G35 I have book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G36",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She likes a dogs.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "DETERMINER_NUMBER_AGREEMENT"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G36 She likes a dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G37",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like a interesting book.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "ARTICLE_FORM"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G37 I like a interesting book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G38",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like a music.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "ARTICLE_COUNTABILITY_MISMATCH"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G38 I like a music.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G39",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I like she.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "PRONOUN_CASE"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G39 I like she.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G40",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "Me like dogs.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "PRONOUN_CASE"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G40 Me like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G41",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I very like dogs.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "issues": [
+          "INVALID_ADVERB_TARGET"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G41 I very like dogs.",
+          "status": "PASS"
+        },
+        {
+          "title": "G20/G41 distinct very cards and invalid very exclusions remain physical-card based",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G42",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She happy.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G42 She happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G43",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She dogs likes.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "issues": [
+          "CORE_WORD_ORDER"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G43 She dogs likes.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G44",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I very very happy.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ]
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G44 I very very happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G45",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She gives me a book.",
+      "expected": {
+        "status": "UNSUPPORTED",
+        "frame": null,
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G45 She gives me a book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G46",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "I want to read.",
+      "expected": {
+        "status": "UNSUPPORTED",
+        "frame": null,
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G46 I want to read.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G47",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "She is reading a book.",
+      "expected": {
+        "status": "UNSUPPORTED",
+        "frame": null,
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G47 She is reading a book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "G48",
+      "kind": "GRAMMAR",
+      "group": "G",
+      "requirement": "The book that I read is good.",
+      "expected": {
+        "status": "UNSUPPORTED",
+        "frame": null,
+        "issues": []
+      },
+      "status": "PASS",
+      "plannedTest": "tests/grammar.test.js",
+      "actualTests": [
+        {
+          "title": "G48 The book that I read is good.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S01",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 룬없음",
+      "expected": {
+        "finalPower": 50
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S01: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S02",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "She is happy. / 룬없음",
+      "expected": {
+        "finalPower": 75
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S02: real Grammar → Scoring → Rune → Stage: She is happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S03",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I like dogs. / 룬없음",
+      "expected": {
+        "finalPower": 93
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S03: real Grammar → Scoring → Rune → Stage: I like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S04",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "She like dogs. / 일치 -10, 무오류보너스없음",
+      "expected": {
+        "finalPower": 37
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S04: real Grammar → Scoring → Rune → Stage: She like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S05",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I have book. / 한정사 -5",
+      "expected": {
+        "finalPower": 46
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S05: real Grammar → Scoring → Rune → Stage: I have book.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S06",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "She likes the big dog. / 형용사수식1",
+      "expected": {
+        "finalPower": 137
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S06: real Grammar → Scoring → Rune → Stage: She likes the big dog.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S07",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "She is very very very happy. / 부사3",
+      "expected": {
+        "finalPower": 138
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S07: real Grammar → Scoring → Rune → Stage: She is very very very happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S08",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run in the park. / PP1",
+      "expected": {
+        "finalPower": 100
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S08: real Grammar → Scoring → Rune → Stage: I run in the park.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S09",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 수정→루비→호박 Lv1",
+      "expected": {
+        "finalPower": 131
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S09: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S10",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 수정→호박 Lv1",
+      "expected": {
+        "finalPower": 93
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S10: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S11",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 호박→수정 Lv1",
+      "expected": {
+        "finalPower": 87
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S11: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S12",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 카드1장 연마1",
+      "expected": {
+        "finalPower": 56
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S12: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S13",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I run. / 카드1장 연마1 + 철룬 Lv1",
+      "expected": {
+        "finalPower": 62
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S13: real Grammar → Scoring → Rune → Stage: I run.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S14",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "very3 문장 + 비취Lv1",
+      "expected": {
+        "finalPower": 157
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S14: real Grammar → Scoring → Rune → Stage: She is very very very happy.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "S15",
+      "kind": "SCORE_PIPELINE",
+      "group": "S",
+      "requirement": "I very like dogs. / very기여제외 -10",
+      "expected": {
+        "finalPower": 56
+      },
+      "status": "PASS",
+      "plannedTest": "tests/scoring.test.js",
+      "actualTests": [
+        {
+          "title": "S15: real Grammar → Scoring → Rune → Stage: I very like dogs.",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D01",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "시작덱생성",
+      "expected": "30장·고유ID·명사6/대명사5/동사8/형용사4/부사2/한정사3/전치사2",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D01 D02 D03: four modes preserve 30 physical role slots and parser-verified SV/SVC/SVO paths",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D02",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "동사다중Frame",
+      "expected": "물리슬롯 중복채움 없이 be2/SV2/SVO3/MULTI1 슬롯8",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D01 D02 D03: four modes preserve 30 physical role slots and parser-verified SV/SVC/SVO paths",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D03",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "네어휘모드동일역할",
+      "expected": "어휘만 다르게; 점수/HP/희귀도규칙 동일",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D01 D02 D03: four modes preserve 30 physical role slots and parser-verified SV/SVC/SVO paths",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D04",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "첫전투 시작",
+      "expected": "6장만. 추가3장없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D04 D05: every battle opening is six physical cards with a shuffled verified varied witness",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D05",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "첫패가능성",
+      "expected": "지원된무오류문장경로≥1, 정답UI미공개",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D04 D05: every battle opening is six physical cards with a shuffled verified varied witness",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D06",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "손패9장 다음턴드로우3",
+      "expected": "1장만드로우. 미지급2장의빚없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D06 D07: full hand clips draw with no deletion, RNG consumption, or deferred draw debt",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D07",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "손패10장 다음턴드로우3",
+      "expected": "0장. 음수카운트나카드삭제없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D06 D07: full hand clips draw with no deletion, RNG consumption, or deferred draw debt",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D08",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "Draw1/Discard다수에서3드로우",
+      "expected": "1장먼저→Discard셔플→2장,현재손패/문장은제외",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D08 D09: draw exhausts old draw before recycling only discard, then terminates if both empty",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D09",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "Draw0/Discard0",
+      "expected": "가능한카드0으로 정상종료",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D08 D09: draw exhausts old draw before recycling only discard, then terminates if both empty",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D10",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "동시4장교환",
+      "expected": "4장Discard→4장가능드로우,교환1회·턴0소모",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D10: multi-card exchange charges once, no turn cost, and draws the same requested count",
+          "status": "PASS"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D11",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "빈교환",
+      "expected": "모든상태/RNG불변",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D11 D12: empty, duplicate, absent, and exhausted exchanges are fully lossless including RNG",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D12",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "교환잔여0",
+      "expected": "모든상태/RNG불변",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D11 D12: empty, duplicate, absent, and exhausted exchanges are fully lossless including RNG",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D13",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "방금버린카드재출현",
+      "expected": "재셔플이면허용,복제는없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D13: immediate recycled return is legal and never duplicates a physical card",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D14",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "hand10/sentence16 회수시도",
+      "expected": "한도경고후보존;직접맞교환경로존재",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D14 full hand and full sentence recover by physical-card swap without breaking either limit",
+          "status": "PASS"
+        },
+        {
+          "title": "10 hand + 16 sentence synthetic renderer exposes direct body-drop swap",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D15",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "준비",
+      "expected": "문장유지,턴-1,다음턴3장가능드로우",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D15 prepare preserves the assembled sentence and spends one turn before drawing up to three",
+          "status": "PASS"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D16",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "정상공격",
+      "expected": "사용문장Discard,미사용손패유지",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "D16 real normal attack discards only submitted cards and preserves unused hand until turn draw",
+          "status": "PASS"
+        },
+        {
+          "title": "D16: sentence discard preserves unused hand and instance selection is not retained in discard",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "D17",
+      "kind": "BEHAVIOR",
+      "group": "D",
+      "requirement": "반복드래그pointercancel",
+      "expected": "카드0/2곳동시존재없음",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "pointercancel leaves every card in original pile once",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C01",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "여섯번째공격처치",
+      "expected": "VICTORY우선,패배/새턴드로우없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C01 sixth-turn kill wins before exhausted-turn defeat and does not draw a new hand",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C02",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "여섯번째공격미처치",
+      "expected": "DEFEAT,드로우없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C02 sixth-turn surviving enemy defeats without turn-seven draw",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C03",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "마지막준비",
+      "expected": "확인후DEFEAT,기본자원연산한번",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C03 last prepare requires confirmation and then settles defeat once",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C04",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "구조오류제출",
+      "expected": "카드·턴·교환·RNG보존;편집복귀",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C04 actual missing-verb submission preserves all resources and returns to editing",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C05",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "정확성오류제출",
+      "expected": "감점공격·카드/턴소모",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C05 actual agreement error consumes cards and turn with no perfect bonus",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C06",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "미지원제출",
+      "expected": "자원보존,오답아님",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C06 unsupported-analysis outcome is resource-neutral and is never treated as a wrong attack",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": [],
+      "coverageNotes": "Controller atomicity uses an injected UNSUPPORTED result. Actual unsupported grammar is independently asserted by G45–G48 against the real parser."
+    },
+    {
+      "id": "C07",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "내부예외",
+      "expected": "ENGINE_ERROR별도,자원보존,로그",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C07 analyzer exception produces ENGINE_ERROR and preserves all resources",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": [],
+      "coverageNotes": "Controlled analyzer exception verifies ENGINE_ERROR and no resource mutation; this is an intentional fault-injection test."
+    },
+    {
+      "id": "C08",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "공격이중클릭",
+      "expected": "attack한번/피해한번/턴한번",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C08 rapid repeated submit and completion apply damage, turn and settlement only once",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C09",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "예전비동기응답도착",
+      "expected": "battleId/revision불일치 결과폐기",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C09 old revision and battle results are discarded with no resource change",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": [],
+      "coverageNotes": "Injected stale AttackResolution revision/battle ID verifies rejection. The production parser is synchronous; this test establishes the stale-result contract."
+    },
+    {
+      "id": "C10",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "이미커밋된연출실패",
+      "expected": "최종view로복구,피해/보상재적용없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C10 fast-forward after a failed presentation settles the committed attack once",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": [],
+      "coverageNotes": "Controller test fast-forwards an already committed attack. Actual renderer exception/cancel recovery is separately tested in tests/presentation.test.js and docs/evidence/presentation-browser.json; browser scene/controller integration remains a separate E2E check."
+    },
+    {
+      "id": "C11",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "131공격,HP70",
+      "expected": "final131/actual70/overkill61/hp0",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C11: final 131 against HP 70 records actual 70 and overkill 61",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C12",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "Stage1보스처치",
+      "expected": "CONTENT_COMPLETE not storyClear; 난이도2/다른캐릭터/면역보스미해금",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / BEGINNER",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / STANDARD",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / ADVANCED",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / FREE",
+          "status": "PASS"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C13",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "보스모습없음",
+      "expected": "이모지fallback으로정상진행",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "C14",
+      "kind": "BEHAVIOR",
+      "group": "C",
+      "requirement": "합성고급보스fixture",
+      "expected": "면역0damage/카드턴소모,이fixture는일반진행노출없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C14 synthetic zero-damage future rule consumes a valid submitted attack without exposing a game mode",
+          "status": "PASS"
+        },
+        {
+          "title": "C14: explicit synthetic immunity returns zero power and consumed attack resources",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": [
+        "Synthetic future boss fixture only. Must never activate in normal gameplay."
+      ],
+      "coverageNotes": "Explicit synthetic test-only immunity fixture, never a playable Stage 1 rule. Actual valid parser/attack pipeline still consumes cards and turn."
+    },
+    {
+      "id": "R01",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "최초1-1보상",
+      "expected": "CARD_COMMON고정:명시적튜토리얼예외",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R01: intro expedition 1-1 offers common cards with the same rarity and distinct definitions",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / BEGINNER",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / STANDARD",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / ADVANCED",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / FREE",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R02",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "최초1-2",
+      "expected": "수정/호박/구리,선택또는skip",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R02: every run battle 2 gives a rune offer, first presentation fixes crystal/amber/copper",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / BEGINNER",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / STANDARD",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / ADVANCED",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / FREE",
+          "status": "PASS"
+        },
+        {
+          "title": "first rune choices rendered crystal/amber/copper",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "first rune choices rendered crystal/amber/copper",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "first rune choices rendered crystal/amber/copper",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "first rune choices rendered crystal/amber/copper",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R03",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "다음원정1-2",
+      "expected": "기본2+활성해금전체1 무작위,같은창중복ID없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R03: later battle-2 offers preserve basic/basic/all policy, distinct IDs, and seeded variety",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R04",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "초회가이드skip",
+      "expected": "첫보상정책/RNG바뀌지않음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R04: skipping operation guide does not change first-reward policy or RNG",
+          "status": "PASS"
+        },
+        {
+          "title": "new expedition works offline and previously seen guide is not forced",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "new expedition works offline and previously seen guide is not forced",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "new expedition works offline and previously seen guide is not forced",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "new expedition works offline and previously seen guide is not forced",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R05",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "두번보상선택",
+      "expected": "두번째는idempotent,no복제",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R05: card choice commits once, conserves actual card IDs, and never grants duplicate rewards",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R06",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "skip",
+      "expected": "카드+3/기타+2와기본승리재화구분",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R06: skip pays card +3 or other +2 once, independently of victory gold",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R07",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "같은룬Lv1획득",
+      "expected": "Lv2,추가슬롯차지없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R07: obtaining the same Lv1 rune upgrades its same instance to Lv2 without a new slot",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R08",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "같은룬Lv3",
+      "expected": "새후보제외",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R08: Lv3 owned runes are excluded from new candidates",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R09",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "룬만석교체취소",
+      "expected": "기존룬및미해결offer유지",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R09: full-slot replacement request/cancellation preserves offer, runes, and gold",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R10",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "룬위아래변경",
+      "expected": "실제타임라인과점수순서일치",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R10: slot order is reflected in recorded score timeline and final integer result",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R11",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "운영룬재배열",
+      "expected": "전투규칙/손패/교환재지급없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R11 reordering operational runes never regrants cards or exchanges in the current combat",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R12",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "지원안된미래룬",
+      "expected": "프로필해금이어도runtimeReady=false면미등장",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R12: future rune profile unlock cannot appear in the implemented reward pool",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R13",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "연마최대",
+      "expected": "+3초과불가",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R13: polish changes only the selected instance and cannot exceed +3",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R14",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "연마취소",
+      "expected": "무변경offer유지",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R14: cancelling or rejecting a polish target leaves its unresolved offer and all resources intact",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R15",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "카드제거",
+      "expected": "선택인스턴스만제거;원정사전남음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R15: removal changes the selected physical card and its pile, preserving encountered vocabulary",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R16",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "동일등급카드후보부족",
+      "expected": "유효후보수만표시;등급몰래변경없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R16: rare card offer shows exactly two eligible definitions without substitution or duplication",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R17",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "1스테이지재화무skip",
+      "expected": "2+2+6=10",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / BEGINNER",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / STANDARD",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / ADVANCED",
+          "status": "PASS"
+        },
+        {
+          "title": "C12 R01 R02 R17: physical-card Stage 1 sequence / FREE",
+          "status": "PASS"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "R18",
+      "kind": "BEHAVIOR",
+      "group": "R",
+      "requirement": "일반/보스확률",
+      "expected": "각100%,1-2예외제외된표본으로검증",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "R18: normal and boss tables each sum to 100 and non-override samples follow their separate tables",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "P01",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "현재원정저장",
+      "expected": "안전checkpoint3슬롯만,dirty전투저장불가",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P01 undo restores only edits and never clears the battle-dirty save lock",
+          "status": "PASS"
+        },
+        {
+          "title": "P01 saving only allowed safe checkpoints and undo cannot clear dirty",
+          "status": "PASS"
+        },
+        {
+          "title": "P01 three manual slots accept only safe checkpoints; dirty/undo cannot reopen saving",
+          "status": "PASS"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Actual controller edit/undo save lock and slots 1–3 bounds pass in unit tests. Production Chromium saves initial/reward/complete checkpoints through native IndexedDB; only safe checkpoints are exposed."
+    },
+    {
+      "id": "P02",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "초기패저장로드",
+      "expected": "동일순서/형태/턴/교환/RNG,새셔플없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P02 P03 saved piles, forms, resources, RNG and frozen rewards round-trip without rerolls",
+          "status": "PASS"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "Real IndexedDB initial checkpoint save/load JSON equality including all piles, turn, selection and RNG.",
+          "status": "PASS",
+          "layer": "ISOLATED_REAL_BROWSER_MODULES_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/overlays-browser.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/overlays-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Real initial checkpoint save/load JSON equality, including all piles/forms/turn/resources/RNG, passes through the production UI and native Chromium IndexedDB. Device/browser-data deletion retention is not guaranteed."
+    },
+    {
+      "id": "P03",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "보상저장로드",
+      "expected": "frozenoffer동일",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P02 P03 saved piles, forms, resources, RNG and frozen rewards round-trip without rerolls",
+          "status": "PASS"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "Frozen reward save/load is not covered by this overlay script.",
+          "status": "NOT RUN",
+          "layer": "ISOLATED_REAL_BROWSER_MODULES_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/overlays-browser.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/overlays-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production UI saves and restores the same frozen reward and RNG in native Chromium IndexedDB; no offer regeneration occurs."
+    },
+    {
+      "id": "P04",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "오래된원정로드",
+      "expected": "다른슬롯새해금소급삽입없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P04 restoring an old slot preserves its own unlock baseline",
+          "status": "PASS"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "frozen reward and unlock baseline survive real IndexedDB restore",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production IndexedDB restore preserves the stored eligibility baseline exactly. Separate unit tests verify older snapshots are not merged with later profile unlocks."
+    },
+    {
+      "id": "P05",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "동일run클리어재생",
+      "expected": "유효원정누적1회만",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P05 same run completion counts once and never counts story clear",
+          "status": "PASS"
+        },
+        {
+          "title": "completion persisted once, no story clear",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "completion persisted once, no story clear",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "completion persisted once, no story clear",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "completion persisted once, no story clear",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "P06",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "샌드박스/리플레이",
+      "expected": "최고기록/해금/사용횟수비반영",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "reading attack history does not reapply profile records",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "sandbox analysis does not modify persisted profile",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "reading attack history does not reapply profile records",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "sandbox analysis does not modify persisted profile",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "reading attack history does not reapply profile records",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "sandbox analysis does not modify persisted profile",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "reading attack history does not reapply profile records",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        },
+        {
+          "title": "sandbox analysis does not modify persisted profile",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production sandbox analysis and opening the sentence records leave the persisted profile unchanged; duplicate committed attack/milestone application is independently rejected in unit tests. Synthetic presentation samples do not enter the profile reducer."
+    },
+    {
+      "id": "P07",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "저장트랜잭션실패",
+      "expected": "성공표시없음,기존슬롯보존,메모리진행가능",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "P07 missing IndexedDB rejects save rather than reporting success",
+          "status": "PASS"
+        },
+        {
+          "title": "P07 IndexedDB request success is not reported as transaction success; abort preserves prior record",
+          "status": "PASS"
+        },
+        {
+          "title": "Injected saveRun rejection leaves visible error and retry available; real transaction rollback is not exercised here.",
+          "status": "PARTIAL",
+          "layer": "ISOLATED_REAL_BROWSER_MODULES_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/overlays-browser.json"
+        },
+        {
+          "title": "Real native put request succeeded but forced transaction abort rejected save; old row and memory state preserved; UI displayed error and enabled retry. This is not a real quota exhaustion test.",
+          "status": "PASS",
+          "layer": "ISOLATED_REAL_CHROMIUM_MODULE_HARNESS_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/storage-fault-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/overlays-browser.json",
+        "docs/evidence/storage-fault-browser.json"
+      ],
+      "notes": [],
+      "coverageNotes": "PASS for forced native transaction failure: Chromium IDBObjectStore.put emits success, then transaction.abort rejects save; prior row and memory state remain unchanged, UI error/retry works, and subsequent real save succeeds. This uses an isolated real-browser module harness, not the production bundle. Actual quota exhaustion, disk failure, and physical Safari/iPad remain NOT RUN."
+    },
+    {
+      "id": "P08",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "손상/미래버전슬롯",
+      "expected": "강제로불러와초기화하지않음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P08 malformed or future saves are rejected without deleting their old slot",
+          "status": "PASS"
+        },
+        {
+          "title": "Real IndexedDB rows with future record version and unknown card definition were rejected on direct and UI load; original corrupted rows remained untouched, active memory state unchanged, callback never called, and recovery controls remained enabled.",
+          "status": "PASS",
+          "layer": "ISOLATED_REAL_CHROMIUM_MODULE_HARNESS_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/storage-fault-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/storage-fault-browser.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Unit validation rejects malformed state and versions. An isolated native Chromium IndexedDB harness also writes future-version/unknown-card rows and verifies direct/UI load rejection without deleting rows, modifying the active run, or firing onLoad; resave/load recovery succeeds. This fault harness is distinct from production-build happy-path tests."
+    },
+    {
+      "id": "P09",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "닉네임같은프로필",
+      "expected": "ID독립;자동병합없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "P09 identical names preserve separate profile IDs",
+          "status": "PASS"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "notes": []
+    },
+    {
+      "id": "P10",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "원정사전열고닫기",
+      "expected": "RNG소모없음",
+      "status": "PASS",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "dictionary open/close does not consume RNG or mutate run",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "Dictionary open/search/close leaves full RunState and RNG unchanged.",
+          "status": "PASS",
+          "layer": "ISOLATED_REAL_BROWSER_MODULES_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/overlays-browser.json"
+        },
+        {
+          "title": "dictionary open/close does not consume RNG or mutate run",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "dictionary open/close does not consume RNG or mutate run",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "dictionary open/close does not consume RNG or mutate run",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/overlays-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "P11",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "offline after init",
+      "expected": "새전투/사전/소리fallback/로컬저장가능",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "network disabled after all initial static resources loaded",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "network disabled after all initial static resources loaded",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "network disabled after all initial static resources loaded",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "network disabled after all initial static resources loaded",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        },
+        {
+          "title": "all three production battles complete offline; no-skip gold10 and CONTENT_COMPLETE",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "P12",
+      "kind": "BEHAVIOR",
+      "group": "P",
+      "requirement": "offline full restart",
+      "expected": "0.1미지원:캐시있었다고보장안함",
+      "status": "OUT OF SCOPE",
+      "plannedTest": "tests/behavior.test.js",
+      "actualTests": [
+        {
+          "title": "Scope documentation reviewed: README_KO offline section and KNOWN_ISSUES explicitly exclude offline restart/PWA",
+          "status": "OUT OF SCOPE",
+          "layer": "DOCUMENTATION_REVIEW"
+        }
+      ],
+      "evidence": [
+        "README_KO.md",
+        "docs/KNOWN_ISSUES.md"
+      ],
+      "notes": [
+        "Offline full restart is OUT OF SCOPE; only truthful scope documentation is checked."
+      ],
+      "coverageNotes": "Offline full restart is explicitly out of v0.1 scope. Acceptance concerns honest documentation, not a service worker or cache-based restart claim.",
+      "scopeDisposition": "OUT_OF_SCOPE"
+    },
+    {
+      "id": "U01",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "편집중카드추가",
+      "expected": "점수/정오/역할/콤보표시없음",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "editing reveals no grammar role, correctness, score, or combo",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "editing reveals no grammar role, correctness, score, or combo",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "editing reveals no grammar role, correctness, score, or combo",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "editing reveals no grammar role, correctness, score, or combo",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/ui-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U02",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "형태버튼클릭",
+      "expected": "메뉴만열고카드회수안함",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "form button opens menu without returning card",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "form button opens menu without returning card",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "form button opens menu without returning card",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "form button opens menu without returning card",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U03",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "교환모드손패클릭",
+      "expected": "교환선택만변경,문장추가안함",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "exchange selection does not add to sentence",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "exchange selection does not add to sentence",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "exchange selection does not add to sentence",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "exchange selection does not add to sentence",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "prepare then real multi-card exchange via UI",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/ui-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U04",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "드래그놓은뒤click",
+      "expected": "카드한번만이동",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "mouse drag and subsequent click move exactly once",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "drop in actual whitespace between cards inserts at that position",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U05",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "태블릿회전",
+      "expected": "영역재배치,카드ID/순서보존",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "resize preserves card identities, order, and game state",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U06",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "태블릿클릭영역",
+      "expected": "품사/단어읽힘,hover없이형태/룬설명가능",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "focused card + Enter moves; Escape closes form menu",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "Chromium touch emulation tap and pointer drag work (not a physical iPad test)",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json"
+      ],
+      "notes": [],
+      "coverageNotes": "PASS in headless Chromium mouse/keyboard and touch emulation at the specified landscape viewports. This is not a physical tablet/iPad/Safari test; hardware touch and audio remain NOT RUN."
+    },
+    {
+      "id": "U07",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "점수연쇄",
+      "expected": "표시한before/after=엔진기록",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production submission uses the actual computed resolution. Separate real Chromium presentation-module fixtures assert every displayed event value against its committed before/after values; fixtures are labelled presentation-only and do not claim advanced grammar support."
+    },
+    {
+      "id": "U08",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "actualHP표시",
+      "expected": "impact전적소멸없음",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production first-attack HP remains unchanged before impact. The presentation browser harness additionally observes HP at each score event and at impact."
+    },
+    {
+      "id": "U09",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "efffectsOff/audioDisabled",
+      "expected": "진행동일",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "muted and reduced effects from battle 2 through boss completion with identical gameplay",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Production Chromium at 1024×768 enables mute and reduced effects before battle 2, completes the remaining encounters and boss, and reaches the same deterministic no-skip 10-gold CONTENT_COMPLETE result. Separate unit tests cover AudioContext denial, absent audio, volume/voice bounds and effects-off timeline invariance. No claim of physical speaker/device audio testing."
+    },
+    {
+      "id": "U10",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "readonlyDeck",
+      "expected": "드로우순서유출없음;카드이동조작불가",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/",
+      "actualTests": [
+        {
+          "title": "piles are read only, draw order hidden",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "piles are read only, draw order hidden",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "piles are read only, draw order hidden",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "piles are read only, draw order hidden",
+          "status": "PASS",
+          "layer": "HEADLESS_CHROMIUM_BROWSER",
+          "evidence": "docs/evidence/ui-browser.json"
+        },
+        {
+          "title": "Draw modal has 24 actual readonly cards, no form controls, hidden-order title; state JSON unchanged.",
+          "status": "PASS",
+          "layer": "ISOLATED_REAL_BROWSER_MODULES_NOT_PRODUCTION_BUILD",
+          "evidence": "docs/evidence/overlays-browser.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json",
+        "docs/evidence/overlays-browser.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U11",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "source/deploy구분",
+      "expected": "deploy ZIP최상위index+assets+.nojekyll",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/production.spec.js",
+      "actualTests": [
+        {
+          "title": "source: CRC integrity",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "source: safe relative paths",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "source: excludes node_modules",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "source: required code, tests, specification, docs and lockfile",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "source: build/output folders omitted",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: CRC integrity",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: safe relative paths",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: excludes node_modules",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: index/assets/.nojekyll/guide at ZIP root",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: source omitted",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: every local HTML asset uses a valid relative path",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        },
+        {
+          "title": "deploy: archive files equal tested dist bytes",
+          "status": "PASS",
+          "layer": "ZIP_CONTENT_AND_CRC_INSPECTION",
+          "evidence": "docs/evidence/release-validation.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/release-validation.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Actual source and deployment archives passed 12 content/CRC checks. Deployment has index.html, assets, .nojekyll and guide at ZIP root, excludes source, and all archive runtime bytes match the tested dist build. This verifies local packaging, not public GitHub Pages publishing. Root reruns the same verification after final documentation packaging."
+    },
+    {
+      "id": "U12",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "서브경로실행",
+      "expected": "절대/assets경로오류없음",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/production.spec.js",
+      "actualTests": [
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U13",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "production root/game/sandbox",
+      "expected": "새로고침및뒤로동작,경로404없음",
+      "status": "PASS",
+      "plannedTest": "tests/e2e/production.spec.js",
+      "actualTests": [
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "production hash route refresh and browser back",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "production hash route refresh and browser back",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "production hash route refresh and browser back",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "production subpath, profile and initial six-card save/load exact (including RNG)",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        },
+        {
+          "title": "production hash route refresh and browser back",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": []
+    },
+    {
+      "id": "U14",
+      "kind": "BEHAVIOR",
+      "group": "U",
+      "requirement": "실제브라우저증거",
+      "expected": "캡처/환경/명령/NOT RUN정직기재",
+      "status": "PASS",
+      "plannedTest": "docs/TEST_REPORT.md",
+      "actualTests": [
+        {
+          "title": "no page errors or external runtime requests",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "evidence": "docs/evidence/production-browser.json"
+        },
+        {
+          "title": "no page errors or external runtime requests",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1920,
+            "height": 1080
+          },
+          "evidence": "docs/evidence/production-browser-1920.json"
+        },
+        {
+          "title": "no page errors or external runtime requests",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1180,
+            "height": 820
+          },
+          "evidence": "docs/evidence/production-browser-1180.json"
+        },
+        {
+          "title": "no page errors or external runtime requests",
+          "status": "PASS",
+          "layer": "PRODUCTION_BROWSER",
+          "viewport": {
+            "width": 1024,
+            "height": 768
+          },
+          "evidence": "docs/evidence/production-browser-1024.json"
+        }
+      ],
+      "evidence": [
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1180.json",
+        "docs/evidence/production-browser-1024.json"
+      ],
+      "notes": [],
+      "coverageNotes": "Evidence records Chromium 134.0.6998.35, viewport, commands, actual screenshots, and runtime request/error observations. Headless Chromium/touch emulation is explicitly not physical iPad or low-end-device certification."
+    }
+  ],
+  "supplementalRequirements": [
+    {
+      "id": "DECK_BATCH",
+      "status": "PASS",
+      "expected": "2500 seeds for each of BEGINNER/STANDARD/ADVANCED/FREE; 10000 total. Check actual card count, role slots, SV/SVC/SVO witnesses, initial valid witness, repairs/fallbacks.",
+      "evidence": [
+        "docs/deck-validation.json"
+      ],
+      "coverageNotes": "10,000 actual generated decks/openings, four modes × 2,500; zero repair/fallback. Valid-path accessibility is not a human win-rate measurement."
+    },
+    {
+      "id": "REAL_PLAY_SEQUENCE",
+      "status": "PASS",
+      "expected": "Multiple seeds/modes via actual draw/exchange/attack commands to Stage1 end; not manufactured repeat hands.",
+      "evidence": [
+        "docs/run-simulation.json",
+        "docs/evidence/production-browser.json"
+      ],
+      "coverageNotes": "16 command-level full runs pass; production Chromium also completes Stage1 offline through real UI with native save/restore. No fabricated repeating hands."
+    },
+    {
+      "id": "BROWSER_VIEWPORTS",
+      "status": "PASS",
+      "expected": [
+        {
+          "w": 1366,
+          "h": 768
+        },
+        {
+          "w": 1920,
+          "h": 1080
+        },
+        {
+          "w": 1024,
+          "h": 768
+        },
+        {
+          "w": 1180,
+          "h": 820
+        }
+      ],
+      "evidence": [
+        "docs/evidence/ui-browser.json",
+        "docs/evidence/production-browser.json",
+        "docs/evidence/production-browser-1920.json",
+        "docs/evidence/production-browser-1024.json",
+        "docs/evidence/production-browser-1180.json"
+      ],
+      "coverageNotes": "All four required landscape dimensions have real Chromium lobby/edit/form/exchange, score-chain/impact, first-rune, completion, native save and codex screenshots. Complete production Stage1 runs pass at each size. Synthetic maximum-capacity layouts are separately labelled. Physical tablet/iPad/Safari remain NOT RUN.",
+      "screenshots": [
+        "docs/evidence/lobby.png",
+        "docs/evidence/sentence-edit.png",
+        "docs/evidence/score-chain.png",
+        "docs/evidence/impact.png",
+        "docs/evidence/first-rune-choice.png",
+        "docs/evidence/stage1-complete.png",
+        "docs/evidence/save-slot-1.png",
+        "docs/evidence/save-slot-2.png",
+        "docs/evidence/sentence-codex.png",
+        "docs/evidence/ui-1366-edit.png",
+        "docs/evidence/ui-1366-form.png",
+        "docs/evidence/ui-1366-exchange.png",
+        "docs/evidence/lobby-1920.png",
+        "docs/evidence/sentence-edit-1920.png",
+        "docs/evidence/score-chain-1920.png",
+        "docs/evidence/impact-1920.png",
+        "docs/evidence/first-rune-choice-1920.png",
+        "docs/evidence/stage1-complete-1920.png",
+        "docs/evidence/save-slot-1-1920.png",
+        "docs/evidence/save-slot-2-1920.png",
+        "docs/evidence/sentence-codex-1920.png",
+        "docs/evidence/ui-1920-edit.png",
+        "docs/evidence/ui-1920-form.png",
+        "docs/evidence/ui-1920-exchange.png",
+        "docs/evidence/lobby-1024.png",
+        "docs/evidence/sentence-edit-1024.png",
+        "docs/evidence/score-chain-1024.png",
+        "docs/evidence/impact-1024.png",
+        "docs/evidence/first-rune-choice-1024.png",
+        "docs/evidence/stage1-complete-1024.png",
+        "docs/evidence/save-slot-1-1024.png",
+        "docs/evidence/save-slot-2-1024.png",
+        "docs/evidence/sentence-codex-1024.png",
+        "docs/evidence/ui-1024-edit.png",
+        "docs/evidence/ui-1024-form.png",
+        "docs/evidence/ui-1024-exchange.png",
+        "docs/evidence/lobby-1180.png",
+        "docs/evidence/sentence-edit-1180.png",
+        "docs/evidence/score-chain-1180.png",
+        "docs/evidence/impact-1180.png",
+        "docs/evidence/first-rune-choice-1180.png",
+        "docs/evidence/stage1-complete-1180.png",
+        "docs/evidence/save-slot-1-1180.png",
+        "docs/evidence/save-slot-2-1180.png",
+        "docs/evidence/sentence-codex-1180.png",
+        "docs/evidence/ui-1180-edit.png",
+        "docs/evidence/ui-1180-form.png",
+        "docs/evidence/ui-1180-exchange.png"
+      ]
+    },
+    {
+      "id": "PERFORMANCE",
+      "status": "PASS",
+      "expected": "Report 2–16-card grammar p50/p95 plus click/drag/submit response p50/p95; parser target p95<=100ms.",
+      "evidence": [
+        "docs/evidence/unit.tap",
+        "docs/evidence/ui-feedback-browser.json"
+      ],
+      "measurements": {
+        "grammarNode": {
+          "p50Ms": 0.034,
+          "p95Ms": 0.087,
+          "samples": 240
+        },
+        "browserFeedback": {
+          "click": {
+            "count": 50,
+            "p50Ms": 13.099999999627471,
+            "p95Ms": 14.299999999813735,
+            "maxMs": 14.800000000745058
+          },
+          "drag": {
+            "count": 10,
+            "p50Ms": 13.900000000372529,
+            "p95Ms": 15.799999999813735,
+            "maxMs": 15.799999999813735
+          },
+          "submit": {
+            "count": 10,
+            "p50Ms": 12.799999999813735,
+            "p95Ms": 22.09999999962747,
+            "maxMs": 22.09999999962747
+          }
+        }
+      },
+      "coverageNotes": "Real 2–16-card Node grammar p50/p95 and actual Chromium click (50 samples), drag (10), and submit (10) event-to-next-frame p50/p95 measured. All p95 values meet the 100 ms initial target in this environment. Excludes animation duration and physical display/input latency; real low-end/tablet performance remains NOT RUN."
+    },
+    {
+      "id": "GENERATED_GRAMMAR",
+      "status": "PASS",
+      "expected": "Same-frame lexeme substitutions not limited to input handoff sentences.",
+      "evidence": [
+        "docs/evidence/unit.tap"
+      ],
+      "coverageNotes": "Actual same-frame lexeme substitutions and grammar contract tests pass; no claim of all-English correctness."
+    },
+    {
+      "id": "IDB_TRANSACTION",
+      "status": "PASS",
+      "expected": "Success only after transaction complete; failure preserves previous slot and memory play.",
+      "evidence": [
+        "docs/evidence/storage-fault-browser.json",
+        "docs/evidence/production-browser.json"
+      ],
+      "coverageNotes": "Native request success does not resolve save before commit; forced abort preserves existing row, memory play and retry. Actual quota exhaustion/disk failure NOT RUN."
+    }
+  ],
+  "lastEvidenceUpdate": "2026-10-03T05:10:10.803636+00:00",
+  "lastEvidenceInputs": [
+    "docs/evidence/unit.tap",
+    "docs/evidence/production-browser.json",
+    "docs/evidence/ui-browser.json",
+    "docs/evidence/overlays-browser.json",
+    "docs/evidence/storage-fault-browser.json",
+    "docs/evidence/production-browser-1920.json",
+    "docs/evidence/production-browser-1180.json",
+    "docs/evidence/production-browser-1024.json",
+    "docs/evidence/release-validation.json"
+  ],
+  "statusMeaning": "PASS means the mapped assertions ran successfully at the documented layer; it does not imply every browser, hardware device, or production-hosting condition was exercised. Read coverageNotes and supplementalRequirements separately.",
+  "reviewedLimitations": [
+    "Actual iPad/Safari and physical low-end device testing: NOT RUN.",
+    "Actual storage quota exhaustion and disk failure: NOT RUN; forced native transaction rollback is tested.",
+    "Public GitHub Pages deployment was not performed.",
+    "Measured browser event-to-next-frame latency does not measure physical hardware display/input latency."
+  ],
+  "finalReview": {
+    "status": "PASS_WITH_EXPLICIT_SCOPE_EXCLUSION",
+    "definedCases": 138,
+    "casePasses": 137,
+    "excludedCase": "P12",
+    "unitTests": 188,
+    "unitFailures": 0,
+    "uiBrowserChecks": 36,
+    "uiBrowserScreenshots": 21,
+    "deckSeeds": 10000,
+    "commandLevelFullRuns": 16,
+    "productionFullRunViewports": 4,
+    "zipChecks": 12,
+    "note": "Case completion applies only to recorded assertions/environments. NOT RUN physical-device/quota/public-publishing limits remain explicit under coverageNotes and reviewedLimitations."
+  }
+}

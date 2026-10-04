@@ -1,0 +1,1205 @@
+{
+  "status": "IMPLEMENTATION_INPUT_NOT_GAME_CODE",
+  "source": "Rune Meta-Progression / Shop Revision v1.1",
+  "runes": [
+    {
+      "id": "rune.short",
+      "nameKo": "호박 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "핵심 문장 구조가 성립하고 사용한 단어 카드가 4장 이하",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 5,
+          "den": 4
+        },
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 7,
+          "den": 4
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "단검",
+      "displayEffectSummaryKo": "4장 이하 공격",
+      "unlockRuleId": "unlock.rune.short",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.sv",
+      "nameKo": "루비 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 1형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "뿌리",
+      "displayEffectSummaryKo": "주절 1형식",
+      "unlockRuleId": "unlock.rune.sv",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.svc",
+      "nameKo": "사파이어 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 2형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "거울",
+      "displayEffectSummaryKo": "주절 2형식",
+      "unlockRuleId": "unlock.rune.svc",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.svo",
+      "nameKo": "에메랄드 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 3형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "사냥",
+      "displayEffectSummaryKo": "주절 3형식",
+      "unlockRuleId": "unlock.rune.svo",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.perfectSentence",
+      "nameKo": "수정 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "전체 제출 문장이 정상이고 정확성 오류가 없음",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        20,
+        35,
+        50
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "완성",
+      "displayEffectSummaryKo": "오류 없는 문장",
+      "unlockRuleId": "unlock.rune.perfectSentence",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.adverbs",
+      "nameKo": "비취 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "정상적으로 수식 역할을 수행한 서로 다른 부사 카드 각각",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        5,
+        8,
+        12
+      ],
+      "scope": "PER_VALID_ADVERB_CARD",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "수식",
+      "displayEffectSummaryKo": "유효한 부사 카드별 덧셈",
+      "unlockRuleId": "unlock.rune.adverbs",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.polished",
+      "nameKo": "철 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "연마 단계가 1 이상인 사용 카드 각각; 같은 카드는 단계 수와 무관하게 한 번",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        5,
+        8,
+        12
+      ],
+      "scope": "PER_POLISHED_CARD",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "연마",
+      "displayEffectSummaryKo": "연마 카드별 덧셈",
+      "unlockRuleId": "unlock.rune.polished",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.openingHand",
+      "nameKo": "금빛 룬",
+      "group": "UTILITY",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "전투 시작 손패에만 적용",
+      "operation": "ADD_INITIAL_HAND",
+      "levelValues": [
+        2,
+        3,
+        4
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "첫빛",
+      "displayEffectSummaryKo": "시작 손패",
+      "unlockRuleId": "unlock.rune.openingHand",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.handSize",
+      "nameKo": "옥 룬",
+      "group": "UTILITY",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "손패 한도에 적용",
+      "operation": "ADD_HAND_LIMIT",
+      "levelValues": [
+        2,
+        3,
+        4
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "주머니",
+      "displayEffectSummaryKo": "손패 한도",
+      "unlockRuleId": "unlock.rune.handSize",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.discards",
+      "nameKo": "구리 룬",
+      "group": "UTILITY",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "전투당 교환 행동 횟수에 적용",
+      "operation": "ADD_DISCARD_ACTIONS",
+      "levelValues": [
+        1,
+        2,
+        3
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "V0_1_REQUIRED_TO_IMPLEMENT_NOT_IMPLEMENTED_BY_THIS_HANDOFF",
+      "legacyNameKo": "교환",
+      "displayEffectSummaryKo": "교환 횟수",
+      "unlockRuleId": "unlock.rune.discards",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    }
+  ],
+  "futureReference": [
+    {
+      "id": "rune.short",
+      "nameKo": "호박 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "핵심 문장 구조가 성립하고 사용한 단어 카드가 4장 이하",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 5,
+          "den": 4
+        },
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 7,
+          "den": 4
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "단검",
+      "displayEffectSummaryKo": "4장 이하 공격",
+      "unlockRuleId": "unlock.rune.short",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.sv",
+      "nameKo": "루비 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 1형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "뿌리",
+      "displayEffectSummaryKo": "주절 1형식",
+      "unlockRuleId": "unlock.rune.sv",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.svc",
+      "nameKo": "사파이어 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 2형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "거울",
+      "displayEffectSummaryKo": "주절 2형식",
+      "unlockRuleId": "unlock.rune.svc",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.svo",
+      "nameKo": "에메랄드 룬",
+      "group": "GRAMMAR",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주절이 3형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "사냥",
+      "displayEffectSummaryKo": "주절 3형식",
+      "unlockRuleId": "unlock.rune.svo",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.svoo",
+      "nameKo": "토파즈 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "주절이 4형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "전달",
+      "displayEffectSummaryKo": "주절 4형식",
+      "unlockRuleId": "unlock.rune.svoo",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 1
+      },
+      "unlockTextKo": "1스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.svoc",
+      "nameKo": "가넷 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "주절이 5형식",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "변화",
+      "displayEffectSummaryKo": "주절 5형식",
+      "unlockRuleId": "unlock.rune.svoc",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 4
+      },
+      "unlockTextKo": "4스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.tense",
+      "nameKo": "호안석 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "과거 또는 미래 표현의 유효한 문법 판정이 하나 이상",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 13,
+          "den": 10
+        },
+        {
+          "num": 8,
+          "den": 5
+        },
+        {
+          "num": 2,
+          "den": 1
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "시간",
+      "displayEffectSummaryKo": "과거·미래 표현",
+      "unlockRuleId": "unlock.rune.tense",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 2
+      },
+      "unlockTextKo": "2스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.progressive",
+      "nameKo": "아쿠아마린 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "진행형의 유효한 문법 판정이 하나 이상",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "물결",
+      "displayEffectSummaryKo": "진행형",
+      "unlockRuleId": "unlock.rune.progressive",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 2
+      },
+      "unlockTextKo": "2스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.perfect",
+      "nameKo": "진주 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "완료형의 유효한 문법 판정이 하나 이상",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "축적",
+      "displayEffectSummaryKo": "완료형",
+      "unlockRuleId": "unlock.rune.perfect",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 5
+      },
+      "unlockTextKo": "5스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.passive",
+      "nameKo": "은빛 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "수동태의 유효한 문법 판정이 하나 이상",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "반사",
+      "displayEffectSummaryKo": "수동태",
+      "unlockRuleId": "unlock.rune.passive",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 6
+      },
+      "unlockTextKo": "6스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.infinitive",
+      "nameKo": "황수정 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "to부정사의 유효한 문법 판정이 하나 이상; 전치사 to 제외",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "목적",
+      "displayEffectSummaryKo": "to부정사",
+      "unlockRuleId": "unlock.rune.infinitive",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 4
+      },
+      "unlockTextKo": "4스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.gerund",
+      "nameKo": "자수정 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "동명사의 유효한 문법 판정이 하나 이상; 진행형만으로는 발동 안 함",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "회전",
+      "displayEffectSummaryKo": "동명사",
+      "unlockRuleId": "unlock.rune.gerund",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 4
+      },
+      "unlockTextKo": "4스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.clauseLink",
+      "nameKo": "청금석 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "등위접속 또는 부사절 연결로 두 유한절이 연결됨; 명사구·형용사구 연결 제외",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 11,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "연결",
+      "displayEffectSummaryKo": "두 절 연결",
+      "unlockRuleId": "unlock.rune.clauseLink",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 3
+      },
+      "unlockTextKo": "3스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.relative",
+      "nameKo": "오팔 룬",
+      "group": "GRAMMAR",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "유효한 관계대명사절이 하나 이상; 목적격 생략도 인정",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 3,
+          "den": 2
+        },
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 5,
+          "den": 2
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "별빛",
+      "displayEffectSummaryKo": "관계대명사절",
+      "unlockRuleId": "unlock.rune.relative",
+      "unlockProposal": {
+        "anyOf": [
+          {
+            "metric": "highestStageCleared",
+            "operator": "GTE",
+            "value": 7
+          },
+          {
+            "metric": "qualifiedRuns",
+            "operator": "GTE",
+            "value": 2
+          },
+          {
+            "metric": "successfulRelativeAttacks",
+            "operator": "GTE",
+            "value": 1
+          }
+        ]
+      },
+      "unlockTextKo": "7스테이지 클리어 / 유효 원정 2회 / 관계절 공격 1회 중 하나",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.relativeChain",
+      "nameKo": "다이아몬드 룬",
+      "group": "GRAMMAR",
+      "rarity": "RARE",
+      "conditionDescriptionKo": "서로 다른 유효한 관계대명사절 각각; 카드수나 중의적 후보수로 계산하지 않음",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 23,
+          "den": 20
+        },
+        {
+          "num": 5,
+          "den": 4
+        },
+        {
+          "num": 27,
+          "den": 20
+        }
+      ],
+      "scope": "PER_NORMALIZED_RELATIVE_CLAUSE",
+      "maxMatchesPerAttack": 3,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "고리",
+      "displayEffectSummaryKo": "관계절별 연쇄 배수",
+      "unlockRuleId": "unlock.rune.relativeChain",
+      "unlockProposal": {
+        "anyOf": [
+          {
+            "metric": "highestStageCleared",
+            "operator": "GTE",
+            "value": 8
+          },
+          {
+            "metric": "bestConnectedAttackPower",
+            "operator": "GTE",
+            "value": 1500
+          }
+        ]
+      },
+      "unlockTextKo": "8스테이지 클리어 / 실제 명중한 최종 공격력 1,500 이상 중 하나",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.subjectConstruction",
+      "nameKo": "월장석 룬",
+      "group": "GRAMMAR",
+      "rarity": "RARE",
+      "conditionDescriptionKo": "what절이 주어 역할 또는 가주어·진주어 구문; 둘 다여도 1회",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 17,
+          "den": 10
+        },
+        {
+          "num": 23,
+          "den": 10
+        },
+        {
+          "num": 3,
+          "den": 1
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "기원",
+      "displayEffectSummaryKo": "what절 주어 또는 가주어·진주어",
+      "unlockRuleId": "unlock.rune.subjectConstruction",
+      "unlockProposal": {
+        "anyOf": [
+          {
+            "metric": "highestStageCleared",
+            "operator": "GTE",
+            "value": 8
+          },
+          {
+            "metric": "successfulSubjectConstructionAttacks",
+            "operator": "GTE",
+            "value": 1
+          }
+        ]
+      },
+      "unlockTextKo": "8스테이지 클리어 / what절 주어·가주어 구문 공격 1회 중 하나",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.unreal",
+      "nameKo": "흑요석 룬",
+      "group": "GRAMMAR",
+      "rarity": "RARE",
+      "conditionDescriptionKo": "유효한 가정법 구문; if 카드만으로 발동하지 않음",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 5,
+          "den": 2
+        },
+        {
+          "num": 16,
+          "den": 5
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "가능성",
+      "displayEffectSummaryKo": "가정법",
+      "unlockRuleId": "unlock.rune.unreal",
+      "unlockProposal": {
+        "anyOf": [
+          {
+            "metric": "highestStageCleared",
+            "operator": "GTE",
+            "value": 9
+          },
+          {
+            "metric": "successfulUnrealAttacks",
+            "operator": "GTE",
+            "value": 1
+          }
+        ]
+      },
+      "unlockTextKo": "9스테이지 클리어 / 가정법 공격 1회 중 하나",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.fusion",
+      "nameKo": "무지개 룬",
+      "group": "GRAMMAR",
+      "rarity": "RARE",
+      "conditionDescriptionKo": "정규화된 추가 문법 계열 3종 이상; 기본문형·완전한문장·단순수식 제외",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 3,
+          "den": 1
+        },
+        {
+          "num": 4,
+          "den": 1
+        }
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "융합",
+      "displayEffectSummaryKo": "서로 다른 문법 계열 조합",
+      "unlockRuleId": "unlock.rune.fusion",
+      "unlockProposal": {
+        "anyOf": [
+          {
+            "metric": "qualifiedRuns",
+            "operator": "GTE",
+            "value": 5
+          },
+          {
+            "metric": "bestConnectedAttackPowerWithThreeExtraFamilies",
+            "operator": "GTE",
+            "value": 2500
+          }
+        ]
+      },
+      "unlockTextKo": "유효 원정5회 / 추가 문법3계열을 갖춘 한 공격의 실제 명중 위력2,500 이상 중 하나",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.perfectSentence",
+      "nameKo": "수정 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "전체 제출 문장이 정상이고 정확성 오류가 없음",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        20,
+        35,
+        50
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "완성",
+      "displayEffectSummaryKo": "오류 없는 문장",
+      "unlockRuleId": "unlock.rune.perfectSentence",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.adverbs",
+      "nameKo": "비취 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "정상적으로 수식 역할을 수행한 서로 다른 부사 카드 각각",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        5,
+        8,
+        12
+      ],
+      "scope": "PER_VALID_ADVERB_CARD",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "수식",
+      "displayEffectSummaryKo": "유효한 부사 카드별 덧셈",
+      "unlockRuleId": "unlock.rune.adverbs",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.humanSubject",
+      "nameKo": "산호 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "주어의 중심 명사가 HUMAN; 목적어와 일반 대명사는 자동 포함하지 않음",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        20,
+        35,
+        50
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "동료",
+      "displayEffectSummaryKo": "사람 명사가 주어의 중심",
+      "unlockRuleId": "unlock.rune.humanSubject",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 1
+      },
+      "unlockTextKo": "1스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.idea",
+      "nameKo": "남색 룬",
+      "group": "CARD",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "IDEA 태그를 가진 명사를 한 장 이상 정상 사용",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        25,
+        45,
+        65
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "사고",
+      "displayEffectSummaryKo": "생각·아이디어 계열 명사",
+      "unlockRuleId": "unlock.rune.idea",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 3
+      },
+      "unlockTextKo": "3스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.polished",
+      "nameKo": "철 룬",
+      "group": "CARD",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "연마 단계가 1 이상인 사용 카드 각각; 같은 카드는 단계 수와 무관하게 한 번",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        5,
+        8,
+        12
+      ],
+      "scope": "PER_POLISHED_CARD",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "연마",
+      "displayEffectSummaryKo": "연마 카드별 덧셈",
+      "unlockRuleId": "unlock.rune.polished",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.chorus",
+      "nameKo": "백금 룬",
+      "group": "CARD",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "카드 앞면의 같은 분류 카드 3장 이상; 여러 분류가 충족되어도 1회",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        20,
+        35,
+        50
+      ],
+      "scope": "ONCE_PER_ATTACK",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "합창",
+      "displayEffectSummaryKo": "같은 앞면 분류 3장 이상",
+      "unlockRuleId": "unlock.rune.chorus",
+      "unlockProposal": {
+        "metric": "highestStageCleared",
+        "operator": "GTE",
+        "value": 2
+      },
+      "unlockTextKo": "2스테이지 클리어",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.openingHand",
+      "nameKo": "금빛 룬",
+      "group": "UTILITY",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "전투 시작 손패에만 적용",
+      "operation": "ADD_INITIAL_HAND",
+      "levelValues": [
+        2,
+        3,
+        4
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "첫빛",
+      "displayEffectSummaryKo": "시작 손패",
+      "unlockRuleId": "unlock.rune.openingHand",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.turnDraw",
+      "nameKo": "혜성 룬",
+      "group": "UTILITY",
+      "rarity": "RARE",
+      "conditionDescriptionKo": "2턴 이후 정상 턴 시작 드로우; 교환·첫 손패 드로우에는 적용하지 않음",
+      "operation": "ADD_TURN_DRAW",
+      "levelValues": [
+        1,
+        2,
+        3
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "흐름",
+      "displayEffectSummaryKo": "다음 턴 드로우",
+      "unlockRuleId": "unlock.rune.turnDraw",
+      "unlockProposal": {
+        "metric": "qualifiedRuns",
+        "operator": "GTE",
+        "value": 3
+      },
+      "unlockTextKo": "시작의 초원 누적 3회 클리어(원정별 1회)",
+      "firstRuneBasicPoolEligible": false
+    },
+    {
+      "id": "rune.handSize",
+      "nameKo": "옥 룬",
+      "group": "UTILITY",
+      "rarity": "COMMON",
+      "conditionDescriptionKo": "손패 한도에 적용",
+      "operation": "ADD_HAND_LIMIT",
+      "levelValues": [
+        2,
+        3,
+        4
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "주머니",
+      "displayEffectSummaryKo": "손패 한도",
+      "unlockRuleId": "unlock.rune.handSize",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    },
+    {
+      "id": "rune.discards",
+      "nameKo": "구리 룬",
+      "group": "UTILITY",
+      "rarity": "UNCOMMON",
+      "conditionDescriptionKo": "전투당 교환 행동 횟수에 적용",
+      "operation": "ADD_DISCARD_ACTIONS",
+      "levelValues": [
+        1,
+        2,
+        3
+      ],
+      "scope": "AT_BATTLE_RULES_SNAPSHOT",
+      "maxMatchesPerAttack": null,
+      "status": "PROPOSED_NOT_IMPLEMENTED",
+      "legacyNameKo": "교환",
+      "displayEffectSummaryKo": "교환 횟수",
+      "unlockRuleId": "unlock.rune.discards",
+      "unlockProposal": {
+        "always": true
+      },
+      "unlockTextKo": "처음부터",
+      "firstRuneBasicPoolEligible": true
+    }
+  ],
+  "noteKo": "첫 10종만 0.1 플레이 대상. futureReference는 미구현 콘텐츠 참고이며 보상 풀로 로드하지 않는다."
+}

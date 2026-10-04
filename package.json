@@ -1,0 +1,25 @@
+{
+  "name": "sentence-balatro",
+  "version": "0.1.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test --test-isolation=none --test-reporter=tap tests/*.test.js",
+    "validate:data": "node tools/validate-data.js",
+    "test:decks": "node tools/simulate-decks.js",
+    "test:e2e": "node tests/e2e.mjs",
+    "package": "python3 tools/package-release.py",
+    "test:runs": "node tools/simulate-runs.js",
+    "test:browser": "node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.51.1",
+    "vite": "8.3.2"
+  }
+}
