@@ -293,3 +293,15 @@ AssertionError [ERR_ASSERTION]: 1366 capacity actions must not overlap hand
 **이관 전에 해결할 차단 사항 있음.** 승인된 Windows 파일 경로 최소 수정과 다섯 명령 재실행은 완료했다. 경로 오류는 해결됐지만 공식 browser 묶음이 최대 배치의 실제 assertion에서 종료 코드 1로 끝났으므로, UI 배치 문제의 별도 검토·수정 및 남은 공식 검사 완료가 필요하다.
 
 languageVersion, 소유격 뜻 참고/COMPLETE_HINT, 턴 보너스 사전 안내 등 기존 발견 사항은 그대로 유지했다. Git init/commit/push/PR/merge, GitHub Pages 설정 변경, 공개 배포는 수행하지 않았다.
+
+## 10. 후속: Git 개발 브랜치 이관과 UI 배치 수정
+
+2026-10-04, `codex/source-migration-v0.1.1`에서 인계 소스를 이관한 뒤 UI 배치를 최소 수정했다. 이 절은 이전 1~9절의 실패 기록을 대체하거나 삭제하지 않는다. 원본 로컬 보고서와 증거도 보존했다.
+
+이관 commit은 `d2d404b`이며, UI 변경은 별도 commit으로 구분한다. 게임 변경은 `src/ui/styles.css`의 콘텐츠 기반 세로 행 배분, 작은 높이의 행 간격, 기존 스크롤 룬 패널의 크기 계산 분리에 한정했다. 테스트 조건, 데이터, 문법·점수·전투·저장 규칙, package/lockfile은 변경하지 않았다.
+
+최종 순차 실행은 `npm.cmd test` **207 PASS**, `validate:data` **2,251 PASS**, `build` **PASS**, `test:browser` **전체 PASS / 마지막 UI 41개 검사 기록·25개 캡처**, `test:e2e` **PASS / 실제 공격 6회·세 전투 완주**이며 종료 코드는 모두 0이다. 별도 4해상도×손패10/14의 8개 조합에서도 문서 높이·버튼 접근·룬/손패 스크롤을 확인했다.
+
+전후 캡처, 실제 검사 범위, 공개용 결과와 미실행 항목은 [SOURCE_MIGRATION_REPORT.md](SOURCE_MIGRATION_REPORT.md)에 기록한다. UI 수정으로 build 해시가 달라지는 것은 정상이며, 기존 두 차례 검증의 원본 동일성 결론을 이 수정본에 적용하지 않는다.
+
+요청된 로컬 검증 차단 사항은 해소되어 **개발 브랜치의 PR 검토 준비 완료**다. main 병합·Pages 설정 변경·공개 배포는 별도 승인 범위이며 이번에 수행하지 않는다.
