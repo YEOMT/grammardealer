@@ -2,10 +2,11 @@ import {learningSummary} from '../engine/meaning.js';
 import { clone, requireInteger, assertSerializable } from '../contracts.js';
 import { assertRng } from '../game/rng.js';
 import { RUNE_BY_ID, RUNE_SLOT_LIMIT } from '../data/runes.js';
-import { STAGE1, stageRoundsForRun } from '../data/stage1.js';
+import {registryForVersion} from '../data/language/index.js';
+import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.1.1';
-const supportedVersion = version => ['0.1.0','0.1.1'].includes(version);
+export const SAVE_VERSION = '0.2.0';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -29,12 +30,18 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE1_CLEAR'&&!p.qualifiedRunIds.includes(event.runId)){
     p.qualifiedRunIds.push(event.runId);
     p.unlocks=[...new Set([...p.unlocks,'pack.svoo','rune.svoo','rune.humanSubject',...(p.qualifiedRunIds.length>=3?['rune.turnDraw']:[])])];
+    p.highestCompletedStage=Math.max(p.highestCompletedStage??0,1);
+  }
+  if(event.type==='STAGE2_CLEAR'&&!(p.stage2CompletedRunIds??[]).includes(event.runId)){
+    p.stage2CompletedRunIds=[...(p.stage2CompletedRunIds??[]),event.runId];
+    p.highestCompletedStage=Math.max(p.highestCompletedStage??0,2);
   }
   return p;
 }
 export function canSaveRun(run) {
   if(!run)return false;
-  if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE'].includes(run.status))return true;
+  if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
+  if(run.status==='SHOP')return run.version==='0.2.0'&&run.combat===null&&run.shop?.closed===false;
   return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty&&run.combat.turnIndex===1;
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
@@ -46,20 +53,43 @@ export function validateRunState(run,registry) {
   record(run,'저장');
   if(!registry?.cardById||!registry?.formById)fail('단어 데이터가 준비되지 않았습니다.');
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
+  registry=registryForVersion(run.version);
+  const currentCampaign=isCurrentCampaign(run);
+  const runeInScope=id=>Boolean(RUNE_BY_ID[id]?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
-  if(!['STAGE_INTRO','BATTLE','REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','DEFEAT'].includes(run.status))fail('잘못된 원정 상태입니다.');
+  if(!['STAGE_INTRO','BATTLE','REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','DEFEAT',...(currentCampaign?['STAGE_CLEAR','SHOP']:[])].includes(run.status))fail('잘못된 원정 상태입니다.');
   requireInteger(run.revision,'revision');requireInteger(run.economy?.gold,'gold');
+  if(run.appliedCommandIds!==undefined)ids(run.appliedCommandIds,'처리된 행동');
+  if(run.settlementIds!==undefined)ids(run.settlementIds,'전투 정산');
   const config=record(run.config,'설정');
   if(config.character!=='traveler'||config.difficulty!==1||!['BEGINNER','STANDARD','ADVANCED','FREE'].includes(config.vocabularyMode))fail('이번 버전에서 지원하지 않는 원정 설정입니다.');
   if(!['string','number'].includes(typeof config.seed)||(typeof config.seed==='number'&&!Number.isSafeInteger(config.seed)))fail('시드가 잘못되었습니다.');
   const progress=record(run.progress,'진행');
-  requireInteger(progress.roundIndex,'roundIndex',0,STAGE1.rounds.length-1);
-  if(progress.stageId!==STAGE1.id||progress.battleNumber!==progress.roundIndex+1)fail('지원하지 않는 전투 진행입니다.');
-  if(![null,undefined,'STAGE1_END'].includes(progress.contentBoundary))fail('지원하지 않는 콘텐츠 경계입니다.');
-  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==2||progress.contentBoundary!=='STAGE1_END'))fail('제공 구간 완료 상태가 잘못되었습니다.');
+  if(!['stage.01',...(currentCampaign?['stage.02']:[])].includes(progress.stageId))fail('지원하지 않는 전투 진행입니다.');
+  const stage=stageForRun(run);
+  requireInteger(progress.roundIndex,'roundIndex',0,stage.rounds.length-1);
+  if(progress.battleNumber!==stage.rounds[progress.roundIndex].battleNumber)fail('지원하지 않는 전투 진행입니다.');
+  const endBoundary=currentCampaign?'STAGE2_END':'STAGE1_END';
+  if(![null,undefined,endBoundary].includes(progress.contentBoundary))fail('지원하지 않는 콘텐츠 경계입니다.');
+  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==stage.rounds.length-1||progress.contentBoundary!==endBoundary||currentCampaign&&progress.stageId!=='stage.02'))fail('제공 구간 완료 상태가 잘못되었습니다.');
+  if(run.status==='STAGE_CLEAR'&&(progress.stageId!=='stage.01'||progress.roundIndex!==2||!run.reward?.resolved))fail('지역 완료 상태가 잘못되었습니다.');
+  if(run.status!=='CONTENT_COMPLETE'&&progress.contentBoundary!=null)fail('진행 중인 원정의 완료 경계가 잘못되었습니다.');
+  if(currentCampaign&&run.status==='STAGE_INTRO'&&progress.roundIndex!==0)fail('지역 소개 전투 번호가 잘못되었습니다.');
+  if(currentCampaign&&run.status==='BETWEEN_BATTLES'&&progress.roundIndex>=stage.rounds.length-1)fail('지역 마지막 전투 이후 진행이 잘못되었습니다.');
+  if(currentCampaign){
+    const manifest=record(run.contentManifest,'콘텐츠 목록');
+    if(manifest.id!=='campaign.0.2')fail('지원하지 않는 콘텐츠 목록입니다.');
+    ids(manifest.cardDefIds,'콘텐츠 카드');ids(manifest.runeIds,'콘텐츠 룬');ids(manifest.stageIds,'콘텐츠 지역');
+    if(manifest.stageIds.join('|')!=='stage.01|stage.02'||manifest.cardDefIds.some(id=>!registry.cardById[id]?.runtimeReady)||manifest.runeIds.some(id=>!RUNE_BY_ID[id]?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
+    requireInteger(run.economy.paidRemovalCount,'paidRemovalCount');
+    ids(run.milestoneIds,'지역 사건');
+    if(run.milestoneIds.some(id=>id!=='STAGE1_CLEAR'))fail('지원하지 않는 지역 사건입니다.');
+    if(progress.stageId==='stage.02'&&!run.milestoneIds.includes('STAGE1_CLEAR'))fail('이전 지역 완료 기록이 없습니다.');
+  }
   ids(run.activeCardIds,'카드');record(run.cardInstances,'카드');
   for(const [id,c] of Object.entries(run.cardInstances)){
     if(!c||c.instanceId!==id||!registry.cardById[c.cardDefId]?.runtimeReady)fail('없는 카드가 포함되어 있습니다.');
+    if(currentCampaign&&!run.contentManifest.cardDefIds.includes(c.cardDefId))fail('원정 콘텐츠 범위 밖의 카드입니다.');
     requireInteger(c.polishLevel,'polishLevel',0,3);if(c.specialEffectId!==null)fail('미지원 카드 효과입니다.');
   }
   for(const id of run.activeCardIds)if(!run.cardInstances[id])fail('없는 카드가 포함되어 있습니다.');
@@ -72,6 +102,8 @@ export function validateRunState(run,registry) {
   for(const id of runes.orderedInstanceIds){
     const r=runes.instances[id];
     if(!r||r.instanceId!==id||!RUNE_BY_ID[r.runeId]?.runtimeReady||seenRunes.has(r.runeId))fail('미지원·중복 룬입니다.');
+    if(r.runeId==='rune.svoo'&&(!currentCampaign||![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo')))fail('원정에서 해금되지 않은 룬입니다.');
+    if(currentCampaign&&!run.contentManifest.runeIds.includes(r.runeId))fail('원정 콘텐츠 범위 밖의 룬입니다.');
     seenRunes.add(r.runeId);requireInteger(r.level,'runeLevel',1,3);
   }
   const c=run.combat;
@@ -88,7 +120,13 @@ export function validateRunState(run,registry) {
     if(typeof c.battleDirty!=='boolean')fail('전투 저장 지점이 잘못되었습니다.');
     if(!c.battleDirty&&(c.turnIndex!==1||c.turnsRemaining!==rules.turnLimit||c.actionSequence!==0))fail('초기 전투 지점이 잘못되었습니다.');
     requireInteger(c.enemyState?.hp,'hp');requireInteger(c.enemyState?.maxHp,'maxHp',1);
-    if(c.enemyState.maxHp!==stageRoundsForRun(run)[progress.roundIndex].hp||c.enemyState.hp>c.enemyState.maxHp)fail('잘못된 적 HP입니다.');
+    const encounter=getEncounter(progress.stageId,progress.roundIndex,run.version);
+    if(c.enemyState.maxHp!==encounter.hpMax||c.enemyState.hp>c.enemyState.maxHp)fail('잘못된 적 HP입니다.');
+    if(currentCampaign){
+      if(c.enemyState.id!==encounter.id||c.enemyState.stageId!==progress.stageId||c.enemyState.kind!==encounter.kind)fail('잘못된 적 정의입니다.');
+      if(encounter.bossMechanic){const veil=c.enemyState.bossMechanic;if(!veil||veil.id!=='SVOO_VEIL'||typeof veil.active!=='boolean'||veil.multiplier?.num!==1||veil.multiplier?.den!==4)fail('보스 장막 정의가 잘못되었습니다.');}
+      else if(c.enemyState.bossMechanic)fail('이 적은 보스 장막을 사용하지 않습니다.');
+    }
     ids(c.drawIds,'드로우');ids(c.handIds,'손패');ids(c.discardIds,'버린 카드');
     if(!Array.isArray(c.sentenceSlots))fail('문장 카드 정보가 잘못되었습니다.');
     const pileIds=[...c.drawIds,...c.handIds,...c.sentenceSlots.map(x=>x.cardInstanceId),...c.discardIds];
@@ -101,7 +139,42 @@ export function validateRunState(run,registry) {
         if(!form||form.lexemeId!==card.lexemeId||form.runtimeReady===false)fail('지원하지 않는 형태입니다.');
       }
     }
-  } else if(run.status!=='STAGE_INTRO')fail('전투 정보가 없습니다.');
+  } else if(!['STAGE_INTRO','SHOP'].includes(run.status))fail('전투 정보가 없습니다.');
+  if(run.status==='SHOP'&&(progress.stageId!=='stage.02'||progress.roundIndex!==0||c!==null))fail('상점 진입 상태가 잘못되었습니다.');
+  if(currentCampaign){
+    record(run.entryGrants,'입장 지급');
+    if(Object.keys(run.entryGrants).some(id=>id!=='stage.02'))fail('지원하지 않는 입장 지급입니다.');
+    const grant=run.entryGrants['stage.02'];
+    if(grant){
+      if(grant.entryGrantId!==`${run.runId}:stage.02.entryGrant`||grant.applied!==true)fail('입장 지급 기록이 잘못되었습니다.');
+      ids(grant.cardInstanceIds,'입장 카드');if(grant.cardInstanceIds.length>2)fail('입장 카드 한도를 초과했습니다.');
+      if(grant.cardInstanceIds.some((id,i)=>id!==`entry.${run.runId}.stage.02.card.${i}`))fail('입장 카드 ID가 잘못되었습니다.');
+      if(!registry.cardById[grant.representativeVerbCardDefId]||!registry.cardById[grant.connectorCardDefId])fail('입장 경로가 잘못되었습니다.');
+      const verb=registry.lexemeById[registry.cardById[grant.representativeVerbCardDefId].lexemeId];
+      const binding=verb.senseIds.flatMap(id=>registry.senseById[id].frameBindings).find(b=>b.runtimeReady&&b.frameId==='frame.svoo');
+      if(!binding||grant.connectorCardDefId!==`card.${binding.dativePreposition}`)fail('지원하지 않는 입장 경로입니다.');
+    }
+    if(progress.stageId==='stage.02'&&run.status!=='STAGE_INTRO'&&!grant)fail('입장 지급 기록이 없습니다.');
+    if(run.shop){
+      const shop=record(run.shop,'상점');
+      if(shop.shopId!==`shop.${run.runId}.stage.02`||shop.stageId!=='stage.02'||shop.shopVersion!=='0.2.0'||typeof shop.closed!=='boolean'||!grant)fail('상점 정보가 잘못되었습니다.');
+      if((run.status==='SHOP')===shop.closed)fail('상점 종료 상태가 잘못되었습니다.');
+      if(!Array.isArray(shop.inventory)||shop.inventory.length!==3)fail('상점 상품 수가 잘못되었습니다.');
+      ids(shop.inventory.map(item=>item.itemId),'상점 상품');
+      if(shop.inventory.filter(item=>item.kind==='CARD').length!==2||shop.inventory.filter(item=>item.kind==='RUNE').length!==1)fail('상점 상품 종류가 잘못되었습니다.');
+      for(const [index,item] of shop.inventory.entries()){
+        const def=item.kind==='CARD'?registry.cardById[item.cardDefId]:RUNE_BY_ID[item.runeId];
+        const prices=item.kind==='CARD'?{COMMON:6,UNCOMMON:10,RARE:14}:{COMMON:18,UNCOMMON:24,RARE:32};
+        if(!def?.runtimeReady||def.rarity!==item.rarity||item.price!==prices[item.rarity]||typeof item.purchased!=='boolean')fail('상점 상품이나 가격이 잘못되었습니다.');
+        if(item.itemId!==`${shop.shopId}.${index===0?'rune.0':`card.${index-1}`}`||(index===0)!==(item.kind==='RUNE'))fail('상점 상품 ID가 잘못되었습니다.');
+        if(!(item.kind==='CARD'?run.contentManifest.cardDefIds:run.contentManifest.runeIds).includes(def.id))fail('원정 콘텐츠 범위 밖의 상품입니다.');
+        if(item.runeId==='rune.svoo'&&![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo'))fail('해금되지 않은 상점 룬입니다.');
+        if(item.kind==='RUNE'){requireInteger(item.ownedLevel,'shopOwnedLevel',0,2);if(item.offeredLevel!==item.ownedLevel+1)fail('상점 룬 레벨이 잘못되었습니다.');}
+      }
+      for(const kind of ['POLISH','REMOVE']){const service=shop.services?.[kind];if(!service||typeof service.used!=='boolean')fail('상점 서비스 정보가 잘못되었습니다.');requireInteger(service.price,'servicePrice',1);}
+      if(shop.services.POLISH.price!==8||shop.services.REMOVE.price<6||shop.services.REMOVE.used&&run.economy.paidRemovalCount<1||shop.services.REMOVE.price!==6+2*(run.economy.paidRemovalCount-(shop.services.REMOVE.used?1:0)))fail('상점 서비스 가격이 잘못되었습니다.');
+    }else if(run.status==='SHOP'||progress.stageId==='stage.02'&&run.status!=='STAGE_INTRO')fail('상점 방문 기록이 없습니다.');
+  }
   if(run.reward){
     const offer=record(run.reward,'보상');
     const mixed=['MIXED','RUNE_INTRO'].includes(offer.type);
@@ -112,7 +185,7 @@ export function validateRunState(run,registry) {
     ids(offer.choices.map(x=>x?.choiceId),'보상 후보');
     const cardOffer=['CARD_COMMON','CARD_UNCOMMON','CARD_RARE'].includes(offer.type);
     if((cardOffer||offer.type==='RUNE')&&offer.choices.length>3)fail('보상 후보 한도를 초과했습니다.');
-    if(mixed&&(offer.rewardVersion!=='0.1.1'||offer.choices.length!==3))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
+    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[])].includes(offer.rewardVersion)||offer.choices.length!==3))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
     if(offer.type==='RUNE_INTRO'&&(offer.battleNumber!==2||offer.choices.some(x=>x.kind!=='RUNE')))fail('첫 룬 보상이 잘못되었습니다.');
     if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 재화가 잘못되었습니다.');
     const seenContent=new Set();
@@ -120,12 +193,12 @@ export function validateRunState(run,registry) {
       let content;
       if(mixed){
         if(choice.kind==='CARD'){const def=registry.cardById[choice.cardDefId];if(!def?.runtimeReady||def.rarity!==choice.rarity)fail('미지원 카드 보상입니다.');content=choice.cardDefId;}
-        else if(choice.kind==='RUNE'){const def=RUNE_BY_ID[choice.runeId];if(!def?.runtimeReady||def.rarity!==choice.rarity)fail('미지원 룬 보상입니다.');requireInteger(choice.ownedLevel,'ownedLevel',0,2);if(choice.offeredLevel!==choice.ownedLevel+1)fail('룬 보상 레벨이 잘못되었습니다.');content=choice.runeId;}
+        else if(choice.kind==='RUNE'){const def=RUNE_BY_ID[choice.runeId];if(!runeInScope(choice.runeId)||def.rarity!==choice.rarity)fail('미지원 룬 보상입니다.');requireInteger(choice.ownedLevel,'ownedLevel',0,2);if(choice.offeredLevel!==choice.ownedLevel+1)fail('룬 보상 레벨이 잘못되었습니다.');content=choice.runeId;}
         else if(choice.kind==='SERVICE'){if(!['POLISH','REMOVE'].includes(choice.serviceKind))fail('미지원 서비스입니다.');ids(choice.targetCardIds,'서비스 대상');if(!choice.targetCardIds.length)fail('서비스 대상이 없습니다.');if(!offer.resolved&&choice.targetCardIds.some(id=>!run.activeCardIds.includes(id)||(choice.serviceKind==='POLISH'&&run.cardInstances[id].polishLevel>=3)))fail('서비스 대상이 잘못되었습니다.');content=choice.serviceKind;}
         else fail('미지원 보상 종류입니다.');
       }
       else if(cardOffer){const def=registry.cardById[choice.cardDefId];if(!def?.runtimeReady||def.rarity!==offer.type.slice(5))fail('미지원 카드 보상입니다.');content=choice.cardDefId;}
-      else if(offer.type==='RUNE'){if(!RUNE_BY_ID[choice.runeId]?.runtimeReady)fail('미지원 룬 보상입니다.');content=choice.runeId;}
+      else if(offer.type==='RUNE'){if(!runeInScope(choice.runeId))fail('미지원 룬 보상입니다.');content=choice.runeId;}
       else {const removedChosen=offer.type==='CARD_REMOVE'&&offer.resolved&&offer.selectedChoiceId===choice.choiceId&&offer.resolution?.kind==='REMOVE';if((!run.cardInstances[choice.cardInstanceId]&&!removedChosen)||(!offer.resolved&&!run.activeCardIds.includes(choice.cardInstanceId)))fail('없는 보상 대상 카드입니다.');content=choice.cardInstanceId;}
       if(seenContent.has(content))fail('보상 후보가 중복되었습니다.');seenContent.add(content);
       if(choice.disabled!==undefined&&typeof choice.disabled!=='boolean')fail('보상 후보 상태가 잘못되었습니다.');

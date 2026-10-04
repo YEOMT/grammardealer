@@ -1,68 +1,66 @@
-# 센텐스 발라트로 0.1.1
+# 센텐스 발라트로 0.2
 
-단어 카드를 조립해 영어 문장으로 공격하는 로컬 학습 카드 게임입니다. 여행자·난이도 1로 시작의 초원 3전투를 플레이할 수 있습니다. Vanilla JS + ES Modules + Vite로 구현했습니다.
+단어 카드를 조립해 영어 문장으로 공격하는 로컬 학습 카드 게임입니다. 여행자·난이도 1의 새 원정에서 시작의 초원 3전투와 전달의 항구 4전투, 총 7전투를 진행합니다. Vanilla JavaScript + ES Modules + Vite 구조이며 서버·외부 AI API를 사용하지 않습니다.
 
-- 저장소: <https://github.com/YEOMT/grammardealer>
-- 배포 대상: <https://yeomt.github.io/grammardealer/>
-- 현재 소스가 이후 개발의 기준입니다. 원격 `main` 반영 후에는 그 최신 소스를 기준으로 이어갑니다.
-- 이번 인계는 소스/워크플로 준비입니다. 원격 push, Actions 실행, 실제 Pages 갱신은 수행하지 않았습니다.
+- 저장소: [YEOMT/grammardealer](https://github.com/YEOMT/grammardealer)
+- 공개 주소: [Grammar Dealer](https://yeomt.github.io/grammardealer/)
+- 이 문서는 개발 소스의 0.2.0을 설명합니다. 공개 사이트 반영 여부와 실제 검증 결과는 [0.2 테스트 보고서](docs/TEST_REPORT_0.2.md)를 확인하세요.
+- 개발 기준은 작업 시작 시 fetch한 최신 `origin/main`입니다. 기존 소스 이관은 main에 반영되어 있으며 ZIP이나 배포 번들로 개발 소스를 대체하지 않습니다.
 
 ## 실행
 
-Node.js 24 권장(최소 22.12), npm을 설치하고 이 파일이 있는 폴더에서 실행합니다.
+Node.js 24 권장, 최소 버전은 `package.json`의 `>=22.12.0`입니다. 저장소 루트에서 기존 lockfile로 설치합니다. Windows에서 PowerShell의 npm 실행 방식이 제한되면 같은 명령의 `npm.cmd`를 사용하세요.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-개발 화면은 `http://localhost:5173/`. 배포 파일을 직접 더블클릭하는 `file://` 실행은 지원하지 않습니다.
+개발 화면은 `http://localhost:5173/`입니다. production은 `npm run build` 후 `npm run preview`로 확인합니다. `dist/index.html`을 `file://`로 직접 열지 않습니다.
+
+## 플레이 순서
+
+1. 이름·어휘 모드·시드를 정하고 새 원정을 시작합니다. 기존 첫 전투 가이드와 첫 룬 선택이 이어집니다.
+2. 시작의 초원 3전투를 진행합니다. 카드 본체는 조합, 별도 체크는 버리기 선택입니다. be의 am/is/are는 형태 메뉴에서 직접 고릅니다.
+3. 초원 보스 보상 후 전달의 항구로 이동합니다. 4형식과 토파즈 룬 후보가 해금되며 보스의 보호 장막 공략을 미리 확인합니다.
+4. 필요한 동사·to/for의 입장 준비 0~2장을 확인하고 첫 상점에서 카드·룬 구매, 연마·제거를 선택합니다. 상점을 나올 때 덱을 섞고 항구 첫 전투를 시작합니다.
+5. 항구 일반전 3회와 보스전을 진행합니다. `She gives me a book.`처럼 주절 4형식을 한 번 맞히면 그 공격부터 보스 장막이 해제됩니다. `She gives a book to me.`는 3형식입니다.
+6. 항구 보스 보상 후 `전달의 항구 완료 — 0.2 제공 구간을 모두 플레이했습니다.`에서 끝납니다. 전체 48전투 스토리 클리어는 아닙니다.
+
+새 원정은 **28장**, 기본 **6턴·4교환·첫패 6장·이후 3장 드로우·손패 한도 10·조합대 16장**입니다. 보상·입장·구매 후 소유 덱은 늘어날 수 있습니다. 기본 처치 재화는 일반 2, 지역 보스 6에 처치 후 남은 턴 수를 더합니다. 공개된 혼합 보상 세 칸 중 한 개만 얻으며 연마·제거·룬 교체를 취소하면 그대로 돌아갑니다.
+
+초원 HP는 `91/156/286`, 항구 HP는 `220/300/380/640`입니다. 기존 최대 카드 수 배치, 선택 버리기, 느려진 채점, 룬 색상 연출, 도감의 한글 뜻 참고를 유지합니다. 제출 전 정답·점수 미리보기는 없습니다.
+
+## 문법·상점·저장
+
+현재형 SV/SVC/SVO와 give/show/make/send의 SVOO를 지원합니다. 등록된 SVO+to/for 표현은 3형식이며 토파즈와 항구의 4형식 보너스를 받지 않습니다. 5형식·과거·부정사·관계절 등 범위 밖 문법은 `UNSUPPORTED`입니다. 한글 뜻 참고는 작은 검증 템플릿과 성분별 fallback이며 문법 판정·점수와 분리됩니다.
+
+첫 상점은 룬 1칸·카드 2칸·연마·제거입니다. 카드 가격은 일반/고급/희귀 `6/10/14`, 룬은 `18/24/32`, 연마는 `8`, 첫 유료 제거는 `6`입니다. 연마와 제거는 각각 상점당 한 번이며 성공한 유료 제거마다 다음 가격이 2 증가합니다. 상품은 재표시·취소·저장 복원으로 재추첨되지 않습니다.
+
+기존 IndexedDB `sentence-balatro-v0-1`의 프로필·수동 3슬롯을 유지합니다. 첫 조작 전 전투, 보상, 전투 사이, 지역 완료, 안정된 상점, 제공 구간 완료에서 저장할 수 있습니다. 상점 대상 선택·거래 중에는 저장하지 않습니다. 자동 원정 저장이나 클라우드 동기화는 없습니다. localhost와 공개 사이트는 origin이 달라 기록을 공유하지 않습니다.
+
+**0.1.0/0.1.1 저장은 기존 초원 구간과 `STAGE1_END`를 유지합니다.** 이전 원정을 자동으로 7전투로 늘리지 않으며 카드·HP·공개 보상·룬·재화·RNG를 보존합니다. 같은 프로필로 새 0.2 원정을 시작하면 영구 기록과 이미 얻은 해금은 이어집니다.
+
+## 검증
 
 ```sh
 npm test
 npm run validate:data
-npm run build
-npm run preview
-```
-
-`npm test`는 기존·패치 테스트 전체를 실행합니다. Node 테스트 격리 비활성화는 이 환경에서 실제 개별 테스트 결과를 수집하기 위한 설정입니다. 테스트는 런타임 게임 상태에 연결되지 않습니다.
-
-## 플레이
-
-카드 본체 클릭/드래그는 조합, 작은 체크는 버리기 선택입니다. 선택 후 아래 버리기를 누르면 교환 1회를 쓰며 선택 수만큼 보충합니다. be는 원형으로 시작하며 형태 버튼에서 am/is/are를 고릅니다. 공격과 준비는 행동 턴을 사용합니다. 공격 확정 전에는 정답/점수 미리보기가 없습니다.
-
-새 원정은 28장, 6턴, 기본 교환 4회입니다. 초원 HP는 91/156/286. 처치 재화는 기본 2/2/6에 처치 행동 이후 남은 턴 수를 더합니다. 보상은 고정된 세 후보 중 하나만 받습니다. 연마/제거는 대상 선택을 취소해 돌아갈 수 있습니다.
-
-## 저장·지원 범위
-
-브라우저 IndexedDB에 프로필 및 수동 3슬롯을 저장합니다. 첫 조작 전/보상/전투 사이/구간 완료에서 저장합니다. 새로고침은 수동 저장한 지점만 복원합니다. 이전 0.1 저장은 기존 카드·HP·보상을 유지합니다. 로컬 저장은 **origin별**이므로 localhost와 GitHub Pages의 기록은 공유되지 않습니다.
-
-현재형 SV/SVC/SVO, 제한된 형용사·부사·전치사구를 판정합니다. 미구현 고급 문법은 `UNSUPPORTED`입니다. 한글 뜻 참고는 도감/공격 상세의 작은 로컬 모듈이며, 다의성·미등록 템플릿은 성분별 뜻으로 표시합니다. 의미 자연스러움으로 감점하지 않습니다.
-
-Stage 2, 전체 48전투 스토리, 새 캐릭터, 서버/랭킹, 외부 AI 번역, PWA는 구현하지 않았습니다. 첫 로드 이후 네트워크가 끊겨도 플레이/저장은 가능하나 오프라인 새 로드·설치는 보장하지 않습니다.
-
-## Codex 인계
-
-먼저 [AGENTS.md](AGENTS.md), [PROJECT_HANDOFF](docs/PROJECT_HANDOFF.md), [ARCHITECTURE](docs/ARCHITECTURE.md)를 읽습니다. 패치 근거는 `spec/SentenceBalatro_0.1.1_Work_Patch_Prompt.md`, 실제 결과는 [TEST_REPORT](docs/TEST_REPORT.md), 항목별 변경은 [PATCH_NOTES](docs/PATCH_NOTES_0.1.1_KO.md)입니다. 과거 보고서는 `docs/history/0.1/`에 분리했습니다.
-
-## GitHub Pages 자동 배포 준비
-
-소스 ZIP의 `sentence-balatro/` **내용**을 저장소 루트에 반영합니다. 루트에 `package.json`, `src/`, `.github/workflows/`가 있어야 합니다. 저장소 Settings → Pages → Build and deployment → Source를 **GitHub Actions**로 설정합니다. `main` push는 테스트 → 데이터 검사 → production build → Pages 배포로 이어집니다. PR은 테스트/빌드만 수행합니다. 별도 토큰/서버/비밀키는 필요하지 않습니다.
-
-`vite.config.js`의 `base: './'`를 유지하므로 `/grammardealer/` 및 정적 하위 경로에서 자원을 찾습니다. `dist/`와 `node_modules/`는 Git에 올리지 않습니다. 기존 배포 ZIP을 main 소스 대신 올리지 않습니다. 원격 기존 파일·충돌은 실제 저장소를 읽고 정리해야 하며, 이번 작업에서 원격 상태를 확인하거나 덮어쓰지는 않았습니다.
-
-워크플로는 GitHub 공식 Pages 안내를 기준으로 작성하고 공식 action 태그의 commit을 고정했습니다. 근거: <https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages>. 원격 권한/환경 설정을 포함한 첫 배포 검사는 `NOT RUN`입니다.
-
-## 추가 검증·패키징
-
-```sh
 npm run test:decks
 npm run test:runs
-npx playwright install chromium
+node tools/simulate-entry.js
+npm run build
 npm run test:e2e
-npm run test:browser
-npm run package
-python3 tools/verify-release.py
 ```
 
-`test:e2e`는 먼저 만든 `dist/`를 자체 정적 서버로 검사합니다. `test:browser`는 별도 터미널의 `npm run dev`가 필요합니다. Chromium touch emulation을 사용하며 실제 iPad 검사를 대신했다고 주장하지 않습니다. 상세 실행법·검증 범위는 TEST_REPORT를 참고하세요.
+`npm run test:browser`는 별도로 실행한 `npm run dev` 서버가 필요합니다. `test:e2e`는 production `dist/`를 자체 하위경로 서버에 올려 실제 UI로 진행합니다. Playwright 브라우저가 없다면 lockfile의 Playwright 버전에 맞춰 `npx playwright install chromium`을 사용합니다. 이미 준비된 환경은 재설치할 필요가 없습니다.
+
+`test:decks`는 4어휘 모드 총 10,000 시작 덱, `test:runs`는 현재 손패를 사용하는 실제 Controller 명령, `simulate-entry`는 400개 고정 시드의 실제 초원 진행 후 입장을 검사합니다. 합성 UI 배치·단위 fixture와 실제 플레이 완료 증거를 구분합니다. 실행 수치, 실패, NOT RUN, 정책 한계는 [TEST_REPORT_0.2.md](docs/TEST_REPORT_0.2.md)를 따릅니다. Chromium touch emulation은 실제 iPad Safari 검사와 다릅니다.
+
+## 개발·배포 경계
+
+먼저 [AGENTS.md](AGENTS.md), [프로젝트 인계](docs/PROJECT_HANDOFF.md), [아키텍처](docs/ARCHITECTURE.md), [0.2 구현 명세](spec/SentenceBalatro_0.2_Codex_Implementation_Prompt.md)를 읽습니다. [0.2 변경 안내](docs/PATCH_NOTES_0.2_KO.md)와 [알려진 문제](docs/KNOWN_ISSUES.md)도 확인하세요. 과거 실행 기록은 별도 history·baseline 문서에 보존합니다.
+
+소스는 저장소 루트, 빌드는 `dist/`입니다. Vite의 상대 `base: './'`와 hash routes를 유지합니다. `.github/workflows/deploy-pages.yml`의 PR 검사는 test/data/build를 수행하며 Pages 업로드·배포는 main의 비PR 실행과 성공한 build에만 연결됩니다. 개발 브랜치 push·PR 생성은 main 병합이나 공개 배포와 별개입니다. Pages 설정 변경·main 직접 push·자동 merge는 이번 개발 작업에 포함하지 않습니다.
+
+Stage 3 이후, 48전투 완성, 다른 캐릭터·난이도, 서버·랭킹, PWA·오프라인 새 로드는 구현 범위 밖입니다. 필요한 자원을 한 번 로드한 뒤 네트워크를 차단한 플레이의 실제 검증 범위는 테스트 보고서를 확인하세요.

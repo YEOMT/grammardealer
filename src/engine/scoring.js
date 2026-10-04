@@ -1,9 +1,9 @@
 import { SCORE_BALANCE } from '../data/balance.js';
 import { safeInteger, scoreEvent } from './numeric.js';
 
-export const BALANCE_VERSION = 'balance.0.1.1';
+export const BALANCE_VERSION = 'balance.0.2.0';
 const ATTACKABLE = new Set(['VALID', 'VALID_WITH_ISSUES']);
-const FRAME_LABELS = { 'frame.sv': '주절 · 1형식!', 'frame.svc.adj': '주절 · 2형식!', 'frame.svc.np': '주절 · 2형식!', 'frame.svo': '주절 · 3형식!', 'frame.beLocative': '주절 · 1형식!' };
+const FRAME_LABELS = { 'frame.sv': '주절 · 1형식!', 'frame.svc.adj': '주절 · 2형식!', 'frame.svc.np': '주절 · 2형식!', 'frame.svo': '주절 · 3형식!', 'frame.svoo': '주절 · 4형식! ×2', 'frame.beLocative': '주절 · 1형식!' };
 
 /** @param {object} analysis */
 export function attackableAnalysis(analysis) { return Boolean(analysis && ATTACKABLE.has(analysis.status)); }
@@ -36,7 +36,7 @@ export function normalizedHits(analysis) {
 }
 
 export function mainFrameHit(analysis) {
-  return normalizedHits(analysis).find((hit) => /^FRAME\.(SV|SVC|SVO)$/.test(hit.tag) && (!hit.scope || hit.scope === 'MAIN_CLAUSE')) ?? null;
+  return normalizedHits(analysis).find((hit) => /^FRAME\.(SV|SVC|SVO|SVOO)$/.test(hit.tag) && (!hit.scope || hit.scope === 'MAIN_CLAUSE')) ?? null;
 }
 
 /**

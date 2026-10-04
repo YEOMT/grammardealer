@@ -246,11 +246,24 @@ export const RUNES = deepFreeze([
     "firstRuneBasicPoolEligible": true,
     "runtimeReady": true,
     "color": "#d7976b"
+  },
+  {
+    id:'rune.svoo',nameKo:'토파즈 룬',group:'GRAMMAR',rarity:'UNCOMMON',
+    conditionDescriptionKo:'주절이 4형식',operation:'MULTIPLY_SCORE',
+    levelValues:[{num:3,den:2},{num:2,den:1},{num:5,den:2}],
+    scope:'ONCE_PER_ATTACK',maxMatchesPerAttack:null,displayEffectSummaryKo:'주절 4형식',
+    unlockRuleId:'unlock.rune.svoo',unlockTextKo:'시작의 초원 완료',firstRuneBasicPoolEligible:false,runtimeReady:true,color:'#edac38',
   }
 ]);
 export const RUNE_BY_ID = Object.freeze(Object.fromEntries(RUNES.map(rune => [rune.id, rune])));
 export const ACTIVE_RUNE_IDS = Object.freeze(RUNES.map(rune => rune.id));
 export const RUNE_SLOT_LIMIT = 3;
 export const RUNE_MAX_LEVEL = 3;
-export const RUNE_VERSION = "runes.0.1.0";
+export const RUNE_VERSION = "runes.0.2.0";
 export function getRuneDefinition(id) { return RUNE_BY_ID[id] ?? null; }
+export const BASIC_RUNE_IDS=Object.freeze(RUNES.filter(r=>r.id!=='rune.svoo').map(r=>r.id));
+/** Eligibility is frozen into this run; later profile unlocks do not rewrite its pools. */
+export function eligibleRuneDefinitions(run) {
+ const unlocked=new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])]);
+ return RUNES.filter(r=>r.runtimeReady&&(r.id!=='rune.svoo'||run?.version==='0.2.0'&&unlocked.has(r.id)));
+}

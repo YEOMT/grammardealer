@@ -6,7 +6,7 @@ import { VOCABULARY_MODES } from '../src/game/deck.js';
 for (const vocabularyMode of VOCABULARY_MODES) {
   test(`C12 R01 R02 R17: physical-card Stage 1 sequence / ${vocabularyMode}`, () => {
     for (const seed of ['run-sequence.0', 'run-sequence.1', 'run-sequence.2']) {
-      const result = simulateRun({ seed, vocabularyMode });
+      const result = simulateRun({ seed, vocabularyMode, campaignVersion:'0.1.1' });
       assert.equal(result.result, 'CONTENT_COMPLETE', result.error || `${seed}: QA policy failed to complete`);
       assert.equal(result.contentBoundary, 'STAGE1_END');
       assert.equal(result.final.gold, 10 + result.actions.filter(a=>a.action==='FINISH_PRESENTATION'&&a.after.status==='REWARD').reduce((sum,a)=>sum+a.after.turnsRemaining,0), 'Base gold plus post-kill remaining turns');

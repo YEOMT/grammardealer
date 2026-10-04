@@ -5,7 +5,8 @@ import './ui/styles.css';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
 import { renderCombat } from './ui/combat.js';
-import { renderIntro, renderReward, renderBetween, renderResult } from './ui/progression.js';
+import { renderIntro, renderStageClear, renderReward, renderBetween, renderResult } from './ui/progression.js';
+import { renderShop } from './ui/shop.js';
 import { openDeck, openDictionary, openRecords, openSettings, openSaves, openRecentAttack } from './ui/overlays.js';
 import { el, button, modal, toast, confirmDialog } from './ui/dom.js';
 import { playAttack, createDOMPresentation, connect } from './engine/presentation.js';
@@ -77,7 +78,9 @@ function render(){
   }
   const state=controller?.getState();
   if(location.hash==='#game'&&state){
-    if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:'START_BATTLE'}),onLobby:leaveToLobby});return;}
+    if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.02'?'ENTER_STAGE':'START_BATTLE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records')});return;}
+    if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
+    if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
     if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
     if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}

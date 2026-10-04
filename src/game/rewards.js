@@ -1,5 +1,6 @@
-import { registry } from '../data/language/index.js';
-import { RUNES, RUNE_BY_ID, RUNE_MAX_LEVEL } from '../data/runes.js';
+import { registryForVersion } from '../data/language/index.js';
+import { eligibleRuneDefinitions, RUNE_BY_ID, RUNE_MAX_LEVEL } from '../data/runes.js';
+import { STAGE_BY_ID, getEncounter } from '../data/stages.js';
 import { REWARD_BALANCE, ECONOMY } from '../data/balance.js';
 import { weightedPick, pick } from './rng.js';
 import { findPlayableSentences } from './deck.js';
@@ -7,7 +8,7 @@ import { deepFreeze } from '../contracts.js';
 import { addSafe } from '../engine/numeric.js';
 
 const CARD_TYPES = new Set(['CARD_COMMON', 'CARD_UNCOMMON', 'CARD_RARE']);
-export const REWARD_VERSION = '0.1.1';
+export const REWARD_VERSION = '0.2.0';
 export const isMixedOffer = offer => ['MIXED','RUNE_INTRO'].includes(offer?.type);
 const BASIC_FRAMES = new Set(['frame.sv', 'frame.svc.adj', 'frame.svc.np', 'frame.svo', 'frame.beLocative']);
 const orderById = (values) => [...values].sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
@@ -18,6 +19,7 @@ function equipped(run) {
 }
 
 function rememberCards(run, choices) {
+  const registry = registryForVersion(run.version);
   const seen = new Set(run.vocabulary?.encounteredLexemeIds ?? []);
   for (const choice of choices) {
     const definition = registry.cardById[choice.cardDefId ?? run.cardInstances[choice.cardInstanceId]?.cardDefId];
@@ -26,19 +28,30 @@ function rememberCards(run, choices) {
   run.vocabulary = { ...run.vocabulary, encounteredLexemeIds: [...seen] };
 }
 
+export function eligibleRewardCards(run) {
+  return registryForVersion(run.version).cards.filter(card => (card.availability?.runtimeReady ?? card.runtimeReady)
+    && (card.availability?.rewardWeight ?? card.rewardWeight ?? 0) > 0
+    && (!run.contentManifest?.cardDefIds || run.contentManifest.cardDefIds.includes(card.id)));
+}
+
+export function isStageRelevantCard(run, card) {
+  const registry = registryForVersion(run.version), lexeme = registry.lexemeById[card.lexemeId];
+  const focus = STAGE_BY_ID[run.progress?.stageId]?.focusFrames ?? [...BASIC_FRAMES];
+  if (run.progress?.stageId === 'stage.02') return ['NOUN', 'PRONOUN', 'DETERMINER'].includes(lexeme.pos)
+    || ['to', 'for'].includes(lexeme.lemma) || lexeme.frameIds?.some(id => focus.includes(id));
+  return ['NOUN', 'PRONOUN', 'DETERMINER'].includes(lexeme.pos) || lexeme.frameIds?.some(id => BASIC_FRAMES.has(id));
+}
+
 function selectCardCandidates(run, type, offerId, trace, {selected=new Set(),roles=REWARD_BALANCE.roleSlots}={}) {
+  const registry = registryForVersion(run.version);
   const rarity = type.replace('CARD_', '');
-  const pool = orderById(registry.cards.filter((card) => card.rarity === rarity && (card.availability?.runtimeReady ?? card.runtimeReady)
-    && (card.availability?.rewardWeight ?? card.rewardWeight ?? 0) > 0));
+  const pool = orderById(eligibleRewardCards(run).filter(card => card.rarity === rarity));
   const choices = [];
   for (const role of roles) {
     const remaining = pool.filter((card) => !selected.has(card.id));
     if (!remaining.length) break;
     let candidates = remaining;
-    if (role === 'LOCAL_SYNTAX_RELEVANT') candidates = remaining.filter((card) => {
-      const lexeme = registry.lexemeById[card.lexemeId];
-      return ['NOUN', 'PRONOUN', 'DETERMINER'].includes(lexeme.pos) || lexeme.frameIds?.some((id) => BASIC_FRAMES.has(id));
-    });
+    if (role === 'LOCAL_SYNTAX_RELEVANT') candidates = remaining.filter(card => isStageRelevantCard(run, card));
     if (role === 'IMPLEMENTED_POOL_WILDCARD') candidates = remaining.filter((card) => {
       const lexeme = registry.lexemeById[card.lexemeId];
       return ['FUNCTION', 'PREPOSITION', 'ADVERB'].includes(lexeme.pos) || lexeme.frameIds?.length > 1;
@@ -54,10 +67,10 @@ function selectCardCandidates(run, type, offerId, trace, {selected=new Set(),rol
   return choices;
 }
 
-function eligibleRunes(run) {
+export function eligibleRunes(run) {
   const levels = new Map(equipped(run).map((entry) => [entry.runeId, entry.level]));
-  // The active ten are always unlocked. Future profile IDs are deliberately not sufficient to activate a rune.
-  return orderById(RUNES.filter((definition) => definition.runtimeReady && (levels.get(definition.id) ?? 0) < RUNE_MAX_LEVEL));
+  return orderById(eligibleRuneDefinitions(run).filter(definition => (levels.get(definition.id) ?? 0) < RUNE_MAX_LEVEL
+    && (!run.contentManifest?.runeIds || run.contentManifest.runeIds.includes(definition.id))));
 }
 
 function chooseRune(run, pool) {
@@ -123,7 +136,7 @@ export function createRewardOffer(run,profile){
   if(run?.version==='0.1.0')return createLegacyRewardOffer(run,profile);
   if(!run?.progress||!profile||!run.rng?.reward||!run.cardInstances||!run.runes)throw new TypeError('Incomplete reward context');
   const battleNumber=run.progress.battleNumber;
-  if(![1,2,3].includes(battleNumber))throw new RangeError('Only Stage 1 rewards are implemented');
+  if(!(run.version==='0.2.0'?[1,2,3,4,5,6,7]:[1,2,3]).includes(battleNumber))throw new RangeError('Unsupported reward battle for this campaign');
   const offerId=`offer.${run.runId}.${battleNumber}`;
   if(run.reward?.offerId===offerId)return run.reward;
   const choices=[],trace=[],selectedCards=new Set(),selectedRunes=new Set(),selectedServices=new Set();
@@ -135,12 +148,14 @@ export function createRewardOffer(run,profile){
     while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length)throw Error('Rune introduction requires three valid runes');const r=chooseRune(run,pool);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
   }else{
     const intro=battleNumber===1&&run.tutorial?.isIntroRun;
-    const baseWeights=intro?{CARD_COMMON:100}:battleNumber===3?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
+    const encounter = run.combat?.enemyState ?? (run.version==='0.2.0' ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
+    const boss = encounter ? encounter.kind==='REGIONAL_BOSS' : battleNumber===3;
+    const baseWeights=intro?{CARD_COMMON:100}:boss?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
     for(let index=0;index<3;index++){
       const polishTargets=run.activeCardIds.filter(id=>run.cardInstances[id].polishLevel<3);
       const removeTargets=[...run.activeCardIds];
       const runePool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));
-      const validType=type=>CARD_TYPES.has(type)?registry.cards.some(c=>c.runtimeReady&&c.rewardWeight>0&&c.rarity===type.slice(5)&&!selectedCards.has(c.id)):
+      const validType=type=>CARD_TYPES.has(type)?eligibleRewardCards(run).some(c=>c.rarity===type.slice(5)&&!selectedCards.has(c.id)):
         type==='RUNE'?runePool.length>0:type==='CARD_ENHANCE'?polishTargets.length>0&&!selectedServices.has('POLISH'):type==='CARD_REMOVE'?removeTargets.length>0&&!selectedServices.has('REMOVE'):false;
       const weights=Object.fromEntries(Object.entries(baseWeights).filter(([type,w])=>w>0&&validType(type)));
       const excludedTypes=Object.keys(baseWeights).filter(type=>baseWeights[type]>0&&!validType(type));
@@ -161,7 +176,7 @@ export function createRewardOffer(run,profile){
       }
     }
   }
-  const offer={offerId,rewardVersion:REWARD_VERSION,battleNumber,type:battleNumber===2?'RUNE_INTRO':'MIXED',firstRuneIntro,
+  const offer={offerId,rewardVersion:run.version==='0.2.0'?REWARD_VERSION:'0.1.1',battleNumber,type:battleNumber===2?'RUNE_INTRO':'MIXED',firstRuneIntro,
     introOverride:battleNumber===1&&run.tutorial?.isIntroRun?'FIRST_COMMON_CARDS':null,
     choices:choices.map((choice,index)=>({...choice,choiceId:`${offerId}.choice.${index}`})),trace,resolved:false,
     skipGold:choices.some(c=>c.kind==='CARD')?ECONOMY.skipCardGold:ECONOMY.skipOtherGold};
@@ -172,9 +187,10 @@ export function createRewardOffer(run,profile){
 export function getRemovalWarning(run, cardInstanceId) {
   if (!run.activeCardIds.includes(cardInstanceId)) return '';
   if (run.activeCardIds.length === 1) return '덱의 마지막 카드입니다. 제거하면 다음 전투에서 문장을 만들 수 없습니다. 그래도 제거할까요?';
-  const classify = (frameId) => frameId === 'frame.sv' || frameId === 'frame.beLocative' ? '1형식' : frameId.startsWith('frame.svc') ? '2형식' : '3형식';
-  const before = new Set(findPlayableSentences(run.activeCardIds, run.cardInstances, { perFrame: 1 }).map((entry) => classify(entry.frameId)));
-  const after = new Set(findPlayableSentences(run.activeCardIds.filter((id) => id !== cardInstanceId), run.cardInstances, { perFrame: 1 }).map((entry) => classify(entry.frameId)));
+  const classify = (frameId) => frameId === 'frame.sv' || frameId === 'frame.beLocative' ? '1형식' : frameId.startsWith('frame.svc') ? '2형식' : frameId==='frame.svoo'?'4형식':'3형식';
+  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: run.version==='0.2.0' };
+  const before = new Set(findPlayableSentences(run.activeCardIds, run.cardInstances, options).map((entry) => classify(entry.frameId)));
+  const after = new Set(findPlayableSentences(run.activeCardIds.filter((id) => id !== cardInstanceId), run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const lost = [...before].filter((frame) => !after.has(frame));
   return lost.length ? `이 카드를 제거하면 확인된 ${lost.join('·')} 문장 경로를 잃습니다. 그래도 제거할까요?` : '';
 }
@@ -188,6 +204,7 @@ function markResolved(run, choiceId, resolution) {
  * repeated, replacement-cancelled, and confirmation-pending choices leave all state untouched.
  */
 export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = null, confirmRemoval = false, targetCardInstanceId = null } = {}) {
+  const registry = registryForVersion(run?.version);
   const offer = run?.reward;
   if (!offer || offer.offerId !== offerId) return fail('현재 보상과 다른 선택입니다.');
   if (offer.resolved) return fail('이미 정산한 보상입니다.', { alreadyResolved: true });
@@ -238,7 +255,8 @@ export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = 
   }
   if (type === 'RUNE') {
     const definition = RUNE_BY_ID[choice.runeId];
-    if (!definition?.runtimeReady) return fail('이번 버전에서 지원하지 않는 룬입니다.');
+    if (!definition?.runtimeReady || !eligibleRuneDefinitions(run).some(rune => rune.id === choice.runeId)
+      || run.contentManifest?.runeIds && !run.contentManifest.runeIds.includes(choice.runeId)) return fail('이번 원정에서 지원하거나 해금한 룬이 아닙니다.');
     const same = equipped(run).find((entry) => entry.runeId === choice.runeId);
     if(isMixedOffer(offer)&&(same?.level??0)!==choice.ownedLevel)return fail('공개된 룬 레벨과 현재 상태가 다릅니다.');
     if (same) {

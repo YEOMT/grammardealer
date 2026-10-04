@@ -3,25 +3,27 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {performance} from 'node:perf_hooks';
 import {analyzeSentence,snapshotFromText} from '../src/engine/grammar/index.js';
-import {registry,formsForCard,makeToken,createSentenceSnapshot} from '../src/data/language/index.js';
+import {registry,legacyRegistry,formsForCard,makeToken,createSentenceSnapshot} from '../src/data/language/index.js';
 import {validateLanguageData} from '../tools/validate-data.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/grammar-cases.json',import.meta.url),'utf8'));
 const analyze=text=>analyzeSentence(snapshotFromText(text));
+const analyzeLegacy=text=>analyzeSentence(snapshotFromText(text),legacyRegistry);
 for(const fixture of fixtures)test(`${fixture.id} ${fixture.sentenceForHumanReading}`,()=>{
  const snapshot=snapshotFromText(fixture.sentenceForHumanReading,{prefix:fixture.id,sentenceId:fixture.id});
- const original=JSON.stringify(snapshot);const result=analyzeSentence(snapshot);
+ // These historical acceptance fixtures retain the 0.1 grammar scope.
+ const original=JSON.stringify(snapshot);const result=analyzeSentence(snapshot,legacyRegistry);
  assert.equal(result.status,fixture.expectedStatus,JSON.stringify(result));assert.equal(result.mainFrameId,fixture.expectedMainFrame);
  assert.deepEqual(result.issues.map(issue=>issue.code),fixture.expectedIssueCodes);assert.equal(JSON.stringify(snapshot),original,'analysis must not mutate input');
  if(result.status.startsWith('VALID'))assert.deepEqual(result.coverage.consumedCardIds,snapshot.orderedTokens.map(t=>t.cardInstanceId));
  else assert.equal(result.grammarHits.length,0,'unsupported/invalid must not leak partial success');
 });
-test('Gate A registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData();assert.equal(report.lexemes,116);assert.equal(report.runtimeLexemes,115);});
+test('Gate A current and legacy registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData();assert.equal(report.lexemes,119);assert.equal(report.runtimeLexemes,118);const old=validateLanguageData(legacyRegistry);assert.equal(old.lexemes,116);assert.equal(old.runtimeLexemes,115);});
 test('Generated unseen combinations compose each supported verb Frame',()=>{
  let count=0;
  for(const lex of registry.lexemes.filter(l=>l.pos==='VERB'))for(const binding of registry.senseById[lex.senseIds[0]].frameBindings){
   for(const subject of ['They','The children','Our teachers']) {
    const verb=lex.lemma==='be'?'are':lex.lemma;
-   const suffix={'frame.sv':'carefully in the new park','frame.svo':'the very interesting stories with her','frame.svc.adj':'really happy','frame.svc.np':'the good friends','frame.beLocative':'in the room'}[binding.frameId];
+   const suffix={'frame.sv':'carefully in the new park','frame.svo':'the very interesting stories with her','frame.svoo':'the good friends a very useful book','frame.svc.adj':'really happy','frame.svc.np':'the good friends','frame.beLocative':'in the room'}[binding.frameId];
    const sentence=`${subject} ${verb} ${suffix}`;
    const result=analyze(sentence);assert.equal(result.status,'VALID',`${sentence}: ${JSON.stringify(result)}`);assert.equal(result.mainFrameId,binding.frameId==='frame.beLocative'?'frame.sv':binding.frameId);count++;
   }
@@ -72,7 +74,7 @@ test('Core order/required arguments are never repaired by insertion or rearrange
  for(const sentence of ['She dogs likes','The book the dog likes','I like','She happy','The dogs','I eat quickly the food','I run very','I like dogs book'])assert.equal(analyze(sentence).status,'INVALID_CORE',`${sentence}: ${JSON.stringify(analyze(sentence))}`);
 });
 test('Unsupported advanced grammar, past/progressive forms, unknown words and questions are not successes',()=>{
- for(const sentence of ['She made a book','She is reading a book','She gives me a book','I want to read','The book that I read is good','I run and she runs','I do not like dogs','Do I like dogs?','Run','I like zebras','She has read a book','She makes me happy','I am better'])assert.equal(analyze(sentence).status,'UNSUPPORTED',sentence);
+ for(const sentence of ['She made a book','She is reading a book','She gives me a book','I want to read','The book that I read is good','I run and she runs','I do not like dogs','Do I like dogs?','Run','I like zebras','She has read a book','She makes me happy','I am better'])assert.equal(analyzeLegacy(sentence).status,'UNSUPPORTED',sentence);
  assert.ok(!formsForCard('card.read').some(f=>f.id==='form.read.ing'));
 });
 test('Forged input, duplicate physical IDs, bad registries and malformed snapshots are ENGINE_ERROR',()=>{
@@ -105,8 +107,8 @@ test('Bounded AdvP recognizes degree plus manner/frequency without falsely exclu
  for(const sentence of ['I very always read','I run very today'])assert.equal(analyze(sentence).status,'INVALID_CORE',sentence);
 });
 
-test('Future verb bindings recognize unsupported 4/5 patterns without activating them',()=>{
- for(const s of ['I make her a book','She reads me a story','I want her happy','I have the book ready','The book that I read'])assert.equal(analyze(s).status,'UNSUPPORTED',s);
+test('Legacy future verb bindings retain unsupported 4/5 patterns without activating them',()=>{
+ for(const s of ['I make her a book','She reads me a story','I want her happy','I have the book ready','The book that I read'])assert.equal(analyzeLegacy(s).status,'UNSUPPORTED',s);
 });
 const boundaryCases=[
  ['I am','INVALID_CORE'],['She is today','INVALID_CORE'],['She is very','INVALID_CORE'],['They are really','INVALID_CORE'],
@@ -116,7 +118,7 @@ const boundaryCases=[
  ['I see her reading','UNSUPPORTED'],['I need her to read','UNSUPPORTED'],['She shows me the book','UNSUPPORTED'],['I keep her happy','UNSUPPORTED'],
 ];
 for(const [text,status]of boundaryCases)test(`Boundary: ${text} → ${status}, no partial success`,()=>{
- const result=analyze(text);assert.equal(result.status,status,JSON.stringify(result));assert.equal(result.mainFrameId,null);assert.equal(result.grammarHits.length,0);
+ const result=analyzeLegacy(text);assert.equal(result.status,status,JSON.stringify(result));assert.equal(result.mainFrameId,null);assert.equal(result.grammarHits.length,0);
 });
 test('Advanced tense form IDs never grant future grammar while same surface read retains a valid current analysis',()=>{
  const current=snapshotFromText('I read books');current.orderedTokens[1].selectionId='form.read.past';current.orderedTokens[1].allowedFormCandidates=['form.read.past'];

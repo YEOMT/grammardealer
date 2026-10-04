@@ -10,7 +10,7 @@ export function parseSupportedClause(tokens,registry) {
  const hasRole=(i,role)=>tok(i)?.forms?.some(f=>f.allowedRoleCandidates.includes(role));
  const word=(i)=>tok(i)?.surface.toLowerCase();
  const cardIds=(start,end)=>tokens.slice(start,end).map(t=>t.cardInstanceId);
- const role=(i,type)=>({cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:({SUBJECT:'주어 S',FINITE_VERB:'동사 V',OBJECT:'목적어 O',COMPLEMENT:'보어 C',DETERMINER:'한정사',ADJECTIVE:'형용사',ADVERB:'부사',PREPOSITION:'전치사',PP_OBJECT:'전치사 목적어',NOUN_HEAD:'명사'}[type]??type)});
+ const role=(i,type)=>({cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:({SUBJECT:'주어 S',FINITE_VERB:'동사 V',OBJECT:'목적어 O',INDIRECT_OBJECT:'간접목적어 IO',DIRECT_OBJECT:'직접목적어 DO',COMPLEMENT:'보어 C',DETERMINER:'한정사',ADJECTIVE:'형용사',ADVERB:'부사',PREPOSITION:'전치사',PP_OBJECT:'전치사 목적어',NOUN_HEAD:'명사'}[type]??type)});
  const hit=(tag,start,end,head=start)=>({tag,cardIds:cardIds(start,end),headCardId:tok(head).cardInstanceId,evidenceKey:`${tag}:${cardIds(start,end).join('|')}`});
  const issue=(code,indices)=>({code,cardIds:indices.map(i=>tok(i).cardInstanceId),causeId:`${code}:${indices.map(i=>tok(i).cardInstanceId).join('|')}`,messageKo:LABELS[code]});
  const phrase=(kind,start,end,head,more={})=>({kind,start,end,head,features:{},issues:[],hits:[],roles:[],children:[],...more});
@@ -34,7 +34,7 @@ export function parseSupportedClause(tokens,registry) {
    const good=suitablePronoun.find(f=>f.allowedRoleCandidates.includes(wanted))??suitablePronoun.find(f=>f.allowedRoleCandidates.includes('POSSESSIVE_NP')||f.allowedRoleCandidates.includes('DEMONSTRATIVE_NP'));
    const f=good??suitablePronoun[0];
    const issues=good||npRole==='COMPLEMENT'?[]:[issue('PRONOUN_CASE',[start])];
-   out.push(phrase('NP',start,start+1,start,{features:{person:f.grammaticalFeatures.person??3,number:f.grammaticalFeatures.number??'SINGULAR'},issues,roles:[role(start,npRole)]}));
+   out.push(phrase('NP',start,start+1,start,{npRole,features:{person:f.grammaticalFeatures.person??3,number:f.grammaticalFeatures.number??'SINGULAR'},issues,roles:[role(start,npRole)]}));
   }
   let p=start;let determinant=null;
   if(hasRole(p,'DETERMINER')||hasRole(p,'POSSESSIVE_DETERMINER')){determinant=p++;}
@@ -54,7 +54,7 @@ export function parseSupportedClause(tokens,registry) {
     const next=word(determinant+1);const needsAn=/^[aeiou]/.test(next)&&!['useful','usually'].includes(next);
     if((word(determinant)==='an')!==needsAn)issues.push(issue('ARTICLE_FORM',[determinant,determinant+1]));
    }
-   const np=phrase('NP',start,p+1,p,{features,issues:[...issues,...aps.flatMap(ap=>ap.issues)],hits:aps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...aps.flatMap(ap=>ap.roles),role(p,npRole)],children:aps});
+   const np=phrase('NP',start,p+1,p,{npRole,features,issues:[...issues,...aps.flatMap(ap=>ap.issues)],hits:aps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...aps.flatMap(ap=>ap.roles),role(p,npRole)],children:aps});
    out.push(np);
    if(allowPostPP&&depth<LIMITS.depth) {
     const addPost=(current)=>{
@@ -118,7 +118,7 @@ export function parseSupportedClause(tokens,registry) {
   return good?[]:[issue('SUBJECT_VERB_AGREEMENT',[np.head,verbIndex])];
  };
  const invalid=(code)=>({status:'INVALID_CORE',messageKo:LABELS[code],issues:[{id:'issue.0',code,causeId:code,cardIds:tokens.map(t=>t.cardInstanceId),messageKo:LABELS[code]}],diagnostics:{workUnits:work}});
- const unsupported=(capabilityId)=>({status:'UNSUPPORTED',messageKo:'이 구조는 0.1에서 아직 판정하지 않습니다.',diagnostics:{capabilityId,workUnits:work}});
+ const unsupported=(capabilityId)=>({status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId,workUnits:work}});
  if(tokens.length===0)return invalid('MISSING_SUBJECT');
  const finiteCandidate=i=>hasRole(i,'FINITE_VERB')||hasRole(i,'UNSELECTED_BE');
  const verbPositions=tokens.flatMap((t,i)=>finiteCandidate(i)?[i]:[]);
@@ -141,15 +141,18 @@ export function parseSupportedClause(tokens,registry) {
    if(internalFrame==='frame.sv'||internalFrame==='frame.beLocative')complements=[phrase('EMPTY',pos,pos,vi)];
    if(internalFrame==='frame.svc.adj')complements=parseAP(pos).map(ap=>({...ap,roles:ap.roles.map(r=>r.cardInstanceId===tok(ap.head).cardInstanceId?role(ap.head,'COMPLEMENT'):r)}));
    if(internalFrame==='frame.svc.np'||internalFrame==='frame.svo')complements=parseNP(pos,internalFrame==='frame.svo'?'OBJECT':'COMPLEMENT');
+   if(internalFrame==='frame.svoo')complements=parseNP(pos,'INDIRECT_OBJECT').flatMap(io=>parseNP(io.end,'DIRECT_OBJECT').map(object=>phrase('OBJECTS',io.start,object.end,io.head,{
+    issues:[...io.issues,...object.issues],hits:[...io.hits,...object.hits],roles:[...io.roles,...object.roles],children:[io,object],indirectObject:io,directObject:object,
+   })));
    for(const complement of complements) {
     if(complement.end<tokens.length&&internalFrame==='frame.svo') {
-     if(verb.sense.futureFrameBindings.some(b=>b.frameId==='frame.svoo')&&parseNP(complement.end,'OBJECT').some(np=>np.end===tokens.length))partialAdvanced='cap.svoo';
+     if(!availableFrames.includes('frame.svoo')&&verb.sense.futureFrameBindings.some(b=>b.frameId==='frame.svoo')&&parseNP(complement.end,'OBJECT').some(np=>np.end===tokens.length))partialAdvanced='cap.svoo';
      if(verb.sense.futureFrameBindings.some(b=>b.frameId==='frame.svoc')&&(parseAP(complement.end).some(ap=>ap.end===tokens.length)||(verb.sense.futureFrameBindings.some(b=>b.frameId==='frame.svoc'&&b.allowedComplements.includes('NP'))&&parseNP(complement.end,'COMPLEMENT').some(np=>np.end===tokens.length))))partialAdvanced='cap.svoc';
     }
     for(const suffix of finishAdjuncts(complement.end,verb.lex.lemma,{requireLocation:internalFrame==='frame.beLocative'})) {
      const chunks=[front,subject,pre,verbNode,post,complement,suffix].filter(x=>x.end>x.start);
      const issues=issueUnique([...chunks.flatMap(x=>x.issues),...agreement(subject,vi)]);
-     candidates.push({internalFrame,frameId:registry.frameById[internalFrame].schoolFrameId??internalFrame,chunks,issues,subject,verbIndex:vi,complement});
+     candidates.push({internalFrame,frameId:registry.frameById[internalFrame].schoolFrameId??internalFrame,chunks,issues,subject,verbIndex:vi,complement,suffix});
      if(candidates.length>LIMITS.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
     }
    }
@@ -168,7 +171,7 @@ export function parseSupportedClause(tokens,registry) {
  const walk=(node,parentId)=>{
   if(node.end===node.start)return null;
   const id=`node.${nodes.length}`;
-  const record={id,type:node.kind,cardIds:cardIds(node.start,node.end),headCardId:tok(node.head)?.cardInstanceId??null,scopeNodeId:parentId,connector:node.kind==='PP'?tok(node.start).cardInstanceId:null,children:[]};nodes.push(record);
+  const record={id,type:node.kind,cardIds:cardIds(node.start,node.end),headCardId:tok(node.head)?.cardInstanceId??null,scopeNodeId:parentId,connector:node.kind==='PP'?tok(node.start).cardInstanceId:null,grammaticalRole:node.npRole??null,children:[]};nodes.push(record);
   record.children=node.children.map(child=>walk(child,id)).filter(Boolean);return id;
  };
  const root={id:'node.root',type:'CLAUSE',cardIds:tokens.map(t=>t.cardInstanceId),headCardId:tok(best.verbIndex).cardInstanceId,scopeNodeId:null,connector:null,children:[]};
@@ -178,8 +181,12 @@ export function parseSupportedClause(tokens,registry) {
  const grammarHits=[{id:'hit.mainFrame',tag:registry.frameById[best.internalFrame].tag,frameId:best.frameId,internalFrameId:best.internalFrame,scope:'MAIN_CLAUSE',scopeNodeId:root.id,cardIds:tokens.filter(t=>!unlicensed.includes(t.cardInstanceId)).map(t=>t.cardInstanceId),headCardId:tok(best.verbIndex).cardInstanceId,validity:recovered?'RECOVERED':'VALID',evidenceKey:'MAIN_CLAUSE:FRAME'},
  ...uniqueHits.map((h,i)=>({...h,id:`hit.modifier.${i}`,scope:'PHRASE',scopeNodeId:nodes.find(n=>n.cardIds.length===h.cardIds.length&&n.cardIds.every((id,i)=>id===h.cardIds[i]))?.id??root.id,validity:issues.some(is=>is.cardIds.some(id=>h.cardIds.includes(id)))?'RECOVERED':'VALID'}))];
  const resolvedTokenRoles=[...new Map(best.chunks.flatMap(c=>c.roles).map(r=>[r.cardInstanceId,r])).values()];
+ const argumentNode=np=>np?nodes.find(n=>n.type==='NP'&&n.grammaticalRole===np.npRole&&n.headCardId===tok(np.head).cardInstanceId)?.id:null;
+ const dativeBinding=tok(best.verbIndex).sense.frameBindings.find(b=>b.frameId==='frame.svoo'&&b.runtimeReady);
+ const correspondence=best.internalFrame==='frame.svo'&&dativeBinding?best.suffix.children.find(pp=>pp.kind==='PP'&&pp.preposition===dativeBinding.dativePreposition):null;
+ const structures=correspondence?[{kind:'DATIVE_ALTERNATION',preposition:correspondence.preposition,schoolFrameId:'frame.svo',objectNodeId:argumentNode(best.complement),recipientCardIds:cardIds(correspondence.start+1,correspondence.end),ppCardIds:cardIds(correspondence.start,correspondence.end)}]:[];
  return {status:recovered?'VALID_WITH_ISSUES':'VALID',rootNodeId:root.id,mainClauseId:'clause.main',mainFrameId:best.frameId,nodes,
-  clauses:[{id:'clause.main',nodeId:root.id,frameId:best.frameId,internalFrameId:best.internalFrame,subjectNodeId:nodes.find(n=>n.type==='NP'&&n.headCardId===tok(best.subject.head).cardInstanceId)?.id,verbCardId:tok(best.verbIndex).cardInstanceId}],
+  clauses:[{id:'clause.main',nodeId:root.id,frameId:best.frameId,internalFrameId:best.internalFrame,subjectNodeId:argumentNode(best.subject),verbCardId:tok(best.verbIndex).cardInstanceId,objectNodeId:best.internalFrame==='frame.svo'?argumentNode(best.complement):null,indirectObjectNodeId:argumentNode(best.complement.indirectObject),directObjectNodeId:argumentNode(best.complement.directObject)}],structures,
   resolvedTokenRoles,grammarHits,issues,evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),
   ambiguities:candidates.length>1?[{type:'EQUIVALENT_FULL_COVERAGE_ANALYSES',candidateCount:candidates.length,normalizedTo:best.frameId,noteKo:'동일 카드의 수식·전치사구는 한 번만 계산합니다.'}]:[],
   coverage:{consumedCardIds:tokens.map(t=>t.cardInstanceId),issueAffectedCardIds:[...new Set(issues.flatMap(i=>i.cardIds))],unlicensedCardIds:unlicensed},

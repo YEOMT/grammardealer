@@ -17,18 +17,25 @@ const slot = (id, form) => ({ cardInstanceId: id, selection: { formId: form.id |
 const feature = (form, name) => form.grammaticalFeatures?.[name];
 const getFrames = row => row.lexeme.frameIds || [];
 
-function cardRows(ids, instances) {
+function cardRows(ids, instances, language = registry) {
   return ids.map(id => {
     const card = instances[id];
     if (!card) throw new Error(`Unknown card instance: ${id}`);
-    const lexeme = lexemeForCard(card);
+    const lexeme = language.lexemeById[language.cardById[card.cardDefId]?.lexemeId];
+    if (!lexeme) throw new Error(`Card is outside the content manifest: ${card.cardDefId}`);
     return { id, card, lexeme, forms: formsForCard(card) };
   });
 }
 
 function hasUniqueCards(slots) { return new Set(slots.map(x => x.cardInstanceId)).size === slots.length; }
+function* doubleObjects(objects, prefix) {
+  for (const io of objects) {
+    if (!hasUniqueCards([...prefix,...io.slots])) continue;
+    for (const direct of objects) if (hasUniqueCards([...prefix,...io.slots,...direct.slots])) yield {slots:[...io.slots,...direct.slots]};
+  }
+}
 
-function nounPhrases(rows, role) {
+function nounPhrases(rows, role, language = registry) {
   const result = [];
   const determiners = rows.filter(row => row.lexeme.pos === 'DETERMINER');
   for (const row of rows) {
@@ -40,7 +47,7 @@ function nounPhrases(rows, role) {
     if (row.lexeme.pos !== 'NOUN') continue;
     const singular = row.forms.find(f => feature(f, 'number') !== 'PLURAL') || row.forms[0];
     const plural = row.forms.find(f => feature(f, 'number') === 'PLURAL');
-    const senses = row.lexeme.senseIds.map(id => registry.senseById[id]);
+    const senses = row.lexeme.senseIds.map(id => language.senseById[id]);
     const mass = senses.some(sense => sense?.countability === 'MASS' || sense?.countability === 'UNCOUNTABLE');
     if (plural) result.push({ slots: [slot(row.id, plural)], head: row, form: plural });
     if (mass) result.push({ slots: [slot(row.id, singular)], head: row, form: singular });
@@ -65,11 +72,12 @@ function nounPhrases(rows, role) {
  */
 export function findPlayableSentences(availableIds, cardInstances, options = {}) {
   if (!Array.isArray(availableIds) || new Set(availableIds).size !== availableIds.length) throw new TypeError('Available card IDs must be unique');
-  const { perFrame = 3, maxChecks = 512, maxCards = 16, includeModifiers = false } = options;
+  const { perFrame = 3, maxChecks = 512, maxCards = 16, includeModifiers = false, registry: language = registry, includeSvoo = false } = options;
+  const frames = options.frames ?? (includeSvoo ? [...BASIC_FRAMES, 'frame.svoo'] : BASIC_FRAMES);
   if (!Number.isSafeInteger(perFrame) || perFrame < 1 || perFrame > 100 || !Number.isSafeInteger(maxChecks) || maxChecks < 1 || maxChecks > 10000) throw new RangeError('Invalid witness search budget');
-  const rows = cardRows(availableIds, cardInstances);
-  const subjects = nounPhrases(rows, 'SUBJECT');
-  const objects = nounPhrases(rows, 'OBJECT');
+  const rows = cardRows(availableIds, cardInstances, language);
+  const subjects = nounPhrases(rows, 'SUBJECT', language);
+  const objects = nounPhrases(rows, 'OBJECT', language);
   const verbs = rows.filter(row => row.lexeme.pos === 'VERB');
   const adjectives = rows.filter(row => row.lexeme.pos === 'ADJECTIVE');
   const results = [];
@@ -81,18 +89,20 @@ export function findPlayableSentences(availableIds, cardInstances, options = {})
     if (seen.has(key)) return null;
     seen.add(key);
     checks += 1;
-    const snapshot = createSentenceSnapshot(slots, cardInstances, { sentenceId: `witness.${checks}` });
-    const analysis = analyzeSentence(snapshot);
+    const snapshot = createSentenceSnapshot(slots, cardInstances, { sentenceId: `witness.${checks}`, languageVersion:language.version });
+    const analysis = analyzeSentence(snapshot, language);
     if (analysis.status !== 'VALID' || (expectedFrame && analysis.mainFrameId !== expectedFrame)) return null;
     return { frameId: analysis.mainFrameId, slots, snapshot, analysis, text: snapshot.orderedTokens.map(t => t.surface).join(' ') };
   }
-  for (const frame of BASIC_FRAMES) {
+  for (const frame of frames) {
     let found = 0;
-    const quota = Math.max(1, Math.floor(maxChecks / BASIC_FRAMES.length));
+    const quota = Math.max(1, Math.floor(maxChecks / frames.length));
     const startChecks = checks;
     frameSearch: for (const subject of subjects) {
       for (const verb of verbs.filter(v => getFrames(v).includes(frame))) {
-        const complementRows = frame === 'frame.sv' ? [null] : frame === 'frame.svc.adj'
+        const complementRows = frame === 'frame.svoo'
+          ? doubleObjects(objects,[...subject.slots,slot(verb.id,verb.forms[0])])
+          : frame === 'frame.sv' ? [null] : frame === 'frame.svc.adj'
           ? adjectives.map(row => ({ slots: [slot(row.id, row.forms[0])] })) : objects;
         for (const complement of complementRows) {
           for (const verbForm of verb.forms) {
@@ -265,13 +275,13 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
  * Prepare a battle with a real witness subset, random fill, and shuffled hand order.
  * This consumes the provided proposed-state stream; no cards are added to the active deck.
  */
-export function createBattlePiles({ activeCardIds, cardInstances, stream, initialHand = 6, previousOpeningFrames = [], focusFrame = null, tutorial = false }) {
+export function createBattlePiles({ activeCardIds, cardInstances, stream, initialHand = 6, previousOpeningFrames = [], focusFrame = null, tutorial = false, registry: language = registry }) {
   if (!Number.isSafeInteger(initialHand) || initialHand < 1) throw new RangeError('Invalid initial hand size');
   assertStream(stream);
   const startCursor = stream.cursor;
   const randomizedIds = shuffle(stream, activeCardIds);
   const searchIds = focusFrame || tutorial ? [...randomizedIds.filter(id=>lexemeForCard(cardInstances[id]).pos==='PRONOUN'),...randomizedIds.filter(id=>lexemeForCard(cardInstances[id]).pos!=='PRONOUN')] : randomizedIds;
-  const witnesses = findPlayableSentences(searchIds, cardInstances, { perFrame: 4, maxCards: initialHand, maxChecks: 768 });
+  const witnesses = findPlayableSentences(searchIds, cardInstances, { perFrame: 4, maxCards: initialHand, maxChecks: 768, registry: language });
   const availableFrames = BASIC_FRAMES.filter(frame => witnesses.some(w => w.frameId === frame));
   let candidates = availableFrames.filter(frame => !previousOpeningFrames.includes(frame));
   if (!candidates.length) candidates = availableFrames;

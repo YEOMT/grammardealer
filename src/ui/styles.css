@@ -50,3 +50,37 @@
 .mixed-rewards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.mixed-rewards .reward-choice{width:auto;padding:20px 12px}.reward-backdrop .tutorial-bubble{display:none}
 .status-nav button{white-space:nowrap}.status-nav button:nth-child(3){font-size:13px;letter-spacing:-.5px}
 .utility-entry{animation:utility-entry-glow 650ms ease-out}@keyframes utility-entry-glow{50%{box-shadow:0 0 16px var(--rune-color)}}
+/* 0.2: the harbor reuses the existing playfield geometry and card typography. */
+.harbor-combat{background:radial-gradient(ellipse at 50% 30%,#24677a66,transparent 60%)}
+.harbor-combat .status-panel,.harbor-combat .rune-panel{background:#102c32aa;border-color:#36616a}
+.harbor-combat .region-bonus{background:#173b46;border-color:#427280;color:#b1d9df}
+.boss-veil{position:absolute;bottom:0;right:10px;padding:5px 8px;border:1px solid #72b4c3;border-radius:6px;background:#183e4bea;font-size:12px;color:#c5eef6}
+.boss-veil[data-active=false]{color:#adc5bf;border-color:#597d76;background:#16332bea}
+.word-card[data-argument-role=IO]{box-shadow:0 0 0 3px #7ad8eb,0 0 22px #7ad8eb66!important}
+.word-card[data-argument-role=DO]{box-shadow:0 0 0 3px #edac38,0 0 22px #edac3866!important}
+.word-card[data-argument-role].argument-start{border-left-width:4px}.word-card[data-argument-role].argument-end{border-right-width:4px}
+.harbor-page{background:radial-gradient(ellipse at 50% 15%,#225b6655,transparent 65%)}
+.harbor-page .intro-encounters{flex-wrap:wrap;gap:14px;margin:24px 0}.harbor-page .intro-art{font-size:64px;margin:14px 0}
+.boss-preview{display:flex;text-align:left;align-items:center;gap:22px;max-width:790px;margin:20px auto}.boss-preview h2{font-size:21px}.boss-preview p{margin:9px 0;font-size:14px}
+.boss-silhouette{font-size:72px;filter:brightness(.18);flex-shrink:0}.boss-rule{max-width:730px;margin:20px auto}.legacy-notice{border:1px solid #6b764e;border-radius:8px;padding:12px;font-size:13px}
+.shop-page{max-width:1180px;margin:0 auto;padding:26px 34px}.shop-heading{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:15px}.shop-heading h1{font-size:29px;margin-top:8px;color:var(--gold)}
+.shop-resources{display:flex;flex-direction:column;gap:8px;text-align:right;white-space:nowrap}.shop-resources strong{font-size:24px;color:var(--gold)}.shop-resources span{font-size:13px;color:var(--muted)}
+.shop-boss-hint{padding:10px 14px;border:1px solid #427480;border-radius:8px;background:#13333a}.shop-boss-hint summary{font-size:14px}.shop-boss-hint p{font-size:14px;line-height:1.6}
+.entry-grant{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:16px 0;padding:14px 18px;border:1px solid #436f64;border-radius:10px;background:#143b35}.entry-grant>div>strong{color:#c5e2b5}.entry-grant p{font-size:13px;margin-top:6px}.entry-grant-cards{display:flex;gap:10px}.entry-grant-cards .word-card{--card-w:84px}.entry-grant-cards .card-body{min-height:87px}.entry-warning{color:#f1cf8b}
+.entry-grant-arriving .word-card{animation:entry-card-arrive .55s ease-out}@keyframes entry-card-arrive{from{transform:translateY(-14px);opacity:0}to{transform:translateY(0);opacity:1}}
+.shop-inventory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:18px 0}.shop-item{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}.shop-item h2{font-size:22px}.shop-item p{font-size:14px}.shop-item small{font-size:12px}.shop-item .reward-gem{font-size:60px}.shop-item .shop-price{margin-top:auto;color:var(--gold);font-size:17px}.shop-item>button{width:100%}.shop-item[data-purchased=true]{border-color:#719e80}
+.shop-services{display:grid;grid-template-columns:1fr 1fr;gap:16px}.shop-service{display:flex;align-items:center;gap:16px;justify-content:space-between}.shop-service h2{font-size:19px}.shop-service p{font-size:12px;margin:8px 0}.shop-service strong{font-size:13px;color:var(--gold)}.shop-service button{white-space:nowrap}.shop-footer{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:20px;padding-bottom:20px}.shop-footer .helper{font-size:13px}
+@media(max-width:1180px){.shop-page{padding:22px}.shop-topbar{padding:0 22px}.shop-topbar nav{gap:0}.shop-heading h1{font-size:25px}.shop-service{padding:16px;gap:8px}.shop-service button{padding:10px}.boss-preview{padding:16px}.intro-page.harbor-page{padding:25px}}
+@media(max-width:760px){.shop-inventory,.shop-services{grid-template-columns:1fr}.shop-heading,.shop-footer,.entry-grant{flex-direction:column;align-items:stretch}.shop-resources{text-align:left}.shop-topbar{height:auto;flex-wrap:wrap;padding:12px}.shop-topbar nav{flex-wrap:wrap}.boss-preview{flex-direction:column}}
+.shop-equipped{margin-top:10px;padding:8px 14px;border:1px solid #43635b;border-radius:8px}.shop-equipped-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:8px 0}.shop-equipped-grid p{font-size:13px;margin-top:6px}
+/* Crowded polished rows keep their badges; reclaim vertical space around the board instead. */
+@media(max-height:820px){
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)){grid-template-rows:40px minmax(min-content,90px) minmax(min-content,1fr) auto}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-avatar{font-size:60px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-label{margin-bottom:3px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-info h2{margin-bottom:4px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-hp{margin-top:3px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage{height:60px;min-height:60px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:8px}
+  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
+}

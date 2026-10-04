@@ -73,7 +73,8 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
       if(step.kind==='RUNE_FLIGHT'){safeCall(viewContext,'pulseRune',step.runeEvent.sourceId);safeCall(viewContext,'flyRune',step.runeEvent,{duration:step.duration,combo:step.combo});}
       else if (step.kind === 'SCORE') {
         safeCall(viewContext, 'clearHighlights');
-        safeCall(viewContext, 'highlight', step.event.highlightCardIds ?? step.event.cardIds ?? [], /MAIN_FRAME/.test(step.event.phase) ? resolution.analysis?.resolvedTokenRoles ?? [] : []);
+        const mainFrame=step.event.phase==='MAIN_FRAME';
+        safeCall(viewContext, 'highlight', step.event.highlightCardIds ?? step.event.cardIds ?? [], mainFrame ? resolution.analysis?.resolvedTokenRoles ?? [] : [], mainFrame ? resolution.analysis?.nodes?.filter(node=>['INDIRECT_OBJECT','DIRECT_OBJECT'].includes(node.grammaticalRole))??[] : []);
         safeCall(viewContext, 'onScore', step.event, { step: scoreStep++, intensity,combo:step.combo });
 
       } else if (step.kind === 'POWER') safeCall(viewContext, 'setPower', resolution.finalPower);
@@ -143,23 +144,32 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   const clearHighlights = () => {
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
     root.querySelectorAll('[data-presentation-role]').forEach(node => node.remove());
+    root.querySelectorAll('[data-argument-role]').forEach(node=>{delete node.dataset.argumentRole;node.classList.remove('argument-start','argument-end');});
   };
   const showHp = value => {
     const max = hpMax ?? current?.visualBasis?.enemyMaxHp ?? current?.visualBasis?.enemyBefore?.hpMax ?? current?.visualBasis?.enemyBefore?.maxHp ?? current?.enemyHpBefore ?? 1;
     text('hp', `${value} / ${max}`);
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
+  const showBossState=state=>{
+    const node=find(root,'boss-veil');
+    if(node&&state?.id==='SVOO_VEIL'){
+      node.dataset.active=String(state.active);
+      node.textContent=state.active?'보호 장막 · 피해 ×¼ · 4형식으로 해제':'보호 장막 해제';
+    }
+  };
   const adapter = {
     setLocked(locked) { root.dataset.presenting = String(locked); root.setAttribute('aria-busy', String(locked)); },
     begin(resolution, options) {
       current = resolution; settings = options;
-      clearHighlights(); adapter.clearConnections(); showHp(resolution.enemyHpBefore);
+      clearHighlights(); adapter.clearConnections(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const log = find(root, 'log'); if (log) log.replaceChildren();
       const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
     onScore(event, { step, intensity,combo=0 }) {
+      if(event.sourceType==='BOSS'&&event.bossStateAfter)showBossState(event.bossStateAfter);
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       text('label', event.labelKo ?? event.phase); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
@@ -172,7 +182,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       }
       audio?.play?.(/CARD|BASE/.test(event.phase) ? 'card' : 'score', { step, intensity });
     },
-    highlight(cardIds, roles = []) {
+    highlight(cardIds, roles = [], argumentsByNode=[]) {
       for (const id of cardIds) {
         const card = findCard(root, id); if (!card) continue;
         card.classList.add('presentation-highlight');
@@ -182,9 +192,16 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
         const card = findCard(root, role.cardInstanceId ?? role.cardId); if (!card) continue;
         const mark = root.ownerDocument.createElement('span'); mark.dataset.presentationRole = 'true';
         const key = role.role ?? role.functionRole;
-        mark.textContent = role.labelKo ?? role.roleKo ?? ({ S: 'S · 주어', V: 'V · 동사', O: 'O · 목적어', C: 'C · 보어', SUBJECT: 'S · 주어', VERB: 'V · 동사', OBJECT: 'O · 목적어', COMPLEMENT: 'C · 보어' })[key] ?? key ?? '';
+        mark.textContent = role.labelKo ?? role.roleKo ?? ({ S: 'S · 주어', V: 'V · 동사', O: 'O · 목적어', C: 'C · 보어', SUBJECT: 'S · 주어', VERB: 'V · 동사', OBJECT: 'O · 목적어', COMPLEMENT: 'C · 보어',INDIRECT_OBJECT:'간접목적어 IO',DIRECT_OBJECT:'직접목적어 DO' })[key] ?? key ?? '';
         Object.assign(mark.style, { position: 'absolute', bottom: '-17px', left: '0', right: '0', fontSize: '11px', color: '#a9f4e0', whiteSpace: 'nowrap', textAlign: 'center', pointerEvents: 'none' });
         card.append(mark);
+      }
+      for(const node of argumentsByNode){
+        node.cardIds.forEach((id,index)=>{
+          const card=findCard(root,id);if(!card)return;
+          card.dataset.argumentRole=node.grammaticalRole==='INDIRECT_OBJECT'?'IO':'DO';
+          card.classList.toggle('argument-start',index===0);card.classList.toggle('argument-end',index===node.cardIds.length-1);
+        });
       }
     },
     clearHighlights,
@@ -230,7 +247,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       const score=find(root,'score');if(score){score.style.textShadow='';score.style.fontWeight='';}
-      showHp(resolution.enemyHpAfter);
+      showHp(resolution.enemyHpAfter);showBossState(resolution.bossStateAfter);
       const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = resolution.killed ? '0' : '1'; enemy.dataset.defeated = String(Boolean(resolution.killed)); }
       clearHighlights(); adapter.clearConnections();
     },
