@@ -92,7 +92,7 @@ PASS는 아래 자동 검사 범위의 실제 결과다. 물리 기기나 주관
 | P49 | PASS | 접근성 | 1024 reducedMotion + effectsOff/muted 실습 완료 |
 | P50 | PASS | 회귀 | production 실습 포함 7전투 실제 완주 |
 | P51 | PASS | 회귀 | legacy 입력/보상/상점 및 완료 프로필 새 원정 |
-| P52 | NOT RUN | 제출 | PR 생성 이후 원격 결과를 기록한다. main/배포는 변경하지 않음 |
+| P52 | PASS | 제출 | 개발 브랜치 push와 PR #3 생성. main/Pages/공개 배포 변경 없음 |
 
 
 ## 개발 중 발견·수정한 실패
@@ -123,4 +123,4 @@ PASS는 아래 자동 검사 범위의 실제 결과다. 물리 기기나 주관
 
 ## 원격 제출
 
-아직 이 문서 작성 시점에는 원격 제출 전이다. PR 생성 후 주소와 commit을 후속 기록한다. main 직접 push·merge·auto-merge·Pages 설정 변경·공개 배포는 수행하지 않는다.
+소스·테스트·증거 commit: `13f83b5babc98dfa01d342d2c0edbdf10b254fca`. 개발 브랜치를 원격에 push했고 [PR #3](https://github.com/YEOMT/grammardealer/pull/3)을 main 대상으로 생성했다. 이 제출 기록은 문서 후속 commit으로 추가한다. main 직접 push·merge·auto-merge·Pages 설정 변경·공개 배포는 수행하지 않았다. 기존 workflow의 PR 배포 guard는 그대로다.
