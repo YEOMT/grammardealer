@@ -89,10 +89,10 @@ test('utility rule calculation is pure and reordering produces no additional res
   assert.equal(resolveAttack(inputFor('I run.', { runes: equipped })).finalPower, 50);
 });
 
-test('all ten active rune level values drive actual effects and descriptions', () => {
-  assert.equal(RUNES.length, 10);
+test('all eleven active rune level values drive actual effects and descriptions', () => {
+  assert.equal(RUNES.length, 11);
   const texts = { 'rune.sv': 'I run.', 'rune.svc': 'She is happy.', 'rune.svo': 'I like dogs.', 'rune.short': 'I run.',
-    'rune.perfectSentence': 'I run.', 'rune.adverbs': 'She is very happy.', 'rune.polished': 'I run.' };
+    'rune.perfectSentence': 'I run.', 'rune.adverbs': 'She is very happy.', 'rune.polished': 'I run.', 'rune.svoo':'She gives me a book.' };
   for (const definition of RUNES) {
     for (let level = 1; level <= 3; level++) {
       assert.notEqual(describeRune(definition.id, level), '후속 버전');

@@ -993,5 +993,8 @@ export const authoredLexemes = [
     "vocabBand": "CORE",
     "glossKo": "저것·그",
     "frameIds": []
-  }
+  },
+  { id:'lex.send.verb', lemma:'send', pos:'VERB', vocabBand:'STANDARD', glossKo:'보내다', frameIds:['frame.svo'], introducedVersion:'0.2.0' },
+  { id:'lex.for.preposition', lemma:'for', pos:'PREPOSITION', vocabBand:'CORE', glossKo:'위하여', frameIds:[], introducedVersion:'0.2.0' },
+  { id:'lex.picture.noun', lemma:'picture', pos:'NOUN', vocabBand:'BEGINNER', glossKo:'그림', frameIds:[], introducedVersion:'0.2.0' },
 ];

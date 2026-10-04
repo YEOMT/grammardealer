@@ -1,8 +1,11 @@
-// Implemented v0.1 values from the supplied handoff. Future systems remain metadata only.
+// Stage 1 values are shared by current campaigns; the legacy 0.1.0 HP view stays explicit below.
 const deepFreeze = (value) => { Object.values(value).forEach((item) => { if (item && typeof item === "object") deepFreeze(item); }); return Object.freeze(value); };
 export const STAGE1 = deepFreeze({
   "id": "stage.01",
   "nameKo": "시작의 초원",
+  "focusFrames": ["frame.sv", "frame.svc.adj", "frame.svc.np", "frame.svo", "frame.beLocative"],
+  "regionLabelKo": "시작의 초원 · 기본 문형 ×1.25",
+  "regionMultiplier": { "num": 5, "den": 4 },
   "rounds": [
     {
       "battleNumber": 1,

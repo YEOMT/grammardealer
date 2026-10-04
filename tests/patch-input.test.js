@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {registry,formsForCard,createSentenceSnapshot} from '../src/data/language/index.js';
+import {registry,legacyRegistry,formsForCard,createSentenceSnapshot} from '../src/data/language/index.js';
 import {analyzeSentence,snapshotFromText} from '../src/engine/grammar/index.js';
 import {resolveAttack} from '../src/engine/stage.js';import {cardModel} from '../src/ui/models.js';
 import {generateStarterDeck,createBattlePiles,validateStarterDeck,VOCABULARY_MODES} from '../src/game/deck.js';
@@ -18,7 +18,7 @@ test('0.1.1 P14: unselected be produces one recoverable form issue and a single 
  assert.deepEqual(analyze('She are happy').issues.map(i=>i.code),['SUBJECT_VERB_AGREEMENT']);
 });
 test('0.1.1 P15: exposing base be never enables imperative, infinitive, past or progressive grammar',()=>{
- for(const text of ['Be happy','I want to be happy','I was happy','She is being happy','I am reading books','She gives me a book'])assert.equal(analyze(text).status,'UNSUPPORTED',text);
+ for(const text of ['Be happy','I want to be happy','I was happy','She is being happy','I am reading books','She gives me a book'])assert.equal(analyzeSentence(snapshotFromText(text),legacyRegistry).status,'UNSUPPORTED',text);
 });
 test('0.1.1 P41 P43: 28 physical cards and first six preserve real SV plus be adjective learning paths',()=>{
  for(const mode of VOCABULARY_MODES)for(let n=0;n<25;n++){

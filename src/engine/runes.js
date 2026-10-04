@@ -58,7 +58,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
     const definition = RUNE_BY_ID[rune.runeId];
     const value = definition.levelValues[rune.level - 1];
     if (definition.group === 'UTILITY') continue;
-    const matchingFrame = { 'rune.sv': 'FRAME.SV', 'rune.svc': 'FRAME.SVC', 'rune.svo': 'FRAME.SVO' }[rune.runeId];
+    const matchingFrame = { 'rune.sv': 'FRAME.SV', 'rune.svc': 'FRAME.SVC', 'rune.svo': 'FRAME.SVO', 'rune.svoo':'FRAME.SVOO' }[rune.runeId];
     if (matchingFrame && frameHit?.tag === matchingFrame) emit(rune, definition, value, frameHit.cardIds, [frameHit.id]);
     else if (rune.runeId === 'rune.short' && frameHit && scoringCards.length <= 4) emit(rune, definition, value,
       scoringCards.map((card) => card.instanceId), [frameHit.id]);

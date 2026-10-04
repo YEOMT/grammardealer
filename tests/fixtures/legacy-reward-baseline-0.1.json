@@ -1,0 +1,438 @@
+{
+  "sourceCommit": "2fdafeba8c93435844eef2d7aec0f3e25509bde9",
+  "starterSeed": "legacy-reward-source-main",
+  "cases": [
+    {
+      "version": "0.1.0",
+      "seed": 0,
+      "battle": 1,
+      "sha256": "00aaaf478f2b5dbf5e5215993eec90a9abf03daee06e385ca07ceed31ddf0559"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 0,
+      "battle": 2,
+      "sha256": "86cdfa1ea5e083f1b742729a12bd0f39bbb116ca7324782e2d35987d1c78abab"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 0,
+      "battle": 3,
+      "sha256": "d64a7c4900fcc811e17c058212b8422e17babd2762c0fe59c82ec29118f8a385"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 1,
+      "battle": 1,
+      "sha256": "a8e48dac95857dee8f9effbb47bddc8c9281c56aaba9bea6d16315fbecbbff11"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 1,
+      "battle": 2,
+      "sha256": "d25fad5178c78ce651b625172a015022d7c86bc635973d2e0a7817cba9034791"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 1,
+      "battle": 3,
+      "sha256": "1a47f7815ce974fd3bcc0707d32440d74c960cdf6b3bbb2c276db3a110206dfc"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 2,
+      "battle": 1,
+      "sha256": "f689b2a40f5b462b2e98a56c74b621267a2a022b75e2baca132cdafedfcdd113"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 2,
+      "battle": 2,
+      "sha256": "5b8e2155c065a74814e74321e05fe1e6f006040d2e968dd50a4662a46096d792"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 2,
+      "battle": 3,
+      "sha256": "ee17c5d91432f609d1a6a33736ed9fbbc1080f7e1b1c82916d61bb891c87fb63"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 3,
+      "battle": 1,
+      "sha256": "f0953a9a7bbac79832cb7337e6ddd55e2fb79057ed7363cbdbaf3dcfe0f3139b"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 3,
+      "battle": 2,
+      "sha256": "b1719f29788a3dcde214a8e613eda56e24088214708f208be6e5b205bdde03f0"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 3,
+      "battle": 3,
+      "sha256": "18a051b0d9005eb3c73e3ba84bee43eef77386e222c5b1c9e9a6f3bef337bce2"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 4,
+      "battle": 1,
+      "sha256": "f7dac17e9692bf76c724dc5ea5c8835bd09a2b63e2262fdf5d1ff54ba1d43606"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 4,
+      "battle": 2,
+      "sha256": "9b4669b5a7c16be68e5269abc6350d171f6059ee4387a6aa3eb35e97631245b2"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 4,
+      "battle": 3,
+      "sha256": "718a3fe0fe6c3f1a58e04dd4fa529a2bc3aa0796362eb5206ee2fe20e3d56d34"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 5,
+      "battle": 1,
+      "sha256": "0df73de11bf994cdf467b090360d5b3c62c48e35b7b9450be8cd0b826ce8939f"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 5,
+      "battle": 2,
+      "sha256": "db7effbfe6cb863155797cd0007464241b5ea6bb146d25a3edeaffe49e45cc2c"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 5,
+      "battle": 3,
+      "sha256": "8e393398273512f84a635b331230bbb84aa330dc566b80d1063045ea93f98d20"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 6,
+      "battle": 1,
+      "sha256": "0e20833e275b9f4727a0350a5c3bc37252f55948a4f1671dae80276b20e6ccba"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 6,
+      "battle": 2,
+      "sha256": "0b59565ca943f05a61ae944fd2a6b053aa2ed590b85a740d7f10ad73f85a6344"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 6,
+      "battle": 3,
+      "sha256": "6881092737163433cdbbecb327dad84f6d89248787ae5bb813e666fe3994d518"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 7,
+      "battle": 1,
+      "sha256": "6f7f06ddb3f66768d4cb69d5820aa8d97a9045605271a8a2e7efe3dc0c4caa13"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 7,
+      "battle": 2,
+      "sha256": "fcbe07b54005e1ddbff9f69d9828d91a2aa1d76d6f1ff83affb107dba05a3ead"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 7,
+      "battle": 3,
+      "sha256": "30648303773ae3f8baadf6942cf25372952bc3f72790a641728404f720c9059f"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 8,
+      "battle": 1,
+      "sha256": "93981065e4aa07b9834727c1f3d7417789faedf623835bc51be2eb2fe0d9768a"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 8,
+      "battle": 2,
+      "sha256": "506e6e0d1666a9374d1ed26c4a9fda1f8d48726c3274a0e0959912e45994cc47"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 8,
+      "battle": 3,
+      "sha256": "c74424089fe677320fe03a0e17aebd7151829a6c284bdb169856b1ad04afc578"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 9,
+      "battle": 1,
+      "sha256": "510581c3d780da6a9589a4c929c7e810d2c9e32006954072c8cd22eeac88b4b6"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 9,
+      "battle": 2,
+      "sha256": "b9866b460cb0405c94235ac473a5aafe1fe9ca9e2a5141ece43dea948e304749"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 9,
+      "battle": 3,
+      "sha256": "a3a894e4f5c58e76134d9cd6ea977d2b9d229b02305b8b671ee91397fa92d62e"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 10,
+      "battle": 1,
+      "sha256": "5e2b0f5f96a86bdd3e6f7754a88344bdd7fc323b2e4b7327bc352ac2b8b1b108"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 10,
+      "battle": 2,
+      "sha256": "e9c276aaf40060e0ac90be7e4665decfb0fbfd5e8aa1932f332b1e15e77b2e2e"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 10,
+      "battle": 3,
+      "sha256": "9b22b6517bdc0cc07a1f335a6699fb7aac29b389982b3739b3f1cc57e2440543"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 11,
+      "battle": 1,
+      "sha256": "a0c2c9e99117be74b8394be413093f24d03c9d21da1ccffe703b87a99e73ad80"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 11,
+      "battle": 2,
+      "sha256": "9ab0ded55d96ba19625f74f9f6a8dc56e3d752be4c2076db84fe36ba32098a2e"
+    },
+    {
+      "version": "0.1.0",
+      "seed": 11,
+      "battle": 3,
+      "sha256": "25ef9e0e3d159b712a38ed758ada357663ace5deaea98513c1d19b974aecd1f1"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 0,
+      "battle": 1,
+      "sha256": "974b7f19eb08860f7627ca119e8e1c424f23e68584007fcfc7dddb923821939e"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 0,
+      "battle": 2,
+      "sha256": "ca34872228f37e5a4d542a46482076d6dd9d4a5be4078f8f8ed81d775b91f517"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 0,
+      "battle": 3,
+      "sha256": "c4dd879521b85529c5a3cc572d0e65f6cb50d6dca23553e264c7a8cacc09a24c"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 1,
+      "battle": 1,
+      "sha256": "ce2932e9349b99afc1a8e579fb2bce71dd151173f81ff7309de81c5954e76abd"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 1,
+      "battle": 2,
+      "sha256": "57cb4cd5c08e404cfa1a7cf9bc971a0bcdc05719aa348a521392e0eb1cfb590b"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 1,
+      "battle": 3,
+      "sha256": "8a274dc1dfb672279eb25bfbe8dfc7904de6acc1c9feabaa7640be3c57dbc624"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 2,
+      "battle": 1,
+      "sha256": "a2cfee1857a79a6a8beddcadc8b12869d3a57286c90b5e9005c64711bab140a2"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 2,
+      "battle": 2,
+      "sha256": "c800554be01ddb9f22cd38b703db92e602d3a68387007e23615ac6819c8350f1"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 2,
+      "battle": 3,
+      "sha256": "801a5acbcf87912176e94d34c720cb27a0df4674103ece4bfe3f41f8cb67c8e8"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 3,
+      "battle": 1,
+      "sha256": "2c8b1ab9dfae068b57c04bee93ecf3fb36ec4fcdea59864eed8e9e96d695b861"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 3,
+      "battle": 2,
+      "sha256": "963c2a24bf8343b6affd05cc8b3fcfe319c06b6ee1f809d26d70d97e497b9250"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 3,
+      "battle": 3,
+      "sha256": "819866423f9624675d5d39c7002db3bbe4dd6553681f33e890e1603634ba6b39"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 4,
+      "battle": 1,
+      "sha256": "2c5f14901ee2e865f35b4ee8249d183ebf14c0f53edb11a20e9c56b2511d4b57"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 4,
+      "battle": 2,
+      "sha256": "71ace7a00b4546f2c0c08aece26ea605ad8bc6404c026abf546d9cb4d223df65"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 4,
+      "battle": 3,
+      "sha256": "2159975d7461aa2270e8657a8de43caf7af8faa71e0ea63915b0948d4c4c888d"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 5,
+      "battle": 1,
+      "sha256": "d7a8cd5932e4b6ffd4c971c056166e7b1ed07e91f2f25f3f8bdaa001e2359453"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 5,
+      "battle": 2,
+      "sha256": "782cba95f3d74e70741f356aec388d141cfc031681490573ca526c97c62e9811"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 5,
+      "battle": 3,
+      "sha256": "015b27e358521f64245de4ef7b16537abcff2f29ca5215521c6bb970c5da89e1"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 6,
+      "battle": 1,
+      "sha256": "b8115a2282c7a4b81f2c8ea3d77ca32e5999f6c277f83e24965dbae822a02ab6"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 6,
+      "battle": 2,
+      "sha256": "7d7c2a9e284d40d48ea2009baf0ec3b4f1d16a1fdc1409d455b5ce22a86c83be"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 6,
+      "battle": 3,
+      "sha256": "85e9c909756ce9de34a55af5aab8ae2bae9c52df0e11c470b13066fece537488"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 7,
+      "battle": 1,
+      "sha256": "60ca082e7cb7dad4c6da60e36ba67123da875ea666b5667431fb30c78be7da43"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 7,
+      "battle": 2,
+      "sha256": "3f38284fd9df0b8ab9374d67ca25b1302351f78fed4d2f4cf23c10c1a3c59ea6"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 7,
+      "battle": 3,
+      "sha256": "07d6a0dd92cba6b17b3ba8ae2fb80ebded0e8dc7768b4d25ded501642d1dd1b9"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 8,
+      "battle": 1,
+      "sha256": "3b59fb630ed9526f0965c7c7a7f7fb8d1f51fc9849a627cd2f17908fe96aa058"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 8,
+      "battle": 2,
+      "sha256": "af9608598540f4b07e44624335fb0a36cf09ccb8e628f77aad0ee94e6ae6be95"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 8,
+      "battle": 3,
+      "sha256": "307c20dade9dcc47039a991346447f4d898cd1f238c4d6d7e11f20d9a67d7c17"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 9,
+      "battle": 1,
+      "sha256": "a3ed3514206f1a5557d7c29665a0d0c92e33e951294264b25b027fe6b64b6c08"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 9,
+      "battle": 2,
+      "sha256": "6339adbdd8837016ebdbea075651be3f69bbceae609a441480e17a5ccc661480"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 9,
+      "battle": 3,
+      "sha256": "c63103d223d84bda944b785c72ac96eea814e949bb371cc472a819a13f4f95b2"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 10,
+      "battle": 1,
+      "sha256": "ac6a0676507c1c1a219bb006ab24a7ee1169cbd7d680ce4faacbfa9742532a68"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 10,
+      "battle": 2,
+      "sha256": "e0bfb887d8e80a8a15c176cc3fa7e94713aae9c1338c989eda25f76898ce2889"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 10,
+      "battle": 3,
+      "sha256": "81805fad853a2ed223aff7338871d55fff67c92f7af50b1af567a28b86989da2"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 11,
+      "battle": 1,
+      "sha256": "4f660cf4e19d4a43189e830ba83a3a21fc2b798c52dd5f4f7d1a1c81979f9469"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 11,
+      "battle": 2,
+      "sha256": "ed5afefa8af8ae883ed704ea2007830b5fb973e640c4618c93b9bbc61e8d6730"
+    },
+    {
+      "version": "0.1.1",
+      "seed": 11,
+      "battle": 3,
+      "sha256": "a21152492ead639923389f150389d61e7372307d8ba6e9b995ba0ad62bef4c7d"
+    }
+  ]
+}

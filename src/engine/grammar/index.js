@@ -1,6 +1,6 @@
 import {registry as defaultRegistry,makeToken,createSentenceSnapshot} from '../../data/language/index.js';
 import {parseSupportedClause} from './parser.js';
-export const GRAMMAR_VERSION='0.1.1';
+export const GRAMMAR_VERSION='0.2.0';
 export const snapshotFromSlots=createSentenceSnapshot;
 
 /** Development fixture conversion only. Unknown words stay explicitly unsupported.
@@ -17,7 +17,7 @@ export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture'}={}
   const def=defaultRegistry.cards.find(c=>c.lexemeId===selected.lexemeId);
   return makeToken(`${prefix}.${position}`,def.id,selected.id,position);
  });
- return {schemaVersion:1,sentenceId,orderedTokens,...(/[?]/.test(text)?{fixtureCapabilityId:'cap.question'}:{})};
+ return {schemaVersion:1,sentenceId,languageVersion:defaultRegistry.version,orderedTokens,...(/[?]/.test(text)?{fixtureCapabilityId:'cap.question'}:{})};
 }
 const fingerprint=(tokens)=>{
  let value=2166136261;
@@ -36,7 +36,7 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry) {
  let result;
  try {
   if(!snapshot||!Array.isArray(snapshot.orderedTokens))throw new TypeError('Malformed SentenceSnapshot');
-  result=emptyResult(snapshot);
+  result={...emptyResult(snapshot),grammarVersion:languageRegistry.version??GRAMMAR_VERSION};
   if(snapshot.schemaVersion!==1)throw new TypeError('Unsupported snapshot schema');
   if(snapshot.orderedTokens.length>16)return {...result,status:'UNSUPPORTED',messageKo:'문장 카드 한도는 16장입니다.',diagnostics:{limit:'MAX_TOKENS',maximum:16}};
   const ids=new Set();
@@ -53,7 +53,7 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry) {
    const active=candidates.filter(f=>f.runtimeReady);
    return {...token,lex,sense:languageRegistry.senseById[lex.senseIds[0]],forms:active,surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
   });
-  if(snapshot.fixtureCapabilityId||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 구조는 0.1에서 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
+  if(snapshot.fixtureCapabilityId||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
   const parsed=parseSupportedClause(tokens,languageRegistry);
   result={...result,...parsed};
   result.hits=result.grammarHits;result.excludedCardIds=result.coverage.unlicensedCardIds;

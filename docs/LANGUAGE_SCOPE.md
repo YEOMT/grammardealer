@@ -1,62 +1,47 @@
-# 0.1.1 언어 데이터와 판정 범위
+# 0.2 언어 데이터와 판정 범위
 
-구현 기준은 첨부 인계서의 §6–9, §15.2, §17–19 및 `04_LANGUAGE_SEED_MANIFEST_v0_1.json`, `05_ACCEPTANCE_CASES_v0_1.json`이다. 다른 DS 게임 소스는 사용하지 않았다. 어휘 Band는 인계서의 게임용 큐레이션을 그대로 사용하며 공식 CEFR/빈도 등급이라고 주장하지 않는다.
+기존 0.1.1의 현재형 판정과 카드 ID를 보존하고, 0.2 명세의 선별된 현재형 4형식만 추가했다. 영어 전체를 판정하는 범용 작문·번역 엔진이 아니다. 어휘 Band는 게임용 큐레이션이며 공식 CEFR/빈도 등급이 아니다.
 
-## 실제 작성한 데이터
+## 데이터와 버전별 범위
 
-- Lexeme 116개에 한국어 뜻, 품사, 어휘 Band, 형태 ID, 기본 Sense, FrameBinding, Capability, 용법 안내를 작성했다.
-- 실제 덱·보상에서 사용 가능한 Lexeme는 115개다. `recently`는 `runtimeReady=false`이며 후보 가중치가 0이다. 단순 현재형 예문에 억지로 넣지 않고 과거·완료 Pack의 검증 이후 활성화하도록 남겼다. 다른 고급 Band 부사 `clearly`가 남아 있어 해당 Band의 부사 후보가 완전히 비지는 않는다.
-- 243개 형태 중 183개가 현재 UI에서 선택 가능하다. 과거/-ing 등의 예약 형태는 일반 메뉴에 노출하지 않으며 fixture 입력 시 `UNSUPPORTED`다. `read`처럼 현재/과거 철자가 같은 경우에는 현재형으로 설명되는 정상 분석을 우선한다.
-- 내부 Frame은 SV, SVC_ADJ, SVC_NP, SVO, beLocative 5개다. 실제 위치 표현을 가진 beLocative만 학교 문법의 SV로 정규화한다.
-- 활성 보상 후보는 일반 103, 고급 10, 희귀 2개다. 고급 후보는 make/give/show/help/see/become/keep/find/create/develop이며, 모두 구현된 기본 용법을 가진다. 희귀 후보 to/that은 현재 지원 역할만 제공한다. 보상 등급·시작덱 자격은 CardDefinition에 있고 언어 점수·단계 조건으로 쓰지 않는다.
-- 명사는 기본 Sense의 가산성을 사용한다. music/food/water/time/homework/information/knowledge/culture/technology는 이 버전에서 선별한 불가산 용법이다. 모든 파생 의미·전문 용법을 다루는 사전이 아니다.
+- 현재 Lexeme 119개, 실행 가능한 Lexeme 118개, 형태 250개, 선택 가능한 형태 188개, 내부 Frame 6개다. `recently`는 계속 비활성이고 덱·보상 가중치가 0이다.
+- 기존 116개 Lexeme와 Card/Form/Sense ID를 유지한다. `send`(UNCOMMON), `for`(COMMON)를 추가했다. 필수 사례의 `The book gives the dog a picture`를 개별 카드로 검증하기 위해 최소 명사 `picture`(COMMON)도 추가했다. 세 신규 카드는 모두 starterEligible=false여서 기존 28장 시작 덱 후보·품사 분포를 바꾸지 않는다.
+- 현재 활성 카드 후보는 COMMON 105, UNCOMMON 11, RARE 2개다. 기존 give/show/make/to 등의 등급과 현재형은 보존한다. 등급·어휘 Band를 문법 점수나 의미 정오에 사용하지 않는다.
+- 내부 Frame은 SV, SVC_ADJ, SVC_NP, SVO, beLocative, SVOO다. 위치 표현을 가진 beLocative는 기존대로 학교 문법 SV로 정규화한다.
+- 기본 `registry`는 새 0.2 원정과 샌드박스 범위다. `registryForVersion('0.1.0' | '0.1.1')`은 동결된 `legacyRegistry`를 반환한다. 레거시 view는 기존 116개 Lexeme/243개 형태/5개 Frame과 후보 순서를 유지하며 send/for/picture와 활성 SVOO binding을 포함하지 않는다. 로드만으로 문법 범위나 미생성 보상 후보가 확장되지 않는다.
+- `read`처럼 현재/과거 철자가 같은 형태는 기존 formId 정책에 따라 정상 현재형 분석을 유지한다. 과거 형태 ID만으로 미지원 시제를 활성화하지 않는다.
 
-## 실제 판정
+## 실제 파싱
 
-`src/engine/grammar/parser.js`는 등록 형태 확인 → NP/AP/AdvP/PP 구성 → 동사 Sense의 FrameBinding 대조 → 일치·격·관사 검사 → 전체 카드 사용 확인 → 대표 분석 정규화 순서로 실행한다. 정답 문자열 목록, 정규식 한 줄 판정, 미리 작성한 점수, 외부 AI/API를 사용하지 않는다.
+`parser.js`는 등록 형태 확인 → NP/AP/AdvP/PP 합성 → Sense의 FrameBinding 대조 → 일치·격·관사 진단 → 전체 입력 소비 확인 → 대표 분석 정규화 순서로 실행한다. 정답 문자열 사전, AI/API, 카드 순열 탐색, 없는 단어 삽입, 입력 순서 교정을 사용하지 않는다.
 
-명사구에는 한정사/소유한정사, 기본 명사·대명사, 명사 앞 형용사와 정도 수식, 간단한 명사 후치 PP가 포함된다. 부사는 데이터에 명시된 대표 위치만 사용한다. very/really 반복 강조와 `very carefully`, `very quickly`, `very well` 같은 제한된 AdvP도 실제 카드별로 분석한다. `I very like dogs`의 very는 진단하되 카드·수식·룬 기여 대상에서 제외한다.
+기존 명사구·수식 규칙을 사용한다. 명사구는 한정사/소유한정사, 명사·대명사, 명사 앞 형용사와 정도 수식, 제한된 후치 PP를 포함한다. `very carefully`, `very quickly`, `very well` 같은 AdvP도 실제 카드별로 분석한다. `I very like dogs`의 잘못 쓰인 very는 기존대로 카드·수식·룬 기여에서 제외한다.
 
-school은 at/in/to의 제한된 학교 활동 용법, home은 at home 및 go/come/be home만 따로 등록했다. 따라서 `I read school`, `I like home`의 단수 명사에 관사를 생략해도 자동 정상 처리하지 않는다.
+4형식은 `NP(S) + 현재 유한동사 + NP(IO) + NP(DO) + 허용 부사어`다. give/show/make/send 네 동사의 기본 Sense에만 SVOO binding을 활성화했다. IO/DO는 한 단어로 제한하지 않으며 `my friend`, `a very good book`도 실제 NP로 처리한다. 전체 NP 카드 범위는 `clauses[].indirectObjectNodeId/directObjectNodeId`와 해당 node에 있고, 각 head의 역할은 `INDIRECT_OBJECT`/`DIRECT_OBJECT`다. 기존 SVO의 `OBJECT`는 유지한다.
 
-같은 Lexeme·surface의 형태 후보는 registry에서 다시 얻는다. her의 목적격 메뉴 선택이 `Her book`을 틀리게 만들지 않으며, 소유한정형 메뉴 선택이 `I like her`를 틀리게 만들지 않는다. 다른 Lexeme로 자유롭게 품사를 바꾸지는 않는다.
+`give/show/send + DO + to + NP`, `make + DO + for + NP`는 학교 문법 SVO다. 등록된 대응 표현은 `structures[].kind === 'DATIVE_ALTERNATION'`의 비점수 metadata로 표현한다. PP Hit는 한 번만 출력한다. `give ... for ...` 같은 다른 정상 PP 용법은 전역 오류로 만들지 않으며, 등록된 TO 대응 표현이라는 metadata만 부여하지 않는다.
 
-전체 카드열을 설명하는 정상 후보가 먼저다. 정상 후보가 없을 때만 명시된 한정사·격·일치·very 오류의 부분 복구를 사용한다. 없는 be를 삽입하거나 목적어를 만들거나 카드를 재배열하지 않는다. PP의 부착 후보가 여럿이어도 대표 분석 하나와 실제 증거별 Hit만 출력한다.
+정상 전체 입력 분석이 우선이고, 정상 후보가 없을 때만 일치·관사·격 등 기존 작은 오류를 복구한다. SVOO 뼈대가 유지된 부분감점 문장도 `FRAME.SVOO`를 가진다. 생물/무생물이나 자연스러움은 정오 조건이 아니다. 두 번째 NP 뒤에 남은 명사구를 무시해 성공시키지 않는다.
 
-## 안전한 경계
+## 미지원 범위와 한도
 
-- 구조/표면형이 미지원 과거·진행·완료·관계절·to부정사·4/5형식 등의 예약 용법이면 `UNSUPPORTED`다. 후속 FrameBinding은 실행 불가 메타데이터일 뿐 현재 점수 근거가 아니다.
-- 지원 기본 구조에서 동사/필수 목적어·보어/어순이 실패하면 `INVALID_CORE`다. 등록된 기본 의미·용법 밖의 모든 영어를 판정하는 범용 문법 검사기가 아니다.
-- 데이터 참조 오류, 조작된 surface/form ID, 중복 실물 카드 ID, 내부 예외는 `ENGINE_ERROR`다. 미지원 문법으로 숨기지 않는다.
-- 최대 16카드, 구성 후보 128개, 구조 재귀 깊이 4, 작업량 12,000으로 제한한다. 후보/작업량 한도에 걸리면 개발 진단에 제한명을 넣어 `UNSUPPORTED`로 반환한다. 전체 순열 탐색은 없다.
-- Grammar는 점수·룬·강화·적 체력·DOM·서버를 읽지 않는다. 모든 Node/Hit/역할/범위는 실제 `cardInstanceId`에 연결된다.
+- make+목적어+형용사/원형 같은 5형식, to+동사의 부정사, 관계절, 과거·진행·완료·수동·부정·의문문은 계속 `UNSUPPORTED`다. read/take/keep/find/play의 예약 SVOO도 실행하지 않는다.
+- 지원 기본 구조의 주어/동사/필수 목적어·보어/어순 실패는 `INVALID_CORE`다. 조작 surface/form ID, 미등록 카드 참조, 중복 물리 ID, 내부 예외는 `ENGINE_ERROR`다.
+- 최대 16카드, 후보 128개, 구조 재귀 깊이 4, 작업량 12,000을 유지한다. 한도 초과는 제한명을 포함한 `UNSUPPORTED`다.
+- 동일 surface 대명사는 등록 형태 후보를 다시 확인한다. 메뉴의 her 선택이 정상 목적격·소유한정사 분석을 강제 오답으로 만들지 않는다.
+- school은 at/in/to의 학교 활동 용법, home은 at home 및 go/come/be home만 허용한다. 무관한 목적어 용법에 관사 생략을 일반화하지 않는다.
+- Grammar는 룬·가격·지역·HP·한글 템플릿을 읽지 않는다. Node/Hit/역할/진단은 실제 `cardInstanceId`에 연결된다.
 
-## 공개 API
+## 점수와 의미 참고
 
-`src/data/language/index.js`
+SVOO Hit는 한 번 출력하고 Scoring이 기본 ×2를 적용한다. SVO+to/for는 기존 ×1.5와 유효 PP +10만 받으며 대응 metadata의 가산은 없다. 토파즈는 주절 SVOO에 Lv1 ×1.5/Lv2 ×2/Lv3 ×2.5로 공격당 한 번 적용한다. 후보는 현재 원정의 실제 해금에 따르며 기존 열 종류 룬은 유지한다. 지역과 장막은 Stage 엔진이 담당한다.
 
-- `registry`: 동결된 lexemes/forms/morphologies/senses/frames/cards 배열 및 ID별 객체 인덱스.
-- `lexemeForCard(cardDefId | CardInstance | CardDefinition)`
-- `formsForCard(card, {includeUnsupported:false})`
-- `makeToken(cardInstanceId, cardDefId, formId?, position=0)`
-- `createSentenceSnapshot(sentenceSlots, cardInstances, {sentenceId})`
+`meaningPreview`는 기존 분석과 선택 형태를 읽는 별도 의미 참고다. 명확한 SVOO는 `S는 IO에게 DO를 준다/보여준다/보낸다/만들어 준다`를 구성한다. 소유한정사는 선택된 surface/역할을 따라 `my friend → 나의 친구`로 표시한다. PP·긴 수식·템플릿 누락·부분오류 SVOO는 성분별 gloss로 돌아간다. 오류를 조용히 교정한 완전한 뜻처럼 표시하지 않으며 뜻 참고 실패는 문법·점수·공격에 영향을 주지 않는다. 기존 기록과 한글 참고도 보존한다.
 
-`src/engine/grammar/index.js`
+## 공개 API와 검증
 
-- `analyzeSentence(snapshot, registry?)`: 명세의 AnalysisResult. `mainFrameId`, `hits`, `excludedCardIds`는 소비 모듈용 별칭이다.
-- `snapshotFromSlots`: 위 createSentenceSnapshot과 같은 함수.
-- `snapshotFromText(text, {sentenceId, prefix})`: 개발 fixture 편의 변환. 등록 표면형만 카드 ID로 바꾸며 모르는 단어는 `UNSUPPORTED` 표시를 남긴다. 실제 전투 입력은 Card ID 기반이다.
+`src/data/language/index.js`: `registry`, `legacyRegistry`, `registryForVersion(version)`, `lexemeForCard`, `formsForCard`, `makeToken`, `createSentenceSnapshot(slots, instances, {sentenceId, languageVersion})`. 스냅샷은 명시한 언어 context를 기록하며 실제 판정에 대응 registry를 전달한다.
 
-## 실행 검증
+`src/engine/grammar/index.js`: `analyzeSentence(snapshot, registry?)`, `snapshotFromSlots`, 개발 fixture용 `snapshotFromText`. 실제 전투 입력은 개별 카드와 형태 ID다.
 
-아래 원래 규모 설명은 초기 구현의 범위입니다. 이번 실행 결과는 `TEST_REPORT.md`와 `evidence-0.1.1/`을 기준으로 합니다.
-
-`node --test --test-isolation=none tests/grammar.test.js`로 86개 이름 있는 검사를 통과했다. 여기에는 필수 G01–G48 전체, 각 활성 Lexeme의 실제 사용 예, 동사별 동일 Frame을 다른 주어·명사·수식어로 바꾼 114개 생성 조합, 동형어, PP 중의성, 실제 카드 참조, 조작 입력, 16카드 한계 및 20개 추가 경계 입력이 포함된다. 생성문 검사는 수작업 기대값 48건을 대체하지 않는다.
-
-`node tools/validate-data.js`는 ID·참조·Capability·형태·카드 풀 연결 등 2,251건을 검사한다. 이는 영어 전체의 정확성을 보증하는 수치가 아니다. 실제 실행 명령과 최종 통합 결과는 TEST_REPORT를 참조한다.
-
-## 0.1.1 be와 뜻 참고
-
-`form.be.base`를 선택 가능한 표시 원형으로 제공한다. 현재형 절에서 활용 누락은 단일 `BE_FORM_REQUIRED` 진단과 -10, 완전문장 보너스 제외로 처리한다. 명령문/to부정사/과거·진행·완료를 지원한다는 뜻이 아니다.
-
-뜻 참고는 등록한 작은 한국어 템플릿에 한정한다. 현재형 SV/SVC/SVO를 구성하며 play의 다의성, 긴 수식, PP, 템플릿 누락은 전체 번역 대신 성분별 gloss를 제공한다. 문법 판정이나 점수에 영향을 주지 않는다.
+`tests/grammar.test.js`는 기존 fixture/예약 문법 기대값을 레거시 context로 보존하고 현재 활성 어휘·Frame 조합도 검사한다. `tests/language-v0.2.test.js`는 개별 카드 ID의 필수 사례, 다중 카드 IO/DO, 부분오류, 미지원, PP 중복 방지, Stage2 산술 175/262/350/437, 레거시 후보 분리, 토파즈 해금과 의미 fallback을 검사한다. `tests/scoring.test.js`는 기존 열 종류를 포함한 열한 룬의 실제 효과·순서를 검사한다. 실제 명령·환경·전체 회귀·브라우저 결과는 `TEST_REPORT_0.2.md`를 따른다.

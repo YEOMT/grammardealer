@@ -1,0 +1,244 @@
+{
+  "startingMain": "2fdafeba8c93435844eef2d7aec0f3e25509bde9",
+  "branch": "codex/v0.2-stage2-svoo-shop",
+  "version": "0.2.0",
+  "environment": {
+    "os": "Windows",
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "git": "2.51.0.windows.1",
+    "playwright": "1.51.1",
+    "chromium": "134.0.6998.35",
+    "vite": "8.3.2"
+  },
+  "commands": [
+    {
+      "Name": "ci",
+      "Command": "npm.cmd ci --offline",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:04:50.7547391+09:00",
+      "Finished": "2026-10-04T23:05:09.4450296+09:00"
+    },
+    {
+      "Name": "test",
+      "Command": "npm.cmd test",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:05:09.4714899+09:00",
+      "Finished": "2026-10-04T23:06:10.3606082+09:00"
+    },
+    {
+      "Name": "data",
+      "Command": "npm.cmd run validate:data",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:06:10.3753767+09:00",
+      "Finished": "2026-10-04T23:06:12.3335155+09:00"
+    },
+    {
+      "Name": "decks",
+      "Command": "npm.cmd run test:decks",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:06:12.3419078+09:00",
+      "Finished": "2026-10-04T23:06:52.0480527+09:00"
+    },
+    {
+      "Name": "runs",
+      "Command": "npm.cmd run test:runs",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:06:52.0575389+09:00",
+      "Finished": "2026-10-04T23:11:28.6163399+09:00"
+    },
+    {
+      "Name": "entry",
+      "Command": "node tools/simulate-entry.js",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:11:28.6378547+09:00",
+      "Finished": "2026-10-04T23:13:46.4451632+09:00"
+    },
+    {
+      "Name": "build",
+      "Command": "npm.cmd run build",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:13:46.4460877+09:00",
+      "Finished": "2026-10-04T23:13:50.8250596+09:00"
+    },
+    {
+      "Name": "browser",
+      "Command": "npm.cmd run test:browser",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:13:58.88124+09:00",
+      "Finished": "2026-10-04T23:15:56.405234+09:00"
+    },
+    {
+      "Name": "e2e",
+      "Command": "npm.cmd run test:e2e",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:15:56.5067741+09:00",
+      "Finished": "2026-10-04T23:19:26.985144+09:00"
+    },
+    {
+      "Name": "test-hardening",
+      "Command": "npm.cmd test",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:20:51.5589077+09:00",
+      "Finished": "2026-10-04T23:22:01.5465443+09:00",
+      "Environment": ""
+    },
+    {
+      "Name": "build-final",
+      "Command": "npm.cmd run build",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:22:01.6639626+09:00",
+      "Finished": "2026-10-04T23:22:04.5551208+09:00",
+      "Environment": ""
+    },
+    {
+      "Name": "e2e-1024",
+      "Command": "npm.cmd run test:e2e",
+      "ExitCode": 0,
+      "Started": "2026-10-04T23:22:04.5656475+09:00",
+      "Finished": "2026-10-04T23:25:31.6357618+09:00",
+      "Environment": "SB_VIEWPORT=1024x768; SB_EFFECTS_OFF=1; SB_EVIDENCE_SUFFIX=-1024-final"
+    }
+  ],
+  "unitTests": 273,
+  "dataChecks": 2311,
+  "decks": 10000,
+  "runPolicies": [
+    {
+      "policy": "LEARNING",
+      "total": 80,
+      "completed": 40,
+      "defeats": 40,
+      "errors": 0,
+      "bossVeilReleased": 68,
+      "shopArrivals": 80,
+      "firstShopGold": {
+        "min": 18,
+        "median": 19,
+        "max": 22
+      },
+      "purchases": 93,
+      "defeatsByBattle": {
+        "7": 40
+      }
+    },
+    {
+      "policy": "SV_ONLY",
+      "total": 80,
+      "completed": 0,
+      "defeats": 80,
+      "errors": 0,
+      "bossVeilReleased": 0,
+      "shopArrivals": 68,
+      "firstShopGold": {
+        "min": 15,
+        "median": 17,
+        "max": 20
+      },
+      "purchases": 109,
+      "defeatsByBattle": {
+        "2": 3,
+        "3": 9,
+        "4": 7,
+        "5": 19,
+        "6": 14,
+        "7": 28
+      }
+    }
+  ],
+  "entrySummary": {
+    "generatedAt": "2026-10-04T14:13:46.346Z",
+    "command": "node tools/simulate-entry.js",
+    "nodeVersion": "v24.19.0",
+    "source": "Actual controller commands for Stage 1, then entry and an affordable public card purchase if possible, shop leave, and duplicate save restore comparison.",
+    "status": "PASS",
+    "totalRuns": 400,
+    "arrived": 400,
+    "stage1Defeats": 0,
+    "technicalOrPolicyErrors": 0,
+    "missingWitnesses": 0,
+    "grantCounts": {
+      "0": 10,
+      "1": 194,
+      "2": 196
+    },
+    "firstShopGold": {
+      "min": 18,
+      "median": 20,
+      "max": 23
+    },
+    "durationMs": 137387,
+    "limitations": [
+      "Command-level QA is not browser/UI verification.",
+      "Stage 1 defeats remain in the denominator; no seed rerolls or state repairs.",
+      "The policy searches only the current hand during battles; full owned deck inspection is used only after actual Stage 2 entry to validate grants."
+    ]
+  },
+  "officialUi": {
+    "legacy": {
+      "checks": 41,
+      "captures": 25
+    },
+    "new": {
+      "checks": 29,
+      "captures": 19
+    }
+  },
+  "production": [
+    {
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "effectsOff": false,
+      "checks": 17,
+      "attacks": 23,
+      "battles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "offlineStage1": true,
+      "offlineStage2": true,
+      "path": "/nested/sentence-game/"
+    },
+    {
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "effectsOff": true,
+      "checks": 19,
+      "attacks": 23,
+      "battles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "offlineStage1": true,
+      "offlineStage2": true,
+      "path": "/nested/sentence-game/"
+    }
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/index-D2DW3T4v.css",
+      "bytes": 38685,
+      "sha256": "1f115fcbc332754c0702c5cb282aa5b41c9e820186fb6f681077e9e4d2d507eb"
+    },
+    {
+      "path": "dist/assets/index-DlKAOFPT.js",
+      "bytes": 262323,
+      "sha256": "6b381b628256a0d7c31a437448eb1af25dbd9e244bbd61de7e448934fa199fcc"
+    }
+  ],
+  "implementationCommit": "805c0e1496d7a7f177aebf4c354362cc9c6bb82b"
+}

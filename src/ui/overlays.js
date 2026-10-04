@@ -7,7 +7,7 @@ import { canSaveRun } from '../services/localStore.js';
 
 const locked = state => ['RESOLVING', 'PRESENTING', 'TURN_START'].includes(state?.combat?.phase);
 const number = value => Number.isFinite(value) ? value.toLocaleString('ko-KR') : '0';
-const phaseKo = state => ({ STAGE_INTRO: '초원 입장 전', BATTLE: '전투 시작 전', REWARD: '보상 선택', BETWEEN_BATTLES: '전투 사이', CONTENT_COMPLETE: '초원 구간 완료', DEFEAT: '원정 종료' })[state?.status] ?? '원정';
+const phaseKo = state => ({ STAGE_INTRO: '지역 입장 전', STAGE_CLEAR: '초원 클리어', SHOP: '항구 상점', BATTLE: '전투 시작 전', REWARD: '보상 선택', BETWEEN_BATTLES: '전투 사이', CONTENT_COMPLETE: '제공 구간 완료', DEFEAT: '원정 종료' })[state?.status] ?? '원정';
 const sentenceText = resolution => resolution?.sentenceSnapshot?.orderedTokens?.map(token => token.surface).join(' ') ?? '';
 const small = text => el('p', { class: 'muted', text });
 
@@ -82,6 +82,7 @@ const RULES = {
   'FRAME.SV': '주어 + 동사. 목적어 없이 뜻을 마치는 동사를 사용합니다.',
   'FRAME.SVC': '주어 + 동사 + 보어. 보어는 주어의 상태나 정체를 설명합니다.',
   'FRAME.SVO': '주어 + 동사 + 목적어. 목적어는 동사의 대상을 나타냅니다.',
+  'FRAME.SVOO': '4형식은 주어+동사+간접목적어(~에게)+직접목적어(~을) 순서로 만듭니다. give/show/send는 SVO+to, make는 SVO+for 표현도 지원하며, 이 대응 표현은 3형식입니다.',
   'MODIFIER.ADJECTIVE': '형용사는 명사 앞에서 명사를 수식할 수 있습니다.',
   'MODIFIER.ADVERB': '부사는 허용된 위치에서 동사·형용사·부사를 수식합니다.',
   'PHRASE.PP': '전치사 뒤에 명사구를 붙여 장소 등의 정보를 더합니다.',
@@ -178,7 +179,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${savedRun?.version==='0.1.0'?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage 1-${savedRun?.progress?.battleNumber ?? '?'} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && el('p', { text: `${savedRun?.version!=='0.2.0'?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${savedRun?.progress?.stageId==='stage.02'?2:1}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && savedRun?.version!=='0.2.0' && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);
@@ -207,7 +209,7 @@ export function openSaves({ store, profile, state, onLoad }) {
       if (!store?.available || !profile?.playerId) throw Error('로컬 저장소 또는 프로필을 사용할 수 없습니다.');
       slots = await store.listSlots(profile.playerId);
       slotsLoaded = true;
-      message.textContent = present ? '공격 연출 중에는 저장·불러오기를 할 수 없습니다.' : canSave ? '현재 안전 지점을 저장할 수 있습니다.' : '저장은 전투의 첫 조작 전, 보상 선택, 전투 사이, 구간 완료에서 가능합니다.';
+      message.textContent = present ? '공격 연출 중에는 저장·불러오기를 할 수 없습니다.' : canSave ? '현재 안전 지점을 저장할 수 있습니다.' : '저장은 전투의 첫 조작 전, 보상 선택, 전투 사이, 거래를 마친 상점, 구간 완료에서 가능합니다.';
     } catch (error) { message.textContent = `${error.message} 저장 없이 현재 플레이를 계속할 수 있습니다.`; }
     finally { busy = false; if (view.dialog.isConnected) render(); }
   };

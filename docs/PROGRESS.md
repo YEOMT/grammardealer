@@ -1,9 +1,20 @@
-# 진행 상태 — 0.1.1
+# 0.2 integration completed
 
-A 기준 확보 → B 입력/데이터 → C 상태/경제/저장 → D 교육 → E 연출/UI → F 통합 검증 순서로 진행했다. 실제 기존 코드에만 패치를 통합했다.
+Branch: `codex/v0.2-stage2-svoo-shop`.
+Starting main: `2fdafeba8c93435844eef2d7aec0f3e25509bde9`.
+Implementation commit: `805c0e1496d7a7f177aebf4c354362cc9c6bb82b`.
 
-완료: 13개 피드백 코드/데이터, 신규·보존 회귀, 첫/최고 의미 기록, 실제 원정 가이드/별도 연습, 혼합3칸 보상과 대상취소, 레거시 저장 분기, 28장/HP/턴재화, 4해상도/touch/VFX, 오프라인 production 완주, 문서/AGENTS/Pages workflow 및 소스/배포 패키지 준비.
+The six implementation stages are complete: versioned SVOO/Topaz/meaning, stage registry and veil, independent Stage 1 milestone, entry grants/shop/rewards, current/legacy storage and UI, full regression and actual production seven-battle play. Stage 2 HP and prices retain the specification's initial values. Reports and selected evidence are committed separately after the implementation.
 
-이번 새 실행의 수치와 50개 인수 조건 매핑은 `TEST_REPORT.md`, `acceptance-0.1.1.json` 및 `evidence-0.1.1/`에 기록했다. `history/0.1/`의 PASS는 새 결과로 합산하지 않았다. 실제 iPad·원격 CI/Pages·실제 quota 검사는 NOT RUN이다.
+Final local verification on 2026-10-04:
 
-사용자 확인/다음 별도 작업: 실제 GitHub main 반영 및 첫 자동 배포 검증. 본 단계에서는 원격을 변경하지 않았다.
+- `npm.cmd ci --offline`, full 273 unit tests, 2,311 data checks, 10,000 starter decks and production build: PASS.
+- Two QA policies, 160 actual controller runs: 40 complete / 120 defeats / zero technical errors. Every failed seed is retained; this is not human win-rate evidence.
+- 400 actual Stage 2 entries: no technical error, missing witness, duplicate or unnecessary grant; actual purchase/restore/next-draw matched.
+- Entire official browser bundle: PASS; old UI 41 checks/25 captures, new synthetic UI 29 checks/19 captures. Four viewports, hand10/14, sentence16 all +3 fit without smaller cards/buttons/fonts.
+- Production UI: 1366 normal effects and 1024 reduced effects, each 23 real attacks and all seven battles offline. Real shop purchase, shop→lobby→load, completion reload, SVOO/veil, profile idempotence and next expedition verified.
+- Historical fixed evidence: 69 files restored with matching hashes. Raw new/intermediate evidence remains in ignored `.local-validation/v02/`.
+
+[TEST_REPORT_0.2.md](TEST_REPORT_0.2.md) records exact commands, scope, policy failures, old-test context changes and NOT RUN items. [validation/v0.2](validation/v0.2/README.md) contains public summaries and selected captures. No local verification remains blocked. Real devices/other browser engines are NOT RUN.
+
+Publication scope is this branch and a main-targeted PR only. The PR head/checks and final task report are the authority for remote publication status. Main, Pages settings and public deployment remain outside this task's changes. Review the seven-battle sequence before separately authorizing merge/deployment. Future work starts from then-current main while preserving any unmerged branch or uncommitted work.

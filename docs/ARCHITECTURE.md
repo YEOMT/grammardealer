@@ -1,87 +1,78 @@
-# 센텐스 발라트로 0.1.1 구조
+# 센텐스 발라트로 0.2 구조
 
-기존 Vanilla JavaScript ES Modules 프로젝트이며, Vite가 배포용 정적 파일을 생성한다. 런타임에 외부 API·AI·Firebase를 호출하지 않는다. 다섯 계산/연출 엔진을 분리하고, 실제 원정 상태의 커밋은 `RunController`만 수행한다.
+Vanilla JavaScript ES Modules + Vite 구조를 유지한다. 외부 API·AI·Firebase를 런타임에 호출하지 않는다. Grammar → Scoring → Rune → Stage → Presentation 경계를 유지하고 `RunController`만 실제 원정 상태를 커밋한다.
 
-## 실제 모듈
+## 모듈과 소유권
 
 | 경로 | 책임 |
 | --- | --- |
-| `src/main.js` | 앱 초기화, 화면 전환, 프로필/저장과 UI 연결 |
-| `src/contracts.js` | 공통 버전, 직렬화·정수·ID 검사, 값 복사/동결 |
-| `src/data/language/seed.js` | 선별한 어휘 제작 데이터 |
-| `src/data/language/index.js` | Lexeme/Form/Sense/Frame/Card 레지스트리, 현재 가능한 형태, 문장 스냅샷 작성 |
-| `src/engine/grammar/index.js` / `parser.js` | 입력 검증, 제한된 구·절 파싱, 진단, 대표 분석 정규화 |
-| `src/engine/scoring.js` / `numeric.js` | 실제 카드 기여·감점·완전 문장·문형·수식 점수, 안전 정수/유리수 계산 |
-| `src/engine/runes.js` | 위→아래 공격 룬 계산, 입장 시 운영 규칙 스냅샷 |
-| `src/engine/stage.js` | 공격 파이프라인 통합, 지역 배수·적 HP·오버킬, 상태 변경 제안 |
-| `src/engine/meaning.js` / `src/data/koreanSenseTemplates.js` | 기존 분석과 원문에서 한글 뜻 참고만 구성; 점수 엔진과 역방향 의존 없음 |
-| `src/game/tutorial.js` / `src/ui/tutorial.js` | 성공 명령 기반 안내 플래그, 연결된 말풍선, 별도 연습 Controller |
-| `src/engine/presentation.js` | 확정 타임라인 재생, 카드·역할·룬 점등, 돌진/타격, 실패 시 최종 화면 수렴 |
-| `src/game/runController.js` | 명령 검증, 원자적 상태 반영, 턴·승리·보상·다음 전투·완료 처리 |
-| `src/game/deck.js` | 조건부 28장 덱, 실파서 경로 검사, 첫패, 드로우·교환·버리기 |
-| `src/game/rewards.js` | 한 번 생성하는 세 칸 혼합 보상, 고정 후보, 연마/제거, 룬 중복·교체, 건너뛰기 |
-| `src/game/rng.js` | 저장 가능한 시드 PRNG와 deck/reward/shop/encounter 분리 스트림 |
-| `src/game/invariants.js` | 물리 카드의 네 영역 보존 및 자원 한도 검사 |
-| `src/services/localStore.js` | IndexedDB 개인 프로필·3슬롯, 저장 지점/버전 검증, 중복 없는 실적 이벤트 |
-| `src/services/audio.js` / `assets.js` | 자체 합성 효과음, 음량/음소거, 안정적 Asset ID와 이모지 fallback |
-| `src/ui/*.js` / `styles.css` | DOM 표시·입력, 전투/보상/결과/샌드박스·모달, 반응형 배치 |
+| `src/main.js` | 초기화·화면 전환·개인 프로필·저장·UI 명령 연결 |
+| `src/contracts.js` | 직렬화·버전·정수·ID·복사/동결 계약 |
+| `src/data/language/{seed,index}.js` | Lexeme/Form/Sense/Frame/Card, 현재와 레거시 registry view, 문장 스냅샷 |
+| `src/engine/grammar/{index,parser}.js` | 등록 형태·NP/PP 합성·전체 입력·오류/역할 증거·대표 분석 |
+| `src/engine/{scoring,numeric}.js` | 실제 카드 기여·감점·문형/수식 점수·안전 정수와 유리수 |
+| `src/data/runes.js`, `src/engine/runes.js` | 기본10+토파즈 정의·원정 자격·위→아래 적용·운영 규칙 스냅샷 |
+| `src/data/{stage1,stage2,stages}.js` | 3+4 전투 데이터·버전별 지역 view·encounter·장막 초기 정의 |
+| `src/engine/stage.js` | 룬 이후 지역/장막·HP·오버킬·상태 변경 제안 |
+| `src/game/runController.js` | 명령/revision 검증·제안 복사본 커밋·정산·지역·상점·완료 |
+| `src/game/deck.js` | 28장 시작 덱·실파서 witness·첫패·드로우·교환 |
+| `src/game/rewards.js` | 버전별 고정 보상·현재 지역 후보·대상 선택·중복 방지 |
+| `src/game/shop.js` | 항구 1회 입장 재료·고정 상점·원자적 구매/서비스 제안 |
+| `src/game/{rng,invariants}.js` | 분리 시드 스트림·전투 카드 보존·자원 한도 |
+| `src/services/localStore.js` | 기존 IndexedDB·수동3슬롯·저장 검증·개인 기록 멱등 사건 |
+| `src/engine/meaning.js`, `src/data/koreanSenseTemplates.js` | 영어 분석을 읽는 작은 한글 참고; 점수로 역방향 의존 없음 |
+| `src/game/tutorial.js`, `src/ui/tutorial.js` | 실제 성공 행동 안내·독립 재연습 |
+| `src/engine/presentation.js` | 확정 이벤트의 숫자·문법/IO/DO·룬·장막·타격 재생 |
+| `src/ui/{combat,progression,shop,overlays,sandbox}.js` | 화면과 모달·입력; 상태 변경/추첨/점수 계산은 Controller/엔진에 위임 |
+| `src/services/{audio,assets}.js`, `src/ui/styles.css` | 합성 효과음·상대 자원/fallback·기존 반응형 배치 |
 
 ## 공격 계약
 
-1. 편집 UI는 물리 카드 ID와 형태 선택만 변경한다. 편집 중에는 Grammar/Scoring으로 예상 결과를 만들지 않는다.
-2. 제출 시 `SentenceSnapshot.orderedTokens`를 고정하고 Grammar를 호출한다. 모든 surface는 등록된 Lexeme/Form에서 검증한다.
-3. Grammar는 `AnalysisResult`에 `nodes`, `clauses`, `resolvedTokenRoles`, `grammarHits`, `issues`, `coverage`, 진단 정보를 반환한다. 영어 분석에 카드 등급·연마·룬·HP가 들어가지 않는다.
-4. `VALID` 또는 `VALID_WITH_ISSUES`에만 `resolveAttack`을 적용한다. Scoring → Rune → Stage 순서로 하나의 `scoreTimeline`을 만들고 `AttackResolution`을 반환한다.
-5. Controller는 전투 ID·revision을 확인하여 피해, 카드 이동, 턴, 확정 공격 기록을 한 번 커밋한다. 이후 Presentation이 `enemyHpBefore → enemyHpAfter`와 확정 이벤트를 재생한다.
-6. 연출 완료·중단·실패 후에는 `FINISH_PRESENTATION`으로 승리/패배/다음 턴을 결정한다. 마지막 턴의 처치는 승리가 우선이다.
+1. 편집 UI는 물리 카드 ID와 선택 형태만 바꾼다. 제출 전 Grammar/Scoring을 사용해 정답·점수·역할을 미리 표시하지 않는다.
+2. 제출 시 `SentenceSnapshot.orderedTokens`를 고정하고 원정 버전의 registry로 분석한다. surface는 등록된 Lexeme/Form과 일치해야 한다.
+3. Grammar는 실제 ID에 연결된 nodes/clauses/roles/hits/issues/coverage를 반환한다. SVOO는 NP(IO)+NP(DO)를 합성하며 두 NP의 전체 범위와 head 역할을 기록한다.
+4. `VALID`/`VALID_WITH_ISSUES`에만 카드/감점 → 완전문장 → 주절 문형 → 수식 → 룬 → 지역 → 보스 → 최종 순으로 계산한다. 의미 참고·가격·HP는 문법 판정에 들어가지 않는다.
+5. Stage는 HP 및 장막 before/after와 `proposedStateEffects`를 반환한다. Controller는 공격 ID·revision·전투 ID를 확인해 피해·사용 카드·턴·장막·기록을 한 번 커밋한다.
+6. Presentation은 같은 타임라인을 읽는다. 장막은 해제 이벤트에서, HP는 타격에서 표시한다. 종료/skip/watchdog은 표시를 final 상태로 수렴시키고 `FINISH_PRESENTATION`을 한 번 호출한다. 피해를 다시 적용하지 않는다.
 
-`ScoreEvent`는 `before/after`, 연산·피연산자, 출처, 증거 참조, 실제 카드 ID, 한글 표시문을 가진다. UI는 점수·피해를 재계산하지 않는다. 각 배수는 `{num, den}`이며 곱셈마다 내림한다. 안전 정수 범위를 벗어난 값은 기술 오류로 거절한다.
+`ScoreEvent`는 before/after·연산/피연산자·출처·증거·카드 ID·한글 표시문을 가진다. 배수는 `{num,den}`이며 단계마다 내림한다. 안전 정수 범위를 벗어나면 기술 오류로 거절한다. 최종위력·실제 HP 감소·오버킬을 구분한다.
 
-합성 면역 fixture는 `resolveAttack`의 명시적인 개발용 옵션으로만 사용할 수 있다. 현재 Stage 1 적 데이터에는 면역이나 추가 장막이 없고 플레이 흐름에서 fixture를 전달하지 않는다.
+Stage 1은 기본 1~3형식 ×1.25, Stage 2는 주절 SVOO ×1.25다. SVOO 자체는 ×2, 토파즈는 인정된 주절 SVOO에 한 번 ×1.5/×2/×2.5다. 항구 보스 `bossMechanic={id:'SVOO_VEIL',active,multiplier:{num:1,den:4}}`는 비SVOO를 감쇠하고 첫 SVOO부터 해제된다. 합성 면역은 명시적인 테스트 옵션이며 실제 적 데이터와 분리한다.
 
-## 상태와 데이터 소유권
+## 상태 전환과 카드 보존
 
-`RunState`는 순수 직렬화 값이다. `activeCardIds`의 각 카드는 DRAW/HAND/SENTENCE/DISCARD 중 정확히 한 곳에 존재한다. Sentence에 들어간 형태는 slot의 `selection`이며 `CardInstance`의 영구 속성이 아니다.
+새 원정의 지역 진행은 `BATTLE → REWARD → BETWEEN_BATTLES`를 기본으로 하며 초원 최종 보상 뒤 `STAGE_CLEAR → STAGE_INTRO(stage.02) → SHOP → BATTLE`로 연결한다. 항구 최종 보상 뒤에만 `CONTENT_COMPLETE/STAGE2_END`가 된다. 구버전 원정은 `STAGE1_END`로 종료한다.
 
-Controller는 제안 상태를 복사한 뒤 deck/reward helpers를 호출하고 invariant를 만족한 결과만 커밋한다. helpers가 받은 제안 복사본 외의 실제 상태를 변경하는 경로는 없다. 무효 명령·무효 문장·미지원 문장·엔진 오류는 실제 자원과 RNG를 보존한다.
+`RunState`는 순수 직렬화 값이다. Controller는 current를 복사한 proposed state에 helper를 적용하고 불변 조건을 만족한 결과만 커밋한다. 무효 명령·취소·대상 선택 대기·엔진 실패는 실제 자원·RNG를 보존한다. UI 모달 상태·체크 Set·타이머는 RunState에 넣지 않는다.
 
-공격용 룬은 제출 시 순서·레벨 스냅샷을 사용한다. 운영 룬은 `_beginBattle`의 `deriveCombatRules`에서 한 번 계산하여 `combat.rulesSnapshot`에 보관한다. 전투 도중 룬 재배열은 해당 손패·교환을 다시 지급하지 않는다.
+전투 중 `activeCardIds`의 모든 카드는 DRAW/HAND/SENTENCE/DISCARD 중 정확히 한 곳에 있다. 형태 선택은 sentence slot에 저장하며 CardInstance의 영구 속성이 아니다. 지역 전환 때 기존 combat을 닫고 `combat=null`인 항구 소개/SHOP에서 입장·구매·제거를 수행한다. 상점 종료 때 변경된 전체 소유 덱으로 새 piles를 만든다.
 
-승리 재화는 원정/전투별 settlement ID로 한 번 지급한다. 보상은 `offerId`와 `choiceId`를 검사하고, 해결된 offer에 재선택해도 중복 지급하지 않는다. 룬 교체 취소 및 제거 경고 확인 전에는 상태를 보존한다.
+공격 룬은 제출 시 순서·레벨을 스냅샷으로 사용한다. 운영 룬은 `_beginBattle`에서 한 번 `combat.rulesSnapshot`으로 계산한다. 전투 중 재배열은 손패·교환 자원을 다시 지급하지 않는다.
 
-## 저장과 난수
+승리 정산은 원정/전투별 settlement ID, 보상은 offerId/choiceId, 상점은 shopId/itemId·purchased/used 및 Controller의 commandId/revision으로 중복을 막는다. Stage 1 milestone/해금은 새 원정 보스 보상 생성 전에 적용하며 프로필과 원정에 각각 멱등 반영한다. Stage 2 완료는 별도 기록이며 전체 스토리 클리어·다회차·난이도 해금을 발생시키지 않는다.
 
-IndexedDB 이름은 `sentence-balatro-v0-1`, object store는 `profiles`와 `slots`다. 프로필은 독립 `playerId`를 사용하며 표시명이 ID 역할을 하지 않는다. 원정 저장은 프로필별 1~3슬롯을 사용한다.
+## 입장·상점·후보 자격
 
-최초 행동 전 전투·고정 보상·전투 사이·`CONTENT_COMPLETE`만 원정 저장이 가능하다. 저장에는 카드/손패/형태/강화/룬/재화/offer/난수 위치/원정 해금 기준이 포함된다. 저장 복원에서 재셔플·보상 재추첨을 하지 않는다. IndexedDB 트랜잭션 완료 전에 저장 성공을 반환하지 않는다.
+`grantStage2Entry`는 현재 덱의 실제 SVOO binding을 보고 없으면 give, 선택된 대표 경로의 to/for가 없으면 그 연결 카드만 더한다. 지급은 `entryGrants['stage.02']`에 고정한다. 최대2장 후 bounded 실제 문법 witness를 검사하며 부족하면 경고한다. 이후 제거/거절·로드·재표시는 지급을 재실행하지 않는다.
 
-RNG는 `mulberry32-fnv1a-v1`이며 스트림별 state와 cursor를 기록한다. 원정 ID는 식별용이고 덱 seed를 바꾸지 않는다. 같은 결과 재현에는 seed뿐 아니라 설정·버전·해금 기준·사용자 선택도 같아야 한다.
+`createShop`은 입장 처리 뒤 룬1+카드2와 가격을 저장한다. 지역 관련 카드1칸/전체 구현 풀1칸이며 같은 등급 안 fallback trace를 남긴다. 상품 추첨은 `rng.shop`만 쓴다. `buyShopItem`/`useShopService`는 전체 거래를 검증한 뒤 제안 복사본의 재화·instances·소유 목록·사전·구매/서비스 이력을 함께 바꾼다. `closeShop` 후에는 재방문하지 않는다.
 
-## 변경 위치
+기본10룬은 항상 후보이고 토파즈는 새0.2 원정의 `runStartUnlockBaseline ∪ runOwnUnlocks`에 실제 ID가 있어야 한다. runtimeReady와 최대레벨·manifest도 필터링한다. 공개된 보상/상점은 이후 해금으로 바뀌지 않는다. `registryForVersion`은 레거시 카드/언어 범위를 원래 순서로 제공하여 이후 보상의 후보와 RNG 사용을 보존한다.
 
-- 수치: `src/data/balance.js`; 공격 수치 변경 시 `tests/scoring.test.js` 산술 기대값과 실제 파서 통합 검사를 함께 수정한다.
-- 룬: `src/data/runes.js`와 `src/engine/runes.js`; 현재 활성 10종만 등록한다. 미래 항목을 실제 효과 없이 활성화하지 않는다.
-- 적·지역: `src/data/stage1.js`; 적 최대 HP와 표시용 강도 기준이 같은 스냅샷에서 나온다.
-- 어휘·형태·대표 용법: language 데이터와 Grammar; `runtimeReady`/capability와 실제 사용문 테스트를 갖춘 뒤 활성화한다.
-- 그림/BGM: `src/services/assets.js`의 Asset ID와 `public/assets/`; 등록된 상대 경로를 resolver로 해석한다. 현재 필수 외부 그림·BGM은 없다.
-- 화면/연출: UI와 Presentation; 결과 값 변경은 해당 엔진/Controller에서 수행한다.
+## 저장·버전·난수
 
-`src/data/roadmap.js`는 후속 48전투·상점 6회·다른 룬의 메타데이터만 보존한다. 활성 플레이 데이터와 합치지 않는다. `CONTENT_COMPLETE`는 첫 지역의 콘텐츠 경계이며 전체 스토리 클리어와 구분한다.
+IndexedDB는 `sentence-balatro-v0-1`, version1, `profiles`/`slots`를 유지한다. 프로필 ID와 표시명은 분리하며 수동3슬롯의 transaction 완료 후 성공을 알린다. 새 원정 버전은0.2.0, 기존0.1.0/0.1.1은 원정 내용·완료 경계를 자동 확장하지 않는다.
 
-## 검증 연결
+안전 지점은 초기 전투·고정 보상·전투 사이·STAGE_CLEAR·안정된 SHOP·CONTENT_COMPLETE이다. 항구 소개 단계에서는 저장을 열지 않고 입장 후 SHOP에서 저장한다. 대상 모달/거래 중·공격 연출 중 저장하지 않는다. shop combat=null은 정상이다. 저장에는 manifest·입장 이력·상품/가격/구매·서비스 사용·paidRemovalCount·장막·RNG가 들어간다. 복원은 셔플·상품/보상 추첨을 반복하지 않는다.
 
-`tests/`는 언어·산술·덱·명령·보상·저장·연출을 실제 모듈에 연결한다. 덱 10,000 seed 검사는 `tools/simulate-decks.js`, 실제 명령 기반 제한된 플레이 검사는 `tools/simulate-runs.js`로 실행한다. 브라우저와 시각적 검증은 별도 증거를 남긴다. 검증 범위와 PASS/FAIL/NOT RUN의 최종 근거는 `TEST_REPORT.md`에 둔다.
+`VERSIONS`는 game/save/language/grammar/balance/reward/meaning/runes를0.2.0으로 기록하고 동작이 유지된 generator/tutorial/presentation 계약은0.1.1을 유지한다. 단계별 version 문자열은 실제 관련 모듈이 보고하며 구버전 공격의 언어 context는 registry view에서 온다.
 
-## 0.1.1 연결 규칙
+RNG는 `mulberry32-fnv1a-v1`의 deck/reward/shop/encounter 네 stream이며 state/cursor를 저장한다. runId는 식별자이고 seed에 섞지 않는다. 동일 버전·설정·초기 해금·선택·RNG에서 재현한다. UI/도감/취소/visual 효과는 게임 RNG를 소비하지 않는다.
 
-- `src/contracts.js`의 `VERSIONS`와 새 원정의 `contentVersions`에 game/save/language/grammar/balance/generator/reward/meaning/tutorial/presentation 0.1.1, rune 0.1.0을 기록한다. 실제 룬 수치는 바뀌지 않았다.
-- 체크는 `main.js`의 UI Set이다. 각 render에서 실제 hand ID와 교집합을 취하며, 성공한 EXCHANGE/PREPARE/SUBMIT/전투 진입에 해제한다. body 이동·form·drag는 기존 명령을 재사용한다.
-- be 원형은 `UNSELECTED_BE` 역할이다. 현재형 코어를 알아보되 `BE_FORM_REQUIRED` 10점 진단을 한 번 남긴다. 다른 capability를 활성화하지 않는다.
-- R1/R3 새 보상은 슬롯별 유효 유형 가중치 추첨이다. 카드/룬 ID 중복과 서비스 중복은 다음 슬롯 pool에서 제외하며 trace를 남긴다. R2는 3룬 예외. 기존 0.1 offer는 레거시 분기로 유지한다.
-- 서비스 칸 선택과 취소는 UI만 바뀐다. Controller의 최종 CHOOSE에는 frozen choiceId와 targetCardInstanceId가 필요하다. 교체/제거 경고 전에 clone을 커밋하지 않는다. 연마 결과는 커밋 후 확인 모달로 보여준다.
-- 새 전투 HP는 최종값 91/156/286이다. `stageRoundsForRun` / encounter의 version 분기로 0.1 원정은 70/120/220을 유지한다. 로드 시 배수를 다시 곱하지 않는다.
-- FINISH_PRESENTATION에서 승리를 먼저 처리하고 settlement ID별 기본 골드와 남은 턴 ×1을 정산한 다음 offer를 만든다. 보상 skip은 별개의 1회 정산이다.
-- 첫 SUBMIT 설명 guard는 Grammar 호출보다 앞이다. ACK 후 다시 같은 SUBMIT을 실행한다. 가이드 완료/건너뛰기를 구분하고, 다른 합법 문장으로 먼저 공격한 경우 미수행 행동을 성공으로 표시하지 않고 ALTERNATIVE_PLAY로 기록한다.
-- 도감의 firstLearning/bestLearning은 작은 의미/문법 요약이다. old string-only 기록은 보존하며 해석 정보 없음으로 표시한다. 최근 공격은 기존 12개 한도다.
-- 연출은 카드 170ms, 문법 550ms, 룬 flight 220ms + read 520ms. 동작 줄이기/효과 감소는 읽는 시간을 바꾸지 않는다. 총 예상 시간 + max(2초,35%) watchdog을 쓴다. 중단 시 표시만 final HP로 수렴하며 피해를 다시 커밋하지 않는다.
-- `.github/workflows/deploy-pages.yml`은 main의 테스트/빌드 성공에 의존하는 Pages 배포를 준비한다. 실제 원격 실행 결과는 별도 확인해야 한다.
+## 검증과 변경 위치
+
+수치 변경은 `data/balance.js`, 새 지역 HP는 `data/stage2.js`, 상점 가격은 `game/shop.js`의 `SHOP_BALANCE`에서 이뤄진다. 이번 항구 HP·가격은 명세 초깃값 그대로다. 어휘·Sense·형태를 늘릴 때는 실제 Parser 예문과 capability/레거시 검사를 함께 추가한다. 학생 UI와 Presentation은 계산값을 다시 만들지 않는다.
+
+`tests/stage2-shop.test.js`, `tests/v02-progression-storage.test.js`, 새 언어·연출 테스트가 실제 모듈을 연결한다. 과거 main의 레거시 보상 golden fixture는72개 후보·RNG 사례를 고정한다. 10,000 시작 덱은 `simulate-decks`, 실제 명령 완주는 `simulate-runs`, 정상 초원 후 입장400시드는 `simulate-entry`가 담당한다. UI 합성 배치와 production 실제 7전투는 별도 브라우저 검사다. 정확한 실행 상태와 한계는 `TEST_REPORT_0.2.md`를 따른다.
+
+`data/roadmap.js`의48전투·상점6회·미래 룬은 후속 메타데이터다. 활성 지역 registry에 미래 전투를 합치지 않는다. `.github/workflows/deploy-pages.yml`은 기존 main 비PR 배포 조건을 유지하며 이번 작업에서 Pages 설정이나 main을 변경하지 않는다.

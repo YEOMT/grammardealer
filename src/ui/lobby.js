@@ -15,8 +15,8 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     button('수동 저장 불러오기',onLoad,'secondary full-width'),
     el('p',{class:'local-note',text:'이 기기에 기록되는 개인 원정 · 계정 없이 플레이'}));
   const preview=el('div',{class:'hero-card-fan','aria-hidden':'true'},[['I','대명사','PRONOUN'],['make','동사','VERB'],['stories','명사','NOUN']].map(([word,pos,type],i)=>el('div',{class:`hero-word-card pos-${type} fan-${i}`},el('span',{text:pos}),el('strong',{text:word}),el('small',{text:'10  ◇'}))));
-  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SB / SENTENCE BALATRO'}),el('nav',{},button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.1.1 PLAY POLISH'}))),
+  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SB / SENTENCE BALATRO'}),el('nav',{},button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.2 · 전달의 항구'}))),
     el('main',{class:'lobby'},el('section',{class:'hero'},el('div',{class:'eyebrow hero-eyebrow'},el('span',{class:'tiny-diamond'}),'WORDS BECOME POWER'),el('h1',{},'센텐스',el('br'),el('span',{text:'발라트로'})),el('p',{class:'hero-description',text:'단어를 잇고, 문장을 완성하고.\n당신의 한 문장이 모험의 힘이 됩니다.'}),preview,
-    el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01'}),el('div',{},el('span',{class:'eyebrow',text:'THE FIRST CHAPTER'}),el('h3',{text:'시작의 초원'}),el('p',{text:'세 번의 전투 · 첫 번째 룬 · 초원 수호자'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
-    el('footer',{class:'lobby-footer'},el('span',{text:'현재형 · 1·2·3형식으로 시작하는 첫 모험'}),button('문장 샌드박스 ↗',onSandbox,'quiet')));
+    el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01–02'}),el('div',{},el('span',{class:'eyebrow',text:'SEVEN BATTLES'}),el('h3',{text:'시작의 초원 → 전달의 항구'}),el('p',{text:'총 7전투 · 첫 상점 · 4형식과 토파즈 룬'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
+    el('footer',{class:'lobby-footer'},el('span',{text:'현재형 · 1·2·3·4형식으로 이어지는 모험'}),button('문장 샌드박스 ↗',onSandbox,'quiet')));
 }

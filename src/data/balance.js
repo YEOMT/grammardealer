@@ -1,8 +1,8 @@
 // Implemented v0.1 values from the supplied handoff. Future systems remain metadata only.
 const deepFreeze = (value) => { Object.values(value).forEach((item) => { if (item && typeof item === "object") deepFreeze(item); }); return Object.freeze(value); };
 export const BALANCE = deepFreeze({
-  "specVersion": "play-polish-0.1.1",
-  "gameVersionTarget": "0.1.1",
+  "specVersion": "harbor-0.2.0",
+  "gameVersionTarget": "0.2.0",
   "combat": {
     "startingDeckSize": 28,
     "initialHand": 6,
@@ -113,6 +113,10 @@ export const BALANCE = deepFreeze({
       "frame.svo": {
         "num": 3,
         "den": 2
+      },
+      "frame.svoo": {
+        "num": 2,
+        "den": 1
       }
     },
     "modifierAdds": {
