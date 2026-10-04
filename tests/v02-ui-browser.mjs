@@ -18,7 +18,7 @@ try{
   assert.match(await page.locator('.version-badge').innerText(),/0\.2/);
   await page.evaluate(async()=>{
     const [{RunController},{newProfile,LocalStore},{renderIntro,renderStageClear,renderResult},{renderShop},{openDeck,openDictionary,openRecords,openSaves},{RUNE_BY_ID}]=await Promise.all([
-      import('/src/game/runController.js'),import('/src/services/localStore.js'),import('/src/ui/progression.js'),import('/src/ui/shop.js'),import('/src/ui/overlays.js'),import('/src/data/runes.js')]);
+      import('/tests/helpers/legacy-controller.js'),import('/src/services/localStore.js'),import('/src/ui/progression.js'),import('/src/ui/shop.js'),import('/src/ui/overlays.js'),import('/src/data/runes.js')]);
     const profile=newProfile('0.2 isolated UI fixture');profile.guideSeen=true;
     const initial=new RunController({profile});initial.dispatch({type:'NEW_RUN',config:{seed:'v02-ui-fixture'}});
     const source=initial.getState();source.progress={stageId:'stage.02',roundIndex:0,battleNumber:4,contentBoundary:null};source.economy.gold=100;

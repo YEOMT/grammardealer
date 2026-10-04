@@ -1,12 +1,13 @@
+import {playGuided} from './helpers/guided-browser.mjs';
 import {chromium} from '@playwright/test';
 import assert from 'node:assert/strict';import fs from 'node:fs/promises';import {spawn} from 'node:child_process';
 import {RunController} from '../src/game/runController.js';import {rankPlayableCandidates,exchangeSelection} from '../tools/simulate-runs.js';
 import {registry} from '../src/data/language/index.js';
-const port=Number(process.env.SB_E2E_PORT||4174);const base=`http://127.0.0.1:${port}/nested/sentence-game/`;
+const port=Number(process.env.SB_E2E_PORT||4174);const base=`http://127.0.0.1:${port}/grammardealer/`;
 const viewport=JSON.parse(process.env.SB_VIEWPORT||'{"width":1366,"height":768}');
 const suffix=process.env.SB_EVIDENCE_SUFFIX||'';const effectsOff=process.env.SB_EFFECTS_OFF==='1';
-const evidence='docs/evidence-0.2';const policy='LEARNING';
-const server=spawn(process.execPath,['tools/static-server.mjs','dist',String(port)],{stdio:['ignore','pipe','pipe']});
+const evidence=process.env.SB_EVIDENCE_DIR||'.local-validation/v021/e2e';const policy='LEARNING';
+const server=spawn(process.execPath,['tools/static-server.mjs','dist',String(port),'/grammardealer/'],{stdio:['ignore','pipe','pipe']});
 await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',c=>c&&reject(Error('Server failed')));});
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 const context=await browser.newContext({viewport});const page=await context.newPage();page.setDefaultTimeout(12000);
@@ -34,9 +35,11 @@ try{
  await capture('lobby');await page.locator('#player-name').fill('검증 여행자');await page.locator('.seed-details summary').click();await page.locator('#run-seed').fill('run-sequence.1');await page.locator('#start-run').click();await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
  const initial=await saveSlot(1),profile=(await readRows('profiles'))[0];shadow=new RunController({initialState:initial,profile});
  await loadSlot(1);const again=await saveSlot(1);assert.deepEqual(again,initial);record(['P01','P02','U12','U13'],'production subpath, profile and initial six-card save/load exact (including RNG)');
- const beforeDict=await saveSlot(1);await page.getByRole('button',{name:'사전',exact:true}).click();await capture('dictionary');await closeModal();const afterDict=await saveSlot(1);assert.deepEqual(afterDict,beforeDict);record(['P10'],'dictionary open/close does not consume RNG or mutate run');
+ await playGuided(page,{capture});
+ const tutorialReward=await saveSlot(2);assert.equal(tutorialReward.economy.gold,5);assert.equal(tutorialReward.activeCardIds.length,28);assert.equal(tutorialReward.stats.attacks,0);shadow=new RunController({initialState:tutorialReward,profile:(await readRows('profiles'))[0]});record(['V021-P15','V021-P21','V021-P29','V021-P31','V021-P32'],'mandatory tutorial completed through actual UI, engine scores 30/87, gold 5 and normal deck restored');
+
  await context.setOffline(true);record(['P11'],'network disabled after all initial static resources loaded');
- let attacks=0;let exercised=false;let rewardSaved=false;let maxLoops=0;let svooCaptured=false,veilCaptured=false;const playedBattles=new Set();
+ let attacks=0;let exercised=false;let rewardSaved=false;let maxLoops=0;let svooCaptured=false,veilCaptured=false;const playedBattles=new Set([1]);
  while(++maxLoops<120){
   const state=shadow.getState();
   if(state.status==='CONTENT_COMPLETE')break;
@@ -66,6 +69,7 @@ try{
   assert.equal(state.status,'BATTLE');
   playedBattles.add(state.progress.battleNumber);
   if(state.progress.battleNumber===2&&!exercised){
+   const beforeDict=await saveSlot(1);await page.getByRole('button',{name:'사전',exact:true}).click();await capture('dictionary');await closeModal();assert.deepEqual(await saveSlot(1),beforeDict);record(['P10'],'dictionary remains resource and RNG neutral after tutorial');
    if(effectsOff){await page.getByRole('button',{name:'설정',exact:true}).click();await page.getByLabel('음소거',{exact:true}).check();await page.getByLabel('효과 감소',{exact:true}).check();await capture('muted-reduced-effects');await closeModal();}
    await prepare();const after=shadow.getState();const candidate=rankPlayableCandidates(after,{policy})[0];const used=new Set(candidate.slots.map(s=>s.cardInstanceId));const ids=after.combat.handIds.filter(id=>!used.has(id)).slice(0,1);
    if(ids.length){for(const id of ids)await page.locator(`.hand-cards [data-card-id="${id}"] .card-select`).click();await capture('exchange-selection');await page.locator('#discard-selected').click();await cmd({type:'EXCHANGE',cardIds:ids});}
@@ -91,11 +95,11 @@ try{
  await page.getByRole('button',{name:'완료 상태 저장',exact:true}).click();await page.getByRole('button',{name:'슬롯 3 불러오기',exact:true}).click();await page.getByRole('heading',{name:'전달의 항구 완료',exact:true}).waitFor();await capture('stage2-complete-restored');assert.deepEqual((await readRows('slots')).find(r=>r.slot===3).run,savedFinal);record(['V02-P27'],'completed seven-battle save restores its exact completion screen without another milestone');
  const finalProfile=(await readRows('profiles'))[0];assert.equal(finalProfile.qualifiedRunIds.length,1);assert.equal(finalProfile.stage2CompletedRunIds.length,1);assert.equal(finalProfile.storyClearCount,0);record(['P05'],'Stage 1 milestone and Stage 2 completion each persisted once, no story clear');
  await page.getByRole('button',{name:'기록 보기',exact:true}).click();await capture('sentence-codex');await closeModal();assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['P06'],'reading attack history does not reapply profile records');
- await page.locator('#new-run-result').click();await page.locator('#start-battle').waitFor();await page.locator('#start-battle').click();assert.equal(await page.locator('.tutorial-bubble').count(),0);record(['R04'],'new expedition works offline and previously seen guide is not forced');
+ await page.locator('#new-run-result').click();await page.locator('#start-battle').waitFor();await page.locator('#start-battle').click();assert.equal(await page.locator('.tutorial-bubble').count(),0);assert.equal(await page.locator('.guided-coach').count(),0);record(['R04'],'new expedition works offline and previously seen guide is not forced');
  await context.setOffline(false);await page.goto(base+'#sandbox');await page.getByLabel('문법 테스트 사례',{exact:true}).selectOption('G01');await page.locator('#sandbox-analyze').click();assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['P06'],'sandbox analysis does not modify persisted profile');
  await page.reload();await page.getByRole('heading',{name:'문장 실험실',exact:true}).waitFor();await page.getByRole('button',{name:'← 로비',exact:true}).click();await page.goBack();await page.getByRole('heading',{name:'문장 실험실',exact:true}).waitFor();record(['U13'],'production hash route refresh and browser back');
  assert.deepEqual(errors,[]);assert.deepEqual(consoleErrors,[]);assert.deepEqual(failedRequests,[]);assert.deepEqual(badResponses,[]);assert.ok(requests.every(url=>url.startsWith(`http://127.0.0.1:${port}`)));record(['U14'],'no page/console errors, failed resources or external runtime requests');
- await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',browser:await browser.version(),viewport,effectsOff,seed:'run-sequence.1',policy,urlPath:'/nested/sentence-game/',offlineFullStage1:true,offlineFullStage2:true,playedBattles:[...playedBattles],svooCaptured,veilCaptured,attacks,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
- console.log(`Production E2E PASS (${attacks} real attacks)`);
+ await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',browser:await browser.version(),viewport,effectsOff,seed:'run-sequence.1',policy,urlPath:'/grammardealer/',offlineFullStage1:true,offlineFullStage2:true,playedBattles:[...playedBattles],svooCaptured,veilCaptured,attacksAfterTutorial:attacks,totalActualAttacks:attacks+2,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
+ console.log(`Production E2E PASS (${attacks+2} real attacks including two guided attacks)`);
 }catch(error){await capture('e2e-failure');await fs.writeFile(`${evidence}/production-browser-failure${suffix}.json`,JSON.stringify({error:error.stack,errors,checks},null,2));throw error;}
 finally{await browser.close();server.kill();}

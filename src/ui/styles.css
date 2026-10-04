@@ -84,3 +84,25 @@
   .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:8px}
   .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
 }
+/* 0.2.1: the check is part of the card footer, with its own non-overlapping touch area. */
+.word-card.selected:after{content:none}
+.hand-cards .selectable-card .card-body{min-height:64px;padding-bottom:0}
+.hand-cards .selectable-card .card-word{margin:5px -2px}
+.selectable-card>.card-footline{position:relative;min-height:44px;padding:0 46px 0 7px;border-top:1px solid #d5cbb466}
+.word-card .card-select{right:0;bottom:0;font-size:17px;border-radius:0 0 6px 0}
+.word-card .card-select[aria-pressed=true]{background:#d9bf7244}
+.hand-cards.expanded-hand .selectable-card .card-body{min-height:60px}
+@media(min-width:1650px){.hand-cards .selectable-card .card-body{min-height:94px}}
+.guided-coach{position:fixed;z-index:9100;background:#20392cf5;border:1px solid #e5cb87;border-radius:12px;padding:16px;box-shadow:0 8px 35px #0008;color:#f4ead0;max-height:calc(100vh - 80px);overflow:auto}
+.guided-coach strong{font-size:14px;color:#edcc80}.guided-coach p{font-size:16px;line-height:1.6;margin:9px 0}
+.guided-actions{display:flex;gap:8px;flex-wrap:wrap}.guided-actions button{min-height:44px;font-size:14px;padding:8px 12px}
+.guided-spotlight{position:fixed;pointer-events:none;z-index:9098;border:2px solid #efd384;border-radius:9px;box-shadow:0 0 20px #efd38444}
+.guided-arrow{position:fixed;pointer-events:none;z-index:9099;color:#ffe196;font-size:27px}
+.guided-coach[data-target-missing=true]:before{content:'안내 대상을 찾지 못했습니다. 창 크기를 조정하거나 실습을 다시 시작하세요.';display:block;color:#ffd8aa;font-size:16px}
+.impact-ring{position:absolute;left:50%;top:50%;width:110px;height:110px;border:4px solid #ffe5a3;border-radius:50%;pointer-events:none;box-shadow:0 0 28px #ffe5a366}
+.guided-spotlight{box-shadow:0 0 0 100vmax #0002,0 0 20px #efd38444}
+.guided-arrow{animation:guided-nudge .65s ease-in-out 2}
+.guided-destination{position:fixed;pointer-events:none;z-index:9099;border-left:3px dashed #ffe196;color:#ffe196;padding-left:5px;font-size:12px;writing-mode:vertical-rl}
+@keyframes guided-nudge{50%{transform:translateX(5px)}}
+@media(prefers-reduced-motion:reduce){.guided-arrow{animation:none}}
+.effects-off .guided-arrow{animation:none}

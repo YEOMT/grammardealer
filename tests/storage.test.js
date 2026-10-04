@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { newProfile, applyProfileEvent, canSaveRun, validateRunState, LocalStore } from '../src/services/localStore.js';
-import { RunController } from '../src/game/runController.js';
+import { RunController } from './helpers/legacy-controller.js';
 import { registry } from '../src/data/language/index.js';
 
 // Start through the real controller, then use its actual physical deck checkpoint.

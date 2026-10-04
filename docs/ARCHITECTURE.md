@@ -1,3 +1,11 @@
+## 0.2.1 추가 경계
+
+- guidedTutorial.js는 고정 28장, 보관한 일반 덱/RNG, 세션·시도·cue·revision 검증을 제공하고 커밋은 RunController만 수행한다. 두 공격은 기존 Grammar → Scoring → Stage 경로로 30/87을 계산한다. 완료 직전 정상 덱을 원자 복원한 다음 기존 보상 생성기를 호출한다.
+- presentationClock.js는 활성 애니메이션 시간만 센다. 사용자 설명 gate와 숨겨진 탭 시간은 watchdog 예산에서 제외한다. guided 중단은 FINISH를 호출하지 않고 같은 확정 resolution 재생 또는 재시작/나가기를 제공한다. 공격 ID에는 실습 시도 번호를 포함한다.
+- guidedCoach.js는 실제 DOM rect/ResizeObserver에 맞춰 안내를 배치한다. 카드 선택 체크는 본문과 분리된 44px footer 버튼이다. 충돌 강도는 finalPower/고정 최대 HP, 처치 여부와 독립적이다.
+- 새 game/save/language/tutorial/presentation 계약은 0.2.1. grammar/balance/reward/meaning/runes와 shop schema는 0.2.0, generator는 0.1.1을 유지한다. registryForVersion은 0.2.0 view도 별도로 보존하여 fast가 이전 후보에 들어가지 않는다.
+- 수동 저장은 실습 T01과 완료 후 기존 안전 지점만 허용한다. 진행 중 실습/gate는 저장할 수 없다. 시작 저장의 보관 덱·RNG는 로드 때 재생성하지 않는다.
+
 # 센텐스 발라트로 0.2 구조
 
 Vanilla JavaScript ES Modules + Vite 구조를 유지한다. 외부 API·AI·Firebase를 런타임에 호출하지 않는다. Grammar → Scoring → Rune → Stage → Presentation 경계를 유지하고 `RunController`만 실제 원정 상태를 커밋한다.

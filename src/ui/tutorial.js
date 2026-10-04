@@ -1,3 +1,6 @@
+import {attachGuidedCoach,showScoreGate} from './guidedCoach.js';
+import {tutorialCommand,isGuided} from '../game/guidedTutorial.js';
+import {openDeck,openDictionary} from './overlays.js';
 import {el,button,modal,toast} from './dom.js';
 import {tutorialStep} from '../game/tutorial.js';
 import {RunController} from '../game/runController.js';
@@ -26,15 +29,22 @@ export function attachTutorial(root,state,command){const t=state.tutorial;if(!t?
  return()=>{target?.classList.remove('tutorial-target');bubble.remove();window.removeEventListener('resize',place);};
 }
 /** Ephemeral controller/profile. No persistence callback and no access to the live run. */
-export function openTutorialPractice(liveRoot){const practice=new RunController();practice.dispatch({type:'NEW_RUN',config:{seed:'practice.0.1.1'}});practice.dispatch({type:'START_BATTLE'});
- const board=el('div'),overlay=el('section',{class:'practice-overlay'},el('header',{class:'practice-header'},el('strong',{text:'조작 연습 · 원정/재화/기록에 반영되지 않습니다'}),button('연습 닫기',close,'secondary',{id:'close-practice'})),board);let clean=()=>{},busy=false;
- function close(){if(busy)return;clean();overlay.remove();liveRoot.inert=false;}
- async function command(cmd){if(busy)return{ok:false};const before=practice.getState(),result=practice.dispatch(cmd);
-  if(result.needsTutorialExplanation){explainFirstAttack(()=>{practice.dispatch({type:'ACK_ATTACK_GUIDE'});command(cmd);});return result;}
-  if(!result.ok){toast(result.message);return result;}
-  if(result.resolution){busy=true;clean();const view=renderCombat(board,before,{locked:true});try{await playAttack(result.resolution,createDOMPresentation(view.element),{speed:2});}finally{view.cleanup();practice.dispatch({type:'FINISH_PRESENTATION',attackId:result.resolution.attackId});busy=false;}}
-  render();return result;}
- function render(){clean();const s=practice.getState();if(s.status!=='BATTLE'){board.replaceChildren(el('main',{class:'intro-page'},el('h2',{text:'연습을 마쳤습니다'}),button('원래 화면으로 돌아가기',close,'primary')));return;}
-  const view=renderCombat(board,s,{command,openOverlay:()=>toast('연습 화면입니다. 닫으면 원래 원정으로 돌아갑니다.')});const guide=attachTutorial(board,s,command);clean=()=>{view.cleanup();guide();};}
+export function openTutorialPractice(liveRoot){
+ const practice=new RunController();practice.dispatch({type:'NEW_RUN',config:{seed:'practice.0.2.1'}});practice.dispatch({type:'START_BATTLE'});
+ const board=el('div'),overlay=el('section',{class:'practice-overlay'},el('header',{class:'practice-header'},el('strong',{text:'조작 연습 · 원정/재화/기록에 반영되지 않습니다'}),button('연습 닫기',()=>interrupt('exit'),'secondary',{id:'close-practice'})),board);
+ let clean=()=>{},busy=false,abort=null,closed=false;
+ function close(){closed=true;abort?.abort();clean();overlay.remove();liveRoot.inert=false;}
+ function interrupt(mode){abort?.abort();if(mode==='exit'){close();return;}practice.dispatch(tutorialCommand(practice.getState(),{type:'TUTORIAL_RESTART',confirmed:true}));if(!busy)render();}
+ function openOverlay(kind){const s=practice.getState();if(!['deck','draw','discard','dictionary'].includes(kind))return;const r=practice.dispatch(tutorialCommand(s,{type:'TUTORIAL_PANEL_OPEN',kind}));if(!r.ok)return;const view=kind==='dictionary'?openDictionary(s):openDeck(s,kind==='deck'?'all':kind),opened=practice.getState();view.dialog.addEventListener('close',()=>{practice.dispatch(tutorialCommand(opened,{type:'TUTORIAL_PANEL_CLOSE',kind}));render();},{once:true});}
+ async function present(before,resolution){
+  busy=true;clean();const view=renderCombat(board,before,{locked:true});clean=view.cleanup;view.beginPresentation();abort=new AbortController();const signal=abort.signal;
+  const result=await playAttack(resolution,createDOMPresentation(view.element),{guided:true,speed:1,signal,waitForGate:practice.getState().tutorialSession.attackCount===2?gate=>{const s=practice.getState();if(s.tutorialSession.completedSteps.includes(Number(gate.cueId.slice(1))))return;return showScoreGate(board,gate,{signal,onInterrupt:interrupt,confirm:()=>practice.dispatch({...tutorialCommand(s,{type:'TUTORIAL_GATE_ACK',attackId:gate.attackId}),cueId:gate.cueId}).ok});}:undefined});
+  busy=false;abort=null;if(closed)return;
+  if(result.status==='FINISHED')practice.dispatch({type:'FINISH_PRESENTATION',attackId:resolution.attackId});
+  else if(practice.getState().combat.pendingAttackId===resolution.attackId){let view;view=modal('실습 연출 중단',[button('같은 결과 다시 보기',()=>{view.close();present(before,resolution);},'primary'),button('다시 시작',()=>{view.close();interrupt('restart');},'secondary'),button('연습 닫기',()=>{view.close();close();},'quiet')],{closeable:false});return;}render();
+ }
+ async function command(cmd){if(busy||closed)return{ok:false};const before=practice.getState(),result=practice.dispatch(cmd.sessionId?cmd:tutorialCommand(before,cmd));if(!result.ok){toast(result.message);return result;}if(result.resolution)await present(before,result.resolution);else render();return result;}
+ function render(){if(closed)return;clean();const s=practice.getState();if(s.status!=='BATTLE'){board.replaceChildren(el('main',{class:'intro-page'},el('h2',{text:'연습을 마쳤습니다'}),button('원래 화면으로 돌아가기',close,'primary')));return;}
+  const view=renderCombat(board,s,{command,openOverlay});const guide=attachGuidedCoach(board,s,command,{onInterrupt:interrupt});clean=()=>{view.cleanup();guide();};}
  liveRoot.inert=true;document.body.append(overlay);render();return{close,controller:practice};
 }

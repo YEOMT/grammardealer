@@ -1,3 +1,7 @@
+## 0.2.1 개발 브랜치
+
+필수 Stage 1-1 실습, 카드 체크 통합, 충돌/처치 연출, 새 초원 HP를 구현했다. 실제 실행 결과는 TEST_REPORT_0.2.1.md에 분리 기록한다. 이전 보고서의 통과 수는 재사용하지 않는다. main 병합·공개 배포는 별도 검토 단계다.
+
 # 0.2 integration completed
 
 Branch: `codex/v0.2-stage2-svoo-shop`.

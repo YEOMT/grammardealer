@@ -1,3 +1,7 @@
+## 0.2.1 후속 인계 (현재 작업본)
+
+이번 기준은 fetch한 origin/main 78999463640d834a6468a37eb2dd71831e721e84이며 codex/v0.2.1-guided-tutorial-feel에서 개발한다. 아래 0.2 설명은 이전 버전 기록이다. 최신 동작과 실행 증거는 PATCH_NOTES_0.2.1_KO.md / TEST_REPORT_0.2.1.md를 따른다. 새 원정 초원 HP는 77/132/242, 항구는 220/300/380/640이다. 새 실습 완료 플래그가 없는 프로필은 Stage 1-1에서 고정 물리 카드 실습을 진행한다. 구버전 guideSeen은 완료로 간주하지 않는다. 0.1.0/0.1.1/0.2.0 저장에는 이 실습과 HP 변경을 소급하지 않는다.
+
 # 센텐스 발라트로 0.2 — Codex 프로젝트 인계
 
 현재 개발 기준은 작업 시작 시 fetch한 `YEOMT/grammardealer` 최신 `origin/main`이다. 0.2 작업은 `2fdafeba8c93435844eef2d7aec0f3e25509bde9`에서 분기한 `codex/v0.2-stage2-svoo-shop`에서 시작했다. 이 main에는 기존 v0.1.1 소스 이관과 최대 카드 수 UI 수정이 이미 포함되어 있다. 과거 Work ZIP이나 배포 번들로 소스를 대체하지 않는다. 다음 작업도 당시 최신 main과 미커밋 변경을 먼저 확인한다.

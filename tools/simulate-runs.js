@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { performance } from 'node:perf_hooks';
-import { RunController } from '../src/game/runController.js';
+import { RunController } from '../tests/helpers/legacy-controller.js';
 import { findPlayableSentences, VOCABULARY_MODES } from '../src/game/deck.js';
 import { registry, registryForVersion, lexemeForCard } from '../src/data/language/index.js';
 import { resolveAttack } from '../src/engine/stage.js';
@@ -14,7 +14,7 @@ const plainState = state => ({ battle: state.progress.battleNumber, turn: state.
 
 /** QA-only finite search. It reads present hand, never future draw order or openingTrace witnesses. */
 export function rankPlayableCandidates(state,{policy='STANDARD'}={}) {
-  const candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: state.version==='0.2.0'?1800:768, includeModifiers: true, includeSvoo:state.version==='0.2.0',registry:registryForVersion(state.version) });
+  const candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: ['0.2.0','0.2.1'].includes(state.version)?1800:768, includeModifiers: true, includeSvoo:['0.2.0','0.2.1'].includes(state.version),registry:registryForVersion(state.version) });
   const scored = candidates.map(candidate => {
     const cards = candidate.slots.map(slot => {
       const instance = state.cardInstances[slot.cardInstanceId]; const definition = registry.cardById[instance.cardDefId];

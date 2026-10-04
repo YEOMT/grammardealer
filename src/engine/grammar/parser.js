@@ -79,7 +79,7 @@ export function parseSupportedClause(tokens,registry) {
  function parseAdvP(start,position) {
   tick();let p=start;
   while(isDegree(p))p++;
-  if(p>start&&advAllowed(p,position)&&['quickly','slowly','carefully','clearly','well','often'].includes(word(p)))return phrase('AdvP',start,p+1,p,{
+  if(p>start&&advAllowed(p,position)&&['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p)))return phrase('AdvP',start,p+1,p,{
    hits:Array.from({length:p-start+1},(_,n)=>hit('MODIFIER.ADVERB',start+n,start+n+1)),
    roles:Array.from({length:p-start+1},(_,n)=>role(start+n,'ADVERB')),
   });

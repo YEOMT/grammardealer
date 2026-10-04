@@ -1,6 +1,6 @@
 import { authoredLexemes } from './seed.js';
 
-export const LANGUAGE_VERSION = '0.2.0';
+export const LANGUAGE_VERSION = '0.2.1';
 const presentCapability = ['cap.present.basic'];
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
@@ -41,7 +41,7 @@ const adverbPolicies = {
  very:{degree:true,positions:[]}, really:{degree:true,positions:['PRE_VERB','AFTER_BE','END']},
  often:{positions:['FRONT','PRE_VERB','AFTER_BE','END']},always:{positions:['PRE_VERB','AFTER_BE']},
  sometimes:{positions:['FRONT','PRE_VERB','AFTER_BE','END']},usually:{positions:['FRONT','PRE_VERB','AFTER_BE','END']},
- well:{positions:['END']},today:{positions:['FRONT','END']},now:{positions:['FRONT','END']},
+ fast:{positions:['END']},well:{positions:['END']},today:{positions:['FRONT','END']},now:{positions:['FRONT','END']},
  quickly:{positions:['FRONT','PRE_VERB','END']},slowly:{positions:['FRONT','PRE_VERB','END']},carefully:{positions:['FRONT','PRE_VERB','END']},
  clearly:{positions:['FRONT','PRE_VERB','AFTER_BE','END']},recently:{positions:[],requiredCapabilityIds:['cap.past','cap.perfect']},
 };
@@ -110,7 +110,7 @@ export const cardDefinitions = lexemes.map(lex => {
  const starterEligible=runtimeReady&&!lex.introducedVersion&&!['it','we','this','to','that'].includes(lex.lemma);
  const rarity=['to','that'].includes(lex.lemma)?'RARE':uncommon.has(lex.lemma)?'UNCOMMON':'COMMON';
  return {id:`card.${lex.lemma.toLowerCase()}`,lexemeId:lex.id,baseScore:10,rarity,displayCategory:lex.pos,
-  availability:{runtimeReady,starterEligible,rewardWeight:runtimeReady?1:0},runtimeReady,starterEligible,rewardWeight:runtimeReady?1:0};
+  availability:{runtimeReady,starterEligible,rewardWeight:runtimeReady&&!lex.tutorialOnly?1:0},runtimeReady,starterEligible,rewardWeight:runtimeReady&&!lex.tutorialOnly?1:0};
 });
 export const morphologies = lexemes.map(lex=>({id:lex.morphologyId,lexemeId:lex.id,formIds:[...lex.formIds]}));
 export const registry = freeze({version:LANGUAGE_VERSION,lexemes,forms,morphologies,senses,frames,cards:cardDefinitions,cardDefinitions,capabilities,grammarTags,
@@ -130,7 +130,11 @@ const legacyFrames=frames.filter(f=>f.id!=='frame.svoo');
 export const legacyRegistry=freeze({...registry,version:'0.1.1',lexemes:legacyLexemes,senses:legacySenses,forms:legacyForms,cards:legacyCards,cardDefinitions:legacyCards,morphologies:legacyMorphologies,frames:legacyFrames,
  capabilities:capabilities.map(c=>c.id==='cap.svoo'?{...c,runtimeReady:false}:c),grammarTags:Object.fromEntries(Object.entries(grammarTags).filter(([id])=>id!=='FRAME.SVOO')),
  lexemeById:index(legacyLexemes),senseById:index(legacySenses),formById:index(legacyForms),cardById:index(legacyCards),morphologyById:index(legacyMorphologies),frameById:index(legacyFrames)});
-export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:registry; }
+const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
+const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
+const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
+export const campaign02Registry=freeze({...registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
+export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:registry; }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
 export function lexemeForCard(card) {

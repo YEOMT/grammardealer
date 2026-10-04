@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -16,7 +16,7 @@
     "test:e2e": "node tests/e2e.mjs",
     "package": "python3 tools/package-release.py",
     "test:runs": "node tools/simulate-runs.js",
-    "test:browser": "node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs && node tests/v02-ui-browser.mjs"
+    "test:browser": "node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs && node tests/v02-ui-browser.mjs && node tests/guided-browser.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

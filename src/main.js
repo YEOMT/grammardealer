@@ -1,3 +1,5 @@
+import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
+import {attachGuidedCoach,showScoreGate} from './ui/guidedCoach.js';
 import {wordCard} from './ui/cards.js';
 import {cardModel} from './ui/models.js';
 import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutorial.js';
@@ -19,6 +21,7 @@ const root=document.querySelector('#app');
 const store=new LocalStore({registry});
 let profiles=[],profile=null,controller=null,cleanup=()=>{},combatView=null,presenting=false,selected=new Set(),saveQueue=Promise.resolve(),memoryWarning=false,starting=false;
 const defaultSettings={speed:1,sfxVolume:45,muted:false,effectsOff:false};
+let presentationAbort=null;
 let sessionSettings={...defaultSettings};
 const settings=()=>profile?.settings||sessionSettings;
 function applySettings(){const s=settings();audio.configure({muted:s.muted,volume:s.sfxVolume/100});document.body.classList.toggle('effects-off',s.effectsOff);}
@@ -36,7 +39,7 @@ async function startRun(config,{sameSeed=false}={}){
 }
 async function runCommand(command){
   if(presenting)return{ok:false,message:'공격 연출 중입니다.'};
-  void audio.unlock();const before=controller.getState();const result=controller.dispatch(command);
+  void audio.unlock();const before=controller.getState();const result=controller.dispatch(command.sessionId?command:tutorialCommand(before,command));
   if(!result.ok){
     if(result.needsTutorialExplanation){explainFirstAttack(()=>{controller.dispatch({type:'ACK_ATTACK_GUIDE'});runCommand(command);});return result;}
     if(result.needsConfirmation&&command.type==='PREPARE')confirmDialog('마지막 행동 턴','이대로 넘기면 패배합니다. 마지막 턴을 준비에 사용하시겠습니까?','턴 넘기기',()=>runCommand({...command,confirmed:true}));
@@ -48,17 +51,40 @@ async function runCommand(command){
     const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel}),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
   }
   if(result.resolution){
-    selected.clear();presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;combatView.beginPresentation();
-    const resolution=result.resolution;const view=createDOMPresentation(combatView.element,{audio,hpMax:before.combat.enemyState.maxHp});
-    try{await playAttack(resolution,view,{speed:settings().speed,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches});}
-    catch(error){console.warn('Presentation recovered',error);}
-    finally{controller.dispatch({type:'FINISH_PRESENTATION',attackId:resolution.attackId});presenting=false;render();}
+    await presentResolution(before,result.resolution);
   }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();}
   return result;
 }
-function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
+async function interruptTutorial(mode){
+ const state=controller.getState();if(!isGuided(state))return;
+ presentationAbort?.abort();const result=controller.dispatch(tutorialCommand(state,{type:mode==='restart'?'TUTORIAL_RESTART':'TUTORIAL_EXIT',confirmed:true}));
+ if(!result.ok){toast(result.message);return;}selected.clear();
+ if(mode==='exit')changeRoute('lobby');else if(!presenting)render();
+}
+async function presentResolution(before,resolution){
+ selected.clear();presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;combatView.beginPresentation();
+ const guided=isGuided(before);presentationAbort=new AbortController();const signal=presentationAbort.signal;
+ const waitForGate=guided&&controller.getState().tutorialSession.attackCount===2?async gate=>{
+  const current=controller.getState();if(!isGuided(current)||current.tutorialSession.completedSteps.includes(Number(gate.cueId.slice(1))))return;
+  return showScoreGate(root,gate,{signal,onInterrupt:interruptTutorial,confirm:()=>controller.dispatch({...tutorialCommand(current,{type:'TUTORIAL_GATE_ACK',attackId:gate.attackId}),cueId:gate.cueId}).ok});
+ }:undefined;
+ const outcome=await playAttack(resolution,createDOMPresentation(combatView.element,{audio,hpMax:before.combat.enemyState.maxHp}),{guided,waitForGate,signal,speed:guided?1:settings().speed,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches});
+ presentationAbort=null;presenting=false;
+ if(!guided||outcome.status==='FINISHED')controller.dispatch({type:'FINISH_PRESENTATION',attackId:resolution.attackId});
+ const stillPending=controller.getState()?.combat?.pendingAttackId===resolution.attackId;
+ if(guided&&outcome.status==='INTERRUPTED'&&stillPending){
+  let recovery;recovery=modal('실습 연출을 중단했습니다',[el('p',{text:'같은 공격 결과를 다시 보여드립니다. 피해와 재화는 다시 계산하지 않습니다.'}),button('같은 결과 다시 보기',()=>{recovery.close();presentResolution(before,resolution);},'primary'),button('실습 다시 시작',()=>{recovery.close();interruptTutorial('restart');},'secondary'),button('실습 나가기',()=>{recovery.close();interruptTutorial('exit');},'quiet')],{closeable:false});return;
+ }
+ render();
+}
+function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(isGuided(state)){confirmDialog('실습 나가기','완료나 보상 없이 로비로 돌아갑니다.','실습 나가기',()=>interruptTutorial('exit'));return;}if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
 function openOverlay(kind){
   if(presenting)return;const state=controller?.getState();
+  if(isGuided(state)&&['dictionary','deck','draw','discard'].includes(kind)){
+   const result=controller.dispatch(tutorialCommand(state,{type:'TUTORIAL_PANEL_OPEN',kind}));if(!result.ok){toast(result.message);return;}
+   const panel=kind==='dictionary'?openDictionary(state):openDeck(state,kind==='deck'?'all':kind);
+   const opened=controller.getState();panel.dialog.addEventListener('close',()=>{const r=controller.dispatch(tutorialCommand(opened,{type:'TUTORIAL_PANEL_CLOSE',kind}));if(r.ok)render();},{once:true});return panel;
+  }
   if(kind==='dictionary')return openDictionary(state);
   if(kind==='deck'||kind==='draw'||kind==='discard')return openDeck(state,kind==='deck'?'all':kind);
   if(kind==='records')return openRecords(profile,state);
@@ -81,7 +107,7 @@ function render(){
     if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.02'?'ENTER_STAGE':'START_BATTLE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records')});return;}
     if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
-    if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
+    if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=isGuided(state)?attachGuidedCoach(root,state,runCommand,{onInterrupt:interruptTutorial}):attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
     if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}

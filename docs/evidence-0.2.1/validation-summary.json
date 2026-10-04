@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "baseline": "78999463640d834a6468a37eb2dd71831e721e84",
+  "status": "PASS",
+  "unit": {
+    "pass": 284,
+    "fail": 0,
+    "skip": 0
+  },
+  "dataChecks": 2327,
+  "decks": 10000,
+  "browser": {
+    "phaseB": 3,
+    "phaseC": 4,
+    "phaseD": 4,
+    "phaseE": 8,
+    "legacyUI": 41,
+    "stage2UI": 29,
+    "guidedUI": 47,
+    "guidedCaptures": 27
+  },
+  "production": {
+    "battles": 7,
+    "attacks": 22,
+    "path": "/grammardealer/"
+  },
+  "notRun": [
+    "Physical mobile / Safari / Firefox / WebKit",
+    "Actual speaker listening; recordings have no audio"
+  ],
+  "restoredEvidence": {
+    "files": 69,
+    "hashMismatches": 0
+  }
+}

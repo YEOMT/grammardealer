@@ -1,6 +1,8 @@
+import {presentationClock} from './presentationClock.js';
 import {RUNE_BY_ID} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
-export const PRESENTATION_VERSION = '0.1.1';
+export const PRESENTATION_VERSION = '0.2.1';
+export function impactFeel(resolution){const max=resolution.visualBasis?.intensityBaseline||resolution.visualBasis?.enemyBefore?.maxHp||100,ratio=resolution.finalPower/max;return resolution.finalPower===0?{tier:'BLOCKED',ratio,hitStop:0,recoil:0,settle:180}:ratio<.5?{tier:'LIGHT',ratio,hitStop:20,recoil:2,settle:200}:ratio<1?{tier:'HEAVY',ratio,hitStop:75,recoil:7,settle:300}:{tier:'OVERPOWER',ratio,hitStop:110,recoil:10,settle:400};}
 const ALLOWED_SPEEDS = [1, 1.5, 2];
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const safeCall = (view, name, ...args) => typeof view[name] === 'function' ? view[name](...args) : undefined;
@@ -19,7 +21,7 @@ function validateResolution(resolution) {
 export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = false, reducedMotion = false } = {}) {
   validateResolution(resolution);
   if (!ALLOWED_SPEEDS.includes(speed)) throw new RangeError('Presentation speed must be 1, 1.5, or 2');
-  const duration=value=>Math.round(value/speed);
+  const duration=value=>Math.round(value/speed);const feel=impactFeel(resolution);
   let combo=0;
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
@@ -29,7 +31,7 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
   });
   return [{kind:'LOCK',duration:duration(50)},...scores,{kind:'POWER',duration:duration(420)},{kind:'CHARGE',duration:duration(400)},
-    {kind:'LUNGE',duration:duration(200)},{kind:'IMPACT',duration:duration(70)},{kind:'SETTLE',duration:duration(180)}];
+    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)}];
 }
 
 /**
@@ -46,11 +48,11 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
   const basis = resolution.visualBasis?.intensityBaseline ?? resolution.visualBasis?.baselinePower ?? 100;
   const intensity = clamp(resolution.finalPower / (Number.isFinite(basis) && basis > 0 ? basis : 100), .35, 3);
   const impact = { hpBefore: resolution.enemyHpBefore, hpAfter: resolution.enemyHpAfter, finalPower: resolution.finalPower,
-    actualHpLoss: resolution.actualHpLoss, overkill: resolution.overkill ?? 0, killed: Boolean(resolution.killed), intensity };
-  let reason = null, timer = null, wake = null, impacted = false;
-  const interrupt = value => { reason ??= value; if (timer !== null) clearTimeout(timer); wake?.(); };
+    actualHpLoss: resolution.actualHpLoss, overkill: resolution.overkill ?? 0, killed: Boolean(resolution.killed), intensity,feel:impactFeel(resolution) };
+  let reason = null, timer = null, wake = null, impacted = false,clock=null,gateCancel=null;
+  const interrupt = value => { reason ??= value; if (timer !== null) clearTimeout(timer); wake?.(); clock?.close();gateCancel?.(); };
   const onAbort = () => interrupt('aborted');
-  const onVisibility = () => { if (document?.hidden) interrupt('hidden'); };
+  const onVisibility = () => { if(options.guided)safeCall(viewContext,'setPaused',Boolean(document?.hidden));else if(document?.hidden)interrupt('hidden'); };
   const wait = ms => new Promise(resolve => {
     const done = () => { if (timer !== null) clearTimeout(timer); timer = null; wake = null; resolve(); };
     wake = done; timer = setTimeout(done, ms);
@@ -59,16 +61,17 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
   });
   const plannedDuration=timeline.reduce((sum,step)=>sum+step.duration,0);
   const watchdogMs=plannedDuration+Math.max(2000,Math.round(plannedDuration*.35));
-  const watchdog = setTimeout(() => interrupt('timeout'), watchdogMs);
+  const watchdog = options.guided?null:setTimeout(() => interrupt('timeout'), watchdogMs);
+  if(options.guided)clock=presentationClock({document,signal:options.signal,budget:watchdogMs,onTimeout:()=>interrupt('timeout'),...options.clock});
   options.signal?.addEventListener('abort', onAbort, { once: true });
   document?.addEventListener?.('visibilitychange', onVisibility);
   if (options.signal?.aborted) interrupt('aborted');
-  if (document?.hidden) interrupt('hidden');
+  if (document?.hidden&&!options.guided) interrupt('hidden');
   try {
     safeCall(viewContext, 'setLocked', true);
     safeCall(viewContext, 'begin', resolution, { ...options, intensity });
     let scoreStep = 0;
-    for (const step of timeline) {
+    for (const [timelineIndex,step] of timeline.entries()) {
       if (reason) break;
       if(step.kind==='RUNE_FLIGHT'){safeCall(viewContext,'pulseRune',step.runeEvent.sourceId);safeCall(viewContext,'flyRune',step.runeEvent,{duration:step.duration,combo:step.combo});}
       else if (step.kind === 'SCORE') {
@@ -81,23 +84,33 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
       else if (step.kind === 'CHARGE') safeCall(viewContext, 'charge', { duration: step.duration, intensity });
       else if (step.kind === 'LUNGE') safeCall(viewContext, 'lunge', { duration: step.duration, intensity });
       else if (step.kind === 'IMPACT') { impacted = true; safeCall(viewContext, 'impact', impact); }
-      await wait(step.duration);
+      if(step.kind==='RECOIL')safeCall(viewContext,'recoil',{...impact,duration:step.duration});
+      if(options.guided){
+        if(options.wait)await Promise.race([Promise.resolve().then(()=>options.wait(step.duration)),clock.wait(step.duration+2000).then(()=>{if(!reason)interrupt('timeout');})]);
+        else await clock.wait(step.duration);
+      }else await wait(step.duration);
+      const cueId=step.kind==='SCORE'&&step.event.phase==='CARD_BASE'&&timeline[timelineIndex+1]?.event?.phase!=='CARD_BASE'?'T26':step.kind==='SCORE'&&step.event.phase==='COMPLETE_BONUS'?'T27':step.kind==='POWER'?'T28':null;
+      if(options.guided&&options.waitForGate&&cueId&&!reason){
+        clock.pause(true);
+        try{await Promise.race([options.waitForGate({cueId,attackId:resolution.attackId,event:step.event??null,value:step.event?.after??resolution.finalPower}),new Promise(resolve=>{gateCancel=resolve;})]);}
+        finally{gateCancel=null;clock.pause(false);}
+      }
     }
   } catch (error) {
     reason = 'view-error';
     try { safeCall(viewContext, 'onError', error); } catch { /* display errors cannot escape cleanup */ }
   } finally {
-    clearTimeout(watchdog);
+    clearTimeout(watchdog);clock?.close();
     if (timer !== null) clearTimeout(timer);
     options.signal?.removeEventListener('abort', onAbort);
     document?.removeEventListener?.('visibilitychange', onVisibility);
     // Fast-forward the display only. The controller owns the already-committed damage and settlement.
-    for (const [method, args] of [
+    for (const [method, args] of options.guided&&reason?[['cancel',[]],['setLocked',[false]]]:[
       ['setPower', [resolution.finalPower]], ...(!impacted ? [['impact', [impact]]] : []),
       ['clearHighlights', []], ['finish', [resolution, { reason }]], ['setLocked', [false]],
     ]) { try { safeCall(viewContext, method, ...args); } catch { reason ??= 'view-error'; } }
   }
-  return { status: reason ? 'FAST_FORWARDED' : 'FINISHED', reason, attackId: resolution.attackId,plannedDuration,watchdogMs };
+  return { status: reason ? options.guided?'INTERRUPTED':'FAST_FORWARDED' : 'FINISHED', reason, attackId: resolution.attackId,plannedDuration,watchdogMs };
 }
 
 const find = (root, name) => root.querySelector(`[data-presentation="${name}"]`);
@@ -135,11 +148,11 @@ export function connect(root, fromCardId, toCardIds) {
 /** Small optional DOM adapter. data-presentation: score,label,sentence,enemy,hp,hp-fill,log,power. */
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
-  let current = null, settings = {}, animations = [],effectNodes=[];
+  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null;
   const text = (name, value) => { const node = find(root, name); if (node) node.textContent = String(value); };
-  const animate = (node, frames, duration) => {
+  const animate = (node, frames, duration, fill='none') => {
     if (!node?.animate || settings.effectsOff || settings.reducedMotion) return;
-    try { animations.push(node.animate(frames, { duration, easing: 'ease-out', fill: 'none' })); } catch { /* final DOM is independent */ }
+    try { const animation=node.animate(frames, { duration, easing: 'ease-out', fill });animations.push(animation);if(root.ownerDocument.hidden&&settings.guided)animation.pause();return animation; } catch { /* final DOM is independent */ }
   };
   const clearHighlights = () => {
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
@@ -159,6 +172,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     }
   };
   const adapter = {
+    setPaused(paused){for(const a of animations){if(paused)a.pause();else a.play();}if(paused)audio?.stopAll?.();},
     setLocked(locked) { root.dataset.presenting = String(locked); root.setAttribute('aria-busy', String(locked)); },
     begin(resolution, options) {
       current = resolution; settings = options;
@@ -230,23 +244,30 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if (sentence && enemy) {
         const a = sentence.getBoundingClientRect(), b = enemy.getBoundingClientRect();
         const x = b.left + b.width / 2 - a.left - a.width / 2, y = b.top + b.height / 2 - a.top - a.height / 2;
-        animate(sentence, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x}px,${y}px) scale(.36)`, opacity: .3 }], duration);
+        lungeAnimation=animate(sentence, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x}px,${y}px) scale(.36)`, opacity: .3 }], duration,'forwards');
       }
     },
-    impact({ hpAfter, finalPower, actualHpLoss, killed, intensity }) {
+    impact({ hpAfter, finalPower, actualHpLoss, killed, intensity,feel }) {
       showHp(hpAfter); text('label', finalPower === 0 ? '장막에 막혔습니다' : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
       audio?.play?.(finalPower === 0 ? 'blocked' : 'impact', { intensity });
-      const enemy = find(root, 'enemy');
-      if (enemy) {
-        enemy.dataset.defeated = String(killed);
-        animate(enemy, killed ? [{ transform: 'rotate(0) scale(1)', opacity: 1 }, { transform: 'rotate(12deg) scale(.6)', opacity: 0 }] : [{ transform: 'translateX(0)' }, { transform: `translateX(${6 * intensity}px)` }, { transform: `translateX(${-4 * intensity}px)` }, { transform: 'translateX(0)' }], killed ? 300 : 200);
-        if (killed) enemy.style.opacity = '0';
-      }
+      root.dataset.impactTier=feel.tier;
+      if(finalPower>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
+      const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
+      if(!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}
     },
+    recoil({killed,feel,duration}){
+      lungeAnimation?.cancel();lungeAnimation=null;
+      const enemy=find(root,'enemy');
+      animate(find(root,'sentence'),[{transform:'translate(0,0)'},{transform:'translate('+(-feel.recoil)+'px,'+(feel.recoil/2)+'px)'},{transform:'translate('+(feel.recoil/2)+'px,0)'},{transform:'translate(0,0)'}],duration);
+      animate(find(root,'hp-fill')?.closest('.enemy-info'),[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px)'},{transform:'translateX(0)'}],duration);
+      animate(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:'translateX('+(12+feel.recoil*3)+'px) rotate(14deg) scale(.85)',opacity:.7},{transform:'translateX(70px) rotate(23deg) scale(.65)',opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
+    },
+    cancel(){for(const a of animations){try{a.cancel();}catch{}}animations=[];effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();},
     finish(resolution) {
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       const score=find(root,'score');if(score){score.style.textShadow='';score.style.fontWeight='';}
+      audio?.stopAll?.();
       showHp(resolution.enemyHpAfter);showBossState(resolution.bossStateAfter);
       const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = resolution.killed ? '0' : '1'; enemy.dataset.defeated = String(Boolean(resolution.killed)); }
       clearHighlights(); adapter.clearConnections();
