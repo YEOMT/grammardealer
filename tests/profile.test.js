@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {newProfile,applyProfileEvent,canSaveRun,LocalStore} from '../src/services/localStore.js';
+test('P09 identical names preserve separate profile IDs',()=>{const a=newProfile('여행자'),b=newProfile('여행자');assert.notEqual(a.playerId,b.playerId);assert.equal(a.displayName,b.displayName);});
+test('P05 same run completion counts once and never counts story clear',()=>{let p=newProfile('여행자');for(let i=0;i<3;i++)p=applyProfileEvent(p,{type:'STAGE1_CLEAR',runId:'same'});assert.equal(p.qualifiedRunIds.length,1);assert.equal(p.storyClearCount,0);assert.ok(p.unlocks.includes('pack.svoo'));});
+test('P01 saving only allowed safe checkpoints and undo cannot clear dirty',()=>{const r={status:'BATTLE',combat:{phase:'EDIT',battleDirty:false,turnIndex:1}};assert.equal(canSaveRun(r),true);r.combat.battleDirty=true;assert.equal(canSaveRun(r),false);r.combat.phase='PRESENTING';assert.equal(canSaveRun(r),false);for(const status of ['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE'])assert.equal(canSaveRun({status}),true);});
+test('P07 missing IndexedDB rejects save rather than reporting success',async()=>{const s=new LocalStore({indexedDB:null});await assert.rejects(s.init());await assert.rejects(s.saveProfile(newProfile('x')));});

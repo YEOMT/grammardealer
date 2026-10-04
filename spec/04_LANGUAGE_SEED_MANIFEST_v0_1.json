@@ -1,0 +1,1084 @@
+{
+  "status": "CURATION_MANIFEST_NOT_A_COMPLETE_WORD_DATABASE",
+  "noteKo": "기존 후보군에서 0.1에 사용할 항목을 좁힌 작업 입력. 전체 항목의 morphology/sense/frames/태그/한국어뜻/출처 검증은 Work가 실제 작성해야 한다. 사전/코퍼스의 정확한 빈도순 또는 CEFR 공식분류가 아니다. 모든 예문은 카드별 ID와 실제 한 단어 형태로 만들어야 한다. 안정성이 입증되지 않는 Sense는 ready=false로 하되 변경기록 및 대상 테스트를 남긴다. 80~120이라는 종전 목표는 대략값이므로 아래 개수에 억지로 맞추지 않는다.",
+  "counts": {
+    "total": 116,
+    "byPos": {
+      "VERB": 29,
+      "NOUN": 31,
+      "ADJECTIVE": 26,
+      "ADVERB": 14,
+      "PRONOUN": 7,
+      "DETERMINER": 3,
+      "PREPOSITION": 4,
+      "FUNCTION": 2
+    }
+  },
+  "lexemes": [
+    {
+      "id": "lex.be.verb",
+      "lemma": "be",
+      "pos": "VERB",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svc.adj",
+        "frame.svc.np"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.have.verb",
+      "lemma": "have",
+      "pos": "VERB",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.do.verb",
+      "lemma": "do",
+      "pos": "VERB",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.go.verb",
+      "lemma": "go",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.come.verb",
+      "lemma": "come",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.run.verb",
+      "lemma": "run",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.live.verb",
+      "lemma": "live",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.work.verb",
+      "lemma": "work",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.play.verb",
+      "lemma": "play",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.eat.verb",
+      "lemma": "eat",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.read.verb",
+      "lemma": "read",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.like.verb",
+      "lemma": "like",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.want.verb",
+      "lemma": "want",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.need.verb",
+      "lemma": "need",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.make.verb",
+      "lemma": "make",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.give.verb",
+      "lemma": "give",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.see.verb",
+      "lemma": "see",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.help.verb",
+      "lemma": "help",
+      "pos": "VERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.feel.verb",
+      "lemma": "feel",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svc.adj"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.become.verb",
+      "lemma": "become",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svc.adj",
+        "frame.svc.np"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.look.verb",
+      "lemma": "look",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svc.adj"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.take.verb",
+      "lemma": "take",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.keep.verb",
+      "lemma": "keep",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.find.verb",
+      "lemma": "find",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.show.verb",
+      "lemma": "show",
+      "pos": "VERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.create.verb",
+      "lemma": "create",
+      "pos": "VERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.improve.verb",
+      "lemma": "improve",
+      "pos": "VERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.develop.verb",
+      "lemma": "develop",
+      "pos": "VERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.change.verb",
+      "lemma": "change",
+      "pos": "VERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "initialFrameCandidates": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "futureFramesMustNotBeInferred": true
+    },
+    {
+      "id": "lex.friend.noun",
+      "lemma": "friend",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.teacher.noun",
+      "lemma": "teacher",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.student.noun",
+      "lemma": "student",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.child.noun",
+      "lemma": "child",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.dog.noun",
+      "lemma": "dog",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.cat.noun",
+      "lemma": "cat",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.book.noun",
+      "lemma": "book",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.school.noun",
+      "lemma": "school",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.home.noun",
+      "lemma": "home",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "usageNoteKo": "go home의 장소부사 역할은 별도 등록된 제한 role로만. 일반 bare singular 예외로 전체 NP를 풀지 않는다."
+    },
+    {
+      "id": "lex.room.noun",
+      "lemma": "room",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.park.noun",
+      "lemma": "park",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.game.noun",
+      "lemma": "game",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.music.noun",
+      "lemma": "music",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.food.noun",
+      "lemma": "food",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.water.noun",
+      "lemma": "water",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.day.noun",
+      "lemma": "day",
+      "pos": "NOUN",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.person.noun",
+      "lemma": "person",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.question.noun",
+      "lemma": "question",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.answer.noun",
+      "lemma": "answer",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.problem.noun",
+      "lemma": "problem",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.idea.noun",
+      "lemma": "idea",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.plan.noun",
+      "lemma": "plan",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.story.noun",
+      "lemma": "story",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.time.noun",
+      "lemma": "time",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.homework.noun",
+      "lemma": "homework",
+      "pos": "NOUN",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.information.noun",
+      "lemma": "information",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.knowledge.noun",
+      "lemma": "knowledge",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.decision.noun",
+      "lemma": "decision",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.culture.noun",
+      "lemma": "culture",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.technology.noun",
+      "lemma": "technology",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.environment.noun",
+      "lemma": "environment",
+      "pos": "NOUN",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.good.adjective",
+      "lemma": "good",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.bad.adjective",
+      "lemma": "bad",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.big.adjective",
+      "lemma": "big",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.small.adjective",
+      "lemma": "small",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.happy.adjective",
+      "lemma": "happy",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.sad.adjective",
+      "lemma": "sad",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.kind.adjective",
+      "lemma": "kind",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.young.adjective",
+      "lemma": "young",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.old.adjective",
+      "lemma": "old",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.new.adjective",
+      "lemma": "new",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.easy.adjective",
+      "lemma": "easy",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.hard.adjective",
+      "lemma": "hard",
+      "pos": "ADJECTIVE",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.tired.adjective",
+      "lemma": "tired",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.interesting.adjective",
+      "lemma": "interesting",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.difficult.adjective",
+      "lemma": "difficult",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.beautiful.adjective",
+      "lemma": "beautiful",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.ready.adjective",
+      "lemma": "ready",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.useful.adjective",
+      "lemma": "useful",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.safe.adjective",
+      "lemma": "safe",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.strong.adjective",
+      "lemma": "strong",
+      "pos": "ADJECTIVE",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.important.adjective",
+      "lemma": "important",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.necessary.adjective",
+      "lemma": "necessary",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.possible.adjective",
+      "lemma": "possible",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.different.adjective",
+      "lemma": "different",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.clear.adjective",
+      "lemma": "clear",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.serious.adjective",
+      "lemma": "serious",
+      "pos": "ADJECTIVE",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.very.adverb",
+      "lemma": "very",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.really.adverb",
+      "lemma": "really",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.often.adverb",
+      "lemma": "often",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.always.adverb",
+      "lemma": "always",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.sometimes.adverb",
+      "lemma": "sometimes",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.well.adverb",
+      "lemma": "well",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.today.adverb",
+      "lemma": "today",
+      "pos": "ADVERB",
+      "vocabBand": "BEGINNER",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.usually.adverb",
+      "lemma": "usually",
+      "pos": "ADVERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.quickly.adverb",
+      "lemma": "quickly",
+      "pos": "ADVERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.slowly.adverb",
+      "lemma": "slowly",
+      "pos": "ADVERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.carefully.adverb",
+      "lemma": "carefully",
+      "pos": "ADVERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.now.adverb",
+      "lemma": "now",
+      "pos": "ADVERB",
+      "vocabBand": "STANDARD",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.recently.adverb",
+      "lemma": "recently",
+      "pos": "ADVERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.clearly.adverb",
+      "lemma": "clearly",
+      "pos": "ADVERB",
+      "vocabBand": "ADVANCED",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.i.pronoun",
+      "lemma": "I",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.you.pronoun",
+      "lemma": "you",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.he.pronoun",
+      "lemma": "he",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.she.pronoun",
+      "lemma": "she",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.it.pronoun",
+      "lemma": "it",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.we.pronoun",
+      "lemma": "we",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.they.pronoun",
+      "lemma": "they",
+      "pos": "PRONOUN",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.a.determiner",
+      "lemma": "a",
+      "pos": "DETERMINER",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.the.determiner",
+      "lemma": "the",
+      "pos": "DETERMINER",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.this.determiner",
+      "lemma": "this",
+      "pos": "DETERMINER",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "starterEligible": false
+    },
+    {
+      "id": "lex.in.preposition",
+      "lemma": "in",
+      "pos": "PREPOSITION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.on.preposition",
+      "lemma": "on",
+      "pos": "PREPOSITION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.at.preposition",
+      "lemma": "at",
+      "pos": "PREPOSITION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.with.preposition",
+      "lemma": "with",
+      "pos": "PREPOSITION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM"
+    },
+    {
+      "id": "lex.to.function",
+      "lemma": "to",
+      "pos": "FUNCTION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "v0_1Roles": [
+        "PREPOSITION_NP"
+      ],
+      "v0_1RarityProposal": "RARE",
+      "starterEligible": false
+    },
+    {
+      "id": "lex.that.function",
+      "lemma": "that",
+      "pos": "FUNCTION",
+      "vocabBand": "CORE",
+      "candidateStatus": "AUTHORING_REQUIRED",
+      "wordSelectionBasis": "PRIOR_DISCUSSION_SEEDS_PLUS_V0_1_INTEGRATION_MINIMUM",
+      "v0_1Roles": [
+        "DETERMINER_SINGULAR",
+        "DEMONSTRATIVE_NP"
+      ],
+      "v0_1RarityProposal": "RARE",
+      "starterEligible": false
+    }
+  ]
+}

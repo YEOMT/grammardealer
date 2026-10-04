@@ -1,0 +1,595 @@
+{
+  "version": "0.1.1",
+  "generatedAt": "2026-10-03T16:02:06.910949+00:00",
+  "method": "Explicitly reviewed mapping of freshly executed unit/browser/simulation evidence. IDs here are the 50 patch acceptance IDs, not old 0.1 Pxx IDs or 13 feedback IDs.",
+  "cases": [
+    {
+      "id": "P01",
+      "description": "같은 AttackResolution에서 새1×의 점수구간이 구1× 대비 약2배. 숫자/이벤트 순서 동일",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P02",
+      "description": "고연쇄 타임라인이 5초를 넘어도 정상 완료. watchdog 중간종료 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P03",
+      "description": "효과끄기/동작줄이기에서도 문법명 읽는 시간이 줄지 않음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P04",
+      "description": "단문은 절제된 연출, 실제 다중룬/콤보는 단계적 증폭",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P05",
+      "description": "루비/사파이어 등 각 색의 슬롯→문장 빛 이동 및 이벤트 after 표시 동기화",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P06",
+      "description": "탭숨김·Abort·뷰오류에도 최종HP 표시 수렴, 잠금 해제, 이펙트노드 제거, 중복피해 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-presentation.test.js",
+        "docs/evidence-0.1.1/phase-e-browser.json",
+        "docs/evidence-0.1.1/timing.json"
+      ],
+      "note": "Abort/뷰 오류/visibilitychange는 브라우저 harness의 명시적 fault 주입. 실제 OS 탭 복귀는 NOT RUN."
+    },
+    {
+      "id": "P07",
+      "description": "체크3장→버리기1클릭→3장보충, 교환-1, 턴유지",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json",
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P08",
+      "description": "본체클릭은 기존 조립, 체크는 선택, 형태버튼/드래그종료는 원치않는 추가클릭 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json",
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P09",
+      "description": "선택한 카드를 이동하면 선택ID가 손패와 일치. 선택해제/0장확정 자원소모 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json",
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P10",
+      "description": "태블릿 pointercancel/방향변경/빠른연속클릭 후 선택·드래그 잠금 잔류 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json",
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": "Chromium CDP touch emulation과 pointercancel/resize. 실제 iPad 아님."
+    },
+    {
+      "id": "P11",
+      "description": "양쪽 영역이 가득 차도 기존 맞교환·순서변경이 작동",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json",
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": "최대 배치는 renderer fixture; 실제 카드 보존/맞교환은 기존 Controller 테스트로 별도 검사."
+    },
+    {
+      "id": "P12",
+      "description": "손패·보상·덱·초기조합대의 be 표시는 be",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P13",
+      "description": "be→am/is/are 선택 후 기존 정상문장 점수 동일",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P14",
+      "description": "I be happy는 완전문장보너스 없음. be형태진단 1개, 내부오류/과한 중복감점 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P15",
+      "description": "과거·to부정사 등 기존 미지원 범위를 be표시 수정 때문에 가짜 지원하지 않음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/evidence-0.1.1/phase-b-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P16",
+      "description": "초회1-1에서 형태변경·선택후교환·준비·제출직전설명을 실제 수행 가능",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P17",
+      "description": "가이드 대상을 미리 움직이거나 다른 합법문장을 조립해도 막힘 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P18",
+      "description": "가이드건너뛰기/완료/다시보기/구프로필의 완료값 구분; 보상중복 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": "다른 합법 공격은 미수행 단계를 완료로 표시하지 않고 ALTERNATIVE_PLAY 건너뛰기로 기록."
+    },
+    {
+      "id": "P19",
+      "description": "도감에 현재형 SV/SVC/SVO의 검증된 한글 뜻 참고 표시",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P20",
+      "description": "사용자 예문3개, 비유/의인화, play다의성에 확정적인 의미오답 배지 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P21",
+      "description": "해석템플릿 누락 시 성분별뜻 fallback; 도감/전투 정상동작",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P22",
+      "description": "관사/일치 오류문장의 한국어 뜻이 표시되어도 영어원문·기존오류기록 유지",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P23",
+      "description": "옛 기록/없는 의미버전/긴 단어·PP·부사반복에서 안전한 표시",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P24",
+      "description": "네트워크 끊김 상태에서도 새 의미참고 작동, 외부번역요청 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-learning.test.js",
+        "docs/evidence-0.1.1/phase-d-browser.json"
+      ],
+      "note": "이미 로드한 로컬 모듈의 네트워크 단절 동작. 오프라인 재로딩/PWA 보장은 아님."
+    },
+    {
+      "id": "P25",
+      "description": "카드3칸, 카드2+연마, 카드+룬+제거 등 고정seed/fixture에서 정확히3칸",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P26",
+      "description": "하나만 획득. 같은 offer 확정연타로 카드/룬/재화가 늘지 않음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P27",
+      "description": "연마선택→대상선택→취소→동일3후보로 복귀. 대상확정 때만+1",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P28",
+      "description": "제거취소·위험경고 취소 시 상태보존, 최종확정 후 카드보존불변식 유지",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P29",
+      "description": "룬중복레벨업/만석교체/교체취소/MAX제외 정상",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P30",
+      "description": "Stage1-2는 매원정3룬. 최초고정/이후기본중심랜덤 유지. 첫 튜토리얼1-1은3일반카드로 조기랜덤룬 방지",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P31",
+      "description": "일반/보스 슬롯별 가중치 적용. 필터전 추첨과 필터후 실측분포를 별도 보고",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": "raw 7,500 draw 및 filter 후 2,500 offers×3slots를 일반/보스별 별도 기록."
+    },
+    {
+      "id": "P32",
+      "description": "중복서비스/동일카드/불가능후보를 bounded 처리. 정상seed에서 빈칸 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P33",
+      "description": "저장/로드/대상취소/팝업재개로 후보 재추첨 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P34",
+      "description": "혼합보상 skip 규칙은 popup당1회. 선택별재화 합산 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json",
+        "docs/evidence-0.1.1/reward-distribution.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P35",
+      "description": "새HP91/156/286 일치. 로드/상태진입 중복곱셈 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P36",
+      "description": "1~6번째 총행동 처치의 턴보너스가5/4/3/2/1/0",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": "1~6 행동 수는 정산경계 fixture; 준비2+공격2는 HP 수정 없는 실제 명령 테스트."
+    },
+    {
+      "id": "P37",
+      "description": "준비2+공격2 처치면+2. 마지막턴처치는 승리·보너스0",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P38",
+      "description": "패배/무효공격/리플레이/중복정산에서 턴재화 지급 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P39",
+      "description": "연마 +1/+2/+3 표시가 모든 카드화면에서 일치; 실제점수 중복 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": "공통 wordCard 배지/합계와 기존 scoring level 회귀, 실제 앱 연마 결과 모달 검사."
+    },
+    {
+      "id": "P40",
+      "description": "승리 정산→보상생성→보상선택/skip 순서와 표시재화 일치",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/patch-economy.test.js",
+        "tests/scoring.test.js",
+        "docs/evidence-0.1.1/phase-c-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P41",
+      "description": "새원정28장/품사수량/대명사조건/동사8장/be2/SV2종/기본문형 witness 검사",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/deck-validation.json",
+        "docs/evidence-0.1.1/final-decks.txt"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P42",
+      "description": "네 어휘모드×2,500seed 총10,000 시작덱·첫손패 검사. 모두 실제 파서 통과경로",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/deck-validation.json",
+        "docs/evidence-0.1.1/final-decks.txt"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P43",
+      "description": "첫튜토리얼6장에 SV 및 be활용경로. 없던 물리카드 생성 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/deck-validation.json",
+        "docs/evidence-0.1.1/final-decks.txt"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P44",
+      "description": "일반 다음턴·교환은 시드 재현. 제거된 카드 자동구제 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-input.test.js",
+        "docs/deck-validation.json",
+        "docs/evidence-0.1.1/final-decks.txt"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P45",
+      "description": "1920×1080/1366×768/1180×820/1024×768, 손패10/14·조합대16·긴 룬문구 검사",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": "손패10/14+문장16+3룬은 합성 capacity fixture로 시각 검증."
+    },
+    {
+      "id": "P46",
+      "description": "카드 영단어 크기는 보존하고 좌우 메뉴는 커졌으며 잘림/화면전체zoom 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/ui-browser.json"
+      ],
+      "note": ""
+    },
+    {
+      "id": "P47",
+      "description": "현재 네트워크 단절 플레이, 로컬저장3슬롯, 처음/최고기록과 새원정재시작 회귀",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/production-browser-1024-final.json",
+        "docs/evidence-0.1.1/storage-fault-browser.json"
+      ],
+      "note": "실제 production 3전투는 오프라인 UI 행동; 수동3슬롯/최초·최고/다시 시작 포함."
+    },
+    {
+      "id": "P48",
+      "description": "구버전 저장카드를 억지28장으로 삭제하지 않음. 공개옛보상 재추첨 없음",
+      "status": "PASS",
+      "evidence": [
+        "docs/evidence-0.1.1/final-unit.tap",
+        "tests/patch-rewards.test.js",
+        "tests/fixtures/legacy-0.1.json"
+      ],
+      "note": "코드 수정 전에 0.1 실행으로 확보한 실제 저장 표본을 재사용. 카드/HP/offer/explicit form deep equality."
+    },
+    {
+      "id": "P49",
+      "description": "여러 seed의 기본정석·단문·부사·강화룬 경로로 실제 3전투 완주 시뮬레이션",
+      "status": "PASS",
+      "evidence": [
+        "docs/run-simulation.json",
+        "docs/evidence-0.1.1/run-simulation.txt"
+      ],
+      "note": "80회 중77회완주/3회패배/엔진오류0. 모든 선택 승리 보장은 요구사항이 아님."
+    },
+    {
+      "id": "P50",
+      "description": "소스·배포ZIP·명세버전·변경내역 일치. Stage2/전체스토리클리어 가짜활성 없음",
+      "status": "PASS",
+      "evidence": [
+        "release/release-validation.json",
+        "release/release-manifest.json",
+        "docs/evidence-0.1.1/final-build.txt",
+        "docs/evidence-0.1.1/production-browser-1024-final.json"
+      ],
+      "note": "소스/배포 ZIP CRC, 필수 파일, source/dist 바이트 일치 검증. 원격 Pages 배포는 NOT RUN."
+    }
+  ],
+  "counts": {
+    "PASS": 50,
+    "FAIL": 0,
+    "NOT RUN": 0,
+    "OUT OF SCOPE": 0
+  }
+}

@@ -1,0 +1,1715 @@
+{
+  "status": "ACCEPTANCE_SPEC_NOT_GAME_TEST_RESULTS",
+  "grammarCases": [
+    {
+      "id": "G01",
+      "sentenceForHumanReading": "I run.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G02",
+      "sentenceForHumanReading": "She runs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G03",
+      "sentenceForHumanReading": "They run.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G04",
+      "sentenceForHumanReading": "She is happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G05",
+      "sentenceForHumanReading": "They are happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G06",
+      "sentenceForHumanReading": "He is a student.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.np",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G07",
+      "sentenceForHumanReading": "I like dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G08",
+      "sentenceForHumanReading": "She likes music.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G09",
+      "sentenceForHumanReading": "I eat.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G10",
+      "sentenceForHumanReading": "I eat food.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G11",
+      "sentenceForHumanReading": "I read books.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G12",
+      "sentenceForHumanReading": "I read.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G13",
+      "sentenceForHumanReading": "I feel happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G14",
+      "sentenceForHumanReading": "The student becomes tired.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G15",
+      "sentenceForHumanReading": "She has a book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G16",
+      "sentenceForHumanReading": "I need information.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G17",
+      "sentenceForHumanReading": "I like an interesting book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G18",
+      "sentenceForHumanReading": "My friend reads the book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G19",
+      "sentenceForHumanReading": "She likes the big dog.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G20",
+      "sentenceForHumanReading": "She is very very very happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G21",
+      "sentenceForHumanReading": "She really likes dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G22",
+      "sentenceForHumanReading": "She reads the book carefully.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G23",
+      "sentenceForHumanReading": "She carefully reads the book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G24",
+      "sentenceForHumanReading": "I run in the park.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G25",
+      "sentenceForHumanReading": "The book likes music.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G26",
+      "sentenceForHumanReading": "Her book is good.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G27",
+      "sentenceForHumanReading": "I like her.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G28",
+      "sentenceForHumanReading": "The books are good.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G29",
+      "sentenceForHumanReading": "I like that book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G30",
+      "sentenceForHumanReading": "I go to school.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G31",
+      "sentenceForHumanReading": "I live in the room.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.sv",
+      "expectedIssueCodes": [],
+      "notesKo": "",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G32",
+      "sentenceForHumanReading": "I see the dog in the park.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [],
+      "notesKo": "PP 부착 후보 여러 개라도 동일 PP 점수 한 번.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G33",
+      "sentenceForHumanReading": "She like dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "SUBJECT_VERB_AGREEMENT"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G34",
+      "sentenceForHumanReading": "They is happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svc.adj",
+      "expectedIssueCodes": [
+        "SUBJECT_VERB_AGREEMENT"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G35",
+      "sentenceForHumanReading": "I have book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "DETERMINER_REQUIRED"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G36",
+      "sentenceForHumanReading": "She likes a dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "DETERMINER_NUMBER_AGREEMENT"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G37",
+      "sentenceForHumanReading": "I like a interesting book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "ARTICLE_FORM"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G38",
+      "sentenceForHumanReading": "I like a music.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "ARTICLE_COUNTABILITY_MISMATCH"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G39",
+      "sentenceForHumanReading": "I like she.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "PRONOUN_CASE"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G40",
+      "sentenceForHumanReading": "Me like dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "PRONOUN_CASE"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G41",
+      "sentenceForHumanReading": "I very like dogs.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedMainFrame": "frame.svo",
+      "expectedIssueCodes": [
+        "INVALID_ADVERB_TARGET"
+      ],
+      "notesKo": "하나의 근본 원인에는 대표 issue 한 번. G41 very는 카드/수식/룬 기여 0, 고정감점 중복 없음.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G42",
+      "sentenceForHumanReading": "She happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "INVALID_CORE",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [
+        "MISSING_FINITE_VERB"
+      ],
+      "notesKo": "원형 복원이나 없는 be 카드 자동삽입을 하지 않는다. 자원불소모.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G43",
+      "sentenceForHumanReading": "She dogs likes.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "INVALID_CORE",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [
+        "CORE_WORD_ORDER"
+      ],
+      "notesKo": "원형 복원이나 없는 be 카드 자동삽입을 하지 않는다. 자원불소모.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G44",
+      "sentenceForHumanReading": "I very very happy.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "INVALID_CORE",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [
+        "MISSING_FINITE_VERB"
+      ],
+      "notesKo": "원형 복원이나 없는 be 카드 자동삽입을 하지 않는다. 자원불소모.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G45",
+      "sentenceForHumanReading": "She gives me a book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "UNSUPPORTED",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [],
+      "notesKo": "고급 fixture. 등록된 예약 capability 기준으로 이번 파서의 미지원 판정. 영어가 틀렸다는 표시 금지. 일반 게임의 지원완료/정상콤보 테스트가 아니다.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G46",
+      "sentenceForHumanReading": "I want to read.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "UNSUPPORTED",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [],
+      "notesKo": "고급 fixture. 등록된 예약 capability 기준으로 이번 파서의 미지원 판정. 영어가 틀렸다는 표시 금지. 일반 게임의 지원완료/정상콤보 테스트가 아니다.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G47",
+      "sentenceForHumanReading": "She is reading a book.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "UNSUPPORTED",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [],
+      "notesKo": "고급 fixture. 등록된 예약 capability 기준으로 이번 파서의 미지원 판정. 영어가 틀렸다는 표시 금지. 일반 게임의 지원완료/정상콤보 테스트가 아니다.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "G48",
+      "sentenceForHumanReading": "The book that I read is good.",
+      "inputPolicy": "Work must expand into separate cardInstanceId/lexemeId/selection records; no multiword card",
+      "expectedStatus": "UNSUPPORTED",
+      "expectedMainFrame": null,
+      "expectedIssueCodes": [],
+      "notesKo": "고급 fixture. 등록된 예약 capability 기준으로 이번 파서의 미지원 판정. 영어가 틀렸다는 표시 금지. 일반 게임의 지원완료/정상콤보 테스트가 아니다.",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    }
+  ],
+  "scoreArithmeticFixtures": [
+    {
+      "id": "S01",
+      "caseKo": "I run. / 룬없음",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 0,
+          "after": 20
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 20,
+          "after": 40
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 1,
+            "den": 1
+          },
+          "before": 40,
+          "after": 40
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 40,
+          "after": 50
+        }
+      ],
+      "expectedFinalPower": 50,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S02",
+      "caseKo": "She is happy. / 룬없음",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 30,
+          "after": 50
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 6,
+            "den": 5
+          },
+          "before": 50,
+          "after": 60
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 60,
+          "after": 75
+        }
+      ],
+      "expectedFinalPower": 75,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S03",
+      "caseKo": "I like dogs. / 룬없음",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 30,
+          "after": 50
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 50,
+          "after": 75
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 75,
+          "after": 93
+        }
+      ],
+      "expectedFinalPower": 93,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S04",
+      "caseKo": "She like dogs. / 일치 -10, 무오류보너스없음",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "operation": "add",
+          "operand": -10,
+          "before": 30,
+          "after": 20
+        },
+        {
+          "operation": "clamp",
+          "operand": 0,
+          "before": 20,
+          "after": 20
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 20,
+          "after": 30
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 30,
+          "after": 37
+        }
+      ],
+      "expectedFinalPower": 37,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S05",
+      "caseKo": "I have book. / 한정사 -5",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "operation": "add",
+          "operand": -5,
+          "before": 30,
+          "after": 25
+        },
+        {
+          "operation": "clamp",
+          "operand": 0,
+          "before": 25,
+          "after": 25
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 25,
+          "after": 37
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 37,
+          "after": 46
+        }
+      ],
+      "expectedFinalPower": 46,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S06",
+      "caseKo": "She likes the big dog. / 형용사수식1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 50,
+          "after": 70
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 70,
+          "after": 105
+        },
+        {
+          "operation": "add",
+          "operand": 5,
+          "before": 105,
+          "after": 110
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 110,
+          "after": 137
+        }
+      ],
+      "expectedFinalPower": 137,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S07",
+      "caseKo": "She is very very very happy. / 부사3",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 60,
+          "before": 0,
+          "after": 60
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 60,
+          "after": 80
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 6,
+            "den": 5
+          },
+          "before": 80,
+          "after": 96
+        },
+        {
+          "operation": "add",
+          "operand": 15,
+          "before": 96,
+          "after": 111
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 111,
+          "after": 138
+        }
+      ],
+      "expectedFinalPower": 138,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S08",
+      "caseKo": "I run in the park. / PP1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 50,
+          "after": 70
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 1,
+            "den": 1
+          },
+          "before": 70,
+          "after": 70
+        },
+        {
+          "operation": "add",
+          "operand": 10,
+          "before": 70,
+          "after": 80
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 80,
+          "after": 100
+        }
+      ],
+      "expectedFinalPower": 100,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S09",
+      "caseKo": "I run. / 수정→루비→호박 Lv1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 0,
+          "after": 20
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 20,
+          "after": 40
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 1,
+            "den": 1
+          },
+          "before": 40,
+          "after": 40
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 40,
+          "after": 60
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 7,
+            "den": 5
+          },
+          "before": 60,
+          "after": 84
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 84,
+          "after": 105
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 105,
+          "after": 131
+        }
+      ],
+      "expectedFinalPower": 131,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S10",
+      "caseKo": "I run. / 수정→호박 Lv1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 40,
+          "after": 60
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 60,
+          "after": 75
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 75,
+          "after": 93
+        }
+      ],
+      "expectedFinalPower": 93,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S11",
+      "caseKo": "I run. / 호박→수정 Lv1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 40,
+          "after": 50
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 50,
+          "after": 70
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 70,
+          "after": 87
+        }
+      ],
+      "expectedFinalPower": 87,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S12",
+      "caseKo": "I run. / 카드1장 연마1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 25,
+          "before": 0,
+          "after": 25
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 25,
+          "after": 45
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 1,
+            "den": 1
+          },
+          "before": 45,
+          "after": 45
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 45,
+          "after": 56
+        }
+      ],
+      "expectedFinalPower": 56,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S13",
+      "caseKo": "I run. / 카드1장 연마1 + 철룬 Lv1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 25,
+          "before": 0,
+          "after": 25
+        },
+        {
+          "operation": "add",
+          "operand": 20,
+          "before": 25,
+          "after": 45
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 1,
+            "den": 1
+          },
+          "before": 45,
+          "after": 45
+        },
+        {
+          "operation": "add",
+          "operand": 5,
+          "before": 45,
+          "after": 50
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 50,
+          "after": 62
+        }
+      ],
+      "expectedFinalPower": 62,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S14",
+      "caseKo": "very3 문장 + 비취Lv1",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 111,
+          "before": 0,
+          "after": 111
+        },
+        {
+          "operation": "add",
+          "operand": 5,
+          "before": 111,
+          "after": 116
+        },
+        {
+          "operation": "add",
+          "operand": 5,
+          "before": 116,
+          "after": 121
+        },
+        {
+          "operation": "add",
+          "operand": 5,
+          "before": 121,
+          "after": 126
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 126,
+          "after": 157
+        }
+      ],
+      "expectedFinalPower": 157,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    },
+    {
+      "id": "S15",
+      "caseKo": "I very like dogs. / very기여제외 -10",
+      "operations": [
+        {
+          "operation": "add",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "operation": "add",
+          "operand": -10,
+          "before": 40,
+          "after": 30
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 30,
+          "after": 45
+        },
+        {
+          "operation": "mul",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 45,
+          "after": 56
+        }
+      ],
+      "expectedFinalPower": 56,
+      "inputKind": "SCORING_FIXTURE_NOT_PARSER_OUTPUT",
+      "executionStatus": "ARITHMETIC_CHECKED_ONLY"
+    }
+  ],
+  "behaviorCases": [
+    {
+      "id": "D01",
+      "group": "D",
+      "actionKo": "시작덱생성",
+      "expectedKo": "30장·고유ID·명사6/대명사5/동사8/형용사4/부사2/한정사3/전치사2",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D02",
+      "group": "D",
+      "actionKo": "동사다중Frame",
+      "expectedKo": "물리슬롯 중복채움 없이 be2/SV2/SVO3/MULTI1 슬롯8",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D03",
+      "group": "D",
+      "actionKo": "네어휘모드동일역할",
+      "expectedKo": "어휘만 다르게; 점수/HP/희귀도규칙 동일",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D04",
+      "group": "D",
+      "actionKo": "첫전투 시작",
+      "expectedKo": "6장만. 추가3장없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D05",
+      "group": "D",
+      "actionKo": "첫패가능성",
+      "expectedKo": "지원된무오류문장경로≥1, 정답UI미공개",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D06",
+      "group": "D",
+      "actionKo": "손패9장 다음턴드로우3",
+      "expectedKo": "1장만드로우. 미지급2장의빚없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D07",
+      "group": "D",
+      "actionKo": "손패10장 다음턴드로우3",
+      "expectedKo": "0장. 음수카운트나카드삭제없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D08",
+      "group": "D",
+      "actionKo": "Draw1/Discard다수에서3드로우",
+      "expectedKo": "1장먼저→Discard셔플→2장,현재손패/문장은제외",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D09",
+      "group": "D",
+      "actionKo": "Draw0/Discard0",
+      "expectedKo": "가능한카드0으로 정상종료",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D10",
+      "group": "D",
+      "actionKo": "동시4장교환",
+      "expectedKo": "4장Discard→4장가능드로우,교환1회·턴0소모",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D11",
+      "group": "D",
+      "actionKo": "빈교환",
+      "expectedKo": "모든상태/RNG불변",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D12",
+      "group": "D",
+      "actionKo": "교환잔여0",
+      "expectedKo": "모든상태/RNG불변",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D13",
+      "group": "D",
+      "actionKo": "방금버린카드재출현",
+      "expectedKo": "재셔플이면허용,복제는없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D14",
+      "group": "D",
+      "actionKo": "hand10/sentence16 회수시도",
+      "expectedKo": "한도경고후보존;직접맞교환경로존재",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D15",
+      "group": "D",
+      "actionKo": "준비",
+      "expectedKo": "문장유지,턴-1,다음턴3장가능드로우",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D16",
+      "group": "D",
+      "actionKo": "정상공격",
+      "expectedKo": "사용문장Discard,미사용손패유지",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "D17",
+      "group": "D",
+      "actionKo": "반복드래그pointercancel",
+      "expectedKo": "카드0/2곳동시존재없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C01",
+      "group": "C",
+      "actionKo": "여섯번째공격처치",
+      "expectedKo": "VICTORY우선,패배/새턴드로우없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C02",
+      "group": "C",
+      "actionKo": "여섯번째공격미처치",
+      "expectedKo": "DEFEAT,드로우없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C03",
+      "group": "C",
+      "actionKo": "마지막준비",
+      "expectedKo": "확인후DEFEAT,기본자원연산한번",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C04",
+      "group": "C",
+      "actionKo": "구조오류제출",
+      "expectedKo": "카드·턴·교환·RNG보존;편집복귀",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C05",
+      "group": "C",
+      "actionKo": "정확성오류제출",
+      "expectedKo": "감점공격·카드/턴소모",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C06",
+      "group": "C",
+      "actionKo": "미지원제출",
+      "expectedKo": "자원보존,오답아님",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C07",
+      "group": "C",
+      "actionKo": "내부예외",
+      "expectedKo": "ENGINE_ERROR별도,자원보존,로그",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C08",
+      "group": "C",
+      "actionKo": "공격이중클릭",
+      "expectedKo": "attack한번/피해한번/턴한번",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C09",
+      "group": "C",
+      "actionKo": "예전비동기응답도착",
+      "expectedKo": "battleId/revision불일치 결과폐기",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C10",
+      "group": "C",
+      "actionKo": "이미커밋된연출실패",
+      "expectedKo": "최종view로복구,피해/보상재적용없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C11",
+      "group": "C",
+      "actionKo": "131공격,HP70",
+      "expectedKo": "final131/actual70/overkill61/hp0",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C12",
+      "group": "C",
+      "actionKo": "Stage1보스처치",
+      "expectedKo": "CONTENT_COMPLETE not storyClear; 난이도2/다른캐릭터/면역보스미해금",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C13",
+      "group": "C",
+      "actionKo": "보스모습없음",
+      "expectedKo": "이모지fallback으로정상진행",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "C14",
+      "group": "C",
+      "actionKo": "합성고급보스fixture",
+      "expectedKo": "면역0damage/카드턴소모,이fixture는일반진행노출없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R01",
+      "group": "R",
+      "actionKo": "최초1-1보상",
+      "expectedKo": "CARD_COMMON고정:명시적튜토리얼예외",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R02",
+      "group": "R",
+      "actionKo": "최초1-2",
+      "expectedKo": "수정/호박/구리,선택또는skip",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R03",
+      "group": "R",
+      "actionKo": "다음원정1-2",
+      "expectedKo": "기본2+활성해금전체1 무작위,같은창중복ID없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R04",
+      "group": "R",
+      "actionKo": "초회가이드skip",
+      "expectedKo": "첫보상정책/RNG바뀌지않음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R05",
+      "group": "R",
+      "actionKo": "두번보상선택",
+      "expectedKo": "두번째는idempotent,no복제",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R06",
+      "group": "R",
+      "actionKo": "skip",
+      "expectedKo": "카드+3/기타+2와기본승리재화구분",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R07",
+      "group": "R",
+      "actionKo": "같은룬Lv1획득",
+      "expectedKo": "Lv2,추가슬롯차지없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R08",
+      "group": "R",
+      "actionKo": "같은룬Lv3",
+      "expectedKo": "새후보제외",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R09",
+      "group": "R",
+      "actionKo": "룬만석교체취소",
+      "expectedKo": "기존룬및미해결offer유지",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R10",
+      "group": "R",
+      "actionKo": "룬위아래변경",
+      "expectedKo": "실제타임라인과점수순서일치",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R11",
+      "group": "R",
+      "actionKo": "운영룬재배열",
+      "expectedKo": "전투규칙/손패/교환재지급없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R12",
+      "group": "R",
+      "actionKo": "지원안된미래룬",
+      "expectedKo": "프로필해금이어도runtimeReady=false면미등장",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R13",
+      "group": "R",
+      "actionKo": "연마최대",
+      "expectedKo": "+3초과불가",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R14",
+      "group": "R",
+      "actionKo": "연마취소",
+      "expectedKo": "무변경offer유지",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R15",
+      "group": "R",
+      "actionKo": "카드제거",
+      "expectedKo": "선택인스턴스만제거;원정사전남음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R16",
+      "group": "R",
+      "actionKo": "동일등급카드후보부족",
+      "expectedKo": "유효후보수만표시;등급몰래변경없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R17",
+      "group": "R",
+      "actionKo": "1스테이지재화무skip",
+      "expectedKo": "2+2+6=10",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "R18",
+      "group": "R",
+      "actionKo": "일반/보스확률",
+      "expectedKo": "각100%,1-2예외제외된표본으로검증",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P01",
+      "group": "P",
+      "actionKo": "현재원정저장",
+      "expectedKo": "안전checkpoint3슬롯만,dirty전투저장불가",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P02",
+      "group": "P",
+      "actionKo": "초기패저장로드",
+      "expectedKo": "동일순서/형태/턴/교환/RNG,새셔플없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P03",
+      "group": "P",
+      "actionKo": "보상저장로드",
+      "expectedKo": "frozenoffer동일",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P04",
+      "group": "P",
+      "actionKo": "오래된원정로드",
+      "expectedKo": "다른슬롯새해금소급삽입없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P05",
+      "group": "P",
+      "actionKo": "동일run클리어재생",
+      "expectedKo": "유효원정누적1회만",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P06",
+      "group": "P",
+      "actionKo": "샌드박스/리플레이",
+      "expectedKo": "최고기록/해금/사용횟수비반영",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P07",
+      "group": "P",
+      "actionKo": "저장트랜잭션실패",
+      "expectedKo": "성공표시없음,기존슬롯보존,메모리진행가능",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P08",
+      "group": "P",
+      "actionKo": "손상/미래버전슬롯",
+      "expectedKo": "강제로불러와초기화하지않음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P09",
+      "group": "P",
+      "actionKo": "닉네임같은프로필",
+      "expectedKo": "ID독립;자동병합없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P10",
+      "group": "P",
+      "actionKo": "원정사전열고닫기",
+      "expectedKo": "RNG소모없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P11",
+      "group": "P",
+      "actionKo": "offline after init",
+      "expectedKo": "새전투/사전/소리fallback/로컬저장가능",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "P12",
+      "group": "P",
+      "actionKo": "offline full restart",
+      "expectedKo": "0.1미지원:캐시있었다고보장안함",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U01",
+      "group": "U",
+      "actionKo": "편집중카드추가",
+      "expectedKo": "점수/정오/역할/콤보표시없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U02",
+      "group": "U",
+      "actionKo": "형태버튼클릭",
+      "expectedKo": "메뉴만열고카드회수안함",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U03",
+      "group": "U",
+      "actionKo": "교환모드손패클릭",
+      "expectedKo": "교환선택만변경,문장추가안함",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U04",
+      "group": "U",
+      "actionKo": "드래그놓은뒤click",
+      "expectedKo": "카드한번만이동",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U05",
+      "group": "U",
+      "actionKo": "태블릿회전",
+      "expectedKo": "영역재배치,카드ID/순서보존",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U06",
+      "group": "U",
+      "actionKo": "태블릿클릭영역",
+      "expectedKo": "품사/단어읽힘,hover없이형태/룬설명가능",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U07",
+      "group": "U",
+      "actionKo": "점수연쇄",
+      "expectedKo": "표시한before/after=엔진기록",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U08",
+      "group": "U",
+      "actionKo": "actualHP표시",
+      "expectedKo": "impact전적소멸없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U09",
+      "group": "U",
+      "actionKo": "efffectsOff/audioDisabled",
+      "expectedKo": "진행동일",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U10",
+      "group": "U",
+      "actionKo": "readonlyDeck",
+      "expectedKo": "드로우순서유출없음;카드이동조작불가",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U11",
+      "group": "U",
+      "actionKo": "source/deploy구분",
+      "expectedKo": "deploy ZIP최상위index+assets+.nojekyll",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U12",
+      "group": "U",
+      "actionKo": "서브경로실행",
+      "expectedKo": "절대/assets경로오류없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U13",
+      "group": "U",
+      "actionKo": "production root/game/sandbox",
+      "expectedKo": "새로고침및뒤로동작,경로404없음",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    },
+    {
+      "id": "U14",
+      "group": "U",
+      "actionKo": "실제브라우저증거",
+      "expectedKo": "캡처/환경/명령/NOT RUN정직기재",
+      "executionStatus": "NOT_RUN_NO_GAME_IMPLEMENTATION"
+    }
+  ],
+  "deckGenerationBatch": {
+    "seedsPerMode": 2500,
+    "modes": [
+      "BEGINNER",
+      "STANDARD",
+      "ADVANCED",
+      "FREE"
+    ],
+    "total": 10000,
+    "notProofOfWinRate": true
+  },
+  "requiredViewports": [
+    {
+      "w": 1366,
+      "h": 768
+    },
+    {
+      "w": 1920,
+      "h": 1080
+    },
+    {
+      "w": 1024,
+      "h": 768
+    },
+    {
+      "w": 1180,
+      "h": 820
+    }
+  ]
+}
