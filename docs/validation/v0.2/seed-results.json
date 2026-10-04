@@ -1,0 +1,6543 @@
+{
+  "generatedAt": "2026-10-04T14:11:28.127Z",
+  "command": "node tools/simulate-runs.js",
+  "status": "PASS",
+  "totalRuns": 160,
+  "completed": 40,
+  "defeats": 120,
+  "errors": 0,
+  "policies": [
+    {
+      "policy": "LEARNING",
+      "total": 80,
+      "completed": 40,
+      "defeats": 40,
+      "errors": 0,
+      "bossVeilReleased": 68,
+      "shopArrivals": 80,
+      "firstShopGold": {
+        "min": 18,
+        "median": 19,
+        "max": 22
+      },
+      "purchases": 93,
+      "defeatsByBattle": {
+        "7": 40
+      }
+    },
+    {
+      "policy": "SV_ONLY",
+      "total": 80,
+      "completed": 0,
+      "defeats": 80,
+      "errors": 0,
+      "bossVeilReleased": 0,
+      "shopArrivals": 68,
+      "firstShopGold": {
+        "min": 15,
+        "median": 17,
+        "max": 20
+      },
+      "purchases": 109,
+      "defeatsByBattle": {
+        "2": 3,
+        "3": 9,
+        "4": 7,
+        "5": 19,
+        "6": 14,
+        "7": 28
+      }
+    }
+  ],
+  "limitations": [
+    "This is a QA play policy, not human victory-rate evidence.",
+    "A defeat can result from limited phrase search, greedy card use, or exchange strategy; it is not proof that the seed is impossible.",
+    "No live browser animation is exercised by this command-level simulation. Browser tests are reported separately."
+  ],
+  "runs": [
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 532,
+        "hand": 6,
+        "draw": 24,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 10,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 4,
+        "draw": 12,
+        "discard": 17,
+        "exchangesRemaining": 4,
+        "gold": 33,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 3,
+        "runeAppearances": 10,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 412
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 501,
+        "hand": 3,
+        "draw": 3,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 11,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 210
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 125,
+        "hand": 6,
+        "draw": 4,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 4,
+        "turnsRemaining": 2,
+        "hp": 0,
+        "hand": 5,
+        "draw": 19,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 421
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 22,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.openingHand",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 7,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 23,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 7,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 8,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 362
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 5,
+        "draw": 4,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "gold": 21,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 5,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 7,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 60,
+        "hand": 6,
+        "draw": 25,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 13,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 10,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 26,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 23,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 334,
+        "hand": 2,
+        "draw": 26,
+        "discard": 5,
+        "exchangesRemaining": 0,
+        "gold": 20,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 297,
+        "hand": 7,
+        "draw": 1,
+        "discard": 24,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 8,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 190
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.handSize",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 6,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 20,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            },
+            {
+              "id": "card.to",
+              "price": 14
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 36,
+        "hand": 2,
+        "draw": 29,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 237
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 3,
+        "discard": 29,
+        "exchangesRemaining": 1,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 6,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 1,
+        "bestAttack": 225
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 4,
+        "turnsRemaining": 2,
+        "hp": 0,
+        "hand": 2,
+        "draw": 6,
+        "discard": 24,
+        "exchangesRemaining": 1,
+        "gold": 23,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 9,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 596,
+        "hand": 10,
+        "draw": 3,
+        "discard": 19,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 7,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 162
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 100,
+        "hand": 7,
+        "draw": 27,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 14,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 5,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 350
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 532,
+        "hand": 6,
+        "draw": 24,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 10,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 4,
+        "draw": 12,
+        "discard": 17,
+        "exchangesRemaining": 4,
+        "gold": 34,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 4,
+        "runeAppearances": 10,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 412
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 501,
+        "hand": 4,
+        "draw": 2,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 11,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 210
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 101,
+        "hand": 6,
+        "draw": 0,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 193
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 14,
+        "discard": 14,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 300
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.openingHand",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 6,
+        "hand": 4,
+        "draw": 4,
+        "discard": 24,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 6,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 8,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 362
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 20,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 1,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 8,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 60,
+        "hand": 6,
+        "draw": 25,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 12,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 1,
+        "discard": 29,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 1,
+        "draw": 2,
+        "discard": 32,
+        "exchangesRemaining": 1,
+        "gold": 27,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 7,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 80,
+        "hand": 5,
+        "draw": 1,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 13,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 187
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.handSize",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 13,
+        "hand": 4,
+        "draw": 0,
+        "discard": 30,
+        "exchangesRemaining": 0,
+        "gold": 28,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 7,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 51,
+        "hand": 2,
+        "draw": 29,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 237
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 11,
+        "discard": 21,
+        "exchangesRemaining": 3,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 4,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 1,
+        "bestAttack": 225
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 1,
+        "discard": 29,
+        "exchangesRemaining": 1,
+        "gold": 22,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 2,
+        "turnsRemaining": 4,
+        "hp": 0,
+        "hand": 0,
+        "draw": 13,
+        "discard": 18,
+        "exchangesRemaining": 1,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 6,
+        "runeAppearances": 10,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 593
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 100,
+        "hand": 7,
+        "draw": 27,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 5,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "gold": 31,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 7,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 350
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 539,
+        "hand": 7,
+        "draw": 23,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 3,
+        "draw": 4,
+        "discard": 26,
+        "exchangesRemaining": 2,
+        "gold": 33,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 6,
+        "runeAppearances": 10,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 412
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 501,
+        "hand": 4,
+        "draw": 2,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 11,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 210
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 101,
+        "hand": 6,
+        "draw": 0,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 193
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 4,
+        "turnsRemaining": 2,
+        "hp": 0,
+        "hand": 3,
+        "draw": 26,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 27,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 7,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 383
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 22,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.openingHand",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 555,
+        "hand": 10,
+        "draw": 0,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 168
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 8,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 362
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 20,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 1,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 6,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 5,
+        "hand": 4,
+        "draw": 25,
+        "discard": 5,
+        "exchangesRemaining": 0,
+        "gold": 13,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 11,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 1,
+        "draw": 4,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 21,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 237
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 334,
+        "hand": 2,
+        "draw": 26,
+        "discard": 5,
+        "exchangesRemaining": 0,
+        "gold": 21,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 69,
+        "hand": 4,
+        "draw": 1,
+        "discard": 28,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 14,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 187
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.handSize",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 288,
+        "hand": 10,
+        "draw": 6,
+        "discard": 19,
+        "exchangesRemaining": 0,
+        "gold": 24,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 8,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 36,
+        "hand": 2,
+        "draw": 29,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 237
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 57,
+        "hand": 6,
+        "draw": 2,
+        "discard": 28,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 8,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 193
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 1,
+        "discard": 29,
+        "exchangesRemaining": 1,
+        "gold": 22,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 9,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 596,
+        "hand": 10,
+        "draw": 3,
+        "discard": 19,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 7,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 162
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 100,
+        "hand": 7,
+        "draw": 27,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 5,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 350
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 539,
+        "hand": 7,
+        "draw": 23,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 3,
+        "draw": 4,
+        "discard": 26,
+        "exchangesRemaining": 2,
+        "gold": 34,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 6,
+        "runeAppearances": 10,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 412
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 501,
+        "hand": 4,
+        "draw": 2,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 11,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 210
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 101,
+        "hand": 6,
+        "draw": 0,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 193
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 4,
+        "turnsRemaining": 2,
+        "hp": 0,
+        "hand": 5,
+        "draw": 19,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 421
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 22,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.openingHand",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 108,
+        "hand": 6,
+        "draw": 23,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 8,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 193
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 8,
+        "discard": 23,
+        "exchangesRemaining": 0,
+        "gold": 25,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 9,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 362
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "gold": 20,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 218
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 2,
+        "draw": 4,
+        "discard": 27,
+        "exchangesRemaining": 1,
+        "gold": 24,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 7,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 1,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 21,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 5,
+        "hand": 4,
+        "draw": 25,
+        "discard": 5,
+        "exchangesRemaining": 0,
+        "gold": 13,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 11,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 26,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 22,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 2,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 334,
+        "hand": 2,
+        "draw": 26,
+        "discard": 5,
+        "exchangesRemaining": 0,
+        "gold": 21,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 200
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 69,
+        "hand": 4,
+        "draw": 1,
+        "discard": 28,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 14,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 187
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.handSize",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 6,
+        "draw": 0,
+        "discard": 29,
+        "exchangesRemaining": 0,
+        "gold": 30,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 36,
+        "hand": 2,
+        "draw": 29,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 237
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.polished",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 5,
+        "turnsRemaining": 1,
+        "hp": 0,
+        "hand": 1,
+        "draw": 6,
+        "discard": 28,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 8,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 225
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 1,
+        "discard": 29,
+        "exchangesRemaining": 1,
+        "gold": 22,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 2,
+        "bestAttack": 262
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 596,
+        "hand": 10,
+        "draw": 3,
+        "discard": 19,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 7,
+        "runeAppearances": 8,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 162
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 100,
+        "hand": 7,
+        "draw": 27,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 3,
+        "bestAttack": 175
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 4,
+        "draw": 5,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "gold": 26,
+        "status": "CONTENT_COMPLETE"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 350
+      },
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 521,
+        "hand": 6,
+        "draw": 24,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 17,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 15,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 140
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.decision",
+              "price": 6
+            },
+            {
+              "id": "card.have",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 20,
+        "hand": 5,
+        "draw": 7,
+        "discard": 20,
+        "exchangesRemaining": 4,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 4,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 563,
+        "hand": 9,
+        "draw": 1,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 14,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 9,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.a",
+              "price": 6
+            },
+            {
+              "id": "card.carefully",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 40,
+        "hand": 6,
+        "draw": 0,
+        "discard": 27,
+        "exchangesRemaining": 1,
+        "gold": 5,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 8,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 15,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.question",
+              "price": 6
+            },
+            {
+              "id": "card.home",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 560,
+        "hand": 10,
+        "draw": 1,
+        "discard": 22,
+        "exchangesRemaining": 1,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 9,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 8,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.information",
+              "price": 6
+            },
+            {
+              "id": "card.help",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 133,
+        "hand": 10,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 8,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 9,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.music",
+              "price": 6
+            },
+            {
+              "id": "card.create",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 563,
+        "hand": 10,
+        "draw": 24,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 528,
+        "hand": 5,
+        "draw": 5,
+        "discard": 24,
+        "exchangesRemaining": 3,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 29,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 107
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.he",
+              "price": 6
+            },
+            {
+              "id": "card.it",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 14,
+        "hand": 8,
+        "draw": 20,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 15,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 536,
+        "hand": 4,
+        "draw": 27,
+        "discard": 4,
+        "exchangesRemaining": 1,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 28,
+        "exchanges": 13,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.for",
+              "price": 6
+            },
+            {
+              "id": "card.with",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 535,
+        "hand": 6,
+        "draw": 10,
+        "discard": 16,
+        "exchangesRemaining": 3,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 5,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 118
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 30,
+        "hand": 6,
+        "draw": 24,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 15,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 150,
+        "hand": 10,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 17,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.culture",
+              "price": 6
+            },
+            {
+              "id": "card.music",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 130,
+        "hand": 11,
+        "draw": 17,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 15,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 9,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 15,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 26,
+        "hand": 7,
+        "draw": 7,
+        "discard": 20,
+        "exchangesRemaining": 2,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 11,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.make",
+              "price": 10
+            },
+            {
+              "id": "card.good",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 15,
+        "hand": 9,
+        "draw": 24,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 5,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 15,
+        "exchanges": 8,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 132,
+        "hand": 10,
+        "draw": 0,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "gold": 8,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 10,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 8,
+        "bestAttack": 140
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.she",
+              "price": 6
+            },
+            {
+              "id": "card.information",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 521,
+        "hand": 5,
+        "draw": 8,
+        "discard": 20,
+        "exchangesRemaining": 3,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 7,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 531,
+        "hand": 7,
+        "draw": 4,
+        "discard": 22,
+        "exchangesRemaining": 3,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.to",
+              "price": 14
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 10,
+        "draw": 21,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 14,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 68,
+        "hand": 10,
+        "draw": 2,
+        "discard": 20,
+        "exchangesRemaining": 0,
+        "gold": 6,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 9,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 147
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.decision",
+              "price": 6
+            },
+            {
+              "id": "card.have",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 45,
+        "hand": 6,
+        "draw": 4,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "gold": 13,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 12,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 85,
+        "hand": 10,
+        "draw": 19,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 7,
+        "exchanges": 6,
+        "runeAppearances": 3,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 25,
+        "hand": 5,
+        "draw": 24,
+        "discard": 3,
+        "exchangesRemaining": 1,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 10,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 0,
+          "purchases": [
+            {
+              "id": "card.question",
+              "price": 6
+            },
+            {
+              "id": "card.home",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 90,
+        "hand": 12,
+        "draw": 20,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 13,
+        "exchanges": 14,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 9,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.information",
+              "price": 6
+            },
+            {
+              "id": "card.help",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 2,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 6,
+        "hand": 10,
+        "draw": 18,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 5,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 4,
+        "exchanges": 6,
+        "runeAppearances": 1,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 563,
+        "hand": 10,
+        "draw": 24,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 16,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 7,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 519,
+        "hand": 5,
+        "draw": 22,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 29,
+        "exchanges": 21,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 107
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.he",
+              "price": 6
+            },
+            {
+              "id": "card.it",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 293,
+        "hand": 10,
+        "draw": 4,
+        "discard": 20,
+        "exchangesRemaining": 0,
+        "gold": 15,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 20,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 12,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.picture",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 33,
+        "hand": 10,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 12,
+        "exchanges": 12,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.for",
+              "price": 6
+            },
+            {
+              "id": "card.with",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 33,
+        "hand": 10,
+        "draw": 14,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 7,
+        "exchanges": 6,
+        "runeAppearances": 3,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 2,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 10,
+        "draw": 2,
+        "discard": 17,
+        "exchangesRemaining": 0,
+        "gold": 5,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 3,
+        "exchanges": 8,
+        "runeAppearances": 1,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 81
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 9,
+        "draw": 21,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 15,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 15,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.culture",
+              "price": 6
+            },
+            {
+              "id": "card.music",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 2,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 1,
+        "hand": 10,
+        "draw": 19,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 5,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 4,
+        "exchanges": 5,
+        "runeAppearances": 1,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 21,
+        "hand": 10,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 1,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 11,
+        "exchanges": 12,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.make",
+              "price": 10
+            },
+            {
+              "id": "card.good",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 43,
+        "hand": 10,
+        "draw": 19,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 7,
+        "exchanges": 6,
+        "runeAppearances": 4,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 52,
+        "hand": 10,
+        "draw": 0,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 11,
+        "exchanges": 6,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 140
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.she",
+              "price": 6
+            },
+            {
+              "id": "card.information",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 549,
+        "hand": 9,
+        "draw": 19,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 17,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 8,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 0,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 43,
+        "hand": 10,
+        "draw": 18,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 11,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.to",
+              "price": 14
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 10,
+        "draw": 21,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 14,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 525,
+        "hand": 6,
+        "draw": 24,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 19,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 132
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.decision",
+              "price": 6
+            },
+            {
+              "id": "card.have",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 25,
+        "hand": 5,
+        "draw": 23,
+        "discard": 4,
+        "exchangesRemaining": 1,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 11,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 576,
+        "hand": 10,
+        "draw": 2,
+        "discard": 24,
+        "exchangesRemaining": 0,
+        "gold": 13,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 13,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 11,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.a",
+              "price": 6
+            },
+            {
+              "id": "card.carefully",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 87,
+        "hand": 11,
+        "draw": 9,
+        "discard": 8,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 8,
+        "exchanges": 8,
+        "runeAppearances": 3,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 552,
+        "hand": 9,
+        "draw": 13,
+        "discard": 12,
+        "exchangesRemaining": 4,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 7,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 8,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.information",
+              "price": 6
+            },
+            {
+              "id": "card.help",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 554,
+        "hand": 9,
+        "draw": 26,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 18,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 8,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.music",
+              "price": 6
+            },
+            {
+              "id": "card.create",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 25,
+        "hand": 10,
+        "draw": 21,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 15,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 519,
+        "hand": 5,
+        "draw": 22,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 29,
+        "exchanges": 21,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 107
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.he",
+              "price": 6
+            },
+            {
+              "id": "card.it",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 20,
+        "hand": 5,
+        "draw": 1,
+        "discard": 27,
+        "exchangesRemaining": 1,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 7,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 20,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 541,
+        "hand": 5,
+        "draw": 22,
+        "discard": 8,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 27,
+        "exchanges": 18,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.for",
+              "price": 6
+            },
+            {
+              "id": "card.with",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 511,
+        "hand": 4,
+        "draw": 1,
+        "discard": 26,
+        "exchangesRemaining": 1,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 6,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 132
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 10,
+        "hand": 9,
+        "draw": 20,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 11,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 93,
+        "hand": 10,
+        "draw": 15,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 7,
+        "exchanges": 10,
+        "runeAppearances": 4,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 150,
+        "hand": 8,
+        "draw": 0,
+        "discard": 25,
+        "exchangesRemaining": 1,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 9,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 8,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 15,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 38,
+        "hand": 10,
+        "draw": 15,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 8,
+        "exchanges": 8,
+        "runeAppearances": 3,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 120,
+        "hand": 10,
+        "draw": 2,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "gold": 6,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 9,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 562,
+        "hand": 9,
+        "draw": 19,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 10,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 122
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.adverbs",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 521,
+        "hand": 5,
+        "draw": 8,
+        "discard": 20,
+        "exchangesRemaining": 3,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 17,
+        "hand": 9,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 17,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.to",
+              "price": 14
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 10,
+        "draw": 21,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 14,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 525,
+        "hand": 6,
+        "draw": 24,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 16,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 19,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 132
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.decision",
+              "price": 6
+            },
+            {
+              "id": "card.have",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 25,
+        "hand": 5,
+        "draw": 23,
+        "discard": 4,
+        "exchangesRemaining": 1,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 18,
+        "exchanges": 11,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.i",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 29,
+        "hand": 10,
+        "draw": 1,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 10,
+        "exchanges": 11,
+        "runeAppearances": 4,
+        "polishedCards": 0,
+        "preparations": 8,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.a",
+              "price": 6
+            },
+            {
+              "id": "card.carefully",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 74,
+        "hand": 10,
+        "draw": 9,
+        "discard": 9,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 8,
+        "exchanges": 8,
+        "runeAppearances": 3,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 560,
+        "hand": 10,
+        "draw": 1,
+        "discard": 22,
+        "exchangesRemaining": 1,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 9,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 8,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.information",
+              "price": 6
+            },
+            {
+              "id": "card.help",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 558,
+        "hand": 10,
+        "draw": 24,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 18,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 8,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.music",
+              "price": 6
+            },
+            {
+              "id": "card.create",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 25,
+        "hand": 10,
+        "draw": 21,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 15,
+        "runeAppearances": 6,
+        "polishedCards": 0,
+        "preparations": 6,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.short",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 519,
+        "hand": 5,
+        "draw": 22,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 29,
+        "exchanges": 21,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 107
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.he",
+              "price": 6
+            },
+            {
+              "id": "card.it",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 8,
+        "hand": 4,
+        "draw": 26,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 6,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 21,
+        "exchanges": 10,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 108
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svc",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 541,
+        "hand": 5,
+        "draw": 22,
+        "discard": 8,
+        "exchangesRemaining": 0,
+        "gold": 14,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 27,
+        "exchanges": 18,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.for",
+              "price": 6
+            },
+            {
+              "id": "card.with",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 525,
+        "hand": 6,
+        "draw": 4,
+        "discard": 22,
+        "exchangesRemaining": 2,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 6,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 132
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "rune.svo",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 4,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 10,
+        "hand": 9,
+        "draw": 20,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "gold": 4,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 11,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.answer",
+              "price": 6
+            },
+            {
+              "id": "card.we",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 6,
+        "hand": 9,
+        "draw": 12,
+        "discard": 8,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 8,
+        "exchanges": 10,
+        "runeAppearances": 4,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 87
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 55,
+        "hand": 7,
+        "draw": 3,
+        "discard": 22,
+        "exchangesRemaining": 2,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 6,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 15,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.knowledge",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 3,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 38,
+        "hand": 10,
+        "draw": 15,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "gold": 9,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 8,
+        "exchanges": 8,
+        "runeAppearances": 3,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 5,
+        "hand": 6,
+        "draw": 20,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "gold": 7,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 13,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 100
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.plan",
+              "price": 6
+            },
+            {
+              "id": "card.keep",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 79,
+        "hand": 8,
+        "draw": 26,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 20,
+        "exchanges": 11,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 140
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 17,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.she",
+              "price": 6
+            },
+            {
+              "id": "card.information",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 521,
+        "hand": 5,
+        "draw": 8,
+        "discard": 20,
+        "exchangesRemaining": 3,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 25,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 5,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 18,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 6,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 17,
+        "hand": 9,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 10,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 19,
+        "exchanges": 17,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 121
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 16,
+          "grants": 2,
+          "purchases": [
+            {
+              "id": "card.to",
+              "price": 14
+            }
+          ]
+        }
+      ],
+      "error": null
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 5,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 75,
+        "hand": 10,
+        "draw": 21,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "gold": 12,
+        "status": "DEFEAT"
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 14,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 112
+      },
+      "bossVeilReleased": false,
+      "shops": [
+        {
+          "gold": 19,
+          "grants": 1,
+          "purchases": [
+            {
+              "id": "card.homework",
+              "price": 6
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            }
+          ]
+        }
+      ],
+      "error": null
+    }
+  ]
+}
