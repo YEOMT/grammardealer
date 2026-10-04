@@ -265,5 +265,5 @@ export const BASIC_RUNE_IDS=Object.freeze(RUNES.filter(r=>r.id!=='rune.svoo').ma
 /** Eligibility is frozen into this run; later profile unlocks do not rewrite its pools. */
 export function eligibleRuneDefinitions(run) {
  const unlocked=new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])]);
- return RUNES.filter(r=>r.runtimeReady&&(r.id!=='rune.svoo'||run?.version==='0.2.0'&&unlocked.has(r.id)));
+ return RUNES.filter(r=>r.runtimeReady&&(r.id!=='rune.svoo'||['0.2.0','0.2.1'].includes(run?.version)&&unlocked.has(r.id)));
 }

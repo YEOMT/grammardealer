@@ -1,3 +1,4 @@
+import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
 import {learningSummary} from '../engine/meaning.js';
 import { clone, requireInteger, assertSerializable } from '../contracts.js';
 import { assertRng } from '../game/rng.js';
@@ -5,8 +6,8 @@ import { RUNE_BY_ID, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.2.0';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0'].includes(version);
+export const SAVE_VERSION = '0.2.1';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -16,6 +17,7 @@ export function newProfile(displayName) {
 /** Profile events are idempotent; replay/sandbox never calls this reducer. */
 export function applyProfileEvent(profile,event) {
   const p=clone(profile);
+  if(event.type==='GUIDED_TUTORIAL_COMPLETED'&&event.version==='0.2.1')p.guidedTutorialCompletedVersion=event.version;
   if(event.type==='FIRST_RUNE_SHOWN')p.firstRuneIntroSeen=true;
   if(event.type==='GUIDE_SEEN')p.guideSeen=true;
   if(['GUIDE_COMPLETED','GUIDE_SKIPPED'].includes(event.type)){p.guideSeen=true;p.tutorial={tutorialVersion:event.tutorialVersion,completed:event.type==='GUIDE_COMPLETED',skipped:event.type==='GUIDE_SKIPPED',actions:event.actions,reason:event.reason};}
@@ -40,8 +42,9 @@ export function applyProfileEvent(profile,event) {
 }
 export function canSaveRun(run) {
   if(!run)return false;
+  if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
-  if(run.status==='SHOP')return run.version==='0.2.0'&&run.combat===null&&run.shop?.closed===false;
+  if(run.status==='SHOP')return ['0.2.0','0.2.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
   return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty&&run.combat.turnIndex===1;
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
@@ -53,7 +56,7 @@ export function validateRunState(run,registry) {
   record(run,'저장');
   if(!registry?.cardById||!registry?.formById)fail('단어 데이터가 준비되지 않았습니다.');
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
-  registry=registryForVersion(run.version);
+  registry=registryForVersion(run.version);validateTutorial(run);
   const currentCampaign=isCurrentCampaign(run);
   const runeInScope=id=>Boolean(RUNE_BY_ID[id]?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
@@ -110,7 +113,7 @@ export function validateRunState(run,registry) {
   if(c){
     if(!['EDIT','EXCHANGE_SELECT','RESOLVING','PRESENTING','VICTORY','DEFEAT','TURN_START'].includes(c.phase))fail('잘못된 전투 단계입니다.');
     const rules=record(c.rulesSnapshot,'전투 규칙');
-    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:[4,5,6,7],turnLimit:[6],sentenceLimit:[16]};
+    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:run.tutorialSession&&progress.battleNumber===1?[1]:[4,5,6,7],turnLimit:[6],sentenceLimit:[16]};
     for(const [key,values] of Object.entries(allowed))if(!values.includes(rules[key]))fail(`지원하지 않는 전투 규칙: ${key}`);
     if(rules.initialHand>rules.handLimit)fail('초기 손패 한도가 잘못되었습니다.');
     requireInteger(c.turnsRemaining,'turnsRemaining',0,rules.turnLimit);

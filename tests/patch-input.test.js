@@ -3,7 +3,7 @@ import {registry,legacyRegistry,formsForCard,createSentenceSnapshot} from '../sr
 import {analyzeSentence,snapshotFromText} from '../src/engine/grammar/index.js';
 import {resolveAttack} from '../src/engine/stage.js';import {cardModel} from '../src/ui/models.js';
 import {generateStarterDeck,createBattlePiles,validateStarterDeck,VOCABULARY_MODES} from '../src/game/deck.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-controller.js';
 const analyze=text=>analyzeSentence(snapshotFromText(text));
 const power=text=>{const snapshot=snapshotFromText(text),analysis=analyzeSentence(snapshot);const cards=snapshot.orderedTokens.map(t=>({instanceId:t.cardInstanceId,cardDefId:t.cardDefId,baseScore:10,polishLevel:0}));return resolveAttack({analysis,cards,sentenceSnapshot:snapshot,enemy:{hp:999,hpMax:999}});};
 

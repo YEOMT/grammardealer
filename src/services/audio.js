@@ -6,6 +6,7 @@ const TYPES = Object.freeze({
   rune: { frequency: 660, duration: .2, wave: 'triangle', gain: .12 },
   charge: { frequency: 125, duration: .18, wave: 'sawtooth', gain: .055 },
   impact: { frequency: 100, duration: .21, wave: 'triangle', gain: .2 },
+  impactLow: { frequency: 64, duration: .24, wave: 'sine', gain: .10 },
   blocked: { frequency: 160, duration: .12, wave: 'square', gain: .05 },
 });
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));

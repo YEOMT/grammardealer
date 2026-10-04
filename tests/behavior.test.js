@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { RunController } from '../src/game/runController.js';
+import { RunController } from './helpers/legacy-controller.js';
 import { findPlayableSentences } from '../src/game/deck.js';
 import { registry, formsForCard } from '../src/data/language/index.js';
 import { resolveAttack } from '../src/engine/stage.js';

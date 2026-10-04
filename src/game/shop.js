@@ -1,3 +1,4 @@
+import {isCurrentCampaign} from '../data/stages.js';
 import { registryForVersion } from '../data/language/index.js';
 import { RUNE_MAX_LEVEL } from '../data/runes.js';
 import { REWARD_BALANCE } from '../data/balance.js';
@@ -20,7 +21,7 @@ const orderById = values => [...values].sort((a, b) => a.id < b.id ? -1 : a.id >
 const equipped = run => run.runes.orderedInstanceIds.map(id => run.runes.instances[id]);
 const cardWeight = card => card.availability?.rewardWeight ?? card.rewardWeight;
 const requireEntryContext = run => {
-  if (run?.version !== SHOP_VERSION || run.progress?.stageId !== 'stage.02' || run.combat !== null)
+  if (!isCurrentCampaign(run) || run.progress?.stageId !== 'stage.02' || run.combat !== null)
     throw new TypeError('Stage 2 preparation requires a current campaign outside combat');
 };
 
@@ -111,7 +112,7 @@ export function createShop(run) {
 }
 
 function openShop(run, shopId) {
-  return run?.version === SHOP_VERSION && run.status === 'SHOP' && run.combat === null && run.shop?.shopId === shopId && !run.shop.closed;
+  return isCurrentCampaign(run) && run.status === 'SHOP' && run.combat === null && run.shop?.shopId === shopId && !run.shop.closed;
 }
 function canAfford(run, price) {
   return Number.isSafeInteger(price) && price >= 0 && Number.isSafeInteger(run.economy?.gold) && run.economy.gold >= price;

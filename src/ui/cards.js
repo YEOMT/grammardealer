@@ -16,7 +16,8 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   node.append(body);
   if(onSelect&&!readonly){
     node.classList.add('selectable-card');
-    node.append(button(selected?'✓':'○',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':`${model.surface} 버리기 선택`,'aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
+    const foot=body.querySelector('.card-footline');node.append(foot);
+    foot.append(button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':`${model.surface} 버리기 선택`,'aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
   }
   if (onForm && !readonly) node.append(button('형태 ▾', e => { e.stopPropagation(); onForm(model.id); }, 'form-button', { 'aria-label': `${model.surface} 형태 선택`, onpointerdown: e => e.stopPropagation() }));
   return node;

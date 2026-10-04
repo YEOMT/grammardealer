@@ -1,3 +1,9 @@
+## 0.2.1 이후 검토 순서
+
+1. TEST_REPORT_0.2.1.md의 새 프로필 실습 → 1-2 첫 룬 → 초원 보스 → 상점 → 항구 보스 순서로 직접 검토한다.
+2. 실제 iPad/Android/Safari 및 스피커로 터치·음량·충돌 감각을 확인한다. Chromium 자동화 영상은 실제 기기/청취 검증을 대신하지 않는다.
+3. PR 검토 이후 별도 승인으로 main 병합·배포를 진행한다. 이번 작업은 branch push/PR까지다.
+
 # 다음 작업 — 0.2 검토
 
 1. `codex/v0.2-stage2-svoo-shop` PR에서 IMPLEMENTATION_PLAN_0.2, TEST_REPORT_0.2, PATCH_NOTES_0.2_KO와 코드를 검토한다. 출발 main은 `2fdafeba8c93435844eef2d7aec0f3e25509bde9`다.

@@ -1,3 +1,4 @@
+import {GUIDED_VERSION,isGuided,installTutorial,tutorialPiles,guidedAllowed,recordGuided,restoreTutorialDeck} from './guidedTutorial.js';
 import {createTutorial,recordTutorialAction} from './tutorial.js';
 import {clone,deepFreeze,VERSIONS} from '../contracts.js';
 import {registry,registryForVersion,formsForCard,createSentenceSnapshot} from '../data/language/index.js';
@@ -30,15 +31,16 @@ export class RunController {
   _commit(next){assertRunInvariants(next,registry);this._state=next;}
   restoreRun(state){if(this.busy||this._state?.combat?.phase==='PRESENTING')return fail('공격 연출 후 불러올 수 있습니다.');try{validateRunState(state,registry);if(!canSaveRun(state))return fail('안전 지점 저장이 아닙니다.');this._commit(clone(state));this.undo=[];return {ok:true};}catch(e){return fail(e.message);}}
   _beginBattle(next){
-    const rules=deriveCombatRules(COMBAT_BALANCE,next.config.character,next.config.difficulty,next.runes.orderedInstanceIds.map(id=>next.runes.instances[id]));
+    const rules=clone(deriveCombatRules(COMBAT_BALANCE,next.config.character,next.config.difficulty,next.runes.orderedInstanceIds.map(id=>next.runes.instances[id])));
     const firstBattle=next.progress.battleNumber===1;
-    const piles=createBattlePiles({activeCardIds:next.activeCardIds,cardInstances:next.cardInstances,stream:next.rng.deck,initialHand:rules.initialHand,previousOpeningFrames:next.openingFrames,focusFrame:firstBattle&&next.generationTrace?.generatorVersion==='0.1.1'?'frame.sv':null,tutorial:firstBattle&&next.generationTrace?.generatorVersion==='0.1.1'&&next.tutorial.visible,registry:registryForVersion(next.version)});
-    next.openingFrames.push(piles.openingTrace.frameId);
+    if(isGuided(next))rules.discardActions=1;
+    const piles=isGuided(next)?tutorialPiles(next):createBattlePiles({activeCardIds:next.activeCardIds,cardInstances:next.cardInstances,stream:next.rng.deck,initialHand:rules.initialHand,previousOpeningFrames:next.openingFrames,focusFrame:firstBattle&&next.generationTrace?.generatorVersion==='0.1.1'?'frame.sv':null,tutorial:firstBattle&&next.generationTrace?.generatorVersion==='0.1.1'&&next.tutorial.visible,registry:registryForVersion(next.version)});
+    if(!isGuided(next))next.openingFrames.push(piles.openingTrace.frameId);
     const enemy=getEncounter(next.progress.stageId,next.progress.roundIndex,next.version);
     next.combat={...piles,rulesSnapshot:clone(rules),phase:'EDIT',battleDirty:false,turnIndex:1,turnsRemaining:rules.turnLimit,exchangesRemaining:rules.discardActions,enemyState:{...enemy,maxHp:enemy.hp},actionSequence:0,settled:false,pendingAttackId:null};
     next.status='BATTLE';next.reward=null;this.undo=[];
   }
-  _advanceTurn(next){const c=next.combat;c.phase='EDIT';c.turnIndex++;drawCards(c,c.rulesSnapshot.turnDraw,c.rulesSnapshot.handLimit,next.rng.deck);}
+  _advanceTurn(next){const c=next.combat;c.phase='EDIT';c.turnIndex++;drawCards(c,c.rulesSnapshot.turnDraw,c.rulesSnapshot.handLimit,isGuided(next)?next.tutorialSession.drawStream:next.rng.deck);}
   _settleVictory(next){
     const c=next.combat;const settlementId=`${next.runId}:${next.progress.battleNumber}:VICTORY`;
     if(!next.settlementIds.includes(settlementId)){
@@ -77,6 +79,8 @@ export class RunController {
         if(config.character!=='traveler'||config.difficulty!==1||!VOCABULARY_MODES.includes(config.vocabularyMode))return fail('지원하지 않는 원정 설정입니다.');
         config.seed=String(config.seed??Date.now()).slice(0,100);const profile=clone(command.profile??this.profile);const deck=generateStarterDeck(config);
         const next={version:VERSIONS.game,contentVersions:clone(VERSIONS),contentManifest:{id:'campaign.0.2',stageIds:['stage.01','stage.02'],cardDefIds:registry.cards.filter(c=>c.runtimeReady).map(c=>c.id),runeIds:RUNES.filter(r=>r.runtimeReady).map(r=>r.id)},revision:0,runId:freshRunId(),status:'STAGE_INTRO',config:{...config,contentProfile:'STAGE1_STAGE2'},progress:{stageId:'stage.01',roundIndex:0,battleNumber:1,contentBoundary:null},activeCardIds:deck.activeCardIds,cardInstances:deck.cardInstances,vocabulary:deck.vocabulary,generationTrace:deck.generationTrace,openingFrames:[],runes:{orderedInstanceIds:[],instances:{},slotLimit:3},economy:{gold:0,paidRemovalCount:0},combat:null,reward:null,shop:null,entryGrants:{},milestoneIds:[],rng:deck.rng,eligibility:{runStartUnlockBaseline:[...new Set([...RUNES.filter(r=>r.id!=='rune.svoo').map(r=>r.id),...(profile.unlocks??[])])],runOwnUnlocks:[]},tutorial:createTutorial(profile),stats:{attacks:0,preparations:0,exchanges:0,bestAttack:0,totalActualDamage:0,grammarUseCounts:{},lastAttack:null,history:[]},settlementIds:[],appliedCommandIds:[]};
+        next.tutorial.visible=false;
+        if(profile.guidedTutorialCompletedVersion!==GUIDED_VERSION)installTutorial(next);
         this.profile=profile;this._commit(next);this.undo=[];return {ok:true};
       }catch(e){return fail(`원정을 시작하지 못했습니다: ${e.message}`);}
     }
@@ -86,10 +90,22 @@ export class RunController {
     if(command.expectedRevision!==undefined&&command.expectedRevision!==current.revision)return fail('이전 상태의 요청을 취소했습니다.');
     if(command.battleId&&command.battleId!==c?.enemyState.id)return fail('이전 전투의 요청을 취소했습니다.');
     const type=command.type;
-    if(c?.phase==='PRESENTING'&&type!=='FINISH_PRESENTATION')return fail('공격 연출 중입니다.');
+    if(!guidedAllowed(current,command))return fail('현재 실습 안내에 표시된 행동을 해 주세요.');
+    if(c?.phase==='PRESENTING'&&!['FINISH_PRESENTATION','TUTORIAL_GATE_ACK','TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(type))return fail('공격 연출 중입니다.');
     const next=clone(current),nc=next.combat;let result={ok:true};let profileEvents=[];let undoCandidate=null;
     try{
-      if(type==='START_BATTLE'){if(next.status!=='STAGE_INTRO'||next.progress.stageId!=='stage.01')return fail('지역 안내와 상점을 먼저 확인하세요.');this._beginBattle(next);}
+      if(type==='TUTORIAL_RESTART'){
+        const previous=clone(next.tutorialSession);for(const[key,value]of Object.entries(previous.parked))next[key]=clone(value);
+        installTutorial(next,previous);this._beginBattle(next);this.undo=[];
+      }else if(type==='TUTORIAL_EXIT'){
+        for(const[key,value]of Object.entries(next.tutorialSession.parked))next[key]=clone(value);
+        next.tutorialSession=null;next.combat=null;next.status='STAGE_INTRO';next.tutorial.visible=false;next.tutorialAbandoned=true;this.undo=[];
+      }else if(type.startsWith('TUTORIAL_')){
+        if(!isGuided(next))return fail('진행 중인 실습이 없습니다.');
+        if(type==='TUTORIAL_ACK'&&next.tutorialSession.step===31){
+          restoreTutorialDeck(next);this._settleVictory(next);profileEvents.push({type:'GUIDED_TUTORIAL_COMPLETED',version:GUIDED_VERSION});
+        }
+      }else if(type==='START_BATTLE'){if(next.tutorialAbandoned)return fail('중단한 실습은 새 원정에서 다시 시작하세요.');if(next.status!=='STAGE_INTRO'||next.progress.stageId!=='stage.01')return fail('지역 안내와 상점을 먼저 확인하세요.');this._beginBattle(next);}
       else if(type==='NEXT_STAGE'){
         if(!isCurrentCampaign(next)||next.status!=='STAGE_CLEAR'||next.progress.stageId!=='stage.01')return fail('다음 지역으로 이동할 수 없습니다.');
         next.progress={stageId:'stage.02',roundIndex:0,battleNumber:4,contentBoundary:null};next.combat=null;next.reward=null;next.status='STAGE_INTRO';this.undo=[];
@@ -118,7 +134,8 @@ export class RunController {
       }
       else if(type==='FINISH_PRESENTATION'){
         if(nc?.phase!=='PRESENTING'||nc.pendingAttackId!==command.attackId)return fail('이미 종료된 연출입니다.');nc.pendingAttackId=null;
-        if(nc.enemyState.hp===0){const milestone=this._settleVictory(next);if(milestone)profileEvents.push(milestone);if(next.reward.firstRuneIntro)profileEvents.push({type:'FIRST_RUNE_SHOWN'});}
+        if(isGuided(next)&&nc.enemyState.hp===0){nc.phase='EDIT';}
+        else if(nc.enemyState.hp===0){const milestone=this._settleVictory(next);if(milestone)profileEvents.push(milestone);if(next.reward.firstRuneIntro)profileEvents.push({type:'FIRST_RUNE_SHOWN'});}
         else if(nc.turnsRemaining===0){next.status='DEFEAT';nc.phase='DEFEAT';}
         else this._advanceTurn(next);
       }
@@ -150,7 +167,7 @@ export class RunController {
         }else if(type==='SET_EXCHANGE_MODE'){
           if(command.enabled&&nc.exchangesRemaining<=0)return fail('교환 횟수가 없습니다.');nc.phase=command.enabled?'EXCHANGE_SELECT':'EDIT';
         }else if(type==='EXCHANGE'){
-          const ex=exchangeCards(nc,command.cardIds,nc.rulesSnapshot.handLimit,next.rng.deck);if(!ex.ok)return fail('교환할 손패를 1장 이상 선택하세요.');nc.phase='EDIT';nc.battleDirty=true;next.stats.exchanges++;next.tutorial.step=Math.max(next.tutorial.step,4);result.drawnIds=ex.drawnIds;this.undo=[];
+          const ex=exchangeCards(nc,command.cardIds,nc.rulesSnapshot.handLimit,isGuided(next)?next.tutorialSession.drawStream:next.rng.deck);if(!ex.ok)return fail('교환할 손패를 1장 이상 선택하세요.');nc.phase='EDIT';nc.battleDirty=true;next.stats.exchanges++;next.tutorial.step=Math.max(next.tutorial.step,4);result.drawnIds=ex.drawnIds;this.undo=[];
         }else if(type==='PREPARE'){
           if(nc.phase!=='EDIT')return fail('교환 선택을 먼저 끝내세요.');if(nc.turnsRemaining===1&&!command.confirmed)return fail('이대로 넘기면 패배합니다.',{needsConfirmation:true});nc.turnsRemaining--;nc.battleDirty=true;nc.actionSequence++;next.stats.preparations++;this.undo=[];if(nc.turnsRemaining===0){next.status='DEFEAT';nc.phase='DEFEAT';}else this._advanceTurn(next);
         }else if(type==='SUBMIT'){
@@ -158,19 +175,21 @@ export class RunController {
           const snapshot=createSentenceSnapshot(nc.sentenceSlots,next.cardInstances,{sentenceId:`${next.runId}.${next.progress.battleNumber}.${nc.actionSequence+1}`,languageVersion:registryForVersion(next.version).version});
           let analysis;try{analysis=this.analyzer(deepFreeze(clone(snapshot)),registryForVersion(next.version));}catch(e){analysis={status:'ENGINE_ERROR',messageKo:'판정 처리에 문제가 생겼습니다. 카드와 턴은 그대로입니다.',diagnostics:{errorId:'controller.analyzer',detail:e.message}};}
           if(!['VALID','VALID_WITH_ISSUES'].includes(analysis?.status))return fail(analysis?.messageKo??'판정 처리에 문제가 생겼습니다.',{analysis});
-          const attackId=`${next.runId}:battle.${next.progress.battleNumber}:attack.${nc.actionSequence+1}`;
+          const attackId=`${next.runId}:battle.${next.progress.battleNumber}:attack.${nc.actionSequence+1}${isGuided(next)?':tutorial.'+next.tutorialSession.attempt:''}`;
           const cards=nc.sentenceSlots.map(s=>{const card=next.cardInstances[s.cardInstanceId],def=registry.cardById[card.cardDefId];return {...card,baseScore:def.baseScore,displayCategory:def.displayCategory};});
           const resolution=this.attackResolver({attackId,runId:next.runId,battleId:nc.enemyState.id,expectedRevision:current.revision,sentenceSnapshot:snapshot,analysis,cards,equippedRunes:next.runes.orderedInstanceIds.map(id=>next.runes.instances[id]),enemy:clone(nc.enemyState),stage:stageForRun(next)});
           if(!resolution?.accepted||resolution.expectedRevision!==current.revision||resolution.battleId!==nc.enemyState.id||this._state.revision!==current.revision)return fail('이전 상태의 판정 결과를 취소했습니다.');
           nc.enemyState.hp=resolution.enemyHpAfter;
           if(resolution.proposedStateEffects?.bossMechanic)nc.enemyState.bossMechanic=clone(resolution.proposedStateEffects.bossMechanic);
           discardSentence(nc);nc.turnsRemaining--;nc.actionSequence++;nc.battleDirty=true;nc.phase='PRESENTING';nc.pendingAttackId=attackId;
-          next.stats.attacks++;next.stats.bestAttack=Math.max(next.stats.bestAttack,resolution.finalPower);next.stats.totalActualDamage+=resolution.actualHpLoss;next.stats.lastAttack=clone(resolution);next.stats.history=[clone(resolution),...next.stats.history].slice(0,12);
+          if(!isGuided(next)){next.stats.attacks++;next.stats.bestAttack=Math.max(next.stats.bestAttack,resolution.finalPower);next.stats.totalActualDamage+=resolution.actualHpLoss;next.stats.lastAttack=clone(resolution);next.stats.history=[clone(resolution),...next.stats.history].slice(0,12);
           for(const tag of new Set(analysis.grammarHits.map(h=>h.tag)))next.stats.grammarUseCounts[tag]=(next.stats.grammarUseCounts[tag]??0)+1;
-          next.tutorial.step=Math.max(next.tutorial.step,3);this.undo=[];profileEvents.push({type:'ATTACK',resolution});result={ok:true,resolution,analysis};
+          profileEvents.push({type:'ATTACK',resolution});}else next.tutorialSession.lastAttack=clone(resolution);
+          next.tutorial.step=Math.max(next.tutorial.step,3);this.undo=[];result={ok:true,resolution,analysis};
         }else return fail('알 수 없는 명령입니다.');
         if(EDITS.has(type)||type==='UNDO')nc.battleDirty=true;
       }
+      if(isGuided(next)&&!['TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(type))recordGuided(next,command);
       const tutorialEvent=recordTutorialAction(next,type,command);if(tutorialEvent)profileEvents.push(tutorialEvent);
       next.revision++;if(command.commandId)next.appliedCommandIds.push(command.commandId);this._commit(next);
       if(undoCandidate)this.undo.push(undoCandidate);else if(type==='UNDO')this.undo.pop();

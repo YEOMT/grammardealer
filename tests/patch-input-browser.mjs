@@ -1,6 +1,8 @@
+import {useLegacyCampaign} from './helpers/legacy-browser.mjs';
 import {chromium} from '@playwright/test';import assert from 'node:assert/strict';import fs from 'node:fs/promises';
 const b=await chromium.launch({headless:true,args:['--no-sandbox']});const p=await b.newPage({viewport:{width:1366,height:768}});const errors=[],checks=[];p.on('pageerror',e=>errors.push(e.message));const state=()=>p.evaluate(()=>window.__SB_DEV__.getState());
 const check=(ids,description)=>checks.push({ids,description,status:'PASS'});
+await useLegacyCampaign(p);
 try{
  await p.goto('http://127.0.0.1:5173/?debug=1');await p.locator('#start-run').click();await p.locator('#start-battle').click();await p.locator('#attack-submit').waitFor();
  let s=await state();const before=structuredClone(s);assert.equal(s.activeCardIds.length,28);const ids=s.combat.handIds.slice(0,3);

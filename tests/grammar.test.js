@@ -17,7 +17,7 @@ for(const fixture of fixtures)test(`${fixture.id} ${fixture.sentenceForHumanRead
  if(result.status.startsWith('VALID'))assert.deepEqual(result.coverage.consumedCardIds,snapshot.orderedTokens.map(t=>t.cardInstanceId));
  else assert.equal(result.grammarHits.length,0,'unsupported/invalid must not leak partial success');
 });
-test('Gate A current and legacy registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData();assert.equal(report.lexemes,119);assert.equal(report.runtimeLexemes,118);const old=validateLanguageData(legacyRegistry);assert.equal(old.lexemes,116);assert.equal(old.runtimeLexemes,115);});
+test('Gate A current and legacy registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData();assert.equal(report.lexemes,120);assert.equal(report.runtimeLexemes,119);const old=validateLanguageData(legacyRegistry);assert.equal(old.lexemes,116);assert.equal(old.runtimeLexemes,115);});
 test('Generated unseen combinations compose each supported verb Frame',()=>{
  let count=0;
  for(const lex of registry.lexemes.filter(l=>l.pos==='VERB'))for(const binding of registry.senseById[lex.senseIds[0]].frameBindings){

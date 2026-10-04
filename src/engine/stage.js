@@ -73,7 +73,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
-      balance: BALANCE_VERSION, runes: RUNE_VERSION, stage: STAGE_VERSION, presentation: 'presentation.0.1.1' },
+      balance: BALANCE_VERSION, runes: RUNE_VERSION, stage: STAGE_VERSION, presentation: 'presentation.0.2.1' },
     sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis,
     scoreTimeline: [...scoring.events, ...runeResult.runeEvents, ...encounter.events],
     preRuneScore: scoring.preRuneScore, postRuneScore: runeResult.postRuneScore,
