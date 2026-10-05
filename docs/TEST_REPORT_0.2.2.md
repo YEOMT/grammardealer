@@ -125,7 +125,7 @@
 | P69 | NOT RUN | 4해상도 Chromium UI/터치 에뮬레이션은 PASS. 실제 iPad Safari/Android는 미실행 |
 | P70 | PASS | 마지막 필수 test/validate/build·공식 browser 전체 재실행; storage/E2E 별도 기록 |
 | P71 | PASS | 기대 변경·중간 FAIL·NOT RUN·합성/실제 범위 분리 |
-| P72 | 진행 중 | 브랜치·문서·표·캡처 준비; 원격 PR 생성 후 확정 |
+| P72 | PASS | 구현 커밋 8b8c539 push, main 대상 PR #4 생성·표·캡처 제출; merge/배포 없음 |
 
 ## 보존 및 한계
 
@@ -136,4 +136,4 @@
 
 고정 출력 증거 112개와 이전 실습 증거 35개는 이번 결과를 `final-complete/fixed-output/` 및 `guided/`에 보존한 뒤 원본 백업으로 복원했다. SHA-256 불일치 0개. 원본 ZIP/인계 소스/`.baseline-backup`은 수정하지 않았다. 의도적인 게임/테스트/문서 변경은 Git diff에 남기며 원본 전체가 동일하다고 주장하지 않는다. 카드 정의·형태·형태소 행은 0.2.1 view와 deep equality도 통과했다.
 
-원격 결과: PR 생성 후 기입.
+원격 결과: 구현 커밋 `8b8c539bebe02f2273741b46732da03bbfec5ce9`를 개발 브랜치에 push했고 [PR #4](https://github.com/YEOMT/grammardealer/pull/4)를 생성했다. PR base는 시작 main과 같은 `50b4311`이다. 후속 문서 커밋은 이 URL·납품 결과만 기록한다. 원격 CI의 최신 상태는 PR Checks를 따른다. main 직접 push/merge/auto-merge·Pages 설정·공개 배포는 하지 않았다. 이번에 시작한 Vite 및 production 서버/브라우저를 종료했고 5173/4174에 검증 서버가 남아 있지 않음을 확인했다.
