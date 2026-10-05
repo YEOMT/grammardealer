@@ -1,0 +1,1129 @@
+{
+  "generatedAt": "2026-10-05T06:04:19.708Z",
+  "command": "node tools/simulate-runs.js",
+  "nodeVersion": "v24.19.0",
+  "status": "PASS",
+  "totalRuns": 160,
+  "completed": 38,
+  "defeats": 122,
+  "errors": 0,
+  "durationMs": 125249,
+  "policy": "Two fixed QA policies use bounded current-hand search and prefer lethal few-card candidates. LEARNING prioritizes Stage 2 SVOO, retains visible NP/verb materials during exchanges, and seeks SVOO when ordinary damage cannot meet the remaining HP/turn pace. SV_ONLY submits only SV candidates. Public rewards prefer Topaz/SVOO verbs/crystal; public shops prefer affordable runes, then cards. Both exercise one prepare and one exchange in battle 2, without editing gameplay state or inspecting future draw order.",
+  "limitations": [
+    "This is a QA play policy, not human victory-rate evidence.",
+    "A defeat can result from limited phrase search, greedy card use, or exchange strategy; it is not proof that the seed is impossible.",
+    "No live browser animation is exercised by this command-level simulation. Browser tests are reported separately."
+  ],
+  "runs": [
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT"
+    }
+  ],
+  "metrics": {
+    "attacks": {
+      "mean": 18.8875,
+      "counts": {
+        "3": 1,
+        "5": 1,
+        "6": 1,
+        "7": 1,
+        "9": 2,
+        "12": 6,
+        "13": 4,
+        "14": 8,
+        "15": 1,
+        "16": 9,
+        "17": 15,
+        "18": 12,
+        "19": 20,
+        "20": 17,
+        "21": 19,
+        "22": 17,
+        "23": 13,
+        "24": 7,
+        "25": 3,
+        "26": 2,
+        "30": 1
+      }
+    },
+    "preparations": {
+      "mean": 4.4125,
+      "counts": {
+        "1": 19,
+        "2": 17,
+        "3": 31,
+        "4": 21,
+        "5": 15,
+        "6": 23,
+        "7": 19,
+        "8": 8,
+        "9": 6,
+        "12": 1
+      }
+    },
+    "exchanges": {
+      "mean": 9.65625,
+      "counts": {
+        "2": 2,
+        "4": 4,
+        "5": 10,
+        "6": 16,
+        "7": 21,
+        "8": 15,
+        "9": 12,
+        "10": 26,
+        "11": 9,
+        "12": 10,
+        "13": 6,
+        "14": 15,
+        "15": 4,
+        "16": 5,
+        "17": 1,
+        "19": 2,
+        "21": 2
+      }
+    },
+    "runeAppearances": {
+      "mean": 6.23125,
+      "counts": {
+        "1": 1,
+        "3": 1,
+        "4": 18,
+        "5": 26,
+        "6": 43,
+        "7": 45,
+        "8": 21,
+        "10": 5
+      }
+    },
+    "polishedCards": {
+      "mean": 0.51875,
+      "counts": {
+        "0": 77,
+        "1": 83
+      }
+    },
+    "gold": {
+      "mean": 15.4875,
+      "counts": {
+        "1": 1,
+        "3": 1,
+        "4": 4,
+        "5": 4,
+        "6": 6,
+        "7": 9,
+        "8": 11,
+        "9": 4,
+        "10": 5,
+        "11": 10,
+        "12": 4,
+        "13": 4,
+        "14": 3,
+        "15": 21,
+        "16": 6,
+        "17": 11,
+        "18": 7,
+        "19": 8,
+        "20": 3,
+        "21": 4,
+        "22": 3,
+        "23": 4,
+        "24": 2,
+        "25": 4,
+        "26": 7,
+        "27": 6,
+        "28": 1,
+        "29": 3,
+        "31": 2,
+        "32": 1,
+        "34": 1
+      }
+    },
+    "remainingTurns": {
+      "mean": 2.682170542635659,
+      "counts": {
+        "0": 47,
+        "1": 120,
+        "2": 210,
+        "3": 291,
+        "4": 166,
+        "5": 69
+      }
+    }
+  },
+  "byPolicy": {
+    "LEARNING": {
+      "runs": 80,
+      "completed": 38,
+      "clearRate": 0.475
+    },
+    "SV_ONLY": {
+      "runs": 80,
+      "completed": 0,
+      "clearRate": 0
+    }
+  },
+  "firstShopGold": {
+    "count": 157,
+    "min": 16,
+    "median": 20,
+    "max": 23
+  }
+}

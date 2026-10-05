@@ -1,24 +1,25 @@
 import { STAGE1, getStage1Encounter, stageRoundsForRun } from './stage1.js';
 import { STAGE2 } from './stage2.js';
+import { STAGE3 } from './stage3.js';
 import { clone } from '../contracts.js';
 
-export { STAGE1, STAGE2 };
-export const STAGE_BY_ID = Object.freeze({ [STAGE1.id]: STAGE1, [STAGE2.id]: STAGE2 });
+export { STAGE1, STAGE2, STAGE3 };
+export const STAGE_BY_ID = Object.freeze({ [STAGE1.id]: STAGE1, [STAGE2.id]: STAGE2, [STAGE3.id]:STAGE3 });
 export const STAGE_VERSION = 'stage.0.2.0';
-export const isCurrentCampaign = run => ['0.2.0','0.2.1','0.2.2'].includes(run?.version);
+export const isCurrentCampaign = run => ['0.2.0','0.2.1','0.2.2','0.3.0'].includes(run?.version);
 export function stageForRun(run) {
   const stage = STAGE_BY_ID[run?.progress?.stageId ?? STAGE1.id];
-  if (!stage || stage.id === STAGE2.id && !isCurrentCampaign(run)) throw new RangeError('Unsupported stage for this campaign version');
+  if (!stage || stage.id === STAGE2.id && !isCurrentCampaign(run)||stage.id===STAGE3.id&&run?.version!=='0.3.0') throw new RangeError('Unsupported stage for this campaign version');
   return stage;
 }
 export const getStageForRun = stageForRun;
 export function roundsForRun(run) {
-  return stageForRun(run).id === STAGE1.id ? stageRoundsForRun(run) : STAGE2.rounds;
+  const stage=stageForRun(run);return stage.id === STAGE1.id ? stageRoundsForRun(run) : stage.rounds;
 }
 export function getEncounter(stageId, roundIndex, gameVersion = '0.2.0') {
   if (stageId === STAGE1.id) return getStage1Encounter(roundIndex, gameVersion);
-  if (stageId !== STAGE2.id || !['0.2.0','0.2.1','0.2.2'].includes(gameVersion)) throw new RangeError('Unsupported stage for this campaign version');
-  if (!Number.isInteger(roundIndex) || roundIndex < 0 || roundIndex >= STAGE2.rounds.length) throw new RangeError('Stage 2 round index must be 0..3');
-  const round = clone(STAGE2.rounds[roundIndex]);
+  const stage=stageForRun({version:gameVersion,progress:{stageId}});
+  if (!Number.isInteger(roundIndex) || roundIndex < 0 || roundIndex >= stage.rounds.length) throw new RangeError('Invalid stage round index');
+  const round = clone(stage.rounds[roundIndex]);
   return { ...round, hpMax: round.hp, stageId };
 }

@@ -246,5 +246,11 @@ export const BALANCE = deepFreeze({
 });
 export const COMBAT_BALANCE = BALANCE.combat;
 export const SCORE_BALANCE = BALANCE.score;
+export const TIME_SCORE_BALANCE=deepFreeze({...SCORE_BALANCE,completeBonus:30,
+ mainFrameMultipliers:{'frame.sv':{num:13,den:10},'frame.svc.adj':{num:8,den:5},'frame.svc.np':{num:8,den:5},'frame.svo':{num:9,den:5},'frame.svoo':{num:11,den:5}},
+ issuePenalties:{...SCORE_BALANCE.issuePenalties,AUXILIARY_FORM_REQUIRED:10},
+ temporalMultipliers:{'TIME.PAST':{num:6,den:5},'TIME.PROGRESSIVE':{num:13,den:10},'TIME.PERFECT':{num:7,den:5},'TIME.FUTURE_WILL':{num:6,den:5}},
+});
+export const scoreBalanceForVersion=version=>version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;

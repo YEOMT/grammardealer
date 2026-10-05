@@ -1,3 +1,9 @@
+## 0.3 현재 범위
+
+기존 120어휘에 will을 더한다. 기존 30동사의 과거/-ing/p.p. 및 단일 조동사 will을 활성화한다. 현재·과거·will 미래 각각 단순/진행/완료/완료진행의 12조합을 실제 Parser로 판정한다. 관계절의 유한 VP와 비정형 to절을 구분하고, 본동사 Frame을 유지한다. read는 명시적 과거 선택 외에는 현재로 읽는다. 미해금 시간 구조도 정상 판정하며 전용 점수 효과만 잠긴다.
+
+technology/culture/time/food/room은 BOTH, information/homework의 일반 MASS 규칙은 유지한다. 영어 전체의 모든 다의적 용법을 지원한다는 뜻은 아니다. 동사·명사 전수 표는 0.3 audit 문서를 따른다. 수동태, 비교, 일반 조동사 확장, 새 희귀 문형 콤보는 이번 범위 밖이다. 구버전 원정은 당시 registry를 쓴다.
+
 ## 0.2.2 현재 범위 (아래 0.2 설명보다 우선)
 
 활성 30동사/120어휘/251형태를 보존한다. develop SV/SVO와 고정 Frame 확장은 VERB_FRAME_AUDIT_0.2.2.md에 전수 기재했다. 기존 1~4형식, 검수한 목적격 AP/NP 보어, want/need/like/help의 to 연결, 동사별 object+to/bare, 제한된 that 관계절·목적격 생략을 실제로 분석한다. clean 대신 기존 safe 카드로 keep+O+AP를 검사한다.

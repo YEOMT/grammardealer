@@ -64,9 +64,7 @@ export const ROADMAP = deepFreeze({
     "shopApplyCost": 12
   },
   "runtimeReady": false,
-  "implementedStages": [
-    1
-  ],
+  "implementedStages": [1, 2, 3],
   "futureRunes": [
     {
       "id": "rune.svoo",

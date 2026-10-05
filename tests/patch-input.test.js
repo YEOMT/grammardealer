@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {registry,legacyRegistry,formsForCard,createSentenceSnapshot} from '../src/data/language/index.js';
-import {analyzeSentence,snapshotFromText} from '../src/engine/grammar/index.js';
+import {registry,legacyRegistry,formsForCard,createSentenceSnapshot} from './helpers/legacy-language.js';
+import {analyzeSentence,snapshotFromText} from './helpers/legacy-language.js';
 import {resolveAttack} from '../src/engine/stage.js';import {cardModel} from '../src/ui/models.js';
 import {generateStarterDeck,createBattlePiles,validateStarterDeck,VOCABULARY_MODES} from '../src/game/deck.js';
 import {RunController} from './helpers/legacy-controller.js';
@@ -23,7 +23,7 @@ test('0.1.1 P15: exposing base be never enables imperative, infinitive, past or 
 test('0.1.1 P41 P43: 28 physical cards and first six preserve real SV plus be adjective learning paths',()=>{
  for(const mode of VOCABULARY_MODES)for(let n=0;n<25;n++){
   const deck=generateStarterDeck({seed:`patch-opener.${n}`,vocabularyMode:mode});assert.equal(validateStarterDeck(deck).valid,true);assert.equal(deck.activeCardIds.length,28);
-  const piles=createBattlePiles({...deck,stream:deck.rng.deck,focusFrame:'frame.sv',tutorial:true});assert.equal(piles.handIds.length,6);assert.equal(piles.drawIds.length,22);assert.equal(piles.openingTrace.frameId,'frame.sv');
+  const piles=createBattlePiles({registry,...deck,stream:deck.rng.deck,focusFrame:'frame.sv',tutorial:true});assert.equal(piles.handIds.length,6);assert.equal(piles.drawIds.length,22);assert.equal(piles.openingTrace.frameId,'frame.sv');
   for(const slots of [piles.openingTrace.witnessSlots,piles.openingTrace.beWitnessSlots]){assert.ok(slots.length);assert.ok(slots.every(s=>piles.handIds.includes(s.cardInstanceId)));assert.equal(analyzeSentence(createSentenceSnapshot(slots,deck.cardInstances)).status,'VALID');}
   assert.equal(new Set([...piles.handIds,...piles.drawIds]).size,28);
  }

@@ -1,0 +1,59 @@
+[
+  {
+    "version": "0.2.2",
+    "text": "I really like the very good big book that they read at the very old school",
+    "tokens": 16,
+    "status": "VALID",
+    "diagnostics": {
+      "workUnits": 188,
+      "candidateCount": 2,
+      "limits": {
+        "work": 12000,
+        "depth": 4,
+        "candidates": 128
+      }
+    },
+    "iterations": 1000,
+    "meanMs": 0.18668259999999995,
+    "p95Ms": 0.4300999999999817,
+    "maxMs": 9.860599999999998
+  },
+  {
+    "version": "0.3.0",
+    "text": "I really like the very good big book that they read at the very old school",
+    "tokens": 16,
+    "status": "VALID",
+    "diagnostics": {
+      "workUnits": 201,
+      "candidateCount": 2,
+      "limits": {
+        "work": 12000,
+        "depth": 4,
+        "candidates": 128
+      }
+    },
+    "iterations": 1000,
+    "meanMs": 0.16010170000000126,
+    "p95Ms": 0.366800000000012,
+    "maxMs": 1.7379999999999995
+  },
+  {
+    "version": "0.3.0",
+    "text": "I will have been reading the very good book that they made at the old school",
+    "tokens": 16,
+    "status": "VALID",
+    "diagnostics": {
+      "workUnits": 171,
+      "candidateCount": 2,
+      "limits": {
+        "work": 12000,
+        "depth": 4,
+        "candidates": 128
+      }
+    },
+    "iterations": 1000,
+    "meanMs": 0.15179539999999844,
+    "p95Ms": 0.342899999999986,
+    "maxMs": 1.9692000000000007
+  }
+]

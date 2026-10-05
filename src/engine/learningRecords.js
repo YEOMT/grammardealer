@@ -1,17 +1,19 @@
 import {analyzeSentence} from './grammar/index.js';
 import {GRAMMAR_GUIDE,ROLE_GUIDE,SUBMISSION_LABELS} from '../data/grammarGuideData.js';
-export const LEARNING_VERSION='0.2.2';
+export const LEARNING_VERSION='0.3.0';
 export function learningRecord(r){
  const a=r.analysis;
  return {version:LEARNING_VERSION,recordId:r.attackId,sentenceSnapshot:structuredClone(r.sentenceSnapshot),
   grammarVersion:a.grammarVersion??null,status:a.status??null,mainFrameId:a.mainFrameId??null,
   roles:roleRanges(a,r.sentenceSnapshot),issues:(a.issues??[]).map(i=>({code:i.code,messageKo:i.messageKo??null})),
   scoreableTags:[...new Set((a.grammarHits??[]).filter(h=>(r.scoreableHitIds?.includes(h.id)??true)&&GRAMMAR_GUIDE[h.tag]).map(h=>h.tag))],
-  complete:a.status==='VALID'&&!a.issues?.length,finalPower:r.finalPower,actualHpLoss:r.actualHpLoss,zeroReason:r.zeroReason??null};
+  complete:a.status==='VALID'&&!a.issues?.length,finalPower:r.finalPower,actualHpLoss:r.actualHpLoss,zeroReason:r.zeroReason??null,
+  ...(a.grammarVersion==='0.3.0'?{verbPhrases:structuredClone(a.verbPhrases??[]),phaseId:r.phaseId??null,phaseExcess:r.phaseExcess??0}:{})};
 }
 export function roleRanges(analysis,snapshot){
  const tokens=snapshot?.orderedTokens??[],nodes=analysis.nodes??[];
  const ranges=nodes.filter(n=>ROLE_GUIDE[n.grammaticalRole]).map(n=>({role:n.grammaticalRole,cardIds:n.cardIds,scopeNodeId:n.scopeNodeId}));
+ for(const vp of analysis.verbPhrases??[])if(vp.finiteCardId)ranges.push({role:'FINITE_VERB',cardIds:vp.cardIds,scopeNodeId:vp.nodeId});
  for(const r of analysis.resolvedTokenRoles??[])if(ROLE_GUIDE[r.role]&&!ranges.some(n=>n.role===r.role&&n.cardIds.includes(r.cardInstanceId)))ranges.push({role:r.role,cardIds:[r.cardInstanceId],scopeNodeId:analysis.rootNodeId});
  return ranges.map(r=>({...r,label:ROLE_GUIDE[r.role].label,text:r.cardIds.map(id=>tokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')}));
 }

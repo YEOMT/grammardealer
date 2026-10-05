@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {playAttack} from '../src/engine/presentation.js';
-import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
+import {snapshotFromText,analyzeSentence} from './helpers/legacy-language.js';
 import {resolveAttack} from '../src/engine/stage.js';
 import {STAGE2} from '../src/data/stages.js';
 

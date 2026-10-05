@@ -1,5 +1,9 @@
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'TIME.PAST':{label:'과거',description:'유한 동사의 과거형은 과거의 상황을 나타냅니다. 과거분사만으로 과거절이 되지는 않습니다.',examples:['I played games.']},
+ 'TIME.PROGRESSIVE':{label:'진행',description:'be + -ing는 해당 시간에 진행 중인 행동을 나타냅니다. 주어와 시간에 맞는 첫 동사 형태를 고릅니다.',examples:['I am playing games.']},
+ 'TIME.PERFECT':{label:'완료',description:'have + 과거분사는 기준 시점 이전의 행동과 그 시점의 관계를 나타냅니다. has/have는 현재, had는 과거가 기준입니다.',examples:['I have played games.']},
+ 'TIME.FUTURE_WILL':{label:'will 미래',description:'will 뒤에는 동사 원형이 옵니다. will은 미래의 예상이나 의지 등을 나타낼 수 있습니다.',examples:['I will play games.']},
  'FRAME.SV':{label:'1형식 S+V',description:'주어와 동사를 중심으로 이루어지며 목적어와 보어가 없는 문장입니다.',examples:['I run.']},
  'FRAME.SVC':{label:'2형식 S+V+C',description:'보어가 주어의 상태나 정체를 설명합니다.',examples:['I am happy.','I am a student.']},
  'FRAME.SVO':{label:'3형식 S+V+O',description:'목적어가 동사가 나타내는 행동이나 관계의 대상을 나타냅니다.',examples:['I like books.']},
@@ -20,6 +24,7 @@ export const ROLE_GUIDE={
 export const DATIVE_GUIDE={description:'give/show/send는 to, make는 for를 사용한 대표 대응 표현도 만들 수 있습니다. 이때 to/for 뒤의 명사구는 전치사의 목적어입니다.',examples:['She gives a book to me.','She makes a game for me.']};
 export const LOCATION_GUIDE={description:'이 게임의 학교 문형 표기에서 be와 장소 표현은 위치·존재를 나타내는 1형식으로 표시합니다.',examples:['I am at school.','He is in the room.']};
 export const SUBMISSION_LABELS={VALID:'완전한 문장',VALID_WITH_ISSUES:'형태 확인 필요',INVALID_CORE:'문장 미완성 · 피해 0'};
+export const TIME_ROLE_LABELS={PAST:'과거 계열',PRESENT:'현재 계열',FUTURE:'미래 계열',PROGRESSIVE:'진행',PERFECT:'완료',WILL:'will 미래'};
 export const PRONOUN_MEANINGS={
  I:['나(주어)','나를/나에게','나의'],you:['너/여러분(주어)','너를/너에게·여러분을/여러분에게','너의/여러분의'],
  he:['그(주어)','그를/그에게','그의'],she:['그녀(주어)','그녀를/그녀에게','그녀의'],

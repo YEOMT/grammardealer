@@ -1,6 +1,7 @@
+import {runeView,bindRuneDrag} from './runes.js';
 import { el, button, modal, confirmDialog } from './dom.js';
 import { wordCard } from './cards.js';
-import { cardModel, runeDescription } from './models.js';
+import { cardModel, runeDescription as describeRuneForUI } from './models.js';
 import { RUNE_BY_ID } from '../data/runes.js';
 import { HARBOR_BOSS_HINT } from './progression.js';
 
@@ -10,8 +11,10 @@ let commandSerial=0;
 
 /** Render a frozen shop. Opening/cancelling dialogs never dispatches a transaction. */
 export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onSaves,onLobby}={}){
+  const runeDescription=(r,l)=>describeRuneForUI(r,l,state.version);
   const shop=state.shop,gold=state.economy.gold,grant=state.entryGrants?.['stage.02'];
   let pending=false;
+  const orderRunes=(from,to)=>{if(pending||document.querySelector('dialog[open]'))return;const ids=[...state.runes.orderedInstanceIds];ids.splice(to,0,...ids.splice(from,1));command({type:'REORDER_RUNES',instanceIds:ids,expectedRevision:state.revision});};
   const transaction=async(type,fields)=>{
     if(pending)return;
     pending=true;
@@ -82,7 +85,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
         el('div',{class:'shop-resources'},el('strong',{text:`${gold} 재화`,dataset:{shopGold:String(gold)}}),el('span',{text:`현재 덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length} / ${state.runes.slotLimit}`}))),
       el('details',{class:'shop-boss-hint'},el('summary',{text:'항구 수문장 · 보호 장막 공략'}),el('p',{text:HARBOR_BOSS_HINT}),el('small',{text:'SVO+to/for는 3형식으로 장막을 해제하지 않습니다.'})),
       state.runes.orderedInstanceIds.length>0&&el('details',{class:'shop-equipped'},el('summary',{text:'현재 장착 룬 설명'}),
-        el('div',{class:'shop-equipped-grid'},state.runes.orderedInstanceIds.map(id=>{const rune=state.runes.instances[id],def=RUNE_BY_ID[rune.runeId];return el('section',{},el('strong',{text:`${def.nameKo} Lv.${rune.level}`,style:`color:${def.color}`}),el('p',{text:runeDescription(def,rune.level)}));}))),
+        el('div',{class:'shop-equipped-grid'},state.runes.orderedInstanceIds.map((id,index)=>runeView(state.runes.instances[id],{index,total:state.runes.orderedInstanceIds.length,version:state.version,onOrder:orderRunes})))),
       grant&&el('section',{class:`entry-grant ${animateGrant?'entry-grant-arriving':''}`,dataset:{entryGrantId:grant.entryGrantId}},
         el('div',{},el('strong',{text:grant.cardInstanceIds.length?`입장 준비 완료 · ${grant.cardInstanceIds.length}장이 덱에 들어갔습니다`:'입장 준비 완료 · 필요한 동사와 연결 카드가 이미 있습니다'}),
           el('p',{text:'입장 지급은 이번 원정에서 한 번입니다. 상점을 나올 때 전체 덱을 섞습니다.'}),grant.warningKo&&el('p',{class:'entry-warning',text:grant.warningKo})),
@@ -91,5 +94,5 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
       el('section',{class:'shop-services','aria-label':'상점 서비스'},services),
       el('footer',{class:'shop-footer'},el('p',{class:'helper',text:'상품은 다시 열어도 바뀌지 않습니다. 상점을 나가면 이번 방문은 끝납니다.'}),
         button('상점 나가기 · 첫 전투',()=>confirmDialog('상점을 나가시겠습니까?','이 방문은 끝나며 다시 돌아올 수 없습니다. 현재 덱을 섞고 항구 첫 전투를 시작합니다.','전투 시작',()=>transaction('LEAVE_SHOP',{})),'primary',{id:'leave-shop'}))));
-  return ()=>{};
+  return bindRuneDrag(root.querySelector('.shop-equipped-grid')??root,orderRunes,{enabled:()=>!pending});
 }

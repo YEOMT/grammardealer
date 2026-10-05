@@ -1,3 +1,9 @@
+# 0.3.0 · 시간의 협곡
+
+새 원정에서 초원·항구·시간의 협곡의 총 12전투를 플레이합니다. 과거/진행/완료/will 미래, 순차 3부위 골렘, 장문 운석 룬을 추가했습니다. 시작 28장과 초원·항구 HP/첫 상점은 유지합니다. 기존 저장은 당시 제공 범위와 수치를 유지합니다.
+
+변경: [패치 내역](docs/PATCH_NOTES_0.3_KO.md), 검증: [0.3 테스트 보고서](docs/TEST_REPORT_0.3.md). 개발 서버가 필요한 npm run test:browser에 협곡 검사를 포함하고 npm run test:runs:time은 80개 시간 공략 명령 원정을 실행합니다. 아래는 이전 버전 설명입니다.
+
 ## 0.2.2 grammar learning update
 
 Latest main baseline: 50b4311 (merged 0.2.1). New runs consume a card submission and turn even when the core sentence is incomplete (zero damage). Grammar evidence is independent of unlocked combo bonuses. My Deck includes the word dictionary; the sentence codex preserves English, grammar evidence and actual power without generated translations. Older runs keep their rules. See [patch notes](docs/PATCH_NOTES_0.2.2_KO.md), [verb audit](docs/VERB_FRAME_AUDIT_0.2.2.md), [education review](docs/EDUCATION_REVIEW_0.2.2.md), and [actual test report](docs/TEST_REPORT_0.2.2.md).

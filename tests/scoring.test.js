@@ -1,12 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { analyzeSentence, snapshotFromText } from '../src/engine/grammar/index.js';
+import { analyzeSentence, snapshotFromText } from './helpers/legacy-language.js';
 import { scoreAttack } from '../src/engine/scoring.js';
 import { resolveAttack } from '../src/engine/stage.js';
 import { deriveCombatRules, validateEquippedRunes, describeRune } from '../src/engine/runes.js';
 import { multiplyFloor, addSafe } from '../src/engine/numeric.js';
 import { COMBAT_BALANCE } from '../src/data/balance.js';
-import { RUNES } from '../src/data/runes.js';
+import { LEGACY_RUNES as RUNES } from '../src/data/runes.js';
 import { STAGE1, getStage1Encounter } from '../src/data/stage1.js';
 
 const rune = (runeId, level = 1) => ({ instanceId: `test.${runeId}`, runeId, level });

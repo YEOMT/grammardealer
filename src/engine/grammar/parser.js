@@ -1,10 +1,12 @@
+import {verbPhrases} from './verbPhrase.js';
 /* Bounded phrase/valency parser. It composes registered NP/AP/PP constituents;
    no answer strings, permutation search, inserted words, or semantic plausibility scoring. */
-const LABELS={INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
+const LABELS={AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
 const LIMITS={work:12000,depth:4,candidates:128};
 
 export function parseSupportedClause(tokens,registry) {
- const learning=registry.validationScope==='learning.0.2.2';
+ const time=registry.validationScope==='time.0.3';
+ const learning=time||registry.validationScope==='learning.0.2.2';
  let work=0;
  const tick=()=>{if(++work>LIMITS.work){const e=new Error('WORK_BUDGET');e.code='ENGINE_LIMIT';throw e;}};
  const tok=(i)=>tokens[i];
@@ -124,6 +126,11 @@ export function parseSupportedClause(tokens,registry) {
  const issueUnique=(issues)=>[...new Map(issues.map(i=>[i.causeId,i])).values()];
  const agreement=(np,verbIndex)=>{
   const v=tok(verbIndex);const third=np.features.person===3&&np.features.number==='SINGULAR';
+  if(time&&v.lex.lemma==='will')return [];
+  if(time&&v.forms.some(f=>f.grammaticalFeatures.tense==='PAST')&&(v.lex.lemma!=='read'||registry.formById[v.selectionId].grammaticalFeatures.tense==='PAST')){
+   if(v.lex.lemma!=='be')return [];
+   return word(verbIndex)===(np.features.number==='SINGULAR'&&np.features.person!==2?'was':'were')?[]:[issue('SUBJECT_VERB_AGREEMENT',[np.head,verbIndex])];
+  }
   if(v.lex.lemma==='be'&&word(verbIndex)==='be')return [issue('BE_FORM_REQUIRED',[verbIndex])];
   let good;
   if(v.lex.lemma==='be')good=word(verbIndex)===(np.features.person===1&&np.features.number==='SINGULAR'?'am':third?'is':'are');
@@ -153,10 +160,13 @@ export function parseSupportedClause(tokens,registry) {
  }
  function predicate(vi,subject,end,depth,{finite=true,objectGap=null}={}) {
   tick();if(depth>LIMITS.depth||vi>=end)return [];
-  const verb=tok(vi),out=[];
-  const verbNode=phrase('V',vi,vi+1,vi,{roles:[role(vi,finite?'FINITE_VERB':'NONFINITE_VERB')]});
+  const out=[];
+  const chains=time?verbPhrases(tokens,vi,end,{finite,tick}):[{start:vi,end:vi+1,lexicalIndex:vi}];
+  for(const chain of chains){
+  const lexicalIndex=chain.lexicalIndex,verb=tok(lexicalIndex);
+  const verbNode=phrase('V',vi,chain.end,lexicalIndex,{roles:Array.from({length:chain.end-vi},(_,n)=>role(vi+n,finite?'FINITE_VERB':'NONFINITE_VERB')),issues:(chain.issues??[]).map(e=>({...issue(e.code,e.indices),causeId:e.causeId})),...(time?{verbPhrase:chain}:{})});
   const availableBindings=bindings(verb),availableFrames=availableBindings.map(b=>b.frameId);
-  const postRuns=verb.lex.lemma==='be'?parseAdverbRun(vi+1,'AFTER_BE'):[phrase('ADVERBS',vi+1,vi+1,vi+1)];
+  const postRuns=verb.lex.lemma==='be'?parseAdverbRun(chain.end,'AFTER_BE'):[phrase('ADVERBS',chain.end,chain.end,chain.end)];
   for(const post of postRuns)for(const binding of availableBindings) {
    const internalFrame=binding.frameId,pos=post.end;
    if(pos>end)continue;
@@ -182,10 +192,11 @@ export function parseSupportedClause(tokens,registry) {
     for(const suffix of finishAdjuncts(complement.end,verb.lex.lemma,{requireLocation:internalFrame==='frame.beLocative',end})) {
      const chunks=[verbNode,post,complement,suffix].filter(x=>x.end>x.start);
      const issues=issueUnique([...chunks.flatMap(x=>x.issues),...(finite?agreement(subject,vi):[])]);
-     out.push({internalFrame,frameId:registry.frameById[internalFrame].schoolFrameId??internalFrame,chunks,issues,subject,verbIndex:vi,complement,suffix,senseId:binding.senseId});
+     out.push({internalFrame,frameId:registry.frameById[internalFrame].schoolFrameId??internalFrame,chunks,issues,subject,verbIndex:lexicalIndex,complement,suffix,senseId:binding.senseId});
      if(out.length>LIMITS.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
     }
    }
+  }
   }
   return out;
  }
@@ -221,7 +232,7 @@ export function parseSupportedClause(tokens,registry) {
  const walk=(node,parentId)=>{
   if(node.end===node.start)return null;
   const id=`node.${nodes.length}`;
-  const record={id,type:node.kind,cardIds:cardIds(node.start,node.end),headCardId:tok(node.head)?.cardInstanceId??null,scopeNodeId:parentId,connector:node.kind==='PP'?tok(node.start).cardInstanceId:null,grammaticalRole:node.npRole??null,...(node.gapRole?{gapRole:node.gapRole,antecedentCardId:tok(node.antecedentHead).cardInstanceId}:{}),children:[]};nodes.push(record);
+  const record={id,type:node.kind,cardIds:cardIds(node.start,node.end),headCardId:tok(node.head)?.cardInstanceId??null,scopeNodeId:parentId,connector:node.kind==='PP'?tok(node.start).cardInstanceId:null,grammaticalRole:node.npRole??null,...(node.gapRole?{gapRole:node.gapRole,antecedentCardId:tok(node.antecedentHead).cardInstanceId}:{}),children:[],...(node.verbPhrase?{verbPhrase:node.verbPhrase}:{})};nodes.push(record);
   record.children=node.children.map(child=>walk(child,id)).filter(Boolean);return id;
  };
  const root={id:'node.root',type:'CLAUSE',cardIds:tokens.map(t=>t.cardInstanceId),headCardId:tok(best.verbIndex).cardInstanceId,scopeNodeId:null,connector:null,children:[]};
@@ -230,6 +241,11 @@ export function parseSupportedClause(tokens,registry) {
  const uniqueHits=[...new Map(rawHits.map(h=>[h.evidenceKey,h])).values()];
  const grammarHits=[{id:'hit.mainFrame',tag:registry.frameById[best.internalFrame].tag,frameId:best.frameId,internalFrameId:best.internalFrame,comboImplemented:registry.frameById[best.internalFrame].comboImplemented!==false,scope:'MAIN_CLAUSE',scopeNodeId:root.id,cardIds:tokens.filter(t=>!unlicensed.includes(t.cardInstanceId)).map(t=>t.cardInstanceId),headCardId:tok(best.verbIndex).cardInstanceId,validity:recovered?'RECOVERED':'VALID',evidenceKey:'MAIN_CLAUSE:FRAME'},
  ...uniqueHits.map((h,i)=>({...h,id:`hit.modifier.${i}`,scope:'PHRASE',scopeNodeId:nodes.find(n=>n.cardIds.length===h.cardIds.length&&n.cardIds.every((id,i)=>id===h.cardIds[i]))?.id??root.id,validity:issues.some(is=>is.cardIds.some(id=>h.cardIds.includes(id)))?'RECOVERED':'VALID'}))];
+ const verbPhraseEvidence=time?nodes.filter(n=>n.verbPhrase).map((n,i)=>{
+  const vp=n.verbPhrase;delete n.verbPhrase;
+  return {id:`vp.${i}`,clauseId:vp.lexicalIndex===best.verbIndex?'clause.main':`clause.embedded.${i}`,nodeId:n.id,cardIds:n.cardIds,range:[vp.start,vp.end],finiteCardId:vp.finiteIndex===null?null:tok(vp.finiteIndex).cardInstanceId,lexicalVerbCardId:tok(vp.lexicalIndex).cardInstanceId,auxiliaries:vp.auxiliaries.map(a=>({cardInstanceId:tok(a.index).cardInstanceId,role:a.role})),tenseFamily:vp.tenseFamily,aspects:vp.aspects,futureMarker:vp.futureMarker,chainWellFormed:vp.chainWellFormed,temporalEvidenceEligible:vp.finiteIndex!==null&&vp.chainWellFormed,issueIds:issues.filter(i=>i.code==='AUXILIARY_FORM_REQUIRED'&&i.cardIds.some(id=>n.cardIds.includes(id))).map(i=>i.id)};
+ }):[];
+ if(time)for(const vp of verbPhraseEvidence.filter(v=>v.temporalEvidenceEligible))for(const tag of [...(vp.tenseFamily==='PAST'?['TIME.PAST']:[]),...vp.aspects.map(a=>`TIME.${a}`),...(vp.futureMarker==='WILL'?['TIME.FUTURE_WILL']:[])])grammarHits.push({id:`hit.${vp.id}.${tag}`,tag,scope:'CLAUSE',scopeNodeId:vp.nodeId,cardIds:vp.cardIds,validity:'VALID',evidenceKey:`${tag}:${vp.id}`});
  const resolvedTokenRoles=[...new Map(best.chunks.flatMap(c=>c.roles).map(r=>[r.cardInstanceId,r])).values()];
  const argumentNode=np=>np?nodes.find(n=>n.type==='NP'&&n.grammaticalRole===np.npRole&&n.headCardId===tok(np.head).cardInstanceId)?.id:null;
  const dativeBinding=(learning?tok(best.verbIndex).senses.flatMap(s=>s.frameBindings):tok(best.verbIndex).sense.frameBindings).find(b=>b.frameId==='frame.svoo'&&b.runtimeReady);
@@ -237,7 +253,7 @@ export function parseSupportedClause(tokens,registry) {
  const structures=correspondence?[{kind:'DATIVE_ALTERNATION',preposition:correspondence.preposition,schoolFrameId:'frame.svo',objectNodeId:argumentNode(best.complement),recipientCardIds:cardIds(correspondence.start+1,correspondence.end),ppCardIds:cardIds(correspondence.start,correspondence.end)}]:[];
  return {status:recovered?'VALID_WITH_ISSUES':'VALID',rootNodeId:root.id,mainClauseId:'clause.main',mainFrameId:best.frameId,nodes,
   clauses:[{id:'clause.main',nodeId:root.id,frameId:best.frameId,internalFrameId:best.internalFrame,subjectNodeId:argumentNode(best.subject),verbCardId:tok(best.verbIndex).cardInstanceId,objectNodeId:best.internalFrame==='frame.svo'?argumentNode(best.complement):null,indirectObjectNodeId:argumentNode(best.complement.indirectObject),directObjectNodeId:argumentNode(best.complement.directObject)}],structures,
-  resolvedTokenRoles,grammarHits,issues,evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),
+  resolvedTokenRoles,grammarHits,issues,...(time?{verbPhrases:verbPhraseEvidence}:{}),evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),
   ambiguities:candidates.length>1?[{type:'EQUIVALENT_FULL_COVERAGE_ANALYSES',candidateCount:candidates.length,normalizedTo:best.frameId,selectionPolicy:learning?'fewest-issues/fixed-school-frame/sense-id':'legacy-order',noteKo:'동일 카드의 수식·전치사구는 한 번만 계산합니다.'}]:[],
   coverage:{consumedCardIds:tokens.map(t=>t.cardInstanceId),issueAffectedCardIds:[...new Set(issues.flatMap(i=>i.cardIds))],unlicensedCardIds:unlicensed},
   diagnostics:{workUnits:work,candidateCount:candidates.length,limits:LIMITS},messageKo:recovered?'문장 구조 확인':'완전한 문장!',
