@@ -1,3 +1,9 @@
+## 0.3.0 — 개발 브랜치 (미배포)
+
+시간의 협곡 5전투와 시간의 골렘 3부위를 연결해 새 원정을 총 12전투로 확장했다. 실제 12종 시간 동사구, 부족한 be/have/will의 1회 입장 지급, 버전별 문형·룬 배수와 장문 운석, 룬 순서 조작, 도감 가독성, 실습 40/126을 추가했다. 구버전 언어·수치·카드·RNG·종료 경계는 별도 계약으로 보존한다. 사용자 확정 배수와 Stage 3 설계 초깃값을 임의 조정하지 않았다.
+
+실제 검사·중간 실패·합성/자동/production 구분은 [TEST_REPORT_0.3](docs/TEST_REPORT_0.3.md), 변경 수치는 [패치 내역](docs/PATCH_NOTES_0.3_KO.md)을 따른다.
+
 ## 0.2.2
 
 New-campaign invalid-submission transactions, grammar/combo eligibility separation, curated multi-sense verb and basic-clause support, integrated deck dictionary, evidence-based untranslated sentence records. Legacy campaign pools/rules and 0.2.1 guided practice retained. See docs/PATCH_NOTES_0.2.2_KO.md and docs/TEST_REPORT_0.2.2.md for actual verification.

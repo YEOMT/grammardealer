@@ -1,23 +1,23 @@
 import {registry as defaultRegistry,makeToken,createSentenceSnapshot} from '../../data/language/index.js';
 import {parseSupportedClause} from './parser.js';
-export const GRAMMAR_VERSION='0.2.2';
+export const GRAMMAR_VERSION='0.3.0';
 export const snapshotFromSlots=createSentenceSnapshot;
 
 /** Development fixture conversion only. Unknown words stay explicitly unsupported.
  * This cannot bypass the same token/surface validation used in normal play.
  */
-export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture'}={}) {
+export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',registry=defaultRegistry}={}) {
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
  const words=text.trim().replace(/[.!?]+$/,'').split(/\s+/).filter(Boolean);
  const orderedTokens=words.map((word,position)=>{
-  const matches=defaultRegistry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase());
+  const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase());
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];
   const selected=matches.find(f=>f.runtimeReady)??matches[0];
   if(!selected||lexemeIds.length!==1)return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
-  const def=defaultRegistry.cards.find(c=>c.lexemeId===selected.lexemeId);
-  return makeToken(`${prefix}.${position}`,def.id,selected.id,position);
+  const def=registry.cards.find(c=>c.lexemeId===selected.lexemeId);
+  return makeToken(`${prefix}.${position}`,def.id,selected.id,position,registry);
  });
- return {schemaVersion:1,sentenceId,languageVersion:defaultRegistry.version,orderedTokens,...(/[?]/.test(text)?{fixtureCapabilityId:'cap.question'}:{})};
+ return {schemaVersion:1,sentenceId,languageVersion:registry.version,orderedTokens,...(/[?]/.test(text)?{fixtureCapabilityId:'cap.question'}:{})};
 }
 const fingerprint=(tokens)=>{
  let value=2166136261;

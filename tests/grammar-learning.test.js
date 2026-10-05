@@ -1,9 +1,10 @@
+import {snapshotFromText as currentSnapshot,analyzeSentence as currentAnalyze} from '../src/engine/grammar/index.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {RunController} from '../src/game/runController.js';
 import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
-import {registry} from '../src/data/language/index.js';
-import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
+import {registry} from './helpers/legacy-language.js';
+import {snapshotFromText,analyzeSentence} from './helpers/legacy-language.js';
 import {resolveAttack} from '../src/engine/stage.js';
 import {STAGE1,STAGE2} from '../src/data/stages.js';
 import {reviewProfileLearning,learningRecord,displayLearningRecord} from '../src/engine/learningRecords.js';
@@ -17,7 +18,7 @@ import {generateStarterDeck} from '../src/game/deck.js';
 export function controllerFixture(text,{turns=6,version='0.2.2',analyzer}={}) {
   const c=new RunController({profile:{...newProfile('검증'),guidedTutorialCompletedVersion:'0.2.1'},...(analyzer?{analyzer}:{})});
   assert.equal(c.dispatch({type:'NEW_RUN',config:{seed:'v022.fixture'}}).ok,true);
-  c.dispatch({type:'START_BATTLE'});const s=c.getState();s.version=version;
+  c.dispatch({type:'START_BATTLE'});const s=c.getState();s.version=version;s.contentManifest.id='campaign.0.2';s.contentManifest.stageIds=['stage.01','stage.02'];s.contentManifest.cardDefIds=registry.cards.filter(c=>c.runtimeReady).map(c=>c.id);s.contentManifest.runeIds=s.contentManifest.runeIds.filter(id=>id!=='rune.longSentence');
   const snap=snapshotFromText(text);s.combat.handIds=[];s.combat.sentenceSlots=[];s.combat.discardIds=[];
   for(const [i,t] of snap.orderedTokens.entries()) {const id=s.activeCardIds[i];s.cardInstances[id].cardDefId=t.cardDefId;s.combat.sentenceSlots.push({cardInstanceId:id,selection:{formId:t.selectionId}});}
   s.combat.drawIds=s.activeCardIds.slice(snap.orderedTokens.length);s.combat.turnsRemaining=turns;s.combat.battleDirty=true;
@@ -73,7 +74,7 @@ test('P26 Sense registration order never changes normalized grammar or score',()
 test('P33 P46 P50–P58 fixed education and evidence-only migration preserve all historical achievements',()=>{
  const r=attackText('I give my friend a book',{unlocks:['pack.svoo']}),record=learningRecord(r);
  assert.equal(record.roles.find(x=>x.role==='INDIRECT_OBJECT').text,'my friend');assert.equal(record.roles.find(x=>x.role==='DIRECT_OBJECT').text,'a book');assert.equal('meaning' in record,false);
- for(const guide of [...Object.values(GRAMMAR_GUIDE),LOCATION_GUIDE,DATIVE_GUIDE])for(const text of guide.examples)assert.equal(analyzeSentence(snapshotFromText(text)).status,'VALID',text);
+ for(const guide of [...Object.values(GRAMMAR_GUIDE),LOCATION_GUIDE,DATIVE_GUIDE])for(const text of guide.examples)assert.equal(currentAnalyze(currentSnapshot(text)).status,'VALID',text);
  const i=registry.lexemes.find(l=>l.lemma==='I');assert.equal(new Set(i.formIds.map(id=>formMeaning(i,registry.formById[id]))).size,3);
  const wrong={...newProfile('old'),bestAttack:999,totalActualDamage:1200,unlocks:['pack.svoo'],grammarRecords:{'FRAME.SV':{count:7,firstSentence:'I am happy.',bestSentence:'I am.',bestPower:999,firstLearning:{sentenceSnapshot:snapshotFromText('I am happy')}}}};
  const fixed=reviewProfileLearning(wrong);assert.deepEqual(fixed.grammarRecords,wrong.grammarRecords);assert.equal(fixed.bestAttack,999);assert.deepEqual(fixed.unlocks,wrong.unlocks);assert.equal(fixed.educationalReview.entries[0].verified.frameId,'frame.svc.adj');assert.equal(fixed.educationalReview.entries[1].verified,null);assert.deepEqual(reviewProfileLearning(fixed),fixed);

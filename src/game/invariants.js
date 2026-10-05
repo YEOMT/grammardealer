@@ -1,4 +1,5 @@
 import { assertRng } from './rng.js';
+import {validateTimeGolem} from '../engine/timeGolem.js';
 
 const assert = (condition, message) => { if (!condition) throw new Error(`State invariant: ${message}`); };
 const nonnegative = value => Number.isSafeInteger(value) && value >= 0;
@@ -30,6 +31,7 @@ export function assertCombatInvariants(activeCardIds, combat, cardInstances) {
   if (combat.exchangesRemaining !== undefined) assert(nonnegative(combat.exchangesRemaining), 'invalid remaining exchanges');
   const hp = combat.enemyState?.hp ?? combat.enemyState?.hpRemaining;
   if (hp !== undefined) assert(nonnegative(hp), 'invalid enemy HP');
+  if(combat.enemyState?.bossMechanic?.id==='TIME_GOLEM')validateTimeGolem(combat.enemyState);
   return true;
 }
 

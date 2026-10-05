@@ -1,3 +1,11 @@
+## 0.3 구현·로컬 검증 완료
+
+Base origin/main d6535b6c8c74132a34e7eb56f778ef0eedcd3b24 (0.2.2 PR #4). Branch codex/v0.3-time-canyon. 최초 상태는 clean. A 기준/golden → B 언어 → C 점수/룬 → D 진행/골렘 → E UI/연출 → F 저장/전체 검증 순서로 구현했다.
+
+455 unit / 2489 data / build / 공식 browser 전체 / 10000 덱 PASS. 시간 자동80회는24완주·56정상패배·오류0, 과거160회는38완주·122정상패배·오류0이다. 실제 production1366일반·1024효과감소는 각각12전투/24공격으로 오프라인 저장까지 완료했다. 동일 프로필 구/신 슬롯의 배수/위력도 실제 IndexedDB/UI에서 확인했다. 합성 산술·지정 UI·명령 원정·실제 production은 TEST_REPORT_0.3.md에서 분리한다.
+
+역사적 증거138개 원본 해시 복원. 사용자 확정 수치와 설계 초깃값은 변경하지 않았다. 물리 기기/다른 브라우저 엔진/교사/스피커 NOT RUN. 구현8700a11을 push하고 [PR #5](https://github.com/YEOMT/grammardealer/pull/5)를 생성했다. 후속 문서 커밋은 PR head를 따른다. main 병합·Pages 변경·공개 배포는 이 작업 범위 밖이다.
+
 ## 0.2.2 개발 완료
 
 구현 커밋 `8b8c539`, [PR #4](https://github.com/YEOMT/grammardealer/pull/4). 개발 브랜치 push 및 PR 생성까지 완료했다. main/Pages/공개 사이트는 변경하지 않았다.

@@ -1,4 +1,4 @@
-import { SCORE_BALANCE } from '../data/balance.js';
+import { SCORE_BALANCE, scoreBalanceForVersion } from '../data/balance.js';
 import { safeInteger, scoreEvent } from './numeric.js';
 
 export const BALANCE_VERSION = 'balance.0.2.0';
@@ -45,7 +45,7 @@ export function mainFrameHit(analysis) {
  * @param {object[]} cards Submitted card-scoring snapshots
  * @param {{attackId?:string,balance?:object}} options
  */
-export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', balance = SCORE_BALANCE, eligibleAnalysis = analysis } = {}) {
+export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', balance = scoreBalanceForVersion(analysis.grammarVersion), eligibleAnalysis = analysis } = {}) {
   if (!attackableAnalysis(analysis)) throw new TypeError('Only supported, structurally valid analyses can score');
   const scoringCards = validateCardScoringSnapshot(cards, balance);
   const byId = new Map(scoringCards.map((card) => [card.instanceId, card]));
@@ -88,8 +88,12 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
   if (analysis.status === 'VALID' && !(analysis.issues ?? []).length && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
     sourceId: 'COMPLETE_SENTENCE', labelKo: '완전한 문장!', operation: 'ADD', operand: balance.completeBonus,
     evidenceRefs: [frameHit.id], highlightCardIds: scoringCards.map((card) => card.instanceId) });
-  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: FRAME_LABELS[frameId], operation: 'MULTIPLY',
+  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
     operand: frameMultiplier, evidenceRefs: [frameHit.id], highlightCardIds: frameHit.cardIds ?? [] });
+  for(const[tag,operand]of Object.entries(balance.temporalMultipliers??{})){
+    const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length)continue;
+    emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:({'TIME.PAST':'과거','TIME.PROGRESSIVE':'진행','TIME.PERFECT':'완료','TIME.FUTURE_WILL':'will 미래'})[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});
+  }
   // Each physical adjective/adverb contributes once; PP contributes once per normalized structure.
   for (const [tag, amount, label] of [['MODIFIER.ADJECTIVE', balance.modifierAdds.PRENOMINAL_ADJECTIVE, '형용사 수식!'],
     ['MODIFIER.ADVERB', balance.modifierAdds.VALID_ADVERB_CARD, '부사 수식!']]) {
@@ -108,6 +112,6 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({ phase: 'SIMPLE_MODIFIERS', sourceType: 'GRAMMAR', sourceId: hit.tag, labelKo: '전치사구!', operation: 'ADD', operand: balance.modifierAdds.PP,
       evidenceRefs: [hit.id], highlightCardIds: hit.cardIds ?? [] });
   }
-  return { schemaVersion: 1, balanceVersion: BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
+  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
     contributingCardIds: scoringCards.map((card) => card.instanceId).filter((id) => !excluded.has(id)), excludedCardIds: [...excluded] };
 }

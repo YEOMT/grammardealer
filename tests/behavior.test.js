@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { RunController } from './helpers/legacy-controller.js';
 import { findPlayableSentences } from '../src/game/deck.js';
-import { registry, formsForCard } from '../src/data/language/index.js';
+import { registry, formsForCard } from './helpers/legacy-language.js';
 import { resolveAttack } from '../src/engine/stage.js';
 import { assertRunInvariants } from '../src/game/invariants.js';
 import { canSaveRun, validateRunState, newProfile } from '../src/services/localStore.js';
@@ -15,7 +15,7 @@ function fresh(seed='qa-behavior',profile=newProfile('QA')){
 }
 function prepared({frame='frame.sv',turns=6,hp=70,options={}}={}){
   const original=fresh();const state=original.getState();
-  const path=findPlayableSentences(state.activeCardIds,state.cardInstances,{perFrame:2,maxChecks:4000}).find(p=>p.frameId===frame);
+  const path=findPlayableSentences(state.activeCardIds,state.cardInstances,{perFrame:2,maxChecks:4000,registry}).find(p=>p.frameId===frame);
   assert.ok(path,`Real physical deck has ${frame} path`);
   const used=new Set(path.slots.map(s=>s.cardInstanceId));const remaining=state.activeCardIds.filter(id=>!used.has(id));
   state.combat.sentenceSlots=structuredClone(path.slots);state.combat.handIds=remaining.slice(0,6);state.combat.drawIds=remaining.slice(6);state.combat.discardIds=[];

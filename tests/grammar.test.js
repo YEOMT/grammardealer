@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {performance} from 'node:perf_hooks';
-import {analyzeSentence,snapshotFromText} from '../src/engine/grammar/index.js';
-import {registry,legacyRegistry,formsForCard,makeToken,createSentenceSnapshot} from '../src/data/language/index.js';
+import {analyzeSentence,snapshotFromText} from './helpers/legacy-language.js';
+import {registry,legacyRegistry,formsForCard,makeToken,createSentenceSnapshot} from './helpers/legacy-language.js';
 import {validateLanguageData} from '../tools/validate-data.js';
 const fixtures=JSON.parse(fs.readFileSync(new URL('./fixtures/grammar-cases.json',import.meta.url),'utf8'));
 const analyze=text=>analyzeSentence(snapshotFromText(text));
@@ -17,7 +17,7 @@ for(const fixture of fixtures)test(`${fixture.id} ${fixture.sentenceForHumanRead
  if(result.status.startsWith('VALID'))assert.deepEqual(result.coverage.consumedCardIds,snapshot.orderedTokens.map(t=>t.cardInstanceId));
  else assert.equal(result.grammarHits.length,0,'unsupported/invalid must not leak partial success');
 });
-test('Gate A current and legacy registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData();assert.equal(report.lexemes,120);assert.equal(report.runtimeLexemes,119);const old=validateLanguageData(legacyRegistry);assert.equal(old.lexemes,116);assert.equal(old.runtimeLexemes,115);});
+test('Gate A current and legacy registry references, capabilities, one-word forms and reward pools',()=>{const report=validateLanguageData(registry);assert.equal(report.lexemes,120);assert.equal(report.runtimeLexemes,119);const old=validateLanguageData(legacyRegistry);assert.equal(old.lexemes,116);assert.equal(old.runtimeLexemes,115);});
 test('Generated unseen combinations compose each supported verb Frame',()=>{
  let count=0;
  for(const lex of registry.lexemes.filter(l=>l.pos==='VERB'))for(const binding of registry.senseById[lex.senseIds[0]].frameBindings){

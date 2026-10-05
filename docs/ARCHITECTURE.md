@@ -1,3 +1,13 @@
+## 0.3 추가 경계
+
+- timeLanguage는 0.2.2 registry를 복제해 새 형태/가산성/will을 추가한다. registryForVersion과 run.version이 실행 정책을 선택하며 기존 registry를 변형하지 않는다.
+- verbPhrase는 WILL → perfect HAVE → progressive BE → 본동사 순서를 기존 predicate 탐색에 연결한다. 기존 NP/AP/PP/관계절/to절과 작업량 한도를 재사용한다. 마지막 본동사 Frame, 첫 유한 동사 일치, VP 카드 범위·절 식별·시간 증거를 분리한다.
+- Scoring은 +30/문형/시간 4효과를 유리수 순차 내림으로 적용한다. comboEligibility는 실제 분석을 보존한 채 효과 자격만 거른다. 룬은 순서대로 적용하고 운석은 contributingCardIds만 센다.
+- timeGolem은 원본 시간 증거와 동결한 활성 부위 하나로 순수 제안을 만든다. phaseExcess와 actualHpLoss를 분리한다. RunController만 카드/턴/HP/부위/보상/프로필을 커밋한다. invariant와 저장 validator가 역순/불일치 부위를 거절한다.
+- Presentation은 확정 resolution을 읽는다. 골렘 막대/HP/외형은 IMPACT에 함께 바뀌고 중간 파괴 읽기 시간을 둔다. finish/cancel은 게임 상태를 재정산하지 않는다.
+- 룬 버튼·드래그·키보드는 REORDER_RUNES로 합류한다. 거래/실습/연출 중 잠금, scroll/blur/escape/cancel 정리를 공유한다. 시작 자원은 battle rules snapshot에 남으며 재정렬로 다시 지급하지 않는다.
+- 새 learning record는 동사구 전체 V와 시간 역할, phaseExcess를 보존한다. 과거 교육 재검토는 집계를 재계산하지 않는 보기 계층이다.
+
 ## 0.2.2 추가 경계
 
 Grammar는 원정 해금과 무관한 전체 입력 구조 증거를 만든다. 기존 NP/AP/PP를 재사용하는 제한된 relative/nonfinite 재귀와 전체 Sense 후보를 탐색하고 고정 우선순위로 한 분석을 선택한다. Scoring 전에 comboEligibility가 점수 자격을 고른다. 원래 분석과 scoreableHitIds를 함께 보존하며 잠긴 문형을 다른 문형으로 치환하지 않는다.

@@ -2,23 +2,26 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
 import { generateStarterDeck, createBattlePiles, VOCABULARY_MODES } from '../src/game/deck.js';
-import { createSentenceSnapshot, lexemeForCard, LANGUAGE_VERSION } from '../src/data/language/index.js';
+import { createSentenceSnapshot, lexemeForCard, LANGUAGE_VERSION, registryForVersion } from '../src/data/language/index.js';
 import { analyzeSentence } from '../src/engine/grammar/index.js';
 import { assertCardConservation } from '../src/game/invariants.js';
 import { RNG_ALGORITHM_VERSION } from '../src/game/rng.js';
 
 const seedsPerMode = Number(process.env.DECK_SEEDS_PER_MODE || 2500);
 if (!Number.isSafeInteger(seedsPerMode) || seedsPerMode < 1) throw new Error('DECK_SEEDS_PER_MODE must be positive integer');
+const legacyVersion = '0.2.2';
+const legacyRegistry = registryForVersion(legacyVersion);
+const legacySnapshot = (slots, cards) => createSentenceSnapshot(slots, cards, {languageVersion:legacyVersion});
 const started = performance.now();
 const report = {
   status: 'RUNNING', testedAt: new Date().toISOString(), nodeVersion: process.version,
-  languageVersion: LANGUAGE_VERSION, rngAlgorithm: RNG_ALGORITHM_VERSION,
+  languageVersion: LANGUAGE_VERSION, legacyOpeningLanguageVersion:legacyVersion, rngAlgorithm: RNG_ALGORITHM_VERSION,
   command: 'npm run test:decks', seedsPerMode, total: seedsPerMode * VOCABULARY_MODES.length,
-  policy: '0.1.1 actual 28-card decks, clear SV opening and be+adjective tutorial path in same real six cards; no victory-rate claim.',
+  policy: '0.1.1 actual 28-card decks, clear SV opening and be+adjective historical tutorial path in same real six cards; separate current 0.3 normal openings. No victory-rate claim.',
   seedPattern: 'batch.<0..2499>', modes: {}, failures: [],
 };
 for (const mode of VOCABULARY_MODES) {
-  const stats = { decksChecked: 0, physicalCards: 0, repairs: 0, repairedDecks: 0, fallbackDecks: 0, bandFallbacks: 0, openingsChecked: 0, openingFrames: {}, vocabularyBands: {}, openingSamples: [], distinctDecks: 0 };
+  const stats = { decksChecked: 0, physicalCards: 0, repairs: 0, repairedDecks: 0, fallbackDecks: 0, bandFallbacks: 0, openingsChecked: 0, currentOpeningsChecked: 0, openingFrames: {}, vocabularyBands: {}, openingSamples: [], distinctDecks: 0 };
   const fingerprints = new Set();
   for (let index = 0; index < seedsPerMode; index += 1) {
     const seed = `batch.${index}`;
@@ -28,17 +31,24 @@ for (const mode of VOCABULARY_MODES) {
       const frames = new Set(deck.witnesses.map(w => w.frameId));
       for (const frame of ['frame.sv', 'frame.svc.adj', 'frame.svc.np', 'frame.svo']) if (!frames.has(frame)) throw new Error(`Missing ${frame}`);
       for (const witness of deck.witnesses) {
-        const actual = analyzeSentence(createSentenceSnapshot(witness.slots, deck.cardInstances));
+        const actual = analyzeSentence(legacySnapshot(witness.slots, deck.cardInstances));
         if (actual.status !== 'VALID' || actual.mainFrameId !== witness.frameId) throw new Error('Coverage witness not validated by actual parser');
       }
-      const piles = createBattlePiles({ ...deck, stream: deck.rng.deck, focusFrame:'frame.sv', tutorial:true });
+      // The retired random tutorial opener belongs to the old language contract.
+      // New guided practice has fixed real piles; normal 0.3 battles use the current registry.
+      const current = createBattlePiles({ ...deck, stream:structuredClone(deck.rng.deck), focusFrame:'frame.sv' });
+      assertCardConservation(deck.activeCardIds, current, deck.cardInstances);
+      if (current.handIds.length !== 6 || !current.openingTrace.guaranteed || current.openingTrace.frameId !== 'frame.sv') throw new Error('Current six-card SV opening missing');
+      if (!current.openingTrace.witnessSlots.every(s=>current.handIds.includes(s.cardInstanceId)) || analyzeSentence(createSentenceSnapshot(current.openingTrace.witnessSlots,deck.cardInstances)).status !== 'VALID') throw new Error('Current opening does not validate from its real hand');
+      stats.currentOpeningsChecked++;
+      const piles = createBattlePiles({ ...deck, stream: deck.rng.deck, focusFrame:'frame.sv', tutorial:true, registry:legacyRegistry });
       assertCardConservation(deck.activeCardIds, piles, deck.cardInstances);
       if (piles.handIds.length !== 6 || !piles.openingTrace.guaranteed) throw new Error('No six-card guaranteed opening');
       if (!piles.openingTrace.witnessSlots.every(s => piles.handIds.includes(s.cardInstanceId))) throw new Error('Witness uses unavailable card');
-      const snapshot = createSentenceSnapshot(piles.openingTrace.witnessSlots, deck.cardInstances);
+      const snapshot = legacySnapshot(piles.openingTrace.witnessSlots, deck.cardInstances);
       if (analyzeSentence(snapshot).status !== 'VALID'||piles.openingTrace.frameId!=='frame.sv') throw new Error('Opening SV witness not valid');
       const beSlots=piles.openingTrace.beWitnessSlots;
-      if(!beSlots.length||beSlots.some(s=>!piles.handIds.includes(s.cardInstanceId))||analyzeSentence(createSentenceSnapshot(beSlots,deck.cardInstances)).status!=='VALID')throw new Error('Tutorial be path missing from real six-card opening');
+      if(!beSlots.length||beSlots.some(s=>!piles.handIds.includes(s.cardInstanceId))||analyzeSentence(legacySnapshot(beSlots,deck.cardInstances)).status!=='VALID')throw new Error('Tutorial be path missing from real six-card opening');
       stats.decksChecked += 1; stats.openingsChecked += 1; stats.physicalCards += deck.activeCardIds.length;
       stats.repairs += deck.generationTrace.repairs.length;
       if (deck.generationTrace.repairs.length) stats.repairedDecks += 1;

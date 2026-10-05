@@ -23,7 +23,7 @@ function cardRows(ids, instances, language = registry) {
     if (!card) throw new Error(`Unknown card instance: ${id}`);
     const lexeme = language.lexemeById[language.cardById[card.cardDefId]?.lexemeId];
     if (!lexeme) throw new Error(`Card is outside the content manifest: ${card.cardDefId}`);
-    return { id, card, lexeme, forms: formsForCard(card) };
+    return { id, card, lexeme, forms: formsForCard(card,{registry:language}) };
   });
 }
 

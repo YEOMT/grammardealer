@@ -1,0 +1,27 @@
+{
+  "kind": "ASSIGNED_VERSIONED_SLOTS_REAL_INDEXEDDB_AND_UI",
+  "checks": [
+    {
+      "id": "P086_0.2.2",
+      "status": "PASS",
+      "slot": 1,
+      "multiplier": "×1.25",
+      "power": 62,
+      "checkpointUnchanged": true
+    },
+    {
+      "id": "P086_0.3.0",
+      "status": "PASS",
+      "slot": 2,
+      "multiplier": "×1.4",
+      "power": 113,
+      "checkpointUnchanged": true
+    }
+  ],
+  "captures": [
+    "version-0.2.2.png",
+    "version-0.3.0.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

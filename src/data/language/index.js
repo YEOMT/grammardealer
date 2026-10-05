@@ -1,7 +1,8 @@
+import {addTimeLanguage} from './timeLanguage.js';
 import {addLearningFrames} from './learningFrames.js';
 import { authoredLexemes } from './seed.js';
 
-export const LANGUAGE_VERSION = '0.2.2';
+export const LANGUAGE_VERSION = '0.3.0';
 const presentCapability = ['cap.present.basic'];
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
@@ -117,7 +118,8 @@ export const morphologies = lexemes.map(lex=>({id:lex.morphologyId,lexemeId:lex.
 export const campaign021Registry = freeze({version:'0.2.1',lexemes,forms,morphologies,senses,frames,cards:cardDefinitions,cardDefinitions,capabilities,grammarTags,
  lexemeById:index(lexemes),formById:index(forms),morphologyById:index(morphologies),senseById:index(senses),frameById:index(frames),cardById:index(cardDefinitions),
 });
-export const registry = freeze(addLearningFrames(campaign021Registry));
+export const campaign022Registry = freeze(addLearningFrames(campaign021Registry));
+export const registry = freeze(addTimeLanguage(campaign022Registry));
 export const languageRegistry = registry;
 
 // A small ordered content view keeps old saves' future draws and grammar scope stable.
@@ -136,21 +138,21 @@ const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
 const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
 const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
 export const campaign02Registry=freeze({...campaign021Registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
-export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:registry; }
+export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:registry; }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
-export function lexemeForCard(card) {
+export function lexemeForCard(card, registry=languageRegistry) {
  const def = typeof card==='string'?registry.cardById[card]:registry.cardById[card?.cardDefId??card?.id];
  if(!def)throw new TypeError('Unknown card definition');return registry.lexemeById[def.lexemeId];
 }
 /** Forms offered in play exclude reserved future tense/capability forms. */
-export function formsForCard(card,{includeUnsupported=false}={}) {
- return lexemeForCard(card).formIds.map(id=>registry.formById[id]).filter(f=>includeUnsupported||f.runtimeReady);
+export function formsForCard(card,{includeUnsupported=false,registry=languageRegistry}={}) {
+ return lexemeForCard(card,registry).formIds.map(id=>registry.formById[id]).filter(f=>includeUnsupported||f.runtimeReady);
 }
 /** Build an immutable-value token; one token is exactly one physical card/word. */
-export function makeToken(cardInstanceId,cardDefId,formId,position=0) {
+export function makeToken(cardInstanceId,cardDefId,formId,position=0,registry=languageRegistry) {
  if(typeof cardInstanceId!=='string'||!cardInstanceId)throw new TypeError('Card instance ID required');
- const lex=lexemeForCard(cardDefId);const selected=registry.formById[formId??lex.defaultFormId];
+ const lex=lexemeForCard(cardDefId,registry);const selected=registry.formById[formId??lex.defaultFormId];
  if(!selected||selected.lexemeId!==lex.id)throw new TypeError('Form does not belong to card');
  return {cardInstanceId,cardDefId,lexemeId:lex.id,selectionId:selected.id,surface:selected.surface,
   allowedFormCandidates:lex.formIds.filter(id=>registry.formById[id].surface.toLowerCase()===selected.surface.toLowerCase()),position};
@@ -162,6 +164,6 @@ export function createSentenceSnapshot(slots,cardInstances,{sentenceId='sentence
  return {schemaVersion:1,sentenceId,languageVersion,orderedTokens:slots.map((slot,position)=>{
   const card=instances?.[slot.cardInstanceId];if(!card)throw new TypeError('Missing physical card');
   const formId=typeof slot.selection==='string'?slot.selection:slot.selection?.formId??slot.selection?.selectionId??slot.formId;
-  return makeToken(slot.cardInstanceId,card.cardDefId,formId,position);
+  return makeToken(slot.cardInstanceId,card.cardDefId,formId,position,registryForVersion(languageVersion));
  })};
 }

@@ -1,3 +1,11 @@
+## 0.3 시간의 협곡 인계
+
+작업 시작 origin/main은 d6535b6c8c74132a34e7eb56f778ef0eedcd3b24이며 0.2.2 PR #4 병합과 깨끗한 checkout을 확인했다. 브랜치 codex/v0.3-time-canyon에서 구현한다. spec/0.3_TIME_CANYON.md, PATCH_NOTES_0.3_KO, TEST_REPORT_0.3, VERB_MORPHOLOGY_AUDIT_0.3, NOUN_COUNTABILITY_AUDIT_0.3, EDUCATION_REVIEW_0.3을 먼저 읽는다. 첨부 JSON은 기대값이며 통과 기록은 별도다.
+
+새 0.3 원정은 초원3 + 항구4 + 협곡5 = 12전투다. Stage2 승리 사건에서 시간 4계열을 해금하고, 보상 뒤 협곡 예고 → 없는 be/have/will 0~3장 지급 → 첫 전투로 이어진다. 협곡에는 상점이 없다. 골렘은 과거/현재/미래 240씩 순서대로 처리하며 한 공격은 한 부위뿐이다. 마지막 부위 처치 후 4번째 룬 슬롯과 STAGE3_END가 열린다. 전체 스토리 완료는 아니다.
+
+언어/점수/룬은 원정 버전으로 고른다. 기존 원정은 0.1/0.2의 언어·수치·덱·상점·보상·RNG·완료 경계를 유지한다. 새 실습은 40/126, 기존 저장 실습은 30/87이며 완료 정책은 0.2.1 그대로다. IndexedDB 이름과 3슬롯은 유지한다. 아래 문단들은 각 버전 당시 계약이다.
+
 ## 0.2.2 인계
 
 기준은 작업 시작 시 최신 origin/main 50b4311이며 0.2.1 PR #3 병합을 확인했다. 새 브랜치는 codex/v0.2.2-grammar-learning-integrity. PATCH_PLAN_0.2.2 / PATCH_NOTES_0.2.2_KO / VERB_FRAME_AUDIT_0.2.2 / EDUCATION_REVIEW_0.2.2 / TEST_REPORT_0.2.2를 먼저 읽는다.

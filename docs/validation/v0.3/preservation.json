@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "historicalFilesRestored": 138,
+  "changedFixedOutputsArchived": 42,
+  "originalBackupsModified": false,
+  "originalAttachmentsModified": false,
+  "scope": "Historical evidence only. Game source, tests and versioned content intentionally changed as recorded in the branch diff."
+}

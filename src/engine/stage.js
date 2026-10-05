@@ -1,4 +1,5 @@
-import { SCORE_BALANCE, ECONOMY } from '../data/balance.js';
+import { SCORE_BALANCE, ECONOMY, scoreBalanceForVersion } from '../data/balance.js';
+import {resolveTimeGolem} from './timeGolem.js';
 import { STAGE1, STAGE_BY_ID, STAGE_VERSION } from '../data/stages.js';
 import { RUNE_VERSION } from '../data/runes.js';
 import { safeInteger, scoreEvent } from './numeric.js';
@@ -8,7 +9,7 @@ import { scoreableAnalysis } from './comboEligibility.js';
 
 /** Pure region / encounter result. Returns boss proposals; only the controller commits them. */
 export function resolveEncounter(analysis, postRuneScore, enemy, {
-  attackId = 'attack.sandbox', eventOffset = 0, stage = STAGE1, syntheticBossFixture = null,
+  attackId = 'attack.sandbox', eventOffset = 0, stage = STAGE1, syntheticBossFixture = null, originalAnalysis=analysis,
 } = {}) {
   if (!attackableAnalysis(analysis)) throw new TypeError('A valid analysis is required for encounter resolution');
   if (!enemy || !STAGE_BY_ID[stage?.id]) throw new TypeError('An implemented stage is required');
@@ -21,12 +22,20 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   };
   const frameHit = mainFrameHit(analysis);
   const frameId = analysis.mainFrameId ?? frameHit?.frameId;
-  if (frameHit && stage.focusFrames.includes(frameId)) emit({ phase: 'REGION', sourceType: 'STAGE', sourceId: stage.id, labelKo: stage.regionLabelKo,
-    operation: 'MULTIPLY', operand: stage.regionMultiplier ?? SCORE_BALANCE.regionMultiplier, evidenceRefs: [frameHit.id], highlightCardIds: frameHit.cardIds });
+  const timeHits=stage.id==='stage.03'?(analysis.grammarHits??[]).filter(h=>h.tag.startsWith('TIME.')):[];
+  if (timeHits.length||frameHit && stage.focusFrames.includes(frameId)) emit({ phase: 'REGION', sourceType: 'STAGE', sourceId: stage.id, labelKo: stage.regionLabelKo,
+    operation: 'MULTIPLY', operand: stage.regionMultiplier ?? SCORE_BALANCE.regionMultiplier, evidenceRefs: timeHits.length?timeHits.map(h=>h.id):[frameHit.id], highlightCardIds: timeHits.length?[...new Set(timeHits.flatMap(h=>h.cardIds))]:frameHit.cardIds });
   const postRegionScore = score;
   const bossEffects = [];
   const bossStateBefore = enemy.bossMechanic ? structuredClone(enemy.bossMechanic) : null;
-  const bossStateAfter = bossStateBefore ? structuredClone(bossStateBefore) : null;
+  let bossStateAfter = bossStateBefore ? structuredClone(bossStateBefore) : null;
+  const golem=bossStateBefore?.id==='TIME_GOLEM'?resolveTimeGolem(originalAnalysis,score,enemy):null;
+  if(golem){
+    bossStateAfter=golem.bossStateAfter;
+    const sourceId=golem.blocked?'boss.timeGolem.block':golem.phaseBreak?'boss.timeGolem.break':'boss.timeGolem.hit';
+    bossEffects.push({id:sourceId,synthetic:false,preBossScore:score,...golem});
+    emit({phase:'BOSS',sourceType:'BOSS',sourceId,labelKo:golem.labelKo,operation:'SET',operand:golem.blocked?0:score,evidenceRefs:golem.evidenceRefs,highlightCardIds:golem.highlightCardIds,bossStateBefore,bossStateAfter});
+  }
   if (stage.id === 'stage.02' && enemy.kind === 'REGIONAL_BOSS' && bossStateBefore?.id === 'SVOO_VEIL' && bossStateBefore.active) {
     const releases = frameHit && frameId === 'frame.svoo';
     if (releases) bossStateAfter.active = false;
@@ -45,11 +54,11 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   }
   emit({ phase: 'FINAL_POWER', sourceType: 'SYSTEM', sourceId: 'FINAL_POWER', labelKo: '최종 공격력', operation: 'SET', operand: score });
   const finalPower = score;
-  const actualHpLoss = Math.min(enemyHpBefore, finalPower);
-  const enemyHpAfter = Math.max(0, enemyHpBefore - finalPower);
-  const overkill = Math.max(0, finalPower - enemyHpBefore);
+  const actualHpLoss = golem?golem.actualHpLoss:Math.min(enemyHpBefore, finalPower);
+  const enemyHpAfter = golem?golem.enemyHpAfter:Math.max(0, enemyHpBefore - finalPower);
+  const overkill = golem?0:Math.max(0, finalPower - enemyHpBefore);
   return { stageVersion: STAGE_VERSION, postRegionScore, preBossScore: postRegionScore, finalPower, actualHpLoss, overkill,
-    enemyHpBefore, enemyHpAfter, killed: enemyHpBefore > 0 && enemyHpAfter === 0, bossStateBefore, bossStateAfter, bossEffects, events };
+    enemyHpBefore, enemyHpAfter, killed: enemyHpBefore > 0 && enemyHpAfter === 0, bossStateBefore, bossStateAfter, bossEffects, events,...(golem?{phaseBreak:golem.phaseBreak,phaseExcess:golem.phaseExcess,phaseId:golem.phaseId}:{}) };
 }
 
 /**
@@ -60,7 +69,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   attackId = 'attack.sandbox', runId = null, battleId = null, expectedRevision = 0,
   sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,
 }) {
-  if (policyVersion === '0.2.2' && analysis?.status === 'INVALID_CORE') {
+  if (['0.2.2','0.3.0'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
     const cardScoringSnapshot=validateCardScoringSnapshot(cards);
     const hp=safeInteger(enemy.hp,'enemy hp',{min:0});
     return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,
@@ -79,15 +88,16 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   };
   const cardScoringSnapshot = validateCardScoringSnapshot(cards);
   const eligibleAnalysis=scoreableAnalysis(analysis,comboEligibility);
-  const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis });
-  const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId });
+  const version=policyVersion??analysis.grammarVersion;
+  const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis,balance:scoreBalanceForVersion(version) });
+  const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId,version });
   const encounter = resolveEncounter(eligibleAnalysis, runeResult.postRuneScore, enemy, {
-    attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,
+    attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,originalAnalysis:analysis,
   });
   return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
-      balance: BALANCE_VERSION, runes: RUNE_VERSION, stage: STAGE_VERSION, presentation: 'presentation.0.2.1' },
+      balance: version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: version==='0.3.0'?'runes.0.3.0':RUNE_VERSION, stage: version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: 'presentation.0.2.1' },
     sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis, comboEligibility,
     scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),
     zeroReason:encounter.finalPower===0?(encounter.bossEffects.length?'BOSS_BLOCKED':'ACCURACY_ZERO'):null,
@@ -95,6 +105,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
     preRuneScore: scoring.preRuneScore, postRuneScore: runeResult.postRuneScore,
     postRegionScore: encounter.postRegionScore, preBossScore: encounter.preBossScore, bossEffects: encounter.bossEffects,
     bossStateBefore: encounter.bossStateBefore, bossStateAfter: encounter.bossStateAfter,
+    ...(encounter.phaseId?{phaseId:encounter.phaseId,phaseBreak:encounter.phaseBreak,phaseExcess:encounter.phaseExcess}:{}),
     finalPower: encounter.finalPower, actualHpLoss: encounter.actualHpLoss, overkill: encounter.overkill,
     enemyHpBefore: encounter.enemyHpBefore, enemyHpAfter: encounter.enemyHpAfter, killed: encounter.killed,
     proposedStateEffects: {

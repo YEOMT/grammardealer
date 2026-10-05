@@ -1,0 +1,52 @@
+[
+  {
+    "command": "npm.cmd test",
+    "exitCode": 0,
+    "log": ".local-validation/v03/release-test.log"
+  },
+  {
+    "command": "npm.cmd run validate:data",
+    "exitCode": 0,
+    "log": ".local-validation/v03/release-validate-data.log"
+  },
+  {
+    "command": "npm.cmd run build",
+    "exitCode": 0,
+    "log": ".local-validation/v03/release-build.log"
+  },
+  {
+    "command": "npm.cmd run test:browser",
+    "exitCode": 0,
+    "log": ".local-validation/v03/release-test-browser.log"
+  },
+  {
+    "command": "npm.cmd run test:e2e (1024 reduced)",
+    "exitCode": 0,
+    "log": ".local-validation/v03/production-1024-final.log"
+  },
+  {
+    "command": "npm.cmd run test:runs:time",
+    "exitCode": 0,
+    "log": ".local-validation/v03/final-time-runs.log"
+  },
+  {
+    "command": "npm.cmd run test:decks",
+    "exitCode": 0,
+    "log": ".local-validation/v03/corrected-decks.log"
+  },
+  {
+    "command": "npm.cmd run test:runs",
+    "exitCode": 0,
+    "log": ".local-validation/v03/legacy-runs.log"
+  },
+  {
+    "command": "npm.cmd run test:e2e (1366 normal)",
+    "exitCode": 0,
+    "log": ".local-validation/v03/production-1366-seed17.log"
+  },
+  {
+    "command": "node tests/time-version-browser.mjs",
+    "exitCode": 0,
+    "log": ".local-validation/v03/version-browser.log"
+  }
+]

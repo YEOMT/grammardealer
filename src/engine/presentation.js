@@ -2,7 +2,7 @@ import {presentationClock} from './presentationClock.js';
 import {RUNE_BY_ID} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
 export const PRESENTATION_VERSION = '0.2.1';
-export function impactFeel(resolution){const max=resolution.visualBasis?.intensityBaseline||resolution.visualBasis?.enemyBefore?.maxHp||100,ratio=resolution.finalPower/max;return resolution.finalPower===0?{tier:'BLOCKED',ratio,hitStop:0,recoil:0,settle:180}:ratio<.5?{tier:'LIGHT',ratio,hitStop:20,recoil:2,settle:200}:ratio<1?{tier:'HEAVY',ratio,hitStop:75,recoil:7,settle:300}:{tier:'OVERPOWER',ratio,hitStop:110,recoil:10,settle:400};}
+export function impactFeel(resolution){const max=resolution.visualBasis?.intensityBaseline||resolution.visualBasis?.enemyBefore?.maxHp||100,ratio=resolution.finalPower/max;return resolution.finalPower===0||resolution.actualHpLoss===0?{tier:'BLOCKED',ratio,hitStop:0,recoil:0,settle:180}:ratio<.5?{tier:'LIGHT',ratio,hitStop:20,recoil:2,settle:200}:ratio<1?{tier:'HEAVY',ratio,hitStop:75,recoil:7,settle:300}:{tier:'OVERPOWER',ratio,hitStop:110,recoil:10,settle:400};}
 const ALLOWED_SPEEDS = [1, 1.5, 2];
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const safeCall = (view, name, ...args) => typeof view[name] === 'function' ? view[name](...args) : undefined;
@@ -26,13 +26,13 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
   let combo=0;
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
-    const meaningful=rune||['COMPLETE_BONUS','MAIN_FRAME','SIMPLE_MODIFIERS'].includes(event.phase);
+    const meaningful=rune||['COMPLETE_BONUS','MAIN_FRAME','CONSTRUCTIONS','SIMPLE_MODIFIERS'].includes(event.phase);
     if(meaningful)combo++;
     const score={kind:'SCORE',event,combo,duration:duration(event.phase==='CARD_BASE'?170:rune?520:550)};
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
   });
   return [{kind:'LOCK',duration:duration(50)},...scores,{kind:'POWER',duration:duration(420)},{kind:'CHARGE',duration:duration(400)},
-    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)}];
+    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)},...(resolution.phaseBreak?[{kind:'PHASE_BREAK_READ',duration:duration(1000)}]:[])];
 }
 
 /**
@@ -166,6 +166,16 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='TIME_GOLEM'){
+      const phases=find(root,'golem-phases');
+      for(const [i,p]of state.phases.entries()){
+        const node=phases?.querySelector(`[data-phase-index="${i}"]`);if(!node)continue;
+        const status=p.broken?'broken':i===state.activePhase?'active':'locked';node.className=`golem-phase ${status}`;
+        node.querySelector('.golem-phase-label').textContent=`${['🛡 과거의 갑옷','⚙ 현재의 엔진','✦ 미래의 신경'][i]} · ${{broken:'파괴',active:'활성',locked:'잠금'}[status]}`;
+        node.querySelector('.golem-phase-hp').textContent=`${p.hp} / ${p.maxHp}`;node.querySelector('.hp-fill').style.width=`${p.hp/p.maxHp*100}%`;
+      }
+      const enemy=find(root,'enemy');if(enemy)enemy.dataset.golemPhase=String(state.activePhase);
+    }
     const node=find(root,'boss-veil');
     if(node&&state?.id==='SVOO_VEIL'){
       node.dataset.active=String(state.active);
@@ -184,7 +194,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
     onScore(event, { step, intensity,combo=0 }) {
-      if(event.sourceType==='BOSS'&&event.bossStateAfter)showBossState(event.bossStateAfter);
+      if(event.sourceType==='BOSS'&&event.bossStateAfter?.id!=='TIME_GOLEM')showBossState(event.bossStateAfter);
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       text('label', event.labelKo ?? event.phase); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
@@ -250,12 +260,17 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, intensity,feel,zeroReason,feedbackKo }) {
       showHp(hpAfter); text('label', finalPower === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
+      if(current?.bossStateAfter?.id==='TIME_GOLEM'){
+        showBossState(current.bossStateAfter);const effect=current.bossEffects.find(e=>e.phaseId);
+        if(effect)text('label',effect.labelKo+(actualHpLoss?` · 위력 ${finalPower} / 적용 피해 ${actualHpLoss}`:''));
+        if(current.phaseBreak){const layer=root.querySelector(`[data-phase-id="${current.phaseId}"]`);animate(layer,[{filter:'brightness(2)',transform:'scale(1.03)'},{filter:'brightness(.6)',transform:'scale(1)'}],800);}
+      }
       audio?.play?.(finalPower === 0 ? 'blocked' : 'impact', { intensity });
       root.dataset.impactTier=feel.tier;
       if(zeroReason==='INCOMPLETE_SENTENCE'){animate(find(root,'sentence'),[{opacity:1,transform:'scale(1)'},{opacity:.4,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],500);return;}
-      if(finalPower>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
+      if(actualHpLoss>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
       const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
-      if(!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}
+      if(actualHpLoss>0&&!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}
     },
     recoil({killed,feel,duration}){
       lungeAnimation?.cancel();lungeAnimation=null;

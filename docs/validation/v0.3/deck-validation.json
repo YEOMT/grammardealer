@@ -1,0 +1,307 @@
+{
+  "status": "PASS",
+  "testedAt": "2026-10-05T06:07:54.353Z",
+  "nodeVersion": "v24.19.0",
+  "languageVersion": "0.3.0",
+  "legacyOpeningLanguageVersion": "0.2.2",
+  "rngAlgorithm": "mulberry32-fnv1a-v1",
+  "command": "npm run test:decks",
+  "seedsPerMode": 2500,
+  "total": 10000,
+  "policy": "0.1.1 actual 28-card decks, clear SV opening and be+adjective historical tutorial path in same real six cards; separate current 0.3 normal openings. No victory-rate claim.",
+  "seedPattern": "batch.<0..2499>",
+  "modes": {
+    "BEGINNER": {
+      "decksChecked": 2500,
+      "physicalCards": 70000,
+      "repairs": 0,
+      "repairedDecks": 0,
+      "fallbackDecks": 0,
+      "bandFallbacks": 0,
+      "openingsChecked": 2500,
+      "currentOpeningsChecked": 2500,
+      "openingFrames": {
+        "frame.sv": 2500
+      },
+      "vocabularyBands": {
+        "BEGINNER": 42500,
+        "CORE": 27500
+      },
+      "openingSamples": [
+        {
+          "seed": "batch.0",
+          "frameId": "frame.sv",
+          "text": "I eat",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.1",
+          "frameId": "frame.sv",
+          "text": "she runs",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.2",
+          "frameId": "frame.sv",
+          "text": "they run",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.3",
+          "frameId": "frame.sv",
+          "text": "she helps",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.4",
+          "frameId": "frame.sv",
+          "text": "you run",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.5",
+          "frameId": "frame.sv",
+          "text": "you eat",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.6",
+          "frameId": "frame.sv",
+          "text": "you eat",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.7",
+          "frameId": "frame.sv",
+          "text": "they eat",
+          "handCount": 6
+        }
+      ],
+      "distinctDecks": 2500,
+      "correctionRate": 0,
+      "fallbackRate": 0
+    },
+    "STANDARD": {
+      "decksChecked": 2500,
+      "physicalCards": 70000,
+      "repairs": 0,
+      "repairedDecks": 0,
+      "fallbackDecks": 0,
+      "bandFallbacks": 4470,
+      "openingsChecked": 2500,
+      "currentOpeningsChecked": 2500,
+      "openingFrames": {
+        "frame.sv": 2500
+      },
+      "vocabularyBands": {
+        "STANDARD": 21049,
+        "BEGINNER": 21451,
+        "CORE": 27500
+      },
+      "openingSamples": [
+        {
+          "seed": "batch.0",
+          "frameId": "frame.sv",
+          "text": "you live",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.1",
+          "frameId": "frame.sv",
+          "text": "she helps",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.2",
+          "frameId": "frame.sv",
+          "text": "they run",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.3",
+          "frameId": "frame.sv",
+          "text": "she helps",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.4",
+          "frameId": "frame.sv",
+          "text": "I read",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.5",
+          "frameId": "frame.sv",
+          "text": "you go",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.6",
+          "frameId": "frame.sv",
+          "text": "you eat",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.7",
+          "frameId": "frame.sv",
+          "text": "he goes",
+          "handCount": 6
+        }
+      ],
+      "distinctDecks": 2500,
+      "correctionRate": 0,
+      "fallbackRate": 0
+    },
+    "ADVANCED": {
+      "decksChecked": 2500,
+      "physicalCards": 70000,
+      "repairs": 0,
+      "repairedDecks": 0,
+      "fallbackDecks": 0,
+      "bandFallbacks": 6024,
+      "openingsChecked": 2500,
+      "currentOpeningsChecked": 2500,
+      "openingFrames": {
+        "frame.sv": 2500
+      },
+      "vocabularyBands": {
+        "BEGINNER": 14521,
+        "STANDARD": 10564,
+        "ADVANCED": 17415,
+        "CORE": 27500
+      },
+      "openingSamples": [
+        {
+          "seed": "batch.0",
+          "frameId": "frame.sv",
+          "text": "you live",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.1",
+          "frameId": "frame.sv",
+          "text": "she runs",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.2",
+          "frameId": "frame.sv",
+          "text": "they run",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.3",
+          "frameId": "frame.sv",
+          "text": "they change",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.4",
+          "frameId": "frame.sv",
+          "text": "I improve",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.5",
+          "frameId": "frame.sv",
+          "text": "you go",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.6",
+          "frameId": "frame.sv",
+          "text": "you change",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.7",
+          "frameId": "frame.sv",
+          "text": "they come",
+          "handCount": 6
+        }
+      ],
+      "distinctDecks": 2500,
+      "correctionRate": 0,
+      "fallbackRate": 0
+    },
+    "FREE": {
+      "decksChecked": 2500,
+      "physicalCards": 70000,
+      "repairs": 0,
+      "repairedDecks": 0,
+      "fallbackDecks": 0,
+      "bandFallbacks": 5075,
+      "openingsChecked": 2500,
+      "currentOpeningsChecked": 2500,
+      "openingFrames": {
+        "frame.sv": 2500
+      },
+      "vocabularyBands": {
+        "BEGINNER": 19058,
+        "STANDARD": 11731,
+        "ADVANCED": 11711,
+        "CORE": 27500
+      },
+      "openingSamples": [
+        {
+          "seed": "batch.0",
+          "frameId": "frame.sv",
+          "text": "you live",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.1",
+          "frameId": "frame.sv",
+          "text": "she runs",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.2",
+          "frameId": "frame.sv",
+          "text": "they run",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.3",
+          "frameId": "frame.sv",
+          "text": "she helps",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.4",
+          "frameId": "frame.sv",
+          "text": "I read",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.5",
+          "frameId": "frame.sv",
+          "text": "you go",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.6",
+          "frameId": "frame.sv",
+          "text": "you change",
+          "handCount": 6
+        },
+        {
+          "seed": "batch.7",
+          "frameId": "frame.sv",
+          "text": "they come",
+          "handCount": 6
+        }
+      ],
+      "distinctDecks": 2500,
+      "correctionRate": 0,
+      "fallbackRate": 0
+    }
+  },
+  "failures": [],
+  "durationMs": 58162,
+  "notProofOfWinRate": true,
+  "limitations": [
+    "Parser self-check is complemented by manually specified grammar acceptance tests.",
+    "This batch validates starting structure and hand accessibility, not all human strategies or combat win rates."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "ids": [
+        "P07"
+      ],
+      "description": "check three then one discard command refills three, spends only one exchange",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P08",
+        "P09"
+      ],
+      "description": "body click still assembles and prunes only the moved selected ID",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P12",
+        "P13"
+      ],
+      "description": "actual be default and manual form selection",
+      "status": "PASS"
+    }
+  ],
+  "errors": []
+}

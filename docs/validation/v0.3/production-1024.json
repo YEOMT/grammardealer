@@ -1,0 +1,230 @@
+{
+  "status": "PASS",
+  "browser": "134.0.6998.35",
+  "viewport": {
+    "width": 1024,
+    "height": 768
+  },
+  "effectsOff": true,
+  "seed": "run-sequence.17",
+  "policy": "LEARNING",
+  "urlPath": "/grammardealer/",
+  "offlineFullStage1": true,
+  "offlineFullStage2": true,
+  "offlineFullStage3": true,
+  "playedBattles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "svooCaptured": true,
+  "veilCaptured": true,
+  "attacksAfterTutorial": 21,
+  "invalidSubmissions": 1,
+  "totalActualAttacks": 24,
+  "checks": [
+    {
+      "ids": [
+        "P01",
+        "P02",
+        "U12",
+        "U13"
+      ],
+      "description": "production subpath, profile and initial six-card save/load exact (including RNG)",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V021-P15",
+        "V021-P21",
+        "V021-P29",
+        "V021-P31",
+        "V021-P32"
+      ],
+      "description": "mandatory tutorial completed through actual UI, engine scores 40/126, gold 5 and normal deck restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P11"
+      ],
+      "description": "network disabled after all initial static resources loaded",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P03",
+        "P04"
+      ],
+      "description": "frozen reward and unlock baseline survive real IndexedDB restore",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P10"
+      ],
+      "description": "dictionary remains resource and RNG neutral after tutorial",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P04",
+        "V022-P05",
+        "V022-P62"
+      ],
+      "description": "actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "D10",
+        "D15",
+        "U03"
+      ],
+      "description": "invalid submission then real card exchange via UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U01",
+        "U07",
+        "U08",
+        "C13"
+      ],
+      "description": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R02"
+      ],
+      "description": "first rune choices rendered crystal/amber/copper",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.02 preview and once-only entry; first shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical Stage 2 first shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.03 preview and once-only entry; no shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PAST break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PRESENT break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "C12",
+        "R17",
+        "P11",
+        "V02-P26"
+      ],
+      "description": "all twelve production battles complete offline with real cards, SVOO and boss veil release",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U09"
+      ],
+      "description": "muted and reduced effects from battle 2 through boss completion with identical gameplay",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "completed twelve-battle save restores its exact completion screen without another milestone",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P05"
+      ],
+      "description": "Stage 1, 2 and 3 completion each persisted once, no story clear",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P06",
+        "V022-P47",
+        "V022-P48"
+      ],
+      "description": "end-screen English grammar/power codex has no translations or internal labels and does not reapply profile records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R04"
+      ],
+      "description": "new expedition works offline and previously seen guide is not forced",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P49"
+      ],
+      "description": "production debug query/hash cannot expose developer grammar diagnostics or change records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U14"
+      ],
+      "description": "no page/console errors, failed resources or external runtime requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "badResponses": [],
+  "requestOrigins": [
+    "http://127.0.0.1:4174"
+  ]
+}
