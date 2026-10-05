@@ -1,3 +1,4 @@
+import {validateOperationHistory} from './operationHistory.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
@@ -52,7 +53,7 @@ export function assertRunInvariants(run, registry) {
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
-  if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);}
+  if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);
   return true;

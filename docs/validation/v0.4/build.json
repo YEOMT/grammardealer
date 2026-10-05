@@ -1,0 +1,9 @@
+{
+  "command": "npm.cmd run build",
+  "exitCode": 0,
+  "contentAddressedNamesIdenticalToTestedBuild": true,
+  "sha256": {
+    "index-7jdjMFv9.js": "be9f18803ff8718e1ea2cac3622493bbdc170741298095392cf358bd12475e31",
+    "index-DiADSKCR.css": "d8c873dbeb167a5b74d9ef0f5b2295f2fc69805978ef0a8cc11d0cd2a5858e3f"
+  }
+}

@@ -1,3 +1,4 @@
+import {restoreLegacyStarter} from './legacy-starter.js';
 /** Explicit pre-0.2.1 campaign fixture. Assertions still execute the current controller/engines. */
 import {RunController as CurrentController} from '../../src/game/runController.js';
 import {registryForVersion} from '../../src/data/language/index.js';
@@ -7,7 +8,7 @@ export class RunController extends CurrentController {
  dispatch(command){
   const result=super.dispatch(command);
   if(command.type==='NEW_RUN'&&result.ok){
-   const state=this.getState();if(state.tutorialSession?.parked)Object.assign(state,structuredClone(state.tutorialSession.parked));delete state.tutorialSession;
+   const state=this.getState();restoreLegacyStarter(state);if(state.tutorialSession?.parked)Object.assign(state,structuredClone(state.tutorialSession.parked));delete state.tutorialSession;
    state.version='0.2.0';Object.assign(state.contentVersions,{game:'0.2.0',save:'0.2.0',language:'0.2.0',tutorial:'0.1.1',presentation:'0.1.1'});
    state.contentManifest.cardDefIds=registryForVersion('0.2.0').cards.filter(c=>c.runtimeReady).map(c=>c.id);
    state.contentManifest.id='campaign.0.2';state.contentManifest.stageIds=['stage.01','stage.02'];state.contentManifest.runeIds=LEGACY_RUNES.map(r=>r.id);

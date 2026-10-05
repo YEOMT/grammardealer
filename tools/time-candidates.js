@@ -1,8 +1,9 @@
+import {cardKind} from '../src/data/cardCatalog.js';
 import {registryForVersion,formsForCard,createSentenceSnapshot} from '../src/data/language/index.js';
 import {analyzeSentence} from '../src/engine/grammar/index.js';
 /** QA only: compose registered forms from CURRENT HAND physical cards. Never inspect drawIds. */
 export function expandTimeCandidates(state,bases,{limit=1800}={}){
- const registry=registryForVersion(state.version),rows=state.combat.handIds.map(id=>({id,card:state.cardInstances[id],forms:formsForCard(state.cardInstances[id],{registry})}));
+ const registry=registryForVersion(state.version),rows=state.combat.handIds.filter(id=>cardKind(state.cardInstances[id],state.version)==='WORD').map(id=>({id,card:state.cardInstances[id],forms:formsForCard(state.cardInstances[id],{registry})}));
  const templates=[
   [[], 'PAST'],[[['be','PRESENT']],'PRESENT_PARTICIPLE'],[[['be','PAST']],'PRESENT_PARTICIPLE'],
   [[['have','PRESENT']],'PAST_PARTICIPLE'],[[['have','PAST']],'PAST_PARTICIPLE'],

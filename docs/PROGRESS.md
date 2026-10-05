@@ -1,6 +1,12 @@
-## 0.4 진행 중
+## 0.4 구현·로컬 검증 완료 — 원격 제출 준비
 
-최신 main db9f6ca에서 codex/v0.4-sky-islands-operations를 만들었다. 미커밋 변경 없음. A 기준 검증 455 unit / build PASS. 0.3 덱·보상/RNG·상점·공격 golden과 기존 증거를 보존했다. B 카드 유형/저장 영역/시작 덱/UI 기반을 구현 중이며, 전체 완료 결과는 아직 아니다. 세부 순서는 IMPLEMENTATION_PLAN_0.4.md.
+기준 origin/main db9f6ca508329b2306ef7a5a6916bb5ea404c418(0.3 PR #5), 최초 clean, 브랜치 codex/v0.4-sky-islands-operations. A 기준455검사/빌드와 독립0.3 golden을 확보하고 B기반을7725bf5로 분리했다. C 운영 → D 접속사/절 → E 점수/문지기/Stage4/SHOP2 → F UI/저장/실제17전투까지 구현·검증했다.
+
+최종583 unit /2669 data/build/공식browser12스크립트225checks PASS. 실제production STANDARD/run-sequence.19는17전투·37공격·418명령·40캡처로 오프라인 완주와 완료저장복원을 통과했다. 새10000덱PASS. 실제명령80원정7완주/73정상패배/오류0이며 사람승률이 아니다. 자연완주 운영사용0회, 별도지정UI의보급/탐색/취소/재셔플/한도/복귀14검사를 구분했다. 과거증거138개 원본SHA256복원.
+
+S003은 기존home+5 보존 때문에 첨부395 대신401이다. 개발중미완성학습기록 undefined 직렬화회귀를 null로 고쳤고 production재검증했다. 로비버전옛기대와 Vite재로드간섭의 중간실패도 TEST_REPORT_0.4에 보존했다. 교사·물리기기·스피커·OSquota는NOT RUN. 자세한 결과/검토표/선별캡처는 TEST_REPORT_0.4와 ACCEPTANCE_0.4, validation/v0.4를 따른다.
+
+원격push/PR은 최종diff검토 뒤 진행한다. main merge/Pages설정/공개배포는 하지 않는다.
 
 ## 0.3 구현·로컬 검증 완료
 

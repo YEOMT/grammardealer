@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-03-controller.js';
 import {newProfile,validateRunState,canSaveRun,applyProfileEvent} from '../src/services/localStore.js';
 import {registry,registryForVersion} from '../src/data/language/index.js';
 import {TIME_PACKS} from '../src/data/language/timeLanguage.js';

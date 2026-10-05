@@ -1,0 +1,86 @@
+[
+  {
+    "endedAt": "2026-10-05T12:48:15.9218113Z",
+    "startedAt": "2026-10-05T12:46:59.0705843Z",
+    "command": "npm.cmd test",
+    "exitCode": 0,
+    "log": ".local-validation/v04/final/test.log"
+  },
+  {
+    "endedAt": "2026-10-05T12:48:16.6478116Z",
+    "startedAt": "2026-10-05T12:48:16.0121425Z",
+    "command": "npm.cmd run validate:data",
+    "exitCode": 0,
+    "log": ".local-validation/v04/final/validate-data.log"
+  },
+  {
+    "endedAt": "2026-10-05T12:48:17.5891534Z",
+    "startedAt": "2026-10-05T12:48:16.6585138Z",
+    "command": "npm.cmd run build",
+    "exitCode": 0,
+    "log": ".local-validation/v04/final/build.log"
+  },
+  {
+    "endedAt": "2026-10-05T12:49:09.7875147Z",
+    "startedAt": "2026-10-05T12:48:17.6041261Z",
+    "command": "npm.cmd run test:browser",
+    "exitCode": 1,
+    "log": ".local-validation/v04/final/test-browser.log"
+  },
+  {
+    "endedAt": "2026-10-05T12:50:37.8924187Z",
+    "startedAt": "2026-10-05T12:49:09.7949497Z",
+    "command": "npm.cmd run test:e2e",
+    "exitCode": 1,
+    "log": ".local-validation/v04/final/test-e2e.log"
+  },
+  {
+    "exitCode": 0,
+    "command": "npm.cmd test",
+    "startedAt": "2026-10-05T13:06:44.0679596Z",
+    "log": ".local-validation/v04/final2/test.log",
+    "endedAt": "2026-10-05T13:08:03.4834755Z"
+  },
+  {
+    "exitCode": 0,
+    "command": "npm.cmd run validate:data",
+    "startedAt": "2026-10-05T13:08:03.5677973Z",
+    "log": ".local-validation/v04/final2/validate-data.log",
+    "endedAt": "2026-10-05T13:08:04.2285361Z"
+  },
+  {
+    "exitCode": 0,
+    "command": "npm.cmd run build",
+    "startedAt": "2026-10-05T13:08:04.2390500Z",
+    "log": ".local-validation/v04/final2/build.log",
+    "endedAt": "2026-10-05T13:08:05.1803571Z"
+  },
+  {
+    "exitCode": 1,
+    "command": "npm.cmd run test:browser",
+    "startedAt": "2026-10-05T13:08:05.1895176Z",
+    "log": ".local-validation/v04/final2/test-browser.log",
+    "endedAt": "2026-10-05T13:10:14.4010708Z"
+  },
+  {
+    "exitCode": 0,
+    "command": "npm.cmd run test:e2e",
+    "startedAt": "2026-10-05T13:10:14.4069047Z",
+    "log": ".local-validation/v04/final2/test-e2e.log",
+    "endedAt": "2026-10-05T13:16:35.6179324Z"
+  },
+  {
+    "exitCode": 0,
+    "command": "npm.cmd run test:decks:sky",
+    "startedAt": "2026-10-05T13:16:35.6240590Z",
+    "log": ".local-validation/v04/final2/test-decks-sky.log",
+    "endedAt": "2026-10-05T13:17:17.4275329Z"
+  },
+  {
+    "exitCode": 0,
+    "log": ".local-validation/v04/final-browser/test-browser.log",
+    "endedAt": "2026-10-05T13:21:22.1643011Z",
+    "command": "npm.cmd run test:browser",
+    "startedAt": "2026-10-05T13:17:25.7097046Z"
+  }
+]

@@ -1,5 +1,7 @@
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'LINK.CLAUSE':{examples:['I like music and she reads books.','I think that she likes music.'],label:'절 연결',description:'주어와 동사를 중심으로 이루어진 절을 연결합니다. 대등한 절, 이유·시간·조건의 부사절, 내용 목적어절을 구분합니다.'},
+ 'LINK.PHRASE':{examples:['I like games and music.'],label:'단어·구 연결',description:'접속사는 단어·구·절을 연결하며, 문장에서 쓰임에 따라 역할이 달라집니다. 단어·구 연결은 독립된 두 절과 구분합니다.'},
  'TIME.PAST':{label:'과거',description:'유한 동사의 과거형은 과거의 상황을 나타냅니다. 과거분사만으로 과거절이 되지는 않습니다.',examples:['I played games.']},
  'TIME.PROGRESSIVE':{label:'진행',description:'be + -ing는 해당 시간에 진행 중인 행동을 나타냅니다. 주어와 시간에 맞는 첫 동사 형태를 고릅니다.',examples:['I am playing games.']},
  'TIME.PERFECT':{label:'완료',description:'have + 과거분사는 기준 시점 이전의 행동과 그 시점의 관계를 나타냅니다. has/have는 현재, had는 과거가 기준입니다.',examples:['I have played games.']},
@@ -36,6 +38,7 @@ export function verbUsage(word){
  if(frames.has('frame.sv'))parts.push('주어 + 동사');
  if(frames.has('frame.beLocative'))parts.push('주어 + be + 장소 표현');
  if(frames.has('frame.svc.adj')||frames.has('frame.svc.np'))parts.push('주어 + 동사 + 주격보어');
+ if(frames.has('frame.svo.content'))parts.push('주어 + 동사 + (that) 내용 목적어절');
  if(frames.has('frame.svo'))parts.push('주어 + 동사 + 목적어');
  if(frames.has('frame.svoo'))parts.push('주어 + 동사 + 간접목적어 + 직접목적어');
  if(frames.has('frame.svoc.adj'))parts.push('목적어 + 형용사 보어');
@@ -46,3 +49,7 @@ export function verbUsage(word){
  if(frames.has('frame.svo.bare'))parts.push('동사 원형');
  return parts.join(' / ');
 }
+
+export const CLAUSE_ROLES={MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절'};
+export const LINK_ROLES={COORDINATED_CLAUSES:'등위절 연결',ADVERBIAL_CLAUSE:'부사절 연결',CONTENT_CLAUSE:'내용 목적어절',SHARED_SUBJECT_VP:'주어를 공유하는 동사구',NP_COORDINATION:'명사구 연결',AP_COORDINATION:'형용사구 연결',PP_COORDINATION:'전치사구 연결',ADVP_COORDINATION:'부사구 연결'};
+export const CLAUSE_GUIDE={clause:'절은 주어와 동사를 중심으로 이루어진 덩어리입니다.',coordinate:'등위절은 대등한 두 절입니다. 왼쪽 절이 계산 기준이어도 오른쪽 절이 종속절이 되지는 않습니다.',adverbial:'부사절은 이유·시간·조건 등의 정보를 주절에 덧붙입니다.',content:'명사절은 절 전체가 명사처럼 목적어 등의 자리를 맡습니다.',that:'that은 지시 한정사·대명사·관계절 연결·내용절 연결 역할을 문장 구조에 따라 맡습니다.'};

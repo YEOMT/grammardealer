@@ -26,7 +26,7 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
   let combo=0;
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
-    const meaningful=rune||['COMPLETE_BONUS','MAIN_FRAME','CONSTRUCTIONS','SIMPLE_MODIFIERS'].includes(event.phase);
+    const meaningful=rune||['COMPLETE_BONUS','MAIN_FRAME','CONSTRUCTIONS','LINKS','SIMPLE_MODIFIERS'].includes(event.phase);
     if(meaningful)combo++;
     const score={kind:'SCORE',event,combo,duration:duration(event.phase==='CARD_BASE'?170:rune?520:550)};
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
@@ -157,6 +157,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const clearHighlights = () => {
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
+    root.querySelectorAll('[data-clause-group],[data-content-object],.connector-bridge').forEach(n=>{delete n.dataset.clauseGroup;delete n.dataset.contentObject;n.classList.remove('connector-bridge');});
     root.querySelectorAll('[data-presentation-role]').forEach(node => node.remove());
     root.querySelectorAll('[data-argument-role]').forEach(node=>{delete node.dataset.argumentRole;node.classList.remove('argument-start','argument-end');});
   };
@@ -177,6 +178,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       const enemy=find(root,'enemy');if(enemy)enemy.dataset.golemPhase=String(state.activePhase);
     }
     const node=find(root,'boss-veil');
+    if(node&&state?.id==='CLAUSE_LINK_SHIELD'){node.dataset.active=String(state.active);node.textContent=state.active?'연결의 보호막 · 피해 50%':'연결의 보호막 해제';}
     if(node&&state?.id==='SVOO_VEIL'){
       node.dataset.active=String(state.active);
       node.textContent=state.active?'보호 장막 · 피해 ×¼ · 4형식으로 해제':'보호 장막 해제';
@@ -196,6 +198,12 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     onScore(event, { step, intensity,combo=0 }) {
       if(event.sourceType==='BOSS'&&event.bossStateAfter?.id!=='TIME_GOLEM')showBossState(event.bossStateAfter);
       effectNodes.forEach(n=>n.remove());effectNodes=[];
+      if(event.phase==='LINKS'){
+        for(const [i,c]of (current.analysis.clauses??[]).entries()){const ids=current.analysis.nodes.find(n=>n.id===c.nodeId)?.cardIds??[];for(const id of ids){const card=findCard(root,id);if(card)card.dataset.clauseGroup=String(i%3);}}
+        for(const n of current.analysis.nodes.filter(n=>n.type==='CONTENT_CLAUSE'))for(const id of n.cardIds){const card=findCard(root,id);if(card)card.dataset.contentObject='true';}
+        for(const id of event.connectToCardIds??[]){const card=findCard(root,id);if(card){card.classList.add('connector-bridge');animate(card,[{filter:'brightness(1)'},{filter:'brightness(2)',boxShadow:'0 0 18px #a4edff'},{filter:'brightness(1)'}],500);}}
+      }
+      if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
       text('label', event.labelKo ?? event.phase); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
       const tier=Math.min(4,Math.max(0,combo-2));

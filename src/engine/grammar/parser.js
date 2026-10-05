@@ -1,14 +1,17 @@
+import {skyEvidence} from './skyEvidence.js';
 import {verbPhrases} from './verbPhrase.js';
 /* Bounded phrase/valency parser. It composes registered NP/AP/PP constituents;
    no answer strings, permutation search, inserted words, or semantic plausibility scoring. */
-const LABELS={AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
+const LABELS={ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
 const LIMITS={work:12000,depth:4,candidates:128};
 
 export function parseSupportedClause(tokens,registry) {
- const time=registry.validationScope==='time.0.3';
+ const sky=registry.validationScope==='sky.0.4';
+ const limits=sky?{work:90000,depth:6,candidates:128}:LIMITS;
+ const time=sky||registry.validationScope==='time.0.3';
  const learning=time||registry.validationScope==='learning.0.2.2';
  let work=0;
- const tick=()=>{if(++work>LIMITS.work){const e=new Error('WORK_BUDGET');e.code='ENGINE_LIMIT';throw e;}};
+ const tick=()=>{if(++work>limits.work){const e=new Error('WORK_BUDGET');e.code='ENGINE_LIMIT';throw e;}};
  const tok=(i)=>tokens[i];
  const hasRole=(i,role)=>tok(i)?.forms?.some(f=>f.allowedRoleCandidates.includes(role));
  const word=(i)=>tok(i)?.surface.toLowerCase();
@@ -22,14 +25,41 @@ export function parseSupportedClause(tokens,registry) {
  const ppStart=(i)=>hasRole(i,'PREPOSITION');
  const merge=(a,b,extra={})=>({...a,...extra,issues:[...a.issues,...b.issues],hits:[...a.hits,...b.hits],roles:[...a.roles,...b.roles],children:[...a.children,b]});
 
- function parseAP(start,{attributive=false}={}) {
+
+ const coord=i=>sky&&['and','but','or'].includes(word(i));
+ const subordinate=i=>sky&&['because','when','if'].includes(word(i));
+ const linkRole=(i,level)=>({...role(i,level==='CLAUSE'?'CLAUSE_CONNECTOR':'PHRASE_CONNECTOR'),labelKo:level==='CLAUSE'?'절 연결어':'단어·구 연결어'});
+ const linkHit=(tag,start,end,connectorIndex,linkRoleName)=>({...hit(tag,start,end),connectorCardIds:connectorIndex===null?[]:[tok(connectorIndex).cardInstanceId],connectorRole:tag==='LINK.CLAUSE'?'CLAUSE':'PHRASE',linkRole:linkRoleName});
+ function coordinatePhrase(left,right,connectorIndex){
+  const features=left.kind==='NP'?(word(connectorIndex)==='or'?right.features:{person:Math.min(left.features.person??3,right.features.person??3),number:'PLURAL'}):left.features;
+  return phrase(left.kind,left.start,right.end,left.head,{...left,end:right.end,features,issues:issueUnique([...left.issues,...right.issues]),hits:[...left.hits,...right.hits,linkHit('LINK.PHRASE',left.start,right.end,connectorIndex,'PHRASE_COORDINATION')],roles:[...left.roles,linkRole(connectorIndex,'PHRASE'),...right.roles],children:[left,right],connectorIndex,linkRole:'PHRASE_COORDINATION'});
+ }
+ function expandCoordination(bases,read,{allowBut=true}={}){
+  if(!sky)return bases;const out=[...bases];
+  for(let i=0;i<out.length;i++){const left=out[i],k=left.end;if(!coord(k)||!allowBut&&word(k)==='but')continue;
+   for(const right of read(k+1))if(right.kind===left.kind&&!(left.kind==='NP'&&[...left.issues,...right.issues].some(i=>i.code==='PRONOUN_CASE'))){tick();out.push(coordinatePhrase(left,right,k));if(out.length>limits.candidates){const e=new Error('PHRASE_COORDINATION_LIMIT');e.code='ENGINE_LIMIT';throw e;}}
+  }return out;
+ }
+ function parseAP(start,options={}){const out=expandCoordination(parseAPAtom(start,options),i=>parseAPAtom(i,options));return sky&&options.attributive?out.sort((a,b)=>b.end-a.end):out;}
+ const npMemo=new Map();
+ function parseNP(start,npRole,options={}){
+  if(!sky)return parseNPAtom(start,npRole,options);const key=JSON.stringify([start,npRole,options]);if(npMemo.has(key))return npMemo.get(key);npMemo.set(key,[]);
+  const out=expandCoordination(parseNPAtom(start,npRole,options),i=>parseNPAtom(i,npRole,options),{allowBut:false});npMemo.set(key,out);return out;
+ }
+ function parsePP(start,options={}){return expandCoordination(parsePPAtom(start,options),i=>parsePPAtom(i,options));}
+ function parseAdvP(start,position){const base=parseAdvPAtom(start,position);if(!base||!sky)return base;const out=expandCoordination([base],i=>{const p=parseAdvPAtom(i,position);return p?[p]:[];});return out.sort((a,b)=>b.end-a.end)[0];}
+ function asClause(result,start,end,clauseRole='MAIN'){
+  return phrase('CLAUSE',start,end,result.verbIndex,{issues:result.issues,hits:result.chunks.flatMap(c=>c.hits),roles:result.chunks.flatMap(c=>c.roles),children:result.chunks,clauseData:result,clauseRole});
+ }
+
+ function parseAPAtom(start,{attributive=false}={}) {
   tick();let p=start;const degrees=[];
   while(isDegree(p)){degrees.push(p++);tick();}
   if(!hasRole(p,'ADJECTIVE'))return [];
   return [phrase('AP',start,p+1,p,{hits:[...degrees.map(i=>hit('MODIFIER.ADVERB',i,i+1)),...(attributive?[hit('MODIFIER.ADJECTIVE',p,p+1)]:[])],roles:[...degrees.map(i=>role(i,'ADVERB')),role(p,'ADJECTIVE')]})];
  }
- function parseNP(start,npRole,{depth=0,prep=null,allowPostPP=true,allowRelative=true}={}) {
-  tick();if(depth>LIMITS.depth||!tok(start))return [];
+ function parseNPAtom(start,npRole,{depth=0,prep=null,allowPostPP=true,allowRelative=true}={}) {
+  tick();if(depth>limits.depth||!tok(start))return [];
   const out=[];const t=tok(start);
   const suitablePronoun=t.forms.filter(f=>f.allowedRoleCandidates.some(r=>['NP_SUBJECT','NP_OBJECT','POSSESSIVE_NP','DEMONSTRATIVE_NP'].includes(r)));
   if(suitablePronoun.length) {
@@ -59,9 +89,9 @@ export function parseSupportedClause(tokens,registry) {
    }
    const np=phrase('NP',start,p+1,p,{npRole,features,issues:[...issues,...aps.flatMap(ap=>ap.issues)],hits:aps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...aps.flatMap(ap=>ap.roles),role(p,npRole)],children:aps});
    out.push(np);
-   if(allowPostPP&&depth<LIMITS.depth) {
+   if(allowPostPP&&depth<limits.depth) {
     const addPost=(current)=>{
-     if(out.length>LIMITS.candidates){const e=new Error('NP_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
+     if(out.length>limits.candidates){const e=new Error('NP_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
      for(const pp of parsePP(current.end,{depth:depth+1})) {
       const extended=merge(current,pp,{end:pp.end,attachment:'NOUN_POSTMODIFIER'});out.push(extended);
       if(pp.end<tokens.length&&ppStart(pp.end))addPost(extended);
@@ -70,7 +100,7 @@ export function parseSupportedClause(tokens,registry) {
     addPost(np);
    }
   }
-  if(learning&&allowRelative&&depth>=2&&out.some(np=>word(np.end)==='that')){const e=new Error('RELATIVE_DEPTH');e.code='ENGINE_LIMIT';throw e;}
+  if(!sky&&learning&&allowRelative&&depth>=2&&out.some(np=>word(np.end)==='that')){const e=new Error('RELATIVE_DEPTH');e.code='ENGINE_LIMIT';throw e;}
   if(learning&&allowRelative&&depth<2)for(const base of [...out]) {
    const marker=word(base.end)==='that',start=base.end+(marker?1:0);
    if(start>=tokens.length)continue;
@@ -78,20 +108,20 @@ export function parseSupportedClause(tokens,registry) {
    const subjectGap=marker&&finiteCandidate(start)?base:null;
    if(!subjectGap&&!hasRole(start,'NP_SUBJECT')&&!hasRole(start,'NOUN_HEAD')&&!hasRole(start,'DETERMINER')&&!hasRole(start,'POSSESSIVE_DETERMINER'))continue;
    for(let end=start+1;end<=tokens.length;end++)for(const clause of parseRange(start,end,{depth:depth+1,subjectGap,objectGap:subjectGap?null:base})) {
-    const relative=phrase('RELATIVE_CLAUSE',base.end,end,clause.verbIndex,{issues:clause.issues,hits:[...clause.chunks.flatMap(c=>c.hits),{...hit('CLAUSE.RELATIVE',base.end,end,clause.verbIndex),comboImplemented:false}],roles:[...(marker?[role(base.end,'RELATIVE_CONNECTOR')]:[]),...clause.chunks.flatMap(c=>c.roles)],children:clause.chunks,antecedentHead:base.head,gapRole:subjectGap?'SUBJECT':'OBJECT'});
+    const relative=phrase('RELATIVE_CLAUSE',base.end,end,clause.verbIndex,{issues:clause.issues,hits:[...clause.chunks.flatMap(c=>c.hits),{...hit('CLAUSE.RELATIVE',base.end,end,clause.verbIndex),comboImplemented:false}],roles:[...(marker?[role(base.end,'RELATIVE_CONNECTOR')]:[]),...clause.chunks.flatMap(c=>c.roles)],children:sky?[clause.tree]:clause.chunks,...(sky?{childClauseRole:'RELATIVE'}:{}),antecedentHead:base.head,gapRole:subjectGap?'SUBJECT':'OBJECT'});
     out.push(merge(base,relative,{end}));
    }
   }
   return out;
  }
- function parsePP(start,{depth=0}={}) {
-  tick();if(!ppStart(start)||depth>LIMITS.depth)return [];
-  return parseNP(start+1,'PP_OBJECT',{depth,prep:word(start),allowPostPP:depth<LIMITS.depth}).map(np=>phrase('PP',start,np.end,start,{
+ function parsePPAtom(start,{depth=0}={}) {
+  tick();if(!ppStart(start)||depth>limits.depth)return [];
+  return parseNP(start+1,'PP_OBJECT',{depth,prep:word(start),allowPostPP:depth<limits.depth}).map(np=>phrase('PP',start,np.end,start,{
    issues:np.issues,hits:[...np.hits,hit('PHRASE.PP',start,np.end)],roles:[role(start,'PREPOSITION'),...np.roles],children:[np],preposition:word(start),
   }));
  }
  function advPhrase(i){return phrase('AdvP',i,i+1,i,{hits:[hit('MODIFIER.ADVERB',i,i+1)],roles:[role(i,'ADVERB')]});}
- function parseAdvP(start,position) {
+ function parseAdvPAtom(start,position) {
   tick();let p=start;
   while(isDegree(p))p++;
   if(p>start&&advAllowed(p,position)&&['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p)))return phrase('AdvP',start,p+1,p,{
@@ -115,7 +145,7 @@ export function parseSupportedClause(tokens,registry) {
  function finishAdjuncts(start,verbLemma,{requireLocation=false,end=tokens.length}={}) {
   const out=[];
   const visit=(p,combined,location)=>{
-   tick();if(p>end)return;if(out.length>LIMITS.candidates){const e=new Error('ADJUNCT_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
+   tick();if(p>end)return;if(out.length>limits.candidates){const e=new Error('ADJUNCT_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
    if(p===end){if(!requireLocation||location)out.push(combined);return;}
    const adverb=parseAdvP(p,'END');if(adverb)visit(adverb.end,merge(combined,adverb,{end:adverb.end}),location);
    for(const pp of parsePP(p))visit(pp.end,merge(combined,pp,{end:pp.end}),location||['in','on','at','with'].includes(pp.preposition));
@@ -153,13 +183,13 @@ export function parseSupportedClause(tokens,registry) {
  let partialAdvanced=null;let subjectBeforeVerb=false;
  const bindings=verb=>(learning?verb.senses:[verb.sense]).flatMap(sense=>sense.frameBindings.map(binding=>({...binding,senseId:sense.id}))).filter(b=>b.runtimeReady&&b.requiredCapabilityIds.every(cap=>registry.capabilities.some(c=>c.id===cap&&c.runtimeReady)));
  function parseNonfinite(start,end,depth,withTo) {
-  if(depth>LIMITS.depth){const e=new Error('NONFINITE_DEPTH');e.code='ENGINE_LIMIT';throw e;}if(withTo&&word(start)!=='to')return [];
+  if(depth>limits.depth){const e=new Error('NONFINITE_DEPTH');e.code='ENGINE_LIMIT';throw e;}if(withTo&&word(start)!=='to')return [];
   const vi=start+(withTo?1:0);if(tok(vi)?.lex.pos!=='VERB')return [];
   const base=word(vi)===tok(vi).lex.lemma.toLowerCase();
   return predicate(vi,null,end,depth+1,{finite:false}).map(result=>phrase('NONFINITE_CLAUSE',start,end,vi,{issues:[...result.issues,...(base?[]:[issue('INFINITIVE_BASE_REQUIRED',[vi])])],hits:[...result.chunks.flatMap(c=>c.hits),{...hit('CLAUSE.INFINITIVE',start,end,vi),comboImplemented:false}],roles:[...(withTo?[role(start,'INFINITIVE_CONNECTOR')]:[]),...result.chunks.flatMap(c=>c.roles)],children:result.chunks,npRole:'COMPLEMENT'}));
  }
- function predicate(vi,subject,end,depth,{finite=true,objectGap=null}={}) {
-  tick();if(depth>LIMITS.depth||vi>=end)return [];
+ function predicateSingle(vi,subject,end,depth,{finite=true,objectGap=null}={}) {
+  tick();if(depth>limits.depth||vi>=end)return [];
   const out=[];
   const chains=time?verbPhrases(tokens,vi,end,{finite,tick}):[{start:vi,end:vi+1,lexicalIndex:vi}];
   for(const chain of chains){
@@ -169,12 +199,20 @@ export function parseSupportedClause(tokens,registry) {
   const postRuns=verb.lex.lemma==='be'?parseAdverbRun(chain.end,'AFTER_BE'):[phrase('ADVERBS',chain.end,chain.end,chain.end)];
   for(const post of postRuns)for(const binding of availableBindings) {
    const internalFrame=binding.frameId,pos=post.end;
+   const aspectIssues=sky&&registry.senseById[binding.senseId]?.aspectPolicy?.progressive==='ISSUE'&&chain.aspects?.includes('PROGRESSIVE')?[issue('ASPECT_USAGE',[lexicalIndex])]:[];
    if(pos>end)continue;
    let complements=[];
    const np=(position,role)=>parseNP(position,role,{depth}).filter(n=>n.end<=end);
    if(internalFrame==='frame.sv'||internalFrame==='frame.beLocative')complements=[phrase('EMPTY',pos,pos,vi)];
    if(internalFrame==='frame.svc.adj')complements=parseAP(pos).map(ap=>({...ap,npRole:'COMPLEMENT',roles:ap.roles.map(r=>r.cardInstanceId===tok(ap.head).cardInstanceId?role(ap.head,'COMPLEMENT'):r)}));
    if(internalFrame==='frame.svc.np'||internalFrame==='frame.svo')complements=np(pos,internalFrame==='frame.svo'?'OBJECT':'COMPLEMENT');
+   if(sky&&!objectGap&&internalFrame==='frame.svo.content'){
+    const marker=word(pos)==='that',contentStart=pos+(marker?1:0);complements=[];
+    for(let ce=contentStart+2;ce<=end;ce++)for(const child of parseRange(contentStart,ce,{depth:depth+1})){
+     const tree=child.tree??asClause(child,contentStart,ce,'CONTENT_OBJECT');
+     complements.push(phrase('CONTENT_CLAUSE',pos,ce,child.verbIndex,{npRole:'OBJECT',issues:child.issues,hits:[...tree.hits,linkHit('LINK.CLAUSE',pos,ce,marker?pos:null,'CONTENT_CLAUSE')],roles:[...(marker?[linkRole(pos,'CLAUSE')]:[]),...tree.roles],children:[tree],connectorIndex:marker?pos:undefined,linkRole:'CONTENT_CLAUSE',childClauseRole:'CONTENT_OBJECT'}));
+    }
+   }
    if(objectGap)complements=internalFrame==='frame.svo'?[phrase('GAP',pos,pos,vi,{gapRole:'OBJECT',antecedentHead:objectGap.head})]:[];
    if(!objectGap&&internalFrame==='frame.svoo')complements=np(pos,'INDIRECT_OBJECT').flatMap(io=>np(io.end,'DIRECT_OBJECT').map(object=>phrase('OBJECTS',io.start,object.end,io.head,{issues:[...io.issues,...object.issues],hits:[...io.hits,...object.hits],roles:[...io.roles,...object.roles],children:[io,object],indirectObject:io,directObject:object})));
    if(learning&&!objectGap&&internalFrame.startsWith('frame.svoc.'))complements=np(pos,'OBJECT').flatMap(object=>{
@@ -191,17 +229,30 @@ export function parseSupportedClause(tokens,registry) {
     }
     for(const suffix of finishAdjuncts(complement.end,verb.lex.lemma,{requireLocation:internalFrame==='frame.beLocative',end})) {
      const chunks=[verbNode,post,complement,suffix].filter(x=>x.end>x.start);
-     const issues=issueUnique([...chunks.flatMap(x=>x.issues),...(finite?agreement(subject,vi):[])]);
+     const issues=issueUnique([...chunks.flatMap(x=>x.issues),...aspectIssues,...(finite?agreement(subject,vi):[])]);
      out.push({internalFrame,frameId:registry.frameById[internalFrame].schoolFrameId??internalFrame,chunks,issues,subject,verbIndex:lexicalIndex,complement,suffix,senseId:binding.senseId});
-     if(out.length>LIMITS.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
+     if(out.length>limits.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
     }
    }
   }
   }
   return out;
  }
- function parseRange(start,end,{depth=0,subjectGap=null,objectGap=null}={}) {
-  if(depth>LIMITS.depth)return [];
+ function predicate(vi,subject,end,depth,options={}){
+  const out=predicateSingle(vi,subject,end,depth,options);if(!sky||depth>=limits.depth||options.objectGap)return out;
+  for(let k=vi+1;k<end-1;k++)if(coord(k))for(const left of predicateSingle(vi,subject,k,depth,options)){
+   const vp=left.chunks.find(c=>c.verbPhrase)?.verbPhrase,shared=vp?.auxiliaries.length>0;
+   for(const right of predicate(k+1,subject,end,depth+1,{...options,finite:shared?false:options.finite??true})){
+    const required=shared?({'WILL':'BASE','PERFECT':'PAST_PARTICIPLE','PROGRESSIVE':'PRESENT_PARTICIPLE'})[vp.auxiliaries.at(-1).role]:null;
+    const correct=!required||tok(k+1)?.forms.some(f=>required==='BASE'?f.surface.toLowerCase()===tok(k+1).lex.lemma.toLowerCase():f.grammaticalFeatures.tense===required);
+    const issues=issueUnique([...left.issues,...right.issues,...(correct?[]:[issue('AUXILIARY_FORM_REQUIRED',[k+1])])]);
+    const group=phrase('VP_COORDINATION',vi,end,left.verbIndex,{issues,hits:[...left.chunks.flatMap(c=>c.hits),...right.chunks.flatMap(c=>c.hits),linkHit('LINK.PHRASE',vi,end,k,'PHRASE_COORDINATION')],roles:[...left.chunks.flatMap(c=>c.roles),linkRole(k,'PHRASE'),...right.chunks.flatMap(c=>c.roles)],children:[...left.chunks,...right.chunks],connectorIndex:k,linkRole:'PHRASE_COORDINATION'});
+    out.push({...left,chunks:[group],issues});
+   }
+  }return out;
+ }
+ function parseSimpleRange(start,end,{depth=0,subjectGap=null,objectGap=null}={}) {
+  if(depth>limits.depth)return [];
   const out=[];
   for(const front of parseAdverbRun(start,'FRONT')) {
    const subjects=subjectGap?[{...subjectGap,start:front.end,end:front.end,issues:[],hits:[],roles:[],children:[]}]:parseNP(front.end,'SUBJECT',{depth});
@@ -211,11 +262,33 @@ export function parseSupportedClause(tokens,registry) {
     for(const result of predicate(vi,subject,end,depth,{objectGap})) {
      const chunks=[front,subject,pre,...result.chunks].filter(x=>x.end>x.start);
      out.push({...result,chunks,issues:issueUnique([...front.issues,...subject.issues,...pre.issues,...result.issues])});
-     if(out.length>LIMITS.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
+     if(out.length>limits.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
     }
    }
   }
   return out;
+ }
+
+ const rangeMemo=new Map();
+ function parseRange(start,end,options={}){
+  if(!sky)return parseSimpleRange(start,end,options);
+  const depth=options.depth??0;if(depth>limits.depth||start>=end)return [];
+  const key=JSON.stringify([start,end,depth,options.subjectGap?.head,options.objectGap?.head]);if(rangeMemo.has(key))return rangeMemo.get(key);rangeMemo.set(key,[]);
+  const out=parseSimpleRange(start,end,options).map(r=>({...r,tree:asClause(r,start,end)}));
+  const combine=(primary,secondary,k,kind,preposed=false)=>{
+   const a=primary.tree,b=secondary.tree,connector=phrase('CONNECTOR',k,k+1,k,{roles:[linkRole(k,'CLAUSE')]}),children=preposed?[connector,b,a]:[a,connector,b];
+   // Independent clauses are peers. A because/when/if clause is subordinate to the primary.
+   const dependent={...b,clauseRole:kind==='COORDINATED_CLAUSES'?'COORDINATE':'ADVERBIAL',childClauseRole:kind==='COORDINATED_CLAUSES'?'COORDINATE':'ADVERBIAL'};
+   children[preposed?1:2]=dependent;
+   const tree=phrase(kind==='COORDINATED_CLAUSES'?'CLAUSE_COORDINATION':'ADVERBIAL_CONNECTION',start,end,primary.verbIndex,{issues:issueUnique([...primary.issues,...secondary.issues]),hits:[...a.hits,...b.hits,linkHit('LINK.CLAUSE',start,end,k,kind)],roles:children.flatMap(x=>x.roles),children,connectorIndex:k,linkRole:kind});
+   return {...primary,chunks:children,tree,issues:tree.issues,compositionPriority:kind==='COORDINATED_CLAUSES'?0:1};
+  };
+  if(!options.subjectGap&&!options.objectGap&&depth<limits.depth){
+   for(let k=start+1;k<end-1;k++)if(coord(k)||subordinate(k))for(const left of parseRange(start,k,{depth:depth+1}))for(const right of parseRange(k+1,end,{depth:depth+1})){out.push(combine(left,right,k,coord(k)?'COORDINATED_CLAUSES':'ADVERBIAL_CLAUSE'));tick();}
+   if(subordinate(start))for(let split=start+3;split<end-1;split++)for(const child of parseRange(start+1,split,{depth:depth+1}))for(const main of parseRange(split,end,{depth:depth+1})){out.push(combine(main,child,start,'ADVERBIAL_CLAUSE',true));tick();}
+  }
+  if(out.length>limits.candidates){const e=new Error('CLAUSE_LINK_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
+  rangeMemo.set(key,out);return out;
  }
  const candidates=parseRange(0,tokens.length);
  if(!candidates.length) {
@@ -223,9 +296,9 @@ export function parseSupportedClause(tokens,registry) {
   return invalid(subjectBeforeVerb?'MISSING_REQUIRED_COMPLEMENT':'CORE_WORD_ORDER');
  }
  // Whole-input valid parses dominate recovered ones. Stable production order is the school-grammar tie break.
- const priority=['frame.sv','frame.svc.adj','frame.svc.np','frame.svo','frame.svoo','frame.beLocative','frame.svoc.adj','frame.svoc.np','frame.svo.to','frame.svo.bare','frame.svoc.to','frame.svoc.bare'];
- candidates.sort((a,b)=>a.issues.length-b.issues.length||(learning?(priority.indexOf(a.internalFrame)-priority.indexOf(b.internalFrame)||a.senseId.localeCompare(b.senseId)):0));
- const best=candidates[0];const recovered=best.issues.length>0;
+ const priority=['frame.sv','frame.svc.adj','frame.svc.np','frame.svo','frame.svo.content','frame.svoo','frame.beLocative','frame.svoc.adj','frame.svoc.np','frame.svo.to','frame.svo.bare','frame.svoc.to','frame.svoc.bare'];
+ candidates.sort((a,b)=>a.issues.length-b.issues.length||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||(learning?(priority.indexOf(a.internalFrame)-priority.indexOf(b.internalFrame)||a.senseId.localeCompare(b.senseId)):0));
+ const best=candidates[0];if(sky)return skyEvidence(best,{tokens,registry,candidateCount:candidates.length,workUnits:work,limits});const recovered=best.issues.length>0;
  const issues=best.issues.map((i,n)=>({...i,id:`issue.${n}`}));
  const unlicensed=[...new Set(issues.filter(i=>i.code==='INVALID_ADVERB_TARGET').flatMap(i=>i.cardIds))];
  const nodes=[];

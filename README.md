@@ -1,3 +1,13 @@
+# Syntax Atlas 0.4.0 · 이음의 하늘섬
+
+새 원정은 초원·항구·협곡·하늘섬의 총17전투입니다. 접속사·절 판정, 손패에서 사용하는 보급/탐색, 두 번째 상점을 추가했습니다. 기존0.3 저장은 원래12전투 범위를 유지합니다. 새28장 덱은 have 한 장을 고정하고 be/have/you/I를 고급으로 표시합니다.
+
+[패치 내역](docs/PATCH_NOTES_0.4_KO.md) · [실제 검증](docs/TEST_REPORT_0.4.md) · [교육 검토](docs/EDUCATION_REVIEW_0.4.md) · [운영 카드 검토](docs/OPERATION_CARD_REVIEW_0.4.md)
+
+개발: `npm ci`, `npm run dev`. 필수 검사: `npm test`, `npm run validate:data`, `npm run build`; 개발 서버 127.0.0.1:5173에서 `npm run test:browser`; 빌드 뒤 `npm run test:e2e`는 독립 production 서버의 `/grammardealer/`에서 실행합니다. `npm run test:decks:sky`는 새10,000개 시작덱, `npm run test:runs:sky`는 유한 QA 정책80원정입니다. Windows는 `npm.cmd`를 사용할 수 있습니다. Playwright1.51.1 Chromium이 필요합니다.
+
+내부 패키지명·저장소·IndexedDB·공개 경로는 유지합니다. 브랜치/PR 검증과 main 병합·공개 배포는 별도입니다. 아래는 과거 버전 설명입니다.
+
 # 0.3.0 · 시간의 협곡
 
 새 원정에서 초원·항구·시간의 협곡의 총 12전투를 플레이합니다. 과거/진행/완료/will 미래, 순차 3부위 골렘, 장문 운석 룬을 추가했습니다. 시작 28장과 초원·항구 HP/첫 상점은 유지합니다. 기존 저장은 당시 제공 범위와 수치를 유지합니다.

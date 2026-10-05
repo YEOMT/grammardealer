@@ -120,3 +120,23 @@
 /* Present/base and past are full rows; p.p. and -ing stay side by side. */
 .grouped-forms > .form-group:nth-child(-n+2){grid-column:1 / -1}
 @media(max-width:420px){.grouped-forms{grid-template-columns:1fr}}
+
+.operation-card{background:#f1f3f4;border-color:#c3cbd0;border-top:5px solid #c3cbd0;box-shadow:0 4px 0 #9ba8ae,0 7px 14px #0003}
+.operation-card .card-body{cursor:help;touch-action:pan-x}.operation-name{font-size:20px;text-align:center}.operation-description,.operation-limit{color:#41525a;text-align:center;font-size:11px;line-height:1.4}.operation-card .operation-footer{min-height:44px;padding:0 44px 0 0}.operation-use{min-height:44px;width:100%;padding:0;background:#d5dfe3;color:#213c4a;border-radius:0 0 0 7px;font-size:11px}.operation-card.selected{background:#fff2c2}.operation-used{animation:operation-dissolve 240ms ease-out forwards}.operation-arrival{animation:operation-arrival 220ms ease-out}.operation-usage{font-size:12px;min-height:44px}.operation-target{display:flex;align-items:center;justify-content:space-between;gap:12px}.operation-target-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+@keyframes operation-dissolve{to{opacity:0;transform:translateY(-15px);filter:blur(3px)}}@keyframes operation-arrival{from{opacity:.2;transform:translateY(14px)}to{opacity:1;transform:none}}
+.effects-off .operation-used,.effects-off .operation-arrival{animation:none}@media(prefers-reduced-motion:reduce){.operation-used,.operation-arrival{animation:none}}
+
+.hand-cards>.selectable-card{display:flex;flex-direction:column}.hand-cards>.selectable-card>.card-body{flex:1}.hand-cards>.selectable-card>.card-footline{flex:none}
+
+/* Sky layouts preserve the established hand/card dimensions. */
+.sky-combat{background:radial-gradient(ellipse at top,#314752 0%,#17232e 62%,#141a21 100%)}
+.sky-combat .canyon-tools{max-width:310px}.sky-shield{border-color:#a4ddf5;color:#d6f6ff}
+.combat-sentence [data-clause-group="0"]{border-bottom:4px solid #7ddfc2}
+.combat-sentence [data-clause-group="1"]{border-bottom:4px solid #b7a0ff}
+.combat-sentence [data-clause-group="2"]{border-bottom:4px solid #f3c474}
+.combat-sentence [data-content-object]{outline:2px solid #9cbcf6;outline-offset:-7px}
+.combat-sentence .connector-bridge{box-shadow:0 0 0 3px #dcf7ff inset}
+.clause-learning{border-left:3px solid #7ddfc2;padding:8px 12px;margin:10px 0;background:#ffffff06}
+.clause-learning.nested-clause{margin-left:calc(var(--clause-depth,1)*16px);border-color:#b7a0ff}
+
+.sky-combat .region-bonus{position:static;padding:4px 8px}.sky-combat .canyon-tools{justify-content:center;max-width:190px}.sky-combat .enemy-info h2{margin-bottom:5px}.sky-combat .sky-shield{position:static;display:inline-block;margin-top:4px;padding:3px 7px}.sky-combat:has(.sky-shield) .enemy-label{display:none}
