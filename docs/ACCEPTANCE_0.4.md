@@ -120,4 +120,4 @@
 | P114 | PASS | 자동정석정책에운영/희귀룬필수전제를넣지않고사람승률처럼보고하지않는다. | `tools/sky-candidates.js` · `docs/validation/v0.4/runs-summary.json` — 현재보유카드만탐색한80명령원정7완주/73정상패배/기술오류0,사람승률아님 |
 | P115 | NOT RUN | 교사검수·실제iPad/Android/스피커·OSquota미실행을NOT RUN으로명확히기록한다. | `docs/TEST_REPORT_0.4.md` · `docs/EDUCATION_REVIEW_0.4.md` — 교사·실제iPad/Android/스피커·OSquota는미실행 |
 | P116 | PASS | 기존정상테스트를삭제/skip/약화해서통과시키지않고의도된변경과중간FAIL을남긴다. | `docs/TEST_REPORT_0.4.md` · `Git test diff` — 명세상새버전기대변경/legacy명시view/S003근거/중간실패보존; assertion삭제·skip없음 |
-| P117 | NOT RUN | 작업브랜치push/PR/검토표/캡처/남은문제를제출하고main직접병합/배포는하지않는다. | `docs/PROGRESS.md` — 원격push/PR결과기록대기 |
+| P117 | PASS | 작업브랜치push/PR/검토표/캡처/남은문제를제출하고main직접병합/배포는하지않는다. | `https://github.com/YEOMT/grammardealer/pull/6` · `docs/PROGRESS.md` — 개발브랜치push 및 main대상 PR#6 생성, auto_merge=null; main기준db9f6ca/Pages설정/workflow미변경 |

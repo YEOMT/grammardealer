@@ -1398,11 +1398,13 @@
       "id": "P117",
       "section": "최종 검증·보고",
       "requirement": "작업브랜치push/PR/검토표/캡처/남은문제를제출하고main직접병합/배포는하지않는다.",
-      "status": "NOT RUN",
+      "status": "PASS",
       "evidence": [
+        "https://github.com/YEOMT/grammardealer/pull/6",
         "docs/PROGRESS.md"
       ],
-      "method": "원격push/PR결과기록대기"
+      "method": "개발브랜치push 및 main대상 PR#6 생성, auto_merge=null; main기준db9f6ca/Pages설정/workflow미변경"
     }
-  ]
+  ],
+  "pullRequest": "https://github.com/YEOMT/grammardealer/pull/6"
 }
