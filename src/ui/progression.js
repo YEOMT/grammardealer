@@ -1,3 +1,4 @@
+import {SKY_SHIELD_HINT} from '../data/stage4.js';
 import {TIME_GOLEM_HINT} from '../data/stage3.js';
 import { el, button, heading, modal, confirmDialog, toast } from './dom.js';
 import { renderCombat } from './combat.js';
@@ -9,34 +10,35 @@ import { stageForRun, roundsForRun, isCurrentCampaign } from '../data/stages.js'
 import { STAGE2_VEIL_HINT } from '../data/stage2.js';
 
 const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar' },
-  el('span', { class: 'brand-small', text: 'SENTENCE BALATRO' }),
+  el('span', { class: 'brand-small', text: 'SYNTAX ATLAS' }),
   el('nav', {}, onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
 const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
 
 export const HARBOR_BOSS_HINT = STAGE2_VEIL_HINT;
 export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords } = {}) {
-  const harbor=state.progress.stageId==='stage.02',canyon=state.progress.stageId==='stage.03',stage=stageForRun(state);
+  const sky=state.progress.stageId==='stage.04',harbor=state.progress.stageId==='stage.02',canyon=state.progress.stageId==='stage.03',stage=stageForRun(state);
   root.replaceChildren(nav({ onLobby,onDeck }), el('main', { class: `intro-page ${harbor?'harbor-page':''}` },
-    el('span', { class: 'eyebrow', text: canyon?'CHAPTER 03 · TIME CANYON':harbor?'CHAPTER 02 · DELIVERY HARBOR':'CHAPTER 01 · FIRST SENTENCE' }),
-    el('div', { class: 'intro-art', text: canyon?'⌛':harbor?'⚓':'🌾', role: 'img', 'aria-label': stage.nameKo }),
+    el('span', { class: 'eyebrow', text: sky?'CHAPTER 04 · SKY ISLANDS':canyon?'CHAPTER 03 · TIME CANYON':harbor?'CHAPTER 02 · DELIVERY HARBOR':'CHAPTER 01 · FIRST SENTENCE' }),
+    el('div', { class: 'intro-art', text: sky?'☁':canyon?'⌛':harbor?'⚓':'🌾', role: 'img', 'aria-label': stage.nameKo }),
     el('h1', { text: stage.nameKo }),
-    el('p', { text: canyon?'과거·진행·완료·will 미래를 조합해 시간의 협곡을 건너세요.\n해금된 시간 콤보를 포함하는 공격은 지역 보너스 ×1.25를 한 번 받습니다.':harbor?'주어 + 동사 + 간접목적어 + 직접목적어.\n현재형 4형식 공격은 이 지역에서 ×1.25의 위력을 얻습니다.':'단어를 모아 당신의 첫 문장을 완성하세요.\n기본 1·2·3형식 공격은 이 지역에서 ×1.25의 위력을 얻습니다.' }),
+    el('p', { text: sky?'접속사로 단어와 절을 잇고 하늘섬을 건너세요.\n해금된 절 연결 공격은 지역 보너스 ×1.25를 한 번 받습니다.':canyon?'과거·진행·완료·will 미래를 조합해 시간의 협곡을 건너세요.\n해금된 시간 콤보를 포함하는 공격은 지역 보너스 ×1.25를 한 번 받습니다.':harbor?'주어 + 동사 + 간접목적어 + 직접목적어.\n현재형 4형식 공격은 이 지역에서 ×1.25의 위력을 얻습니다.':'단어를 모아 당신의 첫 문장을 완성하세요.\n기본 1·2·3형식 공격은 이 지역에서 ×1.25의 위력을 얻습니다.' }),
+    sky&&el('section',{class:'boss-preview panel'},el('span',{class:'boss-silhouette',text:'🧙'}),el('div',{},el('h2',{text:'하늘길의 문지기 · 연결의 보호막'}),el('p',{text:SKY_SHIELD_HINT}))),
     canyon&&el('section',{class:'boss-preview panel'},el('span',{class:'boss-silhouette',text:'🗿','aria-label':'시간의 골렘 실루엣'}),el('div',{},el('h2',{text:'시간의 골렘 · 과거 / 현재 / 미래'}),el('p',{text:TIME_GOLEM_HINT}))),
     harbor&&el('section',{class:'boss-preview panel'},el('span',{class:'boss-silhouette',text:stage.rounds.at(-1).emoji,'aria-label':'항구 수문장 실루엣'}),el('div',{},el('h2',{text:'항구 수문장 · 보스 예고'}),el('p',{text:HARBOR_BOSS_HINT}),el('small',{text:'SVO+to/for는 3형식입니다. 장막을 해제하지 않지만 강한 공격으로 돌파할 수도 있습니다.'}))),
     el('div', { class: 'intro-encounters' }, roundsForRun(state).map((round,index) => el('div', {},
       el('b', { text: round.emoji }), el('strong', { text: round.nameKo }), el('small', { text: `${Number(state.progress.stageId.slice(-2))}-${index+1} · HP ${round.hp}${round.kind === 'REGIONAL_BOSS' ? ' · 지역 보스' : ''}` })))),
-    el('p', { class: 'helper', text: canyon?'입장할 때 현재 덱에 없는 be·have·will을 각각 한 장만 받습니다. 이 지역에는 상점이 없습니다.':harbor?'입장에 필요한 동사·연결 카드를 확인한 뒤 첫 상점에 들릅니다. 상점을 나올 때 덱을 섞고 첫 손패를 뽑습니다.':'각 전투는 6턴입니다. 공격하거나 준비할 때 턴을 사용합니다. 초원 수호자에게 별도의 문법 면역은 없습니다.' }),
+    el('p', { class: 'helper', text: sky?'없는 연결 재료만 받습니다. 두 번째 상점에서 준비한 뒤 다섯 전투를 시작합니다.':canyon?'입장할 때 현재 덱에 없는 be·have·will을 각각 한 장만 받습니다. 이 지역에는 상점이 없습니다.':harbor?'입장에 필요한 동사·연결 카드를 확인한 뒤 첫 상점에 들릅니다. 상점을 나올 때 덱을 섞고 첫 손패를 뽑습니다.':'각 전투는 6턴입니다. 공격하거나 준비할 때 턴을 사용합니다. 초원 수호자에게 별도의 문법 면역은 없습니다.' }),
     !isCurrentCampaign(state)&&el('p',{class:'legacy-notice',text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
     harbor&&onRecords&&button('4형식 도감 보기',onRecords,'secondary'),
-    button(canyon?'시간의 협곡에 들어가기':harbor?'입장 준비 · 상점으로':'초원에 들어가기', onStart, 'primary start-button', { id: (harbor||canyon)?'enter-stage':'start-battle' })));
+    button(sky?'입장 준비 · 두 번째 상점으로':canyon?'시간의 협곡에 들어가기':harbor?'입장 준비 · 상점으로':'초원에 들어가기', onStart, 'primary start-button', { id: (harbor||canyon||sky)?'enter-stage':'start-battle' })));
 }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
-    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${state.version==='0.3.0'?12:7}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
-    el('p',{text:state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식과 토파즈 룬 후보가 해금되었습니다.\n지금의 덱·룬·재화를 가지고 전달의 항구로 향합니다.'}),
+    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${state.version==='0.4.0'?17:state.version==='0.3.0'?12:7}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
+    el('p',{text:state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식과 토파즈 룬 후보가 해금되었습니다.\n지금의 덱·룬·재화를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'재화')),
-    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
+    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
 }
 
 /** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
@@ -89,7 +91,7 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
     }
     const instance = choice.cardInstanceId ? state.cardInstances[choice.cardInstanceId] : { instanceId: `preview.${choice.choiceId}`, cardDefId: choice.cardDefId, polishLevel: 0, specialEffectId: null };
     if (!instance) return el('section', { class: 'reward-target' }, el('p', { text: '현재 덱에 없는 카드입니다.' }));
-    const model = cardModel(instance);
+    const model = cardModel(instance,null,state.version);
     const action = offer.type === 'CARD_ENHANCE' ? (choice.disabled ? '연마 최대 +3' : `연마 +${model.polish + 1}`) : offer.type === 'CARD_REMOVE' ? '이 카드 제거' : '이 카드 선택';
     return el('section', { class: isTargets ? 'reward-target' : 'reward-choice', dataset: { choiceId: choice.choiceId, cardInstanceId: instance.instanceId } },
       wordCard(model, { readonly: true, compact: isTargets }), !isTargets && el('p', { text: model.glossKo }),
@@ -107,7 +109,7 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
-    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${state.version==='0.3.0'?12:isCurrentCampaign(state)?7:3}` }),
+    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${state.version==='0.4.0'?17:state.version==='0.3.0'?12:isCurrentCampaign(state)?7:3}` }),
     el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
     el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·재화는 유지됩니다.` }),
     harbor&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:HARBOR_BOSS_HINT}),
@@ -116,15 +118,15 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
 }
 
 export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves, onLobby, onRecords } = {}) {
-  const complete = state.status === 'CONTENT_COMPLETE',harbor=state.progress.contentBoundary==='STAGE2_END',canyon=state.progress.contentBoundary==='STAGE3_END';
+  const complete = state.status === 'CONTENT_COMPLETE',sky=state.progress.contentBoundary==='STAGE4_END',harbor=state.progress.contentBoundary==='STAGE2_END',canyon=state.progress.contentBoundary==='STAGE3_END';
   const enemy = state.combat?.enemyState;
   const actions = complete ? [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), button('기록 보기', onRecords, 'secondary'), button('완료 상태 저장', onSaves, 'secondary')]
     : [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), onRetrySeed && button('같은 시드로 재도전', onRetrySeed, 'secondary'), button('수동 저장 불러오기', onLoad, 'secondary')];
   root.replaceChildren(nav({ onLobby }), el('main', { class: 'result-page' },
     el('span', { class: 'eyebrow', text: complete ? `CHAPTER COMPLETE · VERSION ${harbor?'0.2':state.version}` : 'EXPEDITION ENDED' }),
     el('div', { class: 'intro-art', text: complete ? '🌄' : '🍂' }),
-    el('h1', { text: complete ? canyon?'시간의 협곡 완료':harbor?'전달의 항구 완료':'시작의 초원 클리어' : '이번 원정은 여기까지' }),
-    el('p', { text: complete ? canyon?'총 12전투를 마쳤습니다. 시간의 골렘을 공략하고 룬 슬롯 4칸을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':harbor?'전달의 항구 완료 — 0.2 제공 구간을 모두 플레이했습니다.\n총 7전투를 마쳤습니다. 다음 지역은 후속 버전에서 이어집니다.':'이 저장은 이전 버전의 시작의 초원 구간입니다.\n0.2의 새 지역은 새 원정에서 시작할 수 있습니다.' : `${enemy?.nameKo ?? '적'}의 남은 HP ${enemy?.hp ?? 0}.\n제한된 턴을 모두 사용했습니다. 새 덱으로 다시 도전할 수 있습니다.` }),
+    el('h1', { text: complete ? sky?'이음의 하늘섬 완료':canyon?'시간의 협곡 완료':harbor?'전달의 항구 완료':'시작의 초원 클리어' : '이번 원정은 여기까지' }),
+    el('p', { text: complete ? sky?'총 17전투를 마쳤습니다. 연결의 보호막을 넘어 하늘길을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':canyon?'총 12전투를 마쳤습니다. 시간의 골렘을 공략하고 룬 슬롯 4칸을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':harbor?'전달의 항구 완료 — 0.2 제공 구간을 모두 플레이했습니다.\n총 7전투를 마쳤습니다. 다음 지역은 후속 버전에서 이어집니다.':'이 저장은 이전 버전의 시작의 초원 구간입니다.\n0.2의 새 지역은 새 원정에서 시작할 수 있습니다.' : `${enemy?.nameKo ?? '적'}의 남은 HP ${enemy?.hp ?? 0}.\n제한된 턴을 모두 사용했습니다. 새 덱으로 다시 도전할 수 있습니다.` }),
     el('div', { class: 'record-grid' }, metric(state.stats.bestAttack, '이번 원정 최고 공격'), metric(state.economy.gold, '보유 재화'), metric(complete ? state.stats.attacks : state.combat?.exchangesRemaining ?? 0, complete ? '확정한 공격' : '남은 교환 횟수')),
     complete && el('p', { class: 'helper', text: '전체 48전투 스토리 클리어 기록과는 구분됩니다. 여행자·난이도 1로 새 원정을 시작할 수 있습니다.' }),
     el('div', { class: 'reward-footer' }, actions)));
@@ -163,7 +165,7 @@ export function renderReward(root,state,handlers={}){
       el('div',{class:'reward-choices mixed-rewards'},offer.choices.map(choice=>{
         if(choice.kind==='RUNE')return runeCard(choice,()=>choose(choice));
         if(choice.kind==='SERVICE')return el('section',{class:'reward-choice service-choice',dataset:{choiceId:choice.choiceId,serviceKind:choice.serviceKind}},el('div',{class:'service-symbol',text:choice.serviceKind==='POLISH'?'✦':'−'}),el('h3',{text:choice.serviceKind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:choice.serviceKind==='POLISH'?'보유 카드 한 장을 +1 연마합니다.':'보유 카드 한 장을 덱에서 제거합니다.'}),button('대상 선택',()=>showTargets(choice),'primary'));
-        const model=cardModel({instanceId:choice.choiceId,cardDefId:choice.cardDefId,polishLevel:0});return el('section',{class:'reward-choice',dataset:{choiceId:choice.choiceId}},wordCard(model,{readonly:true}),el('p',{text:model.glossKo}),button('이 카드 선택',()=>choose(choice),'primary'));
+        const model=cardModel({instanceId:choice.choiceId,cardDefId:choice.cardDefId,polishLevel:0},null,state.version);return el('section',{class:'reward-choice',dataset:{choiceId:choice.choiceId}},wordCard(model,{readonly:true}),el('p',{text:model.descriptionKo??model.glossKo}),button('이 카드 선택',()=>choose(choice),'primary'));
       })),
       el('div',{class:'reward-footer'},button(`건너뛰기 · +${offer.skipGold} 재화`,()=>choose('SKIP'),'secondary',{id:'skip-reward'}),button('저장',onSaves,'quiet'),button('내 덱',onDeck,'quiet'))],{wide:true});
   }

@@ -1,0 +1,586 @@
+{
+  "meta": {
+    "target_version": "0.4.0",
+    "basis_commit": "db9f6ca508329b2306ef7a5a6916bb5ea404c418",
+    "kind": "DESIGN_EXPECTATIONS_NOT_GAME_TEST_RESULTS",
+    "actual_game_execution": false
+  },
+  "cases": [
+    {
+      "id": "SUPPLY_BASIC",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "a",
+        "b"
+      ],
+      "draw": [
+        "c",
+        "d",
+        "e"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "a",
+          "b",
+          "c",
+          "d"
+        ],
+        "draw": [
+          "e"
+        ],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SUPPLY_FULL",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "h0",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "h7",
+        "h8"
+      ],
+      "draw": [
+        "c",
+        "d"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "h7",
+          "h8",
+          "c"
+        ],
+        "draw": [
+          "d"
+        ],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SUPPLY_NINE",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "h0",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "h7"
+      ],
+      "draw": [
+        "c",
+        "d",
+        "e"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "h7",
+          "c",
+          "d"
+        ],
+        "draw": [
+          "e"
+        ],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SUPPLY_ONE_LEFT",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "a"
+      ],
+      "draw": [
+        "c"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "a",
+          "c"
+        ],
+        "draw": [],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SUPPLY_NO_CARDS",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "a"
+      ],
+      "draw": [],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "s",
+          "a"
+        ],
+        "draw": [],
+        "discard": [],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SUPPLY_DRAW_OTHER_SKILL",
+      "kind": "supply",
+      "source": "s",
+      "hand": [
+        "s",
+        "a"
+      ],
+      "draw": [
+        "q",
+        "c",
+        "d"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "a",
+          "q",
+          "c"
+        ],
+        "draw": [
+          "d"
+        ],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_PICK_MIDDLE",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b",
+        "c",
+        "d"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": "c",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "a",
+          "c"
+        ],
+        "draw": [
+          "b",
+          "d"
+        ],
+        "discard": [],
+        "exhausted": [
+          "q"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_FULL",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "h0",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6",
+        "h7",
+        "h8"
+      ],
+      "draw": [
+        "b",
+        "c"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": "c",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": true,
+        "hand": [
+          "h0",
+          "h1",
+          "h2",
+          "h3",
+          "h4",
+          "h5",
+          "h6",
+          "h7",
+          "h8",
+          "c"
+        ],
+        "draw": [
+          "b"
+        ],
+        "discard": [],
+        "exhausted": [
+          "q"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_CANCEL",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b",
+        "c"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": null,
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "b",
+          "c"
+        ],
+        "discard": [],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_DISCARD_FORBIDDEN",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b"
+      ],
+      "discard": [
+        "c"
+      ],
+      "exhausted": [],
+      "target": "c",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "b"
+        ],
+        "discard": [
+          "c"
+        ],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_HAND_FORBIDDEN",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": "a",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "b"
+        ],
+        "discard": [],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_SKILL_FORBIDDEN",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "s",
+        "b"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": "s",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "s",
+          "b"
+        ],
+        "discard": [],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_USED_FORBIDDEN",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b"
+      ],
+      "discard": [],
+      "exhausted": [
+        "s"
+      ],
+      "target": "s",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "b"
+        ],
+        "discard": [],
+        "exhausted": [
+          "s"
+        ],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    },
+    {
+      "id": "SEARCH_ABSENT_FORBIDDEN",
+      "kind": "search",
+      "source": "q",
+      "hand": [
+        "q",
+        "a"
+      ],
+      "draw": [
+        "b"
+      ],
+      "discard": [],
+      "exhausted": [],
+      "target": "z",
+      "hand_limit": 10,
+      "operation_ids": [
+        "s",
+        "q"
+      ],
+      "expected": {
+        "ok": false,
+        "hand": [
+          "q",
+          "a"
+        ],
+        "draw": [
+          "b"
+        ],
+        "discard": [],
+        "exhausted": [],
+        "turn_delta": 0,
+        "exchange_delta": 0,
+        "hp_delta": 0
+      }
+    }
+  ],
+  "notes": [
+    "Small deterministic design model only; no shuffle is modeled in these cases.",
+    "Actual engine tests MUST cover discard reshuffle, RNG, transaction IDs, UI cancel, saved exhausted state and next-battle reset."
+  ]
+}

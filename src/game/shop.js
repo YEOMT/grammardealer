@@ -1,3 +1,5 @@
+import {selectOperation} from './operationPool.js';
+import {cardDefinition,isOperation} from '../data/cardCatalog.js';
 import {isCurrentCampaign} from '../data/stages.js';
 import { registryForVersion } from '../data/language/index.js';
 import { RUNE_MAX_LEVEL } from '../data/runes.js';
@@ -25,9 +27,10 @@ const requireEntryContext = run => {
     throw new TypeError('Stage 2 preparation requires a current campaign outside combat');
 };
 
+const requireShopContext=run=>{if(!isCurrentCampaign(run)||!['stage.02',...(run.version==='0.4.0'?['stage.04']:[])].includes(run.progress.stageId)||run.combat!==null)throw Error('Shop outside entry');};
 function rememberCardDefinitions(run, definitions) {
   const seen = new Set(run.vocabulary?.encounteredLexemeIds ?? []);
-  for (const definition of definitions) seen.add(definition.lexemeId);
+  for (const definition of definitions) if(definition.lexemeId)seen.add(definition.lexemeId);
   run.vocabulary = { ...run.vocabulary, encounteredLexemeIds: [...seen] };
 }
 
@@ -36,7 +39,7 @@ export function grantStage2Entry(run) {
   requireEntryContext(run);
   if (run.entryGrants?.['stage.02']?.applied) return run.entryGrants['stage.02'];
   const registry = registryForVersion(run.version);
-  const ownedDefinitions = run.activeCardIds.map(id => registry.cardById[run.cardInstances[id]?.cardDefId]);
+  const ownedDefinitions = run.activeCardIds.filter(id=>!isOperation(run.cardInstances[id],run.version)).map(id => registry.cardById[run.cardInstances[id]?.cardDefId]);
   if (ownedDefinitions.some(def => !def)) throw new TypeError('Unknown active entry card');
   const bindingFor = card => registry.lexemeById[card.lexemeId].senseIds.flatMap(id => registry.senseById[id].frameBindings)
     .find(binding => binding.runtimeReady && binding.frameId === 'frame.svoo');
@@ -75,14 +78,14 @@ export function grantStage2Entry(run) {
 
 /** Generates only once and consumes only the shop stream. Prices never depend on player gold. */
 export function createShop(run) {
-  requireEntryContext(run);
-  if (!run.entryGrants?.['stage.02']?.applied) throw new TypeError('Entry preparation must precede the shop');
-  const shopId = `shop.${run.runId}.stage.02`;
+  requireShopContext(run);const stageId=run.progress.stageId,second=stageId==='stage.04';
+  if (!run.entryGrants?.[stageId]?.applied) throw new TypeError('Entry preparation must precede the shop');
+  const shopId = `shop.${run.runId}.${stageId}`;
   if (run.shop?.shopId === shopId) return run.shop;
-  if (run.shop) throw new TypeError('Another shop already exists');
+  if (run.shop) {if(!second||run.shop.stageId!=='stage.02'||!run.shop.closed||(run.shopHistory??[]).some(s=>s.shopId===run.shop.shopId))throw new TypeError('Another shop already exists');run.shopHistory=[...(run.shopHistory??[]),structuredClone(run.shop)];}
   const inventory = [], trace = [], stream = run.rng.shop;
   const runePool = eligibleRunes(run);
-  for (let slot = 0; slot < SHOP_BALANCE.runeSlots; slot++) {
+  for (let slot = 0; slot < (second?2:SHOP_BALANCE.runeSlots); slot++) {
     const pool = runePool.filter(rune => !inventory.some(item => item.runeId === rune.id));
     if (!pool.length) { trace.push({ kind: 'NO_ELIGIBLE_RUNE', slot }); break; }
     const rarity = weightedPick(stream, Object.fromEntries(Object.entries(REWARD_BALANCE.runeWeights).filter(([key]) => pool.some(rune => rune.rarity === key))));
@@ -92,22 +95,23 @@ export function createShop(run) {
       price: SHOP_BALANCE.runePrices[rarity], purchased: false, ownedLevel, offeredLevel: ownedLevel + 1 });
   }
   const cardPool = orderById(eligibleRewardCards(run));
-  for (let slot = 0; slot < SHOP_BALANCE.cardSlots; slot++) {
+  for (let slot = 0; slot < (second?3:SHOP_BALANCE.cardSlots); slot++) {
     const pool = cardPool.filter(card => !inventory.some(item => item.cardDefId === card.id));
     const rarity = weightedPick(stream, Object.fromEntries(Object.entries(SHOP_BALANCE.cardRarityWeights).filter(([key]) => pool.some(card => card.rarity === key))));
     const sameRarity = pool.filter(card => card.rarity === rarity);
     const role = slot === 0 ? 'LOCAL_SYNTAX_RELEVANT' : 'IMPLEMENTED_POOL_WILDCARD';
     let candidates = slot === 0 ? sameRarity.filter(card => isStageRelevantCard(run, card)) : sameRarity;
     if (!candidates.length) { candidates = sameRarity; trace.push({ kind: 'SAME_RARITY_ROLE_FALLBACK', role, rarity }); }
-    const cardDefId = weightedPick(stream, Object.fromEntries(candidates.map(card => [card.id, cardWeight(card)])));
+    const operation=selectOperation(run,rarity,role,new Set(inventory.map(x=>x.cardDefId)),stream,trace);
+    const cardDefId = operation?.id??weightedPick(stream, Object.fromEntries(candidates.map(card => [card.id, cardWeight(card)])));
     inventory.push({ itemId: `${shopId}.card.${slot}`, kind: 'CARD', cardDefId, rarity,
       price: SHOP_BALANCE.cardPrices[rarity], purchased: false, role });
   }
   const paidRemovalCount = safeInteger(run.economy.paidRemovalCount ?? 0, 'paid removal count', { min: 0 });
   const removalPrice = addSafe(SHOP_BALANCE.firstRemovalPrice, paidRemovalCount * SHOP_BALANCE.removalIncrement);
-  run.shop = { shopId, stageId: 'stage.02', shopVersion: SHOP_VERSION, closed: false, inventory,
+  run.shop = { shopId, stageId, shopVersion: run.version==='0.4.0'?'0.4.0':SHOP_VERSION,...(run.version==='0.4.0'?{paidRemovalCountAtEntry:paidRemovalCount}:{}), closed: false, inventory,
     services: { POLISH: { price: SHOP_BALANCE.polishPrice, used: false }, REMOVE: { price: removalPrice, used: false } }, trace };
-  rememberCardDefinitions(run, inventory.filter(item => item.kind === 'CARD').map(item => registryForVersion(run.version).cardById[item.cardDefId]));
+  rememberCardDefinitions(run, inventory.filter(item => item.kind === 'CARD').map(item => cardDefinition(item.cardDefId,run.version)));
   return run.shop;
 }
 
@@ -130,14 +134,15 @@ export function buyShopItem(run, shopId, itemId, { replaceRuneInstanceId = null 
   if (!item || item.purchased) return fail('이미 구매했거나 현재 상점에 없는 상품입니다.');
   if (!canAfford(run, item.price)) return fail('재화가 부족합니다.');
   if (item.kind === 'CARD') {
-    const definition = eligibleRewardCards(run).find(card => card.id === item.cardDefId && card.rarity === item.rarity);
+    const definition = run.version==='0.4.0'?cardDefinition(item.cardDefId,run.version):eligibleRewardCards(run).find(card=>card.id===item.cardDefId&&card.rarity===item.rarity);
+    if(run.version==='0.4.0'&&(!run.contentManifest.cardDefIds.includes(item.cardDefId)||definition?.rarity!==item.rarity))return fail('원정 범위 밖의 상품입니다.');
     const instanceId = `${itemId}.owned`;
     if (!definition || run.cardInstances[instanceId]) return fail('구매할 수 없는 카드 상품입니다.');
     run.cardInstances[instanceId] = { instanceId, cardDefId: definition.id, polishLevel: 0, specialEffectId: null };
     run.activeCardIds.push(instanceId);
     rememberCardDefinitions(run, [definition]);
     purchase(run, item, { kind: 'CARD', cardInstanceId: instanceId });
-    return { ok: true, message: '단어 카드 한 장을 구매했습니다.' };
+    return { ok: true, message: `${definition.cardKind==='OPERATION'?'운영':'단어'} 카드 한 장을 구매했습니다.` };
   }
   if (item.kind !== 'RUNE') return fail('알 수 없는 상품입니다.');
   const definition = eligibleRunes(run).find(rune => rune.id === item.runeId);
@@ -173,7 +178,7 @@ export function useShopService(run, shopId, serviceKind, { targetCardInstanceId 
   if (!targetCardInstanceId) return fail('보유 카드 한 장을 선택하세요.', { needsTarget: true, serviceKind });
   const card = run.cardInstances[targetCardInstanceId];
   if (!card || !run.activeCardIds.includes(targetCardInstanceId)) return fail('현재 덱에 없는 카드입니다.');
-  if (serviceKind === 'POLISH' && (!Number.isInteger(card.polishLevel) || card.polishLevel < 0 || card.polishLevel >= 3)) return fail('이미 최대 연마 +3이거나 연마할 수 없는 카드입니다.');
+  if (serviceKind === 'POLISH' && (isOperation(card,run.version) || !Number.isInteger(card.polishLevel) || card.polishLevel < 0 || card.polishLevel >= 3)) return fail('이미 최대 연마 +3이거나 연마할 수 없는 카드입니다.');
   const nextRemovalCount = serviceKind === 'REMOVE' ? addSafe(run.economy.paidRemovalCount ?? 0, 1) : null;
   if (serviceKind === 'REMOVE') {
     const warning = getRemovalWarning(run, targetCardInstanceId);

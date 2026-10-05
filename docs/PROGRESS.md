@@ -1,3 +1,13 @@
+## 0.4 구현·검증·PR 제출 완료
+
+기준 origin/main db9f6ca508329b2306ef7a5a6916bb5ea404c418(0.3 PR #5), 최초 clean, 브랜치 codex/v0.4-sky-islands-operations. A 기준455검사/빌드와 독립0.3 golden을 확보하고 B기반을7725bf5로 분리했다. C 운영 → D 접속사/절 → E 점수/문지기/Stage4/SHOP2 → F UI/저장/실제17전투까지 구현·검증했다.
+
+최종583 unit /2669 data/build/공식browser12스크립트225checks PASS. 실제production STANDARD/run-sequence.19는17전투·37공격·418명령·40캡처로 오프라인 완주와 완료저장복원을 통과했다. 새10000덱PASS. 실제명령80원정7완주/73정상패배/오류0이며 사람승률이 아니다. 자연완주 운영사용0회, 별도지정UI의보급/탐색/취소/재셔플/한도/복귀14검사를 구분했다. 과거증거138개 원본SHA256복원.
+
+S003은 기존home+5 보존 때문에 첨부395 대신401이다. 개발중미완성학습기록 undefined 직렬화회귀를 null로 고쳤고 production재검증했다. 로비버전옛기대와 Vite재로드간섭의 중간실패도 TEST_REPORT_0.4에 보존했다. 교사·물리기기·스피커·OSquota는NOT RUN. 자세한 결과/검토표/선별캡처는 TEST_REPORT_0.4와 ACCEPTANCE_0.4, validation/v0.4를 따른다.
+
+기반7725bf5와 구현8e4cbfe를 개발브랜치에 push하고 [PR #6](https://github.com/YEOMT/grammardealer/pull/6)를 생성했다. 후속 보고서 커밋은 PR head를 따른다. main은 기준db9f6ca이며 auto-merge는 꺼져 있다. main merge/Pages설정/공개배포는 수행하지 않았다. CI 최신상태는 PR에서 확인한다.
+
 ## 0.3 구현·로컬 검증 완료
 
 Base origin/main d6535b6c8c74132a34e7eb56f778ef0eedcd3b24 (0.2.2 PR #4). Branch codex/v0.3-time-canyon. 최초 상태는 clean. A 기준/golden → B 언어 → C 점수/룬 → D 진행/골렘 → E UI/연출 → F 저장/전체 검증 순서로 구현했다.

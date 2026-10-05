@@ -1,0 +1,15 @@
+{
+  "version": "0.4.0",
+  "kind": "ACTUAL_GENERATOR_AND_OPENING_NOT_WIN_RATE",
+  "requested": 10000,
+  "checked": 10000,
+  "failures": [],
+  "byMode": {
+    "BEGINNER": 2500,
+    "STANDARD": 2500,
+    "ADVANCED": 2500,
+    "FREE": 2500
+  },
+  "status": "PASS",
+  "durationMs": 41132
+}

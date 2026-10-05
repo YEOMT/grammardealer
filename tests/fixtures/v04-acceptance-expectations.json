@@ -1,0 +1,712 @@
+{
+  "meta": {
+    "target_version": "0.4.0",
+    "basis_commit": "db9f6ca508329b2306ef7a5a6916bb5ea404c418",
+    "kind": "DESIGN_EXPECTATIONS_NOT_GAME_TEST_RESULTS",
+    "actual_game_execution": false
+  },
+  "criteria": [
+    {
+      "id": "P001",
+      "section": "기반·범위",
+      "requirement": "작업 시작 origin/main과 실제 0.3 포함 여부, dirty 보존, 독립 브랜치가 기록된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P002",
+      "section": "기반·범위",
+      "requirement": "게임은 실제 총17전투를 제공하고 Stage4 끝은 STAGE4_END이며 전체스토리 클리어가 아니다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P003",
+      "section": "기반·범위",
+      "requirement": "Stage1/2/3 HP·배율·골렘3부위·실습40/126·드로우/교환/6턴/16장 한도를 보존한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P004",
+      "section": "기반·범위",
+      "requirement": "Syntax Atlas/신택스 아틀라스 표시가 로비·전투·결과·탭·새안내에서 통일된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P005",
+      "section": "기반·범위",
+      "requirement": "기존 저장소 URL/base/IndexedDB/프로필/카드 ID가 이름변경 때문에 바뀌지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P006",
+      "section": "기반·범위",
+      "requirement": "외부 API·새 프레임워크·Stage5·대규모룬개편·운영강화·26장덱을 범위 밖으로 유지한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P007",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "현재/원형 전체폭, 과거 전체폭, p.p./-ing 마지막두칸이 실제형태메뉴에 반영된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P008",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "be의 표시만 원형으로 줄고 I be happy 형태오류와 will be 정상판정은 유지된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P009",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "be/am/is/are·was/were·been/being의 그룹과 클릭·키보드·터치선택이 정확하다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P010",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "had/read 등 철자가 같은 과거/과거분사 선택의 실제 formId와 역할을 보존한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P011",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "1024×768 가로에서 형태메뉴·하단행동·긴단어·스크롤이 잘리지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P012",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "새 시작덱은 품사6/4/8/3/2/3/2의28장 WORD만이며 운영·접속사는 없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P013",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "동사8장은 be2/SV2/have고정1/SVO2/MULTI1이고 기존 사본상한·다양성을 만족한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P014",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "I/you/they와he또는she, a/a/the·전치사·부사역할이 보존된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P015",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "네 어휘모드 모두 have를 보장하면서 실제 1~3형식 first-hand witness가 성립한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P016",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "be/have/you/I만 새0.4에서고급이며 base10·연마값·시작자격은 유지된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P017",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "첫 실습의 고정덱은 바뀌지 않고 완료후 새 have고정 정상28장과그RNG를 정확히 복원한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P018",
+      "section": "형태 메뉴·시작 덱",
+      "requirement": "옛0.3의 생성/상품희귀도/카드사본/저장RNG는 기존golden과 일치한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P019",
+      "section": "운영 카드 코어",
+      "requirement": "보급/탐색 두종류가 각각고급/희귀로 정의되며 다른운영효과는 없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P020",
+      "section": "운영 카드 코어",
+      "requirement": "OPERATION에 가짜lexeme·품사·단어base점수가 없고 WORD와 명시적으로 구분된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P021",
+      "section": "운영 카드 코어",
+      "requirement": "운영카드는 ADD/DRAG/SWAP/SET_FORM 모든입구에서 조합대에 들어갈수없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P022",
+      "section": "운영 카드 코어",
+      "requirement": "운영카드가 오염Snapshot에 들어가면 무소모무결성오류이며 조용히strip하지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P023",
+      "section": "운영 카드 코어",
+      "requirement": "손패에서만 사용하고 전투편집외/공격연출/실습/상점/대상창중 사용은 막는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P024",
+      "section": "운영 카드 코어",
+      "requirement": "사용은 턴·교환·적HP·문장점수·문법실적·turnIndex/actionSequence를 바꾸지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P025",
+      "section": "운영 카드 코어",
+      "requirement": "사용한 실제사본이 EXHAUSTED에1번만 남고 owned activeCardIds에서 삭제되지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P026",
+      "section": "운영 카드 코어",
+      "requirement": "보급 사용시 본인을 먼저제외한제안상태에서 기존draw2를 수행해 자신을뽑지 않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P027",
+      "section": "운영 카드 코어",
+      "requirement": "보급의 DRAW 부족시 기존DISCARD만 재셔플하고 EXHAUSTED·HAND·SENTENCE는 제외한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P028",
+      "section": "운영 카드 코어",
+      "requirement": "손패10/10에서스킬이빠진공간에1장, 9/10이면2장으로 실제한도를 준수한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P029",
+      "section": "운영 카드 코어",
+      "requirement": "받을카드가0이면보급소모없음,1이면실제1장과미리보기수치가일치한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P030",
+      "section": "운영 카드 코어",
+      "requirement": "보급으로다른운영카드를뽑아도각사본의사용1회와유한종료를보장한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P031",
+      "section": "운영 카드 코어",
+      "requirement": "탐색은 DRAW의WORD만보여주고 이름순정렬·연마별사본을 구분한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P032",
+      "section": "운영 카드 코어",
+      "requirement": "탐색은 DISCARD/HAND/SENTENCE/EXHAUSTED/미보유카드/운영을선택할수없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P033",
+      "section": "운영 카드 코어",
+      "requirement": "탐색후 나머지DRAW의상대순서·deckRNG가그대로이며 카드1장만이동한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P034",
+      "section": "운영 카드 코어",
+      "requirement": "탐색선택취소/목록재열기/빈대상은스킬·RNG·턴·undo를보존한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P035",
+      "section": "운영 카드 코어",
+      "requirement": "탐색stale revision/사라진target/다른전투click/중복확정을무소모또는멱등처리한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P036",
+      "section": "운영 카드 코어",
+      "requirement": "성공스킬은Undo로복원되지않고 실패/취소에서는이전편집Undo가보존된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P037",
+      "section": "운영 카드 코어",
+      "requirement": "스킬을교환으로버리면효과는없고기존교환1회·교환장수드로우가작동한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P038",
+      "section": "운영 카드 코어",
+      "requirement": "다음전투시모든미제거스킬사본이정상덱에복귀하고전투별사용완료상태가초기화된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P039",
+      "section": "운영 카드 코어",
+      "requirement": "다섯카드영역의배타성·완전성·종류제약을Controller와저장에서동일하게검사한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P040",
+      "section": "운영 카드 코어",
+      "requirement": "카드사용애니메이션skip/watchdog/hidden탭/리렌더후에도효과가1번만적용된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P041",
+      "section": "운영 카드 코어",
+      "requirement": "스킬은연마후보에서제외하고제거는가능하며무효강화비용/횟수소모가없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P042",
+      "section": "운영 카드 코어",
+      "requirement": "운영카드도draw/discard/내덱/보상/상점/저장/타입순회에서undefined나NOUN fallback없이작동한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P043",
+      "section": "운영 UI·보상·상점",
+      "requirement": "흰색/은색테두리·무품사색·동일카드크기·운영/이름/효과/전투당1회 표시를확인한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P044",
+      "section": "운영 UI·보상·상점",
+      "requirement": "사용버튼·설명클릭·버리기체크영역이구분되고터치로실수발동/조합대이동이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P045",
+      "section": "운영 UI·보상·상점",
+      "requirement": "사사삭사라짐과실제받은카드/개수표시가동기화되며감소효과/음소거를준수한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P046",
+      "section": "운영 UI·보상·상점",
+      "requirement": "기존50/10/5/15/10/10 및 보스0/10/10/25/5/50외부확률표를보존한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P047",
+      "section": "운영 UI·보상·상점",
+      "requirement": "20%운영내부추첨은고급/희귀 GENERAL/WILDCARD에만적용되고팝업당최대1칸이다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P048",
+      "section": "운영 UI·보상·상점",
+      "requirement": "지역재료보호슬롯·첫일반카드보상·매원정첫룬예외가운영에대체되지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P049",
+      "section": "운영 UI·보상·상점",
+      "requirement": "운영없는/타깃없는보상도항상유효3칸·취소복원·공개후고정을만족한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P050",
+      "section": "운영 UI·보상·상점",
+      "requirement": "CARD종류에운영이포함되었을때도skipGold+3과한번정산이유지된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P051",
+      "section": "운영 UI·보상·상점",
+      "requirement": "Stage2상품1룬/2카드,Stage4상품2룬/3카드가정상생성된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P052",
+      "section": "운영 UI·보상·상점",
+      "requirement": "두상점은독립shop/itemID와서비스사용기록을갖고closed앞상점은재생성되지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P053",
+      "section": "운영 UI·보상·상점",
+      "requirement": "각상점연마1/제거1회,누적유료제거가격,재화부족/취소/중복구매처리를확인한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P054",
+      "section": "운영 UI·보상·상점",
+      "requirement": "보급10/탐색14,일반가격표유지,무효상품/옛snapshot희귀도불일치로구매가망가지지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P055",
+      "section": "언어 데이터·절 판정",
+      "requirement": "and/but/or/because/when/if·기존that·think/know/say가명시Frame/형태/뜻을갖는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P056",
+      "section": "언어 데이터·절 판정",
+      "requirement": "신규단어는STARTER에서제외하되후보해금전정상기본문장판정이가능하다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P057",
+      "section": "언어 데이터·절 판정",
+      "requirement": "두독립절and/but/or가전체입력을소비하며각절Frame·역할·time증거를남긴다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P058",
+      "section": "언어 데이터·절 판정",
+      "requirement": "You and I/He and she/복합명사주어의일치와대명사격을정확히다룬다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P059",
+      "section": "언어 데이터·절 판정",
+      "requirement": "목적어NP/AP/기본동사구병렬을정상으로받되독립절두개로허위표시하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P060",
+      "section": "언어 데이터·절 판정",
+      "requirement": "단어병렬의허용역할과부분구조실패를구분해쓰레기tail을점수에포함하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P061",
+      "section": "언어 데이터·절 판정",
+      "requirement": "because/when/if의주절뒤·앞배치를모두지원하고내부동사구를실제로검사한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P062",
+      "section": "언어 데이터·절 판정",
+      "requirement": "단독종속절/주어누락/접속사뒤핵심실패는실제소모0피해로끝난다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P063",
+      "section": "언어 데이터·절 판정",
+      "requirement": "새if교안은일반조건과가정법을혼동하지않고if+will/과거를무조건오답으로단정하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P064",
+      "section": "언어 데이터·절 판정",
+      "requirement": "that-내용절이허용된동사에서정상이며절전체를목적어로표시한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P065",
+      "section": "언어 데이터·절 판정",
+      "requirement": "생략된that명사절도실제구조판정을거치고해금된연결보너스를받을수있다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P066",
+      "section": "언어 데이터·절 판정",
+      "requirement": "지시that/관계that/접속that를역할로구분하고같은카드보너스를중복하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P067",
+      "section": "언어 데이터·절 판정",
+      "requirement": "that내용절의목적어누락을관계절gap으로구제하지않고불허동사에Frame을열지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P068",
+      "section": "언어 데이터·절 판정",
+      "requirement": "현재완료/과거/미래진행·관계절/준동사와새연결을혼합한필수예문을지원한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P069",
+      "section": "언어 데이터·절 판정",
+      "requirement": "등위3절·명사절+부사절·관계절+등위절을16장안에서bounded분석한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P070",
+      "section": "언어 데이터·절 판정",
+      "requirement": "동일형태/여러Sense/중의구조의대표분석이룬·해금·등록순서에의존하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P071",
+      "section": "언어 데이터·절 판정",
+      "requirement": "known/knew/said/thought 등새형태를현재시제처럼오해하지않고know기본진행예외를점검한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P072",
+      "section": "언어 데이터·절 판정",
+      "requirement": "구두점은표시서식이고없다고감점하거나물리카드로추가하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P073",
+      "section": "언어 데이터·절 판정",
+      "requirement": "실제범위초과/예외는무소모기술복구,지원필수사례는그상태에머물지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P074",
+      "section": "언어 데이터·절 판정",
+      "requirement": "어휘치환hold-out와양성/음성쌍을검사하여예문whitelist와무조건통과가없음을확인한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P075",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "새절/구보너스이외의0.3점수·시간·룬값과단계별FLOOR를정확히유지한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P076",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "완전문장보너스는제출전체에한번이며한절오류가있으면+30이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P077",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "독립절등위는왼쪽첫절,종속/내용절은바깥주절을점수기준으로일관적용한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P078",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "두등위주절을전체1형식등으로교육오분류하지않고기준절라벨을명확히한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P079",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "연결x1.6·구+10은서로다른구조에만각1회,여러접속사/중복AST로무한중첩하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P080",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "후속절문형배율·시간같은계열·modifiers·단어base중복계산이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P081",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "새Pack잠김/해금에따른기본문장/효과만차이나고영어정오·Frame은동일하다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P082",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "운영카드는어떤경로에서도base/철/비취/호박/운석단어수/문법실적에포함되지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P083",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "Stage4지역x1.25는정상절연결에한번,단어병렬/관계that만으로발동하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P084",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "문지기의시작보호막은피해x0.5이며다른면역/구간cap/강제최소공격이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P085",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "유효접속사절공략첫공격부터감쇠없이해제되고이후비접속사공격에도재생하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P086",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "카드철자만접속사/지시that/관계that/구and는해제하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P087",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "생략that명사절은정상영어와연결점수로인정하지만실제접속사없는공격의보호막은유지된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P088",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "작은오류가있는정상연결은부분감점후공략가능,핵심실패/기술오류는해제불가다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P089",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "7장SVC320두번과7장SVO360두번으로HP640을깎는독립산술을검사한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P090",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "운석Lv1·좋은룬의한방공략을허용하고동적적HP상향/숨은피해cap이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P091",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "보스반감·문법실패·정확성0의안내와실제위력/피해/오버킬을구분한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P092",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "보호막이펙트·HP·처치/재화가revision/attackID당한번만반영된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P093",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "새연결문장안시간근거가골렘과맞지만한공격한부위·초과이월없음이보존된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P094",
+      "section": "점수·골렘 회귀·문지기",
+      "requirement": "마지막턴처치승리우선·비처치패배·0피해후정상드로우/소모가이전규칙대로다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P095",
+      "section": "진행·학습·저장",
+      "requirement": "몬스터다섯이름/순서/지역테마/HP가명세와일치하고하늘섬이선형진행을유지한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P096",
+      "section": "진행·학습·저장",
+      "requirement": "Stage3완료4룬칸과새Pack→보스보상→Stage4예고→입장→상점→4-1이이어진다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P097",
+      "section": "진행·학습·저장",
+      "requirement": "없는and/부사절대표/내용동사대표/that만0~4장주고소유/사전이력을혼동하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P098",
+      "section": "진행·학습·저장",
+      "requirement": "입장재진입/로드/카드제거후자동지급이없고기존be/have/will공급이보존된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P099",
+      "section": "진행·학습·저장",
+      "requirement": "일반4전투권장주제는강제조건이아니며다른문법/빌드도정상공략한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P100",
+      "section": "진행·학습·저장",
+      "requirement": "4번째슬롯·상점/보상재화/Stage4클리어는중복정산없이기록되고전체클리어해금이없다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P101",
+      "section": "진행·학습·저장",
+      "requirement": "내덱WORD뜻/운영설명구역과DRAW/DISCARD/EXHAUSTED를안전하게조회한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P102",
+      "section": "진행·학습·저장",
+      "requirement": "도감의밝은영어·붉은피드백·번역제거·고정예문UI제거·내부코드숨김을보존한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P103",
+      "section": "진행·학습·저장",
+      "requirement": "명사절전체목적어·내부역할·두등위절의대등관계를실제증거로표시한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P104",
+      "section": "진행·학습·저장",
+      "requirement": "운영사용/실습/기술실패를문법정상예문·최고공격실적으로등록하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P105",
+      "section": "진행·학습·저장",
+      "requirement": "새0.4SHOP2·고정보상·안전전투저장에운영사용완료·상품·해금·RNG가정확히복원된다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P106",
+      "section": "진행·학습·저장",
+      "requirement": "옛0.1~0.3원정은원래언어·수치·희귀도·상품·HP·종료경계를유지한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P107",
+      "section": "진행·학습·저장",
+      "requirement": "시작덱변경은새0.4에만적용하고기존프로필·도감·튜토리얼완료기록을유지한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P108",
+      "section": "진행·학습·저장",
+      "requirement": "서로다른슬롯의신규해금·도감열람으로진행중원정의공개후보/RNG가변하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P109",
+      "section": "진행·학습·저장",
+      "requirement": "형태메뉴/스킬/입력락/상점2/4룬/확장손패가데스크톱·태블릿가로캡처에서사용가능하다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P110",
+      "section": "최종 검증·보고",
+      "requirement": "최종npm test/build/data검증과변경영역브라우저를실제실행하고경로·결과·미실행을기록한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P111",
+      "section": "최종 검증·보고",
+      "requirement": "새10,000seed시작덱검사와레거시golden은분리하고합성상태를실제원정으로보고하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P112",
+      "section": "최종 검증·보고",
+      "requirement": "production17전투완주·상점2·골렘·문지기·새문법사용을실제UI에서검증한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P113",
+      "section": "최종 검증·보고",
+      "requirement": "스킬실제획득여부·사용·취소·회복검사를실제/합성별로구분하고조건부증거를남긴다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P114",
+      "section": "최종 검증·보고",
+      "requirement": "자동정석정책에운영/희귀룬필수전제를넣지않고사람승률처럼보고하지않는다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P115",
+      "section": "최종 검증·보고",
+      "requirement": "교사검수·실제iPad/Android/스피커·OSquota미실행을NOT RUN으로명확히기록한다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P116",
+      "section": "최종 검증·보고",
+      "requirement": "기존정상테스트를삭제/skip/약화해서통과시키지않고의도된변경과중간FAIL을남긴다.",
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "P117",
+      "section": "최종 검증·보고",
+      "requirement": "작업브랜치push/PR/검토표/캡처/남은문제를제출하고main직접병합/배포는하지않는다.",
+      "status": "NOT_RUN"
+    }
+  ]
+}

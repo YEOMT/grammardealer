@@ -1,3 +1,13 @@
+## 0.4 추가 경계
+
+- `skyLanguage`는 0.3을 복제한다. `cardCatalog`에서 WORD와 OPERATION을 구분하며 운영을 가짜 lexeme로 등록하지 않는다. `registryForVersion`과 원정 버전이 생성·언어·점수·상품 정책을 고른다.
+- `operations`는 다섯 카드 영역/효과 영수증 제안만 만든다. 탐색 창은 일시적 선택 상태이고 취소는 원정/RNG/Undo를 바꾸지 않는다. RunController만 성공 거래를 커밋하고 효과 표시 중 입력을 잠근다. `operationHistory`를 런타임과 저장 검증에서 공유한다.
+- 기존 parser의 NP/AP/PP/AdvP/VP를 확장한 유한 구·절 합성이다. `skyEvidence`는 절 parent/role/frame/finite/time/card coverage와 연결 역할을 만든다. 전체 입력을 소비한 실제 분석만 정답 후보이며 점수·룬·해금으로 대표 분석을 선택하지 않는다.
+- scoring 순서는 카드 → 정확성 → 완전문장 → 기준 문형 → 시간 → 연결 → 기존 수식 → 룬 → 지역 → 보스다. `skyShield`는 원본 역할 증거를 사용한다. 생략 that의 점수와 실제 접속사 카드 공략을 구분한다.
+- Stage4 입장 지급은 `skyIslands`, 두 상점 저장 계약은 `skyShopValidation`으로 분리했다. 첫 상점은 닫힌 history에 보존하고 새 shopId와 상품을 만든다. 서비스는 방문별, 유료 제거 횟수는 원정 전체다.
+- presentation/operationPresentation은 확정 결과를 읽으며 피해·드로우·보상을 다시 계산하지 않는다. clause/connector 시각화는 제출 후에만 보인다. 학습 기록의 없는 점수 기준 절은 null로 직렬화하여 미완성 제출 후에도 프로필 저장이 이어진다.
+- 해금 프로필과 진행 중 원정 baseline은 분리한다. 과거 도감의 교육 보기 재검토는 원래 집계와 점수를 유지한다. 고정 설명은 데이터이며 번역 API/서버/외부 AI는 없다.
+
 ## 0.3 추가 경계
 
 - timeLanguage는 0.2.2 registry를 복제해 새 형태/가산성/will을 추가한다. registryForVersion과 run.version이 실행 정책을 선택하며 기존 registry를 변형하지 않는다.

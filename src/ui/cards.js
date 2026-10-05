@@ -2,7 +2,8 @@ import { el, button, modal } from './dom.js';
 export const POS_LABELS = { NOUN: '명사', PRONOUN: '대명사', VERB: '동사', ADJECTIVE: '형용사', ADVERB: '부사', DETERMINER: '한정사', PREPOSITION: '전치사', FUNCTION: '연결어' };
 export const RARITY_LABELS = { COMMON: '일반', UNCOMMON: '고급', RARE: '희귀' };
 /** Display-only card model. No grammar inspection takes place while rendering. */
-export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false } = {}) {
+export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false, onUse, useCount, useDisabled=false } = {}) {
+  if(model.cardKind==='OPERATION')return operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled});
   const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly' } });
   const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${readonly ? '' : ', Enter로 이동'}` },
     el('div', { class: 'card-topline' }, el('span', { class: 'pos-label', text: POS_LABELS[model.pos] || model.pos }), el('span', { class: 'card-value', text: `${(model.baseScore ?? 10)+(model.polish||0)*5}` })),
@@ -24,9 +25,9 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
 }
 export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRemove, onCopy, onSwap } = {}) {
   let view;
-  const choices = el('div', { class: 'form-choices' }, forms.map(form => { const duplicate = forms.filter(f => f.surface === form.surface).length > 1; const choice = button('', () => { view.close(); onSelect(form.id || form.formId); }, `form-choice ${(form.id||form.formId) === model.formId ? 'current' : ''}`, { 'aria-label': `형태 ${form.surface}${duplicate ? ` · ${form.labelKo}` : ''}`, dataset: { formId: form.id || form.formId } }); choice.append(el('strong', { text: form.surface }), el('small', { text: form.labelKo || '기본형' })); return choice; }));
+  const choices = el('div', { class: 'form-choices' }, forms.map(form => { const duplicate = forms.filter(f => f.surface === form.surface).length > 1; const choice = button('', () => { view.close(); onSelect(form.id || form.formId); }, `form-choice ${(form.id||form.formId) === model.formId ? 'current' : ''}`, { 'aria-label': `형태 ${form.surface}${duplicate ? ` · ${form.labelKo}` : ''}`, dataset: { formId: form.id || form.formId } }); choice.append(el('strong', { text: form.surface }), el('small', { text: form.id==='form.be.base'?'원형':form.grammaticalFeatures.tense==='PRESENT_PARTICIPLE'?'-ing형':form.labelKo || '기본형' })); return choice; }));
   if(forms.some(f=>f.grammaticalFeatures.tense==='PAST')){
-    const groups=[['현재 / 원형',f=>!['PAST','PAST_PARTICIPLE','PRESENT_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사 · p.p.',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['진행 · -ing',f=>f.grammaticalFeatures.tense==='PRESENT_PARTICIPLE']];
+    const groups=[['현재 / 원형',f=>!['PAST','PAST_PARTICIPLE','PRESENT_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사 · p.p.',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['-ing형',f=>f.grammaticalFeatures.tense==='PRESENT_PARTICIPLE']];
     const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...groups.map(([label,match])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>match(f)?[buttons[i]]:[])))));
   }
   const extras = el('div', { class: 'dialog-actions wrap' }, onMoveLeft && button('← 왼쪽으로', () => { view.close(); onMoveLeft(); }, 'secondary'), onMoveRight && button('오른쪽으로 →', () => { view.close(); onMoveRight(); }, 'secondary'), onSwap && button('손패와 맞교환', () => { view.close(); onSwap(); }, 'secondary'), onCopy && button('한 장 복사', () => { view.close(); onCopy(); }, 'secondary'), onRemove && button('카드 회수', () => { view.close(); onRemove(); }, 'secondary'));
@@ -48,6 +49,7 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     const zone = target?.closest('[data-card-zone]');
     if (!zone || !container.contains(zone)) return null;
     const card = target.closest('.word-card');
+    if(card?.dataset.cardKind==='OPERATION'&&active.zone==='sentence')return null;
     if (card && zone.contains(card)) {
       const rect = card.getBoundingClientRect(); const offset = (x - rect.left) / rect.width;
       const crossZone = active.zone !== zone.dataset.cardZone;
@@ -65,7 +67,7 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
   const down = e => {
     if (active || !enabled() || e.button !== 0 || e.target.closest('button')) return;
     const body = e.target.closest('.card-body'), node = body?.closest('.word-card');
-    if (!node || !container.contains(node) || body.tabIndex < 0) return;
+    if (!node || node.dataset.cardKind==='OPERATION' || !container.contains(node) || body.tabIndex < 0) return;
     active = { node, body, pointerId: e.pointerId, startX:e.clientX, startY:e.clientY, id:node.dataset.cardId, zone:node.dataset.zone, dragging:false };
     body.setPointerCapture(e.pointerId);
   };
@@ -93,4 +95,13 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
   const cancel = e => { if (!e.pointerId || active?.pointerId === e.pointerId) cleanup(); };
   container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);
   return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel); };
+}
+
+/** Hand operations share physical dimensions and discard controls with words. */
+function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled}){
+ const node=el('article',{class:'word-card operation-card '+(selected?'selected ':'')+(compact?'compact':''),dataset:{cardId:model.id,cardKind:'OPERATION',zone:zone??'readonly'}});
+ const body=el('div',{class:'card-body',role:'group','aria-label':model.surface+' · 운영 · '+model.descriptionKo,title:model.descriptionKo},el('div',{class:'card-topline'},el('span',{text:'운영'}),el('span',{text:RARITY_LABELS[model.rarity]})),el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-description',text:model.definition.operationType==='SUPPLY'?'카드 '+(useCount??2)+'장 뽑기':'드로우 단어 1장'}),el('small',{class:'operation-limit',text:'전투당 1회'}));
+ body.addEventListener('click',()=>modal(model.surface+' · 운영',el('p',{text:model.descriptionKo+' 사용한 카드는 다음 전투에 돌아옵니다. 턴과 교환을 소모하지 않습니다.'})));node.append(body);
+ if(onSelect&&!readonly){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline operation-footer'},button('사용',e=>{e.stopPropagation();onUse?.();},'operation-use',{disabled:useDisabled||!onUse,'aria-label':model.surface+' 사용',onpointerdown:e=>e.stopPropagation()}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':model.surface+' 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation()})));}
+ return node;
 }

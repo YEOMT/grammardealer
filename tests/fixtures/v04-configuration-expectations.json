@@ -1,0 +1,195 @@
+{
+  "meta": {
+    "target_version": "0.4.0",
+    "basis_commit": "db9f6ca508329b2306ef7a5a6916bb5ea404c418",
+    "kind": "DESIGN_EXPECTATIONS_NOT_GAME_TEST_RESULTS",
+    "actual_game_execution": false
+  },
+  "campaign": {
+    "rounds": [
+      3,
+      4,
+      5,
+      5
+    ],
+    "battle_total": 17,
+    "shops_before_battles": [
+      4,
+      13
+    ],
+    "end": "STAGE4_END",
+    "story_clear": false
+  },
+  "stage4": {
+    "name": "이음의 하늘섬",
+    "rounds": [
+      {
+        "global_battle": 13,
+        "name": "구름양",
+        "hp": 440,
+        "focus": "and"
+      },
+      {
+        "global_battle": 14,
+        "name": "갈래바람 정령",
+        "hp": 480,
+        "focus": "but/or"
+      },
+      {
+        "global_battle": 15,
+        "name": "매듭뱀",
+        "hp": 520,
+        "focus": "because/when/if"
+      },
+      {
+        "global_battle": 16,
+        "name": "메아리 새",
+        "hp": 560,
+        "focus": "that content clause"
+      },
+      {
+        "global_battle": 17,
+        "name": "하늘길의 문지기",
+        "hp": 640,
+        "focus": "explicit conjunction clause link"
+      }
+    ],
+    "shield": {
+      "active_initially": true,
+      "nonmatching_multiplier": [
+        1,
+        2
+      ],
+      "release_applies_on_triggering_attack": true,
+      "regenerates": false,
+      "phase_count": 1,
+      "damage_cap": null
+    },
+    "region_multiplier": [
+      5,
+      4
+    ]
+  },
+  "scoring": {
+    "base_card": 10,
+    "complete_bonus": 30,
+    "primary_frames": {
+      "SV": [
+        13,
+        10
+      ],
+      "SVC": [
+        8,
+        5
+      ],
+      "SVO": [
+        9,
+        5
+      ],
+      "SVOO": [
+        11,
+        5
+      ]
+    },
+    "clause_link_once": [
+      8,
+      5
+    ],
+    "phrase_coordination_add_once": 10,
+    "time": {
+      "PAST": [
+        6,
+        5
+      ],
+      "PROGRESSIVE": [
+        13,
+        10
+      ],
+      "PERFECT": [
+        7,
+        5
+      ],
+      "FUTURE_WILL": [
+        6,
+        5
+      ]
+    },
+    "rounding": "FLOOR_AFTER_EACH_MULTIPLICATION"
+  },
+  "starter": {
+    "size": 28,
+    "pos_counts": {
+      "NOUN": 6,
+      "PRONOUN": 4,
+      "VERB": 8,
+      "ADJECTIVE": 3,
+      "ADVERB": 2,
+      "DETERMINER": 3,
+      "PREPOSITION": 2
+    },
+    "verbs": {
+      "be": 2,
+      "distinct_sv": 2,
+      "fixed_have": 1,
+      "random_svo": 2,
+      "multi": 1
+    },
+    "uncommon_upgrades": [
+      "be",
+      "have",
+      "you",
+      "I"
+    ],
+    "operations": 0
+  },
+  "operation_cards": {
+    "supply": {
+      "rarity": "UNCOMMON",
+      "draw": 2,
+      "price": 10
+    },
+    "search": {
+      "rarity": "RARE",
+      "search_word_draw_only": 1,
+      "price": 14
+    },
+    "consumption": "EXHAUST_THIS_ENCOUNTER_ONLY",
+    "turn_cost": 0,
+    "exchange_cost": 0,
+    "upgrade_enabled": false,
+    "offer_internal_probability": 0.2,
+    "max_per_offer": 1,
+    "max_per_shop": 1,
+    "protect_local_word_slot": true
+  },
+  "rewards": {
+    "normal": {
+      "COMMON": 50,
+      "UNCOMMON": 10,
+      "RARE": 5,
+      "POLISH": 15,
+      "REMOVE": 10,
+      "RUNE": 10
+    },
+    "boss": {
+      "COMMON": 0,
+      "UNCOMMON": 10,
+      "RARE": 10,
+      "POLISH": 25,
+      "REMOVE": 5,
+      "RUNE": 50
+    }
+  },
+  "shops": {
+    "stage2": {
+      "runes": 1,
+      "cards": 2
+    },
+    "stage4": {
+      "runes": 2,
+      "cards": 3
+    },
+    "polish_uses_each": 1,
+    "remove_uses_each": 1
+  }
+}

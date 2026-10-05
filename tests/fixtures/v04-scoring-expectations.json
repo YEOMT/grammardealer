@@ -1,0 +1,773 @@
+{
+  "meta": {
+    "target_version": "0.4.0",
+    "basis_commit": "db9f6ca508329b2306ef7a5a6916bb5ea404c418",
+    "kind": "DESIGN_EXPECTATIONS_NOT_GAME_TEST_RESULTS",
+    "actual_game_execution": false
+  },
+  "cases": [
+    {
+      "id": "S001",
+      "text": "I am happy and you are kind.",
+      "word_count": 7,
+      "primary_frame": "SVC",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S001",
+        "damage_power": 320,
+        "pre_boss": 320,
+        "actual_hp_loss_on_full_boss": 320,
+        "hp_after": 320,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            160
+          ],
+          [
+            "clause_link",
+            256
+          ],
+          [
+            "region",
+            320
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S002",
+      "text": "I like music and she likes books.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S002",
+        "damage_power": 360,
+        "pre_boss": 360,
+        "actual_hp_loss_on_full_boss": 360,
+        "hp_after": 280,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            180
+          ],
+          [
+            "clause_link",
+            288
+          ],
+          [
+            "region",
+            360
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S003",
+      "text": "I read a book when she comes home.",
+      "word_count": 8,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S003",
+        "damage_power": 395,
+        "pre_boss": 395,
+        "actual_hp_loss_on_full_boss": 395,
+        "hp_after": 245,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            110
+          ],
+          [
+            "primary_frame",
+            198
+          ],
+          [
+            "clause_link",
+            316
+          ],
+          [
+            "region",
+            395
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S004",
+      "text": "I like the book because she reads very well.",
+      "word_count": 9,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 10,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S004",
+        "damage_power": 443,
+        "pre_boss": 443,
+        "actual_hp_loss_on_full_boss": 443,
+        "hp_after": 197,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            120
+          ],
+          [
+            "primary_frame",
+            216
+          ],
+          [
+            "clause_link",
+            345
+          ],
+          [
+            "modifiers",
+            355
+          ],
+          [
+            "region",
+            443
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S005",
+      "text": "I like music and she likes books.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [
+        {
+          "multiply": [
+            2,
+            1
+          ],
+          "rune": "rune.long/Lv1"
+        }
+      ],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S005",
+        "damage_power": 720,
+        "pre_boss": 720,
+        "actual_hp_loss_on_full_boss": 640,
+        "hp_after": 0,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            180
+          ],
+          [
+            "clause_link",
+            288
+          ],
+          [
+            "rune.long/Lv1",
+            576
+          ],
+          [
+            "region",
+            720
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S006",
+      "text": "I like music and she likes books.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [
+        {
+          "multiply": [
+            8,
+            5
+          ],
+          "rune": "rune.svo/Lv1"
+        }
+      ],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S006",
+        "damage_power": 575,
+        "pre_boss": 575,
+        "actual_hp_loss_on_full_boss": 575,
+        "hp_after": 65,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            180
+          ],
+          [
+            "clause_link",
+            288
+          ],
+          [
+            "rune.svo/Lv1",
+            460
+          ],
+          [
+            "region",
+            575
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S007",
+      "text": "I like music and she likes books.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [
+        {
+          "add": 20,
+          "rune": "rune.perfectSentence/Lv1"
+        },
+        {
+          "multiply": [
+            8,
+            5
+          ],
+          "rune": "rune.svo/Lv1"
+        }
+      ],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S007",
+        "damage_power": 615,
+        "pre_boss": 615,
+        "actual_hp_loss_on_full_boss": 615,
+        "hp_after": 25,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            180
+          ],
+          [
+            "clause_link",
+            288
+          ],
+          [
+            "rune.perfectSentence/Lv1",
+            308
+          ],
+          [
+            "rune.svo/Lv1",
+            492
+          ],
+          [
+            "region",
+            615
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S008",
+      "text": "I like music and she likes books.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [
+        {
+          "multiply": [
+            8,
+            5
+          ],
+          "rune": "rune.svo/Lv1"
+        },
+        {
+          "add": 20,
+          "rune": "rune.perfectSentence/Lv1"
+        }
+      ],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S008",
+        "damage_power": 600,
+        "pre_boss": 600,
+        "actual_hp_loss_on_full_boss": 600,
+        "hp_after": 40,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            100
+          ],
+          [
+            "primary_frame",
+            180
+          ],
+          [
+            "clause_link",
+            288
+          ],
+          [
+            "rune.svo/Lv1",
+            460
+          ],
+          [
+            "rune.perfectSentence/Lv1",
+            480
+          ],
+          [
+            "region",
+            600
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S009",
+      "text": "I like music.",
+      "word_count": 3,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": false,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": false,
+      "shield_before": true,
+      "shield_release": false,
+      "expected_arithmetic": {
+        "id": "S009",
+        "damage_power": 54,
+        "pre_boss": 108,
+        "actual_hp_loss_on_full_boss": 54,
+        "hp_after": 586,
+        "shield_active_after": true,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            60
+          ],
+          [
+            "primary_frame",
+            108
+          ],
+          [
+            "shield_half",
+            54
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S010",
+      "text": "I like music.",
+      "word_count": 3,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": false,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": false,
+      "shield_before": false,
+      "shield_release": false,
+      "expected_arithmetic": {
+        "id": "S010",
+        "damage_power": 108,
+        "pre_boss": 108,
+        "actual_hp_loss_on_full_boss": 108,
+        "hp_after": 532,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            60
+          ],
+          [
+            "primary_frame",
+            108
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S011",
+      "text": "I think she likes music.",
+      "word_count": 5,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": false,
+      "expected_arithmetic": {
+        "id": "S011",
+        "damage_power": 143,
+        "pre_boss": 287,
+        "actual_hp_loss_on_full_boss": 143,
+        "hp_after": 497,
+        "shield_active_after": true,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            80
+          ],
+          [
+            "primary_frame",
+            144
+          ],
+          [
+            "clause_link",
+            230
+          ],
+          [
+            "region",
+            287
+          ],
+          [
+            "shield_half",
+            143
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S012",
+      "text": "I think that she likes music.",
+      "word_count": 6,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S012",
+        "damage_power": 323,
+        "pre_boss": 323,
+        "actual_hp_loss_on_full_boss": 323,
+        "hp_after": 317,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            90
+          ],
+          [
+            "primary_frame",
+            162
+          ],
+          [
+            "clause_link",
+            259
+          ],
+          [
+            "region",
+            323
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S013",
+      "text": "I like books and music.",
+      "word_count": 5,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": false,
+      "phrase_bonus": true,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": false,
+      "shield_before": true,
+      "shield_release": false,
+      "expected_arithmetic": {
+        "id": "S013",
+        "damage_power": 77,
+        "pre_boss": 154,
+        "actual_hp_loss_on_full_boss": 77,
+        "hp_after": 563,
+        "shield_active_after": true,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            80
+          ],
+          [
+            "primary_frame",
+            144
+          ],
+          [
+            "phrase_coordination",
+            154
+          ],
+          [
+            "shield_half",
+            77
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S014",
+      "text": "I read a book because she work.",
+      "word_count": 7,
+      "primary_frame": "SVO",
+      "complete": false,
+      "base_polish_add": 0,
+      "issue_penalty": 10,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S014",
+        "damage_power": 215,
+        "pre_boss": 215,
+        "actual_hp_loss_on_full_boss": 215,
+        "hp_after": 425,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            60
+          ],
+          [
+            "primary_frame",
+            108
+          ],
+          [
+            "clause_link",
+            172
+          ],
+          [
+            "region",
+            215
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S015",
+      "text": "I played games and she will read books.",
+      "word_count": 8,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": false,
+      "modifier_add": 0,
+      "temporal": [
+        "PAST",
+        "FUTURE_WILL"
+      ],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S015",
+        "damage_power": 567,
+        "pre_boss": 567,
+        "actual_hp_loss_on_full_boss": 567,
+        "hp_after": 73,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            110
+          ],
+          [
+            "primary_frame",
+            198
+          ],
+          [
+            "PAST",
+            237
+          ],
+          [
+            "FUTURE_WILL",
+            284
+          ],
+          [
+            "clause_link",
+            454
+          ],
+          [
+            "region",
+            567
+          ]
+        ]
+      }
+    },
+    {
+      "id": "S016",
+      "text": "I like books and music because she reads.",
+      "word_count": 8,
+      "primary_frame": "SVO",
+      "complete": true,
+      "base_polish_add": 0,
+      "issue_penalty": 0,
+      "link_bonus": true,
+      "phrase_bonus": true,
+      "modifier_add": 0,
+      "temporal": [],
+      "runes": [],
+      "region_bonus": true,
+      "shield_before": true,
+      "shield_release": true,
+      "expected_arithmetic": {
+        "id": "S016",
+        "damage_power": 407,
+        "pre_boss": 407,
+        "actual_hp_loss_on_full_boss": 407,
+        "hp_after": 233,
+        "shield_active_after": false,
+        "steps": [
+          [
+            "base_accuracy_complete",
+            110
+          ],
+          [
+            "primary_frame",
+            198
+          ],
+          [
+            "clause_link",
+            316
+          ],
+          [
+            "phrase_coordination",
+            326
+          ],
+          [
+            "region",
+            407
+          ]
+        ]
+      }
+    }
+  ]
+}

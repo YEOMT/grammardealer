@@ -1,6 +1,7 @@
 import { assetUrl } from './assets.js';
 
 const TYPES = Object.freeze({
+  operation: { frequency: 780, duration: .18, wave: 'sine', gain: .075 },
   card: { frequency: 330, duration: .065, wave: 'triangle', gain: .09 },
   score: { frequency: 440, duration: .12, wave: 'sine', gain: .11 },
   rune: { frequency: 660, duration: .2, wave: 'triangle', gain: .12 },

@@ -88,11 +88,15 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
   if (analysis.status === 'VALID' && !(analysis.issues ?? []).length && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
     sourceId: 'COMPLETE_SENTENCE', labelKo: '완전한 문장!', operation: 'ADD', operand: balance.completeBonus,
     evidenceRefs: [frameHit.id], highlightCardIds: scoringCards.map((card) => card.instanceId) });
-  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
+  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: analysis.grammarVersion==='0.4.0'&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
     operand: frameMultiplier, evidenceRefs: [frameHit.id], highlightCardIds: frameHit.cardIds ?? [] });
   for(const[tag,operand]of Object.entries(balance.temporalMultipliers??{})){
     const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length)continue;
     emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:({'TIME.PAST':'과거','TIME.PROGRESSIVE':'진행','TIME.PERFECT':'완료','TIME.FUTURE_WILL':'will 미래'})[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});
+  }
+  for(const [tag,operation,operand,labelKo]of [['LINK.CLAUSE','MULTIPLY',balance.clauseLinkMultiplier,'절 연결 ×1.6'],['LINK.PHRASE','ADD',balance.phraseLinkAdd,'단어·구 연결 +10']]){
+    const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length||!operand)continue;
+    emit({phase:'LINKS',sourceType:'GRAMMAR',sourceId:tag,labelKo,operation,operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))],connectToCardIds:[...new Set(evidence.flatMap(h=>h.connectorCardIds??[]))]});
   }
   // Each physical adjective/adverb contributes once; PP contributes once per normalized structure.
   for (const [tag, amount, label] of [['MODIFIER.ADJECTIVE', balance.modifierAdds.PRENOMINAL_ADJECTIVE, '형용사 수식!'],
@@ -112,6 +116,6 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({ phase: 'SIMPLE_MODIFIERS', sourceType: 'GRAMMAR', sourceId: hit.tag, labelKo: '전치사구!', operation: 'ADD', operand: balance.modifierAdds.PP,
       evidenceRefs: [hit.id], highlightCardIds: hit.cardIds ?? [] });
   }
-  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
+  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
     contributingCardIds: scoringCards.map((card) => card.instanceId).filter((id) => !excluded.has(id)), excludedCardIds: [...excluded] };
 }

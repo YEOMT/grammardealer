@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "browser": "134.0.6998.35",
+  "checks": [
+    "P16 actual be form/exchange/prepare/precommit explanation/first hit; guide completes only after actions",
+    "P18 separate practice controller leaves live state/profile unchanged",
+    "0.2.2 P48 offline codex has no translation; legacy pure meaning module remains compatible",
+    "P23 legacy string-only records open without invented meaning or recalculation"
+  ],
+  "errors": []
+}

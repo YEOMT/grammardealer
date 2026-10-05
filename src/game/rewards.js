@@ -1,3 +1,5 @@
+import {selectOperation} from './operationPool.js';
+import {cardDefinition,isOperation} from '../data/cardCatalog.js';
 import { registryForVersion } from '../data/language/index.js';
 import { eligibleRuneDefinitions, RUNE_BY_ID, RUNE_MAX_LEVEL } from '../data/runes.js';
 import { STAGE_BY_ID, getEncounter } from '../data/stages.js';
@@ -37,6 +39,7 @@ export function eligibleRewardCards(run) {
 export function isStageRelevantCard(run, card) {
   const registry = registryForVersion(run.version), lexeme = registry.lexemeById[card.lexemeId];
   const focus = STAGE_BY_ID[run.progress?.stageId]?.focusFrames ?? [...BASIC_FRAMES];
+  if(run.progress?.stageId==='stage.04')return ['and','but','or','because','when','if','that'].includes(lexeme.lemma)||lexeme.frameIds?.includes('frame.svo.content');
   if (run.progress?.stageId === 'stage.02') return ['NOUN', 'PRONOUN', 'DETERMINER'].includes(lexeme.pos)
     || ['to', 'for'].includes(lexeme.lemma) || lexeme.frameIds?.some(id => focus.includes(id));
   return ['NOUN', 'PRONOUN', 'DETERMINER'].includes(lexeme.pos) || lexeme.frameIds?.some(id => BASIC_FRAMES.has(id));
@@ -48,6 +51,8 @@ function selectCardCandidates(run, type, offerId, trace, {selected=new Set(),rol
   const pool = orderById(eligibleRewardCards(run).filter(card => card.rarity === rarity));
   const choices = [];
   for (const role of roles) {
+    const operation=selectOperation(run,rarity,role,selected,run.rng.reward,trace);
+    if(operation){selected.add(operation.id);choices.push({choiceId:offerId+'.choice.'+choices.length,cardDefId:operation.id,role});continue;}
     const remaining = pool.filter((card) => !selected.has(card.id));
     if (!remaining.length) break;
     let candidates = remaining;
@@ -136,7 +141,7 @@ export function createRewardOffer(run,profile){
   if(run?.version==='0.1.0')return createLegacyRewardOffer(run,profile);
   if(!run?.progress||!profile||!run.rng?.reward||!run.cardInstances||!run.runes)throw new TypeError('Incomplete reward context');
   const battleNumber=run.progress.battleNumber;
-  if(!(run.version==='0.3.0'?Array.from({length:12},(_,i)=>i+1):['0.2.0','0.2.1','0.2.2','0.3.0'].includes(run.version)?[1,2,3,4,5,6,7]:[1,2,3]).includes(battleNumber))throw new RangeError('Unsupported reward battle for this campaign');
+  if(!(['0.3.0','0.4.0'].includes(run.version)?Array.from({length:run.version==='0.4.0'?17:12},(_,i)=>i+1):['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(run.version)?[1,2,3,4,5,6,7]:[1,2,3]).includes(battleNumber))throw new RangeError('Unsupported reward battle for this campaign');
   const offerId=`offer.${run.runId}.${battleNumber}`;
   if(run.reward?.offerId===offerId)return run.reward;
   const choices=[],trace=[],selectedCards=new Set(),selectedRunes=new Set(),selectedServices=new Set();
@@ -148,11 +153,11 @@ export function createRewardOffer(run,profile){
     while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length)throw Error('Rune introduction requires three valid runes');const r=chooseRune(run,pool);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
   }else{
     const intro=battleNumber===1&&run.tutorial?.isIntroRun;
-    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
+    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
     const boss = encounter ? encounter.kind==='REGIONAL_BOSS' : battleNumber===3;
     const baseWeights=intro?{CARD_COMMON:100}:boss?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
     for(let index=0;index<3;index++){
-      const polishTargets=run.activeCardIds.filter(id=>run.cardInstances[id].polishLevel<3);
+      const polishTargets=run.activeCardIds.filter(id=>run.cardInstances[id].polishLevel<3&&!isOperation(run.cardInstances[id],run.version));
       const removeTargets=[...run.activeCardIds];
       const runePool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));
       const validType=type=>CARD_TYPES.has(type)?eligibleRewardCards(run).some(c=>c.rarity===type.slice(5)&&!selectedCards.has(c.id)):
@@ -176,7 +181,7 @@ export function createRewardOffer(run,profile){
       }
     }
   }
-  const offer={offerId,rewardVersion:['0.2.0','0.2.1','0.2.2','0.3.0'].includes(run.version)?REWARD_VERSION:'0.1.1',battleNumber,type:battleNumber===2?'RUNE_INTRO':'MIXED',firstRuneIntro,
+  const offer={offerId,rewardVersion:run.version==='0.4.0'?'0.4.0':['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(run.version)?REWARD_VERSION:'0.1.1',battleNumber,type:battleNumber===2?'RUNE_INTRO':'MIXED',firstRuneIntro,
     introOverride:battleNumber===1&&run.tutorial?.isIntroRun?'FIRST_COMMON_CARDS':null,
     choices:choices.map((choice,index)=>({...choice,choiceId:`${offerId}.choice.${index}`})),trace,resolved:false,
     skipGold:choices.some(c=>c.kind==='CARD')?ECONOMY.skipCardGold:ECONOMY.skipOtherGold};
@@ -188,7 +193,7 @@ export function getRemovalWarning(run, cardInstanceId) {
   if (!run.activeCardIds.includes(cardInstanceId)) return '';
   if (run.activeCardIds.length === 1) return '덱의 마지막 카드입니다. 제거하면 다음 전투에서 문장을 만들 수 없습니다. 그래도 제거할까요?';
   const classify = (frameId) => frameId === 'frame.sv' || frameId === 'frame.beLocative' ? '1형식' : frameId.startsWith('frame.svc') ? '2형식' : frameId==='frame.svoo'?'4형식':'3형식';
-  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0'].includes(run.version) };
+  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(run.version) };
   const before = new Set(findPlayableSentences(run.activeCardIds, run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const after = new Set(findPlayableSentences(run.activeCardIds.filter((id) => id !== cardInstanceId), run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const lost = [...before].filter((frame) => !after.has(frame));
@@ -223,7 +228,7 @@ export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = 
     if(!choice.targetCardIds?.includes(targetId))return fail('공개된 서비스 대상이 아닙니다.');
   }
   if (CARD_TYPES.has(type)) {
-    const definition = registry.cardById[choice.cardDefId];
+    const definition = cardDefinition(choice.cardDefId,run.version);
     if (!definition?.runtimeReady || definition.rarity !== type.replace('CARD_', '')) return fail('지원되지 않는 카드 보상입니다.');
     const instanceId = `reward.${offerId}.card`;
     if (run.cardInstances[instanceId]) return fail('이미 존재하는 보상 카드입니다.');
@@ -231,13 +236,13 @@ export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = 
     run.activeCardIds.push(instanceId);
     if (run.combat) run.combat.discardIds.unshift(instanceId);
     markResolved(run, choiceId, { kind: 'CARD', cardInstanceId: instanceId });
-    return { ok: true, message: '단어 카드 한 장을 덱에 추가했습니다.' };
+    return { ok: true, message: `${definition.cardKind==='OPERATION'?'운영':'단어'} 카드 한 장을 덱에 추가했습니다.` };
   }
   if (type === 'CARD_ENHANCE' || type === 'CARD_REMOVE') {
     const card = run.cardInstances[targetId];
     if (!card || !run.activeCardIds.includes(targetId)) return fail('현재 덱에 없는 카드입니다.');
     if (type === 'CARD_ENHANCE') {
-      if (!Number.isInteger(card.polishLevel) || card.polishLevel < 0 || card.polishLevel >= 3) return fail('연마할 수 없는 카드입니다.');
+      if (isOperation(card,run.version) || !Number.isInteger(card.polishLevel) || card.polishLevel < 0 || card.polishLevel >= 3) return fail('연마할 수 없는 카드입니다.');
       const beforeLevel=card.polishLevel;card.polishLevel += 1;
       markResolved(run, choiceId, { kind: 'POLISH', cardInstanceId: card.instanceId, polishLevel: card.polishLevel });
       return { ok: true, message: `카드를 연마 +${card.polishLevel}로 강화했습니다.`,rewardEffect:{kind:'POLISH',cardInstanceId:card.instanceId,cardDefId:card.cardDefId,beforeLevel,afterLevel:card.polishLevel,beforeScore:10+beforeLevel*5,afterScore:10+card.polishLevel*5} };
@@ -246,7 +251,7 @@ export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = 
     if (warning && !confirmRemoval) return fail(warning, { needsConfirmation: true });
     run.activeCardIds = run.activeCardIds.filter((id) => id !== card.instanceId);
     if (run.combat) {
-      for (const key of ['drawIds', 'handIds', 'discardIds']) run.combat[key] = run.combat[key].filter((id) => id !== card.instanceId);
+      for (const key of ['drawIds', 'handIds', 'discardIds',...(run.combat.exhaustedIds?['exhaustedIds']:[])]) run.combat[key] = run.combat[key].filter((id) => id !== card.instanceId);
       run.combat.sentenceSlots = run.combat.sentenceSlots.filter((entry) => entry.cardInstanceId !== card.instanceId);
     }
     delete run.cardInstances[card.instanceId];

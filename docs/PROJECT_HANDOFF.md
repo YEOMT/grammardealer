@@ -1,3 +1,13 @@
+## 0.4 Syntax Atlas 인계
+
+작업 시작 최신 origin/main `db9f6ca508329b2306ef7a5a6916bb5ea404c418`에 0.3 PR #5가 병합되어 있었고 checkout은 깨끗했다. 별도 `codex/v0.4-sky-islands-operations`에서 구현했다. `spec/0.4_SKY_ISLANDS.md`, `IMPLEMENTATION_PLAN_0.4.md`, `TEST_REPORT_0.4.md`, 교육·운영 검토표가 최신 기준이다. 과거 ZIP으로 소스를 대체하지 않았다.
+
+새 0.4만 초원3+항구4+협곡5+하늘섬5=17전투다. 협곡 완료 보상 → 하늘섬 예고 → 없는 재료 최대4장 → 상점2 → 5전투 → STAGE4_END. 전체 스토리 완료가 아니다. 상점1은 1룬/2카드, 상점2는 2룬/3카드다. 운영은 손패에서 사용 후 EXHAUSTED에 남고 다음 전투 복귀한다. 연마는 불가하고 제거는 가능하다.
+
+문법은 실제 구·절과 동사구 증거를 만든다. 연결 ×1.6 / 구 연결 +10 / 하늘섬 ×1.25는 명세 초깃값이다. 문지기 50% 보호막은 실제 접속사 절 연결 첫 공격부터 영구 해제하며 고점 원킬을 막지 않는다. 새 덱은28장 WORD, have 고정 슬롯과 be/have/you/I 고급을 반영한다. 실습40/126·기존 HP/자원/룬은 유지한다.
+
+기존 0.1~0.3 원정은 원래 버전 view·카드·수치·상품·공개 보상·RNG·종료 경계를 사용한다. DB/저장소/base URL은 이름 변경과 무관하게 유지했다. `v04-legacy-030-golden.json`은 변경 전 독립 캡처이며 다시 생성해서 맞추면 안 된다. 아래 문단들은 해당 버전 당시 계약이다. main 병합·공개 배포는 별도 승인 사항이다.
+
 ## 0.3 시간의 협곡 인계
 
 작업 시작 origin/main은 d6535b6c8c74132a34e7eb56f778ef0eedcd3b24이며 0.2.2 PR #4 병합과 깨끗한 checkout을 확인했다. 브랜치 codex/v0.3-time-canyon에서 구현한다. spec/0.3_TIME_CANYON.md, PATCH_NOTES_0.3_KO, TEST_REPORT_0.3, VERB_MORPHOLOGY_AUDIT_0.3, NOUN_COUNTABILITY_AUDIT_0.3, EDUCATION_REVIEW_0.3을 먼저 읽는다. 첨부 JSON은 기대값이며 통과 기록은 별도다.

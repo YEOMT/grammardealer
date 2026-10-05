@@ -1,3 +1,4 @@
+import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
 import {attachGuidedCoach,showScoreGate} from './ui/guidedCoach.js';
 import {wordCard} from './ui/cards.js';
@@ -46,6 +47,8 @@ async function runCommand(command){
     else if(!result.needsReplacement&&!result.needsConfirmation){toast(result.message||'이 행동을 처리하지 못했습니다.');if(result.analysis)combatView?.showAnalysis(result.analysis);}
     return result;
   }
+  if(result.noRender)return result;
+  if(result.operationEffect){await presentOperationResult(before,result.operationEffect);return result;}
   if(['ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
   if(result.rewardEffect){
     const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel}),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
@@ -54,6 +57,12 @@ async function runCommand(command){
     await presentResolution(before,result.resolution);
   }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();}
   return result;
+}
+async function presentOperationResult(before,effect){
+ presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;
+ const source=[...root.querySelectorAll('[data-card-id]')].find(n=>n.dataset.cardId===effect.sourceCardId);
+ try{await presentOperation(effect,{sourceElement:source,audio,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,showAfter:()=>{cleanup();combatView=renderCombat(root,controller.getState(),{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;return combatView.element;}});}
+ finally{controller.dispatch({type:'FINISH_OPERATION',effectId:effect.effectId});selected.clear();presenting=false;render();}
 }
 async function interruptTutorial(mode){
  const state=controller.getState();if(!isGuided(state))return;
@@ -86,7 +95,7 @@ function openOverlay(kind){
    const opened=controller.getState();panel.dialog.addEventListener('close',()=>{const r=controller.dispatch(tutorialCommand(opened,{type:'TUTORIAL_PANEL_CLOSE',kind}));if(r.ok)render();},{once:true});return panel;
   }
   if(kind==='dictionary')return openDictionary(state);
-  if(kind==='deck'||kind==='draw'||kind==='discard')return openDeck(state,kind==='deck'?'all':kind);
+  if(kind==='deck'||kind==='draw'||kind==='discard'||kind==='exhausted')return openDeck(state,kind==='deck'?'all':kind);
   if(kind==='records')return openRecords(profile,state);
   if(kind==='recent')return openRecentAttack(state);
   if(kind==='settings')return openSettings(settings(),async next=>{sessionSettings={...next};if(profile){profile={...profile,settings:{...profile.settings,...next}};if(controller?.setProfile)controller.setProfile(profile);else if(controller)controller.profile=structuredClone(profile);await persistProfile(profile);}applySettings();},()=>openTutorialPractice(root));
@@ -98,6 +107,7 @@ function openOverlay(kind){
 }
 function render(){
   if(presenting){if(location.hash!=='#game')location.hash='game';return;}
+  if(controller?.operationRequest)controller.dispatch({type:'CANCEL_OPERATION'});
   cleanup();cleanup=()=>{};combatView=null;document.querySelectorAll('dialog.app-dialog').forEach(d=>d.close());applySettings();
   if(import.meta.env.DEV&&location.hash==='#sandbox'){
     cleanup=renderSandbox(root,{onBack:()=>changeRoute('lobby'),presentationSample:(board,ids)=>{connect(board,ids[0],ids.slice(1));}});return;
@@ -117,6 +127,6 @@ function render(){
 window.addEventListener('hashchange',render);
 window.addEventListener('error',event=>{console.error('Application error',event.error);toast('화면 처리에 문제가 생겼습니다. 로비로 돌아가 다시 시도할 수 있습니다.');});
 if(import.meta.env.DEV&&new URLSearchParams(location.search).get('debug')==='1')Object.defineProperty(window,'__SB_DEV__',{value:{getState:()=>controller?.getState(),getProfile:()=>profile},writable:false});
-root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'센텐스 발라트로'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));
+root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'신택스 아틀라스'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));
 try{await store.init();profiles=await store.listProfiles();profile=profiles[0]||null;}catch(error){memoryWarning=true;console.warn('Local persistence unavailable',error);}
 render();if(memoryWarning)toast('로컬 저장소를 사용할 수 없습니다. 현재 탭에서 플레이는 계속할 수 있습니다.');
