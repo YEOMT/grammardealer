@@ -10,7 +10,7 @@ import {meaningPreview} from '../src/engine/meaning.js';
 // Each entry is an independent physical card and an explicit registered form, never an answer-string lookup.
 const S=['she','subject'],I=['i','subject'],ME=['i','object'],A=['a','a'],BOOK=['book','singular'];
 const tokens=entries=>({schemaVersion:1,sentenceId:'v02.cards',languageVersion:'0.2.0',orderedTokens:entries.map(([card,form],position)=>makeToken(`v02.${position}`,`card.${card}`,`form.${card}.${form}`,position))});
-const analyze=entries=>analyzeSentence(tokens(entries));
+const analyze=entries=>analyzeSentence(tokens(entries),registryForVersion('0.2.0')); // Preserve pre-0.2.2 grammar scope regression.
 const basic=[S,['give','third'],ME,A,BOOK];
 const cases=[
  ['She gives me a book',basic],
@@ -77,7 +77,7 @@ for(const [name,entries,status,cap] of [
 test('Current scope activates only the four curated SVOO verbs; legacy pools and starter cards stay separate',()=>{
  const svoo=registry.lexemes.filter(l=>registry.senseById[l.senseIds[0]].frameBindings.some(b=>b.frameId==='frame.svoo')).map(l=>l.lemma).sort();
  assert.deepEqual(svoo,['give','make','send','show']);assert.equal(legacyRegistry.lexemes.length,116);
- assert.equal(registryForVersion('0.1.0'),legacyRegistry);assert.equal(registryForVersion('0.1.1'),legacyRegistry);assert.equal(registryForVersion('0.2.0').version,'0.2.0');assert.equal(registryForVersion('0.2.0').cardById['card.fast'],undefined);assert.equal(registryForVersion('0.2.1'),registry);
+ assert.equal(registryForVersion('0.1.0'),legacyRegistry);assert.equal(registryForVersion('0.1.1'),legacyRegistry);assert.equal(registryForVersion('0.2.0').version,'0.2.0');assert.equal(registryForVersion('0.2.0').cardById['card.fast'],undefined);assert.equal(registryForVersion('0.2.1').version,'0.2.1');assert.equal(registryForVersion('0.2.2'),registry);
  assert.deepEqual(registry.cards.filter(c=>c.starterEligible),legacyRegistry.cards.filter(c=>c.starterEligible));
  for(const id of ['send','for','picture']){assert.ok(registry.cardById[`card.${id}`].runtimeReady);assert.equal(registry.cardById[`card.${id}`].starterEligible,false);assert.equal(legacyRegistry.cardById[`card.${id}`],undefined);}
  assert.equal(registry.cardById['card.send'].rarity,'UNCOMMON');assert.equal(registry.cardById['card.for'].rarity,'COMMON');
@@ -143,6 +143,6 @@ test('SVOO Korean aids use IO/DO, preserve possessive meaning and fall back on u
 test('Sentence snapshots carry the explicit language context without changing form selection',()=>{
  const cards={i:{instanceId:'i',cardDefId:'card.i'},v:{instanceId:'v',cardDefId:'card.run'}};
  const slots=[{cardInstanceId:'i'},{cardInstanceId:'v'}];
- assert.equal(createSentenceSnapshot(slots,cards).languageVersion,'0.2.1');
+ assert.equal(createSentenceSnapshot(slots,cards).languageVersion,'0.2.2');
  assert.equal(createSentenceSnapshot(slots,cards,{languageVersion:'0.1.1'}).languageVersion,'0.1.1');
 });

@@ -1,6 +1,9 @@
 import fs from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 import { performance } from 'node:perf_hooks';
+import {RunController as CurrentController} from '../src/game/runController.js';
+import {comboEligibility} from '../src/engine/comboEligibility.js';
+import {newProfile} from '../src/services/localStore.js';
 import { RunController } from '../tests/helpers/legacy-controller.js';
 import { findPlayableSentences, VOCABULARY_MODES } from '../src/game/deck.js';
 import { registry, registryForVersion, lexemeForCard } from '../src/data/language/index.js';
@@ -14,13 +17,13 @@ const plainState = state => ({ battle: state.progress.battleNumber, turn: state.
 
 /** QA-only finite search. It reads present hand, never future draw order or openingTrace witnesses. */
 export function rankPlayableCandidates(state,{policy='STANDARD'}={}) {
-  const candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: ['0.2.0','0.2.1'].includes(state.version)?1800:768, includeModifiers: true, includeSvoo:['0.2.0','0.2.1'].includes(state.version),registry:registryForVersion(state.version) });
+  const candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: ['0.2.0','0.2.1','0.2.2'].includes(state.version)?1800:768, includeModifiers: true, includeSvoo:['0.2.0','0.2.1','0.2.2'].includes(state.version),registry:registryForVersion(state.version) });
   const scored = candidates.map(candidate => {
     const cards = candidate.slots.map(slot => {
       const instance = state.cardInstances[slot.cardInstanceId]; const definition = registry.cardById[instance.cardDefId];
       return { ...instance, baseScore: definition.baseScore, displayCategory: definition.displayCategory };
     });
-    const resolution = resolveAttack({ analysis: candidate.analysis, cards, equippedRunes: state.runes.orderedInstanceIds.map(id => state.runes.instances[id]), enemy: state.combat.enemyState, sentenceSnapshot: candidate.snapshot,stage:stageForRun(state) });
+    const resolution = resolveAttack({ analysis: candidate.analysis, cards, equippedRunes: state.runes.orderedInstanceIds.map(id => state.runes.instances[id]), enemy: state.combat.enemyState, sentenceSnapshot: candidate.snapshot,stage:stageForRun(state),policyVersion:state.version,comboEligibility:state.version==='0.2.2'?comboEligibility(state):null });
     return { ...candidate, power: resolution.finalPower, lethal: resolution.killed };
   });
   return scored.filter(c=>policy!=='SV_ONLY'||c.frameId==='frame.sv').sort((a, b) => {
@@ -55,7 +58,7 @@ export function exchangeSelection(state,{policy='STANDARD'}={}) {
 
 /** Runs actual controller commands only. No generated damage, injected cards, or fixed winning hand. */
 export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResources = true, maxCommands = 900,policy='STANDARD',campaignVersion='0.2.0',stopAtShop=false } = {}) {
-  let controller = new RunController();
+  let controller = campaignVersion==='0.2.2'?new CurrentController({profile:{...newProfile('QA'),guidedTutorialCompletedVersion:'0.2.1'}}):new RunController();
   if(['POLISHED','SV_ONLY'].includes(policy))controller.setProfile({...controller.getProfile(),guideSeen:true,firstRuneIntroSeen:true});
   const actions = [];
   const rewards = [];
@@ -161,7 +164,7 @@ async function main() {
   const started = performance.now();
   const runs = [];
   for(const policy of ['LEARNING','SV_ONLY'])for (const vocabularyMode of VOCABULARY_MODES) for (const seed of seeds) {
-    const result = simulateRun({ seed, vocabularyMode,policy }); runs.push(result);
+    const result = simulateRun({ seed, vocabularyMode,policy,campaignVersion:'0.2.2' }); runs.push(result);
     process.stdout.write(`${policy} / ${vocabularyMode} / ${seed}: ${result.result} (${result.stats?.attacks ?? 0} attacks)${result.error ? ` ${result.error}` : ''}\n`);
   }
   const report = { generatedAt: new Date().toISOString(), command: 'node tools/simulate-runs.js', nodeVersion: process.version,

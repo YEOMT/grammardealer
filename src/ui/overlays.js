@@ -1,4 +1,5 @@
-import {learningSummary,MEANING_NOTE,MEANING_VERSION} from '../engine/meaning.js';
+import {learningRecord,reviewProfileLearning,studentStatus,displayLearningRecord} from '../engine/learningRecords.js';
+import {GRAMMAR_GUIDE,ROLE_GUIDE,DATIVE_GUIDE,LOCATION_GUIDE,formMeaning,verbUsage} from '../data/grammarGuideData.js';
 import { el, button, modal, toast } from './dom.js';
 import { wordCard, POS_LABELS } from './cards.js';
 import { cardModel } from './models.js';
@@ -25,6 +26,7 @@ function zoneOf(state, id) {
 export function openDeck(state, kind = 'all') {
   if (!state) return modal('나의 덱', small('원정을 시작하면 카드를 확인할 수 있습니다.'));
   const normalized = String(kind).toLowerCase();
+  if(normalized==='all')return openDictionary(state,{ownedOnly:true});
   const isDraw = ['draw', 'drawids'].includes(normalized), isDiscard = ['discard', 'discardids'].includes(normalized);
   const ids = [...(isDraw ? state.combat?.drawIds ?? [] : isDiscard ? state.combat?.discardIds ?? [] : state.activeCardIds)];
   const models = ids.filter(id => state.cardInstances[id]).map(id => {
@@ -47,89 +49,85 @@ export function openDeck(state, kind = 'all') {
 }
 
 /** Only words encountered during this run are visible, including words removed later. */
-export function openDictionary(state) {
+export function openDictionary(state,{ownedOnly=false}={}) {
   const ids = state?.vocabulary?.encounteredLexemeIds ?? [];
   const words = [...new Set(ids)].map(id => registry.lexemeById[id]).filter(Boolean).sort((a, b) => a.lemma.localeCompare(b.lemma, 'en'));
   const search = el('input', { type: 'search', placeholder: '영단어 또는 뜻 찾기', 'aria-label': '원정 사전 검색' });
   const count = el('span', { class: 'muted', text: `${words.length}개 단어` });
   const grid = el('div', { class: 'dictionary-grid' });
+  const filter=el('select',{'aria-label':'단어 목록',onchange:()=>{ownedOnly=filter.value==='owned';render();}},el('option',{value:'owned',text:'보유 카드',selected:ownedOnly}),el('option',{value:'encountered',text:'이번 원정에서 만난 단어',selected:!ownedOnly}));
   const render = () => {
     const term = search.value.trim().toLocaleLowerCase();
-    const filtered = words.filter(word => `${word.lemma} ${word.glossKo}`.toLocaleLowerCase().includes(term));
+    const filtered = words.filter(word => (!ownedOnly||state.activeCardIds.some(id=>registry.cardById[state.cardInstances[id]?.cardDefId]?.lexemeId===word.id))).filter(word => `${word.lemma} ${word.glossKo}`.toLocaleLowerCase().includes(term));
     count.textContent = `${filtered.length} / ${words.length}개 단어`;
     grid.replaceChildren(...filtered.map(word => {
       const senses = word.senseIds.map(id => registry.senseById[id]).filter(Boolean);
       const forms = word.formIds.map(id => registry.formById[id]).filter(form => form?.runtimeReady);
       const owned=Object.values(state?.cardInstances??{}).filter(c=>state.activeCardIds.includes(c.instanceId)&&registry.cardById[c.cardDefId]?.lexemeId===word.id);
       const polishSummary=[0,1,2,3].map(level=>{const count=owned.filter(c=>c.polishLevel===level).length;return count?`연마 +${level}: 기본 10 + 연마 ${level*5} = ${10+level*5}점 · ${count}장`:null;}).filter(Boolean);
-      const notes = [...new Set([word.usageNoteKo, ...senses.map(sense => sense.usageNoteKo)].filter(Boolean))];
+      const notes=word.pos==='VERB'?[verbUsage(word),...(word.lemma==='develop'?['They develop. / They develop technology.']:[])]:['to','that'].includes(word.lemma)?[word.lemma==='to'?'명사구 앞 전치사 / 동사 원형 앞 부정사 표지':'지시 한정사·대명사 / 명사를 설명하는 관계사']: [word.usageNoteKo].filter(Boolean);
       return el('article', { class: 'dictionary-entry' },
-        el('strong', { text: word.lemma }), el('span', { class: 'badge', text: ` · ${POS_LABELS[word.pos] ?? word.pos}` }),
-        ...senses.map(sense => el('p', { text: sense.glossKo })),
-        el('small', { text: `허용 형태: ${forms.map(form => `${form.surface} (${form.labelKo})`).join(' · ') || '0.1에서는 제공하지 않음'}` }),
-        ...notes.map(note => el('small', { text: note })),
-        el('small', { text: '카드 기본점수 10 · 연마 단계마다 +5 · 최대 +3' }),...polishSummary.map(text=>el('small',{text})),
+        el('strong', { text: word.lemma }), el('span', { class: 'badge', text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
+        el('p',{text:word.glossKo||'뜻 확인 중'}),el('p',{text:owned.length?`보유 ${owned.length}장`:'현재 보유하지 않음'}),
+        el('small', { text: `허용 형태: ${forms.map(form => `${form.surface} (${formMeaning(word,form)})`).join(' · ') || '0.1에서는 제공하지 않음'}` }),
+        ...notes.filter(Boolean).map(note => el('small', { text: note })),
+        el('small',{text:'희귀도: '+({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'}[registry.cards.find(c=>c.lexemeId===word.id)?.rarity]??'단어')+' · 카드 기본점수 10 · 연마 단계마다 +5 · 최대 +3'}),...polishSummary.map(text=>el('small',{text})),
       );
     }));
     if (!filtered.length) grid.append(small(words.length ? '검색 결과가 없습니다.' : '원정을 시작하면 만난 단어가 여기에 남습니다.'));
   };
   search.addEventListener('input', render); render();
-  return modal('원정 사전', [small('이번 원정에서 소개·획득하거나 보상으로 공개된 단어입니다. 카드를 제거해도 사전에는 남습니다.'),
-    el('div', { class: 'dialog-actions wrap' }, search, count), grid], { wide: true });
+  return modal(ownedOnly?'나의 덱 · 단어 사전':'원정 사전', [small('이번 원정에서 소개·획득하거나 보상으로 공개된 단어입니다. 카드를 제거해도 사전에는 남습니다.'),
+    el('div', { class: 'dialog-actions wrap' }, filter, search, count), grid], { wide: true });
 }
 
-const RULES = {
-  'FRAME.SV': '주어 + 동사. 목적어 없이 뜻을 마치는 동사를 사용합니다.',
-  'FRAME.SVC': '주어 + 동사 + 보어. 보어는 주어의 상태나 정체를 설명합니다.',
-  'FRAME.SVO': '주어 + 동사 + 목적어. 목적어는 동사의 대상을 나타냅니다.',
-  'FRAME.SVOO': '4형식은 주어+동사+간접목적어(~에게)+직접목적어(~을) 순서로 만듭니다. give/show/send는 SVO+to, make는 SVO+for 표현도 지원하며, 이 대응 표현은 3형식입니다.',
-  'MODIFIER.ADJECTIVE': '형용사는 명사 앞에서 명사를 수식할 수 있습니다.',
-  'MODIFIER.ADVERB': '부사는 허용된 위치에서 동사·형용사·부사를 수식합니다.',
-  'PHRASE.PP': '전치사 뒤에 명사구를 붙여 장소 등의 정보를 더합니다.',
-};
-
-function meaningBlock(summary){
-  const meaning=summary?.meaning;
-  if(!meaning?.meaningVersion)return el('p',{class:'meaning-hint muted',text:'이전 기록: 해석 정보 없음'});
-  return el('section',{class:'meaning-hint'},el('strong',{text:meaning.status==='COMPLETE_HINT'?'뜻 참고 · 자동 구성':'성분별 뜻 참고'}),el('p',{text:meaning.textKo}),
-    meaning.status!=='COMPLETE_HINT'&&(meaning.segments??[]).map(s=>el('p',{text:`${s.label}: ${s.textKo}`})),
-    el('small',{text:`원문 문법: ${summary.grammarStatus} ${(summary.issues??[]).map(i=>i.messageKo).join(' · ')}`}),meaning.meaningVersion!==MEANING_VERSION&&el('small',{text:'이전 의미 모듈로 저장한 참고입니다.'}));
+function learningBlock(record){
+ record=displayLearningRecord(record);
+ if(!record)return small('이전 기록 · 검증 가능한 문장 증거가 없습니다.');
+ return el('section',{class:'learning-evidence'},el('strong',{text:studentStatus(record)}),
+  el('div',{class:'grammar-badges'},...(record.scoreableTags??[]).filter(tag=>GRAMMAR_GUIDE[tag]).map(tag=>el('span',{class:'badge',text:GRAMMAR_GUIDE[tag].label}))),
+  ...(record.roles??[]).filter(r=>ROLE_GUIDE[r.role]).map(r=>el('p',{text:r.text+' · '+ROLE_GUIDE[r.role].label,title:ROLE_GUIDE[r.role].description})),
+  // A failed core parse does not establish which particular constituent is missing.
+  ...(record.status==='INVALID_CORE'
+    ? [small('문장을 완성하지 못하면 데미지를 줄 수 없습니다. 주어와 동사의 위치를 다시 확인해 보세요.')]
+    : (record.issues??[]).filter(i=>i.messageKo).map(i=>small(i.messageKo))));
 }
 function attackRecord(resolution) {
   const table = el('table', { class: 'timeline-table' },
     el('thead', {}, el('tr', {}, ['순서', '효과', '이전', '이후'].map(text => el('th', { text })))),
     el('tbody', {}, (resolution.scoreTimeline ?? []).map((event, index) => el('tr', {},
-      el('td', { text: index + 1 }), el('td', { text: event.labelKo ?? event.phase }),
+      el('td', { text: index + 1 }), el('td', { text: event.labelKo ?? '점수 효과' }),
       el('td', { text: number(event.before) }), el('td', { text: number(event.after) }),
     ))),
   );
   return el('details', { class: 'dictionary-entry' },
     el('summary', { text: `${sentenceText(resolution)} · 최종 위력 ${number(resolution.finalPower)}` }),
     small(`실제 피해 ${number(resolution.actualHpLoss)} · 오버킬 ${number(resolution.overkill)} · 적 HP ${number(resolution.enemyHpBefore)} → ${number(resolution.enemyHpAfter)}`),
-    meaningBlock(learningSummary(resolution)),table,
+    learningBlock(learningRecord(resolution)),table,
   );
 }
 
 /** Recorded attacks are displayed directly. Opening this panel never reapplies their effects. */
 export function openRecords(profile, state) {
-  const records = profile?.grammarRecords ?? {};
-  const summary = el('div', { class: 'record-grid' },
-    ...[[profile?.bestAttack ?? 0, '최고 공격위력'], [profile?.totalActualDamage ?? 0, '누적 실제 피해'], [profile?.qualifiedRunIds?.length ?? 0, '초원 완료 원정']].map(([value, label]) =>
-      el('div', {}, el('strong', { text: number(value) }), el('span', { text: label }))),
-  );
-  const catalog = el('div', { class: 'dictionary-grid' }, Object.entries(grammarTags).map(([tag, label]) => {
-    const record = records[tag];
-    return el('article', { class: 'dictionary-entry' }, el('h3', { text: label }), small(RULES[tag] ?? ''),
-      record ? [el('p', { text: `사용 ${number(record.count)}회 · 최고 위력 ${number(record.bestPower)}` }),
-        el('p', { text: `처음 사용: ${record.firstSentence}` }),meaningBlock(record.firstLearning), el('p', { text: `최고 위력 문장: ${record.bestSentence}` }),meaningBlock(record.bestLearning)]
-        : small('아직 이 구조로 공격한 기록이 없습니다.'),
-    );
+  profile=reviewProfileLearning(profile??{});
+  const records=profile.grammarRecords??{};
+  const summary=el('div',{class:'record-grid'},...[[profile.bestAttack??0,'최고 공격위력'],[profile.totalActualDamage??0,'누적 실제 피해'],[profile.qualifiedRunIds?.length??0,'초원 완료 원정']].map(([value,label])=>el('div',{},el('strong',{text:number(value)}),el('span',{text:label}))));
+  const available=Object.entries(GRAMMAR_GUIDE).filter(([tag])=>tag!=='FRAME.SVOO'||profile.unlocks?.includes('pack.svoo')||records[tag]);
+  const catalog=el('div',{class:'dictionary-grid'},available.map(([tag,guide])=>{
+   const record=records[tag];
+   const examples=['first','best'].map(kind=>({kind,value:record?.[kind+'Complete']??record?.[kind+'Learning']})).filter(x=>x.value?.complete&&x.value.scoreableTags.includes(tag));
+   return el('article',{class:'dictionary-entry'},el('h3',{text:guide.label}),small(guide.description),
+    el('details',{},el('summary',{text:'고정 학습 예문 · 실전 기록 아님'}),...guide.examples.map(text=>el('p',{text})),tag==='FRAME.SVOO'&&small(DATIVE_GUIDE.description),tag==='FRAME.SV'&&small(LOCATION_GUIDE.description)),
+    record?el('p',{text:'문법 누적 사용 '+number(record.count)+'회 · 당시 최고 위력 '+number(record.bestPower)}):small('아직 이 문법 효과를 사용한 기록이 없습니다.'),
+    ...examples.map(({kind,value})=>el('section',{},el('p',{text:(kind==='first'?'처음 완성: ':'최고 완성 문장: ')+value.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')}),learningBlock(value))));
   }));
-  const attacks = state?.stats?.history ?? (state?.stats?.lastAttack ? [state.stats.lastAttack] : []);
-  return modal('문장 도감 · 최근 공격', [small(`${profile?.displayName ?? '여행자'}의 실제 공격 기록입니다. 샌드박스와 연출 샘플은 기록하지 않습니다.`),
-    small(MEANING_NOTE),summary, el('h3', { text: '내 문장 도감' }), catalog,
-    el('h3', { text: `이번 원정 최근 공격 ${attacks.length}회` }),
-    attacks.length ? el('div', { class: 'save-slots' }, attacks.map(attackRecord)) : small('아직 확정된 공격이 없습니다.')], { wide: true });
+  const previous=(profile.educationalReview?.entries??[]).filter(e=>e.sentence);
+  const attacks=state?.stats?.history??(state?.stats?.lastAttack?[state.stats.lastAttack]:[]);
+  const recent=attacks.length?attacks.map(attackRecord):(profile.recentSubmissions??[]).map(r=>el('details',{class:'dictionary-entry'},el('summary',{text:r.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')+' · 위력 '+number(r.finalPower)+' · 실제 피해 '+number(r.actualHpLoss)}),learningBlock(r)));
+  return modal('문장 도감 · 최근 공격',[small((profile.displayName??'여행자')+'의 실제 제출 기록입니다. 실습과 연습 화면은 기록하지 않습니다.'),summary,
+   el('h3',{text:'내 문장 도감'}),catalog,
+   previous.length&&el('details',{},el('summary',{text:'이전 기록 · 당시 집계 보존'}),...previous.map(e=>el('p',{text:e.sentence+(e.verified?' · 교육용 구조 재확인: '+e.verified.tags.map(t=>GRAMMAR_GUIDE[t]?.label).filter(Boolean).join(' · '):' · 이전 기록(문형 예문으로 사용하지 않음)')}))),
+   el('h3',{text:'최근 제출 '+recent.length+'회'}),recent.length?el('div',{class:'save-slots'},recent):small('아직 확정된 제출이 없습니다.')],{wide:true});
 }
 
 /** Focused read-only shortcut for the already committed combat history. */
@@ -179,8 +177,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${savedRun?.progress?.stageId==='stage.02'?2:1}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${savedRun?.progress?.stageId==='stage.02'?2:1}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);

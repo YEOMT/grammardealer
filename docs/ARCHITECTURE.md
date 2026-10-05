@@ -1,3 +1,11 @@
+## 0.2.2 추가 경계
+
+Grammar는 원정 해금과 무관한 전체 입력 구조 증거를 만든다. 기존 NP/AP/PP를 재사용하는 제한된 relative/nonfinite 재귀와 전체 Sense 후보를 탐색하고 고정 우선순위로 한 분석을 선택한다. Scoring 전에 comboEligibility가 점수 자격을 고른다. 원래 분석과 scoreableHitIds를 함께 보존하며 잠긴 문형을 다른 문형으로 치환하지 않는다.
+
+새 INVALID_CORE 결과는 mainFrameId=null, scoreTimeline=[], finalPower=0, consumeTurn=true인 명시적 schema다. 룬/지역/보스/처치 계산에 들어가지 않는다. RunController는 분석과 profile event 제안까지 성공한 후 상태를 커밋한다. zeroReason은 INCOMPLETE_SENTENCE/ACCURACY_ZERO/BOSS_BLOCKED를 구분한다.
+
+learningRecords는 영어 Snapshot·역할 범위·정확성·실제 효과·위력/피해를 기록한다. 완전한 문장 대표는 별도 firstComplete/bestComplete이며 부분 오류·실패는 최근 제출에 남는다. 교육용 재검증은 원 집계·경제·RNG를 바꾸지 않는 버전 1회 overlay다. 고정 문법 설명과 형태별 대명사 뜻은 grammarGuideData에 있다.
+
 ## 0.2.1 추가 경계
 
 - guidedTutorial.js는 고정 28장, 보관한 일반 덱/RNG, 세션·시도·cue·revision 검증을 제공하고 커밋은 RunController만 수행한다. 두 공격은 기존 Grammar → Scoring → Stage 경로로 30/87을 계산한다. 완료 직전 정상 덱을 원자 복원한 다음 기존 보상 생성기를 호출한다.

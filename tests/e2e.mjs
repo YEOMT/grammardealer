@@ -6,7 +6,7 @@ import {registry} from '../src/data/language/index.js';
 const port=Number(process.env.SB_E2E_PORT||4174);const base=`http://127.0.0.1:${port}/grammardealer/`;
 const viewport=JSON.parse(process.env.SB_VIEWPORT||'{"width":1366,"height":768}');
 const suffix=process.env.SB_EVIDENCE_SUFFIX||'';const effectsOff=process.env.SB_EFFECTS_OFF==='1';
-const evidence=process.env.SB_EVIDENCE_DIR||'.local-validation/v021/e2e';const policy='LEARNING';
+const evidence=process.env.SB_EVIDENCE_DIR||'.local-validation/v022/e2e';const policy='LEARNING';
 const server=spawn(process.execPath,['tools/static-server.mjs','dist',String(port),'/grammardealer/'],{stdio:['ignore','pipe','pipe']});
 await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',c=>c&&reject(Error('Server failed')));});
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
@@ -39,7 +39,7 @@ try{
  const tutorialReward=await saveSlot(2);assert.equal(tutorialReward.economy.gold,5);assert.equal(tutorialReward.activeCardIds.length,28);assert.equal(tutorialReward.stats.attacks,0);shadow=new RunController({initialState:tutorialReward,profile:(await readRows('profiles'))[0]});record(['V021-P15','V021-P21','V021-P29','V021-P31','V021-P32'],'mandatory tutorial completed through actual UI, engine scores 30/87, gold 5 and normal deck restored');
 
  await context.setOffline(true);record(['P11'],'network disabled after all initial static resources loaded');
- let attacks=0;let exercised=false;let rewardSaved=false;let maxLoops=0;let svooCaptured=false,veilCaptured=false;const playedBattles=new Set([1]);
+ let attacks=0,invalidSubmissions=0;let exercised=false;let rewardSaved=false;let maxLoops=0;let svooCaptured=false,veilCaptured=false;const playedBattles=new Set([1]);
  while(++maxLoops<120){
   const state=shadow.getState();
   if(state.status==='CONTENT_COMPLETE')break;
@@ -71,9 +71,13 @@ try{
   if(state.progress.battleNumber===2&&!exercised){
    const beforeDict=await saveSlot(1);await page.getByRole('button',{name:'사전',exact:true}).click();await capture('dictionary');await closeModal();assert.deepEqual(await saveSlot(1),beforeDict);record(['P10'],'dictionary remains resource and RNG neutral after tutorial');
    if(effectsOff){await page.getByRole('button',{name:'설정',exact:true}).click();await page.getByLabel('음소거',{exact:true}).check();await page.getByLabel('효과 감소',{exact:true}).check();await capture('muted-reduced-effects');await closeModal();}
-   await prepare();const after=shadow.getState();const candidate=rankPlayableCandidates(after,{policy})[0];const used=new Set(candidate.slots.map(s=>s.cardInstanceId));const ids=after.combat.handIds.filter(id=>!used.has(id)).slice(0,1);
+   const badId=state.combat.handIds.find(id=>registry.lexemeById[registry.cardById[state.cardInstances[id].cardDefId].lexemeId].pos==='ADJECTIVE')??state.combat.handIds.find(id=>registry.lexemeById[registry.cardById[state.cardInstances[id].cardDefId].lexemeId].pos!=='VERB');
+   await page.locator('.hand-cards [data-card-id="'+badId+'"] .card-body').click();await cmd({type:'ADD_CARD',cardId:badId});
+   const invalid=await cmd({type:'SUBMIT'});assert.equal(invalid.resolution.zeroReason,'INCOMPLETE_SENTENCE');assert.equal(invalid.resolution.finalPower,0);await page.locator('#attack-submit').click();await page.getByText(/문장을 완성하지 못하면 데미지를/).waitFor();await capture('actual-invalid-feedback');await page.locator('.presentation-locked').waitFor({state:'detached'});await cmd({type:'FINISH_PRESENTATION',attackId:invalid.resolution.attackId});invalidSubmissions++;
+   assert.equal(shadow.getState().combat.turnsRemaining,5);assert.equal(shadow.getState().combat.enemyState.hp,state.combat.enemyState.hp);assert.ok(shadow.getState().combat.discardIds.includes(badId));await capture('actual-invalid-after-turn');const invalidSave=await saveSlot(1);await loadSlot(1);assert.deepEqual(await saveSlot(1),invalidSave);record(['V022-P04','V022-P05','V022-P62'],'actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works');
+   const after=shadow.getState();const candidate=rankPlayableCandidates(after,{policy})[0];const used=new Set(candidate.slots.map(s=>s.cardInstanceId));const ids=after.combat.handIds.filter(id=>!used.has(id)).slice(0,1);
    if(ids.length){for(const id of ids)await page.locator(`.hand-cards [data-card-id="${id}"] .card-select`).click();await capture('exchange-selection');await page.locator('#discard-selected').click();await cmd({type:'EXCHANGE',cardIds:ids});}
-   exercised=true;record(['D10','D15','U03'],'prepare then real multi-card exchange via UI');continue;
+   exercised=true;record(['D10','D15','U03'],'invalid submission then real card exchange via UI');continue;
   }
   const candidate=rankPlayableCandidates(state,{policy})[0];
   if(state.progress.stageId==='stage.02'&&candidate?.frameId!=='frame.svoo'&&!candidate?.lethal&&state.combat.exchangesRemaining>0&&(!candidate||candidate.power*state.combat.turnsRemaining<state.combat.enemyState.hp)){await exchange(exchangeSelection(state,{policy}));continue;}
@@ -94,12 +98,13 @@ try{
  const savedFinal=(await readRows('slots')).find(r=>r.slot===3).run;assert.equal(savedFinal.status,'CONTENT_COMPLETE');assert.equal(savedFinal.progress.contentBoundary,'STAGE2_END');
  await page.getByRole('button',{name:'완료 상태 저장',exact:true}).click();await page.getByRole('button',{name:'슬롯 3 불러오기',exact:true}).click();await page.getByRole('heading',{name:'전달의 항구 완료',exact:true}).waitFor();await capture('stage2-complete-restored');assert.deepEqual((await readRows('slots')).find(r=>r.slot===3).run,savedFinal);record(['V02-P27'],'completed seven-battle save restores its exact completion screen without another milestone');
  const finalProfile=(await readRows('profiles'))[0];assert.equal(finalProfile.qualifiedRunIds.length,1);assert.equal(finalProfile.stage2CompletedRunIds.length,1);assert.equal(finalProfile.storyClearCount,0);record(['P05'],'Stage 1 milestone and Stage 2 completion each persisted once, no story clear');
- await page.getByRole('button',{name:'기록 보기',exact:true}).click();await capture('sentence-codex');await closeModal();assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['P06'],'reading attack history does not reapply profile records');
+ await page.getByRole('button',{name:'기록 보기',exact:true}).click();
+ const codex=await page.locator('dialog[open]').innerText();assert.match(codex,/문법 누적 사용/);assert.doesNotMatch(codex,/VALID|INVALID_CORE|UNSUPPORTED|cap\.|sense\.|frame\.|뜻 참고/);assert.equal(await page.locator('.meaning-hint').count(),0);
+ await capture('sentence-codex');await closeModal();assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['P06','V022-P47','V022-P48'],'end-screen English grammar/power codex has no translations or internal labels and does not reapply profile records');
  await page.locator('#new-run-result').click();await page.locator('#start-battle').waitFor();await page.locator('#start-battle').click();assert.equal(await page.locator('.tutorial-bubble').count(),0);assert.equal(await page.locator('.guided-coach').count(),0);record(['R04'],'new expedition works offline and previously seen guide is not forced');
- await context.setOffline(false);await page.goto(base+'#sandbox');await page.getByLabel('문법 테스트 사례',{exact:true}).selectOption('G01');await page.locator('#sandbox-analyze').click();assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['P06'],'sandbox analysis does not modify persisted profile');
- await page.reload();await page.getByRole('heading',{name:'문장 실험실',exact:true}).waitFor();await page.getByRole('button',{name:'← 로비',exact:true}).click();await page.goBack();await page.getByRole('heading',{name:'문장 실험실',exact:true}).waitFor();record(['U13'],'production hash route refresh and browser back');
+ await context.setOffline(false);await page.goto(base+'?debug=1#sandbox');await page.locator('#start-run').waitFor();assert.equal(await page.evaluate(()=>Boolean(window.__SB_DEV__)),false);assert.equal(await page.getByRole('heading',{name:'문장 실험실',exact:true}).count(),0);assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['V022-P49'],'production debug query/hash cannot expose developer grammar diagnostics or change records');
  assert.deepEqual(errors,[]);assert.deepEqual(consoleErrors,[]);assert.deepEqual(failedRequests,[]);assert.deepEqual(badResponses,[]);assert.ok(requests.every(url=>url.startsWith(`http://127.0.0.1:${port}`)));record(['U14'],'no page/console errors, failed resources or external runtime requests');
- await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',browser:await browser.version(),viewport,effectsOff,seed:'run-sequence.1',policy,urlPath:'/grammardealer/',offlineFullStage1:true,offlineFullStage2:true,playedBattles:[...playedBattles],svooCaptured,veilCaptured,attacksAfterTutorial:attacks,totalActualAttacks:attacks+2,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
- console.log(`Production E2E PASS (${attacks+2} real attacks including two guided attacks)`);
+ await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',browser:await browser.version(),viewport,effectsOff,seed:'run-sequence.1',policy,urlPath:'/grammardealer/',offlineFullStage1:true,offlineFullStage2:true,playedBattles:[...playedBattles],svooCaptured,veilCaptured,attacksAfterTutorial:attacks,invalidSubmissions,totalActualAttacks:attacks+2+invalidSubmissions,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
+ console.log(`Production E2E PASS (${attacks+2+invalidSubmissions} real attacks including two guided attacks)`);
 }catch(error){await capture('e2e-failure');await fs.writeFile(`${evidence}/production-browser-failure${suffix}.json`,JSON.stringify({error:error.stack,errors,checks},null,2));throw error;}
 finally{await browser.close();server.kill();}

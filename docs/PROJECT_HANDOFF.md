@@ -1,3 +1,13 @@
+## 0.2.2 인계
+
+기준은 작업 시작 시 최신 origin/main 50b4311이며 0.2.1 PR #3 병합을 확인했다. 새 브랜치는 codex/v0.2.2-grammar-learning-integrity. PATCH_PLAN_0.2.2 / PATCH_NOTES_0.2.2_KO / VERB_FRAME_AUDIT_0.2.2 / EDUCATION_REVIEW_0.2.2 / TEST_REPORT_0.2.2를 먼저 읽는다.
+
+새 원정만 INVALID_CORE를 제출 거래로 정산한다. accepted는 영어 정답 여부가 아니라 거래 확정이다. 기술 오류는 무소모다. comboEligibility는 원정의 해금 합집합을 고정하고 실제 scoreableHitIds를 기록한다. registryForVersion의 0.2.1 view를 보존하며 초기 생성 Frame 후보는 이 view를 사용한다. 0.2.1 실습 완료 버전은 그대로 유지한다.
+
+learningRecords와 grammarGuideData가 번역 없는 교육 기록을 담당한다. 과거 의미 모듈은 호환/레거시 순수 검사에 남아 있지만 새 기록 생성과 학생 도감은 호출하지 않는다. 이전 기록의 원데이터를 보존한 educationalReview만 추가한다. DOM 사전 별칭은 하나의 단어 데이터/보기로 연결한다. production의 sandbox/debug 진입은 닫고 개발 모드에 남긴다.
+
+아래 0.2/0.2.1 문단은 당시 계약 설명이다. 새 정책과 실제 결과는 위 문서를 우선한다.
+
 ## 0.2.1 후속 인계 (현재 작업본)
 
 이번 기준은 fetch한 origin/main 78999463640d834a6468a37eb2dd71831e721e84이며 codex/v0.2.1-guided-tutorial-feel에서 개발한다. 아래 0.2 설명은 이전 버전 기록이다. 최신 동작과 실행 증거는 PATCH_NOTES_0.2.1_KO.md / TEST_REPORT_0.2.1.md를 따른다. 새 원정 초원 HP는 77/132/242, 항구는 220/300/380/640이다. 새 실습 완료 플래그가 없는 프로필은 Stage 1-1에서 고정 물리 카드 실습을 진행한다. 구버전 guideSeen은 완료로 간주하지 않는다. 0.1.0/0.1.1/0.2.0 저장에는 이 실습과 HP 변경을 소급하지 않는다.

@@ -1,4 +1,4 @@
-import { registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
+import { registry, campaign021Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
 import { analyzeSentence } from '../engine/grammar/index.js';
 import { createRng, createStream, pick, shuffle, weightedPick, assertStream } from './rng.js';
 import { BALANCE } from '../data/balance.js';
@@ -142,7 +142,7 @@ export function findPlayableSentences(availableIds, cardInstances, options = {})
   return results;
 }
 
-const allStarterCards = () => stableSort(registry.cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady)));
+const allStarterCards = () => stableSort(campaign021Registry.cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady)));
 
 function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
   const candidates = pool.filter(card => (counts[card.lexemeId] || 0) < (distinct ? 1 : 2));
@@ -174,7 +174,7 @@ function buildSlotPlan(mode, stream, trace) {
     planned.push({ card, role });
   };
   const choose = (role, filter, distinct = false) => {
-    const card = selectCard(pool.filter(card => filter(registry.lexemeById[card.lexemeId])), counts, mode, stream, trace, role, distinct);
+    const card = selectCard(pool.filter(card => filter(campaign021Registry.lexemeById[card.lexemeId])), counts, mode, stream, trace, role, distinct);
     planned.push({ card, role });
   };
   for (let i = 0; i < STARTER_SLOT_COUNTS.NOUN; i += 1) choose('NOUN', lex => lex.pos === 'NOUN', i < 4);
@@ -223,7 +223,7 @@ export function validateStarterDeck(deck) {
   if (new Set(prepositions).size !== 2 || prepositions.some(x => !['in', 'on', 'at', 'with'].includes(x))) errors.push('PREPOSITIONS');
   const adverbs = lemmasFor('ADVERB');
   if (adverbs.filter(x => ['very', 'really'].includes(x)).length !== 1) errors.push('ADVERB_ROLES');
-  const witnesses = findPlayableSentences(deck.activeCardIds, deck.cardInstances, { perFrame: 1 });
+  const witnesses = findPlayableSentences(deck.activeCardIds, deck.cardInstances, { perFrame: 1, registry:campaign021Registry });
   const found = new Set(witnesses.map(w => w.frameId));
   for (const frame of BASIC_FRAMES) if (!found.has(frame)) errors.push(`MISSING_${frame}`);
   return { valid: errors.length === 0, errors, counts, witnesses };

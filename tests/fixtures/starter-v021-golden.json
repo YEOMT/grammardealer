@@ -1,0 +1,286 @@
+{
+  "source": "50b4311",
+  "fields": "all generateStarterDeck fields except diagnostic witnesses",
+  "fixtures": [
+    {
+      "config": {
+        "seed": "v022.preserve.0",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "830acc9fd33af89203fbe8568def91a42a4c93fd1f530abf0e30da9fd64e264d"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.1",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "dc2461cf2fbfa2d01336dcef678be3a2ca868312fa363615127a8dfccc601df4"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.2",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "50d673042eecb8e41ea531a9eba711a721764e124508cbdc1c5038008a73a39d"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.3",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "a67e6680cd7e15a88379b744f52a54f653a059f67be0ad9e7f762c2887279259"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.4",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "f0f8e54f1ce88cb0eed11c4bf980a3f8af22a7a29a6aa2a793daa304fe27eaf0"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.5",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "bcc60a5c1b72931ac7866df08cd4cfa63404720beca62a9feaffbce1b346a6f6"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.6",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "e16d348824e201c6f6dbfcabd7c441b32695341b76192c7bbba7cf7b03225ea7"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.7",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "0917fe484ece7bcac888197935b9dd668abfa5f87a3a0cb3ea93efab8df92a75"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.8",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "d530838e745f5e6c104a81fbe35a74c72b63b18080fd125adcc95c4afe19fcae"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.9",
+        "vocabularyMode": "BEGINNER"
+      },
+      "sha256": "953371076b2582fc82f770ba8b279fd5b4f5cc2d383f7b029c50915355946e63"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.0",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "b4053d9149bb847166d33a5bde87005c04cb6796c6142832b85bc528d0800353"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.1",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "ce8386c33fd95133299b45f613b98c8b074aa6a6452411f47b1c78ee4360d780"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.2",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "e05608649f2b8b5e7dff81e097b4bb6b39b26e8c74e5593d180b4e8e5fde581f"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.3",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "0f8588dc6ac72abe6d6c2659afb62f762cebe294bea5f911f7509701807d3d8e"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.4",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "105815baf4659bd483792d429f4e468106e891163cd44c528a2661f2961d5322"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.5",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "7f7d352292ca8664c5c3045ec17d2c5ae2ff9499859376d8eed95a1101e060d0"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.6",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "0efdee8f179054d2c239bd0aa1e860d90237f584169e649ffbe86bd51f72e319"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.7",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "e694fe4b68ff26a83cd7882d8c60bbb04966c98f7a0e7cd6ed30a4f187764ee4"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.8",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "4d9fd7128f099b8207ec924acc61fccae324d29e310634746c388eed78d6c50e"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.9",
+        "vocabularyMode": "STANDARD"
+      },
+      "sha256": "7ca923a434eae7423a28ecf39b4da4a164f857caa22f3ff56e36ec180c0614cd"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.0",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "8ebe1b5e085949e239b450e0ca94414d2f3d3baf5a809f371511d1e6299746ee"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.1",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "96d1f489cd456e74f0b91518ae9306070a5b3eaa362ef4adfc07391f02f31d08"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.2",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "6091721307f8c916a93f42847654214a67038ac5d478c79efceed5496739db49"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.3",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "ab0d89ccd35b67f9d40f295aa1a96fb89b9cc4e458c1af1251776370e55285da"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.4",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "f5374ec38f25832f83b2edfad80a90048f5ce801ad719af07a0245bd23107320"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.5",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "7231b748e4ca7eb1a7d6e28507851e2ac8da70c9ff2f3271b33318a4b0787ef8"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.6",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "f5539fef3c57f0b7ba1927970764c04f96ba4ea76be9b07ce64b4a4ea6c7915a"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.7",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "503eb2db10aa416915444e67b2484d2ca4acd3b9b2de0f1becec6e3a299f9962"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.8",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "2d7e78a62368dd0b3b061e5aca55da1d7cb363f67114e2f999432fdd632603b3"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.9",
+        "vocabularyMode": "ADVANCED"
+      },
+      "sha256": "6ed8875aa0adb83104b2cfd4771a3c5d530e86d08c885444853244ffbe055208"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.0",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "a2732438a76daee5f91947a40a509fbca9fbabfb143bb421e5ea626e79a0443f"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.1",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "e2c946b7716c2cd83f3090d853f4cfc400ddf3e7981c95af20c9cc86e6656fd7"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.2",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "2d7fc3ad7c6f9c391c2decde78865ed489e4e0be510150dcdef2c8a85e36fb8e"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.3",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "6eacdff19aae54d9d269b1b4002adf3ead4b0833ee97193283815cf66a5201b9"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.4",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "ae69943bd1c0540bd4035196705b6813e9a27a4ec02b776ea1b00043130ecfee"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.5",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "ccec9bf5b738289eba94e9700052004f821e2322ebabd302aebaeac9454c52b4"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.6",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "c20dc1d279284558d8626506c735aa7fd98f828124f61ac2b469e3213d39285d"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.7",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "7fa527de9df64cc523d57a2c71fcfead759777f9c5d4854458b9e77f7071be30"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.8",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "89719d497a130e43d1b84ec48fbb738ff92b6f8c51da2f2d47188d18e78f7057"
+    },
+    {
+      "config": {
+        "seed": "v022.preserve.9",
+        "vocabularyMode": "FREE"
+      },
+      "sha256": "f92f9569a6ef49f88d316af19b7f856075c7b73ad229870a33a81bd4787d482a"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import {clone,deepFreeze,VERSIONS} from '../contracts.js';
 import {registry,registryForVersion,formsForCard,createSentenceSnapshot} from '../data/language/index.js';
 import {analyzeSentence} from '../engine/grammar/index.js';
 import {resolveAttack} from '../engine/stage.js';
+import {comboEligibility} from '../engine/comboEligibility.js';
 import {deriveCombatRules} from '../engine/runes.js';
 import {getEncounter,stageForRun,isCurrentCampaign} from '../data/stages.js';
 import {COMBAT_BALANCE,ECONOMY} from '../data/balance.js';
@@ -92,7 +93,9 @@ export class RunController {
     const type=command.type;
     if(!guidedAllowed(current,command))return fail('현재 실습 안내에 표시된 행동을 해 주세요.');
     if(c?.phase==='PRESENTING'&&!['FINISH_PRESENTATION','TUTORIAL_GATE_ACK','TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(type))return fail('공격 연출 중입니다.');
-    const next=clone(current),nc=next.combat;let result={ok:true};let profileEvents=[];let undoCandidate=null;
+    const next=clone(current),nc=next.combat;let result={ok:true};let profileEvents=[];let undoCandidate=null;let clearSubmitUndo=false;
+    next.eligibility??={runStartUnlockBaseline:[],runOwnUnlocks:[]};
+    next.eligibility.runStartUnlockBaseline??=[];next.eligibility.runOwnUnlocks??=[];
     try{
       if(type==='TUTORIAL_RESTART'){
         const previous=clone(next.tutorialSession);for(const[key,value]of Object.entries(previous.parked))next[key]=clone(value);
@@ -174,26 +177,27 @@ export class RunController {
           if(nc.phase!=='EDIT'||!nc.sentenceSlots.length)return fail('문장 카드를 먼저 놓아 주세요.');if(next.tutorial.visible&&next.tutorial.tutorialVersion==='0.1.1'&&!next.tutorial.actions.explained)return fail('첫 공격 전에 점수 흐름을 확인하세요.',{needsTutorialExplanation:true});this.busy=true;
           const snapshot=createSentenceSnapshot(nc.sentenceSlots,next.cardInstances,{sentenceId:`${next.runId}.${next.progress.battleNumber}.${nc.actionSequence+1}`,languageVersion:registryForVersion(next.version).version});
           let analysis;try{analysis=this.analyzer(deepFreeze(clone(snapshot)),registryForVersion(next.version));}catch(e){analysis={status:'ENGINE_ERROR',messageKo:'판정 처리에 문제가 생겼습니다. 카드와 턴은 그대로입니다.',diagnostics:{errorId:'controller.analyzer',detail:e.message}};}
-          if(!['VALID','VALID_WITH_ISSUES'].includes(analysis?.status))return fail(analysis?.messageKo??'판정 처리에 문제가 생겼습니다.',{analysis});
+          if(!['VALID','VALID_WITH_ISSUES',...(next.version==='0.2.2'&&!isGuided(next)?['INVALID_CORE']:[])].includes(analysis?.status))return fail(next.version==='0.2.2'?'판정 처리에 문제가 생겼습니다. 카드와 턴은 그대로입니다.':analysis?.messageKo??'판정 처리에 문제가 생겼습니다.',{analysis});
           const attackId=`${next.runId}:battle.${next.progress.battleNumber}:attack.${nc.actionSequence+1}${isGuided(next)?':tutorial.'+next.tutorialSession.attempt:''}`;
           const cards=nc.sentenceSlots.map(s=>{const card=next.cardInstances[s.cardInstanceId],def=registry.cardById[card.cardDefId];return {...card,baseScore:def.baseScore,displayCategory:def.displayCategory};});
-          const resolution=this.attackResolver({attackId,runId:next.runId,battleId:nc.enemyState.id,expectedRevision:current.revision,sentenceSnapshot:snapshot,analysis,cards,equippedRunes:next.runes.orderedInstanceIds.map(id=>next.runes.instances[id]),enemy:clone(nc.enemyState),stage:stageForRun(next)});
+          const resolution=this.attackResolver({attackId,runId:next.runId,battleId:nc.enemyState.id,expectedRevision:current.revision,sentenceSnapshot:snapshot,analysis,cards,equippedRunes:next.runes.orderedInstanceIds.map(id=>next.runes.instances[id]),enemy:clone(nc.enemyState),stage:stageForRun(next),policyVersion:next.version,comboEligibility:next.version==='0.2.2'?comboEligibility(next):null});
           if(!resolution?.accepted||resolution.expectedRevision!==current.revision||resolution.battleId!==nc.enemyState.id||this._state.revision!==current.revision)return fail('이전 상태의 판정 결과를 취소했습니다.');
           nc.enemyState.hp=resolution.enemyHpAfter;
           if(resolution.proposedStateEffects?.bossMechanic)nc.enemyState.bossMechanic=clone(resolution.proposedStateEffects.bossMechanic);
           discardSentence(nc);nc.turnsRemaining--;nc.actionSequence++;nc.battleDirty=true;nc.phase='PRESENTING';nc.pendingAttackId=attackId;
           if(!isGuided(next)){next.stats.attacks++;next.stats.bestAttack=Math.max(next.stats.bestAttack,resolution.finalPower);next.stats.totalActualDamage+=resolution.actualHpLoss;next.stats.lastAttack=clone(resolution);next.stats.history=[clone(resolution),...next.stats.history].slice(0,12);
-          for(const tag of new Set(analysis.grammarHits.map(h=>h.tag)))next.stats.grammarUseCounts[tag]=(next.stats.grammarUseCounts[tag]??0)+1;
+          for(const tag of new Set(analysis.grammarHits.filter(h=>resolution.scoreableHitIds?.includes(h.id)??true).map(h=>h.tag)))next.stats.grammarUseCounts[tag]=(next.stats.grammarUseCounts[tag]??0)+1;
           profileEvents.push({type:'ATTACK',resolution});}else next.tutorialSession.lastAttack=clone(resolution);
-          next.tutorial.step=Math.max(next.tutorial.step,3);this.undo=[];result={ok:true,resolution,analysis};
+          next.tutorial.step=Math.max(next.tutorial.step,3);clearSubmitUndo=true;result={ok:true,resolution,analysis};
         }else return fail('알 수 없는 명령입니다.');
         if(EDITS.has(type)||type==='UNDO')nc.battleDirty=true;
       }
       if(isGuided(next)&&!['TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(type))recordGuided(next,command);
       const tutorialEvent=recordTutorialAction(next,type,command);if(tutorialEvent)profileEvents.push(tutorialEvent);
+      const proposedProfile=profileEvents.reduce((p,e)=>applyProfileEvent(p,e),this.profile);
       next.revision++;if(command.commandId)next.appliedCommandIds.push(command.commandId);this._commit(next);
-      if(undoCandidate)this.undo.push(undoCandidate);else if(type==='UNDO')this.undo.pop();
-      for(const event of profileEvents)this._profileEvent(event);return result;
+      if(clearSubmitUndo)this.undo=[];else if(undoCandidate)this.undo.push(undoCandidate);else if(type==='UNDO')this.undo.pop();
+      this.profile=proposedProfile;for(const event of profileEvents){try{this.onProfileEvent(clone(event),clone(this.profile));}catch(error){console.warn('Profile persistence callback',error);}}return result;
     }catch(error){console.error('RunController command failed',type,error);return fail('처리 중 문제가 생겼습니다. 이전 상태를 유지합니다.',{analysis:{status:'ENGINE_ERROR',diagnostics:{errorId:`controller.${type}`,detail:error.message}}});}
     finally{this.busy=false;}
   }

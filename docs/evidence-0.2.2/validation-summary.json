@@ -1,0 +1,125 @@
+{
+  "browserChecks": {
+    "phaseE": 8,
+    "learning": 28,
+    "phaseB": 3,
+    "phaseD": 4,
+    "phaseC": 4,
+    "guided": 47,
+    "layout": 41,
+    "stage2": 29
+  },
+  "date": "2026-10-05",
+  "commands": [
+    {
+      "exitCode": 0,
+      "command": "npm.cmd test",
+      "finished": "2026-10-05T09:46:41.4645367+09:00"
+    },
+    {
+      "exitCode": 0,
+      "command": "npm.cmd run validate:data",
+      "finished": "2026-10-05T09:46:42.4969145+09:00"
+    },
+    {
+      "exitCode": 0,
+      "command": "npm.cmd run build",
+      "finished": "2026-10-05T09:46:43.8008126+09:00"
+    },
+    {
+      "exitCode": 0,
+      "command": "npm.cmd run test:browser",
+      "finished": "2026-10-05T09:49:45.6854001+09:00"
+    },
+    {
+      "exitCode": 0,
+      "command": "npm.cmd run test:e2e",
+      "finished": "2026-10-05T09:53:07.5231674+09:00"
+    }
+  ],
+  "additionalCommands": [
+    {
+      "command": "npm.cmd run test:decks",
+      "exitCode": 0,
+      "decks": 10000
+    },
+    {
+      "defeats": 122,
+      "command": "npm.cmd run test:runs",
+      "completed": 38,
+      "exitCode": 0,
+      "runs": 160,
+      "errors": 0
+    }
+  ],
+  "base": "50b4311eb07c7e8ce14dfa8142436af430ba7dea",
+  "production": [
+    {
+      "status": "PASS",
+      "browser": "134.0.6998.35",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "effectsOff": false,
+      "seed": "run-sequence.1",
+      "policy": "LEARNING",
+      "urlPath": "/grammardealer/",
+      "offlineFullStage1": true,
+      "offlineFullStage2": true,
+      "playedBattles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "svooCaptured": true,
+      "veilCaptured": true,
+      "totalActualAttacks": 23,
+      "invalidSubmissions": 1,
+      "errors": [],
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    },
+    {
+      "status": "PASS",
+      "browser": "134.0.6998.35",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "effectsOff": true,
+      "seed": "run-sequence.1",
+      "policy": "LEARNING",
+      "urlPath": "/grammardealer/",
+      "offlineFullStage1": true,
+      "offlineFullStage2": true,
+      "playedBattles": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "svooCaptured": true,
+      "veilCaptured": true,
+      "totalActualAttacks": 23,
+      "invalidSubmissions": 1,
+      "errors": [],
+      "consoleErrors": [],
+      "failedRequests": [],
+      "badResponses": []
+    }
+  ],
+  "historicalEvidenceRestore": {
+    "hashMismatches": 0,
+    "fixedEvidence": 112,
+    "guidedEvidence": 35
+  }
+}

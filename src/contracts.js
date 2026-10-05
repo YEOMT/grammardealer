@@ -9,7 +9,7 @@
  * @typedef {{eventId:string,phase:string,sourceType:string,sourceId:string,operation:string,operand:number|{num:number,den:number},before:number,after:number,evidenceRefs:string[],highlightCardIds:string[],labelKo:string}} ScoreEvent
  * @typedef {{attackId:string,runId:string,battleId:string,expectedRevision:number,sentenceSnapshot:SentenceSnapshot,analysis:AnalysisResult,scoreTimeline:ScoreEvent[],finalPower:number,actualHpLoss:number,overkill:number,enemyHpBefore:number,enemyHpAfter:number,killed:boolean}} AttackResolution
  */
-export const VERSIONS = Object.freeze({game:'0.2.1',save:'0.2.1',language:'0.2.1',grammar:'0.2.0',balance:'0.2.0',generator:'0.1.1',reward:'0.2.0',meaning:'0.2.0',tutorial:'0.2.1',runes:'0.2.0',presentation:'0.2.1'});
+export const VERSIONS = Object.freeze({game:'0.2.2',save:'0.2.2',language:'0.2.2',grammar:'0.2.2',balance:'0.2.0',comboEligibility:'0.2.2',learningRecord:'0.2.2',generator:'0.1.1',reward:'0.2.0',meaning:'0.2.0',tutorial:'0.2.1',runes:'0.2.0',presentation:'0.2.1'});
 export const clone = value => structuredClone(value);
 export function deepFreeze(value) {if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.freeze(value);Object.values(value).forEach(deepFreeze);}return value;}
 export function requireInteger(value,name,min=0,max=Number.MAX_SAFE_INTEGER) {if(!Number.isSafeInteger(value)||value<min||value>max)throw new TypeError(`${name}: invalid integer`);return value;}
