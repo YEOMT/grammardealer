@@ -60,10 +60,10 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
     if (definition.group === 'UTILITY') continue;
     const matchingFrame = { 'rune.sv': 'FRAME.SV', 'rune.svc': 'FRAME.SVC', 'rune.svo': 'FRAME.SVO', 'rune.svoo':'FRAME.SVOO' }[rune.runeId];
     if (matchingFrame && frameHit?.tag === matchingFrame) emit(rune, definition, value, frameHit.cardIds, [frameHit.id]);
-    else if (rune.runeId === 'rune.short' && frameHit && scoringCards.length <= 4) emit(rune, definition, value,
-      scoringCards.map((card) => card.instanceId), [frameHit.id]);
+    else if (rune.runeId === 'rune.short' && scoringCards.length <= 4) emit(rune, definition, value,
+      scoringCards.map((card) => card.instanceId), frameHit?[frameHit.id]:[]);
     else if (rune.runeId === 'rune.perfectSentence' && analysis.status === 'VALID' && !(analysis.issues ?? []).length && !scoreResult.excludedCardIds.length)
-      emit(rune, definition, value, [...contributionIds], [frameHit.id]);
+      emit(rune, definition, value, [...contributionIds], frameHit?[frameHit.id]:[]);
     else if (rune.runeId === 'rune.adverbs') {
       const seen = new Set();
       for (const hit of allHits.filter((entry) => entry.tag === 'MODIFIER.ADVERB')) {

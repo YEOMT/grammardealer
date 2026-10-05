@@ -4,6 +4,7 @@ import { RUNE_VERSION } from '../data/runes.js';
 import { safeInteger, scoreEvent } from './numeric.js';
 import { scoreAttack, attackableAnalysis, mainFrameHit, validateCardScoringSnapshot, BALANCE_VERSION } from './scoring.js';
 import { applyRunes } from './runes.js';
+import { scoreableAnalysis } from './comboEligibility.js';
 
 /** Pure region / encounter result. Returns boss proposals; only the controller commits them. */
 export function resolveEncounter(analysis, postRuneScore, enemy, {
@@ -57,24 +58,39 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
  */
 export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stage = STAGE1,
   attackId = 'attack.sandbox', runId = null, battleId = null, expectedRevision = 0,
-  sentenceSnapshot = null, syntheticBossFixture = null,
+  sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,
 }) {
+  if (policyVersion === '0.2.2' && analysis?.status === 'INVALID_CORE') {
+    const cardScoringSnapshot=validateCardScoringSnapshot(cards);
+    const hp=safeInteger(enemy.hp,'enemy hp',{min:0});
+    return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,
+      sentenceSnapshot,analysis,cardScoringSnapshot,runeSnapshot:[],comboEligibility,scoreableHitIds:[],
+      versions:{grammar:analysis.grammarVersion,language:sentenceSnapshot.languageVersion,submission:policyVersion},
+      scoreTimeline:[],preRuneScore:0,postRuneScore:0,postRegionScore:0,preBossScore:0,finalPower:0,actualHpLoss:0,overkill:0,
+      enemyHpBefore:hp,enemyHpAfter:hp,killed:false,bossEffects:[],zeroReason:'INCOMPLETE_SENTENCE',
+      feedbackKo:'문장을 완성하지 못하면 데미지를 줄 수 없습니다.\n주어와 동사의 위치를 다시 확인해 보세요.',
+      proposedStateEffects:{consumeTurn:true,discardCardIds:cardScoringSnapshot.map(c=>c.instanceId),killGold:0},
+      visualBasis:{intensityBaseline:enemy.maxHp??hp,enemyBefore:structuredClone(enemy),enemyAfter:structuredClone(enemy),synthetic:false}};
+  }
   if (!attackableAnalysis(analysis)) return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis?.status ?? 'ENGINE_ERROR',
     analysis, sentenceSnapshot, accepted: false, scoreTimeline: [], preRuneScore: 0, postRuneScore: 0, postRegionScore: 0,
     finalPower: 0, actualHpLoss: 0, overkill: 0, killed: false, proposedStateEffects: { consumeTurn: false, discardCardIds: [], killGold: 0 },
   };
   const cardScoringSnapshot = validateCardScoringSnapshot(cards);
-  const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId });
-  const runeResult = applyRunes(analysis, scoring, equippedRunes, cardScoringSnapshot, { attackId });
-  const encounter = resolveEncounter(analysis, runeResult.postRuneScore, enemy, {
+  const eligibleAnalysis=scoreableAnalysis(analysis,comboEligibility);
+  const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis });
+  const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId });
+  const encounter = resolveEncounter(eligibleAnalysis, runeResult.postRuneScore, enemy, {
     attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,
   });
   return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
       balance: BALANCE_VERSION, runes: RUNE_VERSION, stage: STAGE_VERSION, presentation: 'presentation.0.2.1' },
-    sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis,
+    sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis, comboEligibility,
+    scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),
+    zeroReason:encounter.finalPower===0?(encounter.bossEffects.length?'BOSS_BLOCKED':'ACCURACY_ZERO'):null,
     scoreTimeline: [...scoring.events, ...runeResult.runeEvents, ...encounter.events],
     preRuneScore: scoring.preRuneScore, postRuneScore: runeResult.postRuneScore,
     postRegionScore: encounter.postRegionScore, preBossScore: encounter.preBossScore, bossEffects: encounter.bossEffects,

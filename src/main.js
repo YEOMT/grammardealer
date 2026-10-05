@@ -99,7 +99,7 @@ function openOverlay(kind){
 function render(){
   if(presenting){if(location.hash!=='#game')location.hash='game';return;}
   cleanup();cleanup=()=>{};combatView=null;document.querySelectorAll('dialog.app-dialog').forEach(d=>d.close());applySettings();
-  if(location.hash==='#sandbox'){
+  if(import.meta.env.DEV&&location.hash==='#sandbox'){
     cleanup=renderSandbox(root,{onBack:()=>changeRoute('lobby'),presentationSample:(board,ids)=>{connect(board,ids[0],ids.slice(1));}});return;
   }
   const state=controller?.getState();
@@ -112,7 +112,7 @@ function render(){
     if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}
   }
-  renderLobby(root,{profiles,activeProfile:profile,onStart:startRun,onLoad:()=>openOverlay('saves'),onSettings:()=>openOverlay('settings'),onRecords:()=>openOverlay('records'),onSandbox:()=>changeRoute('sandbox'),onProfile:id=>{profile=profiles.find(p=>p.playerId===id)||null;controller=null;render();},onCreateProfile:()=>{profile=null;controller=null;render();}});
+  renderLobby(root,{profiles,activeProfile:profile,onStart:startRun,onLoad:()=>openOverlay('saves'),onSettings:()=>openOverlay('settings'),onRecords:()=>openOverlay('records'),onSandbox:import.meta.env.DEV?()=>changeRoute('sandbox'):null,onProfile:id=>{profile=profiles.find(p=>p.playerId===id)||null;controller=null;render();},onCreateProfile:()=>{profile=null;controller=null;render();}});
 }
 window.addEventListener('hashchange',render);
 window.addEventListener('error',event=>{console.error('Application error',event.error);toast('화면 처리에 문제가 생겼습니다. 로비로 돌아가 다시 시도할 수 있습니다.');});

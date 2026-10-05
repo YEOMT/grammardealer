@@ -1,6 +1,6 @@
 import {registry as defaultRegistry,makeToken,createSentenceSnapshot} from '../../data/language/index.js';
 import {parseSupportedClause} from './parser.js';
-export const GRAMMAR_VERSION='0.2.0';
+export const GRAMMAR_VERSION='0.2.2';
 export const snapshotFromSlots=createSentenceSnapshot;
 
 /** Development fixture conversion only. Unknown words stay explicitly unsupported.
@@ -51,7 +51,7 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry) {
    // Never trust a hidden selection ID to choose the syntactic role of a homograph.
    const candidates=lex.formIds.map(id=>languageRegistry.formById[id]).filter(f=>f.surface.toLowerCase()===selection.surface.toLowerCase());
    const active=candidates.filter(f=>f.runtimeReady);
-   return {...token,lex,sense:languageRegistry.senseById[lex.senseIds[0]],forms:active,surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
+   return {...token,lex,sense:languageRegistry.senseById[lex.senseIds.find(id=>id.endsWith('.sense.basic'))??[...lex.senseIds].sort()[0]],senses:[...lex.senseIds].sort().map(id=>languageRegistry.senseById[id]).filter(Boolean),forms:active,surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
   });
   if(snapshot.fixtureCapabilityId||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
   const parsed=parseSupportedClause(tokens,languageRegistry);

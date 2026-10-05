@@ -22,6 +22,7 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
   validateResolution(resolution);
   if (!ALLOWED_SPEEDS.includes(speed)) throw new RangeError('Presentation speed must be 1, 1.5, or 2');
   const duration=value=>Math.round(value/speed);const feel=impactFeel(resolution);
+  if(resolution.zeroReason==='INCOMPLETE_SENTENCE')return [{kind:'LOCK',duration:50},{kind:'POWER',duration:180},{kind:'IMPACT',duration:1200}];
   let combo=0;
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
@@ -48,7 +49,7 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
   const basis = resolution.visualBasis?.intensityBaseline ?? resolution.visualBasis?.baselinePower ?? 100;
   const intensity = clamp(resolution.finalPower / (Number.isFinite(basis) && basis > 0 ? basis : 100), .35, 3);
   const impact = { hpBefore: resolution.enemyHpBefore, hpAfter: resolution.enemyHpAfter, finalPower: resolution.finalPower,
-    actualHpLoss: resolution.actualHpLoss, overkill: resolution.overkill ?? 0, killed: Boolean(resolution.killed), intensity,feel:impactFeel(resolution) };
+    actualHpLoss: resolution.actualHpLoss, overkill: resolution.overkill ?? 0, killed: Boolean(resolution.killed), zeroReason:resolution.zeroReason, feedbackKo:resolution.feedbackKo, intensity,feel:impactFeel(resolution) };
   let reason = null, timer = null, wake = null, impacted = false,clock=null,gateCancel=null;
   const interrupt = value => { reason ??= value; if (timer !== null) clearTimeout(timer); wake?.(); clock?.close();gateCancel?.(); };
   const onAbort = () => interrupt('aborted');
@@ -247,10 +248,11 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
         lungeAnimation=animate(sentence, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x}px,${y}px) scale(.36)`, opacity: .3 }], duration,'forwards');
       }
     },
-    impact({ hpAfter, finalPower, actualHpLoss, killed, intensity,feel }) {
-      showHp(hpAfter); text('label', finalPower === 0 ? '장막에 막혔습니다' : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
+    impact({ hpAfter, finalPower, actualHpLoss, killed, intensity,feel,zeroReason,feedbackKo }) {
+      showHp(hpAfter); text('label', finalPower === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
       audio?.play?.(finalPower === 0 ? 'blocked' : 'impact', { intensity });
       root.dataset.impactTier=feel.tier;
+      if(zeroReason==='INCOMPLETE_SENTENCE'){animate(find(root,'sentence'),[{opacity:1,transform:'scale(1)'},{opacity:.4,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],500);return;}
       if(finalPower>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
       const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
       if(!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}

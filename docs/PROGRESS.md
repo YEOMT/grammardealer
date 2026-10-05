@@ -1,3 +1,9 @@
+## 0.2.2 개발 완료
+
+구현 커밋 `8b8c539`, [PR #4](https://github.com/YEOMT/grammardealer/pull/4). 개발 브랜치 push 및 PR 생성까지 완료했다. main/Pages/공개 사이트는 변경하지 않았다.
+
+최신 main 50b4311에서 시작한 codex/v0.2.2-grammar-learning-integrity 브랜치다. 제출 정산·문법/콤보 분리·동사 Frame·덱 사전/도감과 과거 교육 증거 보정을 구현했다. unit 342, data 2,371, build, browser 전체, production 7전투, 덱 10,000, 명령 원정 160(38완주/122정상패배/오류0)을 실제 검증했다. 상세 P01~P72·중간 실패·NOT RUN은 TEST_REPORT_0.2.2.md에 있다. main 병합·공개 배포는 하지 않는다. 아래는 과거 기록이다.
+
 ## 0.2.1 개발 브랜치
 
 필수 Stage 1-1 실습, 카드 체크 통합, 충돌/처치 연출, 새 초원 HP를 구현했다. 실제 실행 결과는 TEST_REPORT_0.2.1.md에 분리 기록한다. 이전 보고서의 통과 수는 재사용하지 않는다. main 병합·공개 배포는 별도 검토 단계다.

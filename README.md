@@ -1,3 +1,9 @@
+## 0.2.2 grammar learning update
+
+Latest main baseline: 50b4311 (merged 0.2.1). New runs consume a card submission and turn even when the core sentence is incomplete (zero damage). Grammar evidence is independent of unlocked combo bonuses. My Deck includes the word dictionary; the sentence codex preserves English, grammar evidence and actual power without generated translations. Older runs keep their rules. See [patch notes](docs/PATCH_NOTES_0.2.2_KO.md), [verb audit](docs/VERB_FRAME_AUDIT_0.2.2.md), [education review](docs/EDUCATION_REVIEW_0.2.2.md), and [actual test report](docs/TEST_REPORT_0.2.2.md).
+
+Production does not expose the developer sandbox or debug state. Development mode retains them.
+
 > 0.2.1 개발본: 고정 Stage 1-1 실습과 새 초원 HP 77/132/242를 적용합니다. 최신 변경·실제 검증은 [패치 노트](docs/PATCH_NOTES_0.2.1_KO.md)와 [검증 보고서](docs/TEST_REPORT_0.2.1.md)를 확인하세요. 아래 0.2 설명 중 변경된 부분은 이 후속 문서를 우선합니다. 공개 배포 여부와 구분합니다.
 
 # 센텐스 발라트로 0.2

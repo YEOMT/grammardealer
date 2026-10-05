@@ -1,6 +1,7 @@
+import {addLearningFrames} from './learningFrames.js';
 import { authoredLexemes } from './seed.js';
 
-export const LANGUAGE_VERSION = '0.2.1';
+export const LANGUAGE_VERSION = '0.2.2';
 const presentCapability = ['cap.present.basic'];
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
@@ -113,9 +114,10 @@ export const cardDefinitions = lexemes.map(lex => {
   availability:{runtimeReady,starterEligible,rewardWeight:runtimeReady&&!lex.tutorialOnly?1:0},runtimeReady,starterEligible,rewardWeight:runtimeReady&&!lex.tutorialOnly?1:0};
 });
 export const morphologies = lexemes.map(lex=>({id:lex.morphologyId,lexemeId:lex.id,formIds:[...lex.formIds]}));
-export const registry = freeze({version:LANGUAGE_VERSION,lexemes,forms,morphologies,senses,frames,cards:cardDefinitions,cardDefinitions,capabilities,grammarTags,
+export const campaign021Registry = freeze({version:'0.2.1',lexemes,forms,morphologies,senses,frames,cards:cardDefinitions,cardDefinitions,capabilities,grammarTags,
  lexemeById:index(lexemes),formById:index(forms),morphologyById:index(morphologies),senseById:index(senses),frameById:index(frames),cardById:index(cardDefinitions),
 });
+export const registry = freeze(addLearningFrames(campaign021Registry));
 export const languageRegistry = registry;
 
 // A small ordered content view keeps old saves' future draws and grammar scope stable.
@@ -127,14 +129,14 @@ const legacyForms=forms.filter(f=>legacyLexemeIds.has(f.lexemeId));
 const legacyCards=cardDefinitions.filter(c=>legacyLexemeIds.has(c.lexemeId));
 const legacyMorphologies=morphologies.filter(m=>legacyLexemeIds.has(m.lexemeId));
 const legacyFrames=frames.filter(f=>f.id!=='frame.svoo');
-export const legacyRegistry=freeze({...registry,version:'0.1.1',lexemes:legacyLexemes,senses:legacySenses,forms:legacyForms,cards:legacyCards,cardDefinitions:legacyCards,morphologies:legacyMorphologies,frames:legacyFrames,
+export const legacyRegistry=freeze({...campaign021Registry,version:'0.1.1',lexemes:legacyLexemes,senses:legacySenses,forms:legacyForms,cards:legacyCards,cardDefinitions:legacyCards,morphologies:legacyMorphologies,frames:legacyFrames,
  capabilities:capabilities.map(c=>c.id==='cap.svoo'?{...c,runtimeReady:false}:c),grammarTags:Object.fromEntries(Object.entries(grammarTags).filter(([id])=>id!=='FRAME.SVOO')),
  lexemeById:index(legacyLexemes),senseById:index(legacySenses),formById:index(legacyForms),cardById:index(legacyCards),morphologyById:index(legacyMorphologies),frameById:index(legacyFrames)});
 const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
 const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
 const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
-export const campaign02Registry=freeze({...registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
-export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:registry; }
+export const campaign02Registry=freeze({...campaign021Registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
+export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:registry; }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
 export function lexemeForCard(card) {

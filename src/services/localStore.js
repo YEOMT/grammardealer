@@ -1,13 +1,13 @@
 import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
-import {learningSummary} from '../engine/meaning.js';
+import {learningRecord,reviewProfileLearning} from '../engine/learningRecords.js';
 import { clone, requireInteger, assertSerializable } from '../contracts.js';
 import { assertRng } from '../game/rng.js';
 import { RUNE_BY_ID, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.2.1';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1'].includes(version);
+export const SAVE_VERSION = '0.2.2';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -16,7 +16,7 @@ export function newProfile(displayName) {
 }
 /** Profile events are idempotent; replay/sandbox never calls this reducer. */
 export function applyProfileEvent(profile,event) {
-  const p=clone(profile);
+  const p=clone(reviewProfileLearning(profile));
   if(event.type==='GUIDED_TUTORIAL_COMPLETED'&&event.version==='0.2.1')p.guidedTutorialCompletedVersion=event.version;
   if(event.type==='FIRST_RUNE_SHOWN')p.firstRuneIntroSeen=true;
   if(event.type==='GUIDE_SEEN')p.guideSeen=true;
@@ -24,9 +24,10 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='ATTACK'&&!p.appliedAttackIds.includes(event.resolution.attackId)){
     const r=event.resolution;p.appliedAttackIds.push(r.attackId);p.bestAttack=Math.max(p.bestAttack,r.finalPower);p.totalActualDamage+=r.actualHpLoss;
     const sentence=r.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')+'.';
-    for(const tag of new Set(r.analysis.grammarHits.map(h=>h.tag))){
-      const old=p.grammarRecords[tag]??{count:0,firstSentence:sentence,bestSentence:sentence,bestPower:0,firstLearning:learningSummary(r)};
-      old.count++;if(r.finalPower>old.bestPower){old.bestPower=r.finalPower;old.bestSentence=sentence;old.bestLearning=learningSummary(r);}p.grammarRecords[tag]=old;
+    p.recentSubmissions=[learningRecord(r),...(p.recentSubmissions??[])].slice(0,12);
+    for(const tag of new Set(r.analysis.grammarHits.filter(h=>r.scoreableHitIds?.includes(h.id)??true).map(h=>h.tag))){
+      const old=p.grammarRecords[tag]??{count:0,firstSentence:sentence,bestSentence:sentence,bestPower:0,firstLearning:learningRecord(r)};
+      old.count++;if(r.analysis.status==='VALID'&&!r.analysis.issues?.length){const complete=learningRecord(r);if(!old.firstComplete){old.firstComplete=complete;}if(!old.bestComplete||r.finalPower>old.bestComplete.finalPower)old.bestComplete=complete;}if(r.finalPower>old.bestPower){old.bestPower=r.finalPower;old.bestSentence=sentence;old.bestLearning=learningRecord(r);}p.grammarRecords[tag]=old;
     }
   }
   if(event.type==='STAGE1_CLEAR'&&!p.qualifiedRunIds.includes(event.runId)){
@@ -44,8 +45,8 @@ export function canSaveRun(run) {
   if(!run)return false;
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty&&run.combat.turnIndex===1;
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(run.version==='0.2.2'&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -222,7 +223,7 @@ export class LocalStore {
     if(!this.db)return Promise.reject(Error('저장소를 사용할 수 없습니다. 메모리 플레이는 계속할 수 있습니다.'));
     return new Promise((resolve,reject)=>{let value;const tx=this.db.transaction(storeName,mode);try{const req=operation(tx.objectStore(storeName));req.onsuccess=()=>{value=req.result;};}catch(error){tx.abort();reject(error);}tx.oncomplete=()=>resolve(clone(value));tx.onerror=()=>reject(tx.error??Error('저장하지 못했습니다.'));tx.onabort=()=>reject(tx.error??Error('저장하지 못했습니다.'));});
   }
-  async listProfiles(){return(await this._transaction('profiles','readonly',s=>s.getAll()))??[];}
+  async listProfiles(){return ((await this._transaction('profiles','readonly',s=>s.getAll()))??[]).map(reviewProfileLearning);}
   async createProfile(name){const p=newProfile(name);await this.saveProfile(p);return p;}
   async saveProfile(profile){assertSerializable(profile);if(!profile.playerId)throw Error('프로필 ID가 없습니다.');await this._transaction('profiles','readwrite',s=>s.put(clone(profile)));return clone(profile);}
   async listSlots(playerId){const rows=(await this._transaction('slots','readonly',s=>s.getAll()))??[];return [1,2,3].map(slot=>rows.find(r=>r.key===`${playerId}:${slot}`)??{slot,empty:true});}

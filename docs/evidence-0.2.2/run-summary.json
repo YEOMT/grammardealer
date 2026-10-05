@@ -1,0 +1,1462 @@
+{
+  "rows": [
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 531,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 505,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 12,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 592,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 640,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 514,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 67,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 535,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 609,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 5,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 3
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 531,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 500,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 72,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 592,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 110,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 640,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 369,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 530,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 18,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 53,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 3
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 531,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 4
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 505,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 52,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 592,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 153,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 129,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 369,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 82,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 539,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 609,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 53,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 531,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 500,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 592,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 153,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 640,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 1
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 369,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 82,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 535,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 63,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 609,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 53,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "battle": 7,
+      "hp": 0,
+      "turnsRemaining": 2
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 521,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 20,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 563,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 40,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 560,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 133,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 563,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 532,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 14,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 535,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 535,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 30,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 131,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 35,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 94,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 15,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 64,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 521,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 531,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "BEGINNER",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 155,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 220,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 35,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 3,
+      "hp": 41,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 45,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 90,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 80,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 563,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 537,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 32,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 33,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 16,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 2,
+      "hp": 51,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 106,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 3,
+      "hp": 130,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 53,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 105,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 18,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 549,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 549,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "STANDARD",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 155,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 525,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 35,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 532,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 55,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 552,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 549,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 25,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 536,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 20,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 32,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 511,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 10,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 106,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 150,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 94,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 120,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 562,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 521,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 39,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "ADVANCED",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 80,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.0",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 525,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.1",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 35,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.2",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 623,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.3",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 45,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.4",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 560,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.5",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 554,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.6",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 25,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.7",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 536,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.8",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 8,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.9",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 32,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.10",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 525,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.11",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 4,
+      "hp": 10,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.12",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 106,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.13",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 55,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.14",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 94,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.15",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 20,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.16",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 58,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 7,
+      "hp": 521,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.18",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 5,
+      "hp": 39,
+      "turnsRemaining": 0
+    },
+    {
+      "seed": "run-sequence.19",
+      "vocabularyMode": "FREE",
+      "policy": "SV_ONLY",
+      "result": "DEFEAT",
+      "battle": 6,
+      "hp": 80,
+      "turnsRemaining": 0
+    }
+  ],
+  "totalRuns": 160,
+  "byPolicy": {
+    "LEARNING": {
+      "runs": 80,
+      "completed": 38,
+      "clearRate": 0.475
+    },
+    "SV_ONLY": {
+      "runs": 80,
+      "completed": 0,
+      "clearRate": 0
+    }
+  },
+  "kind": "ACTUAL_CONTROLLER_COMMANDS_NOT_HUMAN_WIN_RATE",
+  "completed": 38,
+  "defeats": 122,
+  "status": "PASS",
+  "errors": 0
+}
