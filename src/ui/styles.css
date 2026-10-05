@@ -116,3 +116,7 @@
 .grouped-forms{display:grid;grid-template-columns:1fr 1fr;gap:10px}.form-group{border:1px solid #55765d;padding:9px;border-radius:8px;min-width:0}.form-group h3{font-size:14px;margin-bottom:6px}.form-group .form-choices{gap:5px}.form-group .form-choice{min-height:48px;padding:5px 9px}.form-group .form-choice strong{font-size:18px}
 .player-sentence,.dictionary-entry .player-sentence{display:block;color:#F5F7FA;font-size:20px;font-weight:750;line-height:1.5;overflow-wrap:anywhere;word-break:normal;margin:8px 0}.record-metadata,.dictionary-entry .record-metadata{color:#acb7c3;font-size:13px;line-height:1.5;display:block}.learning-feedback,.dictionary-entry .learning-feedback{color:#F0A0A5;font-size:14px;line-height:1.5}.learning-evidence p{overflow-wrap:anywhere}
 @media(max-width:1180px){.canyon-combat .enemy-area{grid-template-columns:65px 180px minmax(290px,1fr);padding-right:155px;gap:7px}.canyon-combat .enemy-avatar{width:65px;font-size:50px}.canyon-combat .enemy-info h2{font-size:18px}.canyon-focus{max-width:150px}.golem-phase{padding:5px}.golem-phase-label{font-size:11px}.player-sentence,.dictionary-entry .player-sentence{font-size:18px}}
+
+/* Present/base and past are full rows; p.p. and -ing stay side by side. */
+.grouped-forms > .form-group:nth-child(-n+2){grid-column:1 / -1}
+@media(max-width:420px){.grouped-forms{grid-template-columns:1fr}}

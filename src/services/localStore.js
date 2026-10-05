@@ -1,3 +1,5 @@
+import {cardDefinition} from '../data/cardCatalog.js';
+import {assertCardTypes} from '../game/invariants.js';
 import {TIME_PACKS} from '../data/language/timeLanguage.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
@@ -100,7 +102,7 @@ export function validateRunState(run,registry) {
   }
   ids(run.activeCardIds,'카드');record(run.cardInstances,'카드');
   for(const [id,c] of Object.entries(run.cardInstances)){
-    if(!c||c.instanceId!==id||!registry.cardById[c.cardDefId]?.runtimeReady)fail('없는 카드가 포함되어 있습니다.');
+    if(!c||c.instanceId!==id||!cardDefinition(c,run.version)?.runtimeReady)fail('없는 카드가 포함되어 있습니다.');
     if(currentCampaign&&!run.contentManifest.cardDefIds.includes(c.cardDefId))fail('원정 콘텐츠 범위 밖의 카드입니다.');
     requireInteger(c.polishLevel,'polishLevel',0,3);if(c.specialEffectId!==null)fail('미지원 카드 효과입니다.');
   }
@@ -140,9 +142,10 @@ export function validateRunState(run,registry) {
       else if(encounter.bossMechanic){const veil=c.enemyState.bossMechanic;if(!veil||veil.id!=='SVOO_VEIL'||typeof veil.active!=='boolean'||veil.multiplier?.num!==1||veil.multiplier?.den!==4)fail('보스 장막 정의가 잘못되었습니다.');}
       else if(c.enemyState.bossMechanic)fail('이 적은 보스 장막을 사용하지 않습니다.');
     }
+    assertCardTypes(run);if(c.exhaustedIds!==undefined)ids(c.exhaustedIds,'사용 완료');
     ids(c.drawIds,'드로우');ids(c.handIds,'손패');ids(c.discardIds,'버린 카드');
     if(!Array.isArray(c.sentenceSlots))fail('문장 카드 정보가 잘못되었습니다.');
-    const pileIds=[...c.drawIds,...c.handIds,...c.sentenceSlots.map(x=>x.cardInstanceId),...c.discardIds];
+    const pileIds=[...c.drawIds,...c.handIds,...c.sentenceSlots.map(x=>x.cardInstanceId),...c.discardIds,...(c.exhaustedIds??[])];
     if(pileIds.length!==run.activeCardIds.length||new Set(pileIds).size!==pileIds.length||pileIds.some(x=>!run.activeCardIds.includes(x)))fail('카드 영역 합계가 일치하지 않습니다.');
     if(c.handIds.length>rules.handLimit||c.sentenceSlots.length>rules.sentenceLimit)fail('카드 한도를 초과했습니다.');
     for(const slot of c.sentenceSlots){

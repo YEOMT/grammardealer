@@ -117,6 +117,6 @@ function render(){
 window.addEventListener('hashchange',render);
 window.addEventListener('error',event=>{console.error('Application error',event.error);toast('화면 처리에 문제가 생겼습니다. 로비로 돌아가 다시 시도할 수 있습니다.');});
 if(import.meta.env.DEV&&new URLSearchParams(location.search).get('debug')==='1')Object.defineProperty(window,'__SB_DEV__',{value:{getState:()=>controller?.getState(),getProfile:()=>profile},writable:false});
-root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'센텐스 발라트로'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));
+root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'신택스 아틀라스'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));
 try{await store.init();profiles=await store.listProfiles();profile=profiles[0]||null;}catch(error){memoryWarning=true;console.warn('Local persistence unavailable',error);}
 render();if(memoryWarning)toast('로컬 저장소를 사용할 수 없습니다. 현재 탭에서 플레이는 계속할 수 있습니다.');

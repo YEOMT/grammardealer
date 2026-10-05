@@ -78,7 +78,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
     button(entry.used?'사용 완료':gold<entry.price?'재화 부족':'대상 선택',()=>targets(kind),'secondary',{disabled:entry.used||gold<entry.price,'aria-label':`${kind==='POLISH'?'연마':'제거'} 대상 선택`})));
   const animateGrant=grant&&!displayedGrants.has(grant.entryGrantId);
   if(grant)displayedGrants.add(grant.entryGrantId);
-  root.replaceChildren(el('header',{class:'topbar shop-topbar'},el('span',{class:'brand-small',text:'SENTENCE BALATRO'}),
+  root.replaceChildren(el('header',{class:'topbar shop-topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),
     el('nav',{},button('내 덱',onDeck,'quiet'),button('단어 사전',onDictionary,'quiet'),button('도감',onRecords,'quiet'),button('저장',onSaves,'quiet'),button('로비',onLobby,'quiet'))),
     el('main',{class:'shop-page harbor-page'},
       el('header',{class:'shop-heading'},el('div',{},el('span',{class:'eyebrow',text:'CHAPTER 02 · FIRST SHOP'}),el('h1',{text:'전달의 항구 · 첫 상점'})),

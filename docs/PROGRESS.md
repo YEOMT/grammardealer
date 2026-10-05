@@ -1,3 +1,7 @@
+## 0.4 진행 중
+
+최신 main db9f6ca에서 codex/v0.4-sky-islands-operations를 만들었다. 미커밋 변경 없음. A 기준 검증 455 unit / build PASS. 0.3 덱·보상/RNG·상점·공격 golden과 기존 증거를 보존했다. B 카드 유형/저장 영역/시작 덱/UI 기반을 구현 중이며, 전체 완료 결과는 아직 아니다. 세부 순서는 IMPLEMENTATION_PLAN_0.4.md.
+
 ## 0.3 구현·로컬 검증 완료
 
 Base origin/main d6535b6c8c74132a34e7eb56f778ef0eedcd3b24 (0.2.2 PR #4). Branch codex/v0.3-time-canyon. 최초 상태는 clean. A 기준/golden → B 언어 → C 점수/룬 → D 진행/골렘 → E UI/연출 → F 저장/전체 검증 순서로 구현했다.

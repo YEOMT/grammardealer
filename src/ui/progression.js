@@ -9,7 +9,7 @@ import { stageForRun, roundsForRun, isCurrentCampaign } from '../data/stages.js'
 import { STAGE2_VEIL_HINT } from '../data/stage2.js';
 
 const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar' },
-  el('span', { class: 'brand-small', text: 'SENTENCE BALATRO' }),
+  el('span', { class: 'brand-small', text: 'SYNTAX ATLAS' }),
   el('nav', {}, onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
 const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
 

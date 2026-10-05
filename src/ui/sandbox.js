@@ -13,7 +13,7 @@ export function renderSandbox(root, { onBack, presentationSample } = {}) {
   let slots=[], instances={}, serial=0, result=null, search='', category='ALL', cleanupDrag;
   let chosenRunes=[], autoAnalyze=false,stageId='stage.01';
   const fixtures=[...acceptance.grammarCases,{id:'V02_SVOO',sentenceForHumanReading:'She gives me a book',expectedStatus:'VALID'},{id:'V02_TO',sentenceForHumanReading:'She gives a book to me',expectedStatus:'VALID'},{id:'V02_FOR',sentenceForHumanReading:'She makes a game for me',expectedStatus:'VALID'}];
-  const header=el('header',{class:'topbar'},button('← 로비',onBack,'quiet'),el('span',{class:'brand-small',text:'SENTENCE BALATRO'}),el('span',{class:'version-badge',text:'개발 전용 · 0.2'}));
+  const header=el('header',{class:'topbar'},button('← 로비',onBack,'quiet'),el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),el('span',{class:'version-badge',text:'개발 전용 · 0.2'}));
   const catalog=el('div',{class:'catalog-grid'}), board=el('div',{class:'sentence-cards sandbox-cards',dataset:{cardZone:'sentence',presentation:'sentence'}}), output=el('div',{class:'sandbox-result'}), runeControls=el('div',{class:'sandbox-runes'}), count=el('span',{class:'counter'});
   const searchInput=el('input',{type:'search',placeholder:'단어 또는 뜻 찾기',value:search,'aria-label':'등록 카드 검색',oninput:e=>{search=e.target.value;renderCatalog();}});
   const posSelect=el('select',{'aria-label':'품사 필터',onchange:e=>{category=e.target.value;renderCatalog();}},el('option',{value:'ALL',text:'모든 품사'}),Object.entries(POS_LABELS).map(([id,label])=>el('option',{value:id,text:label})));

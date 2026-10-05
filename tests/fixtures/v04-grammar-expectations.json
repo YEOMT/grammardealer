@@ -1,0 +1,683 @@
+{
+  "meta": {
+    "target_version": "0.4.0",
+    "basis_commit": "db9f6ca508329b2306ef7a5a6916bb5ea404c418",
+    "kind": "DESIGN_EXPECTATIONS_NOT_GAME_TEST_RESULTS",
+    "actual_game_execution": false
+  },
+  "notes": [
+    "Expectations are not parser results. Use real cards and the shared Grammar Engine.",
+    "Syntax-only acceptance follows this curated scope; no semantic plausibility score.",
+    "Do not deploy these strings as answer keys."
+  ],
+  "cases": [
+    {
+      "id": "G001",
+      "text": "I like music and she likes books.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G002",
+      "text": "I am happy and you are kind.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 7
+    },
+    {
+      "id": "G003",
+      "text": "I run but she reads books.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 6
+    },
+    {
+      "id": "G004",
+      "text": "I will read books or she will play games.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 9
+    },
+    {
+      "id": "G005",
+      "text": "I played games and she will read books.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 8
+    },
+    {
+      "id": "G006",
+      "text": "I run and you work and she plays games.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "3 clauses, link multiplier once",
+      "primary_scoring_frame": "SV",
+      "word_count": 9
+    },
+    {
+      "id": "G007",
+      "text": "I like music and she like books.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": "COORDINATED_CLAUSES",
+      "shield_release_with_active_shield": true,
+      "notes": "Agreement error in second clause, complete bonus absent",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G008",
+      "text": "I like music and she.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 5
+    },
+    {
+      "id": "G009",
+      "text": "I like music and.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 4
+    },
+    {
+      "id": "G010",
+      "text": "I like music you work.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "No licensed complement/relative link; two fragments cannot be silently joined",
+      "word_count": 5
+    },
+    {
+      "id": "G011",
+      "text": "You and I are happy.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 5
+    },
+    {
+      "id": "G012",
+      "text": "He and she are kind.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 5
+    },
+    {
+      "id": "G013",
+      "text": "He and she is kind.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 5
+    },
+    {
+      "id": "G014",
+      "text": "The dog and the cat run.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 6
+    },
+    {
+      "id": "G015",
+      "text": "The dog or the cats run.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "Use documented nearest-conjunct school agreement policy",
+      "primary_scoring_frame": "SV",
+      "word_count": 6
+    },
+    {
+      "id": "G016",
+      "text": "I like books and music.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 5
+    },
+    {
+      "id": "G017",
+      "text": "She is kind and happy.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 5
+    },
+    {
+      "id": "G018",
+      "text": "The book is small but useful.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 6
+    },
+    {
+      "id": "G019",
+      "text": "I run and play games.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "Shared subject, first predicate scoring anchor; do not invent second physical subject",
+      "primary_scoring_frame": "SV",
+      "word_count": 5
+    },
+    {
+      "id": "G020",
+      "text": "She will run and work.",
+      "expected_status": "VALID",
+      "new_relation": "PHRASE_COORDINATION",
+      "shield_release_with_active_shield": false,
+      "notes": "Shared will; physical card scores once",
+      "primary_scoring_frame": "SV",
+      "word_count": 5
+    },
+    {
+      "id": "G021",
+      "text": "She is happy and books.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 5
+    },
+    {
+      "id": "G022",
+      "text": "I like and music.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 4
+    },
+    {
+      "id": "G023",
+      "text": "I read a book because you work.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G024",
+      "text": "Because you work I read a book.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "No comma card required",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G025",
+      "text": "I read a book when she comes home.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 8
+    },
+    {
+      "id": "G026",
+      "text": "When she comes home I read a book.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 8
+    },
+    {
+      "id": "G027",
+      "text": "I will help you if you work.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G028",
+      "text": "If you work I will help you.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G029",
+      "text": "I play games if I have time.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G030",
+      "text": "I am reading because she is working.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 7
+    },
+    {
+      "id": "G031",
+      "text": "I have read the book because you are reading it.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 10
+    },
+    {
+      "id": "G032",
+      "text": "Because you work.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "A fragment under the game standalone declarative policy; not a claim about dialogue fragments",
+      "word_count": 3
+    },
+    {
+      "id": "G033",
+      "text": "I read a book because.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 5
+    },
+    {
+      "id": "G034",
+      "text": "I read a book because happy.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 6
+    },
+    {
+      "id": "G035",
+      "text": "I read a book when she come home.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 8
+    },
+    {
+      "id": "G036",
+      "text": "If you will help me I will work.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "Willingness reading exists; do not use a blanket if+will invalid rule",
+      "primary_scoring_frame": "SV",
+      "word_count": 8
+    },
+    {
+      "id": "G037",
+      "text": "I think that she likes music.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G038",
+      "text": "They know that I am happy.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G039",
+      "text": "She says that he is working.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G040",
+      "text": "I think she likes music.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": false,
+      "notes": "Omitted that is grammatical; connector-card boss requires an explicit functioning connector",
+      "primary_scoring_frame": "SVO",
+      "word_count": 5
+    },
+    {
+      "id": "G041",
+      "text": "She says he works.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 4
+    },
+    {
+      "id": "G042",
+      "text": "I thought that she worked.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 5
+    },
+    {
+      "id": "G043",
+      "text": "I have known that she works.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G044",
+      "text": "I think that she will help me.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G045",
+      "text": "I think that she like music.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G046",
+      "text": "I run that she likes music.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 6
+    },
+    {
+      "id": "G047",
+      "text": "I think that she likes.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Do not borrow a relative object gap",
+      "word_count": 5
+    },
+    {
+      "id": "G048",
+      "text": "I say her that you work.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Do not give say the tell double-object frame",
+      "word_count": 6
+    },
+    {
+      "id": "G049",
+      "text": "I am knowing that she works.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "ASPECT_USAGE -10 for the authored knowledge sense; no complete/progressive bonus",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G050",
+      "text": "I like that book.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Demonstrative determiner, no content-clause effect",
+      "primary_scoring_frame": "SVO",
+      "word_count": 4
+    },
+    {
+      "id": "G051",
+      "text": "I like that.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Demonstrative pronoun",
+      "primary_scoring_frame": "SVO",
+      "word_count": 3
+    },
+    {
+      "id": "G052",
+      "text": "I like the book that she reads.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Existing relative clause, not a new Stage4 connector-card condition",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G053",
+      "text": "I like the book she reads.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Existing omitted object relative preserved",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G054",
+      "text": "I think that she likes that book.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_CLAUSE",
+      "shield_release_with_active_shield": true,
+      "notes": "Two physical that instances, two distinct roles",
+      "primary_scoring_frame": "SVO",
+      "word_count": 7
+    },
+    {
+      "id": "G055",
+      "text": "I think that she is happy because you help her.",
+      "expected_status": "VALID",
+      "new_relation": "CONTENT_PLUS_ADVERBIAL",
+      "shield_release_with_active_shield": true,
+      "notes": "One clause-link multiplier for all links",
+      "primary_scoring_frame": "SVO",
+      "word_count": 10
+    },
+    {
+      "id": "G056",
+      "text": "I like the book that she reads and you like music.",
+      "expected_status": "VALID",
+      "new_relation": "COORDINATED_WITH_RELATIVE",
+      "shield_release_with_active_shield": true,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 11
+    },
+    {
+      "id": "G057",
+      "text": "I like books and music because she reads.",
+      "expected_status": "VALID",
+      "new_relation": "ADVERBIAL_PLUS_PHRASE",
+      "shield_release_with_active_shield": true,
+      "notes": "One +10 phrase event and one x1.6 clause event on distinct nodes",
+      "primary_scoring_frame": "SVO",
+      "word_count": 8
+    },
+    {
+      "id": "G058",
+      "text": "I think that she likes music and you work.",
+      "expected_status": "VALID",
+      "new_relation": "NESTED_COORDINATED_CONTENT",
+      "shield_release_with_active_shield": true,
+      "notes": "Ambiguity resolved by documented syntax-only priority; do not optimize for runes",
+      "primary_scoring_frame": "SVO",
+      "word_count": 9
+    },
+    {
+      "id": "G059",
+      "text": "I give my friend a book.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Unchanged Stage2 support; no Stage4 shield release",
+      "primary_scoring_frame": "SVOO",
+      "word_count": 6
+    },
+    {
+      "id": "G060",
+      "text": "I am a student.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 4
+    },
+    {
+      "id": "G061",
+      "text": "I am at school.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "Adopted school location policy",
+      "primary_scoring_frame": "SV",
+      "word_count": 4
+    },
+    {
+      "id": "G062",
+      "text": "They develop.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 2
+    },
+    {
+      "id": "G063",
+      "text": "I be happy.",
+      "expected_status": "VALID_WITH_ISSUES",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVC",
+      "word_count": 3
+    },
+    {
+      "id": "G064",
+      "text": "He runs very fast.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 4
+    },
+    {
+      "id": "G065",
+      "text": "I have been working.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SV",
+      "word_count": 4
+    },
+    {
+      "id": "G066",
+      "text": "I will have been playing games.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "primary_scoring_frame": "SVO",
+      "word_count": 6
+    },
+    {
+      "id": "G067",
+      "text": "I like a technology.",
+      "expected_status": "VALID",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "0.3 BOTH countability maintained",
+      "primary_scoring_frame": "SVO",
+      "word_count": 4
+    },
+    {
+      "id": "G068",
+      "text": "I book happy run.",
+      "expected_status": "INVALID_CORE",
+      "new_relation": null,
+      "shield_release_with_active_shield": false,
+      "notes": "",
+      "word_count": 4
+    }
+  ]
+}

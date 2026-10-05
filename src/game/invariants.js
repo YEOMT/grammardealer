@@ -1,3 +1,4 @@
+import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 
@@ -8,7 +9,7 @@ const nonnegative = value => Number.isSafeInteger(value) && value >= 0;
 export function assertCardConservation(activeCardIds, piles, cardInstances) {
   assert(Array.isArray(activeCardIds), 'activeCardIds must be an array');
   assert(new Set(activeCardIds).size === activeCardIds.length, 'duplicate active card ID');
-  const ids = [...piles.drawIds, ...piles.handIds, ...piles.sentenceSlots.map(slot => slot.cardInstanceId), ...piles.discardIds];
+  const ids = [...piles.drawIds, ...piles.handIds, ...piles.sentenceSlots.map(slot => slot.cardInstanceId), ...piles.discardIds,...(piles.exhaustedIds??[])];
   assert(ids.length === activeCardIds.length, 'pile count differs from active deck');
   assert(new Set(ids).size === ids.length, 'card occurs in more than one pile');
   const active = new Set(activeCardIds);
@@ -49,9 +50,9 @@ export function assertRunInvariants(run, registry) {
     assert(typeof card.cardDefId === 'string', 'missing card definition');
     assert(nonnegative(card.polishLevel) && card.polishLevel <= 3, 'invalid polish level');
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
-    if (registry) assert(Boolean(registry.cardById[card.cardDefId]), 'unknown card definition');
+    if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
-  if (run.combat) assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);
+  if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);
   return true;
@@ -61,4 +62,14 @@ export function assertRunInvariants(run, registry) {
 export function validateRunState(run, registry) {
   try { assertRunInvariants(run, registry); return { valid: true, errors: [] }; }
   catch (error) { return { valid: false, errors: [error.message] }; }
+}
+
+/** Shared persisted/live type boundary. Missing legacy exhaustion is read as empty. */
+export function assertCardTypes(run){
+ const c=run.combat;if(!c)return true;
+ assert((c.exhaustedIds??[]).length===0||run.version==='0.4.0','legacy exhausted cards');
+ for(const slot of c.sentenceSlots)assert(cardKind(run.cardInstances[slot.cardInstanceId],run.version)==='WORD','operation on sentence board');
+ for(const id of c.exhaustedIds??[])assert(cardKind(run.cardInstances[id],run.version)==='OPERATION','word in exhausted pile');
+ for(const card of Object.values(run.cardInstances))if(cardKind(card,run.version)==='OPERATION')assert(card.polishLevel===0&&card.specialEffectId===null,'enhanced operation');
+ return true;
 }
