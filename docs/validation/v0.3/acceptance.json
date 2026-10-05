@@ -677,8 +677,8 @@
     {
       "id": "P097",
       "expected": "변경 내역·초깃값 조정·남은 문제·인수 조건 근거·PR 주소를 제출하고 자동 병합하지 않는다.",
-      "status": "NOT RUN",
-      "evidence": "Branch push and main-target PR URL recorded after successful remote operation; no merge/deploy",
+      "status": "PASS",
+      "evidence": "Feature branch pushed; implementation8700a11; PR #5 https://github.com/YEOMT/grammardealer/pull/5 open, auto_merge null, main unchanged. Reports/audits/captures/fixture video attached.",
       "scope": "See TEST_REPORT_0.3 for command exits and distinction between evidence kinds"
     }
   ]

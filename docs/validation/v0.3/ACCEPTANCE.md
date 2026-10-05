@@ -1,6 +1,6 @@
 # 0.3 P001–P097 실제 검사 근거
 
-첨부 JSON은 기대사항이다. 아래는 이번 실행 및 코드 대조의 결과다. 세부 실행 종류와 한계는 [검사 보고서](../../TEST_REPORT_0.3.md)를 따른다. 물리 기기·음향·교육 전문가 검수는 자동 검사 PASS에 포함하지 않는다.
+첨부 JSON은 기대사항이다. 아래는 이번 실행 및 코드 대조의 결과다. 세부 실행 종류와 한계는 [검사 보고서](../../TEST_REPORT_0.3.md)를 따른다. 물리 기기·음향·교육 전문가 검수는 자동 검사 PASS에 포함하지 않는다. 항목별 집계는 PASS96 / FAIL0 / NOT RUN1(P096)이다. 각 PASS의 자동·지정 상태·코드 대조 범위는 실제 근거 열을 따른다.
 
 | 항목 | 결과 | 기대사항 | 실제 근거 |
 |---|---|---|---|
@@ -100,4 +100,4 @@
 | P094 | PASS | production 12전투를 실제 UI로 완주하고 합성 fixture 시연과 구분한다. | production1366 seed17 and final1024: actual12 offline UI battles,24 attacks each; separate from fixtures |
 | P095 | PASS | 첫 로드 이후 오프라인 플레이·저장과 필수 test/data/build/browser 결과를 보고한다. | final test455/data2489/build/browser exits0; production offline after initial assets no failed resource |
 | P096 | NOT RUN | 실제 기기·교사 검수·스피커 등 실행하지 않은 검사는 NOT RUN으로 표시한다. | NOT RUN: physical iPad/Android, Safari/Firefox/WebKit, speaker listening, teacher/student review |
-| P097 | NOT RUN | 변경 내역·초깃값 조정·남은 문제·인수 조건 근거·PR 주소를 제출하고 자동 병합하지 않는다. | Branch push and main-target PR URL recorded after successful remote operation; no merge/deploy |
+| P097 | PASS | 변경 내역·초깃값 조정·남은 문제·인수 조건 근거·PR 주소를 제출하고 자동 병합하지 않는다. | Feature branch 8700a11 pushed; [PR #5](https://github.com/YEOMT/grammardealer/pull/5), open, auto_merge=null; main unchanged, no deployment |

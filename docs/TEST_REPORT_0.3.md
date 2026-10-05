@@ -103,4 +103,4 @@ production 시드는 `run-sequence.17`, 정책 LEARNING이다. 실습40/126, 정
 
 기존 증거138개는 실행 전 해시와 모두 같게 복원했다. 고정 경로에서 바뀐42개 출력은 이번 실행 폴더에 먼저 보관했다. 새 코드·테스트·문서는 의도적인 변경이며 “전체 소스 동일”을 주장하지 않는다. 다운로드 런타임·node_modules·dist·원본 로그/백업·중복 영상은 commit 대상에서 제외한다.
 
-원격 반영: 아직 이 보고서 작성 중이며 실제 push/PR 성공 후 주소와 상태를 추가한다. main 직접 push·자동 병합·Pages 설정 변경·공개 배포는 하지 않는다.
+원격 반영: 구현 커밋 8700a11ffb9f6633f4790caa875687f741e814a6을 codex/v0.3-time-canyon으로 push하고 [PR #5](https://github.com/YEOMT/grammardealer/pull/5)를 main 대상으로 생성했다. PR은 open, auto_merge=null이다. main은 시작 SHA d6535b6c8c74132a34e7eb56f778ef0eedcd3b24를 유지했다. Pages workflow는 변경하지 않았으며 PR 이벤트에서는 upload/deploy 조건이 false다. 최종 원격 CI 결과는 PR의 해당 head checks를 따른다. main 직접 push·자동 병합·Pages 설정 변경·공개 배포는 수행하지 않았다.
