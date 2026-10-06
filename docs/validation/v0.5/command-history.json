@@ -1,0 +1,99 @@
+[
+  {
+    "phase": "baseline",
+    "source": ".local-validation/v05/baseline-results.json",
+    "result": {
+      "build": 0,
+      "test": 0
+    }
+  },
+  {
+    "phase": "first-core",
+    "source": ".local-validation/v05/final/commands.json",
+    "result": [
+      {
+        "command": "npm.cmd test",
+        "startedUtc": "2026-10-06T11:26:37.5647059Z",
+        "endedUtc": "2026-10-06T11:28:10.1507945Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run validate:data",
+        "startedUtc": "2026-10-06T11:28:10.2677034Z",
+        "endedUtc": "2026-10-06T11:28:11.0904964Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run build",
+        "startedUtc": "2026-10-06T11:28:11.1203495Z",
+        "endedUtc": "2026-10-06T11:28:12.1386118Z",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "phase": "first-browser",
+    "source": ".local-validation/v05/final/browser-command.json",
+    "result": {
+      "command": "npm.cmd run test:browser",
+      "startedUtc": "2026-10-06T11:28:30.3835488Z",
+      "endedUtc": "2026-10-06T11:32:41.0383583Z",
+      "exitCode": 0
+    }
+  },
+  {
+    "phase": "second-run",
+    "source": ".local-validation/v05/final2/commands.json",
+    "result": [
+      {
+        "command": "npm.cmd test",
+        "startedUtc": "2026-10-06T11:38:08.5271618Z",
+        "endedUtc": "2026-10-06T11:39:42.2450364Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run validate:data",
+        "startedUtc": "2026-10-06T11:39:42.3606905Z",
+        "endedUtc": "2026-10-06T11:39:43.0341809Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run build",
+        "startedUtc": "2026-10-06T11:39:43.0547386Z",
+        "endedUtc": "2026-10-06T11:39:43.9409034Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run test:browser",
+        "startedUtc": "2026-10-06T11:39:43.9772945Z",
+        "endedUtc": "2026-10-06T11:43:56.8169595Z",
+        "exitCode": 0
+      },
+      {
+        "command": "npm.cmd run test:decks:desert",
+        "startedUtc": "2026-10-06T11:43:56.8480203Z",
+        "endedUtc": "2026-10-06T11:44:37.5360443Z",
+        "exitCode": 0
+      }
+    ]
+  },
+  {
+    "phase": "second-interruption",
+    "source": ".local-validation/v05/final2/interruption.json",
+    "result": {
+      "status": "INTERRUPTED_AFTER_BROWSER_PASS",
+      "atUtc": "2026-10-06T11:44:38.887377Z",
+      "reason": "Confirmed nested SVOC child interpretation priority defect; preserve completed results and rerun final source"
+    }
+  },
+  {
+    "phase": "live-score",
+    "source": ".local-validation/v05/desert-score-browser-command.json",
+    "result": {
+      "command": "node tests/desert-score-browser.mjs",
+      "exitCode": 0,
+      "endedUtc": "2026-10-06T11:46:59.9640745Z",
+      "startedUtc": "2026-10-06T11:46:44.9683302Z"
+    }
+  }
+]

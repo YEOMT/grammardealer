@@ -1,0 +1,483 @@
+{
+  "meta": {
+    "project": "Syntax Atlas",
+    "targetVersion": "0.5.0",
+    "baselineCommit": "6d2907eddefafb1a909c6c803259ba26b408f104",
+    "createdDate": "2026-10-06",
+    "evidenceStatus": "SPECIFICATION_EXPECTATIONS_ONLY_NOT_RUNTIME_TEST_RESULTS",
+    "noteKo": "이 인계는 실제 게임 구현/파서 실행/브라우저 검증/PR을 수행하지 않았다."
+  },
+  "items": [
+    {
+      "id": "B001",
+      "title": "첫손패 WORD만 추첨",
+      "initial": {
+        "hand": [
+          "w1",
+          "op1",
+          "w2"
+        ],
+        "kinds": {
+          "w1": "WORD",
+          "op1": "OPERATION",
+          "w2": "WORD"
+        },
+        "previous": null,
+        "draw": 0.75
+      },
+      "action": "TURN_START",
+      "expected": {
+        "eligible": [
+          "w1",
+          "w2"
+        ],
+        "selected": "w2",
+        "encounterDraws": 1,
+        "otherRngDraws": 0
+      }
+    },
+    {
+      "id": "B002",
+      "title": "직전 물리 사본 회피",
+      "initial": {
+        "hand": [
+          "w1",
+          "w2",
+          "w3"
+        ],
+        "previous": "w2",
+        "draw": 0.9
+      },
+      "action": "TURN_START",
+      "expected": {
+        "eligible": [
+          "w1",
+          "w3"
+        ],
+        "selected": "w3",
+        "encounterDraws": 1
+      }
+    },
+    {
+      "id": "B003",
+      "title": "단일 WORD 반복 허용",
+      "initial": {
+        "hand": [
+          "w1"
+        ],
+        "previous": "w1",
+        "draw": 0.4
+      },
+      "action": "TURN_START",
+      "expected": {
+        "eligible": [
+          "w1"
+        ],
+        "selected": "w1",
+        "encounterDraws": 1
+      }
+    },
+    {
+      "id": "B004",
+      "title": "WORD 없는 턴",
+      "initial": {
+        "hand": [
+          "op1"
+        ],
+        "kinds": {
+          "op1": "OPERATION"
+        },
+        "previous": "w1"
+      },
+      "action": "TURN_START",
+      "expected": {
+        "eligible": [],
+        "selected": null,
+        "encounterDraws": 0
+      }
+    },
+    {
+      "id": "B005",
+      "title": "첫 봉인 이후 보급",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1",
+          "op1"
+        ],
+        "turn": 2
+      },
+      "action": "USE_SUPPLY",
+      "expected": {
+        "sealed": "w1",
+        "turn": 2,
+        "reseal": false
+      }
+    },
+    {
+      "id": "B006",
+      "title": "봉인 교환",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1",
+          "w2"
+        ],
+        "turn": 2
+      },
+      "action": "EXCHANGE_w1",
+      "expected": {
+        "sealed": "w1",
+        "canMoveSealedToDiscard": true,
+        "reseal": false,
+        "exchangesSpent": 1,
+        "turnSpent": 0
+      }
+    },
+    {
+      "id": "B007",
+      "title": "같은 턴 동일사본 재획득",
+      "initial": {
+        "sealed": "w1",
+        "discard": [
+          "w1"
+        ],
+        "turn": 2
+      },
+      "action": "RESHUFFLE_DRAW_w1",
+      "expected": {
+        "sealed": "w1",
+        "addToBoardAllowed": false,
+        "reseal": false
+      }
+    },
+    {
+      "id": "B008",
+      "title": "탐색으로 봉인사본 복귀",
+      "initial": {
+        "sealed": "w1",
+        "draw": [
+          "w1"
+        ],
+        "turn": 2
+      },
+      "action": "SEARCH_w1",
+      "expected": {
+        "sealed": "w1",
+        "searchAllowed": true,
+        "addToBoardAllowed": false,
+        "reseal": false
+      }
+    },
+    {
+      "id": "B009",
+      "title": "다음 턴 전환",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1",
+          "w2"
+        ],
+        "turn": 2
+      },
+      "action": "PREPARE_DRAW_w3",
+      "expected": {
+        "turn": 3,
+        "priorSealExpired": true,
+        "candidateExcludes": "w1",
+        "selectAfterDraw": true
+      }
+    },
+    {
+      "id": "B010",
+      "title": "처음 손패0 후 운영드로우",
+      "initial": {
+        "sealed": null,
+        "hand": [
+          "op1"
+        ],
+        "turn": 2
+      },
+      "action": "USE_SUPPLY_DRAW_w1_w2",
+      "expected": {
+        "sealed": null,
+        "reseal": false
+      }
+    },
+    {
+      "id": "B011",
+      "title": "같은 단어 다른 사본",
+      "initial": {
+        "sealed": "to.A",
+        "hand": [
+          "to.A",
+          "to.B"
+        ],
+        "turn": 2
+      },
+      "action": "ADD_to.B",
+      "expected": {
+        "allowed": true,
+        "sealed": "to.A",
+        "turnSpent": 0
+      }
+    },
+    {
+      "id": "B012",
+      "title": "봉인 본문클릭",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1"
+        ],
+        "board": [],
+        "turn": 2
+      },
+      "action": "ADD_w1",
+      "expected": {
+        "allowed": false,
+        "stateUnchanged": true,
+        "rngUnchanged": true
+      }
+    },
+    {
+      "id": "B013",
+      "title": "봉인 맞교환",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1"
+        ],
+        "board": [
+          "w2"
+        ],
+        "turn": 2
+      },
+      "action": "SWAP_w1_w2",
+      "expected": {
+        "allowed": false,
+        "stateUnchanged": true
+      }
+    },
+    {
+      "id": "B014",
+      "title": "기존 조합대 제외",
+      "initial": {
+        "hand": [
+          "w1",
+          "w2"
+        ],
+        "board": [
+          "w3"
+        ],
+        "previous": null,
+        "draw": 0.9
+      },
+      "action": "TURN_START",
+      "expected": {
+        "eligible": [
+          "w1",
+          "w2"
+        ],
+        "selected": "w2",
+        "boardUnchanged": [
+          "w3"
+        ],
+        "encounterDraws": 1
+      }
+    },
+    {
+      "id": "B015",
+      "title": "잘못된 봉인 클릭은 비용없음",
+      "initial": {
+        "sealed": "w1",
+        "hand": [
+          "w1"
+        ],
+        "turnsRemaining": 4,
+        "exchangesRemaining": 3
+      },
+      "action": "DRAG_w1_to_BOARD",
+      "expected": {
+        "turnsRemaining": 4,
+        "exchangesRemaining": 3,
+        "rngUnchanged": true
+      }
+    },
+    {
+      "id": "B016",
+      "title": "0피해 제출 후 정상 다음 턴",
+      "initial": {
+        "sealed": "w1",
+        "turn": 2,
+        "turnsRemaining": 4,
+        "enemyHp": 500
+      },
+      "action": "INVALID_CORE_SUBMIT_FINISH",
+      "expected": {
+        "turn": 3,
+        "turnsRemaining": 3,
+        "damage": 0,
+        "cardsConsumed": true,
+        "newSealOnce": true
+      }
+    },
+    {
+      "id": "B017",
+      "title": "승리 뒤에는 다음봉인 없음",
+      "initial": {
+        "turn": 6,
+        "turnsRemaining": 1,
+        "enemyHp": 10
+      },
+      "action": "VALID_ATTACK_POWER_100",
+      "expected": {
+        "status": "VICTORY",
+        "nextTurn": false,
+        "encounterDraws": 0
+      }
+    },
+    {
+      "id": "B018",
+      "title": "마지막 준비는 패배",
+      "initial": {
+        "turn": 6,
+        "turnsRemaining": 1,
+        "enemyHp": 10
+      },
+      "action": "CONFIRMED_PREPARE",
+      "expected": {
+        "status": "DEFEAT",
+        "nextTurn": false,
+        "encounterDraws": 0
+      }
+    },
+    {
+      "id": "B019",
+      "title": "동일 턴 키 중복 적용",
+      "initial": {
+        "lastAppliedTurnKey": "battle.05.05:2",
+        "sealed": "w2",
+        "turn": 2
+      },
+      "action": "APPLY_SEAL_SAME_KEY",
+      "expected": {
+        "selected": "w2",
+        "encounterDraws": 0
+      }
+    },
+    {
+      "id": "B020",
+      "title": "저장불러오기 유지",
+      "initial": {
+        "sealed": "w1",
+        "turn": 1,
+        "encounterCursor": 1
+      },
+      "action": "SAVE_RESTORE_ALLOWED_POINT",
+      "expected": {
+        "sealed": "w1",
+        "turn": 1,
+        "encounterCursor": 1,
+        "reseal": false
+      }
+    },
+    {
+      "id": "B021",
+      "title": "정상 영역 이동 저장",
+      "initial": {
+        "sealed": "w1",
+        "discard": [
+          "w1"
+        ],
+        "turn": 2
+      },
+      "action": "SERIALIZER_ROUNDTRIP",
+      "expected": {
+        "stateValid": true,
+        "note": "UI저장가능여부는기존정책별도"
+      }
+    },
+    {
+      "id": "B022",
+      "title": "운영 사본을 봉인한 손상저장",
+      "initial": {
+        "sealed": "op1",
+        "hand": [
+          "op1"
+        ],
+        "kinds": {
+          "op1": "OPERATION"
+        }
+      },
+      "action": "VALIDATE_SAVE",
+      "expected": {
+        "stateValid": false
+      }
+    },
+    {
+      "id": "B023",
+      "title": "봉인사본의 불법조합대 진입",
+      "initial": {
+        "sealed": "w1",
+        "board": [
+          "w1"
+        ],
+        "turn": 2
+      },
+      "action": "ASSERT_INVARIANT",
+      "expected": {
+        "stateValid": false
+      }
+    },
+    {
+      "id": "B024",
+      "title": "기술실패 원자복구",
+      "initial": {
+        "turn": 2,
+        "deckCursor": 10,
+        "encounterCursor": 1
+      },
+      "action": "PREPARE_THEN_INVARIANT_ERROR",
+      "expected": {
+        "turn": 2,
+        "deckCursor": 10,
+        "encounterCursor": 1,
+        "stateUnchanged": true
+      }
+    },
+    {
+      "id": "B025",
+      "title": "다음전투로 상태누출 없음",
+      "initial": {
+        "sealed": "w1",
+        "turn": 4,
+        "status": "VICTORY"
+      },
+      "action": "EXIT_BATTLE",
+      "expected": {
+        "activeSeal": false,
+        "noSealCssLeak": true
+      }
+    },
+    {
+      "id": "B026",
+      "title": "탐색 취소",
+      "initial": {
+        "sealed": "w1",
+        "turn": 2,
+        "hand": [
+          "op1",
+          "w2"
+        ],
+        "encounterCursor": 2
+      },
+      "action": "OPEN_SEARCH_CANCEL",
+      "expected": {
+        "stateUnchanged": true,
+        "rngUnchanged": true,
+        "undoUnchanged": true
+      }
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 import {addSkyLanguage} from './skyLanguage.js';
+import {addDesertLanguage} from './desertLanguage.js';
 import {addTimeLanguage} from './timeLanguage.js';
 import {addLearningFrames} from './learningFrames.js';
 import { authoredLexemes } from './seed.js';
 
-export const LANGUAGE_VERSION = '0.4.0';
+export const LANGUAGE_VERSION = '0.5.0';
 const presentCapability = ['cap.present.basic'];
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
@@ -122,7 +123,8 @@ export const campaign021Registry = freeze({version:'0.2.1',lexemes,forms,morphol
 export const campaign022Registry = freeze(addLearningFrames(campaign021Registry));
 export const campaign03Registry = freeze(addTimeLanguage(campaign022Registry));
 export const campaign04Registry = freeze(addSkyLanguage(campaign03Registry));
-export const registry = campaign04Registry;
+export const campaign05Registry = freeze(addDesertLanguage(campaign04Registry));
+export const registry = campaign05Registry;
 export const languageRegistry = registry;
 
 // A small ordered content view keeps old saves' future draws and grammar scope stable.
@@ -141,7 +143,7 @@ const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
 const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
 const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
 export const campaign02Registry=freeze({...campaign021Registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
-export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:registry; }
+export function registryForVersion(version) { return ['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:version==='0.5.0'?campaign05Registry:registry; }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
 export function lexemeForCard(card, registry=languageRegistry) {

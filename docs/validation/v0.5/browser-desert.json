@@ -1,0 +1,173 @@
+{
+  "kind": "ASSIGNED_DESERT_SEAL_AND_SUBMITTED_ROLE_UI",
+  "checks": [
+    {
+      "id": "FIRST_SEAL_EXACT_COPY_AND_RULE",
+      "status": "PASS"
+    },
+    {
+      "id": "FIRST_TURN_UI_INDEXEDDB_SAVE_PAGE_RELOAD_LOAD_EXACT",
+      "status": "PASS"
+    },
+    {
+      "id": "MOUSE_KEYBOARD_TOUCH_ADD_BLOCKED_NO_COST",
+      "status": "PASS"
+    },
+    {
+      "id": "SEALED_BODY_SWAP_DRAG_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_MENU_SWAP_GUARD",
+      "status": "PASS"
+    },
+    {
+      "id": "SEALED_DRAG_CANCEL_RESIZE_BLUR_CLEANUP",
+      "status": "PASS"
+    },
+    {
+      "id": "SEALED_CHECK_EXCHANGE_ALLOWED_NO_RESEAL",
+      "status": "PASS"
+    },
+    {
+      "id": "SEARCH_CANCEL_SEAL_RNG_UNDO_UNCHANGED",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_PRESENTATION_PRESERVES_SEAL",
+      "status": "PASS"
+    },
+    {
+      "id": "ASSIGNED_DRAW_SEAL_REAL_SEARCH_RETURN_STILL_BLOCKED",
+      "status": "PASS"
+    },
+    {
+      "id": "PREPARE_NEXT_TURN_SEAL_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "ZERO_CORE_SUBMISSION_NEXT_TURN_SEAL_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "DESERT_FIVE_ENEMIES_NO_SHOP",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1024_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1024_14",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1280_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1280_14",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1366_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1366_14",
+      "status": "PASS"
+    },
+    {
+      "id": "SINGLE_ING_THREE_ROW_MENU_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "SINGLE_ING_THREE_ROW_MENU_1280",
+      "status": "PASS"
+    },
+    {
+      "id": "SINGLE_ING_THREE_ROW_MENU_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_동명사 · 주어",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_동명사 · 목적어",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_동명사 · 주격보어",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_동명사 · 전치사의 목적어",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_현재분사 · 명사 수식",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMITTED_ROLE_to부정사 · 목적격보어",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_SEAL_UI_LEAK_IN_OTHER_BATTLE",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_ENJOY",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_ENJOY",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_FINISH",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_FINISH",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_HOBBY",
+      "status": "PASS"
+    },
+    {
+      "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_HOBBY",
+      "status": "PASS"
+    },
+    {
+      "id": "DEV_SANDBOX_CURRENT_REGISTRY_NEW_WORD_AND_EXISTING_ING",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "sphinx-first-turn.png",
+    "safe-slot-after-page-reload.png",
+    "sealed-exchanged-not-replaced.png",
+    "search-returned-copy-still-sealed.png",
+    "desert-intro.png",
+    "capacity-1024-10.png",
+    "capacity-1024-14.png",
+    "capacity-1280-10.png",
+    "capacity-1280-14.png",
+    "capacity-1366-10.png",
+    "capacity-1366-14.png",
+    "role-11.png",
+    "role-12.png",
+    "role-13.png",
+    "role-14.png",
+    "role-15.png",
+    "role-16.png",
+    "new-word-polish-enjoy.png",
+    "new-word-polish-finish.png",
+    "new-word-polish-hobby.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

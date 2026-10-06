@@ -1,3 +1,5 @@
+import {expandDesertCandidates} from './desert-candidates.js';
+import {RunController as Legacy04Controller} from '../tests/helpers/legacy-04-controller.js';
 import {expandSkyCandidates,operationMove} from './sky-candidates.js';
 import {RunController as Legacy03Controller} from '../tests/helpers/legacy-03-controller.js';
 import {RunController as Legacy022Controller} from '../tests/helpers/legacy-022-controller.js';
@@ -19,27 +21,29 @@ import {stageForRun} from '../src/data/stages.js';
 
 const plainState = state => ({ battle: state.progress.battleNumber, turn: state.combat?.turnIndex, turnsRemaining: state.combat?.turnsRemaining,
   hp: state.combat?.enemyState.hp, hand: state.combat?.handIds.length, draw: state.combat?.drawIds.length, discard: state.combat?.discardIds.length,
-  exchangesRemaining: state.combat?.exchangesRemaining, gold: state.economy.gold, status: state.status,
-  ...(['0.3.0','0.4.0'].includes(state.version)?{phase:state.combat?.enemyState.bossMechanic?.phaseOrder?.[state.combat.enemyState.bossMechanic.activePhase]??null,
+  exchangesRemaining: state.combat?.exchangesRemaining,...(state.version==='0.5.0'?{seal:structuredClone(state.combat?.enemyState.bossMechanic?.id==='TURN_HAND_SEAL'?state.combat.enemyState.bossMechanic:null)}:{}), gold: state.economy.gold, status: state.status,
+  ...(['0.3.0','0.4.0','0.5.0'].includes(state.version)?{phase:state.combat?.enemyState.bossMechanic?.phaseOrder?.[state.combat.enemyState.bossMechanic.activePhase]??null,
     willInHand:state.combat?.handIds.some(id=>state.cardInstances[id]?.cardDefId==='card.will')??false,
     willInSentence:state.combat?.sentenceSlots.some(s=>state.cardInstances[s.cardInstanceId]?.cardDefId==='card.will')??false,
     willOwned:state.activeCardIds.some(id=>state.cardInstances[id]?.cardDefId==='card.will')}:{}) });
 
 /** QA-only finite search. It reads present hand, never future draw order or openingTrace witnesses. */
 export function rankPlayableCandidates(state,{policy='STANDARD'}={}) {
-  let candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(state.version)?1800:768, includeModifiers: true, includeSvoo:['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(state.version),registry:registryForVersion(state.version) });
-  if(['0.3.0','0.4.0'].includes(state.version))candidates=expandTimeCandidates(state,candidates);
-  if(state.version==='0.4.0')candidates=expandSkyCandidates(state,candidates);
+  if(state.version==='0.5.0'&&state.combat.enemyState.bossMechanic?.id==='TURN_HAND_SEAL')state={...state,combat:{...state.combat,handIds:state.combat.handIds.filter(id=>id!==state.combat.enemyState.bossMechanic.sealedCardId)}};
+  let candidates = findPlayableSentences(state.combat.handIds, state.cardInstances, { perFrame: 4, maxChecks: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(state.version)?1800:768, includeModifiers: true, includeSvoo:['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(state.version),registry:registryForVersion(state.version) });
+  if(['0.3.0','0.4.0','0.5.0'].includes(state.version))candidates=expandTimeCandidates(state,candidates);
+  if(['0.4.0','0.5.0'].includes(state.version))candidates=expandSkyCandidates(state,candidates);
+  if(state.version==='0.5.0')candidates=expandDesertCandidates(state,candidates);
   const scored = candidates.map(candidate => {
     const cards = candidate.slots.map(slot => {
-      const instance = state.cardInstances[slot.cardInstanceId]; const definition = registry.cardById[instance.cardDefId];
+      const instance = state.cardInstances[slot.cardInstanceId]; const definition = registryForVersion(state.version).cardById[instance.cardDefId];
       return { ...instance, baseScore: definition.baseScore, displayCategory: definition.displayCategory };
     });
-    const resolution = resolveAttack({ analysis: candidate.analysis, cards, equippedRunes: state.runes.orderedInstanceIds.map(id => state.runes.instances[id]), enemy: state.combat.enemyState, sentenceSnapshot: candidate.snapshot,stage:stageForRun(state),policyVersion:state.version,comboEligibility:['0.2.2','0.3.0','0.4.0'].includes(state.version)?comboEligibility(state):null });
+    const resolution = resolveAttack({ analysis: candidate.analysis, cards, equippedRunes: state.runes.orderedInstanceIds.map(id => state.runes.instances[id]), enemy: state.combat.enemyState, sentenceSnapshot: candidate.snapshot,stage:stageForRun(state),policyVersion:state.version,comboEligibility:['0.2.2','0.3.0','0.4.0','0.5.0'].includes(state.version)?comboEligibility(state):null });
     return { ...candidate, power: resolution.finalPower, damage:resolution.actualHpLoss, phaseBreak:resolution.phaseBreak, lethal: resolution.killed };
   });
-  return scored.filter(c=>!['0.3.0','0.4.0'].includes(state.version)||c.damage>0).filter(c=>policy!=='SV_ONLY'||c.frameId==='frame.sv').sort((a, b) => {
-    if(['0.3.0','0.4.0'].includes(state.version)&&a.phaseBreak!==b.phaseBreak)return a.phaseBreak?-1:1;
+  return scored.filter(c=>!['0.3.0','0.4.0','0.5.0'].includes(state.version)||c.damage>0).filter(c=>policy!=='SV_ONLY'||c.frameId==='frame.sv').sort((a, b) => {
+    if(['0.3.0','0.4.0','0.5.0'].includes(state.version)&&a.phaseBreak!==b.phaseBreak)return a.phaseBreak?-1:1;
     if (a.lethal !== b.lethal) return a.lethal ? -1 : 1;
     if (a.lethal) return a.slots.length - b.slots.length || b.power - a.power;
     const preference=c=>policy==='LEARNING'&&state.progress.stageId==='stage.02'?(c.frameId==='frame.svoo'?1:0):policy==='SHORT'?(c.slots.length<=4?1:0):policy==='ADVERB'?(c.analysis.grammarHits.some(h=>h.tag==='MODIFIER.ADVERB')?1:0):0;
@@ -51,7 +55,7 @@ export function rankPlayableCandidates(state,{policy='STANDARD'}={}) {
 export function exchangeSelection(state,{policy='STANDARD'}={}) {
   const rows = state.combat.handIds.filter(id=>cardKind(state.cardInstances[id],state.version)==='WORD').map(id => ({ id, lexeme: lexemeForCard(state.cardInstances[id]) }));
   const keep = new Set();
-  if(['0.3.0','0.4.0'].includes(state.version)&&state.progress.stageId==='stage.03'){
+  if(['0.3.0','0.4.0','0.5.0'].includes(state.version)&&state.progress.stageId==='stage.03'){
     const phase=state.combat.enemyState.bossMechanic?.phaseOrder?.[state.combat.enemyState.bossMechanic.activePhase];
     const material=[rows.find(r=>r.lexeme.pos==='PRONOUN'),...(phase==='FUTURE'?[rows.find(r=>r.lexeme.lemma==='will')]:[]),rows.find(r=>r.lexeme.pos==='VERB'&&r.lexeme.lemma!=='will'),rows.find(r=>r.lexeme.pos==='NOUN'),rows.find(r=>r.lexeme.pos==='ADJECTIVE')].filter(Boolean);material.forEach(r=>keep.add(r.id));
     const excess=rows.filter(r=>!keep.has(r.id)).map(r=>r.id);return excess.length?excess.slice(0,4):rows.slice(-1).map(r=>r.id);
@@ -76,8 +80,8 @@ export function exchangeSelection(state,{policy='STANDARD'}={}) {
 
 /** Runs actual controller commands only. No generated damage, injected cards, or fixed winning hand. */
 export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResources = true, maxCommands = 900,policy='STANDARD',campaignVersion='0.2.0',stopAtShop=false,guidedStart=false,invalidExercise=false } = {}) {
-  const Controller=campaignVersion==='0.3.0'?Legacy03Controller:campaignVersion==='0.2.2'?Legacy022Controller:CurrentController;
-  let controller = ['0.2.2','0.3.0','0.4.0'].includes(campaignVersion)?new Controller({profile:{...newProfile('QA'),...(guidedStart?{}:{guidedTutorialCompletedVersion:'0.2.1'})}}):new RunController();
+  const Controller=campaignVersion==='0.4.0'?Legacy04Controller:campaignVersion==='0.3.0'?Legacy03Controller:campaignVersion==='0.2.2'?Legacy022Controller:CurrentController;
+  let controller = ['0.2.2','0.3.0','0.4.0','0.5.0'].includes(campaignVersion)?new Controller({profile:{...newProfile('QA'),...(guidedStart?{}:{guidedTutorialCompletedVersion:'0.2.1'})}}):new RunController();
   if(['POLISHED','SV_ONLY'].includes(policy))controller.setProfile({...controller.getProfile(),guideSeen:true,firstRuneIntroSeen:true});
   const actions = [];
   const rewards = [];
@@ -130,7 +134,7 @@ export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResourc
         const available = offer.choices.filter(choice => !choice.disabled);
         const preferred=policy==='POLISHED'?available.find(c=>c.serviceKind==='POLISH')||available.find(c=>c.runeId==='rune.polished'):policy==='SHORT'||policy==='SV_ONLY'?available.find(c=>c.runeId==='rune.short'||c.runeId==='rune.sv'):policy==='ADVERB'?available.find(c=>c.runeId==='rune.adverbs'):null;
         const learningChoice=policy==='LEARNING'?available.find(c=>c.runeId==='rune.svoo')||available.find(c=>c.cardDefId&&registry.lexemeById[registry.cardById[c.cardDefId]?.lexemeId]?.frameIds.includes('frame.svoo')):null;
-        const timeChoice=['0.3.0','0.4.0'].includes(state.version)?available.find(c=>c.runeId==='rune.longSentence')||available.find(c=>c.cardDefId==='card.will'&&!state.activeCardIds.some(id=>state.cardInstances[id].cardDefId==='card.will')):null;
+        const timeChoice=['0.3.0','0.4.0','0.5.0'].includes(state.version)?available.find(c=>c.runeId==='rune.longSentence')||available.find(c=>c.cardDefId==='card.will'&&!state.activeCardIds.some(id=>state.cardInstances[id].cardDefId==='card.will')):null;
         const choice = timeChoice||learningChoice||preferred||available.find(c => c.runeId === 'rune.perfectSentence') || available.find(c=>c.kind!=='SERVICE'||c.serviceKind!=='REMOVE')||available[0];
         rewards.push({ battle: state.progress.battleNumber, type: offer.type, choices: offer.choices.map(c => c.runeId || c.cardDefId || c.serviceKind || c.cardInstanceId), chosen: choice?.runeId || choice?.cardDefId || choice?.serviceKind || choice?.cardInstanceId || 'SKIP', firstRuneIntro: offer.firstRuneIntro });
         if (choice) command({ type: 'CHOOSE_REWARD', offerId: offer.offerId, choiceId: choice.choiceId, confirmRemoval: true, replaceRuneInstanceId:choice.kind==='RUNE'&&state.runes.orderedInstanceIds.length===state.runes.slotLimit&&!state.runes.orderedInstanceIds.some(id=>state.runes.instances[id].runeId===choice.runeId)?state.runes.orderedInstanceIds.at(-1):undefined, targetCardInstanceId:choice.targetCardIds?.find(id=>registry.lexemeById[registry.cardById[state.cardInstances[id].cardDefId]?.lexemeId]?.pos==='VERB')??choice.targetCardIds?.[0] });
@@ -157,8 +161,8 @@ export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResourc
       }
       const operation=operationMove(state);if(operation){if(operation.targetCardId)command({type:'OPEN_OPERATION',sourceCardId:operation.sourceCardId});const used=command(operation);command({type:'FINISH_OPERATION',effectId:used.operationEffect.effectId});continue;}
       const candidate = rankPlayableCandidates(state,{policy})[0];
-      if(state.version==='0.4.0'&&state.progress.stageId==='stage.04'&&!candidate?.lethal&&!candidate?.analysis.grammarHits.some(h=>h.tag==='LINK.CLAUSE'&&h.connectorCardIds?.length)&&state.combat.handIds.length<=state.combat.rulesSnapshot.handLimit-3&&state.combat.turnsRemaining>=5){command({type:'PREPARE'},{reason:'Grow current six-card hand for a real clause connection'});continue;}
-      if(state.version==='0.4.0'&&state.combat.exchangesRemaining>0&&((state.combat.enemyState.bossMechanic?.id==='TIME_GOLEM'&&!candidate?.phaseBreak)||(state.progress.stageId==='stage.04'&&!candidate?.lethal&&(!candidate||candidate.damage*state.combat.turnsRemaining<state.combat.enemyState.hp)))){const kept=new Set(candidate?.slots.map(s=>s.cardInstanceId)??[]);const unused=state.combat.handIds.filter(id=>!kept.has(id));const selected=unused.length?unused.slice(0,4):exchangeSelection(state,{policy});command({type:'EXCHANGE',cardIds:selected},{exchangedCount:selected.length,reason:'Conserve turns at current public phase/HP; exchange unused visible cards'});continue;}
+      if(['0.4.0','0.5.0'].includes(state.version)&&state.progress.stageId==='stage.04'&&!candidate?.lethal&&!candidate?.analysis.grammarHits.some(h=>h.tag==='LINK.CLAUSE'&&h.connectorCardIds?.length)&&state.combat.handIds.length<=state.combat.rulesSnapshot.handLimit-3&&state.combat.turnsRemaining>=5){command({type:'PREPARE'},{reason:'Grow current six-card hand for a real clause connection'});continue;}
+      if(['0.4.0','0.5.0'].includes(state.version)&&state.combat.exchangesRemaining>0&&((state.combat.enemyState.bossMechanic?.id==='TIME_GOLEM'&&!candidate?.phaseBreak)||(['stage.04','stage.05'].includes(state.progress.stageId)&&!candidate?.lethal&&(!candidate||candidate.damage*state.combat.turnsRemaining<state.combat.enemyState.hp)))){const kept=new Set(candidate?.slots.map(s=>s.cardInstanceId)??[]);const unused=state.combat.handIds.filter(id=>!kept.has(id));const selected=unused.length?unused.slice(0,4):exchangeSelection(state,{policy});command({type:'EXCHANGE',cardIds:selected},{exchangedCount:selected.length,reason:'Conserve turns at current public phase/HP; exchange unused visible cards'});continue;}
       if(policy==='LEARNING'&&state.progress.stageId==='stage.02'&&candidate?.frameId!=='frame.svoo'&&!candidate?.lethal&&state.combat.exchangesRemaining>0&&(!candidate||candidate.power*state.combat.turnsRemaining<state.combat.enemyState.hp)){
         const selected=exchangeSelection(state,{policy});command({type:'EXCHANGE',cardIds:selected},{exchangedCount:selected.length,reason:'Current visible hand cannot meet remaining HP at this pace; seek retained SVOO material'});continue;
       }
@@ -169,7 +173,7 @@ export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResourc
         }
         const submitted = command({ type: 'SUBMIT' }, { sentence: candidate.text, expectedPower: candidate.power, usedCardIds: candidate.slots.map(s => s.cardInstanceId) });
         if (submitted.resolution.finalPower !== candidate.power) throw new Error('QA score disagrees with actual submitted score');
-        command({ type: 'FINISH_PRESENTATION', attackId: submitted.resolution.attackId }, { actualPower: submitted.resolution.finalPower, actualHpLoss: submitted.resolution.actualHpLoss,phaseId:submitted.resolution.phaseId,phaseBreak:submitted.resolution.phaseBreak,phaseExcess:submitted.resolution.phaseExcess });
+        command({ type: 'FINISH_PRESENTATION', attackId: submitted.resolution.attackId }, { actualPower: submitted.resolution.finalPower, actualHpLoss: submitted.resolution.actualHpLoss,bossReleased:submitted.resolution.bossStateBefore?.active===true&&submitted.resolution.bossStateAfter?.active===false,phaseId:submitted.resolution.phaseId,phaseBreak:submitted.resolution.phaseBreak,phaseExcess:submitted.resolution.phaseExcess });
         continue;
       }
       if (state.combat.handIds.length <= state.combat.rulesSnapshot.handLimit - 3 && state.combat.turnsRemaining > 2) {
@@ -183,7 +187,7 @@ export function simulateRun({ seed, vocabularyMode = 'BEGINNER', exerciseResourc
     return { seed, vocabularyMode,policy, result: state.status, final: plainState(state), commands, durationMs: Math.round(performance.now() - started),
       stats: { attacks: state.stats.attacks, exchanges: state.stats.exchanges, runeAppearances:rewards.reduce((sum,r)=>sum+r.choices.filter(id=>id?.startsWith('rune.')).length,0),polishedCards:Object.values(state.cardInstances).filter(c=>c.polishLevel>0).length, preparations: state.stats.preparations, bestAttack: state.stats.bestAttack },
       contentBoundary: state.progress.contentBoundary, profileStage1Runs: controller.getProfile().qualifiedRunIds.length, storyClearCount: controller.getProfile().storyClearCount,
-      bossVeilReleased:state.stats.history.some(r=>r.bossStateBefore?.active&&r.bossStateAfter?.active===false),...(stopAtShop?{checkpoint:state}:{}),shops,battles, rewards, actions };
+      bossVeilReleased:actions.some(a=>a.bossReleased),...(stopAtShop?{checkpoint:state}:{}),shops,battles, rewards, actions };
   } catch (error) {
     return { seed, vocabularyMode,policy, result: 'ENGINE_OR_POLICY_ERROR', error: error.message, commands, durationMs: Math.round(performance.now() - started),shops,battles, rewards, actions };
   }

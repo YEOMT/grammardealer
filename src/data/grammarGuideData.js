@@ -1,5 +1,10 @@
+import {isIngForm} from './language/desertLanguage.js';
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'FRAME.SVOC':{label:'5형식 S+V+O+C',description:'목적격보어가 목적어의 상태·정체·행동을 설명합니다.',examples:['I want you to read books.','I make you happy.']},
+ 'CLAUSE.INFINITIVE':{label:'to부정사',description:'to와 동사 원형으로 행동을 문장의 재료로 쓰거나 다른 말을 설명합니다.',examples:['To read books is good.','I want to read books.']},
+ 'CLAUSE.GERUND':{label:'동명사',description:'-ing형으로 된 구가 주어·목적어·보어 등 명사 역할을 합니다.',examples:['Reading books is good.','I enjoy reading books.','My hobby is reading books.']},
+ 'PARTICIPLE.PRESENT':{label:'현재분사 수식',description:'-ing형으로 된 말이 명사를 설명할 수 있습니다. 명사 수식만으로 진행형이나 동명사가 되지는 않습니다.',examples:['The running dog is happy.']},
  'LINK.CLAUSE':{examples:['I like music and she reads books.','I think that she likes music.'],label:'절 연결',description:'주어와 동사를 중심으로 이루어진 절을 연결합니다. 대등한 절, 이유·시간·조건의 부사절, 내용 목적어절을 구분합니다.'},
  'LINK.PHRASE':{examples:['I like games and music.'],label:'단어·구 연결',description:'접속사는 단어·구·절을 연결하며, 문장에서 쓰임에 따라 역할이 달라집니다. 단어·구 연결은 독립된 두 절과 구분합니다.'},
  'TIME.PAST':{label:'과거',description:'유한 동사의 과거형은 과거의 상황을 나타냅니다. 과거분사만으로 과거절이 되지는 않습니다.',examples:['I played games.']},
@@ -21,6 +26,9 @@ export const ROLE_GUIDE={
  INDIRECT_OBJECT:{label:'간접목적어 IO',description:'주거나 보여주거나 만들어 주는 행동에서 보통 받는 대상이나 수혜자를 나타냅니다.'},
  DIRECT_OBJECT:{label:'직접목적어 DO',description:'그 행동에서 직접 전달하거나 제공하는 대상입니다.'},
  COMPLEMENT:{label:'보어 C',description:'주어나 목적어가 어떤 상태인지 또는 무엇인지를 설명합니다.'},
+ SUBJECT_COMPLEMENT:{label:'주격보어 C',description:'주어의 상태나 정체를 설명합니다.'},
+ OBJECT_COMPLEMENT:{label:'목적격보어 C',description:'목적어의 상태·정체·행동을 설명합니다.'},
+ PREPOSITION_OBJECT:{label:'전치사의 목적어',description:'전치사와 함께 관계를 나타내는 명사 역할의 구입니다.'},
  PP_OBJECT:{label:'전치사의 목적어',description:'전치사와 함께 관계를 나타내는 명사구입니다.'},
 };
 export const DATIVE_GUIDE={description:'give/show/send는 to, make는 for를 사용한 대표 대응 표현도 만들 수 있습니다. 이때 to/for 뒤의 명사구는 전치사의 목적어입니다.',examples:['She gives a book to me.','She makes a game for me.']};
@@ -32,7 +40,11 @@ export const PRONOUN_MEANINGS={
  he:['그(주어)','그를/그에게','그의'],she:['그녀(주어)','그녀를/그녀에게','그녀의'],
  it:['그것(주어)','그것을/그것에게','그것의'],we:['우리(주어)','우리를/우리에게','우리의'],they:['그들/그것들(주어)','그들을/그들에게','그들의'],
 };
-export function formMeaning(word,form){const group=PRONOUN_MEANINGS[word.lemma];if(!group)return form.labelKo;return group[{NOMINATIVE:0,OBJECTIVE:1,POSSESSIVE_DETERMINER:2}[form.grammaticalFeatures.case]]??'대명사 형태';}
+export const ING_FORM_GUIDE='-ing형은 문장 속 쓰임에 따라 동명사·분사로 사용되고, be와 결합해 진행형을 만들 수 있습니다.';
+export const NONFINITE_INTERPRETATIONS={INFINITIVE:'to부정사',GERUND:'동명사',PARTICIPLE:'현재분사'};
+export const NONFINITE_FUNCTIONS={SUBJECT:'주어',OBJECT:'목적어',SUBJECT_COMPLEMENT:'주격보어',PREPOSITION_OBJECT:'전치사의 목적어',NOUN_MODIFIER:'명사 수식',PURPOSE:'목적 표현',ADJECTIVE_COMPLEMENT:'형용사 연결',OBJECT_COMPLEMENT:'목적격보어'};
+export function nonfiniteLabel(phrase){return [NONFINITE_INTERPRETATIONS[phrase.interpretation],NONFINITE_FUNCTIONS[phrase.function]].filter(Boolean).join(' · ');}
+export function formMeaning(word,form){if(isIngForm(form))return '-ing형';const group=PRONOUN_MEANINGS[word.lemma];if(!group)return form.labelKo;return group[{NOMINATIVE:0,OBJECTIVE:1,POSSESSIVE_DETERMINER:2}[form.grammaticalFeatures.case]]??'대명사 형태';}
 export function verbUsage(word){
  const frames=new Set(word.frameIds);const parts=[];
  if(frames.has('frame.sv'))parts.push('주어 + 동사');
@@ -46,10 +58,13 @@ export function verbUsage(word){
  if(frames.has('frame.svoc.to'))parts.push('목적어 + to + 동사 원형');
  if(frames.has('frame.svoc.bare'))parts.push('목적어 + 동사 원형');
  if(frames.has('frame.svo.to'))parts.push('to + 동사 원형');
+ if([...frames].some(id=>id.startsWith('frame.svo.gerund')))parts.push('동명사(-ing) 목적어');
  if(frames.has('frame.svo.bare'))parts.push('동사 원형');
  return parts.join(' / ');
 }
 
-export const CLAUSE_ROLES={MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절'};
+export function nonfiniteUsageNotes(word){return [word.lemma==='enjoy'?'enjoy 뒤에는 동명사(-ing)를 씁니다.':null,word.lemma==='need'?"need + -ing는 '~될 필요가 있다'의 뜻으로도 씁니다.":null].filter(Boolean);}
+
+export const CLAUSE_ROLES={NONFINITE:'준동사구',MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절'};
 export const LINK_ROLES={COORDINATED_CLAUSES:'등위절 연결',ADVERBIAL_CLAUSE:'부사절 연결',CONTENT_CLAUSE:'내용 목적어절',SHARED_SUBJECT_VP:'주어를 공유하는 동사구',NP_COORDINATION:'명사구 연결',AP_COORDINATION:'형용사구 연결',PP_COORDINATION:'전치사구 연결',ADVP_COORDINATION:'부사구 연결'};
 export const CLAUSE_GUIDE={clause:'절은 주어와 동사를 중심으로 이루어진 덩어리입니다.',coordinate:'등위절은 대등한 두 절입니다. 왼쪽 절이 계산 기준이어도 오른쪽 절이 종속절이 되지는 않습니다.',adverbial:'부사절은 이유·시간·조건 등의 정보를 주절에 덧붙입니다.',content:'명사절은 절 전체가 명사처럼 목적어 등의 자리를 맡습니다.',that:'that은 지시 한정사·대명사·관계절 연결·내용절 연결 역할을 문장 구조에 따라 맡습니다.'};

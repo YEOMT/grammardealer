@@ -1,0 +1,44 @@
+[
+  {
+    "command": "npm.cmd test",
+    "startedUtc": "2026-10-06T11:46:48.1787980Z",
+    "endedUtc": "2026-10-06T11:48:21.9933331Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run validate:data",
+    "startedUtc": "2026-10-06T11:48:22.1195476Z",
+    "endedUtc": "2026-10-06T11:48:22.7400112Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run build",
+    "startedUtc": "2026-10-06T11:48:22.7576828Z",
+    "endedUtc": "2026-10-06T11:48:23.5916175Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run test:browser",
+    "startedUtc": "2026-10-06T11:48:23.6211732Z",
+    "endedUtc": "2026-10-06T11:52:34.6342921Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run test:decks:desert",
+    "startedUtc": "2026-10-06T11:52:34.6539750Z",
+    "endedUtc": "2026-10-06T11:53:15.3182594Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run test:runs:desert",
+    "startedUtc": "2026-10-06T11:53:15.3285906Z",
+    "endedUtc": "2026-10-06T11:57:05.3062897Z",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run test:e2e",
+    "startedUtc": "2026-10-06T11:57:05.3196060Z",
+    "endedUtc": "2026-10-06T12:05:27.5128826Z",
+    "exitCode": 0
+  }
+]

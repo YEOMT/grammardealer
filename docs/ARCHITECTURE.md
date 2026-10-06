@@ -1,3 +1,13 @@
+## 0.5 추가 경계
+
+- desertLanguage는 campaign04Registry를 복제한다. 단일 ING helper는 형태만 식별하며 역할은 bounded parser의 NONFINITE_PHRASE와 실제 Clause 증거가 결정한다. 신규enjoy/finish/hobby는 보상 풀에만 추가하며 starter는 frozen0.4 generator를 재사용한다.
+- skyEvidence의 nonfinitePhrases는 formKind/interpretation/function/실제cardIds/parent/controller/gap/antecedent를 직렬화한다. 안쪽 비정형 VP는 finiteCardId=null이며 시간/골렘 증거에서 제외한다. 안쪽에 실제 유한 관계절이 있으면 그 절만 시간 증거를 제공한다.
+- comboEligibility는 원정 시작 해금과 자체 해금의 합집합만 읽는다. 새 SVOC/to/GERUND 배수는 점수자격을 통과한 실제 증거에만 적용한다. 수순은 카드 → 정확성 → 완전문장 → 주절 → 시간 → to → 동명사 → 연결 → 수식 → 룬 → 지역 → 보스다.
+- wishDesert가 입장 지급 제안을 만들고 RunController가 소유/사전/이력을 원자적으로 커밋한다. STAGE4_CLEAR는05만 보상생성 전에 세팩을 부여한다. 기존04 종료 사건 시점은 보존한다.
+- turnHandSeal은 제안 상태의 실제 턴 경계에만 호출한다. HAND WORD를 activeCardIds 순서로 고르고, 대안이 있을 때 직전 물리ID를 제외한다. 후보있으면 encounter1회, 없으면0회다. 봉인은 여섯번째 카드 더미가 아니다.
+- isTurnSealed는 Controller ADD/SWAP guard와 UI의 표시를 공유한다. invariant/저장 validator가 잘못된ID·OPERATION·조합대·미래턴·중복history를 거절하되 정상 DISCARD/DRAW 봉인은 허용한다. 교환/운영 뒤 Undo 경계는 그대로다.
+- UI/연출은 확정된 상태와 분석만 읽는다. 금빛 봉인표식은 단어와44px체크를 가리지 않으며 카드 전체 pointer disable을 하지 않는다. 기존 DB/base/저장3슬롯과 RunController 단독 커밋 원칙은 유지한다.
+
 ## 0.4 추가 경계
 
 - `skyLanguage`는 0.3을 복제한다. `cardCatalog`에서 WORD와 OPERATION을 구분하며 운영을 가짜 lexeme로 등록하지 않는다. `registryForVersion`과 원정 버전이 생성·언어·점수·상품 정책을 고른다.

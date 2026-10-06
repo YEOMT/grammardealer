@@ -1,4 +1,4 @@
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-04-controller.js';
 import {newProfile} from '../../src/services/localStore.js';
 import {campaignCards} from '../../src/data/cardCatalog.js';
 import {generateStarterDeck} from '../../src/game/deck.js';

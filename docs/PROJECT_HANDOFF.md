@@ -1,3 +1,15 @@
+## 0.5 소원의 사막 인계
+
+작업 시작 최신 origin/main은 6d2907eddefafb1a909c6c803259ba26b408f104(0.4 PR #6 병합)이고 미커밋 변경이 없었다. codex/v0.5-wish-desert-nonfinite-seal에서 확장했다. spec/0.5_WISH_DESERT.md가 이번 변경 근거이며 첨부 JSON은 기대값이다. 실제 결과는 TEST_REPORT_0.5.md와 ACCEPTANCE_0.5.md를 따른다.
+
+새0.5 원정만 22전투다. 하늘섬 보스 승리 → STAGE4_CLEAR/세팩 해금 → 보상 → 사막 예고 → 부족한 to/want/enjoy 계열 최대3장 → 5전투 → STAGE5_END로 연결한다. 상점은 항구/하늘섬의 두 곳만 유지한다. 기본28장/자원/초원·항구·협곡·하늘섬HP/기존룬/실습40·126은 유지한다.
+
+하나의 기존 ING Form을 쓰고 역할은 제출 전체 구조에서 판정한다. 기본5형식×2.5, 정상to/동명사각×1.4, 사막대상×1.25와 HP520/560/600/640/840은 명세의 구현 초깃값이다. 기존1~4형식/시간/연결/룬 배수는 바뀌지 않는다.
+
+스핑크스는 실제 첫패/다음턴 드로우 뒤 HAND WORD 한 사본을 encounter stream으로 한 번 봉인한다. Controller 배치만 차단하고 체크·교환·보급·탐색은 허용한다. 교환된 같은 사본의 당턴 재획득에도 봉인은 유지한다. load/effect/Undo는 추첨하지 않는다. TURN_HAND_SEAL의 물리ID·turnKey·작은history를 원정과 함께 보존한다.
+
+0.4 이하 저장은 원래 언어/수치/후보/RNG/종료 경계다. 생성기는 검증된0.4 규칙을 그대로 쓴다. v05-legacy-040-golden.json은 변경 전 실제0.4 독립 캡처로 다시 생성해 맞추지 않는다. 아래 내용은 각 버전의 당시 기록이다.
+
 ## 0.4 Syntax Atlas 인계
 
 작업 시작 최신 origin/main `db9f6ca508329b2306ef7a5a6916bb5ea404c418`에 0.3 PR #5가 병합되어 있었고 checkout은 깨끗했다. 별도 `codex/v0.4-sky-islands-operations`에서 구현했다. `spec/0.4_SKY_ISLANDS.md`, `IMPLEMENTATION_PLAN_0.4.md`, `TEST_REPORT_0.4.md`, 교육·운영 검토표가 최신 기준이다. 과거 ZIP으로 소스를 대체하지 않았다.

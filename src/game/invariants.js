@@ -1,3 +1,5 @@
+import {hasSkyCampaign} from '../data/campaignFeatures.js';
+import {validateTurnHandSeal} from './turnHandSeal.js';
 import {validateOperationHistory} from './operationHistory.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
@@ -53,7 +55,7 @@ export function assertRunInvariants(run, registry) {
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
-  if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);}
+  if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);validateTurnHandSeal(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);
   return true;
@@ -68,7 +70,7 @@ export function validateRunState(run, registry) {
 /** Shared persisted/live type boundary. Missing legacy exhaustion is read as empty. */
 export function assertCardTypes(run){
  const c=run.combat;if(!c)return true;
- assert((c.exhaustedIds??[]).length===0||run.version==='0.4.0','legacy exhausted cards');
+ assert((c.exhaustedIds??[]).length===0||hasSkyCampaign(run),'legacy exhausted cards');
  for(const slot of c.sentenceSlots)assert(cardKind(run.cardInstances[slot.cardInstanceId],run.version)==='WORD','operation on sentence board');
  for(const id of c.exhaustedIds??[])assert(cardKind(run.cardInstances[id],run.version)==='OPERATION','word in exhausted pile');
  for(const card of Object.values(run.cardInstances))if(cardKind(card,run.version)==='OPERATION')assert(card.polishLevel===0&&card.specialEffectId===null,'enhanced operation');

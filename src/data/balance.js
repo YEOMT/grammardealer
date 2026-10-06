@@ -252,6 +252,10 @@ export const TIME_SCORE_BALANCE=deepFreeze({...SCORE_BALANCE,completeBonus:30,
  temporalMultipliers:{'TIME.PAST':{num:6,den:5},'TIME.PROGRESSIVE':{num:13,den:10},'TIME.PERFECT':{num:7,den:5},'TIME.FUTURE_WILL':{num:6,den:5}},
 });
 export const SKY_SCORE_BALANCE=deepFreeze({...TIME_SCORE_BALANCE,issuePenalties:{...TIME_SCORE_BALANCE.issuePenalties,ASPECT_USAGE:10},clauseLinkMultiplier:{num:8,den:5},phraseLinkAdd:10});
-export const scoreBalanceForVersion=version=>version==='0.4.0'?SKY_SCORE_BALANCE:['0.3.0','0.4.0'].includes(version)?TIME_SCORE_BALANCE:SCORE_BALANCE;
+export const DESERT_SCORE_BALANCE=deepFreeze({...SKY_SCORE_BALANCE,
+ mainFrameMultipliers:{...SKY_SCORE_BALANCE.mainFrameMultipliers,'frame.svoc':{num:5,den:2}},
+ nonfiniteMultipliers:{'CLAUSE.INFINITIVE':{num:7,den:5},'CLAUSE.GERUND':{num:7,den:5}},
+});
+export const scoreBalanceForVersion=version=>version==='0.5.0'?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;

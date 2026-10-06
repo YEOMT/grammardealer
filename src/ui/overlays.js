@@ -1,6 +1,7 @@
+import {isIngForm} from '../data/language/desertLanguage.js';
 import {CLAUSE_ROLES,LINK_ROLES,CLAUSE_GUIDE} from '../data/grammarGuideData.js';
 import {learningRecord,reviewProfileLearning,studentStatus,displayLearningRecord} from '../engine/learningRecords.js';
-import {GRAMMAR_GUIDE,ROLE_GUIDE,DATIVE_GUIDE,LOCATION_GUIDE,TIME_ROLE_LABELS,formMeaning,verbUsage} from '../data/grammarGuideData.js';
+import {GRAMMAR_GUIDE,ROLE_GUIDE,DATIVE_GUIDE,LOCATION_GUIDE,TIME_ROLE_LABELS,formMeaning,verbUsage,ING_FORM_GUIDE,nonfiniteUsageNotes,nonfiniteLabel} from '../data/grammarGuideData.js';
 import { el, button, modal, toast } from './dom.js';
 import { wordCard, POS_LABELS } from './cards.js';
 import { cardModel } from './models.js';
@@ -69,7 +70,9 @@ export function openDictionary(state,{ownedOnly=false}={}) {
       const forms = word.formIds.map(id => registry.formById[id]).filter(form => form?.runtimeReady);
       const owned=Object.values(state?.cardInstances??{}).filter(c=>state.activeCardIds.includes(c.instanceId)&&registry.cardById[c.cardDefId]?.lexemeId===word.id);
       const polishSummary=[0,1,2,3].map(level=>{const count=owned.filter(c=>c.polishLevel===level).length;return count?`연마 +${level}: 기본 10 + 연마 ${level*5} = ${10+level*5}점 · ${count}장`:null;}).filter(Boolean);
-      const notes=word.pos==='VERB'?[verbUsage(word),...(['0.3.0','0.4.0'].includes(state?.version)?['과거는 과거형, 진행은 be + -ing, 완료는 have + 과거분사, 미래는 will + 원형을 사용합니다.']:[])]:['to','that'].includes(word.lemma)?[word.lemma==='to'?'명사구 앞 전치사 / 동사 원형 앞 부정사 표지':(state?.version==='0.4.0'?'지시 한정사·대명사 / 관계절 연결 / 내용 목적어절 연결':'지시 한정사·대명사 / 명사를 설명하는 관계사')]: [word.usageNoteKo].filter(Boolean);
+      const notes=word.pos==='VERB'?[verbUsage(word),...(['0.3.0','0.4.0','0.5.0'].includes(state?.version)?['과거는 과거형, 진행은 be + -ing, 완료는 have + 과거분사, 미래는 will + 원형을 사용합니다.']:[])]:['to','that'].includes(word.lemma)?[word.lemma==='to'?'명사구 앞 전치사 / 동사 원형 앞 부정사 표지':(['0.4.0','0.5.0'].includes(state?.version)?'지시 한정사·대명사 / 관계절 연결 / 내용 목적어절 연결':'지시 한정사·대명사 / 명사를 설명하는 관계사')]: [word.usageNoteKo].filter(Boolean);
+      if(word.pos==='VERB'&&forms.some(f=>isIngForm(f)))notes.push(ING_FORM_GUIDE);
+      if(state?.version==='0.5.0')notes.push(...nonfiniteUsageNotes(word));
       if(word.pos==='NOUN')notes.push(({COUNT:'가산명사: 단수에는 한정사를 쓰고, 복수형도 사용할 수 있습니다.',MASS:'불가산명사: 이 게임의 뜻에서는 a/an과 복수형을 사용하지 않습니다.',BOTH:'가산·불가산 용법: 종류·개별 사례는 a/an 또는 복수형, 일반 개념·물질은 무관사 단수형을 사용할 수 있습니다.'})[senses[0]?.countability]);
       return el('article', { class: 'dictionary-entry' },
         el('strong', { text: word.lemma }), el('span', { class: 'badge', text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
@@ -94,6 +97,7 @@ function learningBlock(record){
   ...(record.clauses?.length?record.clauses.map(c=>el('section',{class:'clause-learning'+(c.parentClauseId?' nested-clause':''),style:'--clause-depth:'+Math.min(c.level,3)},el('strong',{text:(c.id===record.primaryScoringClauseId&&record.clauses.some(x=>x.role==='COORDINATE'&&!x.parentClauseId)?'첫 번째 절 · 계산 기준':CLAUSE_ROLES[c.role]??'절')}),el('p',{class:'player-sentence',text:c.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')}),...(record.roles??[]).filter(r=>r.clauseId===c.id&&ROLE_GUIDE[r.role]).map(r=>el('p',{text:r.text+' · '+ROLE_GUIDE[r.role].label})))):(record.roles??[]).filter(r=>ROLE_GUIDE[r.role]).map(r=>el('p',{text:r.text+' · '+ROLE_GUIDE[r.role].label,title:ROLE_GUIDE[r.role].description}))),
   ...(record.links??[]).map(l=>el('p',{class:'record-metadata',text:(l.connectorCardIds.length?l.connectorCardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' / '):'that 생략')+' · '+(LINK_ROLES[l.role]??'구 연결')})),
   ...(record.verbPhrases??[]).map(v=>el('p',{class:'record-metadata',text:v.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+(!v.chainWellFormed?'형태 연결 확인':v.finiteCardId?[TIME_ROLE_LABELS[v.tenseFamily],...v.aspects.map(a=>TIME_ROLE_LABELS[a])].filter(Boolean).join(' · '):'비정형 동사구 · 독립된 시간 열쇠 없음')})),
+  ...(record.nonfinitePhrases??[]).filter(p=>nonfiniteLabel(p)).map(p=>el('p',{class:'nonfinite-evidence',text:p.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+nonfiniteLabel(p)})),
   // A failed core parse does not establish which particular constituent is missing.
   ...(record.status==='INVALID_CORE'
     ? [small('문장을 완성하지 못하면 데미지를 줄 수 없습니다. 주어와 동사의 위치를 다시 확인해 보세요.')]
@@ -185,8 +189,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);

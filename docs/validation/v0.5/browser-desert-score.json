@@ -1,0 +1,2253 @@
+{
+  "kind": "ASSIGNED_PHYSICAL_CARDS_REAL_CONTROLLER_AND_LIVE_SCORE_PRESENTATION",
+  "checks": [
+    {
+      "id": "LIVE_SVOC_FRAME.SVOC_OPERAND_AND_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "id": "LIVE_SVOC_CLAUSE.INFINITIVE_OPERAND_AND_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "id": "LIVE_SVOC_stage.05_OPERAND_AND_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_SVOC_READS_COMMITTED_STATE_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "FINISH_SVOC_RERENDER_DUPLICATE_NO_EXTRA_DAMAGE_OR_RECORD",
+      "status": "PASS"
+    },
+    {
+      "id": "LIVE_GERUND_CLAUSE.GERUND_OPERAND_AND_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "id": "LIVE_GERUND_stage.05_OPERAND_AND_FLOOR",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_GERUND_READS_COMMITTED_STATE_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "FINISH_GERUND_RERENDER_DUPLICATE_NO_EXTRA_DAMAGE_OR_RECORD",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "svoc-frame-svoc.png",
+    "svoc-clause-infinitive.png",
+    "svoc-stage-05.png",
+    "gerund-clause-gerund.png",
+    "gerund-stage-05.png"
+  ],
+  "attacks": [
+    {
+      "sentence": "I want you to read books",
+      "resolution": {
+        "schemaVersion": 1,
+        "attackId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1",
+        "runId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd",
+        "battleId": "battle.05.05",
+        "expectedRevision": 105,
+        "status": "VALID",
+        "accepted": true,
+        "versions": {
+          "language": "0.5.0",
+          "grammar": "0.5.0",
+          "balance": "balance.0.5.0",
+          "runes": "runes.0.3.0",
+          "stage": "stage.0.5.0",
+          "presentation": "presentation.0.2.1"
+        },
+        "sentenceSnapshot": {
+          "schemaVersion": 1,
+          "sentenceId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd.22.1",
+          "languageVersion": "0.5.0",
+          "orderedTokens": [
+            {
+              "cardInstanceId": "starter.01",
+              "cardDefId": "card.i",
+              "lexemeId": "lex.i.pronoun",
+              "selectionId": "form.i.subject",
+              "surface": "I",
+              "allowedFormCandidates": [
+                "form.i.subject"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.02",
+              "cardDefId": "card.want",
+              "lexemeId": "lex.want.verb",
+              "selectionId": "form.want.present",
+              "surface": "want",
+              "allowedFormCandidates": [
+                "form.want.present"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "starter.03",
+              "cardDefId": "card.you",
+              "lexemeId": "lex.you.pronoun",
+              "selectionId": "form.you.subject",
+              "surface": "you",
+              "allowedFormCandidates": [
+                "form.you.subject",
+                "form.you.object"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "starter.04",
+              "cardDefId": "card.to",
+              "lexemeId": "lex.to.function",
+              "selectionId": "form.to.base",
+              "surface": "to",
+              "allowedFormCandidates": [
+                "form.to.base"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "starter.05",
+              "cardDefId": "card.read",
+              "lexemeId": "lex.read.verb",
+              "selectionId": "form.read.present",
+              "surface": "read",
+              "allowedFormCandidates": [
+                "form.read.present",
+                "form.read.past",
+                "form.read.pp"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "starter.07",
+              "cardDefId": "card.book",
+              "lexemeId": "lex.book.noun",
+              "selectionId": "form.book.plural",
+              "surface": "books",
+              "allowedFormCandidates": [
+                "form.book.plural"
+              ],
+              "position": 5
+            }
+          ]
+        },
+        "cardScoringSnapshot": [
+          {
+            "instanceId": "starter.01",
+            "cardDefId": "card.i",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "PRONOUN",
+            "cardInstanceId": "starter.01"
+          },
+          {
+            "instanceId": "starter.02",
+            "cardDefId": "card.want",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "VERB",
+            "cardInstanceId": "starter.02"
+          },
+          {
+            "instanceId": "starter.03",
+            "cardDefId": "card.you",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "PRONOUN",
+            "cardInstanceId": "starter.03"
+          },
+          {
+            "instanceId": "starter.04",
+            "cardDefId": "card.to",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "FUNCTION",
+            "cardInstanceId": "starter.04"
+          },
+          {
+            "instanceId": "starter.05",
+            "cardDefId": "card.read",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "VERB",
+            "cardInstanceId": "starter.05"
+          },
+          {
+            "instanceId": "starter.07",
+            "cardDefId": "card.book",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "NOUN",
+            "cardInstanceId": "starter.07"
+          }
+        ],
+        "runeSnapshot": [],
+        "analysis": {
+          "schemaVersion": 1,
+          "grammarVersion": "0.5.0",
+          "inputFingerprint": "e13b46ef",
+          "status": "VALID",
+          "rootNodeId": "node.0",
+          "mainClauseId": "clause.main",
+          "mainFrameId": "frame.svoc",
+          "nodes": [
+            {
+              "id": "node.0",
+              "type": "CLAUSE",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.02",
+              "scopeNodeId": null,
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [
+                "node.1",
+                "node.2",
+                "node.3"
+              ],
+              "grammaticalFeatures": {},
+              "clauseId": "clause.main"
+            },
+            {
+              "id": "node.1",
+              "type": "NP",
+              "cardIds": [
+                "starter.01"
+              ],
+              "headCardId": "starter.01",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": "SUBJECT",
+              "children": [],
+              "grammaticalFeatures": {
+                "person": 1,
+                "number": "SINGULAR"
+              }
+            },
+            {
+              "id": "node.2",
+              "type": "V",
+              "cardIds": [
+                "starter.02"
+              ],
+              "headCardId": "starter.02",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [],
+              "grammaticalFeatures": {}
+            },
+            {
+              "id": "node.3",
+              "type": "OBJECT_COMPLEMENT",
+              "cardIds": [
+                "starter.03",
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.03",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [
+                "node.4",
+                "node.5"
+              ],
+              "grammaticalFeatures": {}
+            },
+            {
+              "id": "node.4",
+              "type": "NP",
+              "cardIds": [
+                "starter.03"
+              ],
+              "headCardId": "starter.03",
+              "scopeNodeId": "node.3",
+              "connector": null,
+              "grammaticalRole": "OBJECT",
+              "children": [],
+              "grammaticalFeatures": {
+                "person": 2,
+                "number": "ANY"
+              }
+            },
+            {
+              "id": "node.5",
+              "type": "NONFINITE_PHRASE",
+              "cardIds": [
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.05",
+              "scopeNodeId": "node.3",
+              "connector": null,
+              "grammaticalRole": "OBJECT_COMPLEMENT",
+              "children": [
+                "node.6",
+                "node.7"
+              ],
+              "grammaticalFeatures": {},
+              "clauseId": "clause.1",
+              "formKind": "TO_INFINITIVE",
+              "interpretation": "INFINITIVE",
+              "function": "OBJECT_COMPLEMENT"
+            },
+            {
+              "id": "node.6",
+              "type": "V",
+              "cardIds": [
+                "starter.05"
+              ],
+              "headCardId": "starter.05",
+              "scopeNodeId": "node.5",
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [],
+              "grammaticalFeatures": {}
+            },
+            {
+              "id": "node.7",
+              "type": "NP",
+              "cardIds": [
+                "starter.07"
+              ],
+              "headCardId": "starter.07",
+              "scopeNodeId": "node.5",
+              "connector": null,
+              "grammaticalRole": "OBJECT",
+              "children": [],
+              "grammaticalFeatures": {
+                "person": 3,
+                "number": "PLURAL",
+                "countability": "COUNT"
+              }
+            }
+          ],
+          "clauses": [
+            {
+              "id": "clause.main",
+              "nodeId": "node.0",
+              "parentClauseId": null,
+              "level": 0,
+              "role": "MAIN",
+              "frameId": "frame.svoc",
+              "internalFrameId": "frame.svoc.to",
+              "verbCardId": "starter.02",
+              "subjectNodeId": "node.1",
+              "objectNodeId": "node.4",
+              "indirectObjectNodeId": null,
+              "directObjectNodeId": null,
+              "subjectComplementNodeId": null,
+              "objectComplementNodeId": "node.5",
+              "finite": true,
+              "finiteVerbCardIds": [
+                "starter.02"
+              ],
+              "temporalEvidenceIds": [
+                "vp.0"
+              ]
+            },
+            {
+              "id": "clause.1",
+              "nodeId": "node.5",
+              "parentClauseId": "clause.main",
+              "level": 1,
+              "role": "NONFINITE",
+              "frameId": "frame.svo",
+              "internalFrameId": "frame.svo",
+              "verbCardId": "starter.05",
+              "subjectNodeId": null,
+              "objectNodeId": "node.7",
+              "indirectObjectNodeId": null,
+              "directObjectNodeId": null,
+              "subjectComplementNodeId": null,
+              "objectComplementNodeId": null,
+              "finite": false,
+              "finiteVerbCardIds": [],
+              "temporalEvidenceIds": []
+            }
+          ],
+          "resolvedTokenRoles": [
+            {
+              "cardInstanceId": "starter.01",
+              "role": "SUBJECT",
+              "labelKo": "주어 S"
+            },
+            {
+              "cardInstanceId": "starter.02",
+              "role": "FINITE_VERB",
+              "labelKo": "동사 V"
+            },
+            {
+              "cardInstanceId": "starter.03",
+              "role": "OBJECT",
+              "labelKo": "목적어 O"
+            },
+            {
+              "cardInstanceId": "starter.04",
+              "role": "INFINITIVE_CONNECTOR",
+              "labelKo": "부정사 to"
+            },
+            {
+              "cardInstanceId": "starter.05",
+              "role": "NONFINITE_VERB",
+              "labelKo": "비정형 동사구"
+            },
+            {
+              "cardInstanceId": "starter.07",
+              "role": "OBJECT",
+              "labelKo": "목적어 O"
+            }
+          ],
+          "grammarHits": [
+            {
+              "id": "hit.mainFrame",
+              "tag": "FRAME.SVOC",
+              "frameId": "frame.svoc",
+              "internalFrameId": "frame.svoc.to",
+              "comboImplemented": true,
+              "scope": "MAIN_CLAUSE",
+              "scopeNodeId": "node.0",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.02",
+              "validity": "VALID",
+              "evidenceKey": "MAIN_CLAUSE:FRAME"
+            },
+            {
+              "tag": "CLAUSE.INFINITIVE",
+              "cardIds": [
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.05",
+              "evidenceKey": "CLAUSE.INFINITIVE:starter.04|starter.05|starter.07",
+              "comboImplemented": true,
+              "bonusEligible": true,
+              "validity": "VALID",
+              "function": "OBJECT_COMPLEMENT",
+              "interpretation": "INFINITIVE",
+              "id": "hit.structure.0",
+              "scope": "PHRASE",
+              "scopeNodeId": "node.5",
+              "linkNodeId": null
+            }
+          ],
+          "hits": [
+            {
+              "id": "hit.mainFrame",
+              "tag": "FRAME.SVOC",
+              "frameId": "frame.svoc",
+              "internalFrameId": "frame.svoc.to",
+              "comboImplemented": true,
+              "scope": "MAIN_CLAUSE",
+              "scopeNodeId": "node.0",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.02",
+              "validity": "VALID",
+              "evidenceKey": "MAIN_CLAUSE:FRAME"
+            },
+            {
+              "tag": "CLAUSE.INFINITIVE",
+              "cardIds": [
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "headCardId": "starter.05",
+              "evidenceKey": "CLAUSE.INFINITIVE:starter.04|starter.05|starter.07",
+              "comboImplemented": true,
+              "bonusEligible": true,
+              "validity": "VALID",
+              "function": "OBJECT_COMPLEMENT",
+              "interpretation": "INFINITIVE",
+              "id": "hit.structure.0",
+              "scope": "PHRASE",
+              "scopeNodeId": "node.5",
+              "linkNodeId": null
+            }
+          ],
+          "issues": [],
+          "evidenceMarks": [
+            {
+              "evidenceKey": "MAIN_CLAUSE:FRAME",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ]
+            },
+            {
+              "evidenceKey": "CLAUSE.INFINITIVE:starter.04|starter.05|starter.07",
+              "cardIds": [
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ]
+            }
+          ],
+          "ambiguities": [
+            {
+              "type": "EQUIVALENT_FULL_COVERAGE_ANALYSES",
+              "candidateCount": 2,
+              "normalizedTo": "frame.svoc",
+              "selectionPolicy": "fewest-issues/outer-coordination/registered-content/fixed-school-frame",
+              "noteKo": "같은 카드를 모두 설명하는 문법 분석 중 고정된 구조 우선순위를 사용합니다."
+            }
+          ],
+          "coverage": {
+            "consumedCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.04",
+              "starter.05",
+              "starter.07"
+            ],
+            "issueAffectedCardIds": [],
+            "unlicensedCardIds": []
+          },
+          "excludedCardIds": [],
+          "diagnostics": {
+            "workUnits": 53,
+            "candidateCount": 2,
+            "limits": {
+              "work": 90000,
+              "depth": 6,
+              "candidates": 128
+            }
+          },
+          "messageKo": "완전한 문장!",
+          "mainScoreClauseId": "clause.main",
+          "primaryScoringClauseId": "clause.main",
+          "structures": [],
+          "nonfinitePhrases": [
+            {
+              "id": "nonfinite.0",
+              "nodeId": "node.5",
+              "formKind": "TO_INFINITIVE",
+              "interpretation": "INFINITIVE",
+              "function": "OBJECT_COMPLEMENT",
+              "headCardId": "starter.05",
+              "cardIds": [
+                "starter.04",
+                "starter.05",
+                "starter.07"
+              ],
+              "parentNodeId": "node.3",
+              "issueIds": [],
+              "controllerNodeId": "node.4",
+              "gapRole": null,
+              "antecedentNodeId": null
+            }
+          ],
+          "verbPhrases": [
+            {
+              "id": "vp.0",
+              "clauseId": "clause.main",
+              "nodeId": "node.2",
+              "cardIds": [
+                "starter.02"
+              ],
+              "range": [
+                1,
+                2
+              ],
+              "finiteCardId": "starter.02",
+              "lexicalVerbCardId": "starter.02",
+              "auxiliaries": [],
+              "tenseFamily": "PRESENT",
+              "aspects": [],
+              "futureMarker": null,
+              "chainWellFormed": true,
+              "temporalEvidenceEligible": true,
+              "issueIds": []
+            },
+            {
+              "id": "vp.1",
+              "clauseId": "clause.1",
+              "nodeId": "node.6",
+              "cardIds": [
+                "starter.05"
+              ],
+              "range": [
+                4,
+                5
+              ],
+              "finiteCardId": null,
+              "lexicalVerbCardId": "starter.05",
+              "auxiliaries": [],
+              "tenseFamily": null,
+              "aspects": [],
+              "futureMarker": null,
+              "chainWellFormed": true,
+              "temporalEvidenceEligible": false,
+              "issueIds": []
+            }
+          ]
+        },
+        "comboEligibility": {
+          "version": "0.5.0",
+          "unlocks": [
+            "pack.clauseLink",
+            "pack.gerund",
+            "pack.infinitive",
+            "pack.svoc.basic",
+            "pack.svoo",
+            "pack.time.futureWill",
+            "pack.time.past",
+            "pack.time.perfect",
+            "pack.time.progressive",
+            "rune.adverbs",
+            "rune.discards",
+            "rune.handSize",
+            "rune.humanSubject",
+            "rune.longSentence",
+            "rune.openingHand",
+            "rune.perfectSentence",
+            "rune.polished",
+            "rune.short",
+            "rune.sv",
+            "rune.svc",
+            "rune.svo",
+            "rune.svoo"
+          ]
+        },
+        "scoreableHitIds": [
+          "hit.mainFrame",
+          "hit.structure.0"
+        ],
+        "zeroReason": null,
+        "scoreTimeline": [
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.0",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.01",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 0,
+            "after": 10,
+            "evidenceRefs": [
+              "starter.01"
+            ],
+            "highlightCardIds": [
+              "starter.01"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.1",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.02",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 10,
+            "after": 20,
+            "evidenceRefs": [
+              "starter.02"
+            ],
+            "highlightCardIds": [
+              "starter.02"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.2",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.03",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 20,
+            "after": 30,
+            "evidenceRefs": [
+              "starter.03"
+            ],
+            "highlightCardIds": [
+              "starter.03"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.3",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.04",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 30,
+            "after": 40,
+            "evidenceRefs": [
+              "starter.04"
+            ],
+            "highlightCardIds": [
+              "starter.04"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.4",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.05",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 40,
+            "after": 50,
+            "evidenceRefs": [
+              "starter.05"
+            ],
+            "highlightCardIds": [
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.5",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.07",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 50,
+            "after": 60,
+            "evidenceRefs": [
+              "starter.07"
+            ],
+            "highlightCardIds": [
+              "starter.07"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.6",
+            "phase": "COMPLETE_BONUS",
+            "sourceType": "GRAMMAR",
+            "sourceId": "COMPLETE_SENTENCE",
+            "labelKo": "완전한 문장!",
+            "operation": "ADD",
+            "operand": 30,
+            "before": 60,
+            "after": 90,
+            "evidenceRefs": [
+              "hit.mainFrame"
+            ],
+            "highlightCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.04",
+              "starter.05",
+              "starter.07"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.7",
+            "phase": "MAIN_FRAME",
+            "sourceType": "GRAMMAR",
+            "sourceId": "FRAME.SVOC",
+            "labelKo": "주절 · 5형식! ×2.5",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 5,
+              "den": 2
+            },
+            "before": 90,
+            "after": 225,
+            "evidenceRefs": [
+              "hit.mainFrame"
+            ],
+            "highlightCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.04",
+              "starter.05",
+              "starter.07"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.8",
+            "phase": "CONSTRUCTIONS",
+            "sourceType": "GRAMMAR",
+            "sourceId": "CLAUSE.INFINITIVE",
+            "labelKo": "to부정사 ×1.4",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 7,
+              "den": 5
+            },
+            "before": 225,
+            "after": 315,
+            "evidenceRefs": [
+              "hit.structure.0"
+            ],
+            "highlightCardIds": [
+              "starter.04",
+              "starter.05",
+              "starter.07"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.9",
+            "phase": "REGION",
+            "sourceType": "STAGE",
+            "sourceId": "stage.05",
+            "labelKo": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 5,
+              "den": 4
+            },
+            "before": 315,
+            "after": 393,
+            "evidenceRefs": [
+              "hit.structure.0"
+            ],
+            "highlightCardIds": [
+              "starter.04",
+              "starter.05",
+              "starter.07"
+            ]
+          },
+          {
+            "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.10",
+            "phase": "FINAL_POWER",
+            "sourceType": "SYSTEM",
+            "sourceId": "FINAL_POWER",
+            "labelKo": "최종 공격력",
+            "operation": "SET",
+            "operand": 393,
+            "before": 393,
+            "after": 393,
+            "evidenceRefs": [],
+            "highlightCardIds": []
+          }
+        ],
+        "preRuneScore": 315,
+        "postRuneScore": 315,
+        "postRegionScore": 393,
+        "preBossScore": 393,
+        "bossEffects": [],
+        "bossStateBefore": {
+          "id": "TURN_HAND_SEAL",
+          "sealedCardId": "starter.06",
+          "sealedForTurnIndex": 1,
+          "previousSealedCardId": null,
+          "sealSequence": 1,
+          "lastAppliedTurnKey": "battle.05.05:1",
+          "history": [
+            {
+              "turnIndex": 1,
+              "selectedCardId": "starter.06",
+              "candidateIds": [
+                "starter.01",
+                "starter.02",
+                "starter.06",
+                "starter.13",
+                "starter.16",
+                "starter.24"
+              ],
+              "encounterCursorBefore": 0,
+              "encounterCursorAfter": 1
+            }
+          ]
+        },
+        "bossStateAfter": {
+          "id": "TURN_HAND_SEAL",
+          "sealedCardId": "starter.06",
+          "sealedForTurnIndex": 1,
+          "previousSealedCardId": null,
+          "sealSequence": 1,
+          "lastAppliedTurnKey": "battle.05.05:1",
+          "history": [
+            {
+              "turnIndex": 1,
+              "selectedCardId": "starter.06",
+              "candidateIds": [
+                "starter.01",
+                "starter.02",
+                "starter.06",
+                "starter.13",
+                "starter.16",
+                "starter.24"
+              ],
+              "encounterCursorBefore": 0,
+              "encounterCursorAfter": 1
+            }
+          ]
+        },
+        "finalPower": 393,
+        "actualHpLoss": 393,
+        "overkill": 0,
+        "enemyHpBefore": 840,
+        "enemyHpAfter": 447,
+        "killed": false,
+        "proposedStateEffects": {
+          "consumeTurn": true,
+          "discardCardIds": [
+            "starter.01",
+            "starter.02",
+            "starter.03",
+            "starter.04",
+            "starter.05",
+            "starter.07"
+          ],
+          "killGold": 0,
+          "bossMechanic": {
+            "id": "TURN_HAND_SEAL",
+            "sealedCardId": "starter.06",
+            "sealedForTurnIndex": 1,
+            "previousSealedCardId": null,
+            "sealSequence": 1,
+            "lastAppliedTurnKey": "battle.05.05:1",
+            "history": [
+              {
+                "turnIndex": 1,
+                "selectedCardId": "starter.06",
+                "candidateIds": [
+                  "starter.01",
+                  "starter.02",
+                  "starter.06",
+                  "starter.13",
+                  "starter.16",
+                  "starter.24"
+                ],
+                "encounterCursorBefore": 0,
+                "encounterCursorAfter": 1
+              }
+            ]
+          }
+        },
+        "visualBasis": {
+          "intensityBaseline": 840,
+          "enemyBefore": {
+            "battleNumber": 22,
+            "id": "battle.05.05",
+            "enemyId": "boss.stage5",
+            "nameKo": "소원의 스핑크스",
+            "emoji": "🗿",
+            "hp": 840,
+            "focusKo": "손패 한 장의 봉인에 대응하기",
+            "kind": "REGIONAL_BOSS",
+            "bossMechanic": {
+              "id": "TURN_HAND_SEAL",
+              "sealedCardId": "starter.06",
+              "sealedForTurnIndex": 1,
+              "previousSealedCardId": null,
+              "sealSequence": 1,
+              "lastAppliedTurnKey": "battle.05.05:1",
+              "history": [
+                {
+                  "turnIndex": 1,
+                  "selectedCardId": "starter.06",
+                  "candidateIds": [
+                    "starter.01",
+                    "starter.02",
+                    "starter.06",
+                    "starter.13",
+                    "starter.16",
+                    "starter.24"
+                  ],
+                  "encounterCursorBefore": 0,
+                  "encounterCursorAfter": 1
+                }
+              ]
+            },
+            "hpMax": 840,
+            "stageId": "stage.05",
+            "maxHp": 840
+          },
+          "enemyAfter": {
+            "battleNumber": 22,
+            "id": "battle.05.05",
+            "enemyId": "boss.stage5",
+            "nameKo": "소원의 스핑크스",
+            "emoji": "🗿",
+            "hp": 447,
+            "focusKo": "손패 한 장의 봉인에 대응하기",
+            "kind": "REGIONAL_BOSS",
+            "bossMechanic": {
+              "id": "TURN_HAND_SEAL",
+              "sealedCardId": "starter.06",
+              "sealedForTurnIndex": 1,
+              "previousSealedCardId": null,
+              "sealSequence": 1,
+              "lastAppliedTurnKey": "battle.05.05:1",
+              "history": [
+                {
+                  "turnIndex": 1,
+                  "selectedCardId": "starter.06",
+                  "candidateIds": [
+                    "starter.01",
+                    "starter.02",
+                    "starter.06",
+                    "starter.13",
+                    "starter.16",
+                    "starter.24"
+                  ],
+                  "encounterCursorBefore": 0,
+                  "encounterCursorAfter": 1
+                }
+              ]
+            },
+            "hpMax": 840,
+            "stageId": "stage.05",
+            "maxHp": 840
+          },
+          "synthetic": false
+        }
+      },
+      "frames": [
+        {
+          "sourceId": "starter.01",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.0",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 0,
+          "after": 10,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "10",
+          "title": "0 → 10",
+          "beforeAttribute": "0",
+          "afterAttribute": "10",
+          "latestLog": "카드 점수  0 → 10",
+          "at": 963.7000000476837
+        },
+        {
+          "sourceId": "starter.02",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.1",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 10,
+          "after": 20,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "20",
+          "title": "10 → 20",
+          "beforeAttribute": "10",
+          "afterAttribute": "20",
+          "latestLog": "카드 점수  10 → 20",
+          "at": 1134.6000001430511
+        },
+        {
+          "sourceId": "starter.03",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.2",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 20,
+          "after": 30,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "30",
+          "title": "20 → 30",
+          "beforeAttribute": "20",
+          "afterAttribute": "30",
+          "latestLog": "카드 점수  20 → 30",
+          "at": 1305
+        },
+        {
+          "sourceId": "starter.04",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.3",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 30,
+          "after": 40,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "40",
+          "title": "30 → 40",
+          "beforeAttribute": "30",
+          "afterAttribute": "40",
+          "latestLog": "카드 점수  30 → 40",
+          "at": 1481.7000000476837
+        },
+        {
+          "sourceId": "starter.05",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.4",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 40,
+          "after": 50,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "50",
+          "title": "40 → 50",
+          "beforeAttribute": "40",
+          "afterAttribute": "50",
+          "latestLog": "카드 점수  40 → 50",
+          "at": 1660.4000000953674
+        },
+        {
+          "sourceId": "starter.07",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.5",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 50,
+          "after": 60,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "60",
+          "title": "50 → 60",
+          "beforeAttribute": "50",
+          "afterAttribute": "60",
+          "latestLog": "카드 점수  50 → 60",
+          "at": 1830.7999999523163
+        },
+        {
+          "sourceId": "COMPLETE_SENTENCE",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.6",
+          "label": "완전한 문장!",
+          "operand": 30,
+          "operation": "ADD",
+          "before": 60,
+          "after": 90,
+          "displayedLabel": "완전한 문장!",
+          "displayedScore": "90",
+          "title": "60 → 90",
+          "beforeAttribute": "60",
+          "afterAttribute": "90",
+          "latestLog": "완전한 문장!  60 → 90",
+          "at": 2002.4000000953674
+        },
+        {
+          "sourceId": "FRAME.SVOC",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.7",
+          "label": "주절 · 5형식! ×2.5",
+          "operand": {
+            "num": 5,
+            "den": 2
+          },
+          "operation": "MULTIPLY",
+          "before": 90,
+          "after": 225,
+          "displayedLabel": "주절 · 5형식! ×2.5",
+          "displayedScore": "225",
+          "title": "90 → 225",
+          "beforeAttribute": "90",
+          "afterAttribute": "225",
+          "latestLog": "주절 · 5형식! ×2.5  90 → 225",
+          "at": 2563
+        },
+        {
+          "sourceId": "CLAUSE.INFINITIVE",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.8",
+          "label": "to부정사 ×1.4",
+          "operand": {
+            "num": 7,
+            "den": 5
+          },
+          "operation": "MULTIPLY",
+          "before": 225,
+          "after": 315,
+          "displayedLabel": "to부정사 ×1.4",
+          "displayedScore": "315",
+          "title": "225 → 315",
+          "beforeAttribute": "225",
+          "afterAttribute": "315",
+          "latestLog": "to부정사 ×1.4  225 → 315",
+          "at": 3115.2999999523163
+        },
+        {
+          "sourceId": "stage.05",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.9",
+          "label": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "operation": "MULTIPLY",
+          "before": 315,
+          "after": 393,
+          "displayedLabel": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+          "displayedScore": "393",
+          "title": "315 → 393",
+          "beforeAttribute": "315",
+          "afterAttribute": "393",
+          "latestLog": "소원의 사막 · to부정사·동명사·5형식 ×1.25  315 → 393",
+          "at": 3672.600000143051
+        },
+        {
+          "sourceId": "FINAL_POWER",
+          "eventId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1:score.10",
+          "label": "최종 공격력",
+          "operand": 393,
+          "operation": "SET",
+          "before": 393,
+          "after": 393,
+          "displayedLabel": "최종 공격력",
+          "displayedScore": "393",
+          "title": "393 → 393",
+          "beforeAttribute": "393",
+          "afterAttribute": "393",
+          "latestLog": "최종 공격력  393 → 393",
+          "at": 4231.200000047684
+        }
+      ],
+      "presentation": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "run.8045e63c-6035-4e61-bc54-f9082e0d6dfd:battle.22:attack.1",
+        "plannedDuration": 5000,
+        "watchdogMs": 7000
+      }
+    },
+    {
+      "sentence": "I enjoy reading books",
+      "resolution": {
+        "schemaVersion": 1,
+        "attackId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1",
+        "runId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d",
+        "battleId": "battle.05.05",
+        "expectedRevision": 105,
+        "status": "VALID",
+        "accepted": true,
+        "versions": {
+          "language": "0.5.0",
+          "grammar": "0.5.0",
+          "balance": "balance.0.5.0",
+          "runes": "runes.0.3.0",
+          "stage": "stage.0.5.0",
+          "presentation": "presentation.0.2.1"
+        },
+        "sentenceSnapshot": {
+          "schemaVersion": 1,
+          "sentenceId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.22.1",
+          "languageVersion": "0.5.0",
+          "orderedTokens": [
+            {
+              "cardInstanceId": "starter.01",
+              "cardDefId": "card.i",
+              "lexemeId": "lex.i.pronoun",
+              "selectionId": "form.i.subject",
+              "surface": "I",
+              "allowedFormCandidates": [
+                "form.i.subject"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.02",
+              "cardDefId": "card.enjoy",
+              "lexemeId": "lex.enjoy.verb",
+              "selectionId": "form.enjoy.present",
+              "surface": "enjoy",
+              "allowedFormCandidates": [
+                "form.enjoy.present"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "starter.03",
+              "cardDefId": "card.read",
+              "lexemeId": "lex.read.verb",
+              "selectionId": "form.read.ing",
+              "surface": "reading",
+              "allowedFormCandidates": [
+                "form.read.ing"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "starter.05",
+              "cardDefId": "card.book",
+              "lexemeId": "lex.book.noun",
+              "selectionId": "form.book.plural",
+              "surface": "books",
+              "allowedFormCandidates": [
+                "form.book.plural"
+              ],
+              "position": 3
+            }
+          ]
+        },
+        "cardScoringSnapshot": [
+          {
+            "instanceId": "starter.01",
+            "cardDefId": "card.i",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "PRONOUN",
+            "cardInstanceId": "starter.01"
+          },
+          {
+            "instanceId": "starter.02",
+            "cardDefId": "card.enjoy",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "VERB",
+            "cardInstanceId": "starter.02"
+          },
+          {
+            "instanceId": "starter.03",
+            "cardDefId": "card.read",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "VERB",
+            "cardInstanceId": "starter.03"
+          },
+          {
+            "instanceId": "starter.05",
+            "cardDefId": "card.book",
+            "polishLevel": 0,
+            "specialEffectId": null,
+            "baseScore": 10,
+            "displayCategory": "NOUN",
+            "cardInstanceId": "starter.05"
+          }
+        ],
+        "runeSnapshot": [],
+        "analysis": {
+          "schemaVersion": 1,
+          "grammarVersion": "0.5.0",
+          "inputFingerprint": "599c362a",
+          "status": "VALID",
+          "rootNodeId": "node.0",
+          "mainClauseId": "clause.main",
+          "mainFrameId": "frame.svo",
+          "nodes": [
+            {
+              "id": "node.0",
+              "type": "CLAUSE",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.02",
+              "scopeNodeId": null,
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [
+                "node.1",
+                "node.2",
+                "node.3"
+              ],
+              "grammaticalFeatures": {},
+              "clauseId": "clause.main"
+            },
+            {
+              "id": "node.1",
+              "type": "NP",
+              "cardIds": [
+                "starter.01"
+              ],
+              "headCardId": "starter.01",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": "SUBJECT",
+              "children": [],
+              "grammaticalFeatures": {
+                "person": 1,
+                "number": "SINGULAR"
+              }
+            },
+            {
+              "id": "node.2",
+              "type": "V",
+              "cardIds": [
+                "starter.02"
+              ],
+              "headCardId": "starter.02",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [],
+              "grammaticalFeatures": {}
+            },
+            {
+              "id": "node.3",
+              "type": "NONFINITE_PHRASE",
+              "cardIds": [
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.03",
+              "scopeNodeId": "node.0",
+              "connector": null,
+              "grammaticalRole": "OBJECT",
+              "children": [
+                "node.4",
+                "node.5"
+              ],
+              "grammaticalFeatures": {},
+              "clauseId": "clause.1",
+              "formKind": "ING",
+              "interpretation": "GERUND",
+              "function": "OBJECT"
+            },
+            {
+              "id": "node.4",
+              "type": "V",
+              "cardIds": [
+                "starter.03"
+              ],
+              "headCardId": "starter.03",
+              "scopeNodeId": "node.3",
+              "connector": null,
+              "grammaticalRole": null,
+              "children": [],
+              "grammaticalFeatures": {}
+            },
+            {
+              "id": "node.5",
+              "type": "NP",
+              "cardIds": [
+                "starter.05"
+              ],
+              "headCardId": "starter.05",
+              "scopeNodeId": "node.3",
+              "connector": null,
+              "grammaticalRole": "OBJECT",
+              "children": [],
+              "grammaticalFeatures": {
+                "person": 3,
+                "number": "PLURAL",
+                "countability": "COUNT"
+              }
+            }
+          ],
+          "clauses": [
+            {
+              "id": "clause.main",
+              "nodeId": "node.0",
+              "parentClauseId": null,
+              "level": 0,
+              "role": "MAIN",
+              "frameId": "frame.svo",
+              "internalFrameId": "frame.svo.gerund",
+              "verbCardId": "starter.02",
+              "subjectNodeId": "node.1",
+              "objectNodeId": "node.3",
+              "indirectObjectNodeId": null,
+              "directObjectNodeId": null,
+              "subjectComplementNodeId": null,
+              "objectComplementNodeId": null,
+              "finite": true,
+              "finiteVerbCardIds": [
+                "starter.02"
+              ],
+              "temporalEvidenceIds": [
+                "vp.0"
+              ]
+            },
+            {
+              "id": "clause.1",
+              "nodeId": "node.3",
+              "parentClauseId": "clause.main",
+              "level": 1,
+              "role": "NONFINITE",
+              "frameId": "frame.svo",
+              "internalFrameId": "frame.svo",
+              "verbCardId": "starter.03",
+              "subjectNodeId": null,
+              "objectNodeId": "node.5",
+              "indirectObjectNodeId": null,
+              "directObjectNodeId": null,
+              "subjectComplementNodeId": null,
+              "objectComplementNodeId": null,
+              "finite": false,
+              "finiteVerbCardIds": [],
+              "temporalEvidenceIds": []
+            }
+          ],
+          "resolvedTokenRoles": [
+            {
+              "cardInstanceId": "starter.01",
+              "role": "SUBJECT",
+              "labelKo": "주어 S"
+            },
+            {
+              "cardInstanceId": "starter.02",
+              "role": "FINITE_VERB",
+              "labelKo": "동사 V"
+            },
+            {
+              "cardInstanceId": "starter.03",
+              "role": "NONFINITE_VERB",
+              "labelKo": "-ing형 동사"
+            },
+            {
+              "cardInstanceId": "starter.05",
+              "role": "OBJECT",
+              "labelKo": "목적어 O"
+            }
+          ],
+          "grammarHits": [
+            {
+              "id": "hit.mainFrame",
+              "tag": "FRAME.SVO",
+              "frameId": "frame.svo",
+              "internalFrameId": "frame.svo.gerund",
+              "comboImplemented": true,
+              "scope": "MAIN_CLAUSE",
+              "scopeNodeId": "node.0",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.02",
+              "validity": "VALID",
+              "evidenceKey": "MAIN_CLAUSE:FRAME"
+            },
+            {
+              "tag": "CLAUSE.GERUND",
+              "cardIds": [
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.03",
+              "evidenceKey": "CLAUSE.GERUND:starter.03|starter.05",
+              "comboImplemented": true,
+              "bonusEligible": true,
+              "validity": "VALID",
+              "function": "OBJECT",
+              "interpretation": "GERUND",
+              "id": "hit.structure.0",
+              "scope": "PHRASE",
+              "scopeNodeId": "node.3",
+              "linkNodeId": null
+            }
+          ],
+          "hits": [
+            {
+              "id": "hit.mainFrame",
+              "tag": "FRAME.SVO",
+              "frameId": "frame.svo",
+              "internalFrameId": "frame.svo.gerund",
+              "comboImplemented": true,
+              "scope": "MAIN_CLAUSE",
+              "scopeNodeId": "node.0",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.02",
+              "validity": "VALID",
+              "evidenceKey": "MAIN_CLAUSE:FRAME"
+            },
+            {
+              "tag": "CLAUSE.GERUND",
+              "cardIds": [
+                "starter.03",
+                "starter.05"
+              ],
+              "headCardId": "starter.03",
+              "evidenceKey": "CLAUSE.GERUND:starter.03|starter.05",
+              "comboImplemented": true,
+              "bonusEligible": true,
+              "validity": "VALID",
+              "function": "OBJECT",
+              "interpretation": "GERUND",
+              "id": "hit.structure.0",
+              "scope": "PHRASE",
+              "scopeNodeId": "node.3",
+              "linkNodeId": null
+            }
+          ],
+          "issues": [],
+          "evidenceMarks": [
+            {
+              "evidenceKey": "MAIN_CLAUSE:FRAME",
+              "cardIds": [
+                "starter.01",
+                "starter.02",
+                "starter.03",
+                "starter.05"
+              ]
+            },
+            {
+              "evidenceKey": "CLAUSE.GERUND:starter.03|starter.05",
+              "cardIds": [
+                "starter.03",
+                "starter.05"
+              ]
+            }
+          ],
+          "ambiguities": [
+            {
+              "type": "EQUIVALENT_FULL_COVERAGE_ANALYSES",
+              "candidateCount": 2,
+              "normalizedTo": "frame.svo",
+              "selectionPolicy": "fewest-issues/outer-coordination/registered-content/fixed-school-frame",
+              "noteKo": "같은 카드를 모두 설명하는 문법 분석 중 고정된 구조 우선순위를 사용합니다."
+            }
+          ],
+          "coverage": {
+            "consumedCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.05"
+            ],
+            "issueAffectedCardIds": [],
+            "unlicensedCardIds": []
+          },
+          "excludedCardIds": [],
+          "diagnostics": {
+            "workUnits": 31,
+            "candidateCount": 2,
+            "limits": {
+              "work": 90000,
+              "depth": 6,
+              "candidates": 128
+            }
+          },
+          "messageKo": "완전한 문장!",
+          "mainScoreClauseId": "clause.main",
+          "primaryScoringClauseId": "clause.main",
+          "structures": [],
+          "nonfinitePhrases": [
+            {
+              "id": "nonfinite.0",
+              "nodeId": "node.3",
+              "formKind": "ING",
+              "interpretation": "GERUND",
+              "function": "OBJECT",
+              "headCardId": "starter.03",
+              "cardIds": [
+                "starter.03",
+                "starter.05"
+              ],
+              "parentNodeId": "node.0",
+              "issueIds": [],
+              "controllerNodeId": null,
+              "gapRole": null,
+              "antecedentNodeId": null
+            }
+          ],
+          "verbPhrases": [
+            {
+              "id": "vp.0",
+              "clauseId": "clause.main",
+              "nodeId": "node.2",
+              "cardIds": [
+                "starter.02"
+              ],
+              "range": [
+                1,
+                2
+              ],
+              "finiteCardId": "starter.02",
+              "lexicalVerbCardId": "starter.02",
+              "auxiliaries": [],
+              "tenseFamily": "PRESENT",
+              "aspects": [],
+              "futureMarker": null,
+              "chainWellFormed": true,
+              "temporalEvidenceEligible": true,
+              "issueIds": []
+            },
+            {
+              "id": "vp.1",
+              "clauseId": "clause.1",
+              "nodeId": "node.4",
+              "cardIds": [
+                "starter.03"
+              ],
+              "range": [
+                2,
+                3
+              ],
+              "finiteCardId": null,
+              "lexicalVerbCardId": "starter.03",
+              "auxiliaries": [],
+              "tenseFamily": null,
+              "aspects": [],
+              "futureMarker": null,
+              "chainWellFormed": true,
+              "temporalEvidenceEligible": false,
+              "issueIds": []
+            }
+          ]
+        },
+        "comboEligibility": {
+          "version": "0.5.0",
+          "unlocks": [
+            "pack.clauseLink",
+            "pack.gerund",
+            "pack.infinitive",
+            "pack.svoc.basic",
+            "pack.svoo",
+            "pack.time.futureWill",
+            "pack.time.past",
+            "pack.time.perfect",
+            "pack.time.progressive",
+            "rune.adverbs",
+            "rune.discards",
+            "rune.handSize",
+            "rune.humanSubject",
+            "rune.longSentence",
+            "rune.openingHand",
+            "rune.perfectSentence",
+            "rune.polished",
+            "rune.short",
+            "rune.sv",
+            "rune.svc",
+            "rune.svo",
+            "rune.svoo"
+          ]
+        },
+        "scoreableHitIds": [
+          "hit.mainFrame",
+          "hit.structure.0"
+        ],
+        "zeroReason": null,
+        "scoreTimeline": [
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.0",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.01",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 0,
+            "after": 10,
+            "evidenceRefs": [
+              "starter.01"
+            ],
+            "highlightCardIds": [
+              "starter.01"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.1",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.02",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 10,
+            "after": 20,
+            "evidenceRefs": [
+              "starter.02"
+            ],
+            "highlightCardIds": [
+              "starter.02"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.2",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.03",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 20,
+            "after": 30,
+            "evidenceRefs": [
+              "starter.03"
+            ],
+            "highlightCardIds": [
+              "starter.03"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.3",
+            "phase": "CARD_BASE",
+            "sourceType": "CARD",
+            "sourceId": "starter.05",
+            "labelKo": "카드 점수",
+            "operation": "ADD",
+            "operand": 10,
+            "before": 30,
+            "after": 40,
+            "evidenceRefs": [
+              "starter.05"
+            ],
+            "highlightCardIds": [
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.4",
+            "phase": "COMPLETE_BONUS",
+            "sourceType": "GRAMMAR",
+            "sourceId": "COMPLETE_SENTENCE",
+            "labelKo": "완전한 문장!",
+            "operation": "ADD",
+            "operand": 30,
+            "before": 40,
+            "after": 70,
+            "evidenceRefs": [
+              "hit.mainFrame"
+            ],
+            "highlightCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.5",
+            "phase": "MAIN_FRAME",
+            "sourceType": "GRAMMAR",
+            "sourceId": "FRAME.SVO",
+            "labelKo": "주절 · 3형식!",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 9,
+              "den": 5
+            },
+            "before": 70,
+            "after": 126,
+            "evidenceRefs": [
+              "hit.mainFrame"
+            ],
+            "highlightCardIds": [
+              "starter.01",
+              "starter.02",
+              "starter.03",
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.6",
+            "phase": "CONSTRUCTIONS",
+            "sourceType": "GRAMMAR",
+            "sourceId": "CLAUSE.GERUND",
+            "labelKo": "동명사 ×1.4",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 7,
+              "den": 5
+            },
+            "before": 126,
+            "after": 176,
+            "evidenceRefs": [
+              "hit.structure.0"
+            ],
+            "highlightCardIds": [
+              "starter.03",
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.7",
+            "phase": "REGION",
+            "sourceType": "STAGE",
+            "sourceId": "stage.05",
+            "labelKo": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 5,
+              "den": 4
+            },
+            "before": 176,
+            "after": 220,
+            "evidenceRefs": [
+              "hit.structure.0"
+            ],
+            "highlightCardIds": [
+              "starter.03",
+              "starter.05"
+            ]
+          },
+          {
+            "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.8",
+            "phase": "FINAL_POWER",
+            "sourceType": "SYSTEM",
+            "sourceId": "FINAL_POWER",
+            "labelKo": "최종 공격력",
+            "operation": "SET",
+            "operand": 220,
+            "before": 220,
+            "after": 220,
+            "evidenceRefs": [],
+            "highlightCardIds": []
+          }
+        ],
+        "preRuneScore": 176,
+        "postRuneScore": 176,
+        "postRegionScore": 220,
+        "preBossScore": 220,
+        "bossEffects": [],
+        "bossStateBefore": {
+          "id": "TURN_HAND_SEAL",
+          "sealedCardId": "starter.04",
+          "sealedForTurnIndex": 1,
+          "previousSealedCardId": null,
+          "sealSequence": 1,
+          "lastAppliedTurnKey": "battle.05.05:1",
+          "history": [
+            {
+              "turnIndex": 1,
+              "selectedCardId": "starter.04",
+              "candidateIds": [
+                "starter.04",
+                "starter.06",
+                "starter.08",
+                "starter.09",
+                "starter.11",
+                "entry.run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.stage.04.card.0"
+              ],
+              "encounterCursorBefore": 0,
+              "encounterCursorAfter": 1
+            }
+          ]
+        },
+        "bossStateAfter": {
+          "id": "TURN_HAND_SEAL",
+          "sealedCardId": "starter.04",
+          "sealedForTurnIndex": 1,
+          "previousSealedCardId": null,
+          "sealSequence": 1,
+          "lastAppliedTurnKey": "battle.05.05:1",
+          "history": [
+            {
+              "turnIndex": 1,
+              "selectedCardId": "starter.04",
+              "candidateIds": [
+                "starter.04",
+                "starter.06",
+                "starter.08",
+                "starter.09",
+                "starter.11",
+                "entry.run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.stage.04.card.0"
+              ],
+              "encounterCursorBefore": 0,
+              "encounterCursorAfter": 1
+            }
+          ]
+        },
+        "finalPower": 220,
+        "actualHpLoss": 220,
+        "overkill": 0,
+        "enemyHpBefore": 840,
+        "enemyHpAfter": 620,
+        "killed": false,
+        "proposedStateEffects": {
+          "consumeTurn": true,
+          "discardCardIds": [
+            "starter.01",
+            "starter.02",
+            "starter.03",
+            "starter.05"
+          ],
+          "killGold": 0,
+          "bossMechanic": {
+            "id": "TURN_HAND_SEAL",
+            "sealedCardId": "starter.04",
+            "sealedForTurnIndex": 1,
+            "previousSealedCardId": null,
+            "sealSequence": 1,
+            "lastAppliedTurnKey": "battle.05.05:1",
+            "history": [
+              {
+                "turnIndex": 1,
+                "selectedCardId": "starter.04",
+                "candidateIds": [
+                  "starter.04",
+                  "starter.06",
+                  "starter.08",
+                  "starter.09",
+                  "starter.11",
+                  "entry.run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.stage.04.card.0"
+                ],
+                "encounterCursorBefore": 0,
+                "encounterCursorAfter": 1
+              }
+            ]
+          }
+        },
+        "visualBasis": {
+          "intensityBaseline": 840,
+          "enemyBefore": {
+            "battleNumber": 22,
+            "id": "battle.05.05",
+            "enemyId": "boss.stage5",
+            "nameKo": "소원의 스핑크스",
+            "emoji": "🗿",
+            "hp": 840,
+            "focusKo": "손패 한 장의 봉인에 대응하기",
+            "kind": "REGIONAL_BOSS",
+            "bossMechanic": {
+              "id": "TURN_HAND_SEAL",
+              "sealedCardId": "starter.04",
+              "sealedForTurnIndex": 1,
+              "previousSealedCardId": null,
+              "sealSequence": 1,
+              "lastAppliedTurnKey": "battle.05.05:1",
+              "history": [
+                {
+                  "turnIndex": 1,
+                  "selectedCardId": "starter.04",
+                  "candidateIds": [
+                    "starter.04",
+                    "starter.06",
+                    "starter.08",
+                    "starter.09",
+                    "starter.11",
+                    "entry.run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.stage.04.card.0"
+                  ],
+                  "encounterCursorBefore": 0,
+                  "encounterCursorAfter": 1
+                }
+              ]
+            },
+            "hpMax": 840,
+            "stageId": "stage.05",
+            "maxHp": 840
+          },
+          "enemyAfter": {
+            "battleNumber": 22,
+            "id": "battle.05.05",
+            "enemyId": "boss.stage5",
+            "nameKo": "소원의 스핑크스",
+            "emoji": "🗿",
+            "hp": 620,
+            "focusKo": "손패 한 장의 봉인에 대응하기",
+            "kind": "REGIONAL_BOSS",
+            "bossMechanic": {
+              "id": "TURN_HAND_SEAL",
+              "sealedCardId": "starter.04",
+              "sealedForTurnIndex": 1,
+              "previousSealedCardId": null,
+              "sealSequence": 1,
+              "lastAppliedTurnKey": "battle.05.05:1",
+              "history": [
+                {
+                  "turnIndex": 1,
+                  "selectedCardId": "starter.04",
+                  "candidateIds": [
+                    "starter.04",
+                    "starter.06",
+                    "starter.08",
+                    "starter.09",
+                    "starter.11",
+                    "entry.run.625c62d4-b22c-4e4b-b251-d47ca6745c8d.stage.04.card.0"
+                  ],
+                  "encounterCursorBefore": 0,
+                  "encounterCursorAfter": 1
+                }
+              ]
+            },
+            "hpMax": 840,
+            "stageId": "stage.05",
+            "maxHp": 840
+          },
+          "synthetic": false
+        }
+      },
+      "frames": [
+        {
+          "sourceId": "starter.01",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.0",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 0,
+          "after": 10,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "10",
+          "title": "0 → 10",
+          "beforeAttribute": "0",
+          "afterAttribute": "10",
+          "latestLog": "카드 점수  0 → 10",
+          "at": 7930.400000095367
+        },
+        {
+          "sourceId": "starter.02",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.1",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 10,
+          "after": 20,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "20",
+          "title": "10 → 20",
+          "beforeAttribute": "10",
+          "afterAttribute": "20",
+          "latestLog": "카드 점수  10 → 20",
+          "at": 8102.200000047684
+        },
+        {
+          "sourceId": "starter.03",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.2",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 20,
+          "after": 30,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "30",
+          "title": "20 → 30",
+          "beforeAttribute": "20",
+          "afterAttribute": "30",
+          "latestLog": "카드 점수  20 → 30",
+          "at": 8273.5
+        },
+        {
+          "sourceId": "starter.05",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.3",
+          "label": "카드 점수",
+          "operand": 10,
+          "operation": "ADD",
+          "before": 30,
+          "after": 40,
+          "displayedLabel": "카드 점수",
+          "displayedScore": "40",
+          "title": "30 → 40",
+          "beforeAttribute": "30",
+          "afterAttribute": "40",
+          "latestLog": "카드 점수  30 → 40",
+          "at": 8448.100000143051
+        },
+        {
+          "sourceId": "COMPLETE_SENTENCE",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.4",
+          "label": "완전한 문장!",
+          "operand": 30,
+          "operation": "ADD",
+          "before": 40,
+          "after": 70,
+          "displayedLabel": "완전한 문장!",
+          "displayedScore": "70",
+          "title": "40 → 70",
+          "beforeAttribute": "40",
+          "afterAttribute": "70",
+          "latestLog": "완전한 문장!  40 → 70",
+          "at": 8630.600000143051
+        },
+        {
+          "sourceId": "FRAME.SVO",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.5",
+          "label": "주절 · 3형식!",
+          "operand": {
+            "num": 9,
+            "den": 5
+          },
+          "operation": "MULTIPLY",
+          "before": 70,
+          "after": 126,
+          "displayedLabel": "주절 · 3형식!",
+          "displayedScore": "126",
+          "title": "70 → 126",
+          "beforeAttribute": "70",
+          "afterAttribute": "126",
+          "latestLog": "주절 · 3형식!  70 → 126",
+          "at": 9182
+        },
+        {
+          "sourceId": "CLAUSE.GERUND",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.6",
+          "label": "동명사 ×1.4",
+          "operand": {
+            "num": 7,
+            "den": 5
+          },
+          "operation": "MULTIPLY",
+          "before": 126,
+          "after": 176,
+          "displayedLabel": "동명사 ×1.4",
+          "displayedScore": "176",
+          "title": "126 → 176",
+          "beforeAttribute": "126",
+          "afterAttribute": "176",
+          "latestLog": "동명사 ×1.4  126 → 176",
+          "at": 9738.5
+        },
+        {
+          "sourceId": "stage.05",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.7",
+          "label": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "operation": "MULTIPLY",
+          "before": 176,
+          "after": 220,
+          "displayedLabel": "소원의 사막 · to부정사·동명사·5형식 ×1.25",
+          "displayedScore": "220",
+          "title": "176 → 220",
+          "beforeAttribute": "176",
+          "afterAttribute": "220",
+          "latestLog": "소원의 사막 · to부정사·동명사·5형식 ×1.25  176 → 220",
+          "at": 10297.900000095367
+        },
+        {
+          "sourceId": "FINAL_POWER",
+          "eventId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1:score.8",
+          "label": "최종 공격력",
+          "operand": 220,
+          "operation": "SET",
+          "before": 220,
+          "after": 220,
+          "displayedLabel": "최종 공격력",
+          "displayedScore": "220",
+          "title": "220 → 220",
+          "beforeAttribute": "220",
+          "afterAttribute": "220",
+          "latestLog": "최종 공격력  220 → 220",
+          "at": 10850
+        }
+      ],
+      "presentation": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "run.625c62d4-b22c-4e4b-b251-d47ca6745c8d:battle.22:attack.1",
+        "plannedDuration": 4660,
+        "watchdogMs": 6660
+      }
+    }
+  ],
+  "errors": [],
+  "status": "PASS"
+}
