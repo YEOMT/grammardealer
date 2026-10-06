@@ -2,11 +2,11 @@
   "kind": "ACTUAL_VERIFICATION_MAPPING_NOT_SPEC_EXPECTATION_RESULTS",
   "sourceRequirementFile": "tests/fixtures/v05-acceptance-expectations.json",
   "baselineCommit": "6d2907eddefafb1a909c6c803259ba26b408f104",
-  "phase": "FINAL_LOCAL_VERIFICATION_PASS_REMOTE_PENDING",
+  "phase": "FINAL_VERIFIED_AND_PR_CREATED",
   "counts": {
-    "PASS": 102,
+    "PASS": 103,
     "FAIL": 0,
-    "NOT RUN": 1
+    "NOT RUN": 0
   },
   "items": [
     {
@@ -727,8 +727,8 @@
       "id": "P103",
       "group": "실행·인계",
       "requirement": "브랜치push·PR까지만수행, main자동수정·merge·승인없는배포없음.",
-      "result": "NOT RUN",
-      "evidence": "개발 브랜치 상태. push/PR 완료 증거 대기. main 직접 push·merge·Pages 변경·공개 배포 허용 없음."
+      "result": "PASS",
+      "evidence": "개발 브랜치 codex/v0.5-wish-desert-nonfinite-seal을 push, 구현 커밋 f77eaf11852f95e9aed7bab1ebae1c2a9875c2db. main 대상 PR #7 생성(https://github.com/YEOMT/grammardealer/pull/7), open/ready, auto_merge=null. base main6d2907ed 그대로; workflow/main/Pages 설정 변경·merge·공개 배포 없음."
     }
   ]
 }

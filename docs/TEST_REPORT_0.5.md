@@ -82,4 +82,6 @@ Windows / Node24.19.0 / npm11.17.0 / Git2.51.0.windows.2 / Vite8.3.2 / Playwrigh
 
 실제 iPad/Android/Safari/Firefox/WebKit, 스피커 청취, 교사 최종 검수, OS 강제 종료/실quota, Stage6~10/전체48전투는 NOT RUN 또는 제공 범위 밖이다. Chromium touch emulation·headless 무음 영상은 이를 대신하지 않는다. 새 HP와 배수는 명세 초깃값이며 난이도 검증 완료값이 아니다.
 
-main·Pages 설정·공개 배포는 변경하지 않는다. 개발 브랜치 push와 main 대상 PR은 검증 결과·허용 범위 diff를 검토한 후 진행하며 원격 결과는 아래에 추가한다.
+main·Pages 설정·공개 배포는 변경하지 않는다. 개발 브랜치를 push하고 [PR #7](https://github.com/YEOMT/grammardealer/pull/7)을 생성했다. 구현 커밋은 `f77eaf11852f95e9aed7bab1ebae1c2a9875c2db`다. PR은 open/ready이며 auto-merge는 꺼져 있다. base main은 작업 시작 `6d2907eddefafb1a909c6c803259ba26b408f104` 그대로다. CI 결과는 PR의 현재 build check를 따르며 로컬 검증과 구분한다.
+
+인수103개는 모두 실제 요건별 PASS다. 이 중 P090/P101은 교사·실기기 등 미검증 공개 요구사항의 PASS이며 그 검사를 실행했다고 뜻하지 않는다. 새 의존성·배포 설정 변경은 없고, 이번에 띄운 Vite와 테스트용 브라우저/production 서버는 종료했다.

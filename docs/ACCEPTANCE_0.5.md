@@ -1,6 +1,6 @@
 # 0.5 P001–P103 실제 검증 대응표
 
-기준은 작업 시작 최신 origin/main `6d2907eddefafb1a909c6c803259ba26b408f104`이다. `tests/fixtures/v05-acceptance-expectations.json`의 103개 요구사항을 원문 그대로 옮겼다. 그 JSON의 NOT RUN 값은 기대사항이며 실행 증거가 아니다. 이 표의 PASS는 아래 명시한 실제 실행/코드 검토 범위만 의미한다. 요구사항 일부만 확인되면 NOT RUN으로 남기고 확인된 부분을 함께 적었다. 첫 회귀와 보상 UI 수정 후 두 번째 회귀를 완료했으나, 이어진 독립 검토에서 중첩 SVOC 대표 분석 문제를 발견했다. 수정 후 세 번째 최종 회귀(final3)에서 Node/data/build와 공식 browser를 모두 완료했다. 앞선 통과를 수정 후 최종 결과로 재사용하지 않으며 production·PR은 별도 증거로 갱신한다.
+기준은 작업 시작 최신 origin/main `6d2907eddefafb1a909c6c803259ba26b408f104`이다. `tests/fixtures/v05-acceptance-expectations.json`의 103개 요구사항을 원문 그대로 옮겼다. 그 JSON의 NOT RUN 값은 기대사항이며 실행 증거가 아니다. 이 표의 PASS는 아래 명시한 실제 실행/코드 검토 범위만 의미한다. 요구사항 일부만 확인되면 NOT RUN으로 남기고 확인된 부분을 함께 적었다. 첫 회귀와 보상 UI 수정 후 두 번째 회귀를 완료했으나, 이어진 독립 검토에서 중첩 SVOC 대표 분석 문제를 발견했다. 수정 후 세 번째 최종 회귀(final3)에서 Node/data/build와 공식 browser를 모두 완료했다. 앞선 통과를 수정 후 최종 결과로 재사용하지 않으며 production 완주와 PR #7의 실제 증거도 반영했다.
 
 ## 근거 식별자
 
@@ -130,8 +130,8 @@
 | P100 | 실행·인계 | 초기자원로드뒤오프라인계속플레이·프로필저장·콘솔/페이지오류·debug차단확인. | PASS | Production 초기 자원 로드 뒤 offline22전투/새원정/완료저장·복원, Stage1~5 각1회/profile/story0; page/console/error requests/400응답0, 외부runtime요청0, production debug query/hash 차단 PASS. |
 | P101 | 실행·인계 | 실기기/미실행브라우저/교사검수/전체48전투는 미검증을 명확히 표시한다. | PASS | 이 보고서에 실기기/미실행 엔진/교사/48전투 모두 NOT RUN 명시. 이것은 미검증 공개 요건만 PASS이며 실제 검증 PASS가 아님. |
 | P102 | 실행·인계 | 패치/인수/언어/봉인/교육/진행/알려진문제 인계를 제출한다. | PASS | PATCH_NOTES/TEST_REPORT/PROJECT_HANDOFF/ARCHITECTURE/LANGUAGE_SCOPE/DECISIONS/NEXT_STEPS/KNOWN_ISSUES/PROGRESS 및 언어·Frame·교육·봉인 검토표와 validation/v0.5 증거 작성. 과거71개 해시 복원. 실기기/교사/48전투 미검증을 분리. 원격 P103은 별도. |
-| P103 | 실행·인계 | 브랜치push·PR까지만수행, main자동수정·merge·승인없는배포없음. | NOT RUN | 개발 브랜치 상태. push/PR 완료 증거 대기. main 직접 push·merge·Pages 변경·공개 배포 허용 없음. |
+| P103 | 실행·인계 | 브랜치push·PR까지만수행, main자동수정·merge·승인없는배포없음. | PASS | 개발 브랜치 codex/v0.5-wish-desert-nonfinite-seal을 push, 구현 커밋 f77eaf11852f95e9aed7bab1ebae1c2a9875c2db. main 대상 PR #7 생성(https://github.com/YEOMT/grammardealer/pull/7), open/ready, auto_merge=null. base main6d2907ed 그대로; workflow/main/Pages 설정 변경·merge·공개 배포 없음. |
 
-이전 초안98/0/5에서 production·인계 증거를 반영했다. 현재 집계는 아래와 같다.
+실제 production·인계·원격 전달까지 완료했다.
 
-최종 로컬 실행 완료: **102 PASS / 0 FAIL / 1 NOT RUN(P103 원격 전달 대기)**. Production은49실제공격·22전투·47PNG이며 지정 상태/Node 정책을 대체 근거로 사용하지 않았다.
+최종 인수 항목 집계: **103 PASS / 0 FAIL / 0 NOT RUN**. P090/P101의 PASS는 교사·실기기·전체48전투의 **NOT RUN/범위 밖을 정확히 공개한 요건**이며 그 실검증 통과가 아니다. Production은49실제공격·22전투·47PNG이며 지정 상태/Node 정책을 대체 근거로 사용하지 않았다. [PR #7](https://github.com/YEOMT/grammardealer/pull/7).
