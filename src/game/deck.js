@@ -1,5 +1,5 @@
 import {isOperation} from '../data/cardCatalog.js';
-import { registry, campaign021Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
+import { registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
 import { analyzeSentence } from '../engine/grammar/index.js';
 import { createRng, createStream, pick, shuffle, weightedPick, assertStream } from './rng.js';
 import { BALANCE } from '../data/balance.js';
@@ -154,7 +154,7 @@ function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
   let selectedPool = [];
   let usedBand;
   for (const band of lowerBands) {
-    selectedPool = candidates.filter(card => registry.lexemeById[card.lexemeId].vocabBand === band);
+    selectedPool = candidates.filter(card => campaign04Registry.lexemeById[card.lexemeId].vocabBand === band);
     if (selectedPool.length) { usedBand = band; break; }
   }
   if (!selectedPool.length) throw new Error(`No same-role/common/lower band candidates for ${role}:${requestedBand}`);
@@ -169,7 +169,7 @@ function buildSlotPlan(mode, stream, trace, version) {
   const counts = {};
   const planned = [];
   const addFixed = (lemma, pos, role) => {
-    const card = pool.find(card => { const lex = registry.lexemeById[card.lexemeId]; return lex.lemma.toLowerCase() === lemma.toLowerCase() && lex.pos === pos; });
+    const card = pool.find(card => { const lex = campaign04Registry.lexemeById[card.lexemeId]; return lex.lemma.toLowerCase() === lemma.toLowerCase() && lex.pos === pos; });
     if (!card) throw new Error(`Missing starter material ${lemma}`);
     counts[card.lexemeId] = (counts[card.lexemeId] || 0) + 1;
     planned.push({ card, role });
@@ -250,7 +250,7 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
     const counts = {};
     plan.forEach((entry, index) => { if (index !== target) counts[entry.card.lexemeId] = (counts[entry.card.lexemeId] || 0) + 1; });
     const candidates = allStarterCards().filter(card => {
-      const lex = registry.lexemeById[card.lexemeId];
+      const lex = campaign04Registry.lexemeById[card.lexemeId];
       return ['ADJECTIVE', 'NOUN'].includes(targetRole) ? lex.pos === targetRole : lex.pos === 'VERB' && lex.frameIds.includes(frame);
     });
     const old = plan[target].card.id;

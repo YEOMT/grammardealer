@@ -15,7 +15,8 @@ try{
   const page=await browser.newPage({viewport:{width:1366,height:768}});
   page.on('pageerror',error=>report.errors.push(error.message));
   await page.goto(base);await page.locator('#start-run').waitFor();
-  assert.match(await page.locator('.version-badge').innerText(),/0\.4/);
+  // The lobby advertises the new campaign; the assigned legacy scenarios below retain their own versions.
+  assert.match(await page.locator('.version-badge').innerText(),/0\.5/);
   await page.evaluate(async()=>{
     const [{RunController},{newProfile,LocalStore},{renderIntro,renderStageClear,renderResult},{renderShop},{openDeck,openDictionary,openRecords,openSaves},{RUNE_BY_ID}]=await Promise.all([
       import('/tests/helpers/legacy-controller.js'),import('/src/services/localStore.js'),import('/src/ui/progression.js'),import('/src/ui/shop.js'),import('/src/ui/overlays.js'),import('/src/data/runes.js')]);

@@ -1,11 +1,14 @@
+import {isIngForm} from '../data/language/desertLanguage.js';
 import { el, button, modal } from './dom.js';
+import {ING_FORM_GUIDE} from '../data/grammarGuideData.js';
+import {TURN_HAND_SEAL_LABEL} from '../data/stage5.js';
 export const POS_LABELS = { NOUN: '명사', PRONOUN: '대명사', VERB: '동사', ADJECTIVE: '형용사', ADVERB: '부사', DETERMINER: '한정사', PREPOSITION: '전치사', FUNCTION: '연결어' };
 export const RARITY_LABELS = { COMMON: '일반', UNCOMMON: '고급', RARE: '희귀' };
 /** Display-only card model. No grammar inspection takes place while rendering. */
-export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false, onUse, useCount, useDisabled=false } = {}) {
+export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false, onUse, useCount, useDisabled=false, sealed=false } = {}) {
   if(model.cardKind==='OPERATION')return operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled});
-  const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly' } });
-  const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${readonly ? '' : ', Enter로 이동'}` },
+  const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''} ${sealed?'turn-sealed':''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly',sealed:String(sealed) } });
+  const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-disabled':sealed?'true':null, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${sealed?', '+TURN_HAND_SEAL_LABEL+' · 교환 가능':readonly ? '' : ', Enter로 이동'}` },
     el('div', { class: 'card-topline' }, el('span', { class: 'pos-label', text: POS_LABELS[model.pos] || model.pos }), el('span', { class: 'card-value', text: `${(model.baseScore ?? 10)+(model.polish||0)*5}` })),
     el('strong', { class: `card-word ${model.surface?.length > 10 ? 'long-word' : ''}`, text: model.surface, style: `--fit-factor:${Math.max(1,model.surface.length * .66)}` }),
     el('div', { class: 'card-footline' }, el('span', { text: RARITY_LABELS[model.rarity] || '일반' }), el('span', { class:model.polish?'polish-badge':'',text: model.polish ? `✦ +${model.polish}` : '◇',title:`기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}` })));
@@ -15,6 +18,7 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   }
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
   node.append(body);
+  if(sealed)body.append(el('span',{class:'seal-badge',text:TURN_HAND_SEAL_LABEL,'aria-hidden':'true'}));
   if(onSelect&&!readonly){
     node.classList.add('selectable-card');
     const foot=body.querySelector('.card-footline');node.append(foot);
@@ -25,13 +29,13 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
 }
 export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRemove, onCopy, onSwap } = {}) {
   let view;
-  const choices = el('div', { class: 'form-choices' }, forms.map(form => { const duplicate = forms.filter(f => f.surface === form.surface).length > 1; const choice = button('', () => { view.close(); onSelect(form.id || form.formId); }, `form-choice ${(form.id||form.formId) === model.formId ? 'current' : ''}`, { 'aria-label': `형태 ${form.surface}${duplicate ? ` · ${form.labelKo}` : ''}`, dataset: { formId: form.id || form.formId } }); choice.append(el('strong', { text: form.surface }), el('small', { text: form.id==='form.be.base'?'원형':form.grammaticalFeatures.tense==='PRESENT_PARTICIPLE'?'-ing형':form.labelKo || '기본형' })); return choice; }));
+  const choices = el('div', { class: 'form-choices' }, forms.map(form => { const duplicate = forms.filter(f => f.surface === form.surface).length > 1; const choice = button('', () => { view.close(); onSelect(form.id || form.formId); }, `form-choice ${(form.id||form.formId) === model.formId ? 'current' : ''}`, { 'aria-label': `형태 ${form.surface}${duplicate ? ` · ${form.labelKo}` : ''}`, dataset: { formId: form.id || form.formId } }); choice.append(el('strong', { text: form.surface }), el('small', { text: form.id==='form.be.base'?'원형':isIngForm(form)?'-ing형':form.labelKo || '기본형' })); return choice; }));
   if(forms.some(f=>f.grammaticalFeatures.tense==='PAST')){
-    const groups=[['현재 / 원형',f=>!['PAST','PAST_PARTICIPLE','PRESENT_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사 · p.p.',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['-ing형',f=>f.grammaticalFeatures.tense==='PRESENT_PARTICIPLE']];
+    const groups=[['현재 / 원형',f=>!isIngForm(f)&&!['PAST','PAST_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사 · p.p.',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['-ing형',f=>isIngForm(f)]];
     const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...groups.map(([label,match])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>match(f)?[buttons[i]]:[])))));
   }
   const extras = el('div', { class: 'dialog-actions wrap' }, onMoveLeft && button('← 왼쪽으로', () => { view.close(); onMoveLeft(); }, 'secondary'), onMoveRight && button('오른쪽으로 →', () => { view.close(); onMoveRight(); }, 'secondary'), onSwap && button('손패와 맞교환', () => { view.close(); onSwap(); }, 'secondary'), onCopy && button('한 장 복사', () => { view.close(); onCopy(); }, 'secondary'), onRemove && button('카드 회수', () => { view.close(); onRemove(); }, 'secondary'));
-  view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 확정 뒤에 진행합니다.' }), choices, extras]);
+  view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 확정 뒤에 진행합니다.' }), choices,forms.some(f=>isIngForm(f))&&el('p',{class:'helper ing-form-guide',text:ING_FORM_GUIDE}), extras]);
   return view;
 }
 /** Pointer capture + one pointer + 8px threshold. Zones and stable IDs are supplied by the caller. */
@@ -93,8 +97,8 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     if (saved.dragging && saved.target) onDrop({cardId:saved.id,sourceZone:saved.zone,targetZone:saved.target.targetZone,targetCardId:saved.target.targetCardId,index:saved.target.index,mode:saved.target.mode});
   };
   const cancel = e => { if (!e.pointerId || active?.pointerId === e.pointerId) cleanup(); };
-  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);
-  return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel); };
+  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);window.addEventListener('blur',cancel);
+  return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel);window.removeEventListener('blur',cancel); };
 }
 
 /** Hand operations share physical dimensions and discard controls with words. */

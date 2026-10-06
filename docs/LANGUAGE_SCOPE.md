@@ -1,3 +1,11 @@
+## 0.5 현재 언어 확장
+
+새0.5 view에 한해 to부정사의 주어·목적어·주격보어·명사수식/검증된공백·목적·등록형용사보어·목적격보어, 동명사구S/O/C/전치사O, 기본SVOC를 제공한다. want/need/like/help/make/keep/find의 기존등록Frame을 재사용하며 enjoy/finish/hobby만 추가한다.
+
+-ing는 기존Form 하나다. nominal GERUND, noun-modifying PARTICIPLE, finite be+ING PROGRESSIVE는 전체 구조로 구분한다. hobby 활동명사 힌트는 대표분석 정규화에만 사용하며 의미상 자연스러움을 채점하지 않는다. 세부 근거는 NONFINITE_ROLE_REVIEW_0.5.md / VERB_FRAME_REVIEW_0.5.md / EDUCATION_REVIEW_0.5.md.
+
+언어성립과콤보해금은 분리한다. 완전한 미해금구조도 제출되며 정상구조를가짜VALID로바꾸지 않는다. 일반수동태·사역지각ing전면확장·독립분사구문·비교·Stage6는 후속 범위다. 아래는 각버전 당시계약이다.
+
 ## 0.4 현재 범위
 
 0.3 언어 view를 보존하고 새 원정에서 and/but/or 구·절 연결, 앞/뒤 because/when/if 부사절, think/know/say의 (that) 내용 목적어절을 지원한다. 기존 시간·관계절·준동사와 16장 안에서 결합한다. 전체 입력을 소비하고 각 절의 실제 Frame/역할/finite/time 증거를 남긴다. 기본 정오와 pack.clauseLink 효과 자격을 분리한다.

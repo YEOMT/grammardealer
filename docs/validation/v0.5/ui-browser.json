@@ -1,0 +1,335 @@
+{
+  "environment": {
+    "browser": "134.0.6998.35",
+    "kind": "HEADLESS_CHROMIUM_NOT_PHYSICAL_TABLET"
+  },
+  "checks": [
+    {
+      "id": "VIEWPORT_1366",
+      "description": "1366×768 lobby/edit layout readable",
+      "status": "PASS",
+      "width": 1366,
+      "height": 768,
+      "viewportWidth": 1366,
+      "viewportHeight": 768,
+      "middleBottom": 538,
+      "handTop": 546
+    },
+    {
+      "id": "U01_1366",
+      "description": "editing reveals no grammar role, correctness, score, or combo",
+      "status": "PASS"
+    },
+    {
+      "id": "U02_1366",
+      "description": "form button opens menu without returning card",
+      "status": "PASS"
+    },
+    {
+      "id": "U03_1366",
+      "description": "exchange selection does not add to sentence",
+      "status": "PASS"
+    },
+    {
+      "id": "U10_1366",
+      "description": "piles are read only, draw order hidden",
+      "status": "PASS"
+    },
+    {
+      "id": "UI_FEEDBACK_TIMING",
+      "description": "30 real card clicks measured to next frame",
+      "status": "PASS",
+      "measurement": "Card click capture to next requestAnimationFrame with DOM zone changed; desktop headless, not hardware end-to-end latency",
+      "samples": 29,
+      "p50Ms": 12,
+      "p95Ms": 14.100000143051147,
+      "maxMs": 14.600000143051147
+    },
+    {
+      "id": "U04",
+      "description": "mouse drag and subsequent click move exactly once",
+      "status": "PASS"
+    },
+    {
+      "id": "U04_GAP",
+      "description": "drop in actual whitespace between cards inserts at that position",
+      "status": "PASS"
+    },
+    {
+      "id": "D17",
+      "description": "pointercancel leaves every card in original pile once",
+      "status": "PASS"
+    },
+    {
+      "id": "U06_KEYBOARD",
+      "description": "focused card + Enter moves; Escape closes form menu",
+      "status": "PASS"
+    },
+    {
+      "id": "U05",
+      "description": "resize preserves card identities, order, and game state",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1366",
+      "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+      "status": "PASS",
+      "actionBottom": 538,
+      "handTop": 546,
+      "width": 1366,
+      "height": 768
+    },
+    {
+      "id": "CAPACITY_1920",
+      "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+      "status": "PASS",
+      "actionBottom": 809,
+      "handTop": 825,
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "id": "CAPACITY_1024",
+      "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+      "status": "PASS",
+      "actionBottom": 541,
+      "handTop": 549,
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "id": "CAPACITY_1180",
+      "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+      "status": "PASS",
+      "actionBottom": 593,
+      "handTop": 601,
+      "width": 1180,
+      "height": 820
+    },
+    {
+      "id": "P45_14_1920",
+      "description": "14 hand + 16 sentence + three runes, larger side fonts",
+      "status": "PASS",
+      "bottom": 826,
+      "hand": 842,
+      "width": 1920,
+      "font": "14px",
+      "rune": "13px"
+    },
+    {
+      "id": "P45_14_1366",
+      "description": "14 hand + 16 sentence + three runes, larger side fonts",
+      "status": "PASS",
+      "bottom": 538,
+      "hand": 546,
+      "width": 1366,
+      "font": "14px",
+      "rune": "12px"
+    },
+    {
+      "id": "P45_14_1180",
+      "description": "14 hand + 16 sentence + three runes, larger side fonts",
+      "status": "PASS",
+      "bottom": 593,
+      "hand": 601,
+      "width": 1180,
+      "font": "14px",
+      "rune": "12px"
+    },
+    {
+      "id": "P45_14_1024",
+      "description": "14 hand + 16 sentence + three runes, larger side fonts",
+      "status": "PASS",
+      "bottom": 541,
+      "hand": 549,
+      "width": 1024,
+      "font": "14px",
+      "rune": "12px"
+    },
+    {
+      "id": "D14_UI",
+      "description": "10 hand + 16 sentence synthetic renderer exposes direct body-drop swap",
+      "status": "PASS"
+    },
+    {
+      "id": "BROWSER_ERRORS_1366",
+      "description": "no browser uncaught errors",
+      "status": "PASS"
+    },
+    {
+      "id": "VIEWPORT_1920",
+      "description": "1920×1080 lobby/edit layout readable",
+      "status": "PASS",
+      "width": 1920,
+      "height": 1080,
+      "viewportWidth": 1920,
+      "viewportHeight": 1080,
+      "middleBottom": 809,
+      "handTop": 825
+    },
+    {
+      "id": "U01_1920",
+      "description": "editing reveals no grammar role, correctness, score, or combo",
+      "status": "PASS"
+    },
+    {
+      "id": "U02_1920",
+      "description": "form button opens menu without returning card",
+      "status": "PASS"
+    },
+    {
+      "id": "U03_1920",
+      "description": "exchange selection does not add to sentence",
+      "status": "PASS"
+    },
+    {
+      "id": "U10_1920",
+      "description": "piles are read only, draw order hidden",
+      "status": "PASS"
+    },
+    {
+      "id": "BROWSER_ERRORS_1920",
+      "description": "no browser uncaught errors",
+      "status": "PASS"
+    },
+    {
+      "id": "VIEWPORT_1024",
+      "description": "1024×768 lobby/edit layout readable",
+      "status": "PASS",
+      "width": 1024,
+      "height": 768,
+      "viewportWidth": 1024,
+      "viewportHeight": 768,
+      "middleBottom": 541,
+      "handTop": 549
+    },
+    {
+      "id": "U01_1024",
+      "description": "editing reveals no grammar role, correctness, score, or combo",
+      "status": "PASS"
+    },
+    {
+      "id": "U02_1024",
+      "description": "form button opens menu without returning card",
+      "status": "PASS"
+    },
+    {
+      "id": "U03_1024",
+      "description": "exchange selection does not add to sentence",
+      "status": "PASS"
+    },
+    {
+      "id": "U10_1024",
+      "description": "piles are read only, draw order hidden",
+      "status": "PASS"
+    },
+    {
+      "id": "BROWSER_ERRORS_1024",
+      "description": "no browser uncaught errors",
+      "status": "PASS"
+    },
+    {
+      "id": "VIEWPORT_1180",
+      "description": "1180×820 lobby/edit layout readable",
+      "status": "PASS",
+      "width": 1180,
+      "height": 820,
+      "viewportWidth": 1180,
+      "viewportHeight": 820,
+      "middleBottom": 593,
+      "handTop": 601
+    },
+    {
+      "id": "U01_1180",
+      "description": "editing reveals no grammar role, correctness, score, or combo",
+      "status": "PASS"
+    },
+    {
+      "id": "U02_1180",
+      "description": "form button opens menu without returning card",
+      "status": "PASS"
+    },
+    {
+      "id": "U03_1180",
+      "description": "exchange selection does not add to sentence",
+      "status": "PASS"
+    },
+    {
+      "id": "U10_1180",
+      "description": "piles are read only, draw order hidden",
+      "status": "PASS"
+    },
+    {
+      "id": "BROWSER_ERRORS_1180",
+      "description": "no browser uncaught errors",
+      "status": "PASS"
+    },
+    {
+      "id": "P10_TOUCH_CANCEL",
+      "description": "CDP touchCancel and resize clear drag nodes without state mutation",
+      "status": "PASS"
+    },
+    {
+      "id": "U06_TOUCH",
+      "description": "Chromium touch emulation tap and pointer drag work (not a physical iPad test)",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "docs/evidence-0.1.1/ui-1366-lobby.png",
+    "docs/evidence-0.1.1/ui-1366-edit.png",
+    "docs/evidence-0.1.1/ui-1366-form.png",
+    "docs/evidence-0.1.1/ui-1366-exchange.png",
+    "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+    "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+    "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+    "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+    "docs/evidence-0.1.1/capacity-14-1920.png",
+    "docs/evidence-0.1.1/capacity-14-1366.png",
+    "docs/evidence-0.1.1/capacity-14-1180.png",
+    "docs/evidence-0.1.1/capacity-14-1024.png",
+    "docs/evidence-0.1.1/ui-1920-lobby.png",
+    "docs/evidence-0.1.1/ui-1920-edit.png",
+    "docs/evidence-0.1.1/ui-1920-form.png",
+    "docs/evidence-0.1.1/ui-1920-exchange.png",
+    "docs/evidence-0.1.1/ui-1024-lobby.png",
+    "docs/evidence-0.1.1/ui-1024-edit.png",
+    "docs/evidence-0.1.1/ui-1024-form.png",
+    "docs/evidence-0.1.1/ui-1024-exchange.png",
+    "docs/evidence-0.1.1/ui-1180-lobby.png",
+    "docs/evidence-0.1.1/ui-1180-edit.png",
+    "docs/evidence-0.1.1/ui-1180-form.png",
+    "docs/evidence-0.1.1/ui-1180-exchange.png",
+    "docs/evidence-0.1.1/ui-touch-1024.png"
+  ],
+  "latency": [
+    {
+      "viewport": 1366,
+      "action": "click_roundtrip_upper_bound",
+      "ms": 33.4697000000001
+    },
+    {
+      "viewport": 1920,
+      "action": "click_roundtrip_upper_bound",
+      "ms": 32.58430000000044
+    },
+    {
+      "viewport": 1024,
+      "action": "click_roundtrip_upper_bound",
+      "ms": 29.358399999999165
+    },
+    {
+      "viewport": 1180,
+      "action": "click_roundtrip_upper_bound",
+      "ms": 21.523600000000442
+    }
+  ],
+  "feedbackTiming": {
+    "measurement": "Card click capture to next requestAnimationFrame with DOM zone changed; desktop headless, not hardware end-to-end latency",
+    "samples": 29,
+    "p50Ms": 12,
+    "p95Ms": 14.100000143051147,
+    "maxMs": 14.600000143051147
+  },
+  "status": "PASS"
+}

@@ -1,9 +1,10 @@
+import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {registryForVersion} from '../data/language/index.js';
 import {cardKind} from '../data/cardCatalog.js';
 export const CLAUSE_LINK_PACK='pack.clauseLink';
 /** Missing active WORD material only. Neither shop removals nor reentry can recreate a grant. */
 export function grantStage4Entry(run){
- if(run.version!=='0.4.0'||run.progress.stageId!=='stage.04'||run.combat!==null)throw Error('Stage 4 grant outside entry');
+ if(!hasSkyCampaign(run)||run.progress.stageId!=='stage.04'||run.combat!==null)throw Error('Stage 4 grant outside entry');
  if(run.entryGrants['stage.04']?.applied)return run.entryGrants['stage.04'];
  const registry=registryForVersion(run.version),words=run.activeCardIds.filter(id=>cardKind(run.cardInstances[id],run.version)==='WORD').map(id=>registry.cardById[run.cardInstances[id].cardDefId]),owned=new Set(words.map(c=>c.id));
  const hasContent=words.some(c=>registry.lexemeById[c.lexemeId].senseIds.some(id=>registry.senseById[id].frameBindings.some(b=>b.runtimeReady&&b.frameId==='frame.svo.content')));

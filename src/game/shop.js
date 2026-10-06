@@ -1,3 +1,4 @@
+import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {selectOperation} from './operationPool.js';
 import {cardDefinition,isOperation} from '../data/cardCatalog.js';
 import {isCurrentCampaign} from '../data/stages.js';
@@ -27,7 +28,7 @@ const requireEntryContext = run => {
     throw new TypeError('Stage 2 preparation requires a current campaign outside combat');
 };
 
-const requireShopContext=run=>{if(!isCurrentCampaign(run)||!['stage.02',...(run.version==='0.4.0'?['stage.04']:[])].includes(run.progress.stageId)||run.combat!==null)throw Error('Shop outside entry');};
+const requireShopContext=run=>{if(!isCurrentCampaign(run)||!['stage.02',...(hasSkyCampaign(run)?['stage.04']:[])].includes(run.progress.stageId)||run.combat!==null)throw Error('Shop outside entry');};
 function rememberCardDefinitions(run, definitions) {
   const seen = new Set(run.vocabulary?.encounteredLexemeIds ?? []);
   for (const definition of definitions) if(definition.lexemeId)seen.add(definition.lexemeId);
@@ -109,7 +110,7 @@ export function createShop(run) {
   }
   const paidRemovalCount = safeInteger(run.economy.paidRemovalCount ?? 0, 'paid removal count', { min: 0 });
   const removalPrice = addSafe(SHOP_BALANCE.firstRemovalPrice, paidRemovalCount * SHOP_BALANCE.removalIncrement);
-  run.shop = { shopId, stageId, shopVersion: run.version==='0.4.0'?'0.4.0':SHOP_VERSION,...(run.version==='0.4.0'?{paidRemovalCountAtEntry:paidRemovalCount}:{}), closed: false, inventory,
+  run.shop = { shopId, stageId, shopVersion: hasSkyCampaign(run)?'0.4.0':SHOP_VERSION,...(hasSkyCampaign(run)?{paidRemovalCountAtEntry:paidRemovalCount}:{}), closed: false, inventory,
     services: { POLISH: { price: SHOP_BALANCE.polishPrice, used: false }, REMOVE: { price: removalPrice, used: false } }, trace };
   rememberCardDefinitions(run, inventory.filter(item => item.kind === 'CARD').map(item => cardDefinition(item.cardDefId,run.version)));
   return run.shop;
@@ -134,8 +135,8 @@ export function buyShopItem(run, shopId, itemId, { replaceRuneInstanceId = null 
   if (!item || item.purchased) return fail('이미 구매했거나 현재 상점에 없는 상품입니다.');
   if (!canAfford(run, item.price)) return fail('재화가 부족합니다.');
   if (item.kind === 'CARD') {
-    const definition = run.version==='0.4.0'?cardDefinition(item.cardDefId,run.version):eligibleRewardCards(run).find(card=>card.id===item.cardDefId&&card.rarity===item.rarity);
-    if(run.version==='0.4.0'&&(!run.contentManifest.cardDefIds.includes(item.cardDefId)||definition?.rarity!==item.rarity))return fail('원정 범위 밖의 상품입니다.');
+    const definition = hasSkyCampaign(run)?cardDefinition(item.cardDefId,run.version):eligibleRewardCards(run).find(card=>card.id===item.cardDefId&&card.rarity===item.rarity);
+    if(hasSkyCampaign(run)&&(!run.contentManifest.cardDefIds.includes(item.cardDefId)||definition?.rarity!==item.rarity))return fail('원정 범위 밖의 상품입니다.');
     const instanceId = `${itemId}.owned`;
     if (!definition || run.cardInstances[instanceId]) return fail('구매할 수 없는 카드 상품입니다.');
     run.cardInstances[instanceId] = { instanceId, cardDefId: definition.id, polishLevel: 0, specialEffectId: null };

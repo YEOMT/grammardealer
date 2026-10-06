@@ -1,0 +1,630 @@
+{
+  "meta": {
+    "project": "Syntax Atlas",
+    "targetVersion": "0.5.0",
+    "baselineCommit": "6d2907eddefafb1a909c6c803259ba26b408f104",
+    "createdDate": "2026-10-06",
+    "evidenceStatus": "SPECIFICATION_EXPECTATIONS_ONLY_NOT_RUNTIME_TEST_RESULTS",
+    "noteKo": "이 인계는 실제 게임 구현/파서 실행/브라우저 검증/PR을 수행하지 않았다."
+  },
+  "items": [
+    {
+      "id": "P001",
+      "group": "기준·범위",
+      "requirement": "최신 origin/main·0.4 포함·미커밋 보존·독립 브랜치와 AGENTS를 확인한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P002",
+      "group": "기준·범위",
+      "requirement": "Vanilla JS/기존모듈 유지, 과거ZIP·DS게임·외부AI/서버 재작성 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P003",
+      "group": "기준·범위",
+      "requirement": "새0.5는 Stage1~5 22전투, Stage5 전역18~22, 완료는 STAGE5_END다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P004",
+      "group": "기준·범위",
+      "requirement": "Stage4 승리/보상/해금 사건이 한번 기록되고 Stage5로 연결된다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P005",
+      "group": "기준·범위",
+      "requirement": "Stage5 상점 없음, 기존 Stage2·4 두상점/서비스이력 유지.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P006",
+      "group": "기준·범위",
+      "requirement": "기존28장/6첫패/10한도/3드로우/4교환/6턴/16조합과4룬슬롯 진행 유지.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P007",
+      "group": "기준·범위",
+      "requirement": "0.4의 희귀도/have고정/실습/도감/타격/운영/모든기존보스 보존.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P008",
+      "group": "단일형태·데이터",
+      "requirement": "각 동사 ing형은 기존Form ID 한개이며 동명사/분사 복제선택지가 없다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P009",
+      "group": "단일형태·데이터",
+      "requirement": "문법용법은 Form/영구사본 아닌 제출분석노드에 저장한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P010",
+      "group": "단일형태·데이터",
+      "requirement": "현재/원형·과거·pp/ing3줄 메뉴와 원형라벨 유지, 편집역할 미리보기 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P011",
+      "group": "단일형태·데이터",
+      "requirement": "reading 같은동일Form으로 동명사S/O/C/전치사O와 진행을 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P012",
+      "group": "단일형태·데이터",
+      "requirement": "running 같은동일Form으로 현재분사 명사수식을 판정하되 GERUND/TIME.PROGRESSIVE를 중복하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P013",
+      "group": "단일형태·데이터",
+      "requirement": "will의 ing생성·interesting형용사의 자동동명사 처리 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P014",
+      "group": "단일형태·데이터",
+      "requirement": "새 enjoy/finish/hobby 실제 데이터·형태·Sense·countability와 정규 ID가 완비된다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P015",
+      "group": "단일형태·데이터",
+      "requirement": "기존0.4 registry/형태ID/순서/후보/과거저장 선택을 변형하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P016",
+      "group": "문법·증거",
+      "requirement": "동명사 주어·목적어·보어·전치사목적어의 전체 span을 실제로 판정한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P017",
+      "group": "문법·증거",
+      "requirement": "한 동명사구 주어의 단수일치와 정상 등위 주어를 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P018",
+      "group": "문법·증거",
+      "requirement": "be+ing 중의는 검수한 고정규칙으로 대표하되 가장높은점수로 고르지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P019",
+      "group": "문법·증거",
+      "requirement": "to부정사 S/O/주격보어를 판정하고 바깥 유한동사를 보존한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P020",
+      "group": "문법·증거",
+      "requirement": "명사뒤 to구의 목적어/전치사목적어 공백과 선행명사 증거가 맞는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P021",
+      "group": "문법·증거",
+      "requirement": "문장뒤/앞 목적to구를 인정하며 구두점만으로 실패하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P022",
+      "group": "문법·증거",
+      "requirement": "등록 형용사+to, 간단 가주어It+be+AP+to를 판정한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P023",
+      "group": "문법·증거",
+      "requirement": "want/need O+to와 직접to를 SVOC/SVO로 정확하게 나눈다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P024",
+      "group": "문법·증거",
+      "requirement": "make/find/keep 등 기존O+AP/NP, SVOO와 SVOC 경계를 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P025",
+      "group": "문법·증거",
+      "requirement": "enjoy/finish 요구패턴과 like의 양쪽용법·need특수ing를 데이터로 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P026",
+      "group": "문법·증거",
+      "requirement": "모든동사 자동GERUND/SVOC 허용·가짜정답 문자열 조회·자동단어삽입 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P027",
+      "group": "문법·증거",
+      "requirement": "비정형 안쪽에서도 본동사의 필수목적어/보어·수식결합을 검증한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P028",
+      "group": "문법·증거",
+      "requirement": "새 구 안의 시간·기존관계절·내용절·접속사 결합이 회귀하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P029",
+      "group": "문법·증거",
+      "requirement": "shared to/등위gerund구는 LINK.PHRASE, 실제유한절연결만 LINK.CLAUSE.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P030",
+      "group": "문법·증거",
+      "requirement": "거듭된 ING/TO 예산은 유한이며 무한재귀·무제한경로탐색 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P031",
+      "group": "문법·증거",
+      "requirement": "관사·일치·형태 복구와 핵심실패를 명세대로 구분해 원인당 한번 감점한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P032",
+      "group": "문법·증거",
+      "requirement": "핵심실패0피해도 카드/턴소모·다음턴봉인, 기술실패만 무소모복구.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P033",
+      "group": "문법·증거",
+      "requirement": "primaryScoringClauseId/보어/내부목적어/공백의 참조가 실제노드와 일치한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P034",
+      "group": "문법·증거",
+      "requirement": "없는노드값 null/스키마 직렬화로 실패→성공→프로필저장이 유지된다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P035",
+      "group": "점수·해금",
+      "requirement": "기존 카드/연마/+30/1~4형식/시간/연결/룬숫자를 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P036",
+      "group": "점수·해금",
+      "requirement": "5형식2.5는 기준주절에한번, 안쪽문형을 중복곱하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P037",
+      "group": "점수·해금",
+      "requirement": "정상to1.4·동명사1.4는 계열별공격당한번, 서로다른정상계열은 결합 가능.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P038",
+      "group": "점수·해금",
+      "requirement": "같은ing출현에 gerund/진행/분사 중복보너스 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P039",
+      "group": "점수·해금",
+      "requirement": "실제효과순서·매배수내림·안전정수·화면operand가 일치한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P040",
+      "group": "점수·해금",
+      "requirement": "작은오류로 복구된 잘못된to노드에는 정상to보너스를 주지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P041",
+      "group": "점수·해금",
+      "requirement": "지정역할 없는to/ing·핵심실패는 새룬/지역으로 점수를 부활시키지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P042",
+      "group": "점수·해금",
+      "requirement": "Stage5 지역효과는 실제자격있는대상에만 한번, 분사단독/일반현재는 해당안됨.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P043",
+      "group": "점수·해금",
+      "requirement": "Stage4승리때 세팩자격을 한번 부여하고 진행중다른슬롯의 해금을 소급하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P044",
+      "group": "점수·해금",
+      "requirement": "미해금 정상문장도 기본공격, 기존 해금 프로필은 새원정초반 활용 가능.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P045",
+      "group": "점수·해금",
+      "requirement": "비정형 to have pp/gerund는 그자체로 과거·현재진행 등 유한시간으로 점수·골렘공략에 기여하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P046",
+      "group": "점수·해금",
+      "requirement": "하늘섬 보호막에 to/gerund만으로 해제하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P047",
+      "group": "점수·해금",
+      "requirement": "사막보스는 일반문장 정상피해, 신규갑옷/면역/상한 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P048",
+      "group": "입장·콘텐츠",
+      "requirement": "사막은 별밤/황금모래, 적4종+스핑크스의 이름/순서/HP데이터가 있다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P049",
+      "group": "입장·콘텐츠",
+      "requirement": "입장 지급은 실제소유 to/want또는need/like또는enjoy또는finish 부족분만 최대3장.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P050",
+      "group": "입장·콘텐츠",
+      "requirement": "지급ID/소유/vocab/사전이 원자적이고 반복진입/로드로 중복 안됨.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P051",
+      "group": "입장·콘텐츠",
+      "requirement": "이후카드제거/봉인/손패부족을 이유로 자동재지급하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P052",
+      "group": "입장·콘텐츠",
+      "requirement": "보상기본확률·세칸/취소/최대운영1칸과 상점규칙을 그대로 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P053",
+      "group": "입장·콘텐츠",
+      "requirement": "신규3lexeme은보상사용가능·시작덱미포함, region relevance가 정상이다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P054",
+      "group": "입장·콘텐츠",
+      "requirement": "밤사막placeholder/지역전환/기존assetsfallback에 오류 없고 외부런타임요청 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P055",
+      "group": "입장·콘텐츠",
+      "requirement": "보스처치/마지막턴 우선순위·보상·STAGE5_CLEAR·종료사건이 각각 한번이다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P056",
+      "group": "봉인·난수",
+      "requirement": "첫손패 완성후 플레이어입력전에 WORD1장 봉인한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P057",
+      "group": "봉인·난수",
+      "requirement": "첫턴 및 각실제다음턴에만 한번 선택, lastAppliedTurnKey 중복차단.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P058",
+      "group": "봉인·난수",
+      "requirement": "후보는HAND의WORD만, OPERATION/BOARD/DRAW/DISCARD/EXHAUSTED 제외.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P059",
+      "group": "봉인·난수",
+      "requirement": "후보2장 이상이면 직전물리사본 제외, 같은단어다른사본은 가능.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P060",
+      "group": "봉인·난수",
+      "requirement": "후보1장이면 반복가능,0장이면 null/RNG소비0으로 정상 진행.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P061",
+      "group": "봉인·난수",
+      "requirement": "후보있을때 encounter만1회소비, deck/reward/shop 상태와 알고리즘 미변경.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P062",
+      "group": "봉인·난수",
+      "requirement": "공격/준비/실패제출 다음턴은 옛봉인만료→드로우→새봉인 순서.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P063",
+      "group": "봉인·난수",
+      "requirement": "교환/보급/탐색/편집/룬/모달/표시재생은 재추첨 안함.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P064",
+      "group": "봉인·난수",
+      "requirement": "교환으로 봉인카드를버리면 다른카드를 중간에 대체봉인하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P065",
+      "group": "봉인·난수",
+      "requirement": "동일턴 동일사본재드로우/탐색복귀시 봉인 유지, 다음턴만료후는 구상태안묻음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P066",
+      "group": "봉인·난수",
+      "requirement": "봉인은 ID별상태이며 단어정의/형태/연마/점수/소유수를 바꾸지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P067",
+      "group": "봉인·난수",
+      "requirement": "다섯 카드영역 보존에 봉인을 여섯번째영역으로 추가하지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P068",
+      "group": "봉인·난수",
+      "requirement": "이미조합대에 놓아둔 WORD는 다음턴봉인후보가 아니다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P069",
+      "group": "봉인·난수",
+      "requirement": "처치/턴소진종료에는 다음드로우/추첨/RNG소비 없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P070",
+      "group": "봉인·난수",
+      "requirement": "동일seed/동일행동의 사본선택/난수소비/history가 재현된다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P071",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "봉인본문클릭/키보드/드래그 ADD_CARD를 Controller가 모두 거절한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P072",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "SWAP/카드몸통맞교환/메뉴대체경로를 Controller가 모두 거절한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P073",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "불법배치는 무비용, 원래카드/핸드순서/board/selection/룬/RNG를 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P074",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "봉인선택체크·교환은 허용하며 opacity/overlay가 체크입력을 가리지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P075",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "표시후드래그취소/pointercancel/resize/blur로 카드와화면이 멈추지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P076",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "보급/탐색은 기존효과·한도·사용완료·다음전투복귀를 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P077",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "탐색취소는 상태/RNG/Undo/봉인불변, 봉인원본사본탐색가능해도 배치는차단.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P078",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "운영효과/교환후 Undo로 카드복제/봉인회피/재추첨이 생기지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P079",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "기존조합대 편집/회수/정상공격은 봉인과무관하게 유지한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P080",
+      "group": "봉인 입력·운영·Undo",
+      "requirement": "오래된revision/다른battle명령·중복finish/중복운영이 봉인을 바꾸지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P081",
+      "group": "저장·표시·교육",
+      "requirement": "구버전0.1~0.4의 언어/수치/상품/RNG/종료경계 golden을 보존한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P082",
+      "group": "저장·표시·교육",
+      "requirement": "새0.5에서0.4지원의 정확한버전문자열때문에 운영/sky문법/실습이꺼지지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P083",
+      "group": "저장·표시·교육",
+      "requirement": "보스첫턴안전저장/로드가 선택사본/턴키/encountercursor를 그대로복원한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P084",
+      "group": "저장·표시·교육",
+      "requirement": "봉인ID가 DISCARD/DRAW에있는 정상상태와 잘못된ID/OPERATION/미래턴손상을 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P085",
+      "group": "저장·표시·교육",
+      "requirement": "허용안전저장 외 새중전투저장을 임의추가하지 않는다. roundtrip과실제UI검사구분.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P086",
+      "group": "저장·표시·교육",
+      "requirement": "보스종료/새원정/다른지역에 봉인표식·state가누출되지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P087",
+      "group": "저장·표시·교육",
+      "requirement": "봉인문구가 배치금지와교환가능을 설명하고 정확한봉인사본에반응한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P088",
+      "group": "저장·표시·교육",
+      "requirement": "형태/도감은 GERUND/PARTICIPLE/PROGRESSIVE 역할을 한글로 정확히 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P089",
+      "group": "저장·표시·교육",
+      "requirement": "도감 고정예문UI·자동번역·내부VALID문구를 되살리지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P090",
+      "group": "저장·표시·교육",
+      "requirement": "교육문구와 example검토표가 있고 교사실검수 미실행을 솔직히 표시한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P091",
+      "group": "저장·표시·교육",
+      "requirement": "분사수식과거짓진행/동명사오개념을 막는 회귀사례가 있다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P092",
+      "group": "저장·표시·교육",
+      "requirement": "새실습40/126·3줄형태메뉴·4룬재정렬/체크UX가 보존된다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P093",
+      "group": "실행·인계",
+      "requirement": "최종npm test/data/build 결과와중간실패원인/고친범위를 보존한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P094",
+      "group": "실행·인계",
+      "requirement": "기존공식browser+새desert/seal을 실제실행, 미실행은NOT RUN.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P095",
+      "group": "실행·인계",
+      "requirement": "3해상도/손패10·14/조합16/룬4에서 봉인/버리기/공격/운영겹침없음.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P096",
+      "group": "실행·인계",
+      "requirement": "4모드총10000덱/첫패를 최종검사하고 기존golden과 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P097",
+      "group": "실행·인계",
+      "requirement": "80명령원정의 승패·도달지역·기술오류/정책오류를 보고하고 사람승률로 부르지 않는다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P098",
+      "group": "실행·인계",
+      "requirement": "최소1회 production실제UI22전투를 주입없이완주, seed/선택/명령/캡처를 보존한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P099",
+      "group": "실행·인계",
+      "requirement": "자연원정운영사용유무와 지정상태운영+봉인검사를 구분한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P100",
+      "group": "실행·인계",
+      "requirement": "초기자원로드뒤오프라인계속플레이·프로필저장·콘솔/페이지오류·debug차단확인.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P101",
+      "group": "실행·인계",
+      "requirement": "실기기/미실행브라우저/교사검수/전체48전투는 미검증을 명확히 표시한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P102",
+      "group": "실행·인계",
+      "requirement": "패치/인수/언어/봉인/교육/진행/알려진문제 인계를 제출한다.",
+      "result": "NOT RUN"
+    },
+    {
+      "id": "P103",
+      "group": "실행·인계",
+      "requirement": "브랜치push·PR까지만수행, main자동수정·merge·승인없는배포없음.",
+      "result": "NOT RUN"
+    }
+  ]
+}

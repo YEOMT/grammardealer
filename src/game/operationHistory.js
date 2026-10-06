@@ -1,10 +1,11 @@
+import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition} from '../data/cardCatalog.js';
 import {assertStream} from './rng.js';
 /** A save cannot invent exhausted words or replay an effect as a fresh use. Read only. */
 export function validateOperationHistory(run){
  const c=run.combat;if(!c)return true;
  const fail=()=>{throw Error('운영 카드 사용 기록이 잘못되었습니다.');};
- if(run.version!=='0.4.0'){if(c.operationHistory?.length||c.pendingOperationId||c.phase==='OPERATION_PRESENTING')fail();return true;}
+ if(!hasSkyCampaign(run)){if(c.operationHistory?.length||c.pendingOperationId||c.phase==='OPERATION_PRESENTING')fail();return true;}
  if(!Array.isArray(c.exhaustedIds)||!Array.isArray(c.operationHistory)||!Number.isSafeInteger(c.operationSequence)||c.operationSequence!==c.operationHistory.length)fail();
  const sources=new Set();
  for(const [i,e]of c.operationHistory.entries()){

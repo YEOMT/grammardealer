@@ -1,3 +1,4 @@
+import {hasSkyCampaign} from './campaignFeatures.js';
 import {registryForVersion} from './language/index.js';
 
 // Operations deliberately have no lexeme, POS, forms or scoring value.
@@ -8,7 +9,7 @@ export const OPERATION_CARDS=Object.freeze([
 const operationById=Object.fromEntries(OPERATION_CARDS.map(c=>[c.id,c]));
 export function cardDefinition(card,version='0.4.0'){
  const id=typeof card==='string'?card:card?.cardDefId??card?.id;
- return registryForVersion(version).cardById[id]??(version==='0.4.0'?operationById[id]:undefined);
+ return registryForVersion(version).cardById[id]??(hasSkyCampaign(version)?operationById[id]:undefined);
 }
 export function cardKind(card,version='0.4.0'){
  const def=cardDefinition(card,version);
@@ -16,4 +17,4 @@ export function cardKind(card,version='0.4.0'){
  return def.cardKind??'WORD';
 }
 export const isOperation=(card,version='0.4.0')=>cardKind(card,version)==='OPERATION';
-export function campaignCards(version){return [...registryForVersion(version).cards,...(version==='0.4.0'?OPERATION_CARDS:[])];}
+export function campaignCards(version){return [...registryForVersion(version).cards,...(hasSkyCampaign(version)?OPERATION_CARDS:[])];}

@@ -1,0 +1,35 @@
+{
+  "kind": "ASSIGNED_FORMS_UI",
+  "checks": [
+    {
+      "id": "BRANDING",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1280",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "ALL_BE_FORMS_KEYBOARD",
+      "status": "PASS"
+    },
+    {
+      "id": "ALL_BE_FORMS_TOUCH",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "lobby.png",
+    "forms-1366.png",
+    "forms-1280.png",
+    "forms-1024.png"
+  ]
+}

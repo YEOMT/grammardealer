@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';
-import {RunController} from '../src/game/runController.js';import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
+import {RunController} from './helpers/legacy-04-controller.js';import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
 import {registry} from '../src/data/language/index.js';import {snapshotFromText} from '../src/engine/grammar/index.js';import {grantStage4Entry} from '../src/game/skyIslands.js';
 const act=(c,command)=>{const r=c.dispatch(command);assert.equal(r.ok,true,command.type+': '+r.message);return r;};
 export function newSky(seed='sky.progression'){const c=new RunController({profile:{...newProfile('assigned 17-boundary'),guidedTutorialCompletedVersion:'0.2.1'}});act(c,{type:'NEW_RUN',config:{seed}});return c;}

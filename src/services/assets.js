@@ -3,6 +3,11 @@ export const ASSETS = Object.freeze({
   'enemy.stage1.01': Object.freeze({ kind: 'emoji', value: '🌱', labelKo: '풀잎 슬라임' }),
   'enemy.stage1.02': Object.freeze({ kind: 'emoji', value: '🐌', labelKo: '숲 달팽이' }),
   'boss.stage1': Object.freeze({ kind: 'emoji', value: '🌳', labelKo: '초원 수호자' }),
+  'enemy.stage5.01': Object.freeze({ kind: 'emoji', value: '🐪', labelKo: '별길 낙타' }),
+  'enemy.stage5.02': Object.freeze({ kind: 'emoji', value: '🦂', labelKo: '금빛 전갈' }),
+  'enemy.stage5.03': Object.freeze({ kind: 'emoji', value: '🌵', labelKo: '별꽃 선인장' }),
+  'enemy.stage5.04': Object.freeze({ kind: 'emoji', value: '🦊', labelKo: '신기루 여우' }),
+  'boss.stage5': Object.freeze({ kind: 'emoji', value: '🗿', labelKo: '소원의 스핑크스 · 별문양 석상' }),
   'character.traveler': Object.freeze({ kind: 'emoji', value: '🧭', labelKo: '여행자' }),
   'bgm.meadow': Object.freeze({ kind: 'unavailable', value: null, labelKo: '시작의 초원 BGM (후속)' }),
 });

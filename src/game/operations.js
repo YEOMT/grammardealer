@@ -1,3 +1,4 @@
+import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import {registryForVersion} from '../data/language/index.js';
 import {drawCards} from './deck.js';
@@ -14,7 +15,7 @@ export function searchCandidates(run){
 }
 export function operationAvailability(run,sourceId){
  const c=run?.combat,card=run?.cardInstances?.[sourceId],def=cardDefinition(card,run?.version);
- if(run?.version!=='0.4.0'||run.status!=='BATTLE'||c?.phase!=='EDIT'||isGuided(run)||!c.handIds.includes(sourceId)||def?.cardKind!=='OPERATION')return fail('지금은 이 운영 카드를 사용할 수 없습니다.');
+ if(!hasSkyCampaign(run)||run.status!=='BATTLE'||c?.phase!=='EDIT'||isGuided(run)||!c.handIds.includes(sourceId)||def?.cardKind!=='OPERATION')return fail('지금은 이 운영 카드를 사용할 수 없습니다.');
  const count=def.operationType==='SUPPLY'?Math.min(2,c.rulesSnapshot.handLimit-c.handIds.length+1,c.drawIds.length+c.discardIds.length):searchCandidates(run).length?1:0;
  return count>0?{ok:true,actualDrawCount:count,operationType:def.operationType}:fail(def.operationType==='SUPPLY'?'뽑을 수 있는 카드가 없습니다.':'드로우 더미에 탐색할 단어 카드가 없습니다.');
 }

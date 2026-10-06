@@ -1,6 +1,6 @@
 import {analyzeSentence} from './grammar/index.js';
 import {GRAMMAR_GUIDE,ROLE_GUIDE,SUBMISSION_LABELS} from '../data/grammarGuideData.js';
-export const LEARNING_VERSION='0.4.0';
+export const LEARNING_VERSION='0.5.0';
 export function learningRecord(r){
  const a=r.analysis;
  return {version:LEARNING_VERSION,recordId:r.attackId,sentenceSnapshot:structuredClone(r.sentenceSnapshot),
@@ -8,7 +8,8 @@ export function learningRecord(r){
   roles:roleRanges(a,r.sentenceSnapshot),...clauseEvidence(a),issues:(a.issues??[]).map(i=>({code:i.code,messageKo:i.messageKo??null})),
   scoreableTags:[...new Set((a.grammarHits??[]).filter(h=>(r.scoreableHitIds?.includes(h.id)??true)&&GRAMMAR_GUIDE[h.tag]).map(h=>h.tag))],
   complete:a.status==='VALID'&&!a.issues?.length,finalPower:r.finalPower,actualHpLoss:r.actualHpLoss,zeroReason:r.zeroReason??null,
-  ...(['0.3.0','0.4.0'].includes(a.grammarVersion)?{verbPhrases:structuredClone(a.verbPhrases??[]),phaseId:r.phaseId??null,phaseExcess:r.phaseExcess??0}:{})};
+  ...(['0.3.0','0.4.0','0.5.0'].includes(a.grammarVersion)?{verbPhrases:structuredClone(a.verbPhrases??[]),phaseId:r.phaseId??null,phaseExcess:r.phaseExcess??0}:{}),
+  ...(a.grammarVersion==='0.5.0'?{nonfinitePhrases:structuredClone(a.nonfinitePhrases??[])}:{})};
 }
 export function roleRanges(analysis,snapshot){
  const tokens=snapshot?.orderedTokens??[],nodes=analysis.nodes??[];
@@ -42,4 +43,4 @@ export function reviewProfileLearning(profile){
  p.educationalReview={version:LEARNING_VERSION,entries};return p;
 }
 
-function clauseEvidence(a){if(a.grammarVersion!=='0.4.0')return {};return {primaryScoringClauseId:a.primaryScoringClauseId??null,clauses:(a.clauses??[]).map(c=>({...structuredClone(c),cardIds:a.nodes.find(n=>n.id===c.nodeId)?.cardIds??[]})),links:(a.grammarHits??[]).filter(h=>h.tag.startsWith('LINK.')).map(h=>({role:h.linkRole,connectorCardIds:[...(h.connectorCardIds??[])],cardIds:[...h.cardIds]}))};}
+function clauseEvidence(a){if(!['0.4.0','0.5.0'].includes(a.grammarVersion))return {};return {primaryScoringClauseId:a.primaryScoringClauseId??null,clauses:(a.clauses??[]).map(c=>({...structuredClone(c),cardIds:a.nodes.find(n=>n.id===c.nodeId)?.cardIds??[]})),links:(a.grammarHits??[]).filter(h=>h.tag.startsWith('LINK.')).map(h=>({role:h.linkRole,connectorCardIds:[...(h.connectorCardIds??[])],cardIds:[...h.cardIds]}))};}

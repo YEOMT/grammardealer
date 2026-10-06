@@ -1,6 +1,6 @@
 import {registry as defaultRegistry,makeToken,createSentenceSnapshot} from '../../data/language/index.js';
 import {parseSupportedClause} from './parser.js';
-export const GRAMMAR_VERSION='0.4.0';
+export const GRAMMAR_VERSION='0.5.0';
 export const snapshotFromSlots=createSentenceSnapshot;
 
 /** Development fixture conversion only. Unknown words stay explicitly unsupported.
@@ -8,7 +8,7 @@ export const snapshotFromSlots=createSentenceSnapshot;
  */
 export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',registry=defaultRegistry}={}) {
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
- const words=text.trim().replace(registry.version==='0.4.0'?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
+ const words=text.trim().replace(['0.4.0','0.5.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
  const orderedTokens=words.map((word,position)=>{
   const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase());
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];

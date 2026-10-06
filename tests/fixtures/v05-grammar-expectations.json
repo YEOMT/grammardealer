@@ -1,0 +1,1046 @@
+{
+  "meta": {
+    "project": "Syntax Atlas",
+    "targetVersion": "0.5.0",
+    "baselineCommit": "6d2907eddefafb1a909c6c803259ba26b408f104",
+    "createdDate": "2026-10-06",
+    "evidenceStatus": "SPECIFICATION_EXPECTATIONS_ONLY_NOT_RUNTIME_TEST_RESULTS",
+    "noteKo": "이 인계는 실제 게임 구현/파서 실행/브라우저 검증/PR을 수행하지 않았다."
+  },
+  "items": [
+    {
+      "id": "G001",
+      "sentence": "To read books is good.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "to read books 전체 SUBJECT",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G002",
+      "sentence": "I want to read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "to read books 전체 OBJECT",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G003",
+      "sentence": "My plan is to help you.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "to help you 전체 SUBJECT_COMPLEMENT",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G004",
+      "sentence": "I need a book to read.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "to read NOUN_MODIFIER / book 목적어 공백",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G005",
+      "sentence": "I need a friend to play with.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "with의 목적어 공백은 friend",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G006",
+      "sentence": "I go to school to read books.",
+      "status": "VALID",
+      "mainFrame": "SV",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "첫to는전치사, 둘째to만부정사; PP기여 유지",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G007",
+      "sentence": "To help you, I read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "앞 PURPOSE, 주어 I; 구두점 정책은 기존 사용",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G008",
+      "sentence": "I am happy to help you.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "형용사 happy와 연결된 to구",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G009",
+      "sentence": "I am ready to read.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G010",
+      "sentence": "It is easy to read books.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "기본가주어, to구 범위; 전용심화배수 없음",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G011",
+      "sentence": "I want you to read books.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "O=you; C=to read books",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G012",
+      "sentence": "She needs me to help her.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": "O=me; C=to help her",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G013",
+      "sentence": "I make you happy.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": "O=you C=happy; to효과 없음",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G014",
+      "sentence": "I find the book useful.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": "O=the book C=useful",
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G015",
+      "sentence": "I keep you happy.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": "O=you C=happy",
+      "note": "기존 keep O+AP 경로",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G016",
+      "sentence": "She gives me a book.",
+      "status": "VALID",
+      "mainFrame": "SVOO",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "5형식으로오분류 금지",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G017",
+      "sentence": "She makes me a book.",
+      "status": "VALID",
+      "mainFrame": "SVOO",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "두목적어",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G018",
+      "sentence": "I wanted to read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "TIME.PAST"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 1,
+          "formId": "form.want.past"
+        },
+        {
+          "tokenIndex": 3,
+          "formId": "form.read.present"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G019",
+      "sentence": "I have wanted to read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "TIME.PERFECT"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 2,
+          "formId": "form.want.pp"
+        },
+        {
+          "tokenIndex": 4,
+          "formId": "form.read.present"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G020",
+      "sentence": "I will want to read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "TIME.FUTURE_WILL"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G021",
+      "sentence": "I want to be reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "안쪽비정형진행만으로 TIME.PROGRESSIVE 생성금지",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 3,
+          "formId": "form.be.base"
+        },
+        {
+          "tokenIndex": 4,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PAST",
+        "TIME.PROGRESSIVE",
+        "TIME.PERFECT",
+        "TIME.FUTURE_WILL"
+      ]
+    },
+    {
+      "id": "G022",
+      "sentence": "I want to have read the book.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "안쪽비정형완료만으로 TIME.PAST/PERFECT 생성금지",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 4,
+          "formId": "form.read.pp"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PAST",
+        "TIME.PROGRESSIVE",
+        "TIME.PERFECT",
+        "TIME.FUTURE_WILL"
+      ]
+    },
+    {
+      "id": "G023",
+      "sentence": "Reading books is good.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": "Reading books 전체 SUBJECT",
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 0,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G024",
+      "sentence": "I enjoy reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": "reading books 전체 OBJECT",
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 2,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G025",
+      "sentence": "My hobby is reading books.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": "reading books 전체 SUBJECT_COMPLEMENT",
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 3,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G026",
+      "sentence": "I am good at reading books.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": "at의 전치사 OBJECT=reading books",
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 4,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G027",
+      "sentence": "I like reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G028",
+      "sentence": "I like to read books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G029",
+      "sentence": "I finish reading the book.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G030",
+      "sentence": "I enjoy being happy.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "being happy는동명사구, 현재진행아님",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G031",
+      "sentence": "Being happy is important.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G032",
+      "sentence": "The book needs reading.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "need+ing의 수동적의미는인정하되 VOICE.PASSIVE효과없음",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "VOICE.PASSIVE",
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G033",
+      "sentence": "I am reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "TIME.PROGRESSIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "GERUND아님",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 2,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND"
+      ]
+    },
+    {
+      "id": "G034",
+      "sentence": "I was reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "TIME.PAST",
+        "TIME.PROGRESSIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 1,
+          "formId": "form.be.was"
+        },
+        {
+          "tokenIndex": 2,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND"
+      ]
+    },
+    {
+      "id": "G035",
+      "sentence": "I have been reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "TIME.PERFECT",
+        "TIME.PROGRESSIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 2,
+          "formId": "form.be.pp"
+        },
+        {
+          "tokenIndex": 3,
+          "formId": "form.read.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND"
+      ]
+    },
+    {
+      "id": "G036",
+      "sentence": "I will be reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "TIME.FUTURE_WILL",
+        "TIME.PROGRESSIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND"
+      ]
+    },
+    {
+      "id": "G037",
+      "sentence": "The running dog is happy.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "PARTICIPLE.PRESENT"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "기본명사수식, GERUND/PROGRESSIVE없음",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 1,
+          "formId": "form.run.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND",
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G038",
+      "sentence": "I like the dog running in the park.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "PARTICIPLE.PRESENT"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "간단후치분사수식, finite과거/진행없음",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 4,
+          "formId": "form.run.ing"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND",
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G039",
+      "sentence": "I have an interesting book.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "interesting 고정형용사이며철자 ing만으로 GERUND아님",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.GERUND",
+        "PARTICIPLE.PRESENT",
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G040",
+      "sentence": "I enjoy reading books and playing games.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "LINK.PHRASE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "gerund배수한번; 독립절연결아님",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE",
+        "LINK.CLAUSE"
+      ]
+    },
+    {
+      "id": "G041",
+      "sentence": "I want to read books and play games.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "LINK.PHRASE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "shared to 재사용; 가상to사본없음",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "LINK.CLAUSE"
+      ]
+    },
+    {
+      "id": "G042",
+      "sentence": "Reading books and playing games are good.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "LINK.PHRASE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "등위 주어 일반복수",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G043",
+      "sentence": "I enjoy reading books because they are interesting.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "LINK.CLAUSE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G044",
+      "sentence": "I want you to read books when I work.",
+      "status": "VALID",
+      "mainFrame": "SVOC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "LINK.CLAUSE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G045",
+      "sentence": "I enjoy reading books that you give me.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "CLAUSE.RELATIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "동명사안의유한관계절; 관계절전용배수미해금그대로",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G046",
+      "sentence": "I will enjoy reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "TIME.FUTURE_WILL"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G047",
+      "sentence": "I want to enjoy reading books.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE",
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G048",
+      "sentence": "I like the book.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "기존일반문장 회귀",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G049",
+      "sentence": "I go to school.",
+      "status": "VALID",
+      "mainFrame": "SV",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "to는PP만",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.INFINITIVE"
+      ]
+    },
+    {
+      "id": "G050",
+      "sentence": "I give a book to you.",
+      "status": "VALID",
+      "mainFrame": "SVO",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "to는PP만, SVOO아님",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "CLAUSE.INFINITIVE"
+      ]
+    },
+    {
+      "id": "G051",
+      "sentence": "I want to reads books.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [
+        "INFINITIVE_BASE_REQUIRED"
+      ],
+      "roleNote": null,
+      "note": "기여가능뼈대/카드 유지, 해당잘못된INF보너스없음; raw INF는RECOVERED, 점수자격제외",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 3,
+          "formId": "form.read.third"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "expectedScoreExclusions": [
+        "CLAUSE.INFINITIVE"
+      ]
+    },
+    {
+      "id": "G052",
+      "sentence": "He want to read books.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [
+        "SUBJECT_VERB_AGREEMENT"
+      ],
+      "roleNote": null,
+      "note": "바깥일치오류, 안쪽INF증거는정상",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G053",
+      "sentence": "Reading books are good.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.GERUND"
+      ],
+      "expectedIssues": [
+        "SUBJECT_VERB_AGREEMENT"
+      ],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "G054",
+      "sentence": "I want he to read books.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "SVOC",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [
+        "PRONOUN_CASE"
+      ],
+      "roleNote": null,
+      "note": "",
+      "selectedFormOverrides": [
+        {
+          "tokenIndex": 2,
+          "formId": "form.he.subject"
+        }
+      ],
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G055",
+      "sentence": "I need book to read.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "SVO",
+      "expectedTags": [
+        "CLAUSE.INFINITIVE"
+      ],
+      "expectedIssues": [
+        "DETERMINER_REQUIRED"
+      ],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G056",
+      "sentence": "I enjoy to read books.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "enjoy 목적어Frame불성립; 카드/턴소모0피해",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G057",
+      "sentence": "I enjoy read books.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "동명사Form자동변경 금지",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G058",
+      "sentence": "Reading books.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "유한동사 없는 구",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G059",
+      "sentence": "To read books.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "유한동사 없는 구",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G060",
+      "sentence": "I to read books.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G061",
+      "sentence": "I book happy run.",
+      "status": "INVALID_CORE",
+      "mainFrame": null,
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "기존실패정책 유지",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G062",
+      "sentence": "I am happy.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "be 원형선택회귀",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G063",
+      "sentence": "I am at school.",
+      "status": "VALID",
+      "mainFrame": "SV",
+      "expectedTags": [],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "프로젝트 학교문형 위치표기 유지",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE"
+    },
+    {
+      "id": "G064",
+      "sentence": "I am a very easy technology they help on strong ideas.",
+      "status": "VALID",
+      "mainFrame": "SVC",
+      "expectedTags": [
+        "CLAUSE.RELATIVE"
+      ],
+      "expectedIssues": [],
+      "roleNote": null,
+      "note": "a technology에 무조건 불가산감점금지; 의미불자연으로 감점하지 않음",
+      "evidenceKind": "POSITIVE_EXPECTED_STRUCTURAL_TAGS_NOT_ALL_SCOREABLE",
+      "forbiddenIssues": [
+        "ARTICLE_COUNTABILITY_MISMATCH"
+      ]
+    }
+  ]
+}

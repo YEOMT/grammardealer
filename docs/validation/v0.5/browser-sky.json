@@ -1,0 +1,94 @@
+{
+  "kind": "ASSIGNED_STATE_UI_NOT_CAMPAIGN",
+  "checks": [
+    {
+      "id": "STAGE4_PREVIEW",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP2_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP2_1280",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP2_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP2_REAL_INDEXEDDB_EXACT",
+      "status": "PASS"
+    },
+    {
+      "id": "THREE_VERSIONED_SLOTS_OPERATION_EXHAUST_RNG_AND_UNLOCK_ISOLATION",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1366_10",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1366_14",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1280_10",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1280_14",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1024_10",
+      "status": "PASS"
+    },
+    {
+      "id": "SKY_CAPACITY_1024_14",
+      "status": "PASS"
+    },
+    {
+      "id": "LINK_PRESENTATION_I like music and she reads books",
+      "status": "PASS"
+    },
+    {
+      "id": "LINK_PRESENTATION_I think that she likes music",
+      "status": "PASS"
+    },
+    {
+      "id": "LINK_PRESENTATION_I like games and music",
+      "status": "PASS"
+    },
+    {
+      "id": "LINK_PRESENTATION_I think she likes music",
+      "status": "PASS"
+    },
+    {
+      "id": "INTERRUPTED_DISPLAY_CONVERGES_NO_STATE_WRITE",
+      "status": "PASS"
+    },
+    {
+      "id": "NESTED_EDUCATION_NO_RAW_IDS_TRANSLATIONS",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "stage4-preview.png",
+    "shop2-1366.png",
+    "shop2-1280.png",
+    "shop2-1024.png",
+    "sky-capacity-1366-10.png",
+    "sky-capacity-1366-14.png",
+    "sky-capacity-1280-10.png",
+    "sky-capacity-1280-14.png",
+    "sky-capacity-1024-10.png",
+    "sky-capacity-1024-14.png",
+    "coordinate-clause-bridge.png",
+    "content-clause-bridge.png",
+    "nested-content-record.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

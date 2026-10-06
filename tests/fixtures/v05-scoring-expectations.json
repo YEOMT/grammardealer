@@ -1,0 +1,931 @@
+{
+  "meta": {
+    "project": "Syntax Atlas",
+    "targetVersion": "0.5.0",
+    "baselineCommit": "6d2907eddefafb1a909c6c803259ba26b408f104",
+    "createdDate": "2026-10-06",
+    "evidenceStatus": "SPECIFICATION_EXPECTATIONS_ONLY_NOT_RUNTIME_TEST_RESULTS",
+    "noteKo": "이 인계는 실제 게임 구현/파서 실행/브라우저 검증/PR을 수행하지 않았다."
+  },
+  "items": [
+    {
+      "id": "S001",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 282,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "REGION",
+          282
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S002",
+      "sentence": "I enjoy reading books.",
+      "wordCardCount": 4,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": true,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 220,
+      "timeline": [
+        [
+          "CARD_BASE",
+          40
+        ],
+        [
+          "COMPLETE",
+          70
+        ],
+        [
+          "MAIN_FRAME",
+          126
+        ],
+        [
+          "GERUND",
+          176
+        ],
+        [
+          "REGION",
+          220
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S003",
+      "sentence": "Reading books is good.",
+      "wordCardCount": 4,
+      "frame": "SVC",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": true,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 195,
+      "timeline": [
+        [
+          "CARD_BASE",
+          40
+        ],
+        [
+          "COMPLETE",
+          70
+        ],
+        [
+          "MAIN_FRAME",
+          112
+        ],
+        [
+          "GERUND",
+          156
+        ],
+        [
+          "REGION",
+          195
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S004",
+      "sentence": "I want you to read a book.",
+      "wordCardCount": 7,
+      "frame": "SVOC",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 437,
+      "timeline": [
+        [
+          "CARD_BASE",
+          70
+        ],
+        [
+          "COMPLETE",
+          100
+        ],
+        [
+          "MAIN_FRAME",
+          250
+        ],
+        [
+          "INFINITIVE",
+          350
+        ],
+        [
+          "REGION",
+          437
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S005",
+      "sentence": "I make you happy.",
+      "wordCardCount": 4,
+      "frame": "SVOC",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 218,
+      "timeline": [
+        [
+          "CARD_BASE",
+          40
+        ],
+        [
+          "COMPLETE",
+          70
+        ],
+        [
+          "MAIN_FRAME",
+          175
+        ],
+        [
+          "REGION",
+          218
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S006",
+      "sentence": "I want to enjoy reading books.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": true,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 395,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "GERUND",
+          316
+        ],
+        [
+          "REGION",
+          395
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S007",
+      "sentence": "I wanted to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [
+        "PAST"
+      ],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 338,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "PAST",
+          194
+        ],
+        [
+          "INFINITIVE",
+          271
+        ],
+        [
+          "REGION",
+          338
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S008",
+      "sentence": "My hobby is reading books.",
+      "wordCardCount": 5,
+      "frame": "SVC",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": true,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 223,
+      "timeline": [
+        [
+          "CARD_BASE",
+          50
+        ],
+        [
+          "COMPLETE",
+          80
+        ],
+        [
+          "MAIN_FRAME",
+          128
+        ],
+        [
+          "GERUND",
+          179
+        ],
+        [
+          "REGION",
+          223
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S009",
+      "sentence": "I am good at reading books.",
+      "wordCardCount": 6,
+      "frame": "SVC",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": true,
+      "clauseLink": false,
+      "modifierAdd": 10,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 263,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          144
+        ],
+        [
+          "GERUND",
+          201
+        ],
+        [
+          "MODIFIERS",
+          211
+        ],
+        [
+          "REGION",
+          263
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S010",
+      "sentence": "I need a book to read.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 282,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "REGION",
+          282
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S011",
+      "sentence": "I go to school to read books.",
+      "wordCardCount": 7,
+      "frame": "SV",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 10,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 240,
+      "timeline": [
+        [
+          "CARD_BASE",
+          70
+        ],
+        [
+          "COMPLETE",
+          100
+        ],
+        [
+          "MAIN_FRAME",
+          130
+        ],
+        [
+          "INFINITIVE",
+          182
+        ],
+        [
+          "MODIFIERS",
+          192
+        ],
+        [
+          "REGION",
+          240
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S012",
+      "sentence": "I am reading books.",
+      "wordCardCount": 4,
+      "frame": "SVO",
+      "timeTags": [
+        "PROGRESSIVE"
+      ],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": false,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 163,
+      "timeline": [
+        [
+          "CARD_BASE",
+          40
+        ],
+        [
+          "COMPLETE",
+          70
+        ],
+        [
+          "MAIN_FRAME",
+          126
+        ],
+        [
+          "PROGRESSIVE",
+          163
+        ]
+      ],
+      "note": "동명사가 아니며 사막 지역효과 없음"
+    },
+    {
+      "id": "S013",
+      "sentence": "The running dog is happy.",
+      "wordCardCount": 5,
+      "frame": "SVC",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 5,
+      "runes": [],
+      "regionApplied": false,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 133,
+      "timeline": [
+        [
+          "CARD_BASE",
+          50
+        ],
+        [
+          "COMPLETE",
+          80
+        ],
+        [
+          "MAIN_FRAME",
+          128
+        ],
+        [
+          "MODIFIERS",
+          133
+        ]
+      ],
+      "note": "단순분사수식+5만, 사막효과없음"
+    },
+    {
+      "id": "S014",
+      "sentence": "I want you to read a very good book.",
+      "wordCardCount": 9,
+      "frame": "SVOC",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 10,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 537,
+      "timeline": [
+        [
+          "CARD_BASE",
+          90
+        ],
+        [
+          "COMPLETE",
+          120
+        ],
+        [
+          "MAIN_FRAME",
+          300
+        ],
+        [
+          "INFINITIVE",
+          420
+        ],
+        [
+          "MODIFIERS",
+          430
+        ],
+        [
+          "REGION",
+          537
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S015",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [
+        [
+          "EMERALD_L1",
+          [
+            8,
+            5
+          ]
+        ],
+        [
+          "METEOR_L1_5_9",
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 902,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "EMERALD_L1",
+          361
+        ],
+        [
+          "METEOR_L1_5_9",
+          722
+        ],
+        [
+          "REGION",
+          902
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S016",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [
+        [
+          "METEOR_L1_5_9",
+          [
+            2,
+            1
+          ]
+        ],
+        [
+          "ADD",
+          20
+        ]
+      ],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 590,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "METEOR_L1_5_9",
+          452
+        ],
+        [
+          "RUNE_ADD",
+          472
+        ],
+        [
+          "REGION",
+          590
+        ]
+      ],
+      "note": "수정Lv1 +20, 순서 실제차이"
+    },
+    {
+      "id": "S017",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [
+        [
+          "ADD",
+          20
+        ],
+        [
+          "METEOR_L1_5_9",
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 615,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "INFINITIVE",
+          226
+        ],
+        [
+          "RUNE_ADD",
+          246
+        ],
+        [
+          "METEOR_L1_5_9",
+          492
+        ],
+        [
+          "REGION",
+          615
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S018",
+      "sentence": "I want to reads a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": false,
+      "complete": false,
+      "penalty": 10,
+      "expectedPower": 90,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "ACCURACY",
+          50
+        ],
+        [
+          "MAIN_FRAME",
+          90
+        ]
+      ],
+      "note": "해당INF오류로INF/지역보너스없음"
+    },
+    {
+      "id": "S019",
+      "sentence": "He want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": false,
+      "penalty": 10,
+      "expectedPower": 157,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "ACCURACY",
+          50
+        ],
+        [
+          "MAIN_FRAME",
+          90
+        ],
+        [
+          "INFINITIVE",
+          126
+        ],
+        [
+          "REGION",
+          157
+        ]
+      ],
+      "note": "주어일치오류는안쪽정상INF를지우지않음"
+    },
+    {
+      "id": "S020",
+      "sentence": "I want you to read books because I work.",
+      "wordCardCount": 9,
+      "frame": "SVOC",
+      "timeTags": [],
+      "infinitive": true,
+      "gerund": false,
+      "clauseLink": true,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 840,
+      "timeline": [
+        [
+          "CARD_BASE",
+          90
+        ],
+        [
+          "COMPLETE",
+          120
+        ],
+        [
+          "MAIN_FRAME",
+          300
+        ],
+        [
+          "INFINITIVE",
+          420
+        ],
+        [
+          "CLAUSE_LINK",
+          672
+        ],
+        [
+          "REGION",
+          840
+        ]
+      ],
+      "note": ""
+    },
+    {
+      "id": "S021",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": false,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 162,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ]
+      ],
+      "note": "신규팩미해금 Stage1 또는 무지역 테스트; 기본언어는정상. Stage1 SVO지역이면 아래별도값",
+      "unlocks": "NO_DESERT_PACKS_NO_REGION"
+    },
+    {
+      "id": "S022",
+      "sentence": "I want to read a book.",
+      "wordCardCount": 6,
+      "frame": "SVO",
+      "timeTags": [],
+      "infinitive": false,
+      "gerund": false,
+      "clauseLink": false,
+      "modifierAdd": 0,
+      "runes": [],
+      "regionApplied": true,
+      "complete": true,
+      "penalty": 0,
+      "expectedPower": 202,
+      "timeline": [
+        [
+          "CARD_BASE",
+          60
+        ],
+        [
+          "COMPLETE",
+          90
+        ],
+        [
+          "MAIN_FRAME",
+          162
+        ],
+        [
+          "REGION",
+          202
+        ]
+      ],
+      "note": "신규팩미해금 Stage1: 기존SVO지역1.25는받음, INF는미보너스",
+      "unlocks": "NO_DESERT_PACKS_STAGE1_REGION"
+    }
+  ]
+}
