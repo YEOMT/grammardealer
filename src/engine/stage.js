@@ -74,7 +74,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   attackId = 'attack.sandbox', runId = null, battleId = null, expectedRevision = 0,
   sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,
 }) {
-  if (['0.2.2','0.3.0','0.4.0','0.5.0'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
+  if (['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
     const cardScoringSnapshot=validateCardScoringSnapshot(cards);
     const hp=safeInteger(enemy.hp,'enemy hp',{min:0});
     return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,
@@ -93,7 +93,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   };
   const cardScoringSnapshot = validateCardScoringSnapshot(cards);
   const eligibleAnalysis=scoreableAnalysis(analysis,comboEligibility);
-  const version=policyVersion??analysis.grammarVersion;
+  const version=policyVersion==='0.5.1'?'0.5.0':policyVersion??analysis.grammarVersion;
   const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis,balance:scoreBalanceForVersion(version) });
   const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId,version });
   const encounter = resolveEncounter(eligibleAnalysis, runeResult.postRuneScore, enemy, {
@@ -102,7 +102,7 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
-      balance: version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: ['0.3.0','0.4.0','0.5.0'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: 'presentation.0.2.1' },
+      balance: version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: ['0.3.0','0.4.0','0.5.0','0.5.1'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: 'presentation.0.2.1' },
     sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis, comboEligibility,
     scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),
     zeroReason:encounter.finalPower===0?(encounter.bossEffects.length?'BOSS_BLOCKED':'ACCURACY_ZERO'):null,

@@ -21,3 +21,4 @@ docs/history/0.1/evidence/
 docs/deck-validation.json
 docs/run-simulation.json
 docs/evidence-0.2/
+__pycache__/

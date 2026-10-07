@@ -1,8 +1,20 @@
 import {presentationClock} from './presentationClock.js';
 import {RUNE_BY_ID} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
-export const PRESENTATION_VERSION = '0.2.1';
-export function impactFeel(resolution){const max=resolution.visualBasis?.intensityBaseline||resolution.visualBasis?.enemyBefore?.maxHp||100,ratio=resolution.finalPower/max;return resolution.finalPower===0||resolution.actualHpLoss===0?{tier:'BLOCKED',ratio,hitStop:0,recoil:0,settle:180}:ratio<.5?{tier:'LIGHT',ratio,hitStop:20,recoil:2,settle:200}:ratio<1?{tier:'HEAVY',ratio,hitStop:75,recoil:7,settle:300}:{tier:'OVERPOWER',ratio,hitStop:110,recoil:10,settle:400};}
+export const PRESENTATION_VERSION = '0.5.1';
+/** Read-only feel classification. No damage, reward or RNG is calculated here. */
+export function impactFeel(r){
+ const positive=n=>Number.isSafeInteger(n)&&n>0?n:1;
+ const max=positive(r.visualBasis?.enemyMaxHp??r.visualBasis?.enemyBefore?.maxHp??r.visualBasis?.intensityBaseline??r.enemyHpBefore),power=Number.isSafeInteger(r.finalPower)&&r.finalPower>0?r.finalPower:0,ratio=power/max;
+ if(!power||r.actualHpLoss===0)return {tier:'BLOCKED',ratio,hitStop:0,recoil:0,shake:0,settle:180};
+ if(r.killed&&r.overkill>0){
+  const remainingRatio=power/positive(r.enemyHpBefore);
+  const tier=remainingRatio>=2.5&&ratio>=1?'MASSIVE':remainingRatio>=1.5&&ratio>=.5?'LARGE':'SMALL';
+  const [hitStop,recoil,shake]=({SMALL:[90,8,3],LARGE:[120,14,5],MASSIVE:[150,22,8]})[tier];
+  return {tier,ratio,hitStop,recoil,shake,settle:450};
+ }
+ return ratio<.5?{tier:'LIGHT',ratio,hitStop:20,recoil:2,shake:0,settle:200}:ratio<1?{tier:'HEAVY',ratio,hitStop:75,recoil:7,shake:0,settle:300}:{tier:'OVERPOWER',ratio,hitStop:110,recoil:10,shake:0,settle:400};
+}
 const ALLOWED_SPEEDS = [1, 1.5, 2];
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 const safeCall = (view, name, ...args) => typeof view[name] === 'function' ? view[name](...args) : undefined;
@@ -149,12 +161,34 @@ export function connect(root, fromCardId, toCardIds) {
 /** Small optional DOM adapter. data-presentation: score,label,sentence,enemy,hp,hp-fill,log,power. */
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
-  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null;
+  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null;
+  const fallbacks=new Set();
   const text = (name, value) => { const node = find(root, name); if (node) node.textContent = String(value); };
   const animate = (node, frames, duration, fill='none') => {
     if (!node?.animate || settings.effectsOff || settings.reducedMotion) return;
     try { const animation=node.animate(frames, { duration, easing: 'ease-out', fill });animations.push(animation);if(root.ownerDocument.hidden&&settings.guided)animation.pause();return animation; } catch { /* final DOM is independent */ }
   };
+  // Decoration may disappear. Core feedback always has a visible, bounded non-motion fallback.
+  const animateCore=(node,frames,duration,fill='none')=>{
+    if(!node)return;
+    if(settings.reducedMotion)frames=[{filter:'brightness(1)',outline:'2px solid transparent'},{filter:'brightness(1.2)',outline:'2px solid #f2d48c'},{filter:'brightness(1)',outline:'2px solid transparent'}];
+    try{
+      if(typeof node.animate!=='function')throw Error('WAAPI unavailable');
+      const animation=node.animate(frames,{duration,easing:'ease-out',fill});animations.push(animation);
+      // Start on the same document clock as this phase, without a pending first-frame delay.
+      // At 2x a 70ms lunge must not spend its only painted frame waiting to start.
+      const now=root.ownerDocument.timeline?.currentTime;
+      if(animation.startTime===null&&typeof now==='number')animation.startTime=now;
+      if(root.ownerDocument.hidden&&settings.guided)animation.pause();return animation;
+    }catch(error){
+      root.dataset.coreFallback=String(Number(root.dataset.coreFallback??0)+1);
+      root.dataset.coreFallbackReason=error.message;
+      const old={outline:node.style.outline,filter:node.style.filter};node.style.outline='2px solid #f2d48c';node.style.filter='brightness(1.2)';
+      const cleanup=()=>{clearTimeout(timer);Object.assign(node.style,old);fallbacks.delete(cleanup);};
+      const timer=setTimeout(cleanup,Math.max(90,duration));fallbacks.add(cleanup);
+    }
+  };
+  const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
   const clearHighlights = () => {
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
     root.querySelectorAll('[data-clause-group],[data-content-object],.connector-bridge').forEach(n=>{delete n.dataset.clauseGroup;delete n.dataset.contentObject;n.classList.remove('connector-bridge');});
@@ -196,7 +230,6 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
     onScore(event, { step, intensity,combo=0 }) {
-      if(event.sourceType==='BOSS'&&event.bossStateAfter?.id!=='TIME_GOLEM')showBossState(event.bossStateAfter);
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       if(event.phase==='LINKS'){
         for(const [i,c]of (current.analysis.clauses??[]).entries()){const ids=current.analysis.nodes.find(n=>n.id===c.nodeId)?.cardIds??[];for(const id of ids){const card=findCard(root,id);if(card)card.dataset.clauseGroup=String(i%3);}}
@@ -254,41 +287,61 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     },
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
+      root.dataset.corePhase='CHARGE';
       text('label', '힘을 모읍니다'); audio?.play?.('charge', { intensity });
-      animate(find(root, 'sentence'), [{ transform: 'scale(1)' }, { transform: 'scale(.96)' }], duration);
+      animateCore(find(root, 'sentence'), [{ transform: 'scale(1)' }, { transform: 'scale(.96)' }], duration);
     },
     lunge({ duration }) {
+      root.dataset.corePhase='LUNGE';
       text('label', '문장 공격!');
       const sentence = find(root, 'sentence'), enemy = find(root, 'enemy');
       if (sentence && enemy) {
         const a = sentence.getBoundingClientRect(), b = enemy.getBoundingClientRect();
         const x = b.left + b.width / 2 - a.left - a.width / 2, y = b.top + b.height / 2 - a.top - a.height / 2;
-        lungeAnimation=animate(sentence, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x}px,${y}px) scale(.36)`, opacity: .3 }], duration,'forwards');
+        if(settings.reducedMotion){animateCore(sentence,[],duration);return;}
+        // A non-interactive viewport overlay avoids clipping by the board's scroll container.
+        attackBody=sentence.cloneNode(true);attackBody.inert=true;attackBody.setAttribute('aria-hidden','true');
+        for(const node of [attackBody,...attackBody.querySelectorAll('*')]){for(const name of ['id','data-card-id','data-card-zone','data-presentation','tabindex'])node.removeAttribute(name);}
+        attackBody.dataset.presentation='attack-body';attackBody.classList.add('core-attack-body');
+        Object.assign(attackBody.style,{position:'fixed',left:`${a.left}px`,top:`${a.top}px`,width:`${a.width}px`,height:`${a.height}px`,minHeight:'0',margin:'0',zIndex:'1000',pointerEvents:'none',overflow:'visible'});
+        root.ownerDocument.body.append(attackBody);
+        // Bounding boxes are viewport pixels; fixed-position CSS coordinates inherit page zoom.
+        const zoom=a.width>0?attackBody.getBoundingClientRect().width/a.width:1;
+        const scale=Number.isFinite(zoom)&&zoom>0?zoom:1;
+        Object.assign(attackBody.style,{left:`${a.left/scale}px`,top:`${a.top/scale}px`,width:`${a.width/scale}px`,height:`${a.height/scale}px`});
+        sentence.style.opacity='.25';
+        lungeAnimation=animateCore(attackBody, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x/scale}px,${y/scale}px) scale(.36)`, opacity: .5 }], duration,'forwards');
       }
     },
-    impact({ hpAfter, finalPower, actualHpLoss, killed, intensity,feel,zeroReason,feedbackKo }) {
-      showHp(hpAfter); text('label', finalPower === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
+    impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {
+      root.dataset.corePhase='IMPACT';showBossState(current?.bossStateAfter);
+      showHp(hpAfter); text('label', actualHpLoss === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
       if(current?.bossStateAfter?.id==='TIME_GOLEM'){
         showBossState(current.bossStateAfter);const effect=current.bossEffects.find(e=>e.phaseId);
         if(effect)text('label',effect.labelKo+(actualHpLoss?` · 위력 ${finalPower} / 적용 피해 ${actualHpLoss}`:''));
         if(current.phaseBreak){const layer=root.querySelector(`[data-phase-id="${current.phaseId}"]`);animate(layer,[{filter:'brightness(2)',transform:'scale(1.03)'},{filter:'brightness(.6)',transform:'scale(1)'}],800);}
       }
-      audio?.play?.(finalPower === 0 ? 'blocked' : 'impact', { intensity });
+      if(killed&&overkill>0&&actualHpLoss>0){text('label',`격파! · 초과 피해 +${overkill}`);find(root,'label')?.setAttribute('data-overkill-tier',feel.tier);}
+      audio?.play?.(actualHpLoss === 0 ? 'blocked' : 'impact', { intensity });
       root.dataset.impactTier=feel.tier;
       if(zeroReason==='INCOMPLETE_SENTENCE'){animate(find(root,'sentence'),[{opacity:1,transform:'scale(1)'},{opacity:.4,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],500);return;}
       if(actualHpLoss>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
       const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
+      if(actualHpLoss>0)animateCore(enemy,[{filter:'brightness(1)'},{filter:'brightness(1.4)'},{filter:'brightness(1)'}],Math.max(90,feel.hitStop));
       if(actualHpLoss>0&&!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}
     },
     recoil({killed,feel,duration}){
+      root.dataset.corePhase='RECOIL';
       lungeAnimation?.cancel();lungeAnimation=null;
+      clearCore();
       const enemy=find(root,'enemy');
-      animate(find(root,'sentence'),[{transform:'translate(0,0)'},{transform:'translate('+(-feel.recoil)+'px,'+(feel.recoil/2)+'px)'},{transform:'translate('+(feel.recoil/2)+'px,0)'},{transform:'translate(0,0)'}],duration);
-      animate(find(root,'hp-fill')?.closest('.enemy-info'),[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px)'},{transform:'translateX(0)'}],duration);
-      animate(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:'translateX('+(12+feel.recoil*3)+'px) rotate(14deg) scale(.85)',opacity:.7},{transform:'translateX(70px) rotate(23deg) scale(.65)',opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
+      if(feel.tier==='BLOCKED')return;
+      if(feel.shake&&!settings.reducedMotion)animateCore(root,[{transform:'translate(0,0)'},{transform:`translate(${feel.shake}px,2px)`},{transform:`translate(${-feel.shake}px,-2px)`},{transform:'translate(0,0)'}],Math.min(180,duration));
+      animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
-    cancel(){for(const a of animations){try{a.cancel();}catch{}}animations=[];effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();},
+    cancel(){for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
     finish(resolution) {
+      clearCore();root.dataset.corePhase='FINISHED';
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       const score=find(root,'score');if(score){score.style.textShadow='';score.style.fontWeight='';}

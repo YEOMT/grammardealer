@@ -8,7 +8,8 @@ const port=Number(process.env.SB_E2E_PORT||4174);const base=`http://127.0.0.1:${
 const vocabularyMode=process.env.SB_E2E_MODE||'STANDARD';
 const viewport=JSON.parse(process.env.SB_VIEWPORT||'{"width":1366,"height":768}');
 const suffix=process.env.SB_EVIDENCE_SUFFIX||'';const effectsOff=process.env.SB_EFFECTS_OFF==='1';
-const evidence=process.env.SB_EVIDENCE_DIR||'.local-validation/v05/e2e';const policy='LEARNING';const seed=process.env.SB_E2E_SEED||'run-sequence.13';
+const skipTutorial=process.env.SB_E2E_GUIDED!=='1';
+const evidence=process.env.SB_EVIDENCE_DIR||'.local-validation/v051/e2e';const policy='LEARNING';const seed=process.env.SB_E2E_SEED||'run-sequence.12';
 const server=spawn(process.execPath,['tools/static-server.mjs','dist',String(port),'/grammardealer/'],{stdio:['ignore','pipe','pipe']});
 await new Promise((resolve,reject)=>{server.stdout.once('data',resolve);server.once('error',reject);server.once('exit',c=>c&&reject(Error('Server failed')));});
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
@@ -29,7 +30,7 @@ async function compose(candidate){
   const id=slot.cardInstanceId;await page.locator(`.hand-cards [data-card-id="${id}"] .card-body`).click();await cmd({type:'ADD_CARD',cardId:id});
   const token=candidate.snapshot.orderedTokens.find(t=>t.cardInstanceId===id);
   await page.locator(`.combat-sentence [data-card-id="${id}"] .form-button`).click();
-  await page.locator(`[data-form-id="${slot.selection.formId}"]`).click();await cmd({type:'SET_FORM',cardId:id,formId:slot.selection.formId});
+  const choice=page.locator(`dialog[open] [data-form-id="${slot.selection.formId}"],dialog[open] [data-form-aliases~="${slot.selection.formId}"]`);const actualFormId=await choice.getAttribute('data-form-id');await choice.click();await cmd({type:'SET_FORM',cardId:id,formId:actualFormId});
  }
 }
 try{
@@ -37,9 +38,12 @@ try{
  await capture('lobby');await page.locator('#player-name').fill('검증 여행자');await page.locator('#vocabulary-mode').selectOption(vocabularyMode);await page.locator('.seed-details summary').click();await page.locator('#run-seed').fill(seed);await page.locator('#start-run').click();await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
  const initial=await saveSlot(1),profile=(await readRows('profiles'))[0];shadow=new RunController({initialState:initial,profile});
  await loadSlot(1);const again=await saveSlot(1);assert.deepEqual(again,initial);record(['P01','P02','U12','U13'],'production subpath, profile and initial six-card save/load exact (including RNG)');
- await playGuided(page,{capture});
- const tutorialReward=await saveSlot(2);assert.equal(tutorialReward.economy.gold,5);assert.equal(tutorialReward.activeCardIds.length,28);assert.equal(tutorialReward.stats.attacks,0);shadow=new RunController({initialState:tutorialReward,profile:(await readRows('profiles'))[0]});record(['V021-P15','V021-P21','V021-P29','V021-P31','V021-P32'],'mandatory tutorial completed through actual UI, engine scores 40/126, gold 5 and normal deck restored');
-
+ if(skipTutorial){
+  await page.locator('#guided-skip').click();await page.getByRole('button',{name:'건너뛰기',exact:true}).click();await page.locator('.guided-coach').waitFor({state:'detached'});
+  const skipped=await saveSlot(1),p=(await readRows('profiles'))[0];assert.equal(skipped.economy.gold,0);assert.equal(skipped.stats.attacks,0);assert.equal(skipped.combat.enemyState.hp,77);assert.equal(skipped.combat.exchangesRemaining,4);assert.equal(p.guidedTutorialCompletedVersion,undefined);assert.equal(p.guidedTutorialSkippedVersion,'0.2.1');shadow=new RunController({initialState:skipped,profile:p});record(['V051-P035','V051-P038'],'actual tutorial skip restores normal S1-1 without reward');
+ }else{
+  await playGuided(page,{capture});const tutorialReward=await saveSlot(2);assert.equal(tutorialReward.economy.gold,5);assert.equal(tutorialReward.activeCardIds.length,28);assert.equal(tutorialReward.stats.attacks,0);shadow=new RunController({initialState:tutorialReward,profile:(await readRows('profiles'))[0]});record(['V021-P15','V021-P21','V021-P29','V021-P31','V021-P32'],'actual tutorial 40/126, gold5 and normal deck restored');
+ }
  await context.setOffline(true);record(['P11'],'network disabled after all initial static resources loaded');
  let attacks=0,invalidSubmissions=0;let exercised=false;let rewardSaved=false;let maxLoops=0;let svooCaptured=false,veilCaptured=false,sealCaptured=false;const playedBattles=new Set([1]);
  while(++maxLoops<180){
@@ -119,7 +123,7 @@ try{
  await page.locator('#new-run-result').click();await page.locator('#start-battle').waitFor();await page.locator('#start-battle').click();assert.equal(await page.locator('.tutorial-bubble').count(),0);assert.equal(await page.locator('.guided-coach').count(),0);record(['R04'],'new expedition works offline and previously seen guide is not forced');
  await context.setOffline(false);await page.goto(base+'?debug=1#sandbox');await page.locator('#start-run').waitFor();assert.equal(await page.evaluate(()=>Boolean(window.__SB_DEV__)),false);assert.equal(await page.getByRole('heading',{name:'문장 실험실',exact:true}).count(),0);assert.deepEqual((await readRows('profiles'))[0],finalProfile);record(['V022-P49'],'production debug query/hash cannot expose developer grammar diagnostics or change records');
  assert.deepEqual(errors,[]);assert.deepEqual(consoleErrors,[]);assert.deepEqual(failedRequests,[]);assert.deepEqual(badResponses,[]);assert.ok(requests.every(url=>url.startsWith(`http://127.0.0.1:${port}`)));record(['U14'],'no page/console errors, failed resources or external runtime requests');
- await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',browser:await browser.version(),viewport,effectsOff,seed,policy,urlPath:'/grammardealer/',offlineFullStage1:true,offlineFullStage2:true,offlineFullStage3:true,offlineFullStage4:true,offlineFullStage5:true,vocabularyMode,commands,operationUses:commands.filter(x=>x.command.type==='USE_OPERATION').length,playedBattles:[...playedBattles],svooCaptured,veilCaptured,sealCaptured,attacksAfterTutorial:attacks,invalidSubmissions,totalActualAttacks:attacks+2+invalidSubmissions,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
- console.log(`Production E2E PASS (${attacks+2+invalidSubmissions} real attacks including two guided attacks)`);
+ await fs.writeFile(`${evidence}/production-browser${suffix}.json`,JSON.stringify({status:'PASS',skipTutorial,browser:await browser.version(),viewport,effectsOff,seed,policy,urlPath:'/grammardealer/',offlineFullStage1:true,offlineFullStage2:true,offlineFullStage3:true,offlineFullStage4:true,offlineFullStage5:true,vocabularyMode,commands,operationUses:commands.filter(x=>x.command.type==='USE_OPERATION').length,playedBattles:[...playedBattles],svooCaptured,veilCaptured,sealCaptured,attacksAfterTutorial:attacks,invalidSubmissions,totalActualAttacks:attacks+(skipTutorial?0:2)+invalidSubmissions,checks,errors,consoleErrors,failedRequests,badResponses,requestOrigins:[...new Set(requests.map(u=>new URL(u).origin))]},null,2));
+ console.log(`Production E2E PASS (${attacks+(skipTutorial?0:2)+invalidSubmissions} real attacks with explicit tutorial mode)`);
 }catch(error){await capture('e2e-failure');await fs.writeFile(`${evidence}/production-browser-failure${suffix}.json`,JSON.stringify({error:error.stack,seed,state:shadow?.getState(),storedProfiles:await readRows('profiles'),errors,consoleErrors,failedRequests,badResponses,checks},null,2));throw error;}
 finally{const video=page.video();await context.close();if(video)await video.saveAs(`${evidence}/production-play${suffix}.webm`);await browser.close();server.kill();}

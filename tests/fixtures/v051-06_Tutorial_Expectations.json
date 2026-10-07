@@ -1,0 +1,134 @@
+{
+  "status": "SCENARIOS_NOT_EXECUTED",
+  "cases": [
+    {
+      "id": "T01",
+      "state": "INITIAL_PROMPT",
+      "action": "skip",
+      "expected": "normal-first-battle; no tutorial reward"
+    },
+    {
+      "id": "T02",
+      "state": "INITIAL_PROMPT",
+      "action": "cancel-confirmation",
+      "expected": "unchanged tutorial state/RNG"
+    },
+    {
+      "id": "T03",
+      "state": "AFTER_PLACEMENT",
+      "action": "skip",
+      "expected": "same normal first-hand/deck RNG as T01 for same seed"
+    },
+    {
+      "id": "T04",
+      "state": "AFTER_FIRST_ATTACK",
+      "action": "skip",
+      "expected": "normal full HP/turns/exchanges; partial damage discarded"
+    },
+    {
+      "id": "T05",
+      "state": "AFTER_PREPARE_AND_FORM",
+      "action": "skip",
+      "expected": "same normal first-hand/deck RNG; no temporary forms leaked"
+    },
+    {
+      "id": "T06",
+      "state": "SCORE_GATE_T26",
+      "action": "skip",
+      "expected": "old gate/clock/attack callbacks cancelled"
+    },
+    {
+      "id": "T07",
+      "state": "SCORE_GATE_T27",
+      "action": "skip",
+      "expected": "no complete-sentence achievements on profile"
+    },
+    {
+      "id": "T08",
+      "state": "SCORE_GATE_T28",
+      "action": "skip",
+      "expected": "no finished tutorial/kill reward"
+    },
+    {
+      "id": "T09",
+      "state": "ANIMATION_ACTIVE",
+      "action": "request-and-confirm-skip",
+      "expected": "safe cancellation then normal first battle; no old finish callback"
+    },
+    {
+      "id": "T10",
+      "state": "SKIP_ALREADY_COMMITTED",
+      "action": "duplicate-skip",
+      "expected": "no second shuffle/deal/reward"
+    },
+    {
+      "id": "T11",
+      "state": "SKIP_ALREADY_COMMITTED",
+      "action": "stale-ack-and-finish",
+      "expected": "normal battle remains unchanged"
+    },
+    {
+      "id": "T12",
+      "state": "SKIPPED_PROFILE",
+      "action": "new-run",
+      "expected": "no forced tutorial; no fake completed-version"
+    },
+    {
+      "id": "T13",
+      "state": "COMPLETED_PROFILE",
+      "action": "new-run",
+      "expected": "no re-forced tutorial"
+    },
+    {
+      "id": "T14",
+      "state": "UNTIL_NORMAL_COMPLETION",
+      "action": "finish",
+      "expected": "preserve actual40/126 and existing victory/reward policy"
+    },
+    {
+      "id": "T15",
+      "state": "IN_PROGRESS_CAMPAIGN",
+      "action": "replay-tutorial",
+      "expected": "independent state; campaign stats/RNG unchanged"
+    },
+    {
+      "id": "T16",
+      "state": "AFTER_SKIP",
+      "action": "save-load",
+      "expected": "normal first battle state/first-hand and skip marker preserved"
+    },
+    {
+      "id": "T17",
+      "state": "LEGACY_GUIDED_SAFE_SAVE",
+      "action": "resume-or-skip",
+      "expected": "original run rules/HP preserved; not .5.1 migrated"
+    }
+  ],
+  "compareNormalized": [
+    "activeCardIds",
+    "cardInstances",
+    "vocabulary",
+    "rng",
+    "openingFrames",
+    "combat.handIds",
+    "combat.drawIds",
+    "combat.sentenceSlots",
+    "combat.discardIds",
+    "combat.exhaustedIds",
+    "stats",
+    "economy",
+    "reward",
+    "settlementIds"
+  ],
+  "normalizeOnly": [
+    "runtime-only timestamps/runId if independently constructed",
+    "revision/applied skip receipt",
+    "profile skip indicator"
+  ],
+  "mustNotNormalizeAway": [
+    "HP changes",
+    "RNG cursor",
+    "card identity",
+    "score/payout differences"
+  ]
+}

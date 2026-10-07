@@ -1,6 +1,6 @@
 import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
-import {attachGuidedCoach,showScoreGate} from './ui/guidedCoach.js';
+import {attachGuidedCoach,showScoreGate,skipTutorialButton} from './ui/guidedCoach.js';
 import {wordCard} from './ui/cards.js';
 import {cardModel} from './ui/models.js';
 import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutorial.js';
@@ -22,7 +22,7 @@ const root=document.querySelector('#app');
 const store=new LocalStore({registry});
 let profiles=[],profile=null,controller=null,cleanup=()=>{},combatView=null,presenting=false,selected=new Set(),saveQueue=Promise.resolve(),memoryWarning=false,starting=false;
 const defaultSettings={speed:1,sfxVolume:45,muted:false,effectsOff:false};
-let presentationAbort=null;
+let presentationAbort=null,presentationEpoch=0;
 let sessionSettings={...defaultSettings};
 const settings=()=>profile?.settings||sessionSettings;
 function applySettings(){const s=settings();audio.configure({muted:s.muted,volume:s.sfxVolume/100});document.body.classList.toggle('effects-off',s.effectsOff);}
@@ -66,27 +66,28 @@ async function presentOperationResult(before,effect){
 }
 async function interruptTutorial(mode){
  const state=controller.getState();if(!isGuided(state))return;
- presentationAbort?.abort();const result=controller.dispatch(tutorialCommand(state,{type:mode==='restart'?'TUTORIAL_RESTART':'TUTORIAL_EXIT',confirmed:true}));
- if(!result.ok){toast(result.message);return;}selected.clear();
- if(mode==='exit')changeRoute('lobby');else if(!presenting)render();
+ const result=controller.dispatch(tutorialCommand(state,{type:mode==='skip'?'SKIP_TUTORIAL':mode==='restart'?'TUTORIAL_RESTART':'TUTORIAL_EXIT',commandId:`${state.tutorialSession.sessionId}:${mode}:${state.revision}`,confirmed:true}));
+ if(!result.ok){toast(result.message);return;}presentationEpoch++;presentationAbort?.abort();presentationAbort=null;presenting=false;selected.clear();
+ if(mode==='exit')changeRoute('lobby');else render();
 }
 async function presentResolution(before,resolution){
  selected.clear();presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;combatView.beginPresentation();
- const guided=isGuided(before);presentationAbort=new AbortController();const signal=presentationAbort.signal;
+ const epoch=++presentationEpoch,owner=controller;const guided=isGuided(before);if(guided){const skip=skipTutorialButton(interruptTutorial);skip.id='guided-skip-live';skip.classList.add('tutorial-skip-live');combatView.element.append(skip);}presentationAbort=new AbortController();const signal=presentationAbort.signal;
  const waitForGate=guided&&controller.getState().tutorialSession.attackCount===2?async gate=>{
   const current=controller.getState();if(!isGuided(current)||current.tutorialSession.completedSteps.includes(Number(gate.cueId.slice(1))))return;
   return showScoreGate(root,gate,{signal,onInterrupt:interruptTutorial,confirm:()=>controller.dispatch({...tutorialCommand(current,{type:'TUTORIAL_GATE_ACK',attackId:gate.attackId}),cueId:gate.cueId}).ok});
  }:undefined;
  const outcome=await playAttack(resolution,createDOMPresentation(combatView.element,{audio,hpMax:before.combat.enemyState.maxHp}),{guided,waitForGate,signal,speed:guided?1:settings().speed,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches});
+ if(epoch!==presentationEpoch||owner!==controller)return;
  presentationAbort=null;presenting=false;
  if(!guided||outcome.status==='FINISHED')controller.dispatch({type:'FINISH_PRESENTATION',attackId:resolution.attackId});
  const stillPending=controller.getState()?.combat?.pendingAttackId===resolution.attackId;
  if(guided&&outcome.status==='INTERRUPTED'&&stillPending){
-  let recovery;recovery=modal('실습 연출을 중단했습니다',[el('p',{text:'같은 공격 결과를 다시 보여드립니다. 피해와 재화는 다시 계산하지 않습니다.'}),button('같은 결과 다시 보기',()=>{recovery.close();presentResolution(before,resolution);},'primary'),button('실습 다시 시작',()=>{recovery.close();interruptTutorial('restart');},'secondary'),button('실습 나가기',()=>{recovery.close();interruptTutorial('exit');},'quiet')],{closeable:false});return;
+  let recovery;recovery=modal('튜토리얼 연출을 중단했습니다',[el('p',{text:'같은 공격 결과를 다시 보여드립니다. 피해와 재화는 다시 계산하지 않습니다.'}),button('같은 결과 다시 보기',()=>{recovery.close();presentResolution(before,resolution);},'primary'),button('튜토리얼 다시 시작',()=>{recovery.close();interruptTutorial('restart');},'secondary'),button('튜토리얼 나가기',()=>{recovery.close();interruptTutorial('exit');},'quiet')],{closeable:false});return;
  }
  render();
 }
-function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(isGuided(state)){confirmDialog('실습 나가기','완료나 보상 없이 로비로 돌아갑니다.','실습 나가기',()=>interruptTutorial('exit'));return;}if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
+function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(isGuided(state)){confirmDialog('튜토리얼 나가기','완료나 보상 없이 로비로 돌아갑니다.','튜토리얼 나가기',()=>interruptTutorial('exit'));return;}if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
 function openOverlay(kind){
   if(presenting)return;const state=controller?.getState();
   if(isGuided(state)&&['dictionary','deck','draw','discard'].includes(kind)){

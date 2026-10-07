@@ -153,3 +153,10 @@ body:has(.desert-page){background:radial-gradient(ellipse at bottom,#9f79474d,tr
 .desert-combat .hand-section{min-height:max-content}
 @media(max-height:820px){.desert-combat:has(.expanded-hand):has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]){height:40px;min-height:40px}.desert-combat:has(.expanded-hand):has(.combat-sentence .word-card:nth-child(9)) .status-panel{gap:8px}}
 .grammar-badges{display:flex;flex-wrap:wrap;gap:6px;margin-block:6px}.grammar-badges>.badge{padding:2px 6px;border:1px solid #708b7477;border-radius:5px;font-size:12px}
+
+/* 0.5.1 display hierarchy and owned presentation overlay. */
+.grammar-heading{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;font-size:22px;font-weight:800;color:#efd28e;line-height:1.4;overflow-wrap:anywhere}.grammar-pattern{font-size:17px;font-weight:650}.grammar-description{font-size:15px;line-height:1.5;color:#c7d2cb}.player-sentence{font-size:21px!important;font-weight:750;color:#fff!important;overflow-wrap:anywhere}.learning-feedback{font-size:15px;color:#f1a6a6!important;line-height:1.5}.record-metadata{font-size:13px!important}.learning-details summary{min-height:44px;cursor:pointer;padding:10px 0}.word-heading{font-size:20px}.grammar-entry{min-width:0}.grammar-entry p,.dictionary-entry small{overflow-wrap:anywhere}.tutorial-skip-live{position:absolute;right:12px;top:8px;z-index:30;min-height:44px}.core-attack-body{contain:layout style;box-sizing:border-box}.score-label[data-overkill-tier=LARGE]{font-weight:800;color:#ffd994}.score-label[data-overkill-tier=MASSIVE]{font-weight:900;color:#ffe8b4;font-size:18px}
+@media(max-width:1100px){.grammar-heading{font-size:20px}.grammar-pattern{font-size:16px}.player-sentence{font-size:19px!important}.grammar-description{font-size:14px}}
+
+.grammar-entry .grammar-description{font-size:15px;line-height:1.5}.grammar-entry>p:not(.grammar-description){font-size:13px}.dictionary-entry .word-heading{font-size:20px}
+@media(max-width:1100px){.grammar-entry .grammar-description{font-size:14px}}

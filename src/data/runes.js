@@ -258,7 +258,7 @@ export const LEGACY_RUNES = deepFreeze([
 const frameValues=[{num:8,den:5},{num:11,den:5},{num:14,den:5}];
 export const RUNES=deepFreeze([...LEGACY_RUNES.map(r=>({...r,levelValues:['rune.sv','rune.svc','rune.svo'].includes(r.id)?frameValues:r.id==='rune.svoo'?[{num:17,den:10},{num:12,den:5},{num:16,den:5}]:r.id==='rune.short'?[{num:7,den:5},{num:9,den:5},{num:12,den:5}]:r.levelValues})),
  {id:'rune.longSentence',nameKo:'운석 룬',group:'GRAMMAR',rarity:'UNCOMMON',conditionDescriptionKo:'문장에 기여한 실제 카드 5~9장 / 10~16장',operation:'MULTIPLY_SCORE',levelValues:[{short:{num:2,den:1},long:{num:3,den:1}},{short:{num:9,den:4},long:{num:7,den:2}},{short:{num:5,den:2},long:{num:4,den:1}}],scope:'ONCE_PER_ATTACK',maxMatchesPerAttack:1,displayEffectSummaryKo:'유효 카드 5~9장 / 10~16장',unlockRuleId:'unlock.rune.longSentence',unlockTextKo:'처음부터',firstRuneBasicPoolEligible:false,runtimeReady:true,color:'#c3a2f2',introducedVersion:'0.3.0'}]);
-export const runesForVersion=version=>['0.3.0','0.4.0','0.5.0'].includes(version)?RUNES:LEGACY_RUNES;
+export const runesForVersion=version=>['0.3.0','0.4.0','0.5.0','0.5.1'].includes(version)?RUNES:LEGACY_RUNES;
 export const runeForVersion=(id,version)=>runesForVersion(version).find(r=>r.id===id)??null;
 export const RUNE_BY_ID = Object.freeze(Object.fromEntries(RUNES.map(rune => [rune.id, rune])));
 export const ACTIVE_RUNE_IDS = Object.freeze(RUNES.map(rune => rune.id));
@@ -270,5 +270,5 @@ export const BASIC_RUNE_IDS=Object.freeze(RUNES.filter(r=>r.firstRuneBasicPoolEl
 /** Eligibility is frozen into this run; later profile unlocks do not rewrite its pools. */
 export function eligibleRuneDefinitions(run) {
  const unlocked=new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])]);
- return runesForVersion(run?.version).filter(r=>r.runtimeReady&&(r.id!=='rune.svoo'||['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(run?.version)&&unlocked.has(r.id)));
+ return runesForVersion(run?.version).filter(r=>r.runtimeReady&&(r.id!=='rune.svoo'||['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run?.version)&&unlocked.has(r.id)));
 }

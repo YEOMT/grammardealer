@@ -1,0 +1,24 @@
+{
+  "base": "2c03b2492b21f2bca27f10718e35bc4e291861bb",
+  "gameSourceSha256": "6a6cce0ce7fdcf5dfa0ef33f1c191426a1d0a5049f7e58c467707037f1c4961b",
+  "productionBuild": [
+    {
+      "path": "dist/.nojekyll",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dist/index.html",
+      "sha256": "43dd002df3149cde6bba2bb192a562d18cec12294b704c5453609627b03069c6"
+    },
+    {
+      "path": "dist/assets/index-2zGheqTa.js",
+      "sha256": "8f6c38f70887378d9b1bb5669bc0c7bb5a12fc8e8abf6b646450577c302a47ef"
+    },
+    {
+      "path": "dist/assets/index-D8oPDj7_.css",
+      "sha256": "a33fc5eb1d693bec694ad17cb681db5178c3c515cd9d56646ed78ce1b013770a"
+    }
+  ],
+  "finalBuildEqualsProductionTestBuild": true,
+  "note": "Only the probe center-coordinate assertion changed after final3; game src and built assets are identical."
+}

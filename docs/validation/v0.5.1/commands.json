@@ -1,0 +1,234 @@
+{
+  "kind": "ACTUAL_EXECUTED_COMMANDS",
+  "latest": [
+    {
+      "start": "2026-10-07T12:27:43.7771734Z",
+      "end": "2026-10-07T12:32:52.9137891Z",
+      "log": ".local-validation/v051/final3/test-browser.log",
+      "command": "npm.cmd run test:browser",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:36:01.7872482Z",
+      "end": "2026-10-07T12:45:41.0188751Z",
+      "log": ".local-validation/v051/final3/test-e2e.log",
+      "command": "npm.cmd run test:e2e",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:46:06.3251380Z",
+      "log": ".local-validation/v051/final4/test-browser-polish.log",
+      "exit": 0,
+      "end": "2026-10-07T12:47:31.5527132Z",
+      "command": "npm.cmd run test:browser:polish"
+    },
+    {
+      "start": "2026-10-07T12:47:31.6116655Z",
+      "log": ".local-validation/v051/final4/test-browser-cross.log",
+      "exit": 0,
+      "end": "2026-10-07T12:49:56.2979635Z",
+      "command": "npm.cmd run test:browser:cross"
+    },
+    {
+      "start": "2026-10-07T12:49:56.3078591Z",
+      "log": ".local-validation/v051/final4/test.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:30.4564603Z",
+      "command": "npm.cmd test"
+    },
+    {
+      "start": "2026-10-07T12:51:30.4678470Z",
+      "log": ".local-validation/v051/final4/validate-data.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:31.0933384Z",
+      "command": "npm.cmd run validate:data"
+    },
+    {
+      "start": "2026-10-07T12:51:31.1001525Z",
+      "log": ".local-validation/v051/final4/build.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:31.9833052Z",
+      "command": "npm.cmd run build"
+    }
+  ],
+  "attempts": [
+    {
+      "exit": 0,
+      "end": "2026-10-07T12:01:38.7394272Z",
+      "log": ".local-validation/v051/final/test.log",
+      "start": "2026-10-07T12:00:04.9369665Z",
+      "command": "npm.cmd test"
+    },
+    {
+      "exit": null,
+      "end": "2026-10-07T12:01:39.4438249Z",
+      "log": ".local-validation/v051/final/validate-data.log",
+      "start": "2026-10-07T12:01:38.8017854Z",
+      "command": "npm.cmd run validate:data",
+      "recordedStaleExit": 0,
+      "status": "NOT RUN",
+      "reason": "Windows colon in original log name prevented execution; stale exit0 is invalid. Actual final4 execution is separate."
+    },
+    {
+      "exit": 0,
+      "end": "2026-10-07T12:01:40.3896341Z",
+      "log": ".local-validation/v051/final/build.log",
+      "start": "2026-10-07T12:01:39.4545263Z",
+      "command": "npm.cmd run build"
+    },
+    {
+      "exit": 1,
+      "end": "2026-10-07T12:02:45.3720269Z",
+      "log": ".local-validation/v051/final/test-browser.log",
+      "start": "2026-10-07T12:01:40.3966546Z",
+      "command": "npm.cmd run test:browser"
+    },
+    {
+      "exit": 0,
+      "end": "2026-10-07T12:04:07.4254903Z",
+      "log": ".local-validation/v051/final/test-browser-polish.log",
+      "start": "2026-10-07T12:02:45.3801835Z",
+      "command": "npm.cmd run test:browser:polish"
+    },
+    {
+      "exit": 1,
+      "end": "2026-10-07T12:05:01.0366046Z",
+      "log": ".local-validation/v051/final/test-browser-cross.log",
+      "start": "2026-10-07T12:04:07.4319477Z",
+      "command": "npm.cmd run test:browser:cross"
+    },
+    {
+      "exit": 0,
+      "end": "2026-10-07T12:14:45.3717393Z",
+      "log": ".local-validation/v051/final/test-e2e.log",
+      "start": "2026-10-07T12:05:01.0423583Z",
+      "command": "npm.cmd run test:e2e"
+    },
+    {
+      "command": "npm.cmd run test:browser",
+      "start": "2026-10-07T12:15:15.0777091Z",
+      "end": "2026-10-07T12:19:18.1667877Z",
+      "log": ".local-validation/v051/final2/test-browser.log",
+      "exit": 1
+    },
+    {
+      "command": "npm.cmd run test:browser:polish",
+      "start": "2026-10-07T12:19:18.2085778Z",
+      "end": "2026-10-07T12:20:06.1722748Z",
+      "log": ".local-validation/v051/final2/test-browser-polish.log",
+      "exit": 1
+    },
+    {
+      "command": "npm.cmd run test:browser:cross",
+      "start": "2026-10-07T12:20:06.1848729Z",
+      "end": "2026-10-07T12:21:04.3871462Z",
+      "log": ".local-validation/v051/final2/test-browser-cross.log",
+      "exit": 1
+    },
+    {
+      "command": "npm.cmd test",
+      "start": "2026-10-07T12:21:04.3931734Z",
+      "end": "2026-10-07T12:22:37.2855396Z",
+      "log": ".local-validation/v051/final2/test.log",
+      "exit": 0
+    },
+    {
+      "command": "npm.cmd run validate:data",
+      "start": "2026-10-07T12:22:37.2952722Z",
+      "end": "2026-10-07T12:22:37.9669910Z",
+      "log": ".local-validation/v051/final2/validate-data.log",
+      "exit": 0
+    },
+    {
+      "command": "npm.cmd run build",
+      "start": "2026-10-07T12:22:37.9740240Z",
+      "end": "2026-10-07T12:22:38.9058938Z",
+      "log": ".local-validation/v051/final2/build.log",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:26:08.7908380Z",
+      "end": "2026-10-07T12:27:42.0377927Z",
+      "log": ".local-validation/v051/final3/test.log",
+      "command": "npm.cmd test",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:27:42.0921690Z",
+      "end": "2026-10-07T12:27:42.7843066Z",
+      "log": ".local-validation/v051/final3/validate-data.log",
+      "command": "npm.cmd run validate:data",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:27:42.8045182Z",
+      "end": "2026-10-07T12:27:43.7671480Z",
+      "log": ".local-validation/v051/final3/build.log",
+      "command": "npm.cmd run build",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:27:43.7771734Z",
+      "end": "2026-10-07T12:32:52.9137891Z",
+      "log": ".local-validation/v051/final3/test-browser.log",
+      "command": "npm.cmd run test:browser",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:32:52.9207743Z",
+      "end": "2026-10-07T12:34:18.6960840Z",
+      "log": ".local-validation/v051/final3/test-browser-polish.log",
+      "command": "npm.cmd run test:browser:polish",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:34:18.7014301Z",
+      "end": "2026-10-07T12:36:01.7813392Z",
+      "log": ".local-validation/v051/final3/test-browser-cross.log",
+      "command": "npm.cmd run test:browser:cross",
+      "exit": 1
+    },
+    {
+      "start": "2026-10-07T12:36:01.7872482Z",
+      "end": "2026-10-07T12:45:41.0188751Z",
+      "log": ".local-validation/v051/final3/test-e2e.log",
+      "command": "npm.cmd run test:e2e",
+      "exit": 0
+    },
+    {
+      "start": "2026-10-07T12:46:06.3251380Z",
+      "log": ".local-validation/v051/final4/test-browser-polish.log",
+      "exit": 0,
+      "end": "2026-10-07T12:47:31.5527132Z",
+      "command": "npm.cmd run test:browser:polish"
+    },
+    {
+      "start": "2026-10-07T12:47:31.6116655Z",
+      "log": ".local-validation/v051/final4/test-browser-cross.log",
+      "exit": 0,
+      "end": "2026-10-07T12:49:56.2979635Z",
+      "command": "npm.cmd run test:browser:cross"
+    },
+    {
+      "start": "2026-10-07T12:49:56.3078591Z",
+      "log": ".local-validation/v051/final4/test.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:30.4564603Z",
+      "command": "npm.cmd test"
+    },
+    {
+      "start": "2026-10-07T12:51:30.4678470Z",
+      "log": ".local-validation/v051/final4/validate-data.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:31.0933384Z",
+      "command": "npm.cmd run validate:data"
+    },
+    {
+      "start": "2026-10-07T12:51:31.1001525Z",
+      "log": ".local-validation/v051/final4/build.log",
+      "exit": 0,
+      "end": "2026-10-07T12:51:31.9833052Z",
+      "command": "npm.cmd run build"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -21,7 +21,9 @@
     "test:runs:sky": "node tools/simulate-sky-runs.js",
     "test:decks:sky": "node tools/simulate-sky-decks.js",
     "test:runs:desert": "node tools/simulate-desert-runs.js",
-    "test:decks:desert": "node tools/simulate-desert-decks.js"
+    "test:decks:desert": "node tools/simulate-desert-decks.js",
+    "test:browser:polish": "node tests/core-polish-browser.mjs && node tests/polish-ui-browser.mjs",
+    "test:browser:cross": "node tests/polish-cross-browser.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

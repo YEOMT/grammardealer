@@ -1,3 +1,11 @@
+## 0.5.1 Core Polish 경계
+
+- 원정/저장 버전은 0.5.1, 언어·점수·룬 자격·보상·학습 정책은 명시적으로 0.5.0을 사용한다. frozen 0.4 생성기와 GUIDED_VERSION 0.2.1을 유지한다. 새 HP는 stages의 별도 불변 view이며 이전 원정 로드에 소급하지 않는다.
+- presentation의 impactFeel은 확정 결과의 읽기 전용 분류다. animateCore와 장식 animate를 분리하며 효과 감소와 OS reduce를 독립 적용한다. 공격체 복제는 inert/aria-hidden이고 finish/cancel이 소유 자원을 회수한다. HP와 보스 외형은 IMPACT에서 함께 갱신한다.
+- SKIP_TUTORIAL은 세션·revision·명령ID 확인 후 parked 정상 카드/RNG/stats를 복구하고 기존 _beginBattle을 한 번 호출한다. SKIPPED 종료 이유를 별도 검증하며 completedSteps를 위조하지 않는다. 프로필에는 별도의 skipped version만 더한다. main의 presentationEpoch가 오래된 finish/gate가 새 전투를 덮는 것을 차단한다.
+- grammarDisplay는 순서/설명의 표시 데이터다. formView는 대명사의 같은 lexeme/surface만 묶고 모든 alias Form ID를 보존한다. parser/scoring 입력 규칙을 바꾸지 않는다.
+- browser-video helper는 Windows WebKit의 한글 영상 출력 경로 문제에 한해 임시 경로로 녹화하고 원래 증거 폴더로 보관한다. 게임 파일 경로와 사용자 데이터에는 영향을 주지 않는다.
+
 ## 0.5 추가 경계
 
 - desertLanguage는 campaign04Registry를 복제한다. 단일 ING helper는 형태만 식별하며 역할은 bounded parser의 NONFINITE_PHRASE와 실제 Clause 증거가 결정한다. 신규enjoy/finish/hobby는 보상 풀에만 추가하며 starter는 frozen0.4 generator를 재사용한다.

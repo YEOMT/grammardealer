@@ -1,3 +1,11 @@
+## Syntax Atlas 0.5.1 · Core Polish
+
+기존 22전투를 유지하며 핵심 타격·오버킬·튜토리얼 스킵·교육/형태 UI를 정돈합니다. 새 원정에만 Stage 4/5 HP 초깃값을 적용하고 이전 저장은 당시 수치와 규칙을 유지합니다. [패치 내역](docs/PATCH_NOTES_0.5.1_KO.md) · [실제 검증 및 한계](docs/TEST_REPORT_0.5.1.md) · [89개 인수 조건](docs/ACCEPTANCE_0.5.1.md).
+
+추가 검사: 개발 서버에서 `npm run test:browser:polish`, `npm run test:browser:cross`. Playwright 1.51.1의 Chromium/Firefox/WebKit을 사용합니다. build 뒤 `npm run test:e2e`는 production 하위경로에서 튜토리얼 스킵 후 실제 UI 원정을 실행합니다. `SB_E2E_SEED=run-sequence.12`가 이번 완주 검증에 사용하는 시드입니다. 실제 실행 결과는 보고서가 기준입니다. `npm run package`는 Python3가 있는 환경의 로컬 ZIP 생성이며 공개 배포를 수행하지 않습니다.
+
+아래 내용은 이전 릴리스 기록입니다.
+
 ## Syntax Atlas 0.5.0
 
 소원의 사막까지 새 원정22전투. 기존 -ing 형태 한 개를 쓰며 제출 후 동명사·분사·진행 역할을 분석합니다. 스핑크스의 봉인 카드는 이번 턴 배치만 금지되고 교환할 수 있습니다. 기존 저장은 원래 버전 범위를 유지합니다. [변경 내역](docs/PATCH_NOTES_0.5_KO.md) · [실제 검증](docs/TEST_REPORT_0.5.md).

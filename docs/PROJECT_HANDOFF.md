@@ -1,3 +1,13 @@
+## 0.5.1 Core Polish 인계
+
+작업 시작 최신 origin/main `2c03b2492b21f2bca27f10718e35bc4e291861bb`에 0.5 PR #7이 병합되어 있었고 미커밋 변경은 없었다. `codex/v0.5.1-core-polish`에서 작업한다. 외부 MD와 ZIP 내부 명세는 SHA256이 같았으며 `spec/0.5.1_CORE_POLISH.md`가 구현 근거다. JSON/부속 자체검사는 기대값으로만 취급한다.
+
+새 콘텐츠는 없다. 22전투·0.5 언어/점수/룬/운영/봉인 정책을 명시적으로 재사용한다. 새0.5.1만 하늘섬520/570/620/680/760, 사막620/670/720/780/960이며 구버전 HP와 당시 정책은 유지한다. 기존 .5.0 golden은 변경 전 별도 캡처이며 다시 생성해 테스트를 맞추지 않는다.
+
+핵심/장식 연출과 OS reduce를 분리했다. 튜토리얼 스킵은 정상 parked 덱/RNG로 일반1-1을 시작하며 무보상이다. 완료/스킵 플래그는 분리하고 GUIDED_VERSION은 그대로다. 도감17항목·대명사 UI 그룹화는 표시 계층에 한한다. 상세 책임은 ARCHITECTURE의 0.5.1 절을 따른다.
+
+최신 결과와 남은 검수는 [TEST_REPORT_0.5.1](TEST_REPORT_0.5.1.md), [ACCEPTANCE_0.5.1](ACCEPTANCE_0.5.1.md), [교육 UI](EDUCATION_UI_REVIEW_0.5.1.md), [핵심 피드백](CORE_FEEL_REVIEW_0.5.1.md)에 분리한다. 다음 작업도 당시 최신 main을 fetch하고 미커밋 내용을 먼저 보존한다. 아래는 각 과거 릴리스 당시 인계다.
+
 ## 0.5 소원의 사막 인계
 
 작업 시작 최신 origin/main은 6d2907eddefafb1a909c6c803259ba26b408f104(0.4 PR #6 병합)이고 미커밋 변경이 없었다. codex/v0.5-wish-desert-nonfinite-seal에서 확장했다. spec/0.5_WISH_DESERT.md가 이번 변경 근거이며 첨부 JSON은 기대값이다. 실제 결과는 TEST_REPORT_0.5.md와 ACCEPTANCE_0.5.md를 따른다.

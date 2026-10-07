@@ -6,7 +6,7 @@ export function validateSkyShops(run){
  if(!Array.isArray(run.shopHistory)||run.shopHistory.length>1)fail();
  const history=run.shopHistory,current=run.shop;
  if(!current){if(history.length||run.status==='SHOP'||run.progress.battleNumber>3&&!(run.progress.stageId==='stage.02'&&run.status==='STAGE_INTRO'))fail();return true;}
- if(current.stageId==='stage.04'&&!['stage.04',...(run.version==='0.5.0'?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(run.version==='0.5.0'?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
+ if(current.stageId==='stage.04'&&!['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
  const second=current.stageId==='stage.04';
  if(second?(history.length!==1||history[0].stageId!=='stage.02'||!history[0].closed):history.length>0)fail();
  if((run.status==='SHOP')===current.closed)fail();

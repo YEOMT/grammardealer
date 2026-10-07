@@ -1,0 +1,258 @@
+{
+  "kind": "SYNTHETIC_UI_AND_CONTROLLER_FIXTURES_NOT_CAMPAIGN_COMPLETION",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "id": "STAGE2_PREVIEW_ENTRY_SHOP",
+      "status": "PASS",
+      "granted": 2
+    },
+    {
+      "id": "SHOP_LAYOUT_1920",
+      "status": "PASS",
+      "scrollWidth": 1920,
+      "width": 1920,
+      "items": 3,
+      "serviceButtons": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "SHOP_LAYOUT_1366",
+      "status": "PASS",
+      "scrollWidth": 1366,
+      "width": 1366,
+      "items": 3,
+      "serviceButtons": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "SHOP_LAYOUT_1180",
+      "status": "PASS",
+      "scrollWidth": 1180,
+      "width": 1180,
+      "items": 3,
+      "serviceButtons": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "SHOP_LAYOUT_1024",
+      "status": "PASS",
+      "scrollWidth": 1024,
+      "width": 1024,
+      "items": 3,
+      "serviceButtons": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "SHOP_INFORMATION_NO_MUTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_POLISH_CANCEL_1180",
+      "status": "PASS",
+      "dialogBottom": 719.015625,
+      "viewport": 820,
+      "cancelBottom": 694.015625,
+      "targets": 30
+    },
+    {
+      "id": "SHOP_REMOVE_CANCEL_1180",
+      "status": "PASS",
+      "dialogBottom": 719.015625,
+      "viewport": 820,
+      "cancelBottom": 694.015625,
+      "targets": 30
+    },
+    {
+      "id": "SHOP_POLISH_CANCEL_1024",
+      "status": "PASS",
+      "dialogBottom": 680.53125,
+      "viewport": 768,
+      "cancelBottom": 655.53125,
+      "targets": 30
+    },
+    {
+      "id": "SHOP_REMOVE_CANCEL_1024",
+      "status": "PASS",
+      "dialogBottom": 680.53125,
+      "viewport": 768,
+      "cancelBottom": 655.53125,
+      "targets": 30
+    },
+    {
+      "id": "SHOP_EQUIPPED_RUNE_INFORMATION",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_RUNE_FULL_CANCEL",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_CARD_PURCHASE",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_POLISH_COMMIT",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_REMOVE_COMMIT",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_SAVE_LOAD",
+      "status": "PASS"
+    },
+    {
+      "id": "SVOO_IO_DO_RANGE_EVENT",
+      "status": "PASS"
+    },
+    {
+      "id": "TOPAZ_COLORED_FLIGHT",
+      "status": "PASS"
+    },
+    {
+      "id": "VEIL_AND_HP_BEFORE_IMPACT",
+      "status": "PASS"
+    },
+    {
+      "id": "VEIL_AND_HP_AT_IMPACT",
+      "status": "PASS"
+    },
+    {
+      "id": "VEIL_IMPACT_FINAL_HP",
+      "status": "PASS"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1920_10",
+      "status": "PASS",
+      "width": 1920,
+      "height": 1080,
+      "actionBottom": 809,
+      "handTop": 825,
+      "exchangeBottom": 1062,
+      "handCards": 10,
+      "statusFont": "14px",
+      "runeFont": "13px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1920_14",
+      "status": "PASS",
+      "width": 1920,
+      "height": 1080,
+      "actionBottom": 826,
+      "handTop": 842,
+      "exchangeBottom": 1059.796875,
+      "handCards": 14,
+      "statusFont": "14px",
+      "runeFont": "13px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1366_10",
+      "status": "PASS",
+      "width": 1366,
+      "height": 768,
+      "actionBottom": 547.59375,
+      "handTop": 555.59375,
+      "exchangeBottom": 765.59375,
+      "handCards": 10,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1366_14",
+      "status": "PASS",
+      "width": 1366,
+      "height": 768,
+      "actionBottom": 547.59375,
+      "handTop": 555.59375,
+      "exchangeBottom": 765.59375,
+      "handCards": 14,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1180_10",
+      "status": "PASS",
+      "width": 1180,
+      "height": 820,
+      "actionBottom": 593,
+      "handTop": 601,
+      "exchangeBottom": 811,
+      "handCards": 10,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1180_14",
+      "status": "PASS",
+      "width": 1180,
+      "height": 820,
+      "actionBottom": 593,
+      "handTop": 601,
+      "exchangeBottom": 811,
+      "handCards": 14,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1024_10",
+      "status": "PASS",
+      "width": 1024,
+      "height": 768,
+      "actionBottom": 541,
+      "handTop": 549,
+      "exchangeBottom": 759,
+      "handCards": 10,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "HARBOR_CAPACITY_1024_14",
+      "status": "PASS",
+      "width": 1024,
+      "height": 768,
+      "actionBottom": 541,
+      "handTop": 549,
+      "exchangeBottom": 759,
+      "handCards": 14,
+      "statusFont": "14px",
+      "runeFont": "12px"
+    },
+    {
+      "id": "STAGE2_COMPLETION_RENDER",
+      "status": "PASS"
+    }
+  ],
+  "screenshots": [
+    "stage2-intro.png",
+    "shop-entry.png",
+    "shop-1920.png",
+    "shop-1366.png",
+    "shop-1180.png",
+    "shop-1024.png",
+    "shop-polish-1180.png",
+    "shop-remove-1180.png",
+    "shop-polish-1024.png",
+    "shop-remove-1024.png",
+    "shop-rune-replacement.png",
+    "shop-restored.png",
+    "svoo-role-ranges.png",
+    "topaz-flight.png",
+    "veil-before-impact.png",
+    "veil-impact.png",
+    "harbor-capacity-1366-hand14.png",
+    "harbor-capacity-1024-hand14.png",
+    "stage2-complete-synthetic.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

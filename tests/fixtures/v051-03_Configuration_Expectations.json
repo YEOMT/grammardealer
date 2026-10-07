@@ -1,0 +1,129 @@
+{
+  "schema": "syntaxatlas.spec-expectations.v1",
+  "targetVersion": "0.5.1",
+  "status": "EXPECTED_NOT_EXECUTED",
+  "basisMain": "2c03b2492b21f2bca27f10718e35bc4e291861bb",
+  "hp": [
+    {
+      "stageId": "stage.04",
+      "round": "4-1",
+      "nameKo": "구름양",
+      "legacyHp": 440,
+      "newRunHp": 520
+    },
+    {
+      "stageId": "stage.04",
+      "round": "4-2",
+      "nameKo": "갈래바람 정령",
+      "legacyHp": 480,
+      "newRunHp": 570
+    },
+    {
+      "stageId": "stage.04",
+      "round": "4-3",
+      "nameKo": "매듭뱀",
+      "legacyHp": 520,
+      "newRunHp": 620
+    },
+    {
+      "stageId": "stage.04",
+      "round": "4-4",
+      "nameKo": "메아리 새",
+      "legacyHp": 560,
+      "newRunHp": 680
+    },
+    {
+      "stageId": "stage.04",
+      "round": "4-5",
+      "nameKo": "하늘길의 문지기",
+      "legacyHp": 640,
+      "newRunHp": 760
+    },
+    {
+      "stageId": "stage.05",
+      "round": "5-1",
+      "nameKo": "별길 낙타",
+      "legacyHp": 520,
+      "newRunHp": 620
+    },
+    {
+      "stageId": "stage.05",
+      "round": "5-2",
+      "nameKo": "금빛 전갈",
+      "legacyHp": 560,
+      "newRunHp": 670
+    },
+    {
+      "stageId": "stage.05",
+      "round": "5-3",
+      "nameKo": "별꽃 선인장",
+      "legacyHp": 600,
+      "newRunHp": 720
+    },
+    {
+      "stageId": "stage.05",
+      "round": "5-4",
+      "nameKo": "신기루 여우",
+      "legacyHp": 640,
+      "newRunHp": 780
+    },
+    {
+      "stageId": "stage.05",
+      "round": "5-5",
+      "nameKo": "소원의 스핑크스",
+      "legacyHp": 840,
+      "newRunHp": 960
+    }
+  ],
+  "preserve": {
+    "battles": 22,
+    "startingWordCards": 28,
+    "openingHand": 6,
+    "handLimit": 10,
+    "turnDraw": 3,
+    "exchanges": 4,
+    "turns": 6,
+    "sentenceLimit": 16,
+    "shopsAt": [
+      2,
+      4
+    ],
+    "baseCardScore": 10,
+    "completeBonus": 30,
+    "polishStep": 5,
+    "polishMax": 3
+  },
+  "feedbackPolicy": [
+    {
+      "effectsOff": false,
+      "reducedMotion": false,
+      "coreMode": "FULL_CORE",
+      "decorative": "NORMAL",
+      "audioRespectsMute": true
+    },
+    {
+      "effectsOff": false,
+      "reducedMotion": true,
+      "coreMode": "NON_MOTION",
+      "decorative": "MINIMAL",
+      "audioRespectsMute": true
+    },
+    {
+      "effectsOff": true,
+      "reducedMotion": false,
+      "coreMode": "FULL_CORE",
+      "decorative": "REDUCED",
+      "audioRespectsMute": true
+    },
+    {
+      "effectsOff": true,
+      "reducedMotion": true,
+      "coreMode": "NON_MOTION",
+      "decorative": "MINIMAL",
+      "audioRespectsMute": true
+    }
+  ],
+  "newHpIsProvisional": true,
+  "legacyHpMutationForbidden": true,
+  "hardwareVibrationRequired": false
+}
