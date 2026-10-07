@@ -3,7 +3,7 @@ import {cardKind} from '../data/cardCatalog.js';
 export const DESERT_PACKS=Object.freeze(['pack.infinitive','pack.gerund','pack.svoc.basic']);
 /** Missing owned WORD capabilities only. Controller calls this on its uncommitted proposal. */
 export function grantStage5Entry(run){
- if(run.version!=='0.5.0'||run.progress.stageId!=='stage.05'||run.combat!==null)throw Error('Stage 5 grant outside entry');
+ if(!['0.5.0','0.5.1'].includes(run.version)||run.progress.stageId!=='stage.05'||run.combat!==null)throw Error('Stage 5 grant outside entry');
  if(run.entryGrants['stage.05']?.applied)return run.entryGrants['stage.05'];
  const registry=registryForVersion(run.version),owned=new Set(run.activeCardIds.filter(id=>cardKind(run.cardInstances[id],run.version)==='WORD').map(id=>run.cardInstances[id].cardDefId));
  const requirements=[{cardDefId:'card.to',alternatives:['card.to'],reason:'MISSING_TO'},{cardDefId:'card.want',alternatives:['card.want','card.need'],reason:'MISSING_WANT_OR_NEED'},{cardDefId:'card.enjoy',alternatives:['card.like','card.enjoy','card.finish'],reason:'MISSING_BASIC_GERUND_OBJECT_VERB'}];

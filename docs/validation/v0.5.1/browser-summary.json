@@ -1,0 +1,232 @@
+{
+  "reports": [
+    {
+      "name": "phase-b-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 3,
+      "captures": 0,
+      "kind": "See script",
+      "source": ".local-validation/v051/final3/fixed-output/docs/evidence-0.1.1/phase-b-browser.json"
+    },
+    {
+      "name": "phase-c-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 4,
+      "captures": 0,
+      "kind": "Synthetic victory state using real physical deck and production reward generator/controller; no claim of gameplay victory",
+      "source": ".local-validation/v051/final3/fixed-output/docs/evidence-0.1.1/phase-c-browser.json"
+    },
+    {
+      "name": "phase-d-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 4,
+      "captures": 0,
+      "kind": "See script",
+      "source": ".local-validation/v051/final3/fixed-output/docs/evidence-0.1.1/phase-d-browser.json"
+    },
+    {
+      "name": "phase-e-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 8,
+      "captures": 0,
+      "kind": "Real grammar/score resolutions in isolated renderer; hidden/fault deliberately injected",
+      "source": ".local-validation/v051/final3/fixed-output/docs/evidence-0.1.1/phase-e-browser.json"
+    },
+    {
+      "name": "ui-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "platform": "win32",
+      "checks": 41,
+      "captures": 25,
+      "kind": "See script",
+      "source": ".local-validation/v051/final3/fixed-output/docs/evidence-0.1.1/ui-browser.json"
+    },
+    {
+      "name": "v02/v02-ui-browser",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 30,
+      "captures": 19,
+      "kind": "SYNTHETIC_UI_AND_CONTROLLER_FIXTURES_NOT_CAMPAIGN_COMPLETION",
+      "source": ".local-validation/v051/final3/browser/v02/v02-ui-browser.json"
+    },
+    {
+      "name": "guided/report",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 47,
+      "captures": 27,
+      "kind": "ACTUAL_GUIDED_UI_WITH_SYNTHETIC_VISIBILITY_EVENT",
+      "source": ".local-validation/v051/final3/browser/guided/report.json"
+    },
+    {
+      "name": "learning/report",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 28,
+      "captures": 28,
+      "kind": "SYNTHETIC_LEGAL_CARD_STATE_WITH_REAL_CONTROLLER_UI",
+      "source": ".local-validation/v051/final3/browser/learning/report.json"
+    },
+    {
+      "name": "canyon/report",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 23,
+      "captures": 18,
+      "kind": "ASSIGNED_STATE_UI_AND_ENGINE_PRESENTATION",
+      "source": ".local-validation/v051/final3/browser/canyon/report.json"
+    },
+    {
+      "name": "sky-foundation/results",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "platform": "win32",
+      "checks": 6,
+      "captures": 4,
+      "kind": "ASSIGNED_FORMS_UI",
+      "source": ".local-validation/v051/final3/browser/sky-foundation/results.json"
+    },
+    {
+      "name": "operations/results",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "platform": "win32",
+      "checks": 14,
+      "captures": 12,
+      "kind": "ASSIGNED_OPERATION_UI_NOT_CAMPAIGN_PLAY",
+      "source": ".local-validation/v051/final3/browser/operations/results.json"
+    },
+    {
+      "name": "sky/report",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "platform": "win32",
+      "checks": 18,
+      "captures": 13,
+      "kind": "ASSIGNED_STATE_UI_NOT_CAMPAIGN",
+      "source": ".local-validation/v051/final3/browser/sky/report.json"
+    },
+    {
+      "name": "desert/report",
+      "group": "OFFICIAL_CHROMIUM",
+      "status": "PASS",
+      "engine": "chromium",
+      "platform": "win32",
+      "checks": 36,
+      "captures": 20,
+      "kind": "ASSIGNED_DESERT_SEAL_AND_SUBMITTED_ROLE_UI",
+      "source": ".local-validation/v051/final3/browser/desert/report.json"
+    },
+    {
+      "name": "core",
+      "group": "CHROMIUM_POLISH",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 32,
+      "captures": 11,
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "source": ".local-validation/v051/final4/core/report.json"
+    },
+    {
+      "name": "ui",
+      "group": "CHROMIUM_POLISH",
+      "status": "PASS",
+      "engine": "chromium",
+      "browserVersion": "134.0.6998.35",
+      "platform": "win32",
+      "checks": 17,
+      "captures": 11,
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "source": ".local-validation/v051/final4/ui-chromium/report.json"
+    },
+    {
+      "name": "firefox-core-polish-browser",
+      "group": "CROSS_BROWSER",
+      "status": "PASS",
+      "engine": "firefox",
+      "browserVersion": "135.0",
+      "platform": "win32",
+      "checks": 32,
+      "captures": 11,
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "source": ".local-validation/v051/final4/cross/firefox-core-polish-browser/report.json"
+    },
+    {
+      "name": "firefox-polish-ui-browser",
+      "group": "CROSS_BROWSER",
+      "status": "PASS",
+      "engine": "firefox",
+      "browserVersion": "135.0",
+      "platform": "win32",
+      "checks": 14,
+      "captures": 8,
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "source": ".local-validation/v051/final4/cross/firefox-polish-ui-browser/report.json"
+    },
+    {
+      "name": "webkit-core-polish-browser",
+      "group": "CROSS_BROWSER",
+      "status": "PASS",
+      "engine": "webkit",
+      "browserVersion": "18.4",
+      "platform": "win32",
+      "checks": 32,
+      "captures": 11,
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "source": ".local-validation/v051/final4/cross/webkit-core-polish-browser/report.json"
+    },
+    {
+      "name": "webkit-polish-ui-browser",
+      "group": "CROSS_BROWSER",
+      "status": "PASS",
+      "engine": "webkit",
+      "browserVersion": "18.4",
+      "platform": "win32",
+      "checks": 14,
+      "captures": 8,
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "source": ".local-validation/v051/final4/cross/webkit-polish-ui-browser/report.json"
+    }
+  ],
+  "totals": {
+    "OFFICIAL_CHROMIUM": 262,
+    "CHROMIUM_POLISH": 49,
+    "CROSS_BROWSER": 92
+  }
+}

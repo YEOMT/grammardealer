@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "kind": "ACTUAL_FINAL_PRODUCTION_ARCHIVES_OPENED",
+  "version": "0.5.1",
+  "deploy": "SentenceBalatro_0.5.1_deploy.zip",
+  "source": "SentenceBalatro_0.5.1_source.zip",
+  "deployFiles": [
+    ".nojekyll",
+    "assets/index-2zGheqTa.js",
+    "assets/index-D8oPDj7_.css",
+    "build-manifest.json",
+    "DEPLOY_KO.txt",
+    "index.html"
+  ],
+  "sourceFileCount": 449,
+  "base": "/grammardealer/",
+  "assetReferences": [
+    "/grammardealer/assets/index-2zGheqTa.js",
+    "/grammardealer/assets/index-D8oPDj7_.css"
+  ],
+  "buildManifest": {
+    "version": "0.5.1",
+    "files": {
+      ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assets/index-2zGheqTa.js": "8f6c38f70887378d9b1bb5669bc0c7bb5a12fc8e8abf6b646450577c302a47ef",
+      "assets/index-D8oPDj7_.css": "a33fc5eb1d693bec694ad17cb681db5178c3c515cd9d56646ed78ce1b013770a",
+      "DEPLOY_KO.txt": "fb60975a7e623d98ca6a16918c509f2695f9adf0e5dd2f90f7f102310488dbe9",
+      "index.html": "43dd002df3149cde6bba2bb192a562d18cec12294b704c5453609627b03069c6"
+    }
+  },
+  "temporaryTwoVersionTest": "Separate package-release.test.py, not this production ZIP",
+  "publication": "Local packaging only; no deployment"
+}

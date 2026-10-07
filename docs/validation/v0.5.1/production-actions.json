@@ -1,0 +1,459 @@
+{
+  "kind": "ACTUAL_PRODUCTION_UI_COMMANDS",
+  "seed": "run-sequence.12",
+  "rows": [
+    {
+      "battle": 1,
+      "attacks": [
+        {
+          "sentence": "they play",
+          "power": 81,
+          "actualHpLoss": 77
+        }
+      ],
+      "damage": 77,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 2,
+      "attacks": [
+        {
+          "sentence": "with",
+          "power": 0,
+          "actualHpLoss": 0
+        },
+        {
+          "sentence": "answers have homework",
+          "power": 135,
+          "actualHpLoss": 132
+        }
+      ],
+      "damage": 132,
+      "prepare": 0,
+      "exchange": 1,
+      "operations": 0
+    },
+    {
+      "battle": 3,
+      "attacks": [
+        {
+          "sentence": "answers have stories",
+          "power": 160,
+          "actualHpLoss": 160
+        },
+        {
+          "sentence": "you live",
+          "power": 106,
+          "actualHpLoss": 82
+        }
+      ],
+      "damage": 242,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 4,
+      "attacks": [
+        {
+          "sentence": "parks have answers",
+          "power": 128,
+          "actualHpLoss": 128
+        },
+        {
+          "sentence": "cats play stories",
+          "power": 128,
+          "actualHpLoss": 92
+        }
+      ],
+      "damage": 220,
+      "prepare": 0,
+      "exchange": 2,
+      "operations": 0
+    },
+    {
+      "battle": 5,
+      "attacks": [
+        {
+          "sentence": "homework is having parks",
+          "power": 155,
+          "actualHpLoss": 155
+        },
+        {
+          "sentence": "cats give a person",
+          "power": 146,
+          "actualHpLoss": 145
+        }
+      ],
+      "damage": 300,
+      "prepare": 0,
+      "exchange": 1,
+      "operations": 0
+    },
+    {
+      "battle": 6,
+      "attacks": [
+        {
+          "sentence": "games run",
+          "power": 85,
+          "actualHpLoss": 85
+        },
+        {
+          "sentence": "you become very young",
+          "power": 137,
+          "actualHpLoss": 137
+        },
+        {
+          "sentence": "cats are me to answers",
+          "power": 158,
+          "actualHpLoss": 158
+        }
+      ],
+      "damage": 380,
+      "prepare": 0,
+      "exchange": 2,
+      "operations": 0
+    },
+    {
+      "battle": 7,
+      "attacks": [
+        {
+          "sentence": "quickly stories give homework me",
+          "power": 251,
+          "actualHpLoss": 251
+        },
+        {
+          "sentence": "answers have cats",
+          "power": 128,
+          "actualHpLoss": 128
+        },
+        {
+          "sentence": "he is cats",
+          "power": 124,
+          "actualHpLoss": 124
+        },
+        {
+          "sentence": "parks run",
+          "power": 85,
+          "actualHpLoss": 85
+        },
+        {
+          "sentence": "they take you",
+          "power": 128,
+          "actualHpLoss": 52
+        }
+      ],
+      "damage": 640,
+      "prepare": 0,
+      "exchange": 3,
+      "operations": 0
+    },
+    {
+      "battle": 8,
+      "attacks": [
+        {
+          "sentence": "I was kind",
+          "power": 198,
+          "actualHpLoss": 198
+        },
+        {
+          "sentence": "cats lived",
+          "power": 141,
+          "actualHpLoss": 122
+        }
+      ],
+      "damage": 320,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 9,
+      "attacks": [
+        {
+          "sentence": "stories were living",
+          "power": 206,
+          "actualHpLoss": 206
+        },
+        {
+          "sentence": "you became parks",
+          "power": 187,
+          "actualHpLoss": 154
+        }
+      ],
+      "damage": 360,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 10,
+      "attacks": [
+        {
+          "sentence": "I became useful at cats",
+          "power": 247,
+          "actualHpLoss": 247
+        },
+        {
+          "sentence": "the person played",
+          "power": 160,
+          "actualHpLoss": 153
+        }
+      ],
+      "damage": 400,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 11,
+      "attacks": [
+        {
+          "sentence": "I was having answers",
+          "power": 515,
+          "actualHpLoss": 440
+        }
+      ],
+      "damage": 440,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 12,
+      "attacks": [
+        {
+          "sentence": "quickly homework gave parks",
+          "power": 381,
+          "actualHpLoss": 240
+        },
+        {
+          "sentence": "cats have been living",
+          "power": 293,
+          "actualHpLoss": 240
+        },
+        {
+          "sentence": "games will play him",
+          "power": 371,
+          "actualHpLoss": 240
+        }
+      ],
+      "damage": 720,
+      "prepare": 0,
+      "exchange": 3,
+      "operations": 0
+    },
+    {
+      "battle": 13,
+      "attacks": [
+        {
+          "sentence": "answers think because quickly games had been kind",
+          "power": 527,
+          "actualHpLoss": 520
+        }
+      ],
+      "damage": 520,
+      "prepare": 2,
+      "exchange": 0,
+      "operations": 1
+    },
+    {
+      "battle": 14,
+      "attacks": [
+        {
+          "sentence": "cats had been liking me",
+          "power": 651,
+          "actualHpLoss": 570
+        }
+      ],
+      "damage": 570,
+      "prepare": 2,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 15,
+      "attacks": [
+        {
+          "sentence": "stories lived or quickly homework will have thought",
+          "power": 621,
+          "actualHpLoss": 620
+        }
+      ],
+      "damage": 620,
+      "prepare": 1,
+      "exchange": 0,
+      "operations": 1
+    },
+    {
+      "battle": 16,
+      "attacks": [
+        {
+          "sentence": "he thinks cats were playing",
+          "power": 781,
+          "actualHpLoss": 680
+        }
+      ],
+      "damage": 680,
+      "prepare": 2,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 17,
+      "attacks": [
+        {
+          "sentence": "he knows cats were giving homework answers",
+          "power": 550,
+          "actualHpLoss": 550
+        },
+        {
+          "sentence": "you were playing a person",
+          "power": 206,
+          "actualHpLoss": 206
+        },
+        {
+          "sentence": "I became kind",
+          "power": 75,
+          "actualHpLoss": 4
+        }
+      ],
+      "damage": 760,
+      "prepare": 2,
+      "exchange": 0,
+      "operations": 1
+    },
+    {
+      "battle": 18,
+      "attacks": [
+        {
+          "sentence": "people gave you",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "they took cats",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "parks changed",
+          "power": 113,
+          "actualHpLoss": 96
+        }
+      ],
+      "damage": 620,
+      "prepare": 0,
+      "exchange": 0,
+      "operations": 0
+    },
+    {
+      "battle": 19,
+      "attacks": [
+        {
+          "sentence": "you were being very young",
+          "power": 276,
+          "actualHpLoss": 276
+        },
+        {
+          "sentence": "homework knew",
+          "power": 113,
+          "actualHpLoss": 113
+        },
+        {
+          "sentence": "answers had felt useful",
+          "power": 222,
+          "actualHpLoss": 222
+        },
+        {
+          "sentence": "I took people",
+          "power": 262,
+          "actualHpLoss": 59
+        }
+      ],
+      "damage": 670,
+      "prepare": 0,
+      "exchange": 2,
+      "operations": 0
+    },
+    {
+      "battle": 20,
+      "attacks": [
+        {
+          "sentence": "cats were young",
+          "power": 179,
+          "actualHpLoss": 179
+        },
+        {
+          "sentence": "I ran",
+          "power": 113,
+          "actualHpLoss": 113
+        },
+        {
+          "sentence": "people had you",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "he gave them",
+          "power": 262,
+          "actualHpLoss": 166
+        }
+      ],
+      "damage": 720,
+      "prepare": 0,
+      "exchange": 4,
+      "operations": 1
+    },
+    {
+      "battle": 21,
+      "attacks": [
+        {
+          "sentence": "parks wanted you",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "cats were thinking at cats",
+          "power": 472,
+          "actualHpLoss": 472
+        },
+        {
+          "sentence": "he gave answers",
+          "power": 262,
+          "actualHpLoss": 46
+        }
+      ],
+      "damage": 780,
+      "prepare": 0,
+      "exchange": 2,
+      "operations": 0
+    },
+    {
+      "battle": 22,
+      "attacks": [
+        {
+          "sentence": "they felt me",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "answers knew stories",
+          "power": 262,
+          "actualHpLoss": 262
+        },
+        {
+          "sentence": "you had changed with homework",
+          "power": 436,
+          "actualHpLoss": 436
+        }
+      ],
+      "damage": 960,
+      "prepare": 0,
+      "exchange": 3,
+      "operations": 1
+    }
+  ]
+}

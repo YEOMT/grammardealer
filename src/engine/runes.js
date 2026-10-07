@@ -4,7 +4,7 @@ import { safeInteger, addSafe, scoreEvent } from './numeric.js';
 import { attackableAnalysis, normalizedHits, mainFrameHit, validateCardScoringSnapshot } from './scoring.js';
 
 /** An ordered, validated copy: reading a rune never mutates its instance or grants a resource. */
-export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
+export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0','0.5.1'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
   if (!Array.isArray(equippedRunes) || equippedRunes.length > slotLimit) throw new RangeError('Rune slot limit exceeded');
   const seen = new Set();
   return equippedRunes.map((rune, index) => {

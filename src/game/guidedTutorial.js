@@ -32,6 +32,7 @@ export function guidedAllowed(run,cmd){
  if(!isGuided(run))return true;
  const t=run.tutorialSession,s=t.step,c=run.combat;
  if(cmd.type==='START_BATTLE')return run.status==='STAGE_INTRO';
+ if(cmd.type==='SKIP_TUTORIAL')return cmd.sessionId===t.sessionId&&cmd.expectedRevision===run.revision&&typeof cmd.commandId==='string'&&cmd.confirmed===true;
  if(['TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(cmd.type))return cmd.sessionId===t.sessionId&&cmd.confirmed===true;
  if(cmd.type==='FINISH_PRESENTATION')return cmd.attackId===t.attackId&&[12,29].includes(s);
  if(cmd.sessionId!==t.sessionId||cmd.cueId!==`T${String(s).padStart(2,'0')}`)return false;
@@ -63,8 +64,9 @@ export function tutorialCommand(run,command){const t=run.tutorialSession;return 
 /** Stored tutorial starts are deterministic plain data, not a profile-dependent re-roll. */
 export function validateTutorial(run){
  const t=run.tutorialSession;if(!t)return true;
- const fail=()=>{throw Error('잘못된 고정 실습 저장입니다.');};
- if(!['0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(run.version)||t.version!==GUIDED_VERSION||!Number.isInteger(t.attempt)||t.attempt<1||t.sessionId!==`${run.runId}:tutorial:${t.attempt}`)fail();
+ const fail=()=>{throw Error('잘못된 고정 튜토리얼 저장입니다.');};
+ if(!['0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run.version)||t.version!==GUIDED_VERSION||!Number.isInteger(t.attempt)||t.attempt<1||t.sessionId!==`${run.runId}:tutorial:${t.attempt}`)fail();
+ if(!t.active&&t.endReason==='SKIPPED'){if(t.step<1||t.step>31||t.parked||t.skipReceipt!==`${t.sessionId}:skip`||run.activeCardIds.some(x=>x.startsWith('tutorial.021.')))fail();return true;}
  if(!t.active){if(t.step!==32||t.parked||run.activeCardIds.some(x=>x.startsWith('tutorial.021.')))fail();return true;}
  if(run.progress.battleNumber!==1||run.progress.stageId!=='stage.01'||!Number.isInteger(t.step)||t.step<1||t.step>31||run.runes.orderedInstanceIds.length||!t.parked)fail();
  if(run.activeCardIds.join('|')!==TUTORIAL_CARDS.map((_,i)=>id(i)).join('|'))fail();

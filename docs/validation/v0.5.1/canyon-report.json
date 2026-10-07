@@ -1,0 +1,880 @@
+{
+  "kind": "ASSIGNED_STATE_UI_AND_ENGINE_PRESENTATION",
+  "checks": [
+    {
+      "id": "LAYOUT_1366_10",
+      "status": "PASS",
+      "width": 1366,
+      "height": 768,
+      "actions": 538,
+      "hand": 546,
+      "phases": 3,
+      "focus": {
+        "x": 1207.53125,
+        "y": 97.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 97.5,
+        "right": 1340,
+        "bottom": 114.5,
+        "left": 1207.53125
+      },
+      "strategy": {
+        "x": 1238,
+        "y": 120,
+        "width": 102,
+        "height": 36,
+        "top": 120,
+        "right": 1340,
+        "bottom": 156,
+        "left": 1238
+      },
+      "bonus": {
+        "x": 1242.96875,
+        "y": 66,
+        "width": 97.03125,
+        "height": 26,
+        "top": 66,
+        "right": 1340,
+        "bottom": 92,
+        "left": 1242.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 10
+    },
+    {
+      "id": "LAYOUT_1366_14",
+      "status": "PASS",
+      "width": 1366,
+      "height": 768,
+      "actions": 538,
+      "hand": 546,
+      "phases": 3,
+      "focus": {
+        "x": 1207.53125,
+        "y": 97.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 97.5,
+        "right": 1340,
+        "bottom": 114.5,
+        "left": 1207.53125
+      },
+      "strategy": {
+        "x": 1238,
+        "y": 120,
+        "width": 102,
+        "height": 36,
+        "top": 120,
+        "right": 1340,
+        "bottom": 156,
+        "left": 1238
+      },
+      "bonus": {
+        "x": 1242.96875,
+        "y": 66,
+        "width": 97.03125,
+        "height": 26,
+        "top": 66,
+        "right": 1340,
+        "bottom": 92,
+        "left": 1242.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 14
+    },
+    {
+      "id": "LAYOUT_1440_10",
+      "status": "PASS",
+      "width": 1440,
+      "height": 900,
+      "actions": 666,
+      "hand": 678,
+      "phases": 3,
+      "focus": {
+        "x": 1281.53125,
+        "y": 111.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 111.5,
+        "right": 1414,
+        "bottom": 128.5,
+        "left": 1281.53125
+      },
+      "strategy": {
+        "x": 1312,
+        "y": 144,
+        "width": 102,
+        "height": 36,
+        "top": 144,
+        "right": 1414,
+        "bottom": 180,
+        "left": 1312
+      },
+      "bonus": {
+        "x": 1316.96875,
+        "y": 70,
+        "width": 97.03125,
+        "height": 26,
+        "top": 70,
+        "right": 1414,
+        "bottom": 96,
+        "left": 1316.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 10
+    },
+    {
+      "id": "LAYOUT_1440_14",
+      "status": "PASS",
+      "width": 1440,
+      "height": 900,
+      "actions": 666,
+      "hand": 678,
+      "phases": 3,
+      "focus": {
+        "x": 1281.53125,
+        "y": 111.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 111.5,
+        "right": 1414,
+        "bottom": 128.5,
+        "left": 1281.53125
+      },
+      "strategy": {
+        "x": 1312,
+        "y": 144,
+        "width": 102,
+        "height": 36,
+        "top": 144,
+        "right": 1414,
+        "bottom": 180,
+        "left": 1312
+      },
+      "bonus": {
+        "x": 1316.96875,
+        "y": 70,
+        "width": 97.03125,
+        "height": 26,
+        "top": 70,
+        "right": 1414,
+        "bottom": 96,
+        "left": 1316.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 14
+    },
+    {
+      "id": "LAYOUT_1024_10",
+      "status": "PASS",
+      "width": 1024,
+      "height": 768,
+      "actions": 541,
+      "hand": 549,
+      "phases": 3,
+      "focus": {
+        "x": 877.53125,
+        "y": 91,
+        "width": 132.46875,
+        "height": 17,
+        "top": 91,
+        "right": 1010,
+        "bottom": 108,
+        "left": 877.53125
+      },
+      "strategy": {
+        "x": 908,
+        "y": 114,
+        "width": 102,
+        "height": 36,
+        "top": 114,
+        "right": 1010,
+        "bottom": 150,
+        "left": 908
+      },
+      "bonus": {
+        "x": 920.15625,
+        "y": 60,
+        "width": 89.84375,
+        "height": 25,
+        "top": 60,
+        "right": 1010,
+        "bottom": 85,
+        "left": 920.15625
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 10
+    },
+    {
+      "id": "LAYOUT_1024_14",
+      "status": "PASS",
+      "width": 1024,
+      "height": 768,
+      "actions": 541,
+      "hand": 549,
+      "phases": 3,
+      "focus": {
+        "x": 877.53125,
+        "y": 91,
+        "width": 132.46875,
+        "height": 17,
+        "top": 91,
+        "right": 1010,
+        "bottom": 108,
+        "left": 877.53125
+      },
+      "strategy": {
+        "x": 908,
+        "y": 114,
+        "width": 102,
+        "height": 36,
+        "top": 114,
+        "right": 1010,
+        "bottom": 150,
+        "left": 908
+      },
+      "bonus": {
+        "x": 920.15625,
+        "y": 60,
+        "width": 89.84375,
+        "height": 25,
+        "top": 60,
+        "right": 1010,
+        "bottom": 85,
+        "left": 920.15625
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 14
+    },
+    {
+      "id": "LAYOUT_1280_10",
+      "status": "PASS",
+      "width": 1280,
+      "height": 800,
+      "actions": 570,
+      "hand": 578,
+      "phases": 3,
+      "focus": {
+        "x": 1121.53125,
+        "y": 97.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 97.5,
+        "right": 1254,
+        "bottom": 114.5,
+        "left": 1121.53125
+      },
+      "strategy": {
+        "x": 1152,
+        "y": 120,
+        "width": 102,
+        "height": 36,
+        "top": 120,
+        "right": 1254,
+        "bottom": 156,
+        "left": 1152
+      },
+      "bonus": {
+        "x": 1156.96875,
+        "y": 66,
+        "width": 97.03125,
+        "height": 26,
+        "top": 66,
+        "right": 1254,
+        "bottom": 92,
+        "left": 1156.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 10
+    },
+    {
+      "id": "LAYOUT_1280_14",
+      "status": "PASS",
+      "width": 1280,
+      "height": 800,
+      "actions": 570,
+      "hand": 578,
+      "phases": 3,
+      "focus": {
+        "x": 1121.53125,
+        "y": 97.5,
+        "width": 132.46875,
+        "height": 17,
+        "top": 97.5,
+        "right": 1254,
+        "bottom": 114.5,
+        "left": 1121.53125
+      },
+      "strategy": {
+        "x": 1152,
+        "y": 120,
+        "width": 102,
+        "height": 36,
+        "top": 120,
+        "right": 1254,
+        "bottom": 156,
+        "left": 1152
+      },
+      "bonus": {
+        "x": 1156.96875,
+        "y": 66,
+        "width": 97.03125,
+        "height": 26,
+        "top": 66,
+        "right": 1254,
+        "bottom": 92,
+        "left": 1156.96875
+      },
+      "buttons": [
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        },
+        {
+          "h": 36,
+          "w": 40
+        }
+      ],
+      "sentence": 16,
+      "handCards": 14
+    },
+    {
+      "id": "RUNE_BUTTON_KEYBOARD",
+      "status": "PASS"
+    },
+    {
+      "id": "RUNE_POINTER_DRAG",
+      "status": "PASS"
+    },
+    {
+      "id": "RUNE_SCROLL_CANCEL_NO_RESOURCE_MUTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "RUNE_INFORMATION_NEUTRAL",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_PHASE_0_false",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "PAST"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "240 / 240",
+            "240 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "240 / 240",
+            "240 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 490,
+      "loss": 240,
+      "excess": 250
+    },
+    {
+      "id": "IMPACT_PHASE_0_true",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "PAST"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "240 / 240",
+            "240 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "240 / 240",
+            "240 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 490,
+      "loss": 240,
+      "excess": 250
+    },
+    {
+      "id": "IMPACT_PHASE_1_false",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "PRESENT"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "0 / 240",
+            "240 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "240 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 408,
+      "loss": 240,
+      "excess": 168
+    },
+    {
+      "id": "IMPACT_PHASE_1_true",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "PRESENT"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "0 / 240",
+            "240 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "240 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 408,
+      "loss": 240,
+      "excess": 168
+    },
+    {
+      "id": "IMPACT_PHASE_2_false",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "FUTURE"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "0 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 585,
+      "loss": 240,
+      "excess": 345
+    },
+    {
+      "id": "IMPACT_PHASE_2_true",
+      "status": "PASS",
+      "trace": [
+        {
+          "when": "boss-score",
+          "active": "FUTURE"
+        },
+        {
+          "when": "before",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "240 / 240"
+          ]
+        },
+        {
+          "when": "after",
+          "bars": [
+            "0 / 240",
+            "0 / 240",
+            "0 / 240"
+          ],
+          "avatar": "1"
+        }
+      ],
+      "power": 585,
+      "loss": 240,
+      "excess": 345
+    },
+    {
+      "id": "WRONG_TIME_BLOCKED_NO_DAMAGE_SHAKE",
+      "status": "PASS"
+    },
+    {
+      "id": "CANCEL_CONVERGES_WITHOUT_STATE_WRITE",
+      "status": "PASS"
+    },
+    {
+      "id": "GROUPED_FORMS",
+      "status": "PASS"
+    },
+    {
+      "id": "CODEX_TYPOGRAPHY_FEEDBACK",
+      "status": "PASS",
+      "color": "rgb(255, 255, 255)",
+      "size": "21px",
+      "weight": "750",
+      "line": "31.5px"
+    },
+    {
+      "id": "CODEX_NO_FIXED_EXAMPLES",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "capacity-1366-10.png",
+    "capacity-1366-14.png",
+    "capacity-1440-10.png",
+    "capacity-1440-14.png",
+    "capacity-1024-10.png",
+    "capacity-1024-14.png",
+    "capacity-1280-10.png",
+    "capacity-1280-14.png",
+    "rune-insertion.png",
+    "phase-0-normal.png",
+    "phase-0-reduced.png",
+    "phase-1-normal.png",
+    "phase-1-reduced.png",
+    "phase-2-normal.png",
+    "phase-2-reduced.png",
+    "blocked-past.png",
+    "be-grouped-forms.png",
+    "codex-no-fixed-examples.png"
+  ],
+  "errors": [],
+  "browser": "134.0.6998.35",
+  "status": "PASS"
+}

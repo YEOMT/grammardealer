@@ -1,0 +1,178 @@
+{
+  "kind": "SYNTHETIC_LEGAL_CARD_STATE_WITH_REAL_CONTROLLER_UI",
+  "checks": [
+    {
+      "id": "SUBMIT_1366_incomplete",
+      "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1366_locked-svoo",
+      "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1366_unlocked-svoo",
+      "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1366_whole-io-do",
+      "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "LAST_TURN_1366",
+      "detail": "Last invalid submission defeats after presentation without draw",
+      "status": "PASS"
+    },
+    {
+      "id": "DICTIONARY_1366",
+      "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+      "status": "PASS"
+    },
+    {
+      "id": "LEGACY_1366",
+      "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1920_incomplete",
+      "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1920_locked-svoo",
+      "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1920_unlocked-svoo",
+      "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1920_whole-io-do",
+      "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "LAST_TURN_1920",
+      "detail": "Last invalid submission defeats after presentation without draw",
+      "status": "PASS"
+    },
+    {
+      "id": "DICTIONARY_1920",
+      "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+      "status": "PASS"
+    },
+    {
+      "id": "LEGACY_1920",
+      "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1024_incomplete",
+      "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1024_locked-svoo",
+      "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1024_unlocked-svoo",
+      "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1024_whole-io-do",
+      "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "LAST_TURN_1024",
+      "detail": "Last invalid submission defeats after presentation without draw",
+      "status": "PASS"
+    },
+    {
+      "id": "DICTIONARY_1024",
+      "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+      "status": "PASS"
+    },
+    {
+      "id": "LEGACY_1024",
+      "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1180_incomplete",
+      "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1180_locked-svoo",
+      "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1180_unlocked-svoo",
+      "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "SUBMIT_1180_whole-io-do",
+      "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+      "status": "PASS"
+    },
+    {
+      "id": "LAST_TURN_1180",
+      "detail": "Last invalid submission defeats after presentation without draw",
+      "status": "PASS"
+    },
+    {
+      "id": "DICTIONARY_1180",
+      "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+      "status": "PASS"
+    },
+    {
+      "id": "LEGACY_1180",
+      "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "1366-incomplete-feedback.png",
+    "1366-incomplete-record.png",
+    "1366-locked-svoo-record.png",
+    "1366-unlocked-svoo-record.png",
+    "1366-whole-io-do-record.png",
+    "1366-develop-dictionary.png",
+    "1366-legacy-codex.png",
+    "1920-incomplete-feedback.png",
+    "1920-incomplete-record.png",
+    "1920-locked-svoo-record.png",
+    "1920-unlocked-svoo-record.png",
+    "1920-whole-io-do-record.png",
+    "1920-develop-dictionary.png",
+    "1920-legacy-codex.png",
+    "1024-incomplete-feedback.png",
+    "1024-incomplete-record.png",
+    "1024-locked-svoo-record.png",
+    "1024-unlocked-svoo-record.png",
+    "1024-whole-io-do-record.png",
+    "1024-develop-dictionary.png",
+    "1024-legacy-codex.png",
+    "1180-incomplete-feedback.png",
+    "1180-incomplete-record.png",
+    "1180-locked-svoo-record.png",
+    "1180-unlocked-svoo-record.png",
+    "1180-whole-io-do-record.png",
+    "1180-develop-dictionary.png",
+    "1180-legacy-codex.png"
+  ],
+  "errors": [],
+  "browser": "134.0.6998.35",
+  "status": "PASS"
+}

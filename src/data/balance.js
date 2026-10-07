@@ -256,6 +256,6 @@ export const DESERT_SCORE_BALANCE=deepFreeze({...SKY_SCORE_BALANCE,
  mainFrameMultipliers:{...SKY_SCORE_BALANCE.mainFrameMultipliers,'frame.svoc':{num:5,den:2}},
  nonfiniteMultipliers:{'CLAUSE.INFINITIVE':{num:7,den:5},'CLAUSE.GERUND':{num:7,den:5}},
 });
-export const scoreBalanceForVersion=version=>version==='0.5.0'?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
+export const scoreBalanceForVersion=version=>['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;

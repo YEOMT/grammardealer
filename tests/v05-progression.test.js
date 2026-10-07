@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {newDesert,advanceAssigned,assignedAttack,act} from './helpers/desert-state.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-05-controller.js';
 import {RunController as LegacyController} from './helpers/legacy-04-controller.js';
 import {newProfile,validateRunState,canSaveRun,applyProfileEvent,reviewDesertUnlocks} from '../src/services/localStore.js';
 import {registryForVersion} from '../src/data/language/index.js';

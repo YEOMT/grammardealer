@@ -1,0 +1,76 @@
+{
+  "kind": "ASSIGNED_OPERATION_UI_NOT_CAMPAIGN_PLAY",
+  "checks": [
+    {
+      "id": "CAPACITY_1366_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1366_14",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1280_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1280_14",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1024_10",
+      "status": "PASS"
+    },
+    {
+      "id": "CAPACITY_1024_14",
+      "status": "PASS"
+    },
+    {
+      "id": "BODY_DESCRIPTION_NO_USE",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_OPERATION_DRAG",
+      "status": "PASS"
+    },
+    {
+      "id": "SEARCH_CANCEL_NO_STATE_RNG_CHANGE",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_SUPPLY_COMMIT_PRESENTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_SEARCH_COMMIT_ORDER_RNG",
+      "status": "PASS"
+    },
+    {
+      "id": "EXHAUSTED_AND_DECK_SEPARATION",
+      "status": "PASS"
+    },
+    {
+      "id": "NEXT_BATTLE_REAL_UI_RETURN_ASSIGNED_BOUNDARY",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_RESHUFFLE_HAND_LIMIT_UI",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "capacity-1366-10.png",
+    "capacity-1366-14.png",
+    "capacity-1280-10.png",
+    "capacity-1280-14.png",
+    "capacity-1024-10.png",
+    "capacity-1024-14.png",
+    "search-target.png",
+    "supply-used.png",
+    "exhausted.png",
+    "deck-operation-section.png",
+    "next-battle-operations-returned.png",
+    "supply-recycle-hand-cap.png"
+  ],
+  "errors": []
+}

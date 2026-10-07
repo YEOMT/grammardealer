@@ -1,0 +1,3436 @@
+{
+  "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+  "checks": [
+    {
+      "id": "CORE_MATRIX_0",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_1",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_2",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_3",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_4",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_5",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_6",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_7",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_8",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_9",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_MATRIX_10",
+      "status": "PASS"
+    },
+    {
+      "id": "V01",
+      "status": "PASS"
+    },
+    {
+      "id": "V02",
+      "status": "PASS"
+    },
+    {
+      "id": "V03",
+      "status": "PASS"
+    },
+    {
+      "id": "V04",
+      "status": "PASS"
+    },
+    {
+      "id": "V05",
+      "status": "PASS"
+    },
+    {
+      "id": "V06",
+      "status": "PASS"
+    },
+    {
+      "id": "V07",
+      "status": "PASS"
+    },
+    {
+      "id": "V08",
+      "status": "PASS"
+    },
+    {
+      "id": "V09",
+      "status": "PASS"
+    },
+    {
+      "id": "V10",
+      "status": "PASS"
+    },
+    {
+      "id": "V11",
+      "status": "PASS"
+    },
+    {
+      "id": "V12",
+      "status": "PASS"
+    },
+    {
+      "id": "V13",
+      "status": "PASS"
+    },
+    {
+      "id": "V14",
+      "status": "PASS"
+    },
+    {
+      "id": "V15",
+      "status": "PASS"
+    },
+    {
+      "id": "V16",
+      "status": "PASS"
+    },
+    {
+      "id": "V17",
+      "status": "PASS"
+    },
+    {
+      "id": "V18",
+      "status": "PASS"
+    },
+    {
+      "id": "V19",
+      "status": "PASS"
+    },
+    {
+      "id": "V20",
+      "status": "PASS"
+    },
+    {
+      "id": "CORE_TEACHING_EFFECTS_OFF",
+      "status": "PASS",
+      "evidence": {
+        "roles": 2,
+        "pulse": true,
+        "label": "루비 룬 ×1.6",
+        "expected": "루비 룬 ×1.6",
+        "score": "104",
+        "after": 104
+      }
+    }
+  ],
+  "frames": [
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": false,
+        "reducedMotion": false,
+        "speed": 1
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 47,
+      "lungeSamples": [
+        {
+          "at": 2558.0000000000005,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 230.9861297607422,
+            "y": 261.57733154296875,
+            "w": 863.7241821289062,
+            "h": 208.82647705078125,
+            "opacity": 0.993942,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.95273, 0, 0, 0.95273, -1.653959, -3.004995)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 2598,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 288.4334716796875,
+            "y": 184.34278869628906,
+            "w": 633.2760620117188,
+            "h": 153.1100311279297,
+            "opacity": 0.782112,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.698534, 0, 0, 0.698534, -59.484257, -108.073929)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 2641,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 335.80645751953125,
+            "y": 120.65267944335938,
+            "w": 443.24102783203125,
+            "h": 107.16439819335938,
+            "opacity": 0.60743,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.488917, 0, 0, 0.488917, -107.173012, -194.717209)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 2674,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 359.0662536621094,
+            "y": 89.38126373291016,
+            "w": 349.9351501464844,
+            "h": 84.60541534423828,
+            "opacity": 0.521663,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.385996, 0, 0, 0.385996, -130.587875, -237.258469)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 2866,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193.67227172851562,
+            "y": 255.16806030273438,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 474.01873779296875,
+            "y": 72.99451446533203,
+            "w": 110.30279541015625,
+            "h": 96.34709930419922,
+            "opacity": 0.995474,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999995, 0.00316, -0.00316, 0.999995, 0.497878, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 2970,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 187.71841430664062,
+            "y": 253.67959594726562,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 479.06170654296875,
+            "y": 66.38348388671875,
+            "w": 119.1107177734375,
+            "h": 106.59222412109375,
+            "opacity": 0.855467,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.994914, 0.100732, -0.100732, 0.994914, 15.898669, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 3047,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 488.4051513671875,
+            "y": 65.27249145507812,
+            "w": 123.189697265625,
+            "h": 111.45501708984375,
+            "opacity": 0.669614,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.98862, 0.150431, -0.150431, 0.98862, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 3127,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 487.38189697265625,
+            "y": 64.03443908691406,
+            "w": 125.2362060546875,
+            "h": 113.93112182617188,
+            "opacity": 0.36389,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.984256, 0.176751, -0.176751, 0.984256, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": false,
+        "reducedMotion": true,
+        "speed": 1
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 34,
+      "lungeSamples": [
+        {
+          "at": 4867,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.032897)",
+            "outline": "rgba(242, 212, 140, 0.165)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 4943.000000000001,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.088625)",
+            "outline": "rgba(242, 212, 140, 0.443)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 5187,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.010467)",
+            "outline": "rgba(242, 212, 140, 0.05)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 5257,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.106726)",
+            "outline": "rgba(242, 212, 140, 0.533)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 5331,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.19534)",
+            "outline": "rgba(242, 212, 140, 0.976)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 5387,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.143743)",
+            "outline": "rgba(242, 212, 140, 0.718)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 32,
+      "lungeSamples": [
+        {
+          "at": 7159,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 233.00010681152344,
+            "y": 259.49407958984375,
+            "w": 856.415771484375,
+            "h": 207.06393432617188,
+            "opacity": 0.987971,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.945565, 0, 0, 0.945565, -3.284018, -5.966568)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 7245,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 338.63031005859375,
+            "y": 117.16828155517578,
+            "w": 432.1502685546875,
+            "h": 104.48514556884766,
+            "opacity": 0.597613,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.477135, 0, 0, 0.477135, -109.852448, -199.585419)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 7480,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193.45042419433594,
+            "y": 255.11260986328125,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473.6820373535156,
+            "y": 72.99649810791016,
+            "w": 110.20260620117188,
+            "h": 96.23221588134766,
+            "opacity": 0.996974,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999998, 0.002113, -0.002113, 0.999998, 0.332914, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 7550,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 189.2788848876953,
+            "y": 254.06971740722656,
+            "w": 943.0000610351562,
+            "h": 228.00001525878906,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 477.18646240234375,
+            "y": 68.29475402832031,
+            "w": 116.523193359375,
+            "h": 103.5499267578125,
+            "opacity": 0.898462,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.997489, 0.070827, -0.070827, 0.997489, 11.169172, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 7618,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 191.26966857910156,
+            "y": 254.56741333007812,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 485.89886474609375,
+            "y": 65.88209533691406,
+            "w": 121.450439453125,
+            "h": 109.37065124511719,
+            "opacity": 0.81496,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.991668, 0.128823, -0.128823, 0.991668, 20.354404, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 7732,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 487.5181579589844,
+            "y": 64.2000732421875,
+            "w": 124.96371459960938,
+            "h": 113.599853515625,
+            "opacity": 0.405373,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.984889, 0.173186, -0.173186, 0.984889, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": true,
+        "speed": 1
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 32,
+      "lungeSamples": [
+        {
+          "at": 9556.000000000002,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.009623)",
+            "outline": "rgba(242, 212, 140, 0.047)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 9639,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.085944)",
+            "outline": "rgba(242, 212, 140, 0.43)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 9865,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.003026)",
+            "outline": "rgba(242, 212, 140, 0.016)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 9947.000000000002,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.114442)",
+            "outline": "rgba(242, 212, 140, 0.573)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 10022,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.194541)",
+            "outline": "rgba(242, 212, 140, 0.973)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 10128,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.090127)",
+            "outline": "rgba(242, 212, 140, 0.45)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 2
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 890,
+        "watchdogMs": 2890
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 14,
+      "lungeSamples": [
+        {
+          "at": 11513,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 238.8932647705078,
+            "y": 250.8683319091797,
+            "w": 831.8889770507812,
+            "h": 201.12657165527344,
+            "opacity": 0.964613,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.917535, 0, 0, 0.917535, -9.66078, -17.552187)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 11684.000000000002,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 194.54489135742188,
+            "y": 255.38621520996094,
+            "w": 943,
+            "h": 228.00001525878906,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 476.1338195800781,
+            "y": 72.59652709960938,
+            "w": 111.37564086914062,
+            "h": 97.57939147949219,
+            "opacity": 0.979302,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.197424)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999896, 0.014449, -0.014449, 0.999896, 2.276756, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 11755,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 187.71127319335938,
+            "y": 253.67782592773438,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 483.53692626953125,
+            "y": 64.455322265625,
+            "w": 122.34869384765625,
+            "h": 110.44500732421875,
+            "opacity": 0.791577,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.990166, 0.139901, -0.139901, 0.990166, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 11821,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 191.58053588867188,
+            "y": 254.6451416015625,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 485.6890869140625,
+            "y": 63.34651184082031,
+            "w": 125.78289794921875,
+            "h": 114.59724426269531,
+            "opacity": 0.279899,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.982934, 0.18396, -0.18396, 0.982934, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "fallback": "missing"
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 5,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 48,
+      "lungeSamples": [
+        {
+          "at": 13369,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 13456,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 13695,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 13755,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 13841.000000000002,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 13880,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": false,
+        "reducedMotion": false,
+        "speed": 1,
+        "fallback": "throw"
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 255,
+        "w": 943,
+        "h": 228,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 73,
+        "w": 110,
+        "h": 96,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 8,
+        "handCards": 6,
+        "runes": 0,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 5,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 51,
+      "lungeSamples": [
+        {
+          "at": 15784,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 15884,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 16141.000000000002,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 16228.000000000002,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 16320,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 16396,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 255,
+            "w": 943,
+            "h": 228,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 73,
+            "w": 110,
+            "h": 96,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "brightness(1.2)",
+            "outline": "rgb(242, 212, 140)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "capacity": true,
+        "width": 1366
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 231,
+        "w": 943,
+        "h": 256,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 473,
+        "y": 75,
+        "w": 110,
+        "h": 72,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 16,
+        "handCards": 14,
+        "runes": 4,
+        "actions": {
+          "x": 193,
+          "y": 495,
+          "w": 943,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 546,
+          "w": 1314,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1366,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 32,
+      "lungeSamples": [
+        {
+          "at": 18603,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 246.70057678222656,
+            "y": 218.69615173339844,
+            "w": 800.769287109375,
+            "h": 217.38380432128906,
+            "opacity": 0.936301,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.883562, 0, 0, 0.883562, -17.389713, -31.594501)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 943,
+            "h": 256,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 18724,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 363.7774658203125,
+            "y": 67.95835876464844,
+            "w": 330.23052978515625,
+            "h": 89.64724731445312,
+            "opacity": 0.503645,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.364373, 0, 0, 0.364373, -135.505112, -246.192459)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 943,
+            "h": 256,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 473,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 19087,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 200.0198211669922,
+            "y": 232.7549591064453,
+            "w": 942.9999389648438,
+            "h": 255.99998474121094,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 484.21697998046875,
+            "y": 74.8921890258789,
+            "w": 112.40167236328125,
+            "h": 75.72553253173828,
+            "opacity": 0.950927,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999413, 0.034253, -0.034253, 0.999413, 5.398005, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 19204,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 191.9971923828125,
+            "y": 230.74929809570312,
+            "w": 943,
+            "h": 256,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 489.2033386230469,
+            "y": 67.56703186035156,
+            "w": 118.81173706054688,
+            "h": 86.36453247070312,
+            "opacity": 0.803527,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.990608, 0.136734, -0.136734, 0.990608, 21.612022, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 19298,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 943,
+            "h": 256,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 489.65301513671875,
+            "y": 66.12322998046875,
+            "w": 120.6939697265625,
+            "h": 89.7535400390625,
+            "opacity": 0.430327,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.985264, 0.171041, -0.171041, 0.985264, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 19376,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 943,
+            "h": 256,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 489.11090087890625,
+            "y": 65.10907745361328,
+            "w": 121.7781982421875,
+            "h": 91.78185272216797,
+            "opacity": 0.185924,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.981392, 0.192015, -0.192015, 0.981392, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "capacity": true,
+        "width": 1280
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 231,
+        "w": 857,
+        "h": 288,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 430,
+        "y": 75,
+        "w": 110,
+        "h": 72,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 16,
+        "handCards": 14,
+        "runes": 4,
+        "actions": {
+          "x": 193,
+          "y": 527,
+          "w": 857,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 578,
+          "w": 1228,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1280,
+        "viewport": 1280
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 30,
+      "lungeSamples": [
+        {
+          "at": 21368.000000000004,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 243.0825653076172,
+            "y": 215.16664123535156,
+            "w": 716.01513671875,
+            "h": 240.6116485595703,
+            "opacity": 0.925212,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.870254, 0, 0, 0.870254, -20.417252, -39.488304)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 857,
+            "h": 288,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 430,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 21474,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 332.5651550292969,
+            "y": 68.29747772216797,
+            "w": 315.8877868652344,
+            "h": 106.15177154541016,
+            "opacity": 0.519945,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.383934, 0, 0, 0.383934, -131.055328, -253.46962)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 857,
+            "h": 288,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 430,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 21787,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 194.75991821289062,
+            "y": 231.43997192382812,
+            "w": 857,
+            "h": 288.0000305175781,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 432.77520751953125,
+            "y": 74.98274993896484,
+            "w": 110.5963134765625,
+            "h": 72.9144515991211,
+            "opacity": 0.988059,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999965, 0.008336, -0.008336, 0.999965, 1.313458, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 21868.000000000004,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 185.00506591796875,
+            "y": 229.0012664794922,
+            "w": 856.9999389648438,
+            "h": 288,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 432.34527587890625,
+            "y": 68.54176330566406,
+            "w": 115.61907958984375,
+            "h": 80.91900634765625,
+            "opacity": 0.880457,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.996519, 0.08336, -0.08336, 0.996519, 13.149751, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 21953,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 192.91465759277344,
+            "y": 230.97866821289062,
+            "w": 857,
+            "h": 287.9999694824219,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 447.2480773925781,
+            "y": 67.3345718383789,
+            "w": 119.33316040039062,
+            "h": 87.2881851196289,
+            "opacity": 0.720998,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.989285, 0.145997, -0.145997, 0.989285, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 22032,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 857,
+            "h": 288,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 446.5964050292969,
+            "y": 66.01874542236328,
+            "w": 120.80722045898438,
+            "h": 89.96251678466797,
+            "opacity": 0.405373,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.984889, 0.173186, -0.173186, 0.984889, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "capacity": true,
+        "width": 1024
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 159,
+        "y": 225,
+        "w": 672,
+        "h": 265,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 302,
+        "y": 69,
+        "w": 110,
+        "h": 72,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 16,
+        "handCards": 14,
+        "runes": 4,
+        "actions": {
+          "x": 159,
+          "y": 498,
+          "w": 672,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 14,
+          "y": 549,
+          "w": 996,
+          "h": 210,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1024,
+        "viewport": 1024
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 36,
+      "lungeSamples": [
+        {
+          "at": 24326,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 192.2671356201172,
+            "y": 212.91197204589844,
+            "w": 570.242431640625,
+            "h": 224.86643981933594,
+            "opacity": 0.936301,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.883562, 0, 0, 0.883562, -17.581083, -32.168289)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 159,
+            "y": 225,
+            "w": 672,
+            "h": 265,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 302,
+            "y": 69,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 24424,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 236.5317840576172,
+            "y": 72.53233337402344,
+            "w": 261.393310546875,
+            "h": 103.07398986816406,
+            "opacity": 0.537505,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.405006, 0, 0, 0.405006, -127.650703, -233.563797)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 159,
+            "y": 225,
+            "w": 672,
+            "h": 265,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 302,
+            "y": 69,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 24702,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 161.39842224121094,
+            "y": 225.599609375,
+            "w": 672,
+            "h": 265,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 305.78839111328125,
+            "y": 68.97470092773438,
+            "w": 110.81393432617188,
+            "h": 73.24981689453125,
+            "opacity": 0.983664,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999935, 0.011404, -0.011404, 0.999935, 1.79695, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 24779,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 151.00506591796875,
+            "y": 223.0012664794922,
+            "w": 672,
+            "h": 265,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 304.34527587890625,
+            "y": 62.54176330566406,
+            "w": 115.61907958984375,
+            "h": 80.91900634765625,
+            "opacity": 0.880457,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.996519, 0.08336, -0.08336, 0.996519, 13.149751, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 24857,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 158.74737548828125,
+            "y": 224.9368438720703,
+            "w": 672,
+            "h": 265,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 319.1440124511719,
+            "y": 61.40522384643555,
+            "w": 119.20672607421875,
+            "h": 87.063232421875,
+            "opacity": 0.747191,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.989616, 0.143735, -0.143735, 0.989616, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 24934,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 159,
+            "y": 225,
+            "w": 672,
+            "h": 265,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 318.677734375,
+            "y": 60.16877746582031,
+            "w": 120.64453125,
+            "h": 89.66244506835938,
+            "opacity": 0.441188,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 10px 13px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.985426, 0.170107, -0.170107, 0.985426, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "V10",
+      "options": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "capacity": true,
+        "width": 1366,
+        "zoom": 1.25
+      },
+      "result": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "start": {
+        "x": 193,
+        "y": 231,
+        "w": 669.7999877929688,
+        "h": 226.1999969482422,
+        "opacity": 1,
+        "display": "flex",
+        "visibility": "visible",
+        "filter": "none",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "enemyStart": {
+        "x": 336.3999938964844,
+        "y": 75,
+        "w": 110,
+        "h": 72,
+        "opacity": 1,
+        "display": "block",
+        "visibility": "visible",
+        "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+        "outline": "rgb(240, 234, 216)",
+        "transform": "none",
+        "visible": true
+      },
+      "layout": {
+        "sentenceCards": 16,
+        "handCards": 14,
+        "runes": 4,
+        "actions": {
+          "x": 193,
+          "y": 465.20001220703125,
+          "w": 669.7999877929688,
+          "h": 43,
+          "opacity": 1,
+          "display": "flex",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "hand": {
+          "x": 26,
+          "y": 516.2000122070312,
+          "w": 1040.800048828125,
+          "h": 181.8000030517578,
+          "opacity": 1,
+          "display": "grid",
+          "visibility": "visible",
+          "filter": "none",
+          "outline": "rgb(240, 234, 216)",
+          "transform": "none",
+          "visible": true
+        },
+        "width": 1093,
+        "viewport": 1366
+      },
+      "hp": "0 / 300",
+      "label": "격파! · 초과 피해 +450",
+      "fallback": 0,
+      "clones": 0,
+      "busy": "false",
+      "frameCount": 21,
+      "lungeSamples": [
+        {
+          "at": 28413,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 228.08018493652344,
+            "y": 212.8410186767578,
+            "w": 555.7415161132812,
+            "h": 187.6833953857422,
+            "opacity": 0.919714,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.863657, 0, 0, 0.863657, -21.917834, -37.43064)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 669.7999877929688,
+            "h": 226.1999969482422,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 336.3999938964844,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        },
+        {
+          "at": 28537,
+          "phase": "LUNGE",
+          "hp": "300 / 300",
+          "body": {
+            "x": 275.4542236328125,
+            "y": 72.03779602050781,
+            "w": 231.80203247070312,
+            "h": 78.281982421875,
+            "opacity": 0.50019,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.360228, 0, 0, 0.360228, -136.446545, -233.019434)",
+            "visible": true
+          },
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 669.7999877929688,
+            "h": 226.1999969482422,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 336.3999938964844,
+            "y": 75,
+            "w": 110,
+            "h": 72,
+            "opacity": 1,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          }
+        }
+      ],
+      "recoilSamples": [
+        {
+          "at": 28827,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 195.39842224121094,
+            "y": 231.599609375,
+            "w": 669.7999877929688,
+            "h": 226.1999969482422,
+            "opacity": 0.25,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 340.18841552734375,
+            "y": 74.97242736816406,
+            "w": 110.8139877319336,
+            "h": 73.24980926513672,
+            "opacity": 0.983664,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.999935, 0.011404, -0.011404, 0.999935, 1.79695, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 28927,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 188.08981323242188,
+            "y": 229.7724609375,
+            "w": 669.800048828125,
+            "h": 226.1999969482422,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 344.36968994140625,
+            "y": 68.26370239257812,
+            "w": 116.84814453125,
+            "h": 82.97618103027344,
+            "opacity": 0.851792,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.994652, 0.103284, -0.103284, 0.994652, 16.302869, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 29050,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 669.7999877929688,
+            "h": 226.1999969482422,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 353.1564025878906,
+            "y": 66.2746810913086,
+            "w": 120.4928207397461,
+            "h": 89.38375091552734,
+            "opacity": 0.474359,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.985914, 0.167254, -0.167254, 0.985914, 22, 0)",
+            "visible": true
+          }
+        },
+        {
+          "at": 29155,
+          "phase": "RECOIL",
+          "hp": "0 / 300",
+          "body": null,
+          "sentence": {
+            "x": 193,
+            "y": 231,
+            "w": 669.7999877929688,
+            "h": 226.1999969482422,
+            "opacity": 1,
+            "display": "flex",
+            "visibility": "visible",
+            "filter": "none",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "none",
+            "visible": true
+          },
+          "enemy": {
+            "x": 352.4338684082031,
+            "y": 64.91594696044922,
+            "w": 121.9399642944336,
+            "h": 92.09001922607422,
+            "opacity": 0.148346,
+            "display": "block",
+            "visibility": "visible",
+            "filter": "drop-shadow(rgba(0, 0, 0, 0.4) 0px 9.6px 12.8px)",
+            "outline": "rgb(240, 234, 216)",
+            "transform": "matrix(0.980757, 0.195232, -0.195232, 0.980757, 22, 0)",
+            "visible": true
+          }
+        }
+      ]
+    }
+  ],
+  "captures": [
+    "core-0-finished.png",
+    "core-1-finished.png",
+    "core-2-finished.png",
+    "core-3-finished.png",
+    "core-4-finished.png",
+    "core-5-finished.png",
+    "core-6-finished.png",
+    "core-7-finished.png",
+    "core-8-finished.png",
+    "core-9-finished.png",
+    "core-10-finished.png"
+  ],
+  "errors": [],
+  "engine": "webkit",
+  "platform": "win32",
+  "browserVersion": "18.4",
+  "videoArchive": "All native recordings copied into evidence directory"
+}

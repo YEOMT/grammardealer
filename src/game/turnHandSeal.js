@@ -6,12 +6,12 @@ const turnKey=run=>`${run.combat.enemyState.id}:${run.combat.turnIndex}`;
 /** Read only; a completed encounter never leaves an active placement restriction. */
 export function isTurnSealed(run,cardId){
  const m=mechanicFor(run);
- return run?.version==='0.5.0'&&run.status==='BATTLE'&&run.combat.enemyState.hp>0&&m?.id==='TURN_HAND_SEAL'&&m.sealedForTurnIndex===run.combat.turnIndex&&m.sealedCardId===cardId;
+ return ['0.5.0','0.5.1'].includes(run?.version)&&run.status==='BATTLE'&&run.combat.enemyState.hp>0&&m?.id==='TURN_HAND_SEAL'&&m.sealedForTurnIndex===run.combat.turnIndex&&m.sealedCardId===cardId;
 }
 /** One proposal at the actual post-draw turn boundary; no UI/effect callback may call it. */
 export function applyTurnHandSeal(run){
  const c=run.combat,m=mechanicFor(run);
- if(run.version!=='0.5.0'||m?.id!=='TURN_HAND_SEAL')return null;
+ if(!['0.5.0','0.5.1'].includes(run.version)||m?.id!=='TURN_HAND_SEAL')return null;
  if(m.lastAppliedTurnKey===turnKey(run))return m;
  if(run.progress.stageId!=='stage.05'||run.progress.battleNumber!==22||c.enemyState.hp<=0||c.turnsRemaining<=0)throw Error('Seal outside a live Sphinx turn');
  const previousSealedCardId=m.sealedCardId??null;
@@ -26,7 +26,7 @@ export function applyTurnHandSeal(run){
 /** The seal is an ID restriction, never a sixth card pile. DISCARD/DRAW are legal locations. */
 export function validateTurnHandSeal(run){
  const c=run.combat,m=mechanicFor(run);if(!c)return true;
- const sphinx=run.version==='0.5.0'&&run.progress.stageId==='stage.05'&&run.progress.battleNumber===22&&c.enemyState.id==='battle.05.05';
+ const sphinx=['0.5.0','0.5.1'].includes(run.version)&&run.progress.stageId==='stage.05'&&run.progress.battleNumber===22&&c.enemyState.id==='battle.05.05';
  const fail=()=>{throw Error('스핑크스의 턴별 봉인 기록이 잘못되었습니다.');};
  if(!sphinx){if(m?.id==='TURN_HAND_SEAL')fail();return true;}
  if(m?.id!=='TURN_HAND_SEAL'||!Array.isArray(m.history)||m.history.length!==c.turnIndex||m.sealSequence!==c.turnIndex||m.sealedForTurnIndex!==c.turnIndex||m.lastAppliedTurnKey!==turnKey(run)||m.history.length>c.rulesSnapshot.turnLimit)fail();

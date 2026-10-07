@@ -1,0 +1,118 @@
+{
+  "status": "EXISTING_GRAMMAR_REGRESSION_EXPECTATIONS_NOT_RUN",
+  "cases": [
+    {
+      "id": "F01",
+      "lexemeLemma": "she",
+      "selectedLegacyFormId": "form.she.object",
+      "sentence": "I like her.",
+      "expectedFunction": "OBJECT"
+    },
+    {
+      "id": "F02",
+      "lexemeLemma": "she",
+      "selectedLegacyFormId": "form.she.possessive",
+      "sentence": "I like her.",
+      "expectedFunction": "OBJECT"
+    },
+    {
+      "id": "F03",
+      "lexemeLemma": "she",
+      "selectedLegacyFormId": "form.she.object",
+      "sentence": "I like her book.",
+      "expectedFunction": "POSSESSIVE_DETERMINER_USE"
+    },
+    {
+      "id": "F04",
+      "lexemeLemma": "she",
+      "selectedLegacyFormId": "form.she.possessive",
+      "sentence": "I like her book.",
+      "expectedFunction": "POSSESSIVE_DETERMINER_USE"
+    },
+    {
+      "id": "F05",
+      "lexemeLemma": "you",
+      "selectedLegacyFormId": "form.you.subject",
+      "sentence": "You like music.",
+      "expectedFunction": "SUBJECT"
+    },
+    {
+      "id": "F06",
+      "lexemeLemma": "you",
+      "selectedLegacyFormId": "form.you.object",
+      "sentence": "You like music.",
+      "expectedFunction": "SUBJECT"
+    },
+    {
+      "id": "F07",
+      "lexemeLemma": "you",
+      "selectedLegacyFormId": "form.you.subject",
+      "sentence": "I like you.",
+      "expectedFunction": "OBJECT"
+    },
+    {
+      "id": "F08",
+      "lexemeLemma": "you",
+      "selectedLegacyFormId": "form.you.object",
+      "sentence": "I like you.",
+      "expectedFunction": "OBJECT"
+    },
+    {
+      "id": "F09",
+      "lexemeLemma": "it",
+      "selectedLegacyFormId": "form.it.subject",
+      "sentence": "It is good.",
+      "expectedFunction": "SUBJECT"
+    },
+    {
+      "id": "F10",
+      "lexemeLemma": "it",
+      "selectedLegacyFormId": "form.it.object",
+      "sentence": "I like it.",
+      "expectedFunction": "OBJECT"
+    },
+    {
+      "id": "F11",
+      "lexemeLemma": "he",
+      "selectedLegacyFormId": "form.he.possessive",
+      "sentence": "I like his book.",
+      "expectedFunction": "POSSESSIVE_DETERMINER_USE"
+    },
+    {
+      "id": "F12",
+      "lexemeLemma": "run",
+      "selectedLegacyFormId": "form.run.ing",
+      "sentence": "Running is good.",
+      "expectedFunction": "GERUND"
+    },
+    {
+      "id": "F13",
+      "lexemeLemma": "run",
+      "selectedLegacyFormId": "form.run.ing",
+      "sentence": "I am running.",
+      "expectedFunction": "PROGRESSIVE"
+    },
+    {
+      "id": "F14",
+      "lexemeLemma": "run",
+      "selectedLegacyFormId": "form.run.ing",
+      "sentence": "The running dog is happy.",
+      "expectedFunction": "PARTICIPLE"
+    }
+  ],
+  "expectedFunctionIs": "functional meaning, not a demand to rename existing internal role IDs",
+  "menuChecks": {
+    "sheHerCount": 1,
+    "youYouCount": 1,
+    "itItCount": 1,
+    "IForms": [
+      "I",
+      "me",
+      "my"
+    ],
+    "preserveVerbHomographs": true,
+    "pastParticipleLabel": "과거분사(p.p.)",
+    "singleIng": true
+  },
+  "needNotAddNewLexemes": true
+}

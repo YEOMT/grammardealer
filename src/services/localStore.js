@@ -16,8 +16,8 @@ import { RUNE_BY_ID, runeForVersion, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.5.0';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(version);
+export const SAVE_VERSION = '0.5.1';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -26,6 +26,7 @@ export function newProfile(displayName) {
 }
 /** Profile events are idempotent; replay/sandbox never calls this reducer. */
 export function applyProfileEvent(profile,event) {
+  if(event.type==='GUIDED_TUTORIAL_SKIPPED'&&event.version==='0.2.1')return {...clone(profile),guidedTutorialSkippedVersion:event.version};
   const p=clone(reviewProfileLearning(profile));
   if(event.type==='GUIDED_TUTORIAL_COMPLETED'&&event.version==='0.2.1')p.guidedTutorialCompletedVersion=event.version;
   if(event.type==='FIRST_RUNE_SHOWN')p.firstRuneIntroSeen=true;
@@ -52,7 +53,7 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE3_CLEAR'&&!(p.stage3CompletedRunIds??[]).includes(event.runId)){p.stage3CompletedRunIds=[...(p.stage3CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,3);}
   if(event.type==='STAGE4_CLEAR'&&!(p.stage4CompletedRunIds??[]).includes(event.runId)){p.stage4CompletedRunIds=[...(p.stage4CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,4);}
   if(event.type==='STAGE5_CLEAR'&&!(p.stage5CompletedRunIds??[]).includes(event.runId)){p.stage5CompletedRunIds=[...(p.stage5CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,5);}
-  if(event.type==='STAGE4_CLEAR'&&event.version==='0.5.0')p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
+  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
   return reviewTimeUnlocks(p);
 }
 export function reviewTimeUnlocks(profile){
@@ -64,8 +65,8 @@ export function canSaveRun(run) {
   if(!run)return false;
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -141,7 +142,7 @@ export function validateRunState(run,registry) {
   if(c){
     if(!['EDIT','EXCHANGE_SELECT','RESOLVING','PRESENTING','OPERATION_PRESENTING','VICTORY','DEFEAT','TURN_START'].includes(c.phase))fail('잘못된 전투 단계입니다.');
     const rules=record(c.rulesSnapshot,'전투 규칙');
-    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:run.tutorialSession&&progress.battleNumber===1?[1]:[4,5,6,7],turnLimit:[6],sentenceLimit:[16]};
+    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:run.tutorialSession&&run.tutorialSession.endReason!=='SKIPPED'&&progress.battleNumber===1?[1]:[4,5,6,7],turnLimit:[6],sentenceLimit:[16]};
     for(const [key,values] of Object.entries(allowed))if(!values.includes(rules[key]))fail(`지원하지 않는 전투 규칙: ${key}`);
     if(rules.initialHand>rules.handLimit)fail('초기 손패 한도가 잘못되었습니다.');
     requireInteger(c.turnsRemaining,'turnsRemaining',0,rules.turnLimit);

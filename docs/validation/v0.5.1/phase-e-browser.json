@@ -1,0 +1,396 @@
+{
+  "status": "PASS",
+  "fixture": "Real grammar/score resolutions in isolated renderer; hidden/fault deliberately injected",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "id": "ruby",
+      "status": "FINISHED",
+      "reason": null,
+      "attackId": "attack.sandbox",
+      "plannedDuration": 4510,
+      "watchdogMs": 6510,
+      "events": [
+        {
+          "kind": "score",
+          "id": "fixture.0",
+          "after": 10,
+          "at": 304.7000000476837,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.1",
+          "after": 20,
+          "at": 487.59999990463257,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "COMPLETE_SENTENCE",
+          "after": 50,
+          "at": 659.9000000953674,
+          "combo": 1
+        },
+        {
+          "kind": "score",
+          "id": "FRAME.SV",
+          "after": 65,
+          "at": 1218.7999999523163,
+          "combo": 2
+        },
+        {
+          "kind": "flight",
+          "id": "rune.sv",
+          "at": 1774.4000000953674,
+          "before": "65",
+          "color": "rgb(234, 97, 111)",
+          "definitionColor": "#ea616f",
+          "duration": 220
+        },
+        {
+          "kind": "score",
+          "id": "rune.sv",
+          "after": 182,
+          "at": 1998.4000000953674,
+          "combo": 3
+        },
+        {
+          "kind": "score",
+          "id": "stage.01",
+          "after": 227,
+          "at": 2521.0999999046326,
+          "combo": 3
+        },
+        {
+          "kind": "score",
+          "id": "FINAL_POWER",
+          "after": 227,
+          "at": 3072.5,
+          "combo": 3
+        }
+      ]
+    },
+    {
+      "id": "sapphire",
+      "status": "FINISHED",
+      "reason": null,
+      "attackId": "attack.sandbox",
+      "plannedDuration": 4680,
+      "watchdogMs": 6680,
+      "events": [
+        {
+          "kind": "score",
+          "id": "fixture.0",
+          "after": 10,
+          "at": 4938.900000095367,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.1",
+          "after": 20,
+          "at": 5110.799999952316,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.2",
+          "after": 30,
+          "at": 5282.700000047684,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "COMPLETE_SENTENCE",
+          "after": 60,
+          "at": 5466,
+          "combo": 1
+        },
+        {
+          "kind": "score",
+          "id": "FRAME.SVC",
+          "after": 96,
+          "at": 6024.200000047684,
+          "combo": 2
+        },
+        {
+          "kind": "flight",
+          "id": "rune.svc",
+          "at": 6582.099999904633,
+          "before": "96",
+          "color": "rgb(105, 168, 230)",
+          "definitionColor": "#69a8e6",
+          "duration": 220
+        },
+        {
+          "kind": "score",
+          "id": "rune.svc",
+          "after": 268,
+          "at": 6814.700000047684,
+          "combo": 3
+        },
+        {
+          "kind": "score",
+          "id": "stage.01",
+          "after": 335,
+          "at": 7346.799999952316,
+          "combo": 3
+        },
+        {
+          "kind": "score",
+          "id": "FINAL_POWER",
+          "after": 335,
+          "at": 7907.599999904633,
+          "combo": 3
+        }
+      ]
+    },
+    {
+      "id": "high-combo",
+      "status": "FINISHED",
+      "reason": null,
+      "attackId": "attack.sandbox",
+      "plannedDuration": 8985,
+      "watchdogMs": 12130,
+      "events": [
+        {
+          "kind": "score",
+          "id": "fixture.0",
+          "after": 10,
+          "at": 9789.900000095367,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.1",
+          "after": 20,
+          "at": 9961.5,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.2",
+          "after": 30,
+          "at": 10145.599999904633,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.3",
+          "after": 40,
+          "at": 10333.5,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.4",
+          "after": 50,
+          "at": 10505.900000095367,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.5",
+          "after": 60,
+          "at": 10678.700000047684,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.6",
+          "after": 70,
+          "at": 10850.900000095367,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.7",
+          "after": 80,
+          "at": 11032.799999952316,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "fixture.8",
+          "after": 90,
+          "at": 11206.200000047684,
+          "combo": 0
+        },
+        {
+          "kind": "score",
+          "id": "COMPLETE_SENTENCE",
+          "after": 120,
+          "at": 11379.799999952316,
+          "combo": 1
+        },
+        {
+          "kind": "score",
+          "id": "FRAME.SVO",
+          "after": 216,
+          "at": 11935.299999952316,
+          "combo": 2
+        },
+        {
+          "kind": "score",
+          "id": "MODIFIER.ADJECTIVE",
+          "after": 221,
+          "at": 12496.099999904633,
+          "combo": 3
+        },
+        {
+          "kind": "score",
+          "id": "MODIFIER.ADVERB",
+          "after": 226,
+          "at": 13055.5,
+          "combo": 4
+        },
+        {
+          "kind": "score",
+          "id": "PHRASE.PP",
+          "after": 236,
+          "at": 13614.099999904633,
+          "combo": 5
+        },
+        {
+          "kind": "flight",
+          "id": "rune.svo",
+          "at": 14177.599999904633,
+          "before": "236",
+          "color": "rgb(104, 196, 160)",
+          "definitionColor": "#68c4a0",
+          "duration": 220
+        },
+        {
+          "kind": "score",
+          "id": "rune.svo",
+          "after": 660,
+          "at": 14410.599999904633,
+          "combo": 6
+        },
+        {
+          "kind": "flight",
+          "id": "rune.adverbs",
+          "at": 14941.299999952316,
+          "before": "660",
+          "color": "rgb(131, 197, 162)",
+          "definitionColor": "#83c5a2",
+          "duration": 220
+        },
+        {
+          "kind": "score",
+          "id": "rune.adverbs",
+          "after": 672,
+          "at": 15172.900000095367,
+          "combo": 7
+        },
+        {
+          "kind": "flight",
+          "id": "rune.perfectSentence",
+          "at": 15700.5,
+          "before": "672",
+          "color": "rgb(183, 228, 229)",
+          "definitionColor": "#b7e4e5",
+          "duration": 220
+        },
+        {
+          "kind": "score",
+          "id": "rune.perfectSentence",
+          "after": 722,
+          "at": 15933.5,
+          "combo": 8
+        },
+        {
+          "kind": "score",
+          "id": "stage.01",
+          "after": 902,
+          "at": 16463.5,
+          "combo": 8
+        },
+        {
+          "kind": "score",
+          "id": "FINAL_POWER",
+          "after": 902,
+          "at": 17019.200000047684,
+          "combo": 8
+        }
+      ]
+    },
+    {
+      "id": "abort",
+      "status": "PASS",
+      "done": {
+        "status": "FAST_FORWARDED",
+        "reason": "aborted",
+        "attackId": "attack.sandbox",
+        "plannedDuration": 2255,
+        "watchdogMs": 4255
+      },
+      "hp": "772 / 999",
+      "expected": "772 / 999",
+      "nodes": 0,
+      "busy": "false"
+    },
+    {
+      "id": "hidden",
+      "status": "PASS",
+      "done": {
+        "status": "FAST_FORWARDED",
+        "reason": "hidden",
+        "attackId": "attack.sandbox",
+        "plannedDuration": 2255,
+        "watchdogMs": 4255
+      },
+      "hp": "772 / 999",
+      "expected": "772 / 999",
+      "nodes": 0,
+      "busy": "false"
+    },
+    {
+      "id": "fault",
+      "status": "PASS",
+      "done": {
+        "status": "FAST_FORWARDED",
+        "reason": "view-error",
+        "attackId": "attack.sandbox",
+        "plannedDuration": 2255,
+        "watchdogMs": 4255
+      },
+      "hp": "772 / 999",
+      "expected": "772 / 999",
+      "nodes": 0,
+      "busy": "false"
+    },
+    {
+      "id": "effectsOff",
+      "status": "PASS",
+      "done": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "attack.sandbox",
+        "plannedDuration": 2255,
+        "watchdogMs": 4255
+      },
+      "hp": "772 / 999",
+      "expected": "772 / 999",
+      "nodes": 0,
+      "busy": "false"
+    },
+    {
+      "id": "reducedMotion",
+      "status": "PASS",
+      "done": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "attack.sandbox",
+        "plannedDuration": 2255,
+        "watchdogMs": 4255
+      },
+      "hp": "772 / 999",
+      "expected": "772 / 999",
+      "nodes": 0,
+      "busy": "false"
+    }
+  ],
+  "errors": []
+}

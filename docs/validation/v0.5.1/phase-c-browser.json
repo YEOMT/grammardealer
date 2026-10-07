@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "browser": "134.0.6998.35",
+  "fixture": "Synthetic victory state using real physical deck and production reward generator/controller; no claim of gameplay victory",
+  "checks": [
+    "P25/P27 cancel keeps same three candidates and all state",
+    "P33 native IndexedDB roundtrip after target cancellation",
+    "P27 real controller applies polish only after target confirmation",
+    "P39 full app commits +1 then presents 10→15 before next screen"
+  ],
+  "errors": []
+}

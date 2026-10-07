@@ -1,7 +1,7 @@
 /** Grammar describes evidence; this resolver alone reads the frozen run unlock snapshot. */
 export const COMBO_VERSION = '0.2.2';
 export function comboEligibility(run) {
-  return {version:['0.3.0','0.4.0','0.5.0'].includes(run?.version)?run.version:COMBO_VERSION,unlocks:[...new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])])].sort()};
+  return {version:['0.3.0','0.4.0','0.5.0','0.5.1'].includes(run?.version)?(run.version==='0.5.1'?'0.5.0':run.version):COMBO_VERSION,unlocks:[...new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])])].sort()};
 }
 export function scoreableAnalysis(analysis, eligibility) {
   if (!eligibility) return analysis; // Explicit pre-0.2.2 numerical contract.

@@ -37,8 +37,8 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
-    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${state.version==='0.5.0'?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:7}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
-    el('p',{text:state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식과 토파즈 룬 후보가 해금되었습니다.\n지금의 덱·룬·재화를 가지고 전달의 항구로 향합니다.'}),
+    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${['0.5.0','0.5.1'].includes(state.version)?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:7}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
+    el('p',{text:state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·재화를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'재화')),
     el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
 }
@@ -111,7 +111,7 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
-    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${state.version==='0.5.0'?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:isCurrentCampaign(state)?7:3}` }),
+    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${['0.5.0','0.5.1'].includes(state.version)?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:isCurrentCampaign(state)?7:3}` }),
     el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
     el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·재화는 유지됩니다.` }),
     state.progress.stageId==='stage.05'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:TURN_HAND_SEAL_HINT}),

@@ -1,0 +1,65 @@
+{
+  "status": "ARITHMETIC_ONLY_NOT_A_GAME_PLAYTHROUGH",
+  "cases": [
+    {
+      "id": "B01",
+      "boss": "문지기",
+      "sentence": "I am happy and you are kind.",
+      "preservedExpectedPower": 320,
+      "oldHp": 640,
+      "newHp": 760,
+      "oldSamePowerHits": 2,
+      "newSamePowerHits": 3,
+      "twoHitTotal": 640
+    },
+    {
+      "id": "B02",
+      "boss": "문지기",
+      "sentence": "I like music and she likes books.",
+      "preservedExpectedPower": 360,
+      "oldHp": 640,
+      "newHp": 760,
+      "oldSamePowerHits": 2,
+      "newSamePowerHits": 3,
+      "twoHitTotal": 720
+    },
+    {
+      "id": "B03",
+      "boss": "문지기",
+      "sentence": "I read a book when she comes home.",
+      "preservedExpectedPower": 401,
+      "oldHp": 640,
+      "newHp": 760,
+      "oldSamePowerHits": 2,
+      "newSamePowerHits": 2,
+      "twoHitTotal": 802
+    },
+    {
+      "id": "B04",
+      "boss": "스핑크스",
+      "sentence": "I want you to read a book.",
+      "preservedExpectedPower": 437,
+      "oldHp": 840,
+      "newHp": 960,
+      "oldSamePowerHits": 2,
+      "newSamePowerHits": 3,
+      "twoHitTotal": 874
+    },
+    {
+      "id": "B05",
+      "boss": "스핑크스",
+      "sentence": "I want you to read a very good book.",
+      "preservedExpectedPower": 537,
+      "oldHp": 840,
+      "newHp": 960,
+      "oldSamePowerHits": 2,
+      "newSamePowerHits": 2,
+      "twoHitTotal": 1074
+    }
+  ],
+  "notes": [
+    "same card sequence twice is not automatically obtainable",
+    "existing home modifier +5 is preserved; B03 remains401 not395",
+    "boss shield-release eligibility must be verified in actual parser/engine tests"
+  ]
+}
