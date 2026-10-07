@@ -3,7 +3,7 @@
 Base origin/main 2c03b2492b21f2bca27f10718e35bc4e291861bb; clean checkout, branch codex/v0.5.1-core-polish.
 A–E implemented: explicit .5 semantic routing; core/decorative and reduced motion; bounded overkill; atomic tutorial skip; concise education and same-surface pronoun view; separate HP and neutral package.
 Baseline726/buildPASS. Frozen game source: test767/data2748/buildPASS; production UI skip route22 battles/51 attacks/5 operations/32checks/39PNG PASS (run-sequence.12). Raw complete video and actions are retained; public actions and selected captures are in docs/validation/v0.5.1.
-Step F local validation complete: official browser262, Chromium polish49, Firefox46, WebKit46, final767tests/data2748/build and actual source/deploy ZIP PASS. final3 production build and final4 build are identical. Previous failures are retained and explained in TEST_REPORT_0.5.1. All71 old fixed evidence files restored by hash. P001–P088 PASS; P089 remains NOT RUN until branch push/PR. Teacher/device/listening/toolbar zoom remain separately NOT RUN. No push/PR yet; main/Pages/publication unchanged.
+Step F complete: official browser262, Chromium polish49, Firefox46, WebKit46, final767tests/data2748/build and actual source/deploy ZIP PASS. final3 production build and final4 build are identical. Previous failures are retained and explained in TEST_REPORT_0.5.1. All71 old fixed evidence files restored by hash. Implementation0eadb11 pushed; [PR #8](https://github.com/YEOMT/grammardealer/pull/8) open/ready, autoMerge null, main2c03b24 unchanged. P001–P089 PASS. Teacher/device/listening/toolbar zoom remain separately NOT RUN. No main merge/Pages/publication.
 
 ---
 

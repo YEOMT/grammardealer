@@ -62,6 +62,6 @@ production 시드는 `run-sequence.12`, STANDARD/LEARNING이다. 콘솔·페이�
 
 소스·테스트·표시 데이터·버전 view·보고서·선별 증거를 변경했다. 언어 정의/파서/점수식·룬 데이터 배수·보상/상점 가격·구버전 golden·의존성 버전은 변경하지 않았다. `.local-tools`, node_modules, dist, release, 원본 로그/중복 영상, 임시 파일은 commit하지 않는다. 전체 원본이 동일하다는 주장은 하지 않는다.
 
-로컬 구현·최종 검증과 패키징은 완료됐다. 원격 전달은 아직 실행 전이며 P089는 NOT RUN으로 둔다. 다음 단계는 검토한 변경만 작업 브랜치에 commit/push하고 main 대상 PR을 생성하는 것이다. main·Pages 설정·공개 사이트는 변경하지 않는다.
+구현 커밋 `0eadb113b52048eee8dd41ff93793a950ae8e3f1`을 작업 브랜치에 push하고 [PR #8](https://github.com/YEOMT/grammardealer/pull/8)을 생성했다. PR은 open/ready이며 autoMerge는 null이다. 생성 시 main은 기준 SHA `2c03b2492b21f2bca27f10718e35bc4e291861bb` 그대로였다. P089를 실제 원격 결과로 PASS로 갱신했으며 P001–P089는89 PASS/0 FAIL/0 NOT RUN이다. 별도로 명시한 사람·실기기 검사는 NOT RUN을 유지한다. main 직접 push·병합·Pages 설정 변경·공개 배포는 수행하지 않았다.
 
 후속 검토 순서는 [패치 노트](PATCH_NOTES_0.5.1_KO.md), 전체 조건은 [인수 결과](ACCEPTANCE_0.5.1.md), 실제 행동은 [production-actions.json](validation/v0.5.1/production-actions.json)을 따른다.

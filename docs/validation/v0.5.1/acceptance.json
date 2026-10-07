@@ -1,9 +1,9 @@
 {
   "kind": "EXECUTED_EVIDENCE_MAPPING_NOT_SPEC_SELF_CHECK",
   "counts": {
-    "PASS": 88,
+    "PASS": 89,
     "FAIL": 0,
-    "NOT RUN": 1
+    "NOT RUN": 0
   },
   "criteria": [
     {
@@ -1136,8 +1136,8 @@
         "U13",
         "U14"
       ],
-      "executionStatus": "NOT RUN",
-      "evidence": "기준 golden/기존71개 증거 복원 manifest; 원격 push/PR 결과는 별도 갱신"
+      "executionStatus": "PASS",
+      "evidence": "기준 golden/기존71개 복원; 구현0eadb11 브랜치 push, PR https://github.com/YEOMT/grammardealer/pull/8 생성; base main2c03b24 유지/autoMerge null"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # 0.5.1 인수 조건 실제 결과
 
-첨부89개 조건을 실제 코드·검사·캡처에 대응했다. 부속 자체검사 결과를 사용하지 않았다. 단위 assertion 개수와 이 조건 수는 다르다. 현재 PASS88/FAIL0/NOT RUN1(P089 원격 전달 전)이다. 교사·실기기·청취·실 브라우저 툴바 확대는 별도 NOT RUN이며 PASS에 합산하지 않는다. CSS zoom125%는 명시된 대체 검사다.
+첨부89개 조건을 실제 코드·검사·캡처에 대응했다. 부속 자체검사 결과를 사용하지 않았다. 단위 assertion 개수와 이 조건 수는 다르다. 최종 PASS89/FAIL0/NOT RUN0이다. 원격 전달은 [PR #8](https://github.com/YEOMT/grammardealer/pull/8)로 확인했다. 교사·실기기·청취·실 브라우저 툴바 확대는 별도 NOT RUN이며 PASS에 합산하지 않는다. CSS zoom125%는 명시된 대체 검사다.
 
 근거 파일은 [테스트 보고서](TEST_REPORT_0.5.1.md), [실행 명령](validation/v0.5.1/commands.json), [브라우저 요약](validation/v0.5.1/browser-summary.json), [교육 검토](EDUCATION_UI_REVIEW_0.5.1.md), [피드백 검토](CORE_FEEL_REVIEW_0.5.1.md)를 따른다. 아래 tests/src 경로는 저장소 상대 경로다.
 
@@ -94,4 +94,4 @@
 | P086 | PASS | 최종 npm test/data/build/기존browser 및 새polish/package검사를 같은 고정 소스로 실행한다. | final3 official/production + final4 corrected-probe polish/cross/test767/data2748/build + package-check; build hash 동일 |
 | P087 | PASS | 실제production UI에서 스킵 경유22전투와 저장/원래보스들을 진행하고 정상튜토리얼은 별도 확인한다. | production UI skip22/51attacks, natural seals/2shops/golem saves; separate guided47 |
 | P088 | PASS | 합성산술/지정상태/자동원정/production/교사·실기기를 구분하고 NOT RUN을 PASS에 합산하지 않는다. | TEST_REPORT 검증6층위; teacher/device/listening NOT RUN separate |
-| P089 | NOT RUN | 기준golden/실패이력/이전증거를 보존하고 작업브랜치push/PR만 수행한다. | 기준 golden/기존71개 증거 복원 manifest; 원격 push/PR 결과는 별도 갱신 |
+| P089 | PASS | 기준golden/실패이력/이전증거를 보존하고 작업브랜치push/PR만 수행한다. | 기준 golden/71개 증거 복원; 구현0eadb11 push 및 PR #8 생성; main2c03b24/autoMerge null |
