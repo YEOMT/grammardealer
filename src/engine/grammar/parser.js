@@ -3,11 +3,12 @@ import {verbPhrases} from './verbPhrase.js';
 import {isIngForm} from '../../data/language/desertLanguage.js';
 /* Bounded phrase/valency parser. It composes registered NP/AP/PP constituents;
    no answer strings, permutation search, inserted words, or semantic plausibility scoring. */
-const LABELS={ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
+const LABELS={COMPARISON_FORM_MISMATCH:'이 단어의 비교 형태를 확인하세요.',DOUBLE_COMPARISON_MARKING:'비교 표지를 두 번 붙이지 않습니다.',AS_REQUIRES_POSITIVE_DEGREE:'as와 as 사이에는 원급을 씁니다.',SUPERLATIVE_FORM_OR_DETERMINER:'최상급 형태와 the 또는 소유 한정사를 확인하세요.',COMPARISON_STANDARD_REQUIRED:'비교 기준을 완성하세요.',ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
 const LIMITS={work:12000,depth:4,candidates:128};
 
 export function parseSupportedClause(tokens,registry) {
- const desert=registry.validationScope==='desert.0.5';
+ const snow=registry.validationScope==='snow.0.6';
+ const desert=snow||registry.validationScope==='desert.0.5';
  const sky=desert||registry.validationScope==='sky.0.4';
  const limits=sky?{work:90000,depth:6,candidates:128}:LIMITS;
  const time=sky||registry.validationScope==='time.0.3';
@@ -55,7 +56,48 @@ export function parseSupportedClause(tokens,registry) {
   return phrase('CLAUSE',start,end,result.verbIndex,{issues:result.issues,hits:result.chunks.flatMap(c=>c.hits),roles:result.chunks.flatMap(c=>c.roles),children:result.chunks,clauseData:result,clauseRole,...(desert?{interpretationPriority:result.interpretationPriority??0}:{})});
  }
 
- function parseAPAtom(start,{attributive=false,depth=0}={}) {
+ // Comparison phrases reuse NP, finite clause and nonfinite constituents. Only the snow view enters this path.
+ function comparisonPhrase(start,{kind='AP',attributive=false,depth=0,position='END',determiner=null}={}){
+  if(!snow||depth>=limits.depth)return null;
+  let p=start;const markerIndices=[];let prefix=null,multiplier=false;
+  if(kind==='AdvP'&&word(p)==='the'){markerIndices.push(p++);if(word(p)!=='most'&&registry.formById[tok(p)?.selectionId]?.grammaticalFeatures.degree!=='SUPERLATIVE')return null;}
+  if(word(p)==='twice'&&word(p+1)==='as'){multiplier=true;markerIndices.push(p++);}
+  if(['more','most','as','too'].includes(word(p))){prefix=word(p);markerIndices.push(p++);}
+  const head=p,expectedRole=kind==='AP'?'ADJECTIVE':'ADVERB';
+  if(!hasRole(head,expectedRole)||kind==='AdvP'&&!advAllowed(head,position))return prefix?[]:null;
+  const form=registry.formById[tok(head).selectionId],degree=form.grammaticalFeatures.degree??'POSITIVE',policy=tok(head).lex.comparisonPolicy;
+  const enough=word(head+1)==='enough';
+  if(!prefix&&!enough&&!['COMPARATIVE','SUPERLATIVE'].includes(degree))return null;
+  let tag=prefix==='as'?'COMPARISON.EQUALITY':prefix==='too'?'DEGREE.TOO':enough?'DEGREE.ENOUGH':prefix==='most'||degree==='SUPERLATIVE'?'COMPARISON.SUPERLATIVE':'COMPARISON.COMPARATIVE';
+  let end=head+1;const issues=[];if(policy?.gradable===false)issues.push(issue('COMPARISON_FORM_MISMATCH',[head]));
+  if(enough){markerIndices.push(end++);}
+  if(['more','most'].includes(prefix)){
+   if(degree!=='POSITIVE')issues.push(issue('DOUBLE_COMPARISON_MARKING',[start,head]));
+   else if(!(prefix==='more'?policy?.allowMore:policy?.allowMost))issues.push(issue(prefix==='most'?'SUPERLATIVE_FORM_OR_DETERMINER':'COMPARISON_FORM_MISMATCH',[start,head]));
+  }
+  if(prefix==='as'&&degree!=='POSITIVE')issues.push(issue('AS_REQUIRES_POSITIVE_DEGREE',[head]));
+  if(tag==='COMPARISON.SUPERLATIVE'&&kind==='AP'&&(!attributive||determiner===null||!(word(determiner)==='the'||hasRole(determiner,'POSSESSIVE_DETERMINER'))))issues.push(issue('SUPERLATIVE_FORM_OR_DETERMINER',[head]));
+  const roles=[...markerIndices.map(i=>({...role(i,'COMPARISON_MARKER'),labelKo:tag.startsWith('DEGREE.')?'정도 표지':'비교 표지'})),role(head,kind==='AP'?'ADJECTIVE':'ADVERB')];
+  const modifierHits=attributive?[hit('MODIFIER.ADJECTIVE',head,head+1)]:kind==='AdvP'?[hit('MODIFIER.ADVERB',head,head+1)]:[];
+  if(multiplier)modifierHits.push(hit('MODIFIER.ADVERB',start,start+1));
+  let bases=[];
+  const finish=(standard=null)=>{
+   const last=standard?.end??end;
+   const own={...hit(tag,start,last,head),markerCardIds:markerIndices.map(i=>tok(i).cardInstanceId),comparisonHeadCardId:tok(head).cardInstanceId,bonusEligible:issues.length===0,comboImplemented:true};
+   const base=phrase(kind,start,last,head,{issues:[...issues,...(standard?.issues??[])],hits:[...modifierHits,...(standard?.hits??[]),own,...(multiplier?[{...hit('COMPARISON.MULTIPLIER',start,last,head),markerCardIds:[tok(start).cardInstanceId],bonusEligible:issues.length===0}]:[])],roles:[...roles,...(standard?.roles??[])],children:standard?[standard]:[]});
+   bases.push(base);
+  };
+  if(prefix==='as'||word(end)==='than'){
+   if(word(end)!==(prefix==='as'?'as':'than'))return [];
+   markerIndices.push(end);roles.push({...role(end,'COMPARISON_STANDARD'),labelKo:'비교 기준 연결'});const standardStart=end+1;
+   for(const np of parseNP(standardStart,'OBJECT',{depth:depth+1}))finish(np);
+   for(let stop=standardStart+2;stop<=tokens.length;stop++)for(const c of parseRange(standardStart,stop,{depth:depth+1}))finish({...c.tree,clauseRole:'COMPARISON_STANDARD'});
+  }else finish();
+  if(tag.startsWith('DEGREE.')&&!attributive)for(const base of [...bases])if(word(base.end)==='to')for(const n of nonfiniteOptions(base.end,tokens.length,depth,{kind:'TO',function:'DEGREE_COMPLEMENT'}))bases.push(merge(base,n,{end:n.end}));
+  return bases;
+ }
+ function parseAPAtom(start,{attributive=false,depth=0,determiner=null}={}) {
+  const compared=comparisonPhrase(start,{attributive,depth,determiner});if(compared!==null)return compared;
   tick();let p=start;const degrees=[];
   while(isDegree(p)){degrees.push(p++);tick();}
   if(!hasRole(p,'ADJECTIVE')){
@@ -81,9 +123,9 @@ export function parseSupportedClause(tokens,registry) {
    out.push(phrase('NP',start,start+1,start,{npRole,features:{person:f.grammaticalFeatures.person??3,number:f.grammaticalFeatures.number??'SINGULAR'},issues,roles:[role(start,npRole)]}));
   }
   let p=start;let determinant=null;
-  if(hasRole(p,'DETERMINER')||hasRole(p,'POSSESSIVE_DETERMINER')){determinant=p++;}
+  if((hasRole(p,'DETERMINER')||hasRole(p,'POSSESSIVE_DETERMINER'))&&!(snow&&['more','most'].includes(word(p))&&hasRole(p+1,'ADJECTIVE'))){determinant=p++;}
   const aps=[];
-  while(true){const ap=parseAP(p,{attributive:true,depth})[0];if(!ap)break;aps.push(ap);p=ap.end;}
+  while(true){const ap=parseAP(p,{attributive:true,depth,determiner:determinant})[0];if(!ap)break;aps.push(ap);p=ap.end;}
   if(hasRole(p,'NOUN_HEAD')) {
    const noun=tok(p);const f=noun.forms.find(f=>f.allowedRoleCandidates.includes('NOUN_HEAD'));
    const nounAps=desert?aps.map(ap=>({...ap,hits:ap.hits.map(h=>h.tag==='MODIFIER.ADJECTIVE'&&h.modifierCardIds?{...h,targetCardIds:[tok(p).cardInstanceId]}:h),children:ap.children.map(n=>n.nonfinite?{...n,nonfinite:{...n.nonfinite,controllerHead:p}}:n)})):aps;
@@ -99,7 +141,9 @@ export function parseSupportedClause(tokens,registry) {
     const next=word(determinant+1);const needsAn=/^[aeiou]/.test(next)&&!['useful','usually'].includes(next);
     if((word(determinant)==='an')!==needsAn)issues.push(issue('ARTICLE_FORM',[determinant,determinant+1]));
    }
+   if(snow&&determinant!==null&&['more','most','enough'].includes(word(determinant))&&features.number==='SINGULAR'&&features.countability==='COUNT')issues.push(issue('DETERMINER_NUMBER_AGREEMENT',[determinant,p]));
    const np=phrase('NP',start,p+1,p,{npRole,features,issues:[...issues,...nounAps.flatMap(ap=>ap.issues)],hits:nounAps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...nounAps.flatMap(ap=>ap.roles),role(p,npRole)],children:nounAps,...(desert&&determinant===null&&ingAt(start)?{interpretationPriority:2}:{})});
+   if(snow&&determinant!==null&&['more','most','enough'].includes(word(determinant)))np.hits.push({...hit(`QUANTIFIER.${word(determinant).toUpperCase()}`,determinant,p+1,p),markerCardIds:[tok(determinant).cardInstanceId],comboImplemented:false});
    out.push(np);
    if(desert&&depth<limits.depth){
     if(word(np.end)==='to')for(const n of nonfiniteOptions(np.end,tokens.length,depth,{kind:'TO',function:'NOUN_MODIFIER',objectGap:np}))out.push(merge(np,n,{end:n.end,attachment:'NOUN_POSTMODIFIER'}));
@@ -138,17 +182,19 @@ export function parseSupportedClause(tokens,registry) {
  }
  function advPhrase(i){return phrase('AdvP',i,i+1,i,{hits:[hit('MODIFIER.ADVERB',i,i+1)],roles:[role(i,'ADVERB')]});}
  function parseAdvPAtom(start,position) {
+  const compared=comparisonPhrase(start,{kind:'AdvP',position,depth:1});if(compared!==null)return compared.sort((a,b)=>b.end-a.end)[0]??null;
   tick();let p=start;
   while(isDegree(p))p++;
   if(p>start&&advAllowed(p,position)&&['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p)))return phrase('AdvP',start,p+1,p,{
    hits:Array.from({length:p-start+1},(_,n)=>hit('MODIFIER.ADVERB',start+n,start+n+1)),
    roles:Array.from({length:p-start+1},(_,n)=>role(start+n,'ADVERB')),
   });
-  return advAllowed(start,position)?advPhrase(start):null;
+  const base=advAllowed(start,position)?advPhrase(start):null;
+  if(base&&snow&&word(start)==='twice')base.hits.push({...hit('ADVERB.TWICE',start,start+1),markerCardIds:[tok(start).cardInstanceId],comboImplemented:false});return base;
  }
  function parseAdverbRun(start,position,{recoverVery=false}={}) {
   let p=start;let combined=phrase('ADVERBS',start,start,start);const variants=[combined];
-  while(tok(p)?.lex.pos==='ADVERB') {
+  while(tok(p)?.lex.pos==='ADVERB'||snow&&['more','most','as','too'].includes(word(p))) {
    const adverb=parseAdvP(p,position);
    if(adverb){combined=merge(combined,adverb,{end:adverb.end});p=adverb.end;}
    else if(recoverVery&&word(p)==='very'&&tokens.slice(p).find(t=>t.surface.toLowerCase()!=='very')?.lex.pos==='VERB'){

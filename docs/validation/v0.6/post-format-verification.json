@@ -1,0 +1,10 @@
+{
+  "buildExitCode": 0,
+  "finished": "2026-10-09T00:08:18.7626926+09:00",
+  "testExitCode": 0,
+  "change": "CRLF to LF only in new authored text files",
+  "tests": 851,
+  "failures": 0,
+  "skips": 0,
+  "testedProductionBuildUnchanged": true
+}

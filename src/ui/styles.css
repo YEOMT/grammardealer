@@ -160,3 +160,11 @@ body:has(.desert-page){background:radial-gradient(ellipse at bottom,#9f79474d,tr
 
 .grammar-entry .grammar-description{font-size:15px;line-height:1.5}.grammar-entry>p:not(.grammar-description){font-size:13px}.dictionary-entry .word-heading{font-size:20px}
 @media(max-width:1100px){.grammar-entry .grammar-description{font-size:14px}}
+
+/* Same physical card footprint; temporary ownership is visible in every pile. */
+.word-card.frost-card{border-color:#9ddff1;box-shadow:inset 0 0 9px #8acfea44}
+.frost-card .card-footline>span:first-child{font-size:9px;color:#22556a;white-space:nowrap;line-height:1.1}
+.frost-duration{display:block;text-align:center;font-size:9px;line-height:1.25;color:#22556a;white-space:nowrap;letter-spacing:-.3px}
+.frost-crystals{font-size:12px;color:#bdefff;line-height:1.4}
+.snow-combat .enemy-area{background:linear-gradient(110deg,#182d3b,#16202e)}
+.snow-tools .canyon-focus{font-size:11px}

@@ -1,0 +1,133 @@
+{
+  "version": "0.6.0",
+  "count": 15,
+  "cases": [
+    {
+      "id": "B001",
+      "hpBefore": 1280,
+      "crystalsBefore": 5,
+      "power": 1500,
+      "eligibleFrostCount": 0,
+      "expectedHpAfter": 1,
+      "expectedCrystalsAfter": 5,
+      "expectedKilled": false
+    },
+    {
+      "id": "B002",
+      "hpBefore": 1280,
+      "crystalsBefore": 5,
+      "power": 300,
+      "eligibleFrostCount": 2,
+      "expectedHpAfter": 980,
+      "expectedCrystalsAfter": 3,
+      "expectedKilled": false
+    },
+    {
+      "id": "B003",
+      "hpBefore": 300,
+      "crystalsBefore": 3,
+      "power": 900,
+      "eligibleFrostCount": 2,
+      "expectedHpAfter": 1,
+      "expectedCrystalsAfter": 1,
+      "expectedKilled": false
+    },
+    {
+      "id": "B004",
+      "hpBefore": 1,
+      "crystalsBefore": 1,
+      "power": 100,
+      "eligibleFrostCount": 1,
+      "expectedHpAfter": 0,
+      "expectedCrystalsAfter": 0,
+      "expectedKilled": true
+    },
+    {
+      "id": "B005",
+      "hpBefore": 1280,
+      "crystalsBefore": 5,
+      "power": 2000,
+      "eligibleFrostCount": 5,
+      "expectedHpAfter": 0,
+      "expectedCrystalsAfter": 0,
+      "expectedKilled": true
+    },
+    {
+      "id": "B006",
+      "hpBefore": 500,
+      "crystalsBefore": 2,
+      "power": 600,
+      "eligibleFrostCount": 3,
+      "expectedHpAfter": 0,
+      "expectedCrystalsAfter": 0,
+      "expectedKilled": true,
+      "note": "파괴 수는 남은 2개로 clamp"
+    },
+    {
+      "id": "B007",
+      "hpBefore": 1,
+      "crystalsBefore": 2,
+      "power": 500,
+      "eligibleFrostCount": 1,
+      "expectedHpAfter": 1,
+      "expectedCrystalsAfter": 1,
+      "expectedKilled": false
+    },
+    {
+      "id": "B008",
+      "hpBefore": 1,
+      "crystalsBefore": 0,
+      "power": 10,
+      "eligibleFrostCount": 0,
+      "expectedHpAfter": 0,
+      "expectedCrystalsAfter": 0,
+      "expectedKilled": true
+    },
+    {
+      "id": "B009",
+      "analysisStatus": "INVALID_CORE",
+      "eligibleFrostCount": 2,
+      "expectedCrystalBreak": 0
+    },
+    {
+      "id": "B010",
+      "analysisStatus": "VALID_WITH_ISSUES",
+      "frostCardExcluded": false,
+      "power": 50,
+      "eligibleFrostCount": 1,
+      "expectedCrystalBreak": 1
+    },
+    {
+      "id": "B011",
+      "analysisStatus": "VALID_WITH_ISSUES",
+      "frostCardExcluded": true,
+      "power": 50,
+      "eligibleFrostCount": 1,
+      "expectedCrystalBreak": 0
+    },
+    {
+      "id": "B012",
+      "sourceCardKind": "PERMANENT_WORD",
+      "lemma": "more",
+      "expectedCrystalBreak": 0
+    },
+    {
+      "id": "B013",
+      "sourceCardKind": "BATTLE_TEMPORARY",
+      "lemma": "more",
+      "sentence": "I need more water.",
+      "expectedCrystalBreak": 1
+    },
+    {
+      "id": "B014",
+      "replaySameAttackId": true,
+      "expectedAdditionalCrystalBreak": 0,
+      "expectedAdditionalDamage": 0
+    },
+    {
+      "id": "B015",
+      "saveLoad": true,
+      "expected": "crystal_state_and_attack_receipts_preserved"
+    }
+  ]
+}

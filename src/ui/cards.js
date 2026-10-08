@@ -19,6 +19,7 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   }
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
   node.append(body);
+  if(model.temporary){node.classList.add('frost-card');node.dataset.temporary='true';body.querySelector('.card-footline span').textContent='빙정';body.append(el('span',{class:'frost-duration',text:'이번 전투 한정'}));node.title+=' · 공격 제출 시 파괴 · 전투 종료 시 소멸';}
   if(sealed)body.append(el('span',{class:'seal-badge',text:TURN_HAND_SEAL_LABEL,'aria-hidden':'true'}));
   if(onSelect&&!readonly){
     node.classList.add('selectable-card');
@@ -34,6 +35,9 @@ export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRe
   if(forms.some(f=>f.grammaticalFeatures.tense==='PAST')){
     const groups=[['현재 / 원형',f=>!isIngForm(f)&&!['PAST','PAST_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사(p.p.)',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['-ing형',f=>isIngForm(f)]];
     const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...groups.map(([label,match])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>match(f)?[buttons[i]]:[])))));
+  }
+  if(['ADJECTIVE','ADVERB'].includes(model.pos)&&forms.some(f=>f.grammaticalFeatures.degree==='COMPARATIVE')){
+    const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...[['원급','POSITIVE'],['비교급','COMPARATIVE'],['최상급','SUPERLATIVE']].map(([label,degree])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>f.grammaticalFeatures.degree===degree?[buttons[i]]:[])))));
   }
   const extras = el('div', { class: 'dialog-actions wrap' }, onMoveLeft && button('← 왼쪽으로', () => { view.close(); onMoveLeft(); }, 'secondary'), onMoveRight && button('오른쪽으로 →', () => { view.close(); onMoveRight(); }, 'secondary'), onSwap && button('손패와 맞교환', () => { view.close(); onSwap(); }, 'secondary'), onCopy && button('한 장 복사', () => { view.close(); onCopy(); }, 'secondary'), onRemove && button('카드 회수', () => { view.close(); onRemove(); }, 'secondary'));
   view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 확정 뒤에 진행합니다.' }), choices,forms.some(f=>isIngForm(f))&&el('p',{class:'helper ing-form-guide',text:ING_FORM_GUIDE}), extras]);

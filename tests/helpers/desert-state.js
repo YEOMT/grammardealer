@@ -32,7 +32,7 @@ export function advanceAssigned(c,{stopAtBattle=null,stopStatus=null}={}){
    const text=phase==='PAST'?'I had played games':phase==='PRESENT'?'I have played games':phase==='FUTURE'?'I will have played games':'I had played games and she will have played music';
    const r=assignedAttack(c,text);if(r.actualHpLoss<=0)throw Error('Assigned boundary attack did no damage');if(c.getState().status==='REWARD')battles.push(s.progress.battleNumber);
   }else if(s.status==='REWARD')act(c,{type:'SKIP_REWARD',offerId:s.reward.offerId});else act(c,{type:s.status==='STAGE_CLEAR'?'NEXT_STAGE':'NEXT_BATTLE'});
-  validateRunState(c.getState(),registryForVersion('0.5.0'));states.push(c.getState());
+  validateRunState(c.getState(),registryForVersion(c.getState().version));states.push(c.getState());
  }throw Error('Assigned 22-boundary guard exceeded');
 }
 export function assignedSphinx(seed='desert.seal'){const c=newDesert(seed);advanceAssigned(c,{stopAtBattle:22});return c;}

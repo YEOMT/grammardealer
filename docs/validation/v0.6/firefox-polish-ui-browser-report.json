@@ -1,0 +1,89 @@
+{
+  "engine": "firefox",
+  "platform": "win32",
+  "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+  "checks": [
+    {
+      "id": "SKIP_CANCEL",
+      "status": "PASS",
+      "evidence": "actual initial confirmation, no card/RNG mutation"
+    },
+    {
+      "id": "INITIAL_SKIP",
+      "status": "PASS",
+      "evidence": "actual UI skip starts normal S1-1"
+    },
+    {
+      "id": "SKIP_INDEXEDDB",
+      "status": "PASS",
+      "evidence": "actual safe slot round trip"
+    },
+    {
+      "id": "CLICK_KEYBOARD_DRAG",
+      "status": "PASS",
+      "evidence": "real card motion commands"
+    },
+    {
+      "id": "EDUCATION_1366",
+      "status": "PASS",
+      "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+    },
+    {
+      "id": "ASSIGNED_LONG_RECORD_1366",
+      "status": "PASS",
+      "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+    },
+    {
+      "id": "EDUCATION_1280",
+      "status": "PASS",
+      "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+    },
+    {
+      "id": "ASSIGNED_LONG_RECORD_1280",
+      "status": "PASS",
+      "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+    },
+    {
+      "id": "EDUCATION_1024",
+      "status": "PASS",
+      "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+    },
+    {
+      "id": "ASSIGNED_LONG_RECORD_1024",
+      "status": "PASS",
+      "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+    },
+    {
+      "id": "ZOOM_125",
+      "status": "PASS",
+      "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+    },
+    {
+      "id": "HER_ALIASES",
+      "status": "PASS",
+      "evidence": "assigned old object/possessive selections show one current her button"
+    },
+    {
+      "id": "ASSIGNED_OPERATION_SAVE",
+      "status": "PASS",
+      "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+    },
+    {
+      "id": "REPLAY_ISOLATION",
+      "status": "PASS",
+      "evidence": "independent controller, actual UI close"
+    }
+  ],
+  "captures": [
+    "skipped-normal-first-hand.png",
+    "codex-1366.png",
+    "assigned-long-record-1366.png",
+    "codex-1280.png",
+    "assigned-long-record-1280.png",
+    "codex-1024.png",
+    "assigned-long-record-1024.png",
+    "codex-zoom125.png"
+  ],
+  "errors": [],
+  "browserVersion": "135.0"
+}

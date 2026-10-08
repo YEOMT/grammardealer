@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {baseline05} from './helpers/polish-baseline.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-051-controller.js';
 import {validateRunState,newProfile} from '../src/services/localStore.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {hasDesertCampaign,campaignBattleCount} from '../src/data/campaignFeatures.js';

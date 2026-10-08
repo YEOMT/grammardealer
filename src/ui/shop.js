@@ -1,3 +1,4 @@
+import {FROST_HINT} from '../data/stage6.js';
 import {SKY_SHIELD_HINT} from '../data/stage4.js';
 import {runeView,bindRuneDrag} from './runes.js';
 import { el, button, modal, confirmDialog } from './dom.js';
@@ -13,7 +14,7 @@ let commandSerial=0;
 /** Render a frozen shop. Opening/cancelling dialogs never dispatches a transaction. */
 export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onSaves,onLobby}={}){
   const runeDescription=(r,l)=>describeRuneForUI(r,l,state.version);
-  const shop=state.shop,sky=shop.stageId==='stage.04',gold=state.economy.gold,grant=state.entryGrants?.[shop.stageId];
+  const shop=state.shop,snow=shop.stageId==='stage.06',sky=shop.stageId==='stage.04',gold=state.economy.gold,grant=state.entryGrants?.[shop.stageId];
   let pending=false;
   const orderRunes=(from,to)=>{if(pending||document.querySelector('dialog[open]'))return;const ids=[...state.runes.orderedInstanceIds];ids.splice(to,0,...ids.splice(from,1));command({type:'REORDER_RUNES',instanceIds:ids,expectedRevision:state.revision});};
   const transaction=async(type,fields)=>{
@@ -67,7 +68,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
         !item.purchased&&level>0&&el('small',{text:`현재: ${runeDescription(def,level)}`}),el('p',{text:`${item.purchased?'구매 효과':'획득 후'}: ${runeDescription(def,item.purchased?item.offeredLevel:nextLevel)}`})];
     }else{
       const model=cardModel({instanceId:`shop.preview.${item.itemId}`,cardDefId:item.cardDefId,polishLevel:0},null,state.version);
-      detail=[wordCard(model,{readonly:true}),el('p',{text:item.role==='LOCAL_SYNTAX_RELEVANT'?(sky?'절 연결에 사용할 단어 카드 한 장':'항구 문장에 사용할 단어 카드 한 장'):(model.cardKind==='OPERATION'?'손패에서 사용하는 운영 카드':'현재 지원하는 단어 카드 한 장')}),el('small',{text:model.descriptionKo??model.glossKo})];
+      detail=[wordCard(model,{readonly:true}),el('p',{text:item.role==='LOCAL_SYNTAX_RELEVANT'?(snow?'비교·정도에 사용할 단어 카드 한 장':sky?'절 연결에 사용할 단어 카드 한 장':'항구 문장에 사용할 단어 카드 한 장'):(model.cardKind==='OPERATION'?'손패에서 사용하는 운영 카드':'현재 지원하는 단어 카드 한 장')}),el('small',{text:model.descriptionKo??model.glossKo})];
     }
     return el('article',{class:'shop-item panel',dataset:{itemId:item.itemId,itemKind:item.kind,purchased:String(item.purchased)}},...detail,
       el('strong',{class:'shop-price',text:item.purchased?'구매 완료':`${item.price} 재화`}),
@@ -82,18 +83,18 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
   root.replaceChildren(el('header',{class:'topbar shop-topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),
     el('nav',{},button('내 덱',onDeck,'quiet'),button('단어 사전',onDictionary,'quiet'),button('도감',onRecords,'quiet'),button('저장',onSaves,'quiet'),button('로비',onLobby,'quiet'))),
     el('main',{class:'shop-page harbor-page'},
-      el('header',{class:'shop-heading'},el('div',{},el('span',{class:'eyebrow',text:sky?'CHAPTER 04 · SECOND SHOP':'CHAPTER 02 · FIRST SHOP'}),el('h1',{text:sky?'이음의 하늘섬 · 두 번째 상점':'전달의 항구 · 첫 상점'})),
+      el('header',{class:'shop-heading'},el('div',{},el('span',{class:'eyebrow',text:snow?'CHAPTER 06 · THIRD SHOP':sky?'CHAPTER 04 · SECOND SHOP':'CHAPTER 02 · FIRST SHOP'}),el('h1',{text:snow?'거울의 설원 · 세 번째 상점':sky?'이음의 하늘섬 · 두 번째 상점':'전달의 항구 · 첫 상점'})),
         el('div',{class:'shop-resources'},el('strong',{text:`${gold} 재화`,dataset:{shopGold:String(gold)}}),el('span',{text:`현재 덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length} / ${state.runes.slotLimit}`}))),
-      el('details',{class:'shop-boss-hint'},el('summary',{text:sky?'하늘길의 문지기 · 연결의 보호막':'항구 수문장 · 보호 장막 공략'}),el('p',{text:sky?SKY_SHIELD_HINT:HARBOR_BOSS_HINT}),el('small',{text:sky?'단어·구 연결과 관계절은 연결의 보호막을 해제하지 않습니다.':'SVO+to/for는 3형식으로 장막을 해제하지 않습니다.'})),
+      el('details',{class:'shop-boss-hint'},el('summary',{text:snow?'거울뿔 사슴 · 빙결핵 5개':sky?'하늘길의 문지기 · 연결의 보호막':'항구 수문장 · 보호 장막 공략'}),el('p',{text:snow?FROST_HINT:sky?SKY_SHIELD_HINT:HARBOR_BOSS_HINT}),el('small',{text:snow?'일반 영구 카드는 결정을 깨지 않습니다. 특정 비교 문장 순서는 필요하지 않습니다.':sky?'단어·구 연결과 관계절은 연결의 보호막을 해제하지 않습니다.':'SVO+to/for는 3형식으로 장막을 해제하지 않습니다.'})),
       state.runes.orderedInstanceIds.length>0&&el('details',{class:'shop-equipped'},el('summary',{text:'현재 장착 룬 설명'}),
         el('div',{class:'shop-equipped-grid'},state.runes.orderedInstanceIds.map((id,index)=>runeView(state.runes.instances[id],{index,total:state.runes.orderedInstanceIds.length,version:state.version,onOrder:orderRunes})))),
       grant&&el('section',{class:`entry-grant ${animateGrant?'entry-grant-arriving':''}`,dataset:{entryGrantId:grant.entryGrantId}},
-        el('div',{},el('strong',{text:grant.cardInstanceIds.length?`입장 준비 완료 · ${grant.cardInstanceIds.length}장이 덱에 들어갔습니다`:'입장 준비 완료 · 필요한 동사와 연결 카드가 이미 있습니다'}),
-          el('p',{text:'입장 지급은 이번 원정에서 한 번입니다. 상점을 나올 때 전체 덱을 섞습니다.'}),grant.warningKo&&el('p',{class:'entry-warning',text:grant.warningKo})),
+        el('div',{},el('strong',{text:snow?'전투 한정 빙정 공급 준비 완료':grant.cardInstanceIds.length?`입장 준비 완료 · ${grant.cardInstanceIds.length}장이 덱에 들어갔습니다`:'입장 준비 완료 · 필요한 동사와 연결 카드가 이미 있습니다'}),
+          el('p',{text:snow?'빙정 WORD는 각 전투 시작에 임시 공급됩니다. 영구 덱은 늘어나지 않습니다.':'입장 지급은 이번 원정에서 한 번입니다. 상점을 나올 때 전체 덱을 섞습니다.'}),grant.warningKo&&el('p',{class:'entry-warning',text:grant.warningKo})),
         el('div',{class:'entry-grant-cards'},grant.cardInstanceIds.filter(id=>state.cardInstances[id]).map(id=>wordCard(cardModel(state.cardInstances[id],null,state.version),{readonly:true,compact:true})))),
       el('section',{class:'shop-inventory','aria-label':'고정된 상점 상품'},inventory),
       el('section',{class:'shop-services','aria-label':'상점 서비스'},services),
       el('footer',{class:'shop-footer'},el('p',{class:'helper',text:'상품은 다시 열어도 바뀌지 않습니다. 상점을 나가면 이번 방문은 끝납니다.'}),
-        button('상점 나가기 · 첫 전투',()=>confirmDialog('상점을 나가시겠습니까?','이 방문은 끝나며 다시 돌아올 수 없습니다. 현재 덱을 섞고 '+(sky?'하늘섬':'항구')+' 첫 전투를 시작합니다.','전투 시작',()=>transaction('LEAVE_SHOP',{})),'primary',{id:'leave-shop'}))));
+        button('상점 나가기 · 첫 전투',()=>confirmDialog('상점을 나가시겠습니까?','이 방문은 끝나며 다시 돌아올 수 없습니다. 현재 덱을 섞고 '+(snow?'설원':sky?'하늘섬':'항구')+' 첫 전투를 시작합니다.','전투 시작',()=>transaction('LEAVE_SHOP',{})),'primary',{id:'leave-shop'}))));
   return bindRuneDrag(root.querySelector('.shop-equipped-grid')??root,orderRunes,{enabled:()=>!pending});
 }

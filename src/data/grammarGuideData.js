@@ -1,6 +1,11 @@
 import {isIngForm} from './language/desertLanguage.js';
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'COMPARISON.COMPARATIVE':{label:'비교급',description:'형용사·부사의 비교급으로 정도를 비교합니다. than 뒤에는 비교 기준이 옵니다.',examples:[]},
+ 'COMPARISON.SUPERLATIVE':{label:'최상급',description:'비교 범위에서 가장 높은 정도를 나타냅니다. 형용사 최상급에는 the나 소유 한정사 등이 필요합니다.',examples:[]},
+ 'COMPARISON.EQUALITY':{label:'동등 비교',description:'as + 원급 + as로 정도가 같음을 나타냅니다. twice as ~ as는 두 배의 정도입니다.',examples:[]},
+ 'DEGREE.TOO':{label:'too + 형용사·부사',description:'지나친 정도를 나타냅니다. 뒤의 to부정사는 그 정도와 관련된 행동을 나타낼 수 있습니다.',examples:[]},
+ 'DEGREE.ENOUGH':{label:'형용사·부사 + enough',description:'충분한 정도를 나타냅니다. enough + 명사는 수량 표현으로 구분합니다.',examples:[]},
  'FRAME.SVOC':{label:'5형식 S+V+O+C',description:'목적격보어가 목적어의 상태·정체·행동을 설명합니다.',examples:['I want you to read books.','I make you happy.']},
  'CLAUSE.INFINITIVE':{label:'to부정사',description:'to와 동사 원형으로 행동을 문장의 재료로 쓰거나 다른 말을 설명합니다.',examples:['To read books is good.','I want to read books.']},
  'CLAUSE.GERUND':{label:'동명사',description:'-ing형으로 된 구가 주어·목적어·보어 등 명사 역할을 합니다.',examples:['Reading books is good.','I enjoy reading books.','My hobby is reading books.']},

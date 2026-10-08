@@ -1,10 +1,11 @@
 import {addSkyLanguage} from './skyLanguage.js';
 import {addDesertLanguage} from './desertLanguage.js';
+import {addSnowLanguage} from './snowLanguage.js';
 import {addTimeLanguage} from './timeLanguage.js';
 import {addLearningFrames} from './learningFrames.js';
 import { authoredLexemes } from './seed.js';
 
-export const LANGUAGE_VERSION = '0.5.0';
+export const LANGUAGE_VERSION = '0.6.0';
 const presentCapability = ['cap.present.basic'];
 const freeze = (value) => {
   if (value && typeof value === 'object' && !Object.isFrozen(value)) {
@@ -124,7 +125,8 @@ export const campaign022Registry = freeze(addLearningFrames(campaign021Registry)
 export const campaign03Registry = freeze(addTimeLanguage(campaign022Registry));
 export const campaign04Registry = freeze(addSkyLanguage(campaign03Registry));
 export const campaign05Registry = freeze(addDesertLanguage(campaign04Registry));
-export const registry = campaign05Registry;
+export const campaign06Registry = freeze(addSnowLanguage(campaign05Registry));
+export const registry = campaign06Registry;
 export const languageRegistry = registry;
 
 // A small ordered content view keeps old saves' future draws and grammar scope stable.

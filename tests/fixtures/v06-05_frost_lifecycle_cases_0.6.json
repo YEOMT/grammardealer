@@ -1,0 +1,154 @@
+{
+  "version": "0.6.0",
+  "count": 20,
+  "cases": [
+    {
+      "id": "F001",
+      "action": "BATTLE_START_6_1",
+      "expectedTemporaryDefs": [
+        "card.than",
+        "card.more"
+      ],
+      "openingMinimum": 1
+    },
+    {
+      "id": "F002",
+      "action": "BATTLE_START_6_2",
+      "expectedTemporaryDefs": [
+        "card.most",
+        "card.the"
+      ],
+      "openingMinimum": 1
+    },
+    {
+      "id": "F003",
+      "action": "BATTLE_START_6_3",
+      "expectedTemporaryDefs": [
+        "card.as",
+        "card.as",
+        "card.twice"
+      ],
+      "openingMinimum": 1
+    },
+    {
+      "id": "F004",
+      "action": "BATTLE_START_6_4",
+      "expectedTemporaryDefs": [
+        "card.too",
+        "card.enough",
+        "card.to"
+      ],
+      "openingMinimum": 1
+    },
+    {
+      "id": "F005",
+      "action": "BATTLE_START_6_5",
+      "expectedTemporaryDefs": [
+        "card.than",
+        "card.as",
+        "card.as",
+        "card.more",
+        "card.most",
+        "card.too",
+        "card.enough",
+        "card.twice"
+      ],
+      "openingMinimum": 2
+    },
+    {
+      "id": "F006",
+      "action": "ADD_CARD",
+      "temporaryCard": "hand",
+      "expected": "sentence",
+      "consumed": false
+    },
+    {
+      "id": "F007",
+      "action": "RETURN_CARD",
+      "temporaryCard": "sentence",
+      "expected": "hand",
+      "consumed": false
+    },
+    {
+      "id": "F008",
+      "action": "EXCHANGE",
+      "temporaryCard": "hand",
+      "expected": "discard",
+      "consumed": false
+    },
+    {
+      "id": "F009",
+      "action": "RESHUFFLE",
+      "temporaryCard": "discard",
+      "expected": "draw_or_hand",
+      "consumed": false
+    },
+    {
+      "id": "F010",
+      "action": "SEARCH_OPERATION",
+      "temporaryCard": "draw",
+      "expected": "selectable"
+    },
+    {
+      "id": "F011",
+      "action": "SUPPLY_OPERATION",
+      "temporaryCard": "draw",
+      "expected": "drawn_by_normal_rule"
+    },
+    {
+      "id": "F012",
+      "action": "SUBMIT_VALID",
+      "temporaryCard": "sentence",
+      "expected": "shattered",
+      "crystalEligible": true
+    },
+    {
+      "id": "F013",
+      "action": "SUBMIT_VALID_WITH_UNRELATED_ISSUE",
+      "temporaryCard": "sentence",
+      "expected": "shattered",
+      "crystalEligible": true
+    },
+    {
+      "id": "F014",
+      "action": "SUBMIT_WITH_FROST_CARD_ISSUE",
+      "temporaryCard": "sentence",
+      "expected": "shattered",
+      "crystalEligible": false
+    },
+    {
+      "id": "F015",
+      "action": "SUBMIT_INVALID_CORE",
+      "temporaryCard": "sentence",
+      "expected": "shattered",
+      "crystalEligible": false
+    },
+    {
+      "id": "F016",
+      "action": "PREPARE",
+      "temporaryCard": "hand",
+      "expected": "stays_or_normal_draw",
+      "consumed": false
+    },
+    {
+      "id": "F017",
+      "action": "SAVE_LOAD_TURN1",
+      "expected": "same_ids_same_piles_same_rng"
+    },
+    {
+      "id": "F018",
+      "action": "SAVE_LOAD_AFTER_SHATTER",
+      "expected": "same_shattered_ids_no_respawn"
+    },
+    {
+      "id": "F019",
+      "action": "VICTORY_CLEANUP",
+      "expected": "all_temporary_instances_removed"
+    },
+    {
+      "id": "F020",
+      "action": "NEXT_BATTLE",
+      "expected": "fresh_battle_scoped_ids_no_previous_ids"
+    }
+  ]
+}

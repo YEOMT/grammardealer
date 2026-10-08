@@ -1,3 +1,15 @@
+## 0.6 개발 인계
+
+기준은 작업 시작 때 fetch한 `origin/main`의 `94aedf6610ddceacafca832e7554def5a4bc6a65`(0.5.1 병합)이며 시작 checkout은 clean이었다. 작업 브랜치는 `codex/v0.6-mirror-snowfield-frost-cards`다. 첨부 ZIP/외부 MD의 같은 명세를 `spec/0.6_MIRROR_SNOWFIELD.md`에 보존했다. JSON 기대값과 이번 실제 실행 결과는 별개다.
+
+새 문법/형태 view는 snowLanguage, 임시 WORD의 공급·영역·수명은 frostCards, 마지막 보스의 순수 상태 제안은 frostCrystalLock이 담당한다. RunController만 카드·HP·결정·보상·완료를 커밋한다. Stage6 입장에는 영구 단어를 지급하지 않으며 2룬/3카드의 세 번째 상점을 거친다. STAGE5_CLEAR는 새 원정에 비교/정도 점수 자격, STAGE6_CLEAR는 일반 새 단어 보상과 최고 지역6을 해금한다.
+
+`TEST_REPORT_0.6.md`, `ACCEPTANCE_0.6.md`, 형태·빙정 수명·보스 검토 문서를 먼저 확인한다. 기존 저장은 자동 업그레이드하지 않는다. 원본 0.5.1 소스로 별도 생성한 registry/덱/보상/상점/공격 golden은 현재 소스로 다시 만들지 않는다. QA의 과거 버전 Controller helper는 버전 필드 전체를 고정한다.
+
+main 병합·공개 배포는 별도 승인 범위다. 다음 작업도 최신 main에서 독립 브랜치를 만들고 미커밋 작업을 보존한다.
+
+아래는 이전 인계 기록이다.
+
 ## 0.5.1 Core Polish 인계
 
 작업 시작 최신 origin/main `2c03b2492b21f2bca27f10718e35bc4e291861bb`에 0.5 PR #7이 병합되어 있었고 미커밋 변경은 없었다. `codex/v0.5.1-core-polish`에서 작업한다. 외부 MD와 ZIP 내부 명세는 SHA256이 같았으며 `spec/0.5.1_CORE_POLISH.md`가 구현 근거다. JSON/부속 자체검사는 기대값으로만 취급한다.

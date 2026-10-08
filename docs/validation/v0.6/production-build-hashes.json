@@ -1,0 +1,10 @@
+{
+  "version": "0.6.0",
+  "testedBy": "final3 npm.cmd run test:e2e",
+  "files": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "index.html": "8200eac8755622b01bdf2c08753d39318bbdf0ef6bd3ddc489745540c7ca9669",
+    "assets/index-Cbp1ayoS.js": "7255221c8f09d38fc25075b2a3b0fa7b123cd2a739acdfe7244d3705e581eeba",
+    "assets/index-Dq7YHmZN.css": "66288c0b8b4ed330990bc404d9d4cd6052f764cb1f514d8c0508ecd741d90b18"
+  }
+}

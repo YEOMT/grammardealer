@@ -1,3 +1,15 @@
+## Syntax Atlas 0.6.0 · 거울의 설원
+
+새 0.6 원정은 총 27전투입니다. 비교급·최상급·as ~ as·too/enough, 전투 한정 빙정 WORD, 설원 입구의 세 번째 상점과 빙결핵 5개 보스를 추가합니다. 0.5.1 이하 원정은 원래 카드·HP·룬·RNG·완료 경계를 유지합니다.
+
+[변경 내역](docs/PATCH_NOTES_0.6_KO.md) · [실제 검증과 한계](docs/TEST_REPORT_0.6.md) · [173개 인수 조건](docs/ACCEPTANCE_0.6.md). 새 문법은 해금 전에도 정답이며 비교 콤보는 해당 원정의 Stage 5 완료 후 열립니다. 일반 비교 단어의 정규 보상은 Stage 6 완료로 해금됩니다.
+
+빙정은 손패에서 조합·교환·보급·탐색할 수 있습니다. 제출하면 깨지고 전투 종료 시 제거됩니다. 보스 결정은 양수 위력의 정상 공격에 실제 사용한 결정 대상 빙정 사본 수만큼 깨집니다. 비교 문장 다섯 종류나 단어 순서를 강제하지 않습니다. 결정이 남으면 HP 1을 보존하며 마지막 결정을 깨는 공격부터 처치할 수 있습니다.
+
+검사: 기존 `npm test`, `npm run validate:data`, `npm run build`, 개발 서버의 `npm run test:browser`, production의 `npm run test:e2e`. 추가 `npm run test:decks:snow`, `npm run test:runs:snow`, `npm run test:browser:snow`. 자동 정책 완주율은 사람 승률이 아니며 지정 상태와 실제 UI 완주는 보고서에서 구분합니다. 내부 저장소 이름·DB·`/grammardealer/`는 그대로입니다. 이 브랜치의 push/PR은 공개 배포가 아닙니다.
+
+아래는 이전 버전 기록입니다.
+
 ## Syntax Atlas 0.5.1 · Core Polish
 
 새 콘텐츠 없이 기존 22전투의 핵심 타격·오버킬·튜토리얼 스킵과 교육/형태 UI를 정돈했습니다. 튜토리얼은 처음부터 건너뛸 수 있으며 보상 없이 정상 덱의 일반1-1을 시작합니다. 효과 감소와 OS 동작 줄이기는 서로 다른 설정입니다. 새 원정 후반 HP만 상향하고 구버전 저장은 원래 수치를 유지합니다.

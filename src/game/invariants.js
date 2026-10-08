@@ -4,6 +4,8 @@ import {validateOperationHistory} from './operationHistory.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
+import {validateFrostCards} from './frostCards.js';
+import {validateFrostCrystalLock} from '../engine/frostCrystalLock.js';
 
 const assert = (condition, message) => { if (!condition) throw new Error(`State invariant: ${message}`); };
 const nonnegative = value => Number.isSafeInteger(value) && value >= 0;
@@ -12,13 +14,14 @@ const nonnegative = value => Number.isSafeInteger(value) && value >= 0;
 export function assertCardConservation(activeCardIds, piles, cardInstances) {
   assert(Array.isArray(activeCardIds), 'activeCardIds must be an array');
   assert(new Set(activeCardIds).size === activeCardIds.length, 'duplicate active card ID');
-  const ids = [...piles.drawIds, ...piles.handIds, ...piles.sentenceSlots.map(slot => slot.cardInstanceId), ...piles.discardIds,...(piles.exhaustedIds??[])];
-  assert(ids.length === activeCardIds.length, 'pile count differs from active deck');
+  const ids = [...piles.drawIds, ...piles.handIds, ...piles.sentenceSlots.map(slot => slot.cardInstanceId), ...piles.discardIds,...(piles.exhaustedIds??[]),...(piles.shatteredTemporaryIds??[])];
+  const temporary=piles.temporaryCardIds??[];assert(!temporary.some(id=>activeCardIds.includes(id)),'temporary card permanently owned');
+  assert(ids.length === activeCardIds.length+temporary.length, 'pile count differs from active deck and temporary supply');
   assert(new Set(ids).size === ids.length, 'card occurs in more than one pile');
-  const active = new Set(activeCardIds);
+  const active = new Set([...activeCardIds,...temporary]);
   assert(ids.every(id => typeof id === 'string' && active.has(id)), 'unknown card in pile');
   if (cardInstances) {
-    for (const id of activeCardIds) {
+    for (const id of active) {
       assert(cardInstances[id]?.instanceId === id, `missing instance ${id}`);
     }
   }
@@ -36,6 +39,7 @@ export function assertCombatInvariants(activeCardIds, combat, cardInstances) {
   const hp = combat.enemyState?.hp ?? combat.enemyState?.hpRemaining;
   if (hp !== undefined) assert(nonnegative(hp), 'invalid enemy HP');
   if(combat.enemyState?.bossMechanic?.id==='TIME_GOLEM')validateTimeGolem(combat.enemyState);
+  if(combat.enemyState?.bossMechanic?.id==='FROST_CRYSTAL_LOCK')validateFrostCrystalLock(combat.enemyState);
   return true;
 }
 
@@ -55,6 +59,7 @@ export function assertRunInvariants(run, registry) {
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
+  validateFrostCards(run);
   if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);validateTurnHandSeal(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);

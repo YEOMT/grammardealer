@@ -1,4 +1,4 @@
-import {GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
+import {SNOW_GRAMMAR_DISPLAY as GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
 import {visibleForms,formLabel} from './formView.js';
 import {isIngForm} from '../data/language/desertLanguage.js';
 import {CLAUSE_ROLES,LINK_ROLES,CLAUSE_GUIDE} from '../data/grammarGuideData.js';
@@ -48,7 +48,7 @@ export function openDeck(state, kind = 'all') {
   const title = isDraw ? `드로우 ${models.length}장 · 순서는 공개하지 않음` : isDiscard ? `버린 카드 ${models.length}장` : isExhausted ? `사용 완료 ${models.length}장 · 다음 전투에 복귀` : `나의 덱 ${models.length}장`;
   const grid = el('div', { class: 'deck-grid' }, models.map((model, index) => el('div', { class: 'deck-entry' },
     wordCard(model, { readonly: true }),
-    el('small', { text: `${isDiscard && index === 0 ? '최근 버린 카드 · ' : ''}${zoneOf(state, model.id)} · ${model.cardKind==='OPERATION'?'운영 · 전투당 1회':'같은 단어 보유 '+(countByLexeme.get(model.lexemeId)??1)+'장'}` }),
+    el('small', { text: `${isDiscard && index === 0 ? '최근 버린 카드 · ' : ''}${zoneOf(state, model.id)} · ${model.cardKind==='OPERATION'?'운영 · 전투당 1회':(model.temporary?'이번 전투 전용 · 영구 보유 ':'같은 단어 보유 ')+(countByLexeme.get(model.lexemeId)??0)+'장'}` }),
   )));
   return modal(title, [small(isDraw ? '단어 이름순으로 정렬한 목록입니다. 다음에 뽑을 카드는 알 수 없습니다.' : isDiscard ? '가장 최근에 버린 카드부터 표시합니다. 이 화면에서는 카드를 이동하지 않습니다.' : '현재 원정에 남아 있는 실제 카드와 영역입니다. 이 화면에서는 카드를 이동하지 않습니다.'),
     models.length ? grid : small('현재 이 영역에 카드가 없습니다.')], { wide: true });
@@ -126,8 +126,9 @@ export function openRecords(profile, state) {
   const summary=el('div',{class:'record-grid'},...[[profile.bestAttack??0,'최고 공격위력'],[profile.totalActualDamage??0,'누적 실제 피해'],[profile.qualifiedRunIds?.length??0,'초원 완료 원정']].map(([value,label])=>el('div',{},el('strong',{text:number(value)}),el('span',{text:label}))));
   const available=[...GRAMMAR_DISPLAY].sort((a,b)=>a.order-b.order).map(g=>[g.tag,g]);
   const catalog=el('div',{class:'dictionary-grid'},available.map(([tag,guide])=>{
-   const record=records[tag];
-   const examples=['first','best'].map(kind=>({kind,value:displayLearningRecord(record?.[kind+'Complete']??record?.[kind+'Learning'])})).filter(x=>x.value?.complete&&x.value.scoreableTags.includes(tag));
+   const tags=[tag,...(guide.relatedTags??[])],entries=tags.map(t=>records[t]).filter(Boolean);
+   const record=entries.length?{count:entries.reduce((sum,r)=>sum+r.count,0),bestPower:Math.max(...entries.map(r=>r.bestPower))}:null;
+   const examples=entries.flatMap(entry=>['first','best'].map(kind=>({kind,value:displayLearningRecord(entry[kind+'Complete']??entry[kind+'Learning'])}))).filter(x=>x.value?.complete&&x.value.scoreableTags.some(t=>tags.includes(t)));
    return el('article',{class:'dictionary-entry grammar-entry',dataset:{grammarTag:tag}},el('h3',{class:'grammar-heading'},el('span',{text:guide.titleKo}),el('span',{class:'grammar-pattern',text:'('+guide.pattern+')'})),el('p',{class:'grammar-description',text:guide.shortDescriptionKo}),
     record?el('p',{text:'문법 누적 사용 '+number(record.count)+'회 · 당시 최고 위력 '+number(record.bestPower)}):small('아직 사용 기록이 없습니다.'),
     ...examples.map(({kind,value})=>el('section',{},el('small',{class:'record-metadata',text:kind==='first'?'처음 완성':'최고 완성 문장'}),el('p',{class:'player-sentence',text:value.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')}),el('details',{class:'learning-details'},el('summary',{text:'문법·위력 상세'}),learningBlock(value)))));
@@ -188,8 +189,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);
