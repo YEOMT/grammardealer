@@ -1,19 +1,22 @@
+import {hasSnowCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition} from '../data/cardCatalog.js';
 import {runeForVersion} from '../data/runes.js';
 const integer=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateSkyShops(run){
  const fail=()=>{throw Error('0.4 상점 방문·상품·서비스 기록이 잘못되었습니다.');};
- if(!Array.isArray(run.shopHistory)||run.shopHistory.length>1)fail();
+ if(!Array.isArray(run.shopHistory)||run.shopHistory.length>(hasSnowCampaign(run)?2:1))fail();
  const history=run.shopHistory,current=run.shop;
  if(!current){if(history.length||run.status==='SHOP'||run.progress.battleNumber>3&&!(run.progress.stageId==='stage.02'&&run.status==='STAGE_INTRO'))fail();return true;}
- if(current.stageId==='stage.04'&&!['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
+ if(hasSnowCampaign(run)){const index=['stage.02','stage.04','stage.06'].indexOf(current.stageId);const expected=run.progress.battleNumber<13?0:run.progress.battleNumber<23?1:2;const entering=run.status==='STAGE_INTRO'&&run.progress.roundIndex===0&&['stage.04','stage.06'].includes(run.progress.stageId);if(index!==(entering?expected-1:expected))fail();if(index<0||history.length!==index||history.some((s,i)=>s.stageId!==['stage.02','stage.04'][i]||!s.closed)||run.progress.battleNumber>=23&&run.status!=='STAGE_INTRO'&&index!==2)fail();}
+ else if(current.stageId==='stage.04'&&!['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
+ const third=current.stageId==='stage.06';if(third&&!hasSnowCampaign(run))fail();
  const second=current.stageId==='stage.04';
- if(second?(history.length!==1||history[0].stageId!=='stage.02'||!history[0].closed):history.length>0)fail();
+ if(!hasSnowCampaign(run)&&(second?(history.length!==1||history[0].stageId!=='stage.02'||!history[0].closed):history.length>0))fail();
  if((run.status==='SHOP')===current.closed)fail();
  let paid=0;
  for(const shop of [...history,current]){
-  const two=shop.stageId==='stage.04',runes=two?2:1,cards=two?3:2;
-  if(!['stage.02','stage.04'].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!=='0.4.0'||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
+  const two=['stage.04','stage.06'].includes(shop.stageId),runes=two?2:1,cards=two?3:2;
+  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!=='0.4.0'||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
   if(!Array.isArray(shop.inventory)||shop.inventory.length!==runes+cards||new Set(shop.inventory.map(x=>x.itemId)).size!==shop.inventory.length)fail();
   let operationCount=0;const content=new Set();
   for(const [i,item]of shop.inventory.entries()){

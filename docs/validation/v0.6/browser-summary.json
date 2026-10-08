@@ -1,0 +1,105 @@
+{
+  "kind": "CURRENT_OFFICIAL_14_SCRIPT_EXECUTION",
+  "exitCode": 0,
+  "scripts": [
+    {
+      "name": "input",
+      "checks": 3,
+      "captures": 0,
+      "kind": "",
+      "status": "PASS"
+    },
+    {
+      "name": "reward",
+      "checks": 4,
+      "captures": 0,
+      "kind": "Synthetic victory state using real physical deck and production reward generator/controller; no claim of gameplay victory",
+      "status": "PASS"
+    },
+    {
+      "name": "learning",
+      "checks": 4,
+      "captures": 0,
+      "kind": "",
+      "status": "PASS"
+    },
+    {
+      "name": "vfx",
+      "checks": 8,
+      "captures": 0,
+      "kind": "Real grammar/score resolutions in isolated renderer; hidden/fault deliberately injected",
+      "status": "PASS"
+    },
+    {
+      "name": "ui",
+      "checks": 41,
+      "captures": 25,
+      "kind": "",
+      "status": "PASS"
+    },
+    {
+      "name": "harbor",
+      "checks": 30,
+      "captures": 19,
+      "kind": "SYNTHETIC_UI_AND_CONTROLLER_FIXTURES_NOT_CAMPAIGN_COMPLETION",
+      "status": "PASS"
+    },
+    {
+      "name": "guided",
+      "checks": 47,
+      "captures": 27,
+      "kind": "ACTUAL_GUIDED_UI_WITH_SYNTHETIC_VISIBILITY_EVENT",
+      "status": "PASS"
+    },
+    {
+      "name": "grammar",
+      "checks": 28,
+      "captures": 28,
+      "kind": "SYNTHETIC_LEGAL_CARD_STATE_WITH_REAL_CONTROLLER_UI",
+      "status": "PASS"
+    },
+    {
+      "name": "canyon",
+      "checks": 23,
+      "captures": 18,
+      "kind": "ASSIGNED_STATE_UI_AND_ENGINE_PRESENTATION",
+      "status": "PASS"
+    },
+    {
+      "name": "foundation",
+      "checks": 6,
+      "captures": 4,
+      "kind": "ASSIGNED_FORMS_UI",
+      "status": "PASS"
+    },
+    {
+      "name": "operations",
+      "checks": 14,
+      "captures": 12,
+      "kind": "ASSIGNED_OPERATION_UI_NOT_CAMPAIGN_PLAY",
+      "status": "PASS"
+    },
+    {
+      "name": "sky",
+      "checks": 18,
+      "captures": 13,
+      "kind": "ASSIGNED_STATE_UI_NOT_CAMPAIGN",
+      "status": "PASS"
+    },
+    {
+      "name": "desert",
+      "checks": 36,
+      "captures": 20,
+      "kind": "ASSIGNED_DESERT_SEAL_AND_SUBMITTED_ROLE_UI",
+      "status": "PASS"
+    },
+    {
+      "name": "snow",
+      "checks": 29,
+      "captures": 19,
+      "kind": "ASSIGNED_PHYSICAL_CARDS_REAL_UI_AND_CONTROLLER_NOT_NATURAL_RUN",
+      "status": "PASS"
+    }
+  ],
+  "checks": 291
+}

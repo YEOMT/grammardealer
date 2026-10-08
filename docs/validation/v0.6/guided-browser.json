@@ -1,0 +1,275 @@
+{
+  "kind": "ACTUAL_GUIDED_UI_WITH_SYNTHETIC_VISIBILITY_EVENT",
+  "checks": [
+    {
+      "id": "ACTUAL_GATE_RESTART",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_SCROLL_TARGET",
+      "status": "PASS"
+    },
+    {
+      "id": "RESIZE_ORIENTATION_EVENT_TARGET",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_1",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_4",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_6",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_8",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_11",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_13",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_18",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_21",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_22",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_23",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_25",
+      "status": "PASS"
+    },
+    {
+      "id": "GUIDED_VISIBILITY_EVENT_NO_FINISH",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_30",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1366_31",
+      "status": "PASS"
+    },
+    {
+      "id": "COMPLETE_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_1",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_4",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_6",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_8",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_11",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_13",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_18",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_21",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_22",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_23",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_25",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_30",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1024_31",
+      "status": "PASS"
+    },
+    {
+      "id": "COMPLETE_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_1",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_4",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_6",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_8",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_11",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_13",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_18",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_21",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_22",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_23",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_25",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_30",
+      "status": "PASS"
+    },
+    {
+      "id": "TARGET_1920_31",
+      "status": "PASS"
+    },
+    {
+      "id": "COMPLETE_1920",
+      "status": "PASS"
+    },
+    {
+      "id": "HEAVY_ENGINE_PRESENTATION_FIXTURE",
+      "status": "PASS",
+      "detail": {
+        "outcome": {
+          "status": "FINISHED",
+          "reason": null,
+          "attackId": "attack.sandbox",
+          "plannedDuration": 3925,
+          "watchdogMs": 5925
+        },
+        "power": 50,
+        "tier": "HEAVY",
+        "calls": [
+          {
+            "type": "card",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "card",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "score",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "score",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "score",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "score",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "charge",
+            "hp": "77 / 77"
+          },
+          {
+            "type": "impact",
+            "hp": "27 / 77"
+          },
+          {
+            "type": "impactLow",
+            "hp": "27 / 77"
+          }
+        ]
+      }
+    }
+  ],
+  "captures": [
+    "1366-tutorial-start.png",
+    "1366-discard-selected.png",
+    "1366-first-hit.png",
+    "1366-prepared.png",
+    "1366-score-gate-26.png",
+    "1366-score-gate-27.png",
+    "1366-score-gate-28.png",
+    "1366-overpower-defeat.png",
+    "1366-tutorial-reward.png",
+    "1024-tutorial-start.png",
+    "1024-discard-selected.png",
+    "1024-first-hit.png",
+    "1024-prepared.png",
+    "1024-score-gate-26.png",
+    "1024-score-gate-27.png",
+    "1024-score-gate-28.png",
+    "1024-overpower-defeat.png",
+    "1024-tutorial-reward.png",
+    "1920-tutorial-start.png",
+    "1920-discard-selected.png",
+    "1920-first-hit.png",
+    "1920-prepared.png",
+    "1920-score-gate-26.png",
+    "1920-score-gate-27.png",
+    "1920-score-gate-28.png",
+    "1920-overpower-defeat.png",
+    "1920-tutorial-reward.png"
+  ],
+  "errors": [],
+  "browser": "134.0.6998.35",
+  "status": "PASS",
+  "captureArchiveNote": "전체 이번 실행 캡처는 로컬 .local-validation/v06/에 보존. 이 폴더에는 assigned-/production- 접두어의 선별 캡처만 공개한다. 원래 docs/evidence 경로의 과거 이미지는 복원되었으므로 이번 실행 캡처로 사용하지 않는다."
+}

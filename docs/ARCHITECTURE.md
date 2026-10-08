@@ -1,3 +1,14 @@
+## 0.6 비교·빙정 경계
+
+- snowLanguage는 frozen 0.5를 복제한다. 수동 Form/비교 정책만 추가하며 이전 view·0.4 시작덱 생성기·0.2.1 실습·0.3 룬 수치를 바꾸지 않는다. 원정별 언어/문법/점수/보상/학습 버전을 선택한다.
+- 기존 bounded NP/AP/AdvP/절 파서에 비교 구성 요소를 연결한다. 실제 marker/head/card 범위와 부모 절을 증거로 남긴다. more/most/enough 수량 및 twice 빈도는 비교 보너스와 분리된다. comboEligibility는 분석 결과를 바꾸지 않는다.
+- 수순은 카드 → 정확성 → 완전문장 → 주절 → 시간 → 준동사 → 비교/정도 → 연결 → 수식 → 룬 → 지역 → 보스다. 유리수 단계별 내림과 룬 순서를 유지한다. 설원 ×1.25는 실제 해당 hit에 한 번 적용한다.
+- frostCards는 전투별 임시 ID/메타데이터를 제안한다. activeCardIds 영구 보존식과 temporaryCardIds 보존식을 분리하며 제출된 임시 WORD는 shatteredTemporaryIds에 한 번 들어간다. 교환/회수/운영은 일반 WORD 경로를 쓴다. 승리·패배 때 모든 임시 객체를 제거한다.
+- 초기 전체 deck shuffle 뒤 안정적인 swap으로 첫패 1장(보스2장), 보스 초기 3개 turnDraw 창에 각1장을 확보한다. 기존 witness를 가능한 한 보존하고 trace에 남긴다. reward/shop/encounter stream과 손패 제한을 우회하지 않는다.
+- frostCrystalLock은 원본 분석 coverage·excluded·실제 제출 사본 메타데이터·양수 위력을 읽는다. 비교 hit 유무는 요구하지 않는다. 결정이 남으면 HP1, preventedDamage 별도, overkill0이며 마지막 결정 공격부터 floor0이다. attackId 영수증으로 재적용을 막는다.
+- Presentation은 consumedTemporaryCardIds와 보스 before/after를 표시한다. 결정/HP는 IMPACT에 함께 반영하고 재정산하지 않는다. 안정된 새 원정 전투 중 저장은 빙정 위치·깨진 사본·결정 영수증·RNG를 그대로 보존한다. 이전 버전의 저장 허용 정책은 보존한다.
+- 0.6만 6지역/27전투/STAGE6_END, 세 번째 상점과 별도 방문 이력을 갖는다. 기존 상점 가격/서비스/누적 제거 및 혼합 보상 확률을 재사용한다. requiredUnlockId가 일반 카드 후보를 실제 필터링한다.
+
 ## 0.5.1 Core Polish 경계
 
 - 원정/저장 버전은 0.5.1, 언어·점수·룬 자격·보상·학습 정책은 명시적으로 0.5.0을 사용한다. frozen 0.4 생성기와 GUIDED_VERSION 0.2.1을 유지한다. 새 HP는 stages의 별도 불변 view이며 이전 원정 로드에 소급하지 않는다.
@@ -130,3 +141,5 @@ RNG는 `mulberry32-fnv1a-v1`의 deck/reward/shop/encounter 네 stream이며 stat
 `tests/stage2-shop.test.js`, `tests/v02-progression-storage.test.js`, 새 언어·연출 테스트가 실제 모듈을 연결한다. 과거 main의 레거시 보상 golden fixture는72개 후보·RNG 사례를 고정한다. 10,000 시작 덱은 `simulate-decks`, 실제 명령 완주는 `simulate-runs`, 정상 초원 후 입장400시드는 `simulate-entry`가 담당한다. UI 합성 배치와 production 실제 7전투는 별도 브라우저 검사다. 정확한 실행 상태와 한계는 `TEST_REPORT_0.2.md`를 따른다.
 
 `data/roadmap.js`의48전투·상점6회·미래 룬은 후속 메타데이터다. 활성 지역 registry에 미래 전투를 합치지 않는다. `.github/workflows/deploy-pages.yml`은 기존 main 비PR 배포 조건을 유지하며 이번 작업에서 Pages 설정이나 main을 변경하지 않는다.
+
+설원 접근성 선택: 새 Stage 6에서만 기존 createBattlePiles의 focusFrame을 frame.svc.adj로 요청한다. 현재 덱에 가능한 실제 문장 witness가 있으면 우선하고, 없으면 기존 다른 문형 fallback을 따른다. 이는 고정 문장/카드 생성이 아니며 조합대는 비어 있다. 이후 빙정 swap은 그 witness를 가능한 한 보존한다. Stage 1–5와 기존 원정은 이 경로에 들어가지 않는다. 비교 표지만 빨리 나오고 실제 형용사 서술 재료가 6턴 범위 밖에 남는 접근성 문제에 대한 구현 선택이며, 명세의 HP/피해/공급 수량을 변경하지 않는다.

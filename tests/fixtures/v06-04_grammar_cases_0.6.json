@@ -1,0 +1,321 @@
+{
+  "version": "0.6.0",
+  "count": 32,
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "I am bigger than you.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "굴절 비교급 + than"
+    },
+    {
+      "id": "G002",
+      "sentence": "This book is more interesting than that book.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "more 비교급"
+    },
+    {
+      "id": "G003",
+      "sentence": "This dog is better than that dog.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "불규칙 good→better"
+    },
+    {
+      "id": "G004",
+      "sentence": "I am bigger.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "비교 기준 생략 가능"
+    },
+    {
+      "id": "G005",
+      "sentence": "I am more big than you.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedIssues": [
+        "COMPARISON_FORM_MISMATCH"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.COMPARATIVE"
+      ]
+    },
+    {
+      "id": "G006",
+      "sentence": "I am more better than you.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedIssues": [
+        "DOUBLE_COMPARISON_MARKING"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.COMPARATIVE"
+      ]
+    },
+    {
+      "id": "G007",
+      "sentence": "This is the biggest book.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.SUPERLATIVE"
+      ]
+    },
+    {
+      "id": "G008",
+      "sentence": "She is the most beautiful student.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.SUPERLATIVE"
+      ]
+    },
+    {
+      "id": "G009",
+      "sentence": "This is the best book.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.SUPERLATIVE"
+      ]
+    },
+    {
+      "id": "G010",
+      "sentence": "This is most big book.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedIssues": [
+        "SUPERLATIVE_FORM_OR_DETERMINER"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.SUPERLATIVE"
+      ]
+    },
+    {
+      "id": "G011",
+      "sentence": "I am as strong as you.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.EQUALITY"
+      ]
+    },
+    {
+      "id": "G012",
+      "sentence": "This book is twice as big as that book.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "COMPARISON.EQUALITY",
+        "COMPARISON.MULTIPLIER"
+      ]
+    },
+    {
+      "id": "G013",
+      "sentence": "I am as stronger as you.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "expectedIssues": [
+        "AS_REQUIRES_POSITIVE_DEGREE"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.EQUALITY"
+      ]
+    },
+    {
+      "id": "G014",
+      "sentence": "I am as strong.",
+      "expectedStatus": "INVALID_CORE",
+      "note": "두 번째 as와 기준 누락"
+    },
+    {
+      "id": "G015",
+      "sentence": "I am too tired.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "DEGREE.TOO"
+      ]
+    },
+    {
+      "id": "G016",
+      "sentence": "I am too tired to run.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "DEGREE.TOO",
+        "CLAUSE.INFINITIVE"
+      ]
+    },
+    {
+      "id": "G017",
+      "sentence": "I am strong enough.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "DEGREE.ENOUGH"
+      ]
+    },
+    {
+      "id": "G018",
+      "sentence": "I am strong enough to help you.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVC",
+        "DEGREE.ENOUGH",
+        "CLAUSE.INFINITIVE"
+      ]
+    },
+    {
+      "id": "G019",
+      "sentence": "I have enough time.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "QUANTIFIER.ENOUGH"
+      ],
+      "note": "대체 보스 공략 경로"
+    },
+    {
+      "id": "G020",
+      "sentence": "I need more water.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "QUANTIFIER.MORE"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.COMPARATIVE"
+      ]
+    },
+    {
+      "id": "G021",
+      "sentence": "Most students like music.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "QUANTIFIER.MOST"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.SUPERLATIVE"
+      ]
+    },
+    {
+      "id": "G022",
+      "sentence": "I read books twice.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "ADVERB.TWICE"
+      ],
+      "forbiddenScoreTags": [
+        "COMPARISON.MULTIPLIER"
+      ]
+    },
+    {
+      "id": "G023",
+      "sentence": "She runs faster than me.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SV",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "부사 비교"
+    },
+    {
+      "id": "G024",
+      "sentence": "She runs more carefully than me.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SV",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "-ly 부사 more 비교"
+    },
+    {
+      "id": "G025",
+      "sentence": "She runs as fast as me.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SV",
+        "COMPARISON.EQUALITY"
+      ]
+    },
+    {
+      "id": "G026",
+      "sentence": "I like the bigger dog.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "note": "비교급 명사 수식은 정상이나 than 없는 별도 구조"
+    },
+    {
+      "id": "G027",
+      "sentence": "I like more books.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "QUANTIFIER.MORE"
+      ]
+    },
+    {
+      "id": "G028",
+      "sentence": "I like most books.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "FRAME.SVO",
+        "QUANTIFIER.MOST"
+      ]
+    },
+    {
+      "id": "G029",
+      "sentence": "I am happy and you are stronger than me.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "LINK.CLAUSE",
+        "COMPARISON.COMPARATIVE"
+      ]
+    },
+    {
+      "id": "G030",
+      "sentence": "I will be stronger than you.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "TIME.FUTURE_WILL",
+        "COMPARISON.COMPARATIVE"
+      ]
+    },
+    {
+      "id": "G031",
+      "sentence": "Reading books is more interesting than playing games.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "CLAUSE.GERUND",
+        "COMPARISON.COMPARATIVE"
+      ],
+      "note": "기존 준동사와 결합"
+    },
+    {
+      "id": "G032",
+      "sentence": "I am too tired because I have worked.",
+      "expectedStatus": "VALID",
+      "expectedTags": [
+        "DEGREE.TOO",
+        "LINK.CLAUSE",
+        "TIME.PERFECT"
+      ]
+    }
+  ]
+}

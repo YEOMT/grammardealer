@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -16,14 +16,17 @@
     "test:e2e": "node tests/e2e.mjs",
     "package": "python3 tools/package-release.py",
     "test:runs": "node tools/simulate-runs.js",
-    "test:browser": "node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs && node tests/v02-ui-browser.mjs && node tests/guided-browser.mjs && node tests/grammar-learning-browser.mjs && node tests/time-canyon-browser.mjs && node tests/sky-foundation-browser.mjs && node tests/sky-operations-browser.mjs && node tests/sky-islands-browser.mjs && node tests/desert-browser.mjs",
+    "test:browser": "node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs && node tests/v02-ui-browser.mjs && node tests/guided-browser.mjs && node tests/grammar-learning-browser.mjs && node tests/time-canyon-browser.mjs && node tests/sky-foundation-browser.mjs && node tests/sky-operations-browser.mjs && node tests/sky-islands-browser.mjs && node tests/desert-browser.mjs && node tests/snow-browser.mjs",
     "test:runs:time": "node tools/simulate-time-runs.js",
     "test:runs:sky": "node tools/simulate-sky-runs.js",
     "test:decks:sky": "node tools/simulate-sky-decks.js",
     "test:runs:desert": "node tools/simulate-desert-runs.js",
     "test:decks:desert": "node tools/simulate-desert-decks.js",
     "test:browser:polish": "node tests/core-polish-browser.mjs && node tests/polish-ui-browser.mjs",
-    "test:browser:cross": "node tests/polish-cross-browser.mjs"
+    "test:browser:cross": "node tests/polish-cross-browser.mjs",
+    "test:decks:snow": "node tools/simulate-snow-decks.js",
+    "test:runs:snow": "node tools/simulate-snow-runs.js",
+    "test:browser:snow": "node tests/snow-browser.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

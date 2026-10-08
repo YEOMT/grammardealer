@@ -1,6 +1,6 @@
 import {createHash} from 'node:crypto';
 import {registryForVersion} from '../../src/data/language/index.js';
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-05-controller.js';
 import {createRewardOffer} from '../../src/game/rewards.js';
 import {createShop,grantStage2Entry} from '../../src/game/shop.js';
 import {snapshotFromText,analyzeSentence} from '../../src/engine/grammar/index.js';

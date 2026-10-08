@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "browser": "134.0.6998.35",
+  "checks": [
+    {
+      "ids": [
+        "P07"
+      ],
+      "description": "check three then one discard command refills three, spends only one exchange",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P08",
+        "P09"
+      ],
+      "description": "body click still assembles and prunes only the moved selected ID",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P12",
+        "P13"
+      ],
+      "description": "actual be default and manual form selection",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "captureArchiveNote": "전체 이번 실행 캡처는 로컬 .local-validation/v06/에 보존. 이 폴더에는 assigned-/production- 접두어의 선별 캡처만 공개한다. 원래 docs/evidence 경로의 과거 이미지는 복원되었으므로 이번 실행 캡처로 사용하지 않는다."
+}

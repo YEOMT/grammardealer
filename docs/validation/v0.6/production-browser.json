@@ -1,0 +1,5795 @@
+{
+  "status": "PASS",
+  "skipTutorial": true,
+  "browser": "134.0.6998.35",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "effectsOff": false,
+  "seed": "run-sequence.54",
+  "policy": "LEARNING",
+  "urlPath": "/grammardealer/",
+  "offlineFullStage1": true,
+  "offlineFullStage2": true,
+  "offlineFullStage3": true,
+  "offlineFullStage4": true,
+  "offlineFullStage5": true,
+  "offlineFullStage6": true,
+  "frostOpening": true,
+  "frostMultiple": true,
+  "frostNoncomparison": true,
+  "frostLock": true,
+  "frostLastKill": true,
+  "snowPlanReport": {
+    "status": "FOUND",
+    "kind": "REVIEWED_SEEDED_COMMAND_ROUTE_NOT_CURRENT_HAND_GREEDY_OR_HUMAN_WIN_RATE"
+  },
+  "vocabularyMode": "STANDARD",
+  "commands": [
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.present"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 1,
+      "sentence": "I have parks",
+      "power": 135,
+      "hpLoss": 77
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.1:attack.1"
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 1
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.19"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 2,
+      "sentence": "kind",
+      "power": 0,
+      "hpLoss": 0
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.2:attack.1"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.07"
+        ]
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.16"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.16",
+        "formId": "form.find.present"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 2,
+      "sentence": "you find times",
+      "power": 135,
+      "hpLoss": 132
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.2:attack.2"
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.2",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.2.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 2
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.present"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.base"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 3,
+      "sentence": "answers become strong",
+      "power": 145,
+      "hpLoss": 145
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.3:attack.1"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.present"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 3,
+      "sentence": "parks run",
+      "power": 106,
+      "hpLoss": 97
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.3:attack.2"
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.choice.2",
+        "confirmRemoval": true
+      },
+      "battle": 3
+    },
+    {
+      "command": {
+        "type": "NEXT_STAGE"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ENTER_STAGE"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.1"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "LEAVE_SHOP",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.present"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.base"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 4,
+      "sentence": "environments become strong",
+      "power": 116,
+      "hpLoss": 116
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.4:attack.1"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.present"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 4,
+      "sentence": "parks run",
+      "power": 85,
+      "hpLoss": 85
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.4:attack.2"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+        "formId": "form.run.present"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 4,
+      "sentence": "I run",
+      "power": 85,
+      "hpLoss": 19
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.4:attack.3"
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 4
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.23"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.23",
+        "formId": "form.quickly.base"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.17"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.17",
+        "formId": "form.find.present"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 5,
+      "sentence": "quickly parks find answers",
+      "power": 151,
+      "hpLoss": 151
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.5:attack.1"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.card",
+          "starter.22",
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.1.owned",
+          "starter.18"
+        ]
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.present"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 5,
+      "sentence": "you run",
+      "power": 85,
+      "hpLoss": 85
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.5:attack.2"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.present"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.object"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 5,
+      "sentence": "I have them",
+      "power": 128,
+      "hpLoss": 64
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.5:attack.3"
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 5
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.22"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.22",
+        "formId": "form.really.base"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.16"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.16",
+        "formId": "form.find.present"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.25"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.25",
+        "formId": "form.a.a"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.05"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.05",
+        "formId": "form.friend.singular"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 6,
+      "sentence": "parks really find a friend",
+      "power": 169,
+      "hpLoss": 169
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.6:attack.1"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.19",
+          "starter.28",
+          "starter.26",
+          "starter.14"
+        ]
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.27"
+        ]
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card"
+        ]
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.card"
+        ]
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.13"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.13",
+        "formId": "form.live.present"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 6,
+      "sentence": "environments live",
+      "power": 85,
+      "hpLoss": 85
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.6:attack.2"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.present"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.object"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 6,
+      "sentence": "I have them",
+      "power": 128,
+      "hpLoss": 126
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.6:attack.3"
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 6
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card",
+        "formId": "form.day.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.present"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.10"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.10",
+        "formId": "form.he.object"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 7,
+      "sentence": "days send him you",
+      "power": 217,
+      "hpLoss": 217
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.7:attack.1"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+        "formId": "form.run.present"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 7,
+      "sentence": "parks run",
+      "power": 85,
+      "hpLoss": 85
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.7:attack.2"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.24",
+          "starter.16",
+          "starter.23",
+          "starter.27"
+        ]
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.present"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.base"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 7,
+      "sentence": "environments become strong",
+      "power": 116,
+      "hpLoss": 116
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.7:attack.3"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.17",
+          "starter.28",
+          "starter.26",
+          "starter.13"
+        ]
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.are"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.21"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.21",
+        "formId": "form.interesting.base"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 7,
+      "sentence": "answers are interesting",
+      "power": 116,
+      "hpLoss": 116
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.7:attack.4"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.present"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 7,
+      "sentence": "friends have students",
+      "power": 128,
+      "hpLoss": 106
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.7:attack.5"
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.7",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.7.choice.1",
+        "confirmRemoval": true
+      },
+      "battle": 7
+    },
+    {
+      "command": {
+        "type": "NEXT_STAGE"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ENTER_STAGE"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.10"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.10",
+        "formId": "form.he.subject"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.was"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.21"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.21",
+        "formId": "form.interesting.base"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0",
+        "formId": "form.to.base"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 8,
+      "sentence": "he was interesting to students",
+      "power": 228,
+      "hpLoss": 228
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.8:attack.1"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.subject"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.past"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 8,
+      "sentence": "they sent environments",
+      "power": 186,
+      "hpLoss": 92
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.8:attack.4"
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 8
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.ing"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.25"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.25",
+        "formId": "form.a.a"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.singular"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 9,
+      "sentence": "times were sending a friend",
+      "power": 303,
+      "hpLoss": 303
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.9:attack.1"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.1.owned",
+          "starter.22",
+          "starter.23",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.card"
+        ]
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.16"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.16",
+        "formId": "form.find.past"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.05"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.05",
+        "formId": "form.friend.plural"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 9,
+      "sentence": "I found friends",
+      "power": 186,
+      "hpLoss": 57
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.9:attack.4"
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.9",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.9.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 9
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+        "formId": "form.run.past"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.28"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.28",
+        "formId": "form.with.base"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.05"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.05",
+        "formId": "form.friend.plural"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 10,
+      "sentence": "times ran with friends",
+      "power": 173,
+      "hpLoss": 173
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.10:attack.1"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.25",
+          "starter.23",
+          "starter.26",
+          "starter.22"
+        ]
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.past"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.object"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 10,
+      "sentence": "I sent environments them",
+      "power": 432,
+      "hpLoss": 227
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.10:attack.3"
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 10
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.were"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.19"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.19",
+        "formId": "form.kind.base"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 11,
+      "sentence": "students were kind",
+      "power": 168,
+      "hpLoss": 168
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.11:attack.1"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.subject"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card",
+        "formId": "form.a.a"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.singular"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.27"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.27",
+        "formId": "form.on.base"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.05"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.05",
+        "formId": "form.friend.plural"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 11,
+      "sentence": "they were a park on friends",
+      "power": 252,
+      "hpLoss": 252
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.11:attack.3"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.past"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 11,
+      "sentence": "friends sent times",
+      "power": 186,
+      "hpLoss": 20
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.11:attack.4"
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 11
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.28",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.card",
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.1.owned"
+        ]
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.23"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.23",
+        "formId": "form.quickly.base"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.past"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 12,
+      "sentence": "quickly times sent you environments",
+      "power": 501,
+      "hpLoss": 240
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.12:attack.1"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.17",
+          "starter.26",
+          "starter.27",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card"
+        ]
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.14",
+          "starter.22"
+        ]
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.02",
+          "starter.06"
+        ]
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.subject"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+        "formId": "form.run.present"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 12,
+      "sentence": "they run",
+      "power": 85,
+      "hpLoss": 85
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.12:attack.2"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.05"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.05",
+        "formId": "form.friend.plural"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.present"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.pp"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.ing"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.base"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 12,
+      "sentence": "friends have been becoming strong",
+      "power": 315,
+      "hpLoss": 155
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.12:attack.4"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card",
+        "formId": "form.water.singular"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.16"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.16",
+        "formId": "form.find.present"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card",
+        "formId": "form.a.a"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.singular"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 12,
+      "sentence": "water will find a student",
+      "power": 240,
+      "hpLoss": 240
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.12:attack.6"
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.12",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.12.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 12
+    },
+    {
+      "command": {
+        "type": "NEXT_STAGE"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ENTER_STAGE"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.rune.0"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "LEAVE_SHOP",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.ing"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.27"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.27",
+        "formId": "form.on.base"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.10"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.10",
+        "formId": "form.he.object"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 13,
+      "sentence": "environments were having parks on him",
+      "power": 564,
+      "hpLoss": 520
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.13:attack.1"
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 13
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2.owned"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2.owned",
+        "formId": "form.see.ing"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.10.card",
+        "formId": "form.a.an"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned",
+        "formId": "form.idea.singular"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 14,
+      "sentence": "parks were seeing an idea",
+      "power": 486,
+      "hpLoss": 486
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.14:attack.1"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+        "formId": "form.think.past"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 14,
+      "sentence": "friends thought",
+      "power": 98,
+      "hpLoss": 84
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.14:attack.2"
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.14",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.14.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 14
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned",
+        "formId": "form.idea.plural"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.are"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.14.card"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.14.card",
+        "formId": "form.and.base"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+        "formId": "form.run.past"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 15,
+      "sentence": "ideas are environments and friends ran",
+      "power": 737,
+      "hpLoss": 620
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.15:attack.1"
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.15",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.15.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 15
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+        "formId": "form.think.present"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.past"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.21"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.21",
+        "formId": "form.interesting.base"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 16,
+      "sentence": "I think parks became interesting",
+      "power": 737,
+      "hpLoss": 680
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.16:attack.1"
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.16",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.16.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 16
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card",
+        "formId": "form.finish.ing"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.26"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.26",
+        "formId": "form.the.base"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.singular"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 17,
+      "sentence": "parks were finishing the answer",
+      "power": 243,
+      "hpLoss": 243
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.17:attack.1"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.16"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.16",
+        "formId": "form.find.present"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.object"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.28"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.28",
+        "formId": "form.with.base"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card",
+        "formId": "form.water.singular"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 17,
+      "sentence": "students will find them with water",
+      "power": 224,
+      "hpLoss": 224
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.17:attack.3"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card",
+        "formId": "form.school.plural"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2.owned"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2.owned",
+        "formId": "form.see.past"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.24"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.24",
+        "formId": "form.a.an"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned",
+        "formId": "form.idea.singular"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0",
+        "formId": "form.and.base"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.10"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.10",
+        "formId": "form.he.object"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 17,
+      "sentence": "schools saw an idea and him",
+      "power": 224,
+      "hpLoss": 224
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.17:attack.4"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.20",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.4.card"
+        ]
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+        "formId": "form.think.past"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 17,
+      "sentence": "friends thought",
+      "power": 49,
+      "hpLoss": 49
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.17:attack.5"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.13"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.13",
+        "formId": "form.live.past"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 17,
+      "sentence": "I lived",
+      "power": 49,
+      "hpLoss": 20
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.17:attack.6"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.17",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.17.choice.0",
+        "confirmRemoval": true,
+        "targetCardInstanceId": "starter.11"
+      },
+      "battle": 17
+    },
+    {
+      "command": {
+        "type": "NEXT_STAGE"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ENTER_STAGE"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card",
+        "formId": "form.day.plural"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.past"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0",
+        "formId": "form.and.base"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.subject"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.13"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.13",
+        "formId": "form.live.present"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 18,
+      "sentence": "days ran and they will live",
+      "power": 576,
+      "hpLoss": 576
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.18:attack.1"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 18,
+      "sentence": "times were students",
+      "power": 144,
+      "hpLoss": 44
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.18:attack.2"
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 18
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.were"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.19"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.19",
+        "formId": "form.kind.base"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.card"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.card",
+        "formId": "form.and.base"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.present"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 19,
+      "sentence": "students were kind and you will run",
+      "power": 776,
+      "hpLoss": 670
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.19:attack.1"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.19",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.19.choice.0",
+        "confirmRemoval": true,
+        "targetCardInstanceId": "starter.11"
+      },
+      "battle": 19
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.17"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.17",
+        "formId": "form.find.ing"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 20,
+      "sentence": "parks were finding environments",
+      "power": 243,
+      "hpLoss": 243
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.20:attack.1"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card",
+        "formId": "form.finish.present"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.ing"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 20,
+      "sentence": "you finish running",
+      "power": 213,
+      "hpLoss": 213
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.20:attack.2"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.3.card",
+        "formId": "form.send.past"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 20,
+      "sentence": "answers sent students times",
+      "power": 346,
+      "hpLoss": 264
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.20:attack.3"
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 20
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.11.card",
+        "formId": "form.water.singular"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.22"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.22",
+        "formId": "form.really.base"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.base"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.9.card"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.9.card",
+        "formId": "form.take.ing"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.26"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.26",
+        "formId": "form.the.base"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card",
+        "formId": "form.day.singular"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 21,
+      "sentence": "water really will be taking the day",
+      "power": 610,
+      "hpLoss": 610
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.21:attack.1"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.17"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.17",
+        "formId": "form.find.past"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card",
+        "formId": "form.school.plural"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 21,
+      "sentence": "friends found schools",
+      "power": 149,
+      "hpLoss": 149
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.21:attack.2"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+        "formId": "form.think.past"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 21,
+      "sentence": "I thought",
+      "power": 98,
+      "hpLoss": 21
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.21:attack.3"
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.21",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.21.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 21
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.06"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.06",
+        "formId": "form.park.plural"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card",
+        "formId": "form.make.ing"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.24"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.24",
+        "formId": "form.a.an"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.singular"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 22,
+      "sentence": "parks were making an environment",
+      "power": 544,
+      "hpLoss": 544
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.22:attack.1"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.14"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.14",
+        "formId": "form.run.past"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.28"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.28",
+        "formId": "form.with.base"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 22,
+      "sentence": "friends ran with answers",
+      "power": 139,
+      "hpLoss": 139
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.22:attack.2"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.04"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.04",
+        "formId": "form.time.plural"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.8.card",
+        "formId": "form.finish.past"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 22,
+      "sentence": "times finished students",
+      "power": 149,
+      "hpLoss": 149
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.22:attack.3"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0.owned",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0",
+          "starter.19"
+        ]
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.9.card",
+          "starter.10",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1",
+          "starter.21"
+        ]
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.08"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.08",
+        "formId": "form.you.subject"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.17"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.17",
+        "formId": "form.find.past"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.object"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 22,
+      "sentence": "you found me",
+      "power": 149,
+      "hpLoss": 128
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.22:attack.4"
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.22",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.22.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 22
+    },
+    {
+      "command": {
+        "type": "NEXT_STAGE"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ENTER_STAGE"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.rune.1"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.0"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.1"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SHOP_BUY",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06",
+        "itemId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.2"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "LEAVE_SHOP",
+        "shopId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.were"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card",
+        "formId": "form.make.ing"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.02"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.02",
+        "formId": "form.answer.plural"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.object"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 23,
+      "sentence": "friends were making answers me",
+      "power": 1122,
+      "hpLoss": 760
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.23:attack.1"
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.23",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.23.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 23
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.11"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.11",
+        "formId": "form.be.were"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.comparative"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0",
+        "formId": "form.to.base"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 24,
+      "sentence": "students were stronger to friends",
+      "power": 952,
+      "hpLoss": 830
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.24:attack.1"
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.24",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.24.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 24
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.09"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.09",
+        "formId": "form.they.subject"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.present"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.0.owned"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.0.owned",
+        "formId": "form.sad.comparative"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.card"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.card",
+        "formId": "form.and.base"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+        "formId": "form.environment.plural"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+        "formId": "form.think.past"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 25,
+      "sentence": "they become sadder and environments thought",
+      "power": 1445,
+      "hpLoss": 900
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.25:attack.1"
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.25",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.25.choice.2",
+        "confirmRemoval": true
+      },
+      "battle": 25
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20.card"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20.card",
+        "formId": "form.i.subject"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.15"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.15",
+        "formId": "form.have.past"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.pp"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.2.owned"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.06.card.2.owned",
+        "formId": "form.serious.base"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.26.01"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.26.01",
+        "formId": "form.enough.base"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 26,
+      "sentence": "I had become serious enough",
+      "power": 1001,
+      "hpLoss": 970
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.26:attack.1"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.26",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.26.choice.0",
+        "confirmRemoval": true,
+        "replaceRuneInstanceId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.rune.0.owned"
+      },
+      "battle": 26
+    },
+    {
+      "command": {
+        "type": "NEXT_BATTLE"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.07"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.07",
+        "formId": "form.i.subject"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.18"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.18",
+        "formId": "form.become.past"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.05"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.05",
+        "formId": "form.too.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.20"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.20",
+        "formId": "form.strong.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 27,
+      "sentence": "I became too strong",
+      "power": 295,
+      "hpLoss": 295,
+      "crystalsBroken": 1,
+      "crystalsRemaining": 4,
+      "preventedDamage": 0
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.27:attack.1"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.14",
+          "starter.13",
+          "starter.26",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.15.card",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.6.card"
+        ]
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "PREPARE"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.1.card",
+          "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.2",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.14.card"
+        ]
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.5.card",
+          "starter.16",
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.02.card.0.owned",
+          "starter.15"
+        ]
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "EXCHANGE",
+        "cardIds": [
+          "starter.08",
+          "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.13.card",
+          "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.0.owned"
+        ]
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.03"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.03",
+        "formId": "form.more.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.01"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.01",
+        "formId": "form.friend.plural"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.12"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.12",
+        "formId": "form.be.were"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.02"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.02",
+        "formId": "form.as.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.19"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.19",
+        "formId": "form.kind.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.01"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.01",
+        "formId": "form.as.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "starter.03"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "starter.03",
+        "formId": "form.student.plural"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 27,
+      "sentence": "more friends were as kind as students",
+      "power": 1068,
+      "hpLoss": 984,
+      "crystalsBroken": 3,
+      "crystalsRemaining": 1,
+      "preventedDamage": 84
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.27:attack.4"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20.card"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.20.card",
+        "formId": "form.i.subject"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "entry.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.03.card.0",
+        "formId": "form.will.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "reward.offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.18.card",
+        "formId": "form.make.present"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.06"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "frost.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.battle.27.06",
+        "formId": "form.enough.base"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "ADD_CARD",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SET_FORM",
+        "cardId": "shop.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.stage.04.card.1.owned",
+        "formId": "form.idea.plural"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "SUBMIT"
+      },
+      "battle": 27,
+      "sentence": "I will make enough ideas",
+      "power": 744,
+      "hpLoss": 1,
+      "crystalsBroken": 1,
+      "crystalsRemaining": 0,
+      "preventedDamage": 0
+    },
+    {
+      "command": {
+        "type": "FINISH_PRESENTATION",
+        "attackId": "run.82cb1818-a626-486a-b12d-aa3aacbb49cc:battle.27:attack.5"
+      },
+      "battle": 27
+    },
+    {
+      "command": {
+        "type": "CHOOSE_REWARD",
+        "offerId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.27",
+        "choiceId": "offer.run.82cb1818-a626-486a-b12d-aa3aacbb49cc.27.choice.0",
+        "confirmRemoval": true
+      },
+      "battle": 27
+    }
+  ],
+  "operationUses": 0,
+  "playedBattles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "svooCaptured": true,
+  "veilCaptured": true,
+  "sealCaptured": true,
+  "attacksAfterTutorial": 61,
+  "invalidSubmissions": 1,
+  "totalActualAttacks": 62,
+  "checks": [
+    {
+      "ids": [
+        "P01",
+        "P02",
+        "U12",
+        "U13"
+      ],
+      "description": "production subpath, profile and initial six-card save/load exact (including RNG)",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V051-P035",
+        "V051-P038"
+      ],
+      "description": "actual tutorial skip restores normal S1-1 without reward",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P11"
+      ],
+      "description": "network disabled after all initial static resources loaded",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U01",
+        "U07",
+        "U08",
+        "C13"
+      ],
+      "description": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P03",
+        "P04"
+      ],
+      "description": "frozen reward and unlock baseline survive real IndexedDB restore",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P10"
+      ],
+      "description": "dictionary remains resource and RNG neutral after tutorial",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P04",
+        "V022-P05",
+        "V022-P62"
+      ],
+      "description": "actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "D10",
+        "D15",
+        "U03"
+      ],
+      "description": "invalid submission then real card exchange via UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R02"
+      ],
+      "description": "first rune choices rendered crystal/amber/copper",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.02 preview and once-only entry; first shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.03 preview and once-only entry; no shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PAST break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PRESENT break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.04 preview and once-only entry; second shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.05 preview and once-only entry; no shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V05-P056",
+        "V05-P071",
+        "V05-P073",
+        "V05-P083"
+      ],
+      "description": "natural sphinx first draw seal: actual UI illegal placement is free and safe save/load preserves seal and all RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.06 preview and once-only entry; third shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V06-P054",
+        "V06-P056",
+        "V06-P127"
+      ],
+      "description": "natural boss save/load preserves shattered frost, crystals and exact RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V06-P054",
+        "V06-P056",
+        "V06-P127"
+      ],
+      "description": "natural boss save/load preserves shattered frost, crystals and exact RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "C12",
+        "R17",
+        "P11",
+        "V02-P26"
+      ],
+      "description": "all twenty-seven production battles complete offline with real cards, SVOO and boss veil release",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "completed twenty-seven-battle save restores its exact completion screen without another milestone",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P05"
+      ],
+      "description": "Stage 1, 2, 3, 4, 5 and 6 completion each persisted once, no story clear",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P06",
+        "V022-P47",
+        "V022-P48"
+      ],
+      "description": "end-screen English grammar/power codex has no translations or internal labels and does not reapply profile records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R04"
+      ],
+      "description": "new expedition works offline and previously seen guide is not forced",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P49"
+      ],
+      "description": "production debug query/hash cannot expose developer grammar diagnostics or change records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U14"
+      ],
+      "description": "no page/console errors, failed resources or external runtime requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "badResponses": [],
+  "requestOrigins": [
+    "http://127.0.0.1:4174"
+  ]
+}

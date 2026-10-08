@@ -1,0 +1,44 @@
+[
+  {
+    "finished": "2026-10-08T23:43:21.3563315+09:00",
+    "started": "2026-10-08T23:41:33.4682670+09:00",
+    "exitCode": 0,
+    "command": "npm.cmd test"
+  },
+  {
+    "finished": "2026-10-08T23:43:22.3308382+09:00",
+    "started": "2026-10-08T23:43:21.4259814+09:00",
+    "exitCode": 0,
+    "command": "npm.cmd run validate:data"
+  },
+  {
+    "finished": "2026-10-08T23:43:23.8577922+09:00",
+    "started": "2026-10-08T23:43:22.3442729+09:00",
+    "exitCode": 0,
+    "command": "npm.cmd run build"
+  },
+  {
+    "command": "npm.cmd run test:browser",
+    "started": "2026-10-08T23:41:42.2606451+09:00",
+    "finished": "2026-10-08T23:48:14.6591148+09:00",
+    "exitCode": 0
+  },
+  {
+    "command": "npm.cmd run test:browser:polish",
+    "exitCode": 0,
+    "finished": "2026-10-08T23:32:48.2268945+09:00",
+    "started": "2026-10-08T23:31:21.6652589+09:00"
+  },
+  {
+    "command": "npm.cmd run test:browser:cross",
+    "exitCode": 0,
+    "finished": "2026-10-08T23:35:09.7261413+09:00",
+    "started": "2026-10-08T23:32:48.2336681+09:00"
+  },
+  {
+    "command": "npm.cmd run test:e2e",
+    "started": "2026-10-08T23:44:35.2104202+09:00",
+    "exitCode": 0,
+    "finished": "2026-10-08T23:56:05.5219831+09:00"
+  }
+]

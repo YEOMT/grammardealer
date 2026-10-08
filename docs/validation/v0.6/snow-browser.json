@@ -1,0 +1,188 @@
+{
+  "kind": "ASSIGNED_PHYSICAL_CARDS_REAL_UI_AND_CONTROLLER_NOT_NATURAL_RUN",
+  "checks": [
+    {
+      "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P116_NONCOMPARISON_MORE_WATER",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P121_P123_P138_HP_ONE_LOCK_REASON",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P125_LAST_CRYSTAL_SAME_ATTACK_KILL",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P018_P019_P021_THIRD_SHOP_UI",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P080_P142_GROUPED_REVIEWED_FORMS",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P140_P141_P143_FIXED_GUIDES_AND_TEMPORARY_OWNERSHIP",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1280_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1280_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1366_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1366_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1920_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P130_P132_LAYOUT_1920_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P116_NONCOMPARISON_MORE_WATER",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "P116_NONCOMPARISON_MORE_WATER",
+      "browser": "webkit",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "chromium-boss-opening.png",
+    "chromium-two-crystals-broken.png",
+    "chromium-hp-one-lock.png",
+    "chromium-last-crystal-kill.png",
+    "chromium-snow-intro.png",
+    "chromium-third-shop.png",
+    "chromium-comparison-forms.png",
+    "chromium-frost-pile-ownership.png",
+    "chromium-comparison-codex.png",
+    "chromium-cards-1280-10.png",
+    "chromium-cards-1280-14.png",
+    "chromium-cards-1366-10.png",
+    "chromium-cards-1366-14.png",
+    "chromium-cards-1920-10.png",
+    "chromium-cards-1920-14.png",
+    "firefox-boss-opening.png",
+    "firefox-two-crystals-broken.png",
+    "webkit-boss-opening.png",
+    "webkit-two-crystals-broken.png"
+  ],
+  "browsers": [
+    {
+      "name": "chromium",
+      "version": "134.0.6998.35"
+    },
+    {
+      "name": "firefox",
+      "version": "135.0"
+    },
+    {
+      "name": "webkit",
+      "version": "18.4"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "captureArchiveNote": "전체 이번 실행 캡처는 로컬 .local-validation/v06/에 보존. 이 폴더에는 assigned-/production- 접두어의 선별 캡처만 공개한다. 원래 docs/evidence 경로의 과거 이미지는 복원되었으므로 이번 실행 캡처로 사용하지 않는다."
+}

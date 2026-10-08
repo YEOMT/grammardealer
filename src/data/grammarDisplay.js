@@ -120,3 +120,10 @@ export const GRAMMAR_DISPLAY = Object.freeze([
     "shortDescriptionKo": "동사의 -ing형으로 명사를 설명합니다."
   }
 ]);
+
+export const SNOW_GRAMMAR_DISPLAY=Object.freeze([...GRAMMAR_DISPLAY,
+ {order:180,tag:'COMPARISON.COMPARATIVE',titleKo:'비교급',pattern:'-er / more + 원급 (+ than + 비교 기준)',shortDescriptionKo:'둘 사이의 성질이나 정도를 비교합니다. 비교 기준을 생략할 수도 있습니다.'},
+ {order:190,tag:'COMPARISON.SUPERLATIVE',titleKo:'최상급',pattern:'the -est / the most + 원급 등',shortDescriptionKo:'비교 범위에서 가장 높은 정도를 나타냅니다. 형용사 최상급의 명사구에는 the나 소유 한정사 등이 필요합니다.'},
+ {order:200,tag:'COMPARISON.EQUALITY',titleKo:'동등 비교',pattern:'as + 원급 + as + 비교 기준',shortDescriptionKo:'성질이나 행동의 정도가 같음을 나타냅니다. twice as ~ as는 두 배의 정도를 나타냅니다.'},
+ {order:210,tag:'DEGREE.TOO',relatedTags:['DEGREE.ENOUGH'],titleKo:'too / enough',pattern:'too + 형용사·부사 / 형용사·부사 + enough',shortDescriptionKo:'too는 지나친 정도, enough는 충분한 정도를 나타냅니다. enough + 명사는 충분한 수량을 나타냅니다.'}
+]);

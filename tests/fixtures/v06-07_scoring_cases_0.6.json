@@ -1,0 +1,233 @@
+{
+  "version": "0.6.0",
+  "rounding": "FLOOR_AFTER_EACH_MULTIPLICATION",
+  "count": 9,
+  "cases": [
+    {
+      "id": "S001",
+      "sentence": "I am bigger than you.",
+      "cards": 5,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          80
+        ],
+        [
+          "SVC",
+          128
+        ],
+        [
+          "COMPARATIVE",
+          230
+        ],
+        [
+          "REGION",
+          287
+        ]
+      ],
+      "expected": 287
+    },
+    {
+      "id": "S002",
+      "sentence": "This book is more interesting than that book.",
+      "cards": 8,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          110
+        ],
+        [
+          "SVC",
+          176
+        ],
+        [
+          "COMPARATIVE",
+          316
+        ],
+        [
+          "REGION",
+          395
+        ]
+      ],
+      "expected": 395
+    },
+    {
+      "id": "S003",
+      "sentence": "This book is the most beautiful book.",
+      "cards": 7,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          100
+        ],
+        [
+          "SVC",
+          160
+        ],
+        [
+          "SUPERLATIVE",
+          304
+        ],
+        [
+          "ADJECTIVE_ADD",
+          309
+        ],
+        [
+          "REGION",
+          386
+        ]
+      ],
+      "expected": 386
+    },
+    {
+      "id": "S004",
+      "sentence": "I am as strong as you.",
+      "cards": 6,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          90
+        ],
+        [
+          "SVC",
+          144
+        ],
+        [
+          "EQUALITY",
+          259
+        ],
+        [
+          "REGION",
+          323
+        ]
+      ],
+      "expected": 323
+    },
+    {
+      "id": "S005",
+      "sentence": "This book is twice as big as that book.",
+      "cards": 9,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          120
+        ],
+        [
+          "SVC",
+          192
+        ],
+        [
+          "EQUALITY",
+          345
+        ],
+        [
+          "TWICE_ADD",
+          365
+        ],
+        [
+          "ADJECTIVE_ADD",
+          370
+        ],
+        [
+          "REGION",
+          462
+        ]
+      ],
+      "expected": 462
+    },
+    {
+      "id": "S006",
+      "sentence": "I am too tired to run.",
+      "cards": 6,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          90
+        ],
+        [
+          "SVC",
+          144
+        ],
+        [
+          "INFINITIVE",
+          201
+        ],
+        [
+          "DEGREE",
+          301
+        ],
+        [
+          "REGION",
+          376
+        ]
+      ],
+      "expected": 376
+    },
+    {
+      "id": "S007",
+      "sentence": "I am strong enough to help you.",
+      "cards": 7,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          100
+        ],
+        [
+          "SVC",
+          160
+        ],
+        [
+          "INFINITIVE",
+          224
+        ],
+        [
+          "DEGREE",
+          336
+        ],
+        [
+          "REGION",
+          420
+        ]
+      ],
+      "expected": 420
+    },
+    {
+      "id": "S008",
+      "sentence": "I need more water.",
+      "cards": 4,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          70
+        ],
+        [
+          "SVO",
+          126
+        ]
+      ],
+      "expected": 126,
+      "note": "수량 more는 비교/지역 배수 없음"
+    },
+    {
+      "id": "S009",
+      "sentence": "I read books twice.",
+      "cards": 4,
+      "steps": [
+        [
+          "CARD+COMPLETE",
+          70
+        ],
+        [
+          "SVO",
+          126
+        ],
+        [
+          "ADVERB_ADD",
+          131
+        ]
+      ],
+      "expected": 131,
+      "note": "일반 twice는 배수 비교 아님"
+    }
+  ]
+}

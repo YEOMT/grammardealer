@@ -1,7 +1,7 @@
 import {presentationClock} from './presentationClock.js';
 import {RUNE_BY_ID} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
-export const PRESENTATION_VERSION = '0.5.1';
+export const PRESENTATION_VERSION = '0.6.0';
 /** Read-only feel classification. No damage, reward or RNG is calculated here. */
 export function impactFeel(r){
  const positive=n=>Number.isSafeInteger(n)&&n>0?n:1;
@@ -201,6 +201,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='FROST_CRYSTAL_LOCK'){const n=find(root,'frost-crystals');if(n){const changed=n.dataset.remaining!==undefined&&Number(n.dataset.remaining)>state.crystalsRemaining;n.dataset.remaining=String(state.crystalsRemaining);n.textContent='◆'.repeat(state.crystalsRemaining)+'◇'.repeat(5-state.crystalsRemaining)+' · 빙결핵 '+state.crystalsRemaining+' / 5 · '+(state.crystalsRemaining?'HP 1 잠금':'잠금 해제');if(changed)animateCore(n,[{filter:'brightness(2)'},{filter:'brightness(1)'}],300);}}
     if(state?.id==='TIME_GOLEM'){
       const phases=find(root,'golem-phases');
       for(const [i,p]of state.phases.entries()){
@@ -315,7 +316,9 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {
       root.dataset.corePhase='IMPACT';showBossState(current?.bossStateAfter);
+      for(const id of current?.consumedTemporaryCardIds??[]){const card=findCard(root,id);if(card){card.dataset.shattered='true';animateCore(card,[{filter:'brightness(1)'},{filter:'brightness(2)',opacity:.5},{filter:'brightness(1)',opacity:.25}],280);}}
       showHp(hpAfter); text('label', actualHpLoss === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
+      if(current?.preventedDamage>0)text('label','빙결핵이 HP 1을 보호했습니다 · 막힌 피해 '+current.preventedDamage);
       if(current?.bossStateAfter?.id==='TIME_GOLEM'){
         showBossState(current.bossStateAfter);const effect=current.bossEffects.find(e=>e.phaseId);
         if(effect)text('label',effect.labelKo+(actualHpLoss?` · 위력 ${finalPower} / 적용 피해 ${actualHpLoss}`:''));

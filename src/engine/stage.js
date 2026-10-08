@@ -1,4 +1,5 @@
 import {skyShieldEvent} from './skyShield.js';
+import {resolveFrostCrystalLock} from './frostCrystalLock.js';
 import { SCORE_BALANCE, ECONOMY, scoreBalanceForVersion } from '../data/balance.js';
 import {resolveTimeGolem} from './timeGolem.js';
 import { STAGE1, STAGE_BY_ID, STAGE_VERSION } from '../data/stages.js';
@@ -10,7 +11,7 @@ import { scoreableAnalysis } from './comboEligibility.js';
 
 /** Pure region / encounter result. Returns boss proposals; only the controller commits them. */
 export function resolveEncounter(analysis, postRuneScore, enemy, {
-  attackId = 'attack.sandbox', eventOffset = 0, stage = STAGE1, syntheticBossFixture = null, originalAnalysis=analysis,
+  attackId = 'attack.sandbox', eventOffset = 0, stage = STAGE1, syntheticBossFixture = null, originalAnalysis=analysis,submittedCards=[],temporaryCardMeta={},
 } = {}) {
   if (!attackableAnalysis(analysis)) throw new TypeError('A valid analysis is required for encounter resolution');
   if (!enemy || !STAGE_BY_ID[stage?.id]) throw new TypeError('An implemented stage is required');
@@ -26,6 +27,10 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   const timeHits=stage.id==='stage.03'?(analysis.grammarHits??[]).filter(h=>h.tag.startsWith('TIME.')):[];
   const linkHits=stage.id==='stage.04'?(analysis.grammarHits??[]).filter(h=>h.tag==='LINK.CLAUSE'):[];
   const nonfiniteHits=stage.id==='stage.05'?(analysis.grammarHits??[]).filter(h=>['CLAUSE.INFINITIVE','CLAUSE.GERUND'].includes(h.tag)&&h.validity==='VALID'&&h.bonusEligible!==false):[];
+  if(stage.id==='stage.06'){
+    const snowHits=(analysis.grammarHits??[]).filter(h=>/^(COMPARISON\.(COMPARATIVE|SUPERLATIVE|EQUALITY)|DEGREE\.(TOO|ENOUGH))$/.test(h.tag)&&h.validity==='VALID'&&h.bonusEligible!==false);
+    if(snowHits.length)emit({phase:'REGION',sourceType:'STAGE',sourceId:stage.id,labelKo:stage.regionLabelKo,operation:'MULTIPLY',operand:stage.regionMultiplier,evidenceRefs:snowHits.map(h=>h.id),highlightCardIds:[...new Set(snowHits.flatMap(h=>h.cardIds))]});
+  }
   if (nonfiniteHits.length)emit({phase:'REGION',sourceType:'STAGE',sourceId:stage.id,labelKo:stage.regionLabelKo,operation:'MULTIPLY',operand:stage.regionMultiplier,evidenceRefs:nonfiniteHits.map(h=>h.id),highlightCardIds:[...new Set(nonfiniteHits.flatMap(h=>h.cardIds))]});
   else if (linkHits.length||timeHits.length||frameHit && stage.focusFrames.includes(frameId)) emit({ phase: 'REGION', sourceType: 'STAGE', sourceId: stage.id, labelKo: stage.regionLabelKo,
     operation: 'MULTIPLY', operand: stage.regionMultiplier ?? SCORE_BALANCE.regionMultiplier, evidenceRefs: linkHits.length?linkHits.map(h=>h.id):timeHits.length?timeHits.map(h=>h.id):[frameHit.id], highlightCardIds: linkHits.length?[...new Set(linkHits.flatMap(h=>h.cardIds))]:timeHits.length?[...new Set(timeHits.flatMap(h=>h.cardIds))]:frameHit.cardIds });
@@ -57,13 +62,15 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
     bossEffects.push({ id: 'fixture.immune', synthetic: true, labelKo: '합성 면역 테스트 · 실제 보스 아님', preBossScore: score });
     emit({ phase: 'BOSS', sourceType: 'SYNTHETIC_FIXTURE', sourceId: 'fixture.immune', labelKo: '합성 장막 · 피해 0', operation: 'SET', operand: 0 });
   }
+  const frost=bossStateBefore?.id==='FROST_CRYSTAL_LOCK'?resolveFrostCrystalLock(originalAnalysis,score,enemy,{attackId,submittedCards,temporaryCardMeta}):null;
+  if(frost){bossStateAfter=frost.bossStateAfter;const labelKo=frost.brokenCrystalCount?`빙결핵 ${frost.brokenCrystalCount}개 파괴 · ${bossStateAfter.crystalsRemaining}개 남음`:bossStateAfter.crystalsRemaining?'빙결핵 · 체력 1 보호':'빙결핵 모두 파괴';bossEffects.push({id:'boss.frostCrystalLock',synthetic:false,labelKo,...frost});emit({phase:'BOSS',sourceType:'BOSS',sourceId:'boss.frostCrystalLock',labelKo,operation:'SET',operand:score,evidenceRefs:frost.eligibleFrostCardIds,highlightCardIds:frost.eligibleFrostCardIds,bossStateBefore,bossStateAfter});}
   emit({ phase: 'FINAL_POWER', sourceType: 'SYSTEM', sourceId: 'FINAL_POWER', labelKo: '최종 공격력', operation: 'SET', operand: score });
   const finalPower = score;
-  const actualHpLoss = golem?golem.actualHpLoss:Math.min(enemyHpBefore, finalPower);
-  const enemyHpAfter = golem?golem.enemyHpAfter:Math.max(0, enemyHpBefore - finalPower);
-  const overkill = golem?0:Math.max(0, finalPower - enemyHpBefore);
+  const actualHpLoss = frost?frost.actualHpLoss:golem?golem.actualHpLoss:Math.min(enemyHpBefore, finalPower);
+  const enemyHpAfter = frost?frost.enemyHpAfter:golem?golem.enemyHpAfter:Math.max(0, enemyHpBefore - finalPower);
+  const overkill = frost?frost.overkill:golem?0:Math.max(0, finalPower - enemyHpBefore);
   return { stageVersion: STAGE_VERSION, postRegionScore, preBossScore: postRegionScore, finalPower, actualHpLoss, overkill,
-    enemyHpBefore, enemyHpAfter, killed: enemyHpBefore > 0 && enemyHpAfter === 0, bossStateBefore, bossStateAfter, bossEffects, events,...(golem?{phaseBreak:golem.phaseBreak,phaseExcess:golem.phaseExcess,phaseId:golem.phaseId}:{}) };
+    enemyHpBefore, enemyHpAfter, killed: enemyHpBefore > 0 && enemyHpAfter === 0, bossStateBefore, bossStateAfter, bossEffects, events,...(frost?{frostCrystalResult:frost,preventedDamage:frost.preventedDamage}:{}),...(golem?{phaseBreak:golem.phaseBreak,phaseExcess:golem.phaseExcess,phaseId:golem.phaseId}:{}) };
 }
 
 /**
@@ -72,12 +79,13 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
  */
 export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stage = STAGE1,
   attackId = 'attack.sandbox', runId = null, battleId = null, expectedRevision = 0,
-  sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,
+  sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,temporaryCardMeta={},
 }) {
-  if (['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
+  const temporary=policyVersion==='0.6.0'?{consumedTemporaryCardIds:cards.filter(c=>temporaryCardMeta[c.instanceId]?.battleId===battleId).map(c=>c.instanceId)}:{};
+  if (['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
     const cardScoringSnapshot=validateCardScoringSnapshot(cards);
     const hp=safeInteger(enemy.hp,'enemy hp',{min:0});
-    return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,
+    return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,...temporary,
       sentenceSnapshot,analysis,cardScoringSnapshot,runeSnapshot:[],comboEligibility,scoreableHitIds:[],
       versions:{grammar:analysis.grammarVersion,language:sentenceSnapshot.languageVersion,submission:policyVersion},
       scoreTimeline:[],preRuneScore:0,postRuneScore:0,postRegionScore:0,preBossScore:0,finalPower:0,actualHpLoss:0,overkill:0,
@@ -97,12 +105,12 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis,balance:scoreBalanceForVersion(version) });
   const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId,version });
   const encounter = resolveEncounter(eligibleAnalysis, runeResult.postRuneScore, enemy, {
-    attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,originalAnalysis:analysis,
+    attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,originalAnalysis:analysis,submittedCards:cardScoringSnapshot,temporaryCardMeta,
   });
   return {
-    schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,
+    schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,...temporary,...(encounter.frostCrystalResult?{frostCrystalResult:encounter.frostCrystalResult,preventedDamage:encounter.preventedDamage}:{}),
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
-      balance: version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: ['0.3.0','0.4.0','0.5.0','0.5.1'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: 'presentation.0.2.1' },
+      balance: version==='0.6.0'?'balance.0.6.0':version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: ['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: version==='0.6.0'?'stage.0.6.0':version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: version==='0.6.0'?'presentation.0.6.0':'presentation.0.2.1' },
     sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis, comboEligibility,
     scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),
     zeroReason:encounter.finalPower===0?(encounter.bossEffects.length?'BOSS_BLOCKED':'ACCURACY_ZERO'):null,

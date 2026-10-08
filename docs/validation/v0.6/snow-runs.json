@@ -1,0 +1,9 @@
+{
+  "kind": "ACTUAL_CONTROLLER_RNG_NOT_UI_OR_HUMAN_WIN_RATE",
+  "status": "PASS",
+  "total": 80,
+  "complete": 0,
+  "defeats": 80,
+  "errors": [],
+  "durationMs": 200553
+}

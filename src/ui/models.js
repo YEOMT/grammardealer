@@ -9,7 +9,7 @@ export function cardModel(instance, selection = null, version='0.3.0') {
   const forms = formsForCard(instance,{registry});
   const selectedId = selection?.formId || selection?.selectionId || selection;
   const form = registry.formById[selectedId] || forms.find(f => f.id === lexeme.defaultFormId) || forms[0];
-  return { id: instance.instanceId, cardKind:'WORD', lexemeId: lexeme.id, surface: form?.surface || lexeme.lemma, pos: lexeme.pos, baseScore: card.baseScore, polish: instance.polishLevel || 0, rarity: card.rarity, glossKo: lexeme.glossKo, formId: form?.id, forms, lexeme, definition: card };
+  return { id: instance.instanceId, cardKind:'WORD', temporary:instance.temporary, lexemeId: lexeme.id, surface: form?.surface || lexeme.lemma, pos: lexeme.pos, baseScore: card.baseScore, polish: instance.polishLevel || 0, rarity: card.rarity, glossKo: lexeme.glossKo, formId: form?.id, forms, lexeme, definition: card };
 }
 export function runeDescription(rune, level = 1, version='0.3.0') {
   return describeRune(rune.id,level,version);

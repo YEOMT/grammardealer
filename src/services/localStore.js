@@ -1,11 +1,14 @@
-import {hasSkyCampaign,hasTimeCampaign,hasDesertCampaign} from '../data/campaignFeatures.js';
+import {hasSnowCampaign,hasSkyCampaign,hasTimeCampaign,hasDesertCampaign} from '../data/campaignFeatures.js';
+import {SNOW_PACKS,SNOW_REWARD_PACK} from '../game/mirrorSnowfield.js';
+import {validateFrostCards} from '../game/frostCards.js';
+import {validateFrostCrystalLock} from '../engine/frostCrystalLock.js';
 import {DESERT_PACKS} from '../game/wishDesert.js';
 import {validateTurnHandSeal} from '../game/turnHandSeal.js';
 import {validateSkyShops} from '../game/skyShopValidation.js';
 import {validateSkyShield} from '../engine/skyShield.js';
 import {validateOperationHistory} from '../game/operationHistory.js';
 import {cardDefinition} from '../data/cardCatalog.js';
-import {assertCardTypes} from '../game/invariants.js';
+import {assertCardTypes,assertCardConservation} from '../game/invariants.js';
 import {TIME_PACKS} from '../data/language/timeLanguage.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
@@ -16,8 +19,8 @@ import { RUNE_BY_ID, runeForVersion, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.5.1';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(version);
+export const SAVE_VERSION = '0.6.0';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -53,7 +56,8 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE3_CLEAR'&&!(p.stage3CompletedRunIds??[]).includes(event.runId)){p.stage3CompletedRunIds=[...(p.stage3CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,3);}
   if(event.type==='STAGE4_CLEAR'&&!(p.stage4CompletedRunIds??[]).includes(event.runId)){p.stage4CompletedRunIds=[...(p.stage4CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,4);}
   if(event.type==='STAGE5_CLEAR'&&!(p.stage5CompletedRunIds??[]).includes(event.runId)){p.stage5CompletedRunIds=[...(p.stage5CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,5);}
-  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
+  if(event.type==='STAGE6_CLEAR'&&event.version==='0.6.0'){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
+  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
   return reviewTimeUnlocks(p);
 }
 export function reviewTimeUnlocks(profile){
@@ -65,8 +69,8 @@ export function canSaveRun(run) {
   if(!run)return false;
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -78,7 +82,7 @@ export function validateRunState(run,registry) {
   if(!registry?.cardById||!registry?.formById)fail('단어 데이터가 준비되지 않았습니다.');
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
   registry=registryForVersion(run.version);validateTutorial(run);
-  const desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
+  const snow=hasSnowCampaign(run),desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
   const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
   if(!['STAGE_INTRO','BATTLE','REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','DEFEAT',...(currentCampaign?['STAGE_CLEAR','SHOP']:[])].includes(run.status))fail('잘못된 원정 상태입니다.');
@@ -89,25 +93,25 @@ export function validateRunState(run,registry) {
   if(config.character!=='traveler'||config.difficulty!==1||!['BEGINNER','STANDARD','ADVANCED','FREE'].includes(config.vocabularyMode))fail('이번 버전에서 지원하지 않는 원정 설정입니다.');
   if(!['string','number'].includes(typeof config.seed)||(typeof config.seed==='number'&&!Number.isSafeInteger(config.seed)))fail('시드가 잘못되었습니다.');
   const progress=record(run.progress,'진행');
-  if(!['stage.01',...(currentCampaign?['stage.02']:[]),...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[])].includes(progress.stageId))fail('지원하지 않는 전투 진행입니다.');
+  if(!['stage.01',...(currentCampaign?['stage.02']:[]),...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[])].includes(progress.stageId))fail('지원하지 않는 전투 진행입니다.');
   const stage=stageForRun(run);
   requireInteger(progress.roundIndex,'roundIndex',0,stage.rounds.length-1);
   if(progress.battleNumber!==stage.rounds[progress.roundIndex].battleNumber)fail('지원하지 않는 전투 진행입니다.');
-  const endBoundary=desert?'STAGE5_END':sky?'STAGE4_END':time?'STAGE3_END':currentCampaign?'STAGE2_END':'STAGE1_END';
+  const endBoundary=snow?'STAGE6_END':desert?'STAGE5_END':sky?'STAGE4_END':time?'STAGE3_END':currentCampaign?'STAGE2_END':'STAGE1_END';
   if(![null,undefined,endBoundary].includes(progress.contentBoundary))fail('지원하지 않는 콘텐츠 경계입니다.');
-  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==stage.rounds.length-1||progress.contentBoundary!==endBoundary||currentCampaign&&progress.stageId!==(desert?'stage.05':sky?'stage.04':time?'stage.03':'stage.02')))fail('제공 구간 완료 상태가 잘못되었습니다.');
-  if(run.status==='STAGE_CLEAR'&&(!['stage.01',...(time?['stage.02']:[]),...(sky?['stage.03']:[]),...(desert?['stage.04']:[])].includes(progress.stageId)||progress.roundIndex!==stage.rounds.length-1||!run.reward?.resolved))fail('지역 완료 상태가 잘못되었습니다.');
+  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==stage.rounds.length-1||progress.contentBoundary!==endBoundary||currentCampaign&&progress.stageId!==(snow?'stage.06':desert?'stage.05':sky?'stage.04':time?'stage.03':'stage.02')))fail('제공 구간 완료 상태가 잘못되었습니다.');
+  if(run.status==='STAGE_CLEAR'&&(!['stage.01',...(time?['stage.02']:[]),...(sky?['stage.03']:[]),...(desert?['stage.04']:[]),...(snow?['stage.05']:[])].includes(progress.stageId)||progress.roundIndex!==stage.rounds.length-1||!run.reward?.resolved))fail('지역 완료 상태가 잘못되었습니다.');
   if(run.status!=='CONTENT_COMPLETE'&&progress.contentBoundary!=null)fail('진행 중인 원정의 완료 경계가 잘못되었습니다.');
   if(currentCampaign&&run.status==='STAGE_INTRO'&&progress.roundIndex!==0)fail('지역 소개 전투 번호가 잘못되었습니다.');
   if(currentCampaign&&run.status==='BETWEEN_BATTLES'&&progress.roundIndex>=stage.rounds.length-1)fail('지역 마지막 전투 이후 진행이 잘못되었습니다.');
   if(currentCampaign){
     const manifest=record(run.contentManifest,'콘텐츠 목록');
-    if(manifest.id!==(desert?'campaign.0.5':sky?'campaign.0.4':time?'campaign.0.3':'campaign.0.2'))fail('지원하지 않는 콘텐츠 목록입니다.');
+    if(manifest.id!==(snow?'campaign.0.6':desert?'campaign.0.5':sky?'campaign.0.4':time?'campaign.0.3':'campaign.0.2'))fail('지원하지 않는 콘텐츠 목록입니다.');
     ids(manifest.cardDefIds,'콘텐츠 카드');ids(manifest.runeIds,'콘텐츠 룬');ids(manifest.stageIds,'콘텐츠 지역');
-    if(manifest.stageIds.join('|')!==(desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
+    if(manifest.stageIds.join('|')!==(snow?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06':desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
     requireInteger(run.economy.paidRemovalCount,'paidRemovalCount');
     ids(run.milestoneIds,'지역 사건');
-    if(run.milestoneIds.some(id=>!['STAGE1_CLEAR',...(time?['STAGE2_CLEAR','STAGE3_CLEAR']:[]),...(desert?['STAGE4_CLEAR','STAGE5_CLEAR']:[])].includes(id)))fail('지원하지 않는 지역 사건입니다.');
+    if(run.milestoneIds.some(id=>!['STAGE1_CLEAR',...(time?['STAGE2_CLEAR','STAGE3_CLEAR']:[]),...(desert?['STAGE4_CLEAR','STAGE5_CLEAR']:[]),...(snow?['STAGE6_CLEAR']:[])].includes(id)))fail('지원하지 않는 지역 사건입니다.');
     if(time&&progress.stageId==='stage.03'&&(!run.milestoneIds.includes('STAGE1_CLEAR')||!run.milestoneIds.includes('STAGE2_CLEAR')))fail('시간의 협곡 이전 지역 완료 기록이 없습니다.');
     if(time&&run.milestoneIds.includes('STAGE3_CLEAR')&&(!(sky&&progress.battleNumber>12)&&(progress.battleNumber!==12||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(sky?['STAGE_CLEAR']:[])].includes(run.status))))fail('골렘 처치 이전의 완료 기록입니다.');
     if(sky&&progress.stageId==='stage.04'&&(!['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR'].every(id=>run.milestoneIds.includes(id))||!run.eligibility.runOwnUnlocks.includes('pack.clauseLink')))fail('하늘섬 이전 완료·해금 기록이 없습니다.');
@@ -118,6 +122,8 @@ export function validateRunState(run,registry) {
     }
     if(progress.stageId==='stage.02'&&!run.milestoneIds.includes('STAGE1_CLEAR'))fail('이전 지역 완료 기록이 없습니다.');
   }
+  if(snow){if(progress.stageId==='stage.06'&&(!['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR'].every(id=>run.milestoneIds.includes(id))||!SNOW_PACKS.every(id=>run.eligibility.runOwnUnlocks.includes(id))))fail('설원 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE6_CLEAR')&&(progress.battleNumber!==27||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE'].includes(run.status)||!run.eligibility.runOwnUnlocks.includes(SNOW_REWARD_PACK)))fail('설원 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE6_CLEAR'))fail('설원 완료 누락');}
+  validateFrostCards(run);
   ids(run.activeCardIds,'카드');record(run.cardInstances,'카드');
   for(const [id,c] of Object.entries(run.cardInstances)){
     if(!c||c.instanceId!==id||!cardDefinition(c,run.version)?.runtimeReady)fail('없는 카드가 포함되어 있습니다.');
@@ -158,6 +164,7 @@ export function validateRunState(run,registry) {
       if(c.enemyState.id!==encounter.id||c.enemyState.stageId!==progress.stageId||c.enemyState.kind!==encounter.kind)fail('잘못된 적 정의입니다.');
       if(encounter.bossMechanic?.id==='TIME_GOLEM')validateTimeGolem(c.enemyState);
       else if(encounter.bossMechanic?.id==='CLAUSE_LINK_SHIELD')validateSkyShield(c.enemyState);
+      else if(encounter.bossMechanic?.id==='FROST_CRYSTAL_LOCK')validateFrostCrystalLock(c.enemyState);
       else if(encounter.bossMechanic?.id==='TURN_HAND_SEAL')validateTurnHandSeal(run);
       else if(encounter.bossMechanic){const veil=c.enemyState.bossMechanic;if(!veil||veil.id!=='SVOO_VEIL'||typeof veil.active!=='boolean'||veil.multiplier?.num!==1||veil.multiplier?.den!==4)fail('보스 장막 정의가 잘못되었습니다.');}
       else if(c.enemyState.bossMechanic)fail('이 적은 보스 장막을 사용하지 않습니다.');
@@ -166,7 +173,7 @@ export function validateRunState(run,registry) {
     ids(c.drawIds,'드로우');ids(c.handIds,'손패');ids(c.discardIds,'버린 카드');
     if(!Array.isArray(c.sentenceSlots))fail('문장 카드 정보가 잘못되었습니다.');
     const pileIds=[...c.drawIds,...c.handIds,...c.sentenceSlots.map(x=>x.cardInstanceId),...c.discardIds,...(c.exhaustedIds??[])];
-    if(pileIds.length!==run.activeCardIds.length||new Set(pileIds).size!==pileIds.length||pileIds.some(x=>!run.activeCardIds.includes(x)))fail('카드 영역 합계가 일치하지 않습니다.');
+    assertCardConservation(run.activeCardIds,c,run.cardInstances);
     if(c.handIds.length>rules.handLimit||c.sentenceSlots.length>rules.sentenceLimit)fail('카드 한도를 초과했습니다.');
     for(const slot of c.sentenceSlots){
       if(slot.selection){
@@ -176,10 +183,11 @@ export function validateRunState(run,registry) {
       }
     }
   } else if(!['STAGE_INTRO','SHOP'].includes(run.status))fail('전투 정보가 없습니다.');
-  if(run.status==='SHOP'&&(!['stage.02',...(sky?['stage.04']:[])].includes(progress.stageId)||progress.roundIndex!==0||c!==null))fail('상점 진입 상태가 잘못되었습니다.');
+  if(run.status==='SHOP'&&(!['stage.02',...(sky?['stage.04']:[]),...(snow?['stage.06']:[])].includes(progress.stageId)||progress.roundIndex!==0||c!==null))fail('상점 진입 상태가 잘못되었습니다.');
   if(currentCampaign){
     record(run.entryGrants,'입장 지급');
-    if(Object.keys(run.entryGrants).some(id=>!['stage.02',...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[])].includes(id)))fail('지원하지 않는 입장 지급입니다.');
+    if(Object.keys(run.entryGrants).some(id=>!['stage.02',...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[])].includes(id)))fail('지원하지 않는 입장 지급입니다.');
+    const snowGrant=run.entryGrants['stage.06'];if(snowGrant&&(!snow||snowGrant.entryGrantId!==run.runId+':stage.06.entryGrant'||snowGrant.applied!==true||snowGrant.cardInstanceIds?.length!==0||snowGrant.cardDefIds?.length!==0))fail('설원 입장 정보 오류');if(snow&&progress.stageId==='stage.06'&&run.status!=='STAGE_INTRO'&&!snowGrant)fail('설원 입장 정보 없음');
     const desertGrant=run.entryGrants['stage.05'];
     if(desertGrant){
       if(!desert||desertGrant.entryGrantId!==run.runId+':stage.05.entryGrant'||desertGrant.applied!==true)fail('사막 입장 지급 기록이 잘못되었습니다.');ids(desertGrant.cardInstanceIds,'사막 지급 사본');ids(desertGrant.cardDefIds,'사막 지급 종류');
@@ -245,7 +253,7 @@ export function validateRunState(run,registry) {
     ids(offer.choices.map(x=>x?.choiceId),'보상 후보');
     const cardOffer=['CARD_COMMON','CARD_UNCOMMON','CARD_RARE'].includes(offer.type);
     if((cardOffer||offer.type==='RUNE')&&offer.choices.length>3)fail('보상 후보 한도를 초과했습니다.');
-    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[])].includes(offer.rewardVersion)||offer.choices.length!==3))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
+    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[])].includes(offer.rewardVersion)||offer.choices.length!==3))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
     if(sky&&offer.choices.filter(x=>x.kind==='CARD'&&cardDefinition(x.cardDefId,run.version)?.cardKind==='OPERATION').length>1)fail('운영 카드 후보가 너무 많습니다.');
     if(offer.type==='RUNE_INTRO'&&(offer.battleNumber!==2||offer.choices.some(x=>x.kind!=='RUNE')))fail('첫 룬 보상이 잘못되었습니다.');
     if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 재화가 잘못되었습니다.');

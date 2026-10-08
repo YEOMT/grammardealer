@@ -1,0 +1,36 @@
+{
+  "kind": "ASSIGNED_FORMS_UI",
+  "checks": [
+    {
+      "id": "BRANDING",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1280",
+      "status": "PASS"
+    },
+    {
+      "id": "FORM_ROWS_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "ALL_BE_FORMS_KEYBOARD",
+      "status": "PASS"
+    },
+    {
+      "id": "ALL_BE_FORMS_TOUCH",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "lobby.png",
+    "forms-1366.png",
+    "forms-1280.png",
+    "forms-1024.png"
+  ],
+  "captureArchiveNote": "전체 이번 실행 캡처는 로컬 .local-validation/v06/에 보존. 이 폴더에는 assigned-/production- 접두어의 선별 캡처만 공개한다. 원래 docs/evidence 경로의 과거 이미지는 복원되었으므로 이번 실행 캡처로 사용하지 않는다."
+}
