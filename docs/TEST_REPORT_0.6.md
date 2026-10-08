@@ -68,3 +68,9 @@ Stage6 HP760/830/900/970/1280, 비교1.8/최상1.9/동등1.8/정도1.5/+20/지�
 사용자 검토는 새 프로필 실습/정상 스킵 → 기존5지역/두 상점 → 설원 소개/세 번째 상점 →5전투의 빙정 조합·교환·형태/드로우 → 사슴의 결정 수·HP1·중간 저장·마지막 결정 →STAGE6_END 순서다. 실제 시드 경로는 `run-sequence.54`/STANDARD이며 보상 선택도 결과 JSON의 명령을 따라야 같은 덱/RNG가 된다.
 
 공개 문서는 상대 경로를 사용하며 원본 로그/영상과 시행착오 검색은 로컬에 보존한다. main 직접 push·merge·auto-merge·Pages 설정 변경·공개 배포는 하지 않는다. 기존 workflow는 PR에서는 검증/build만 하고 배포는 main 비PR로 제한되어 있어 수정하지 않았다.
+
+## 원격 반영
+
+구현 커밋 `41529ade69119ab09c3166a8a673d6b097ae58cf`를 `codex/v0.6-mirror-snowfield-frost-cards`에 push하고 [main 대상 PR #9](https://github.com/YEOMT/grammardealer/pull/9)를 생성했다. PR은 open이고 auto-merge는 꺼져 있다. push 직후 원격 main은 시작 SHA `94aedf6610ddceacafca832e7554def5a4bc6a65`와 같았다. GitHub 연결 도구의 PR 생성은 권한403으로 실패했으나, 기존 YEOMT Git 로그인의 인증정보를 메모리에서만 사용한 GitHub API 생성은 성공했다.
+
+인수표 최종 집계는 PASS172 / FAIL0 / NOT RUN1(P171 실기기·교사·청취)이다. 개별 항목 PASS는 표에 적힌 검사 수준을 뜻한다. 별도 production 학습 코스 등 위에 명시한 추가 미검증 범위가 없어졌다는 뜻은 아니다. 로컬 검증 결과와 원격 CI 상태는 구분한다. 이번 작업에서 시작한 개발 서버와 브라우저는 종료했다.

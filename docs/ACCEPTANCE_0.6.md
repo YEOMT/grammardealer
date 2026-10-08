@@ -1,6 +1,6 @@
 # 0.6 인수 조건 실제 결과
 
-PASS 171 / FAIL 0 / NOT RUN 2. 개별 실행 수준은 근거를 따른다.
+PASS 172 / FAIL 0 / NOT RUN 1. 개별 실행 수준은 근거를 따른다.
 
 첨부 JSON은 기대값으로 보존했다. 아래는 이번 실행과 코드 대조 결과이며 과거 PASS를 재사용하지 않는다. production의 정상 실습 스킵은 명세§12.3에 따른다. 실기기 및 추가 학습 코스의 미검사는 TEST_REPORT_0.6.md에서 별도로 명시한다.
 
@@ -177,5 +177,5 @@ PASS 171 / FAIL 0 / NOT RUN 2. 개별 실행 수준은 근거를 따른다.
 | P169 | PASS | 빙정 opener 보정이 실제 난수 조작 범위를 넘어 보상·상점 결과를 바꾸지 않는지 확인한다. | TEST_REPORT_0.6.md의 네 검증 수준; 독립 original051 golden, frost RNG 비교 |
 | P170 | PASS | 기존 0.5.1 golden registry/덱/보상/상점/공격을 보존한다. | TEST_REPORT_0.6.md의 네 검증 수준; 독립 original051 golden, frost RNG 비교 |
 | P171 | NOT RUN | 실제 iPad/Android/Safari 실기기, 교사 최종 검수, 스피커 청취는 실행하지 않으면 NOT RUN으로 쓴다. | 실제 iPad/Android/Safari 기기, 교사 최종 검수, 스피커 청취는 이번에 수행하지 않음 |
-| P172 | NOT RUN | 완료 후 작업 브랜치를 push하고 main 대상 PR을 생성한다. | 브랜치 push/PR 생성 후 실제 URL로 갱신 |
+| P172 | PASS | 완료 후 작업 브랜치를 push하고 main 대상 PR을 생성한다. | 개발 브랜치 push 완료: 구현 41529ade69119ab09c3166a8a673d6b097ae58cf; main 대상 PR https://github.com/YEOMT/grammardealer/pull/9 생성, open/auto_merge=null |
 | P173 | PASS | main 직접 push·자동 merge·Pages 설정 변경·공개 배포를 하지 않는다. | main 직접 push/merge/auto-merge/Pages 설정 변경/공개 배포 없음; workflow 수정 없음 |
