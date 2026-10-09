@@ -2,7 +2,7 @@
 
 첨부 기대 JSON은 수정하지 않았습니다. 아래는 실제 코드 검토/명령 실행/브라우저 증거와 대조한 결과입니다. 자세한 한계와 중간 실패는 [검증 보고서](TEST_REPORT_0.7.md)를 참조하십시오. 증거 JSON은 `docs/validation/v0.7/`, 테스트 경로는 저장소 루트 기준입니다.
 
-**PASS 121**, **NOT_RUN 2**
+**PASS 122**, **NOT_RUN 1**
 
 |ID|요구사항|결과|실제 근거|
 |---|---|---|---|
@@ -128,4 +128,4 @@
 |P120|실제iPad/Android/Safari·교사최종검수·스피커청취는미실행시NOT_RUN이다.|NOT_RUN|Actual iPad/Android/Safari hardware, teacher sign-off and speaker listening were not performed. Playwright WebKit is not hardware Safari.|
 |P121|완료보고서·문법audit·먼지수명검토·인수표·선별캡처·실행환경/명령을제출한다.|PASS|TEST_REPORT_0.7.md, PATCH_NOTES_0.7_KO.md, verb/education/dust reviews, captures.json and production clip; runtime and actual command records.|
 |P122|기존증거를보존하고대형raw로그/개인경로덤프/node_modules/dist를불필요하게커밋하지않는다.|PASS|preservation.json: original499 docs backup, archive new fixed outputs then restore originals except two intentional handoff docs; git diff review; raw logs/video remain .local-validation/v07/. No node_modules/dist/tools cache committed.|
-|P123|PR 생성은완료시Ready for review로하고실제로Draft이면그상태를명시한다.|NOT_RUN|PR not yet created; update only after actual Ready for review creation and branch push.|
+|P123|PR 생성은완료시Ready for review로하고실제로Draft이면그상태를명시한다.|PASS|Actual PR https://github.com/YEOMT/grammardealer/pull/11 targeting main, draft=False; pushed head 5cf8ff23a92ae7474136b42c9ef85b671d9db145. No auto-merge.|

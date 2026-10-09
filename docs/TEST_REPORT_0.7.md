@@ -93,4 +93,4 @@ package/lockfile의 프로젝트 버전은 0.7.0으로 바꿨지만 의존성 �
 
 검토 순서: 기존 저장 불러오기 → 새 원정 실습/스킵 → 기존 세 상점·설원까지 진행 → Stage7 소개 → 먼지 교환/보급/WORD 탐색 차이 → 분사 수식/수동/사역/지각 → 완료·진행으로 비늘 우회 해제 → 마지막 보상/완료 저장 복원.
 
-PR과 원격 반영은 [인수표 P123](ACCEPTANCE_0.7.md)에 실제 생성 후 기록합니다. Ready for review는 검토 가능 상태를 뜻하며 main 병합이나 공개 배포 승인을 대신하지 않습니다.
+개발 브랜치 구현 커밋 `5cf8ff23a92ae7474136b42c9ef85b671d9db145`를 push하고 [PR #11](https://github.com/YEOMT/grammardealer/pull/11)을 main 대상으로 생성했습니다. 실제 `draft=false`, `state=open`, `auto_merge=null`을 확인했습니다. GitHub 커넥터 생성은 403으로 거절되어 기존 Git Credential Manager 인증을 메모리에서만 사용하는 API 호출로 생성했습니다. 인증정보는 저장·출력하지 않았습니다. [인수표 P123](ACCEPTANCE_0.7.md)도 실제 결과로 갱신했습니다. Ready for review는 검토 가능 상태를 뜻하며 main 병합이나 공개 배포 승인을 대신하지 않습니다.

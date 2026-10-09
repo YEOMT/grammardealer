@@ -1,8 +1,8 @@
 {
   "kind": "ACTUAL_0.7_ACCEPTANCE_NOT_ATTACHMENT_SELF_CHECK",
   "counts": {
-    "PASS": 121,
-    "NOT_RUN": 2
+    "PASS": 122,
+    "NOT_RUN": 1
   },
   "items": [
     {
@@ -986,8 +986,8 @@
       "group": "SAVE_QA_DELIVERY",
       "requirement": "PR 생성은완료시Ready for review로하고실제로Draft이면그상태를명시한다.",
       "level": "REQUIRED",
-      "status": "NOT_RUN",
-      "evidence": "PR not yet created; update only after actual Ready for review creation and branch push."
+      "status": "PASS",
+      "evidence": "Actual PR https://github.com/YEOMT/grammardealer/pull/11 targeting main, draft=False; pushed head 5cf8ff23a92ae7474136b42c9ef85b671d9db145. No auto-merge."
     }
   ]
 }
