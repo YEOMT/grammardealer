@@ -2,7 +2,7 @@ import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
 import {attachGuidedCoach,showScoreGate,skipTutorialButton} from './ui/guidedCoach.js';
 import {wordCard} from './ui/cards.js';
-import {cardModel} from './ui/models.js';
+import {cardModel,operationPolishPreview} from './ui/models.js';
 import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutorial.js';
 import './ui/styles.css';
 import { renderLobby } from './ui/lobby.js';
@@ -40,7 +40,7 @@ async function startRun(config,{sameSeed=false}={}){
 }
 async function runCommand(command){
   if(presenting)return{ok:false,message:'공격 연출 중입니다.'};
-  void audio.unlock();const before=controller.getState();const result=controller.dispatch(command.sessionId?command:tutorialCommand(before,command));
+  void audio.unlock();const before=controller.getState();if(command.type==='CHOOSE_STAGE4_CONNECTOR')command={...command,expectedRevision:before.revision,commandId:`entry.choice.${before.runId}.${before.revision}`};const result=controller.dispatch(command.sessionId?command:tutorialCommand(before,command));
   if(!result.ok){
     if(result.needsTutorialExplanation){explainFirstAttack(()=>{controller.dispatch({type:'ACK_ATTACK_GUIDE'});runCommand(command);});return result;}
     if(result.needsConfirmation&&command.type==='PREPARE')confirmDialog('마지막 행동 턴','이대로 넘기면 패배합니다. 마지막 턴을 준비에 사용하시겠습니까?','턴 넘기기',()=>runCommand({...command,confirmed:true}));
@@ -51,7 +51,7 @@ async function runCommand(command){
   if(result.operationEffect){await presentOperationResult(before,result.operationEffect);return result;}
   if(['ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
   if(result.rewardEffect){
-    const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel},null,before.version),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
+    const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel},null,before.version),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:e.beforeOperation?operationPolishPreview(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.beforeLevel},null,before.version)):`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
   }
   if(result.resolution){
     await presentResolution(before,result.resolution);
@@ -115,7 +115,7 @@ function render(){
   }
   const state=controller?.getState();
   if(location.hash==='#game'&&state){
-    if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records')});return;}
+    if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records'),onSaves:()=>openOverlay('saves'),onChooseConnector:payload=>runCommand({type:'CHOOSE_STAGE4_CONNECTOR',...payload})});return;}
     if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
     if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=isGuided(state)?attachGuidedCoach(root,state,runCommand,{onInterrupt:interruptTutorial}):attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}

@@ -1,0 +1,1262 @@
+{
+  "schemaVersion": 1,
+  "target": "0.6.1",
+  "kind": "ACTUAL_FOCUSED_EXECUTION_RESULTS",
+  "runId": "v061-operations-progression-save-final",
+  "executedAt": "2026-10-09T09:49:45.885Z",
+  "base": "79ab84ebe3a3240a558aecbd2898efdd8e179029",
+  "command": "node --test tests/v061-operations.test.js tests/v061-progression.test.js tests/v061-save-integrity.test.js",
+  "exitCode": 0,
+  "status": "PASS",
+  "counts": {
+    "tests": 97,
+    "pass": 97,
+    "fail": 0,
+    "skipped": 0,
+    "operationsFile": 66,
+    "progressionFile": 26,
+    "saveIntegrityFile": 5
+  },
+  "durationMs": 4254.9677,
+  "localLog": ".local-validation/v061/operations-progression-save-final.log",
+  "scope": "Focused unit/helpers plus actual RunController commands from assigned physical-card and stage-boundary fixtures. No human win-rate, natural campaign, browser completion or snow-learning-course claim.",
+  "expectationStatusScope": "PASS/NOT RUN below describes only coverage in this focused execution. Browser and other regressions must supply separate evidence before any broader acceptance claim.",
+  "failureHistory": [
+    {
+      "log": ".local-validation/v061/operations-focused.log",
+      "counts": "58/58 PASS before expanded integrity audit"
+    },
+    {
+      "log": ".local-validation/v061/operations-focused-2.log",
+      "status": "FAIL",
+      "cause": "Reproduced broken frost revived into DISCARD without disagreement rejection.",
+      "resolution": "Validate actual attack consumedTemporaryCardIds against live SHATTERED partition."
+    },
+    {
+      "log": ".local-validation/v061/operations-progression-integrity-audit.log",
+      "status": "FAIL",
+      "counts": "84/88 PASS; 4 failed tests",
+      "cause": "Live source polish inconsistent with receipts; temporary lifetime/definition relabeling including after cleanup; incomplete manifest/policy tags accepted.",
+      "resolution": "Snapshot/current comparisons, retained fixed frost identity, complete061 manifest and frozen version tags."
+    },
+    {
+      "status": "FAIL",
+      "cause": "Read-only actual probe accepted nonexistent ghost physical ID substituted consistently inside receipt only, both source record and current state diverged.",
+      "resolution": "New save-integrity regression requires live identity; ended missing identity requires fixed frost supply or actual reward REMOVE receipt. Live/defeat tamper rejected and legitimate reward REMOVE preserved."
+    },
+    {
+      "log": ".local-validation/v061/save-integrity-focused.log",
+      "status": "FAIL",
+      "counts": "2/4 PASS",
+      "cause": "Test fixture errors: Stage2 assigned4 rune slots rather than original3; prior Stage6-1 temporary objects not cleaned before assigning6-5.",
+      "resolution": "Corrected only scene setup; assertions and game code unchanged for these two fixture mistakes."
+    },
+    {
+      "log": ".local-validation/v061/operations-progression-save-final.log",
+      "status": "PASS",
+      "counts": "97/97"
+    }
+  ],
+  "operations": [
+    {
+      "id": "O001",
+      "name": "보급 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O002",
+      "name": "보급 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O003",
+      "name": "보급 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O004",
+      "name": "보급 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O005",
+      "name": "보급 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O006",
+      "name": "탐색 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O007",
+      "name": "탐색 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O008",
+      "name": "탐색 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O009",
+      "name": "탐색 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O010",
+      "name": "탐색 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O011",
+      "name": "명사 탐색 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O012",
+      "name": "명사 탐색 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O013",
+      "name": "명사 탐색 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O014",
+      "name": "명사 탐색 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O015",
+      "name": "명사 탐색 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O016",
+      "name": "동사 탐색 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O017",
+      "name": "동사 탐색 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O018",
+      "name": "동사 탐색 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O019",
+      "name": "동사 탐색 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O020",
+      "name": "동사 탐색 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O021",
+      "name": "형용사 탐색 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O022",
+      "name": "형용사 탐색 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O023",
+      "name": "형용사 탐색 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O024",
+      "name": "형용사 탐색 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O025",
+      "name": "형용사 탐색 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O026",
+      "name": "연결어 탐색 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O027",
+      "name": "연결어 탐색 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O028",
+      "name": "연결어 탐색 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O029",
+      "name": "연결어 탐색 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O030",
+      "name": "연결어 탐색 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O031",
+      "name": "재활용 +0 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O032",
+      "name": "재활용 +1 정상 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O033",
+      "name": "재활용 대상0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O034",
+      "name": "재활용 +1 만패 부분획득",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O035",
+      "name": "재활용 연마상한",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O036",
+      "name": "nounSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O037",
+      "name": "nounSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O038",
+      "name": "verbSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O039",
+      "name": "adjectiveSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O040",
+      "name": "connectorSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O041",
+      "name": "connectorSearch 실제 순서 선별",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Fixture expected values checked against actual operation commands; card and resource invariants and save validator checked."
+    },
+    {
+      "id": "O042",
+      "name": "품사 판정은 canonical lexeme",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O043",
+      "name": "형용사 탐색은 DRAW에없고 DISCARD에있어도 거절",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O044",
+      "name": "보급+1은 자기 효과에서 자신을 뽑지 않음",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O045",
+      "name": "자기 자신뿐인 보급+1",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O046",
+      "name": "보급+1 정상 되뽑기 재사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O047",
+      "name": "탐색+1 재활용으로 회수해 재사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O048",
+      "name": "기본 보급과 신규 탐색 일회사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O049",
+      "name": "서로 다른 기본운영 같은정의",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O050",
+      "name": "같은 commandId 재전송",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O051",
+      "name": "FINISH_OPERATION 반복/취소",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O052",
+      "name": "직접 탐색 열기/취소",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O053",
+      "name": "직접 탐색 오래된 target/revision",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O054",
+      "name": "일반 탐색은 WORD만",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O055",
+      "name": "보급 일반재셔플",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O056",
+      "name": "재활용+1 부분대상",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O057",
+      "name": "재활용 대상과 제외",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O058",
+      "name": "재활용+1 후보 두장",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O059",
+      "name": "재활용 RNG 재현",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O060",
+      "name": "순환 source 기록 분리",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O061",
+      "name": "연마 소스스냅샷 위조",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O062",
+      "name": "사용기록 실제 이동 불일치",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O063",
+      "name": "즉시 사용 Undo 금지",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O064",
+      "name": "사용한 운영은 공격·운석 단어수에 미포함",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O065",
+      "name": "스핑크스 봉인사본 교환 후 재활용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O066",
+      "name": "임시 탐색 사용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O067",
+      "name": "임시 탐색 연마 거절",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    },
+    {
+      "id": "O068",
+      "name": "UI 예외/숨김 이후 중복정산 없음",
+      "status": "NOT RUN",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Controller duplicate/cancel/FINISH checks passed; actual hidden-tab/UI-exception checks are outside this Node suite."
+    },
+    {
+      "id": "O069",
+      "name": "같은턴 수동 재사용stress",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_PHYSICAL_STATE_REAL_CONTROLLER",
+      "detail": "Named test covers the corresponding actual movement, idempotence, save or temporary-card requirement."
+    }
+  ],
+  "progression": [
+    {
+      "id": "P001",
+      "name": "Stage4 연결어 자격 없음",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P002",
+      "name": "Stage4 연결어 자격 and",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P003",
+      "name": "Stage4 연결어 자격 but",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P004",
+      "name": "Stage4 연결어 자격 or",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P005",
+      "name": "Stage4 연결어 자격 because",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P006",
+      "name": "Stage4 연결어 자격 when",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P007",
+      "name": "Stage4 연결어 자격 if",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P008",
+      "name": "Stage4 연결어 자격 that",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P009",
+      "name": "Stage4 연결어 자격 that/think",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P010",
+      "name": "Stage4 and 선택",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P011",
+      "name": "Stage4 but 선택",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P012",
+      "name": "Stage4 because 선택",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P013",
+      "name": "know/that 보유 연결어없음",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P014",
+      "name": "and/think/that 이미보유",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P015",
+      "name": "사전기록만있는 연결어",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Individual authored case executed against entry choice/grant functions; expected grants, no RNG and one-shot behavior checked."
+    },
+    {
+      "id": "P016",
+      "name": "선택중 저장/로드",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real pending entry command, JSON save/restore, no grants/shop/RNG change."
+    },
+    {
+      "id": "P017",
+      "name": "선택중 취소/창닫기",
+      "status": "NOT RUN",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Pending state is unchanged by read/restore; actual window-close/cancel UI behavior is outside this suite."
+    },
+    {
+      "id": "P018",
+      "name": "선택중 재입장/중복선택",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real choice command, stale revision/ID rejects, duplicate/reentry no-op; one shop created."
+    },
+    {
+      "id": "P019",
+      "name": "선택후 카드제거",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Selected connector is removed by actual shop service; repeated entry/choice does not regrant."
+    },
+    {
+      "id": "P020",
+      "name": "Stage2 운영1칸",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage2 exactly 1 rune, 1 WORD, 1 dedicated OP; no purchase requirement."
+    },
+    {
+      "id": "P021",
+      "name": "Stage2 상품 저장/로드",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-save-integrity.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage2 exact save/restore before and after actual OP purchase/+1 polish, prices/services/RNG unchanged."
+    },
+    {
+      "id": "P022",
+      "name": "Stage4 운영1칸",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage4 exactly 2 runes, 2 WORD, 1 dedicated OP."
+    },
+    {
+      "id": "P023",
+      "name": "Stage4 상품 저장/로드",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-save-integrity.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage4 exact save/restore before and after actual OP purchase/+1 polish, prices/services/RNG unchanged."
+    },
+    {
+      "id": "P024",
+      "name": "Stage6 운영1칸",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage6 exactly 2 runes, 2 WORD, 1 dedicated OP."
+    },
+    {
+      "id": "P025",
+      "name": "Stage6 상품 저장/로드",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-save-integrity.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Stage6 exact save/restore before and after actual OP purchase/+1 polish, prices/services/RNG unchanged."
+    },
+    {
+      "id": "P026",
+      "name": "상점전용칸7종 도달가능",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "All seven definitions reached over 140 fixed seeds; uniform candidate array and one dedicated draw verified, not a statistical human distribution."
+    },
+    {
+      "id": "P027",
+      "name": "상점 운영 연마+0",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Every permanent OP +0 becomes +1 for 8 gold once per visit; real Controller purchase/polish also covered in save-integrity test."
+    },
+    {
+      "id": "P028",
+      "name": "상점 운영 연마+1거절",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Already +1 OP rejected on subsequent shop visit without state/economy mutation."
+    },
+    {
+      "id": "P029",
+      "name": "보상 운영 연마",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Published reward targets contain +0 operations, omit +1, resolution succeeds once; cancellation leaves state unchanged."
+    },
+    {
+      "id": "P030",
+      "name": "WORD+2 연마",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "WORD +2 becomes +3 in shop after operation +1 rejection."
+    },
+    {
+      "id": "P031",
+      "name": "재활용 COMMON 보상",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "COMMON recycle reached through retained 20/80 branch; protected and intro WORD slots remain OP-free."
+    },
+    {
+      "id": "P032",
+      "name": "보상 offer 운영최대1",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-progression.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Generated mixed reward offers have at most one OP."
+    },
+    {
+      "id": "P033",
+      "name": "사슴 첫패 기본6+지원1",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real boss opening from assigned entry: 6+1 hand, one temporary support, permanent IDs unchanged."
+    },
+    {
+      "id": "P034",
+      "name": "사슴 초기손패룬",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real initial-hand rune Lv1 creates base8 + support1."
+    },
+    {
+      "id": "P035",
+      "name": "사슴 초기손패 이미한도",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real initial-hand rune Lv3 at cap10 deterministically displaces non-bearing card; >=2 bearing WORDs remain."
+    },
+    {
+      "id": "P036",
+      "name": "사슴 일반탐색 보유해도 지원",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Owned permanent search does not suppress the temporary support."
+    },
+    {
+      "id": "P037",
+      "name": "good fallback있는사슴",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Missing permanent gradable material: good fallback1 + bearing8 + support1 =10 temporary cards."
+    },
+    {
+      "id": "P038",
+      "name": "good fallback없는사슴",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Gradable material present: bearing8 + support1 =9 temporary cards."
+    },
+    {
+      "id": "P039",
+      "name": "보스지원 탐색으로 too확보",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Actual support chooses too physical DRAW ID without crystal break."
+    },
+    {
+      "id": "P040",
+      "name": "보스지원 사용후 저장복원",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Used support remains exhausted after exact JSON restore, no duplicate spawn."
+    },
+    {
+      "id": "P041",
+      "name": "빙정지원 미사용교환후 재활용",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-save-integrity.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Actual EXCHANGE of unused support then RECYCLE returns same temporary physical ID; save/restore checked."
+    },
+    {
+      "id": "P042",
+      "name": "승리/패배cleanup",
+      "status": "NOT RUN",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Actual defeat cleanup and retained readable receipts passed; snow victory cleanup is not exercised by these focused files and requires separate production/boss evidence."
+    },
+    {
+      "id": "P043",
+      "name": "다음전투 영구운영 복귀",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Actual used permanent OP returns in next battle after actual attack victory/reward skip/NEXT_BATTLE."
+    },
+    {
+      "id": "P044",
+      "name": "0.6 저장정책",
+      "status": "NOT RUN",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Old two-operation scope/max0/exhaustion/no-frost-support checked; old meteor values are outside this focused execution and belong to separate legacy/meteor suite."
+    },
+    {
+      "id": "P045",
+      "name": "0.5.1 이하 저장",
+      "status": "NOT RUN",
+      "evidence": [],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Older campaign terminal boundaries are outside these focused files; refer to full legacy regression results."
+    },
+    {
+      "id": "P046",
+      "name": "과거최고위력8618",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Historical profile bestAttack/grammarRecords bestPower8618 preserved when starting new061; no reinterpretation as reproducible damage."
+    },
+    {
+      "id": "P047",
+      "name": "미지0.6.1 사본을0.6에주입",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-save-integrity.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "All five new operation definitions injected into original060 saved state rejected."
+    },
+    {
+      "id": "P048",
+      "name": "모든영구OPMAX+1",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "All seven permanent OP +2 save attempts rejected via O005/010/015/020/025/030/035."
+    },
+    {
+      "id": "P049",
+      "name": "임시OP가공격조합대에있음",
+      "status": "NOT RUN",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Temporary support ADD_CARD command is rejected; explicit forged temporary-operation sentence save is not exercised in these focused files."
+    },
+    {
+      "id": "P050",
+      "name": "shattered/exhausted 영역바꿔치기",
+      "status": "PASS",
+      "evidence": [
+        "tests/v061-operations.test.js"
+      ],
+      "scope": "ASSIGNED_STATE_HELPERS_AND_REAL_CONTROLLER_NOT_NATURAL_CAMPAIGN",
+      "detail": "Real broken frost and used temporary OP pile swaps rejected by receipt/partition validation."
+    }
+  ],
+  "operationsCoverage": {
+    "PASS": 68,
+    "FAIL": 0,
+    "NOT RUN": 1
+  },
+  "progressionCoverage": {
+    "PASS": 45,
+    "FAIL": 0,
+    "NOT RUN": 5
+  }
+}

@@ -11,4 +11,42 @@ export function expandSkyCandidates(state,bases,{limit=240}={}){
  for(const verb of rows.filter(r=>['card.think','card.know','card.say'].includes(r.def)))for(const subject of rows.filter(r=>r.forms.some(f=>f.grammaticalFeatures.case==='NOMINATIVE')))for(const content of simple){const sf=subject.forms.find(f=>f.grammaticalFeatures.case==='NOMINATIVE');for(const vf of verb.forms.filter(f=>f.grammaticalFeatures.tense==='PRESENT')){const prefix=[{cardInstanceId:subject.id,selection:{formId:sf.id}},{cardInstanceId:verb.id,selection:{formId:vf.id}}];const that=rows.find(r=>r.def==='card.that');if(that)accept([...prefix,{cardInstanceId:that.id,selection:{formId:that.forms[0].id}},...content.slots]);accept([...prefix,...content.slots]);}}
  return out;
 }
-export function operationMove(state){if(!['0.4.0','0.5.0','0.5.1','0.6.0'].includes(state.version))return null;for(const sourceCardId of state.combat.handIds){const a=operationAvailability(state,sourceCardId);if(!a.ok)continue;const request={type:'USE_OPERATION',sourceCardId,expectedRevision:state.revision,battleId:state.combat.enemyState.id};if(a.operationType==='SUPPLY')return request;const candidates=searchCandidates(state),phase=state.combat.enemyState.bossMechanic?.phaseOrder?.[state.combat.enemyState.bossMechanic.activePhase];const priority=phase==='FUTURE'?['card.will','card.have','card.i']:state.progress.stageId==='stage.04'?['card.and','card.think','card.because','card.i']:['card.have','card.be','card.i'];const target=priority.map(def=>candidates.find(c=>state.cardInstances[c.cardInstanceId].cardDefId===def&&!state.combat.handIds.some(id=>state.cardInstances[id].cardDefId===def))).find(Boolean)??candidates[0];if(target)return {...request,targetCardId:target.cardInstanceId};}return null;}
+export function operationMove(state){
+ if(!['0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(state.version))return null;
+ const modern=state.version==='0.6.1',history=state.combat.operationHistory??[];
+ // Finite QA policy only: repeated manual circulation stays legal in the game.
+ // After 24 operations this runner resumes attack/exchange/prepare decisions.
+ if(modern&&history.length>=24)return null;
+ for(const sourceCardId of state.combat.handIds){
+  const a=operationAvailability(state,sourceCardId);if(!a.ok)continue;
+  const request={type:'USE_OPERATION',sourceCardId,expectedRevision:state.revision,battleId:state.combat.enemyState.id,...(modern?{commandId:`operation.qa.${state.runId}.${state.revision}.${history.length+1}`}:{})};
+  if(modern?a.spec.selectionMode!=='DIRECT':a.operationType==='SUPPLY')return request;
+  const candidates=searchCandidates(state),phase=state.combat.enemyState.bossMechanic?.phaseOrder?.[state.combat.enemyState.bossMechanic.activePhase];
+  let priority=phase==='FUTURE'?['card.will','card.have','card.i']:state.progress.stageId==='stage.04'?['card.and','card.think','card.because','card.i']:['card.have','card.be','card.i'];
+  if(modern&&state.progress.stageId==='stage.06'){
+   const language=registryForVersion(state.version),hand=state.combat.handIds.map(id=>language.lexemeById[language.cardById[state.cardInstances[id].cardDefId]?.lexemeId]).filter(Boolean);
+   priority=[...(!hand.some(l=>l.pos==='PRONOUN')?['card.i','card.you','card.they']:[]),...(!hand.some(l=>l.lemma==='be')?['card.be']:[]),...(!hand.some(l=>l.pos==='ADJECTIVE')?['card.good','card.strong','card.small','card.kind']:[]),'card.i','card.you','card.water','card.friend','card.book'];
+  }
+  const target=priority.map(def=>candidates.find(c=>state.cardInstances[c.cardInstanceId].cardDefId===def&&!state.combat.handIds.some(id=>state.cardInstances[id].cardDefId===def))).find(Boolean)??candidates[0];
+  if(target)return {...request,targetCardId:target.cardInstanceId};
+ }return null;
+}
+/** Public offers only. The 0.6.1 route exercises a reusable operation when offered. */
+export function qaShopItems(state){
+ const modern=state.version==='0.6.1';
+ const reusable=item=>['card.operation.supply','card.operation.search'].includes(item.cardDefId);
+ return [...state.shop.inventory].sort((a,b)=>(modern?Number(reusable(b))-Number(reusable(a)):0)||Number(b.runeId==='rune.svoo')-Number(a.runeId==='rune.svoo')||Number(b.kind==='RUNE')-Number(a.kind==='RUNE'));
+}
+export function qaShopPolishTarget(state){
+ if(state.version!=='0.6.1'||state.shop.services.POLISH.used||state.economy.gold<state.shop.services.POLISH.price)return null;
+ return state.activeCardIds.find(id=>['card.operation.supply','card.operation.search'].includes(state.cardInstances[id].cardDefId)&&state.cardInstances[id].polishLevel===0)??null;
+}
+
+/** Optional natural-play QA exercise: spend real exchanges to reach a reusable source again. */
+export function qaOperationReuseExchange(state){
+ if(state.version!=='0.6.1'||state.combat.exchangesRemaining<1)return null;
+ const history=state.combat.operationHistory??[],source=history.find(e=>e.postUseDestination==='DISCARD'&&history.filter(x=>x.sourceCardId===e.sourceCardId).length===1);
+ if(!source)return null;
+ const cardIds=state.combat.handIds.filter(id=>cardKind(state.cardInstances[id],state.version)==='WORD');
+ return cardIds.length?{type:'EXCHANGE',cardIds}:null;
+}

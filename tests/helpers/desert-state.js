@@ -1,4 +1,4 @@
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-05-controller.js';
 import {newProfile,validateRunState} from '../../src/services/localStore.js';
 import {registryForVersion} from '../../src/data/language/index.js';
 import {campaignCards,cardKind} from '../../src/data/cardCatalog.js';
@@ -9,7 +9,7 @@ export const act=(controller,command)=>{const r=controller.dispatch(command);if(
 export function newDesert(seed='desert.assigned',options={}){
  const c=new RunController({profile:{...newProfile('assigned desert boundary'),guidedTutorialCompletedVersion:'0.2.1',...options.profile},...options});
  act(c,{type:'NEW_RUN',config:{seed}});const s=c.getState();
- s.version='0.5.0';Object.assign(s.contentVersions,{game:'0.5.0',save:'0.5.0',language:'0.5.0',grammar:'0.5.0',balance:'0.5.0',comboEligibility:'0.5.0',learningRecord:'0.5.0'});
+ s.version='0.5.0';
  s.contentManifest={...s.contentManifest,id:'campaign.0.5',stageIds:['stage.01','stage.02','stage.03','stage.04','stage.05'],cardDefIds:campaignCards('0.5.0').filter(c=>c.runtimeReady).map(c=>c.id)};s.config.contentProfile='STAGE1_STAGE2_STAGE3_STAGE4_STAGE5';c._state=s;return c;
 }
 /** Assigned physical words and +3 only to test boundaries. Not natural play or a win-rate sample. */

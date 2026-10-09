@@ -1,3 +1,15 @@
+## 0.6.1 개발 인계
+
+기준은 작업 시작에 fetch한 `origin/main`의 `79ab84ebe3a3240a558aecbd2898efdd8e179029`(0.6 병합)이며 시작 checkout은 clean이었다. `codex/v0.6.1-grammar-operations-polish`에서 작업한다. 전체 계약은 `spec/0.6.1_GRAMMAR_OPERATIONS_POLISH.md`다. 첨부 JSON은 기대값으로만 보존하며 실제 실행 결과는 별도 기록한다.
+
+새 원정만 `grammarPolishLanguage`, `POLISH_VERSIONS`, 운영 7종과 새 운석 view를 사용한다. 기존 0.6 registry/runes/실제 원정/상점/보상/RNG baseline은 변경 전에 따로 포착했다. 기존 golden을 새 엔진으로 재생성하지 않는다. 시작28장·HP·전투자원·27전투·보스·실습은 유지한다.
+
+운영 명세의 공유 중심은 `data/operationSpec.js`, 물리 이동은 `game/operationResolution.js`, 영수증 검증은 `game/operationHistory.js`다. 같은 source 재사용을 허용해도 같은 command/effect 중복을 허용하지 않는다. Stage4 pending 선택은 저장 가능한 준비 상태이며 카드 지급 완료 뒤에만 상점을 생성한다. 임시 빙정 탐색은 WORD가 아니며 사용 완료 영역에서도 종료 때 제거된다.
+
+[실행 보고서](TEST_REPORT_0.6.1.md), [인수 조건](ACCEPTANCE_0.6.1.md), [문법 검토](GRAMMAR_RECOVERY_REVIEW_0.6.1.md), [운영 수명](OPERATION_LIFECYCLE_REVIEW_0.6.1.md), [UI 검토](UI_THEME_REVIEW_0.6.1.md)를 함께 확인한다. 미실행 학습 코스를 일반 완주로 대체하지 않는다. 다음 작업도 최신 main에서 별도 브랜치를 만들고 미커밋 변경을 보존한다. main 병합·공개 배포는 별도 승인 범위다.
+
+아래는 이전 인계 기록이다.
+
 ## 0.6 개발 인계
 
 기준은 작업 시작 때 fetch한 `origin/main`의 `94aedf6610ddceacafca832e7554def5a4bc6a65`(0.5.1 병합)이며 시작 checkout은 clean이었다. 작업 브랜치는 `codex/v0.6-mirror-snowfield-frost-cards`다. 첨부 ZIP/외부 MD의 같은 명세를 `spec/0.6_MIRROR_SNOWFIELD.md`에 보존했다. JSON 기대값과 이번 실제 실행 결과는 별개다.

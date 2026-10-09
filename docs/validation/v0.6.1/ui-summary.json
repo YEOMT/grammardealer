@@ -1,0 +1,117 @@
+{
+  "kind": "FOCUSED_UI_EVIDENCE_SUMMARY",
+  "suite": {
+    "status": "PASS",
+    "checks": 74,
+    "captures": 66,
+    "checksByEngine": {
+      "chromium": 52,
+      "firefox": 11,
+      "webkit": 11
+    },
+    "capturesByEngine": {
+      "chromium": 48,
+      "firefox": 9,
+      "webkit": 9
+    },
+    "exitCode": 0,
+    "command": "npm.cmd run test:browser:061",
+    "combinedEdgeChecksAtExecution": 18,
+    "combinedEdgeCapturesAtExecution": 4
+  },
+  "contrast": {
+    "status": "PASS",
+    "samples": 84,
+    "exitCode": 0,
+    "method": "Before/transparent-after screenshot pixel comparison at actual text glyph footprints; minimum 4.5 for small text, 3 for large text. Focus outline pixels outside glyphs excluded, not threshold relaxed.",
+    "minimumMeasuredRatio": 5.273
+  },
+  "edges": {
+    "status": "PASS",
+    "checks": 20,
+    "captures": 5,
+    "exitCode": 0,
+    "limitations": "Assigned controller and UI modules. Hidden event and exception are injected. Not a real OS tab-switch or production-main interruption test.",
+    "execution": "Later complete edge-only recheck adds actual-generated mixed reward rendering to the already PASS18 combined run."
+  },
+  "source": "LOCAL_VITE_DEV_ASSIGNED_STATES_NOT_PRODUCTION_NATURAL_CAMPAIGN",
+  "publicSelectedUICaptures": 25,
+  "contrastInputImages": 14,
+  "failureHistory": [
+    {
+      "run": "ui-run1",
+      "status": "FAIL",
+      "kind": "test environment/navigation timeout"
+    },
+    {
+      "run": "ui-run2",
+      "status": "FAIL",
+      "kind": "test fixture referenced invalid rune IDs; replaced with actual IDs, no expected-value relaxation"
+    },
+    {
+      "run": "ui-run3",
+      "status": "FAIL",
+      "kind": "real max-card geometry; operation minimum width and new061 vertical layout fixed"
+    },
+    {
+      "run": "ui-run4",
+      "status": "FAIL",
+      "kind": "resource diagnostics recorded ERR_ABORTED from reused development/HMR server; preserved and clean server used for run5"
+    },
+    {
+      "run": "ui-run4 contrast",
+      "status": "FAIL",
+      "kind": "real disabled text ratio 4.465; foreground darkened to #3f5661"
+    },
+    {
+      "run": "ui-run5 contrast / contrast-recheck",
+      "status": "FAIL",
+      "kind": "probe captured descendant text or focus-outline edge as background; robust text hiding + actual glyph footprint comparison"
+    },
+    {
+      "run": "ui-edges1/2/3",
+      "status": "FAIL",
+      "kind": "new QA assumptions corrected: exchanged source may redraw; await async dialog close; PREPARE is blocked until search cancellation"
+    },
+    {
+      "run": "main-route-edge1",
+      "status": "FAIL",
+      "kind": "Environment: previous production server4174 stopped, connection refused."
+    },
+    {
+      "run": "main-route-edge2",
+      "status": "FAIL",
+      "kind": "QA server URL: generic Vite preview serves relative dist at root; subpath request returned resource404."
+    },
+    {
+      "run": "main-route-edge3",
+      "status": "FAIL",
+      "kind": "QA assertion incorrectly expected a disabled use button; readonly operation rendering removes it. Repeated stale original DOM button events exercise main presenting guard."
+    }
+  ],
+  "combinedCommand": {
+    "startedAt": "2026-10-09T10:04:56.0425129Z",
+    "finishedAt": "2026-10-09T10:07:38.7754746Z",
+    "edgeOutput": ".local-validation/v061/ui-edges-final",
+    "exitCode": 0,
+    "command": "npm.cmd run test:browser:061",
+    "mainOutput": ".local-validation/v061/ui-final"
+  },
+  "extendedEdgeCommand": {
+    "finishedAt": "2026-10-09T10:09:25.6552724Z",
+    "output": ".local-validation/v061/ui-edges-reward-final",
+    "startedAt": "2026-10-09T10:09:10.8765566Z",
+    "command": "node tests/polish-061-edges-browser.mjs",
+    "exitCode": 0
+  },
+  "productionMainRoute": {
+    "status": "PASS",
+    "checks": 3,
+    "captures": 2,
+    "exitCode": 0,
+    "kind": "ASSIGNED_VALID_SAVE_ACTUAL_PRODUCTION_MAIN_ROUTE_NO_GAME_HOOKS",
+    "url": "http://127.0.0.1:4176/",
+    "evidence": "ui-main-route-results.json",
+    "fixture": "Valid assigned061 saved run injected only into isolated context IndexedDB, then shipped production loader and UI own execution. No production controller hook."
+  }
+}

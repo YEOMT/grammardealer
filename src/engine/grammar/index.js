@@ -1,6 +1,6 @@
 import {registry as defaultRegistry,makeToken,createSentenceSnapshot} from '../../data/language/index.js';
 import {parseSupportedClause} from './parser.js';
-export const GRAMMAR_VERSION='0.6.0';
+export const GRAMMAR_VERSION='0.6.1';
 export const snapshotFromSlots=createSentenceSnapshot;
 
 /** Development fixture conversion only. Unknown words stay explicitly unsupported.
@@ -8,12 +8,12 @@ export const snapshotFromSlots=createSentenceSnapshot;
  */
 export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',registry=defaultRegistry}={}) {
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
- const words=text.trim().replace(['0.4.0','0.5.0','0.6.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
+ const words=text.trim().replace(['0.4.0','0.5.0','0.6.0','0.6.1'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
  const orderedTokens=words.map((word,position)=>{
   const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase());
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];
   const selected=matches.find(f=>f.runtimeReady)??matches[0];
-  if(!selected||lexemeIds.length!==1&&!(registry.version==='0.6.0'&&matches.every(f=>f.grammaticalFeatures.degree&&f.grammaticalFeatures.degree!=='POSITIVE')))return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
+  if(!selected||lexemeIds.length!==1&&!(['0.6.0','0.6.1'].includes(registry.version)&&matches.every(f=>f.grammaticalFeatures.degree&&f.grammaticalFeatures.degree!=='POSITIVE')))return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
   const def=registry.cards.find(c=>c.lexemeId===selected.lexemeId);
   return makeToken(`${prefix}.${position}`,def.id,selected.id,position,registry);
  });

@@ -1,0 +1,51 @@
+{
+  "kind": "ASSIGNED_BASELINE_CURRENT_MAIN_0.6",
+  "seed": "ui.desert.before",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "browser": "134.0.6998.35",
+  "combat": {
+    "background": "radial-gradient(circle at 13% 10%, rgb(246, 223, 160) 0px, rgb(246, 223, 160) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 76% 8%, rgb(200, 183, 238) 0px, rgb(200, 183, 238) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 61% 18%, rgb(255, 232, 184) 0px, rgb(255, 232, 184) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 84% 94%, rgba(72, 122, 120, 0.23), rgba(0, 0, 0, 0) 19%) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 30% 128%, rgba(189, 145, 80, 0.396), rgba(0, 0, 0, 0) 48%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(155deg, rgb(25, 28, 57), rgb(36, 32, 56) 60%, rgb(81, 66, 47)) repeat scroll 0% 0% / auto padding-box border-box",
+    "panels": [
+      {
+        "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(142, 120, 90, 0.4)"
+      },
+      {
+        "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(142, 120, 90, 0.4)"
+      }
+    ]
+  },
+  "intro": {
+    "body": "radial-gradient(at center bottom, rgba(159, 121, 71, 0.3), rgba(0, 0, 0, 0) 58%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(145deg, rgb(20, 27, 56), rgb(49, 38, 56)) repeat scroll 0% 0% / auto padding-box border-box",
+    "panels": [
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      },
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      },
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      },
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      },
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      },
+      {
+        "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+        "border": "rgba(169, 140, 88, 0.4)"
+      }
+    ]
+  }
+}

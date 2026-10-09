@@ -1,0 +1,8 @@
+{
+  "startedAt": "2026-10-09T10:04:56.0425129Z",
+  "finishedAt": "2026-10-09T10:07:38.7754746Z",
+  "edgeOutput": ".local-validation/v061/ui-edges-final",
+  "exitCode": 0,
+  "command": "npm.cmd run test:browser:061",
+  "mainOutput": ".local-validation/v061/ui-final"
+}

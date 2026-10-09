@@ -1,5 +1,5 @@
-import {hasSnowCampaign} from '../data/campaignFeatures.js';
-import {cardDefinition} from '../data/cardCatalog.js';
+import {hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {cardDefinition,maxPolish} from '../data/cardCatalog.js';
 import {runeForVersion} from '../data/runes.js';
 const integer=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateSkyShops(run){
@@ -16,7 +16,7 @@ export function validateSkyShops(run){
  let paid=0;
  for(const shop of [...history,current]){
   const two=['stage.04','stage.06'].includes(shop.stageId),runes=two?2:1,cards=two?3:2;
-  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!=='0.4.0'||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
+  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
   if(!Array.isArray(shop.inventory)||shop.inventory.length!==runes+cards||new Set(shop.inventory.map(x=>x.itemId)).size!==shop.inventory.length)fail();
   let operationCount=0;const content=new Set();
   for(const [i,item]of shop.inventory.entries()){
@@ -26,12 +26,20 @@ export function validateSkyShops(run){
    if(item.price!==(kind==='CARD'?{COMMON:6,UNCOMMON:10,RARE:14}:{COMMON:18,UNCOMMON:24,RARE:32})[item.rarity])fail();
    if(kind==='RUNE'){if(id==='rune.svoo'&&![...run.eligibility.runOwnUnlocks,...run.eligibility.runStartUnlockBaseline].includes(id))fail();if(!integer(item.ownedLevel)||item.ownedLevel>2||item.offeredLevel!==item.ownedLevel+1)fail();}
    else if(slot===0&&(item.role!=='LOCAL_SYNTAX_RELEVANT'||def.cardKind==='OPERATION'))fail();
+   if(hasPolishCampaign(run)&&kind==='CARD'&&((slot===cards-1)!==(def.cardKind==='OPERATION')||slot===cards-1&&item.role!=='DEDICATED_OPERATION'))fail();
    if(def.cardKind==='OPERATION')operationCount++;
   }
-  if(operationCount>1)fail();
+  if(hasPolishCampaign(run)?operationCount!==1:operationCount>1)fail();
   const polish=shop.services?.POLISH,remove=shop.services?.REMOVE;
   if(!polish||!remove||typeof polish.used!=='boolean'||typeof remove.used!=='boolean'||polish.price!==8||remove.price!==6+2*paid)fail();
-  if(polish.used&&(!polish.targetCardInstanceId||cardDefinition(run.cardInstances[polish.targetCardInstanceId],run.version)?.cardKind==='OPERATION'))fail();
+  if(polish.used){
+   if(!polish.targetCardInstanceId)fail();
+   if(hasPolishCampaign(run)){
+    const def=cardDefinition(polish.cardDefId,run.version);
+    if(!def||!run.contentManifest.cardDefIds.includes(def.id)||!integer(polish.beforeLevel)||polish.afterLevel!==polish.beforeLevel+1||polish.afterLevel>maxPolish({cardDefId:def.id},run.version))fail();
+    const live=run.cardInstances[polish.targetCardInstanceId];if(live&&(live.cardDefId!==def.id||live.polishLevel<polish.afterLevel))fail();
+   }else if(cardDefinition(run.cardInstances[polish.targetCardInstanceId],run.version)?.cardKind==='OPERATION')fail();
+  }
   if(remove.used){if(!remove.targetCardInstanceId)fail();paid++;}
  }
  if(run.economy.paidRemovalCount!==paid)fail();

@@ -1,0 +1,917 @@
+{
+  "schemaVersion": 1,
+  "target": "0.6.1",
+  "kind": "OPERATION_LIFECYCLE_EXPECTATIONS",
+  "scope": "AUTHORED_EXPECTATIONS_NOT_GAME_EXECUTION",
+  "count": 69,
+  "cases": [
+    {
+      "id": "O001",
+      "name": "보급 +0 정상 사용",
+      "cardDefId": "card.operation.supply",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O002",
+      "name": "보급 +1 정상 사용",
+      "cardDefId": "card.operation.supply",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "DISCARD",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O003",
+      "name": "보급 대상0",
+      "cardDefId": "card.operation.supply",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O004",
+      "name": "보급 +1 만패 부분획득",
+      "cardDefId": "card.operation.supply",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O005",
+      "name": "보급 연마상한",
+      "cardDefId": "card.operation.supply",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O006",
+      "name": "탐색 +0 정상 사용",
+      "cardDefId": "card.operation.search",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 6,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O007",
+      "name": "탐색 +1 정상 사용",
+      "cardDefId": "card.operation.search",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 6,
+      "expectedDestination": "DISCARD",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O008",
+      "name": "탐색 대상0",
+      "cardDefId": "card.operation.search",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O009",
+      "name": "탐색 +1 만패 부분획득",
+      "cardDefId": "card.operation.search",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O010",
+      "name": "탐색 연마상한",
+      "cardDefId": "card.operation.search",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O011",
+      "name": "명사 탐색 +0 정상 사용",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O012",
+      "name": "명사 탐색 +1 정상 사용",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 3,
+      "expectedHandAfter": 8,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O013",
+      "name": "명사 탐색 대상0",
+      "cardDefId": "card.operation.nounSearch",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O014",
+      "name": "명사 탐색 +1 만패 부분획득",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O015",
+      "name": "명사 탐색 연마상한",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O016",
+      "name": "동사 탐색 +0 정상 사용",
+      "cardDefId": "card.operation.verbSearch",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O017",
+      "name": "동사 탐색 +1 정상 사용",
+      "cardDefId": "card.operation.verbSearch",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 3,
+      "expectedHandAfter": 8,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O018",
+      "name": "동사 탐색 대상0",
+      "cardDefId": "card.operation.verbSearch",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O019",
+      "name": "동사 탐색 +1 만패 부분획득",
+      "cardDefId": "card.operation.verbSearch",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O020",
+      "name": "동사 탐색 연마상한",
+      "cardDefId": "card.operation.verbSearch",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O021",
+      "name": "형용사 탐색 +0 정상 사용",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O022",
+      "name": "형용사 탐색 +1 정상 사용",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 3,
+      "expectedHandAfter": 8,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O023",
+      "name": "형용사 탐색 대상0",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O024",
+      "name": "형용사 탐색 +1 만패 부분획득",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O025",
+      "name": "형용사 탐색 연마상한",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O026",
+      "name": "연결어 탐색 +0 정상 사용",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 6,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O027",
+      "name": "연결어 탐색 +1 정상 사용",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O028",
+      "name": "연결어 탐색 대상0",
+      "cardDefId": "card.operation.connectorSearch",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O029",
+      "name": "연결어 탐색 +1 만패 부분획득",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O030",
+      "name": "연결어 탐색 연마상한",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O031",
+      "name": "재활용 +0 정상 사용",
+      "cardDefId": "card.operation.recycle",
+      "polish": 0,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 6,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O032",
+      "name": "재활용 +1 정상 사용",
+      "cardDefId": "card.operation.recycle",
+      "polish": 1,
+      "enoughTargets": true,
+      "handBefore": 6,
+      "handLimit": 10,
+      "expectedCount": 2,
+      "expectedHandAfter": 7,
+      "expectedDestination": "EXHAUSTED",
+      "turnChange": 0,
+      "exchangeChange": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O033",
+      "name": "재활용 대상0",
+      "cardDefId": "card.operation.recycle",
+      "matchingTargets": 0,
+      "expected": "NOOP",
+      "sourceConsumed": false,
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O034",
+      "name": "재활용 +1 만패 부분획득",
+      "cardDefId": "card.operation.recycle",
+      "polish": 1,
+      "handBefore": 10,
+      "handLimit": 10,
+      "expectedCount": 1,
+      "expectedHandAfter": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O035",
+      "name": "재활용 연마상한",
+      "cardDefId": "card.operation.recycle",
+      "polish": 1,
+      "attemptedPolish": 2,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O036",
+      "name": "nounSearch 실제 순서 선별",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 0,
+      "before": {
+        "drawIds": [
+          "v1",
+          "n1",
+          "a1",
+          "p1",
+          "n2",
+          "c1"
+        ]
+      },
+      "matchingIds": [
+        "n1",
+        "p1",
+        "n2"
+      ],
+      "expectedDrawnIds": [
+        "n1",
+        "p1"
+      ],
+      "expectedRemainingDrawIds": [
+        "v1",
+        "a1",
+        "n2",
+        "c1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O037",
+      "name": "nounSearch 실제 순서 선별",
+      "cardDefId": "card.operation.nounSearch",
+      "polish": 1,
+      "before": {
+        "drawIds": [
+          "v1",
+          "n1",
+          "a1",
+          "p1",
+          "n2",
+          "c1"
+        ]
+      },
+      "matchingIds": [
+        "n1",
+        "p1",
+        "n2"
+      ],
+      "expectedDrawnIds": [
+        "n1",
+        "p1",
+        "n2"
+      ],
+      "expectedRemainingDrawIds": [
+        "v1",
+        "a1",
+        "c1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O038",
+      "name": "verbSearch 실제 순서 선별",
+      "cardDefId": "card.operation.verbSearch",
+      "polish": 0,
+      "before": {
+        "drawIds": [
+          "a1",
+          "be1",
+          "n1",
+          "have1",
+          "and1"
+        ]
+      },
+      "matchingIds": [
+        "be1",
+        "have1"
+      ],
+      "expectedDrawnIds": [
+        "be1",
+        "have1"
+      ],
+      "expectedRemainingDrawIds": [
+        "a1",
+        "n1",
+        "and1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O039",
+      "name": "adjectiveSearch 실제 순서 선별",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "polish": 0,
+      "before": {
+        "drawIds": [
+          "reading1",
+          "big1",
+          "n1",
+          "happy1"
+        ]
+      },
+      "matchingIds": [
+        "big1",
+        "happy1"
+      ],
+      "expectedDrawnIds": [
+        "big1",
+        "happy1"
+      ],
+      "expectedRemainingDrawIds": [
+        "reading1",
+        "n1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O040",
+      "name": "connectorSearch 실제 순서 선별",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 0,
+      "before": {
+        "drawIds": [
+          "to1",
+          "than1",
+          "as1",
+          "because1",
+          "and1"
+        ]
+      },
+      "matchingIds": [
+        "because1",
+        "and1"
+      ],
+      "expectedDrawnIds": [
+        "because1"
+      ],
+      "expectedRemainingDrawIds": [
+        "to1",
+        "than1",
+        "as1",
+        "and1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O041",
+      "name": "connectorSearch 실제 순서 선별",
+      "cardDefId": "card.operation.connectorSearch",
+      "polish": 1,
+      "before": {
+        "drawIds": [
+          "to1",
+          "than1",
+          "as1",
+          "because1",
+          "and1"
+        ]
+      },
+      "matchingIds": [
+        "because1",
+        "and1"
+      ],
+      "expectedDrawnIds": [
+        "because1",
+        "and1"
+      ],
+      "expectedRemainingDrawIds": [
+        "to1",
+        "than1",
+        "as1"
+      ],
+      "rngUnchanged": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O042",
+      "name": "품사 판정은 canonical lexeme",
+      "cases": {
+        "her": "NOUN_OR_PRONOUN",
+        "bigger": "ADJECTIVE",
+        "reading": "VERB",
+        "be": "VERB"
+      },
+      "forbidden": "이전 문장의 실제 역할로 필터 변경",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O043",
+      "name": "형용사 탐색은 DRAW에없고 DISCARD에있어도 거절",
+      "cardDefId": "card.operation.adjectiveSearch",
+      "drawIds": [
+        "n1"
+      ],
+      "discardIds": [
+        "a1"
+      ],
+      "expected": "NOOP_NO_RESHUFFLE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O044",
+      "name": "보급+1은 자기 효과에서 자신을 뽑지 않음",
+      "cardDefId": "card.operation.supply",
+      "polish": 1,
+      "before": {
+        "handIds": [
+          "supply1"
+        ],
+        "drawIds": [],
+        "discardIds": [
+          "noun1"
+        ]
+      },
+      "expected": {
+        "handIds": [
+          "noun1"
+        ],
+        "drawIds": [],
+        "discardIds": [
+          "supply1"
+        ],
+        "exhaustedIds": []
+      },
+      "rngPolicy": "MAY_SHUFFLE_PREEXISTING_DISCARD_ONLY",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O045",
+      "name": "자기 자신뿐인 보급+1",
+      "cardDefId": "card.operation.supply",
+      "polish": 1,
+      "before": {
+        "handIds": [
+          "supply1"
+        ],
+        "drawIds": [],
+        "discardIds": []
+      },
+      "expected": "NOOP_SOURCE_STAYS_IN_HAND_RNG_UNCHANGED",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O046",
+      "name": "보급+1 정상 되뽑기 재사용",
+      "steps": [
+        "USE_s1",
+        "LEGAL_OTHER_DRAW_RETURNS_s1",
+        "USE_s1_NEW_EFFECT_ID"
+      ],
+      "expectedUses": 2,
+      "sourceRepeated": true,
+      "sourceInExhausted": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O047",
+      "name": "탐색+1 재활용으로 회수해 재사용",
+      "steps": [
+        "SEARCH1_PLUS1_SELECT_WORD",
+        "RECYCLE_RETURNS_SEARCH1",
+        "SEARCH1_PLUS1_SELECT_OTHER_WORD"
+      ],
+      "expectedUsesOfSearch1": 2,
+      "expectedRecycleDestination": "EXHAUSTED",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O048",
+      "name": "기본 보급과 신규 탐색 일회사용",
+      "sourceDestination": "EXHAUSTED",
+      "tryRepeatedUse": true,
+      "expected": "REJECT",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O049",
+      "name": "서로 다른 기본운영 같은정의",
+      "sourceIds": [
+        "s1",
+        "s2"
+      ],
+      "sameCardDef": true,
+      "expected": "EACH_CAN_USE_ONCE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O050",
+      "name": "같은 commandId 재전송",
+      "expectAdditionalDraw": 0,
+      "expectAdditionalHistory": 0,
+      "expectAdditionalRng": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O051",
+      "name": "FINISH_OPERATION 반복/취소",
+      "expectAdditionalDraw": 0,
+      "expectAdditionalSourceMove": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O052",
+      "name": "직접 탐색 열기/취소",
+      "expected": "STATE_RNG_UNDO_UNCHANGED",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O053",
+      "name": "직접 탐색 오래된 target/revision",
+      "expected": "REJECT_NO_CONSUMPTION",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O054",
+      "name": "일반 탐색은 WORD만",
+      "drawContents": [
+        "WORD",
+        "FROST_WORD",
+        "OPERATION",
+        "FROST_OPERATION"
+      ],
+      "expectedVisibleKinds": [
+        "WORD",
+        "FROST_WORD"
+      ],
+      "expectedSelectedCount": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O055",
+      "name": "보급 일반재셔플",
+      "drawIds": [],
+      "discardContains": [
+        "WORD",
+        "UNUSED_OPERATION",
+        "REUSABLE_OPERATION",
+        "UNUSED_FROST_WORD"
+      ],
+      "expected": "NORMAL_SHUFFLE_ALL_ELIGIBLE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O056",
+      "name": "재활용+1 부분대상",
+      "cardDefId": "card.operation.recycle",
+      "polish": 1,
+      "discardIds": [
+        "word1"
+      ],
+      "expectedDrawnIds": [
+        "word1"
+      ],
+      "expectedCount": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O057",
+      "name": "재활용 대상과 제외",
+      "eligible": [
+        "DISCARDED_WORD",
+        "UNUSED_OPERATION",
+        "USED_REUSABLE_OPERATION",
+        "UNUSED_FROST_WORD",
+        "UNUSED_FROST_OPERATION"
+      ],
+      "excluded": [
+        "EXHAUSTED_OPERATION",
+        "SHATTERED_FROST",
+        "OLD_BATTLE_TEMP"
+      ],
+      "selection": "UNIFORM_DISTINCT_WITHOUT_REPLACEMENT",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O058",
+      "name": "재활용+1 후보 두장",
+      "discardIds": [
+        "x1",
+        "x2"
+      ],
+      "expectedSet": [
+        "x1",
+        "x2"
+      ],
+      "expectedCount": 2,
+      "duplicatesAllowed": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O059",
+      "name": "재활용 RNG 재현",
+      "sameInitialRng": true,
+      "sameCommands": true,
+      "expected": "SAME_DRAWN_IDS_SAME_FINAL_RNG",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O060",
+      "name": "순환 source 기록 분리",
+      "historySourceIds": [
+        "s1",
+        "r1",
+        "s1"
+      ],
+      "policies": {
+        "s1": "DISCARD",
+        "r1": "EXHAUSTED"
+      },
+      "expectedExhaustedIds": [
+        "r1"
+      ],
+      "expected": "VALID_NEW_HISTORY",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O061",
+      "name": "연마 소스스냅샷 위조",
+      "expected": "REJECT_LOAD",
+      "tamper": "sourceSnapshot.polishLevel_changed",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O062",
+      "name": "사용기록 실제 이동 불일치",
+      "expected": "REJECT_LOAD",
+      "tamper": "hand_after_adds_card_not_in_source_pile",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O063",
+      "name": "즉시 사용 Undo 금지",
+      "expected": "NO_REWIND_SUCCESSFUL_OPERATION_TRANSACTION",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O064",
+      "name": "사용한 운영은 공격·운석 단어수에 미포함",
+      "expectedContributionCount": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O065",
+      "name": "스핑크스 봉인사본 교환 후 재활용",
+      "expected": "SAME_PHYSICAL_WORD_STILL_SEALED_THIS_TURN",
+      "operationUseRerollsSeal": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O066",
+      "name": "임시 탐색 사용",
+      "lifetime": "BATTLE",
+      "polish": 0,
+      "expectedDestination": "EXHAUSTED",
+      "expectedCount": 1,
+      "expectedCrystalBreak": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O067",
+      "name": "임시 탐색 연마 거절",
+      "attemptedPolish": 1,
+      "expected": "REJECT_NO_COST",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O068",
+      "name": "UI 예외/숨김 이후 중복정산 없음",
+      "expected": "COMMITTED_EFFECT_EXACTLY_ONCE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "O069",
+      "name": "같은턴 수동 재사용stress",
+      "operationCount": 60,
+      "expected": "UNIQUE_EFFECT_IDS_NO_PARTITION_LOSS_NO_FORCED_GAME_COOLDOWN",
+      "note": "테스트 상한을 게임횟수 제한으로 옮기지 않음",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

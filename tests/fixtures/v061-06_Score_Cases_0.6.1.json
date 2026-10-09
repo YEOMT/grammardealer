@@ -1,0 +1,662 @@
+{
+  "schemaVersion": 1,
+  "target": "0.6.1",
+  "kind": "PURE_NUMERIC_EXPECTATIONS_NOT_EXECUTION",
+  "scope": "AUTHORED_EXPECTATIONS_NOT_GAME_EXECUTION",
+  "count": 39,
+  "cases": [
+    {
+      "id": "S001",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 1,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S002",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 1,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expected": 202,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S003",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 1,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expected": 202,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S004",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 1,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 3,
+        "den": 1
+      },
+      "expected": 303,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S005",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 1,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 3,
+        "den": 1
+      },
+      "expected": 303,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S006",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 2,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S007",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 2,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 9,
+        "den": 4
+      },
+      "expected": 227,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S008",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 2,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 9,
+        "den": 4
+      },
+      "expected": 227,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S009",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 2,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 7,
+        "den": 2
+      },
+      "expected": 353,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S010",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 2,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 7,
+        "den": 2
+      },
+      "expected": 353,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S011",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 3,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S012",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 3,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 5,
+        "den": 2
+      },
+      "expected": 252,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S013",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 3,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 5,
+        "den": 2
+      },
+      "expected": 252,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S014",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 3,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 4,
+        "den": 1
+      },
+      "expected": 404,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S015",
+      "name": "운석 경계",
+      "version": "0.6.0",
+      "level": 3,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 4,
+        "den": 1
+      },
+      "expected": 404,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S016",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S017",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 9,
+        "den": 5
+      },
+      "expected": 181,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S018",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 9,
+        "den": 5
+      },
+      "expected": 181,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S019",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 12,
+        "den": 5
+      },
+      "expected": 242,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S020",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 12,
+        "den": 5
+      },
+      "expected": 242,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S021",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 2,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S022",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 2,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 11,
+        "den": 5
+      },
+      "expected": 222,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S023",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 2,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 11,
+        "den": 5
+      },
+      "expected": 222,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S024",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 2,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 14,
+        "den": 5
+      },
+      "expected": 282,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S025",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 2,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 14,
+        "den": 5
+      },
+      "expected": 282,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S026",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 3,
+      "contributingWords": 4,
+      "before": 101,
+      "operand": null,
+      "expected": 101,
+      "expectedRuneEvents": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S027",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 3,
+      "contributingWords": 5,
+      "before": 101,
+      "operand": {
+        "num": 13,
+        "den": 5
+      },
+      "expected": 262,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S028",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 3,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 13,
+        "den": 5
+      },
+      "expected": 262,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S029",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 3,
+      "contributingWords": 10,
+      "before": 101,
+      "operand": {
+        "num": 16,
+        "den": 5
+      },
+      "expected": 323,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S030",
+      "name": "운석 경계",
+      "version": "0.6.1",
+      "level": 3,
+      "contributingWords": 16,
+      "before": 101,
+      "operand": {
+        "num": 16,
+        "den": 5
+      },
+      "expected": 323,
+      "expectedRuneEvents": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S031",
+      "name": "가상 gap 참조와 운영을 단어수로 세지 않음",
+      "version": "0.6.1",
+      "level": 3,
+      "submittedWordCards": 11,
+      "excludedWordCards": 2,
+      "playedOperations": 3,
+      "gapReferences": 1,
+      "contributingWords": 9,
+      "before": 101,
+      "operand": {
+        "num": 13,
+        "den": 5
+      },
+      "expected": 262,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S032",
+      "name": "빙정WORD 정상 기여 포함",
+      "version": "0.6.1",
+      "level": 1,
+      "contributingWords": 10,
+      "frostWordsIncluded": 2,
+      "before": 101,
+      "operand": {
+        "num": 12,
+        "den": 5
+      },
+      "expected": 242,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S033",
+      "name": "사용자문장 단계산술",
+      "sentence": "A room was too hard to show.",
+      "wordCount": 7,
+      "allPacks": true,
+      "noRunes": true,
+      "noPolish": true,
+      "stage": 6,
+      "steps": [
+        {
+          "op": "ADD",
+          "value": 70,
+          "after": 70
+        },
+        {
+          "op": "ADD",
+          "value": 30,
+          "after": 100
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 8,
+          "den": 5,
+          "after": 160
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 6,
+          "den": 5,
+          "after": 192
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 7,
+          "den": 5,
+          "after": 268
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 3,
+          "den": 2,
+          "after": 402
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 5,
+          "den": 4,
+          "after": 502
+        }
+      ],
+      "expected": 502,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S034",
+      "name": "too hard 목적어연결",
+      "sentence": "The book is too hard to read.",
+      "wordCount": 7,
+      "steps": [
+        {
+          "op": "ADD",
+          "value": 100,
+          "after": 100
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 8,
+          "den": 5,
+          "after": 160
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 7,
+          "den": 5,
+          "after": 224
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 3,
+          "den": 2,
+          "after": 336
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 5,
+          "den": 4,
+          "after": 420
+        }
+      ],
+      "expected": 420,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S035",
+      "name": "enough 목적어연결",
+      "sentence": "The book is easy enough to read.",
+      "wordCount": 7,
+      "steps": [
+        {
+          "op": "ADD",
+          "value": 100,
+          "after": 100
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 8,
+          "den": 5,
+          "after": 160
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 7,
+          "den": 5,
+          "after": 224
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 3,
+          "den": 2,
+          "after": 336
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 5,
+          "den": 4,
+          "after": 420
+        }
+      ],
+      "expected": 420,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S036",
+      "name": "easy to 지역배수없음",
+      "sentence": "The book is easy to read.",
+      "wordCount": 6,
+      "steps": [
+        {
+          "op": "ADD",
+          "value": 90,
+          "after": 90
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 8,
+          "den": 5,
+          "after": 144
+        },
+        {
+          "op": "MULTIPLY",
+          "num": 7,
+          "den": 5,
+          "after": 201
+        }
+      ],
+      "expected": 201,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S037",
+      "name": "부사 1물리카드1회 수식",
+      "sentence": "I am often giving you a book.",
+      "expectedOftenModifierEvents": 1,
+      "expectedAdverbBonus": 5,
+      "fullSentencePower": "CALCULATE_WITH_ACTUAL_RUN_SNAPSHOT",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S038",
+      "name": "미해금 문형도 분석유지",
+      "sentence": "I am often giving you a book.",
+      "frameUnlocked": false,
+      "expectedFrame": "frame.svoo",
+      "expectedFrameScoreEvents": 0,
+      "expectedHarborVeilRelease": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S039",
+      "name": "8618은 관찰값이지 재현기대값아님",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "expectedWordCount": 16,
+      "observedPriorPower": 8618,
+      "exactPowerExpected": null,
+      "reason": "FULL_RUNE_LEVEL_POLISH_AND_STAGE_SNAPSHOT_NOT_SUPPLIED",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

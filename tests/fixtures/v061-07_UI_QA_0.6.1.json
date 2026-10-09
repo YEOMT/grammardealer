@@ -1,0 +1,326 @@
+{
+  "schemaVersion": 1,
+  "target": "0.6.1",
+  "kind": "UI_AND_EVIDENCE_EXPECTATIONS",
+  "scope": "AUTHORED_EXPECTATIONS_NOT_GAME_EXECUTION",
+  "count": 28,
+  "cases": [
+    {
+      "id": "U001",
+      "name": "Stage1 은은한 테마",
+      "stage": 1,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U002",
+      "name": "Stage2 은은한 테마",
+      "stage": 2,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR",
+        "SHOP"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U003",
+      "name": "Stage3 은은한 테마",
+      "stage": 3,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U004",
+      "name": "Stage4 은은한 테마",
+      "stage": 4,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR",
+        "SHOP"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U005",
+      "name": "Stage5 은은한 테마",
+      "stage": 5,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U006",
+      "name": "Stage6 은은한 테마",
+      "stage": 6,
+      "screens": [
+        "INTRO",
+        "COMBAT",
+        "STAGE_CLEAR",
+        "SHOP"
+      ],
+      "expected": "DARK_READABLE_STAGE_SCOPED_NO_LEAK_ON_LOBBY",
+      "desertPreservation": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U007",
+      "name": "빙정 전체배경 NORMAL",
+      "state": "NORMAL",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U008",
+      "name": "빙정 전체배경 SELECTED",
+      "state": "SELECTED",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U009",
+      "name": "빙정 전체배경 HOVER",
+      "state": "HOVER",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U010",
+      "name": "빙정 전체배경 FOCUS",
+      "state": "FOCUS",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U011",
+      "name": "빙정 전체배경 DISABLED",
+      "state": "DISABLED",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U012",
+      "name": "빙정 전체배경 PRESENTATION_HIGHLIGHT",
+      "state": "PRESENTATION_HIGHLIGHT",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U013",
+      "name": "빙정 전체배경 EFFECTS_REDUCED",
+      "state": "EFFECTS_REDUCED",
+      "expected": "PALE_BLUE_BODY_FOOTER_TYPE_AND_LIFETIME_VISIBLE",
+      "wordAndOperationDistinct": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U014",
+      "name": "확장 UI 레이아웃",
+      "viewport": [
+        1024,
+        768
+      ],
+      "handSizes": [
+        7,
+        10,
+        14
+      ],
+      "sentenceSize": 16,
+      "runes": 4,
+      "expected": "NO_ACTION_OVERLAP_NO_CLIPPED_OPERATION_NAME_FROST_LABEL_CLEAR",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U015",
+      "name": "확장 UI 레이아웃",
+      "viewport": [
+        1280,
+        800
+      ],
+      "handSizes": [
+        7,
+        10,
+        14
+      ],
+      "sentenceSize": 16,
+      "runes": 4,
+      "expected": "NO_ACTION_OVERLAP_NO_CLIPPED_OPERATION_NAME_FROST_LABEL_CLEAR",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U016",
+      "name": "확장 UI 레이아웃",
+      "viewport": [
+        1366,
+        768
+      ],
+      "handSizes": [
+        7,
+        10,
+        14
+      ],
+      "sentenceSize": 16,
+      "runes": 4,
+      "expected": "NO_ACTION_OVERLAP_NO_CLIPPED_OPERATION_NAME_FROST_LABEL_CLEAR",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U017",
+      "name": "확장 UI 레이아웃",
+      "viewport": [
+        1920,
+        1080
+      ],
+      "handSizes": [
+        7,
+        10,
+        14
+      ],
+      "sentenceSize": 16,
+      "runes": 4,
+      "expected": "NO_ACTION_OVERLAP_NO_CLIPPED_OPERATION_NAME_FROST_LABEL_CLEAR",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U018",
+      "name": "chromium 핵심 실제 UI",
+      "browser": "chromium",
+      "actions": [
+        "BUY_OPERATION",
+        "POLISH_OPERATION",
+        "USE_REUSABLE",
+        "RECOVER_SAME_SOURCE",
+        "REUSE",
+        "SAVE_LOAD",
+        "FROST_SUPPORT_USE",
+        "GAP_SENTENCE_SUBMIT"
+      ],
+      "level": "ASSIGNED_OR_NATURAL_MUST_LABEL",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U019",
+      "name": "firefox 핵심 실제 UI",
+      "browser": "firefox",
+      "actions": [
+        "BUY_OPERATION",
+        "POLISH_OPERATION",
+        "USE_REUSABLE",
+        "RECOVER_SAME_SOURCE",
+        "REUSE",
+        "SAVE_LOAD",
+        "FROST_SUPPORT_USE",
+        "GAP_SENTENCE_SUBMIT"
+      ],
+      "level": "ASSIGNED_OR_NATURAL_MUST_LABEL",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U020",
+      "name": "webkit 핵심 실제 UI",
+      "browser": "webkit",
+      "actions": [
+        "BUY_OPERATION",
+        "POLISH_OPERATION",
+        "USE_REUSABLE",
+        "RECOVER_SAME_SOURCE",
+        "REUSE",
+        "SAVE_LOAD",
+        "FROST_SUPPORT_USE",
+        "GAP_SENTENCE_SUBMIT"
+      ],
+      "level": "ASSIGNED_OR_NATURAL_MUST_LABEL",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U021",
+      "name": "새 운영7종 footer",
+      "expected": "COUNTS_AND_AFTER_USE_FROM_SHARED_EFFECT_SPEC_NO_ATTACK_SCORE_BADGE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U022",
+      "name": "순환/일회/전투한정 구분",
+      "expectedLabels": [
+        "전투당 1회",
+        "사용 후 버린 더미",
+        "이번 전투 한정"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U023",
+      "name": "효과감소와OSreduce",
+      "expected": "CORE_COMBAT_FEEDBACK_KEPT_OS_REDUCE_RESPECTED_NO_NEW_FULL_SCREEN_ANIMATION",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U024",
+      "name": "테마 레이어 클릭방해없음",
+      "expected": "POINTER_EVENTS_NONE_AND_NO_LAYOUT_POLLING",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U025",
+      "name": "사막 before-after",
+      "expected": "PRESERVE_EXISTING_GRADIENT_AND_PANEL_TONE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U026",
+      "name": "시각대비",
+      "targets": {
+        "bodyText": 4.5,
+        "largeText": 3,
+        "controls": 3
+      },
+      "expected": "MEASURE_ACTUAL_COMPOSITED_BACKGROUND_NOT_JUST_TOKENS",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U027",
+      "name": "자연27전투",
+      "evidenceType": "PRODUCTION_REAL_UI",
+      "expected": "NO_ASSIGNED_CARDS_HP_DAMAGE_OR_PACK_INJECTION",
+      "notEquivalent": "STAGE6_1_2_3_TARGET_LEARNING_ROUTE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U028",
+      "name": "설원1~3 학습경로",
+      "evidenceType": "SEPARATE_LEARNING_ROUTE",
+      "initialStatus": "NOT_RUN",
+      "expected": "DO_NOT_PROMOTE_OLD_GENERAL_COMPLETION_TO_LEARNING_PASS",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

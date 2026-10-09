@@ -1,0 +1,322 @@
+{
+  "source": "79ab84ebe3a3240a558aecbd2898efdd8e179029",
+  "capturedBeforeProductionChanges": true,
+  "scope": "ACTUAL_0.6.0_ANALYSIS_SHA256",
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "A room was too hard to show.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "6bc33d7cb6216652e22ac316f16cc0dc86e39d6b30e874bbc64a571272d228ed"
+    },
+    {
+      "id": "G002",
+      "sentence": "The book is too hard to read.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "77e4e542e64f4b833aa8ab7e5e7a8d8bc0993fba35eef7fcf4b0e21e2f95a7f5"
+    },
+    {
+      "id": "G003",
+      "sentence": "The book is easy enough to read.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "3d254a2ee21c6454fd3056f78e5e7ee83437370aedf4d8fbe17881c6a4fe23e2"
+    },
+    {
+      "id": "G004",
+      "sentence": "The book is easy to read.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "d4051b65193bcd442e68b6139cd84156ebfe73fd2c92eabcb0c6539a4230ea3b"
+    },
+    {
+      "id": "G005",
+      "sentence": "The book was hard to read.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "02fd81207a72ea77fa8f7abb6a504b998122e1897db208840710468e53e8d824"
+    },
+    {
+      "id": "G006",
+      "sentence": "The book is difficult to read.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "107dfdc658dbcf17d8e792e98c06e42933be9c6eee9f642a78ae138e8e245e38"
+    },
+    {
+      "id": "G007",
+      "sentence": "The room is too small to live in.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "bedcb877edf249c16697c0f0470026348715476c24efd18615cd27264c1a1895"
+    },
+    {
+      "id": "G008",
+      "sentence": "The book is easy to give you.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "d7673652fb15a514da62972293e4892ad4c06907e018960060595edb88f21fb7"
+    },
+    {
+      "id": "G009",
+      "sentence": "The book will be easy to read.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "a7aba1fd89c9e5c67d0877e542634bd85a98eaee4a3d24d1d051541a2f99c149"
+    },
+    {
+      "id": "G010",
+      "sentence": "I am too tired to read books.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "0396970d45a85b66947bf5b4352aea5e2935422bb2fa56f393e3a2188ca416b8"
+    },
+    {
+      "id": "G011",
+      "sentence": "I am strong enough to help you.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "6a730e70906a79672fa018bb13181f00d2024983d981ad94ba2177284e95aba3"
+    },
+    {
+      "id": "G012",
+      "sentence": "I am happy to read a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "9c6ea9c2e3d91858333a812e6cf2f51d1d340cb6e349fc3b51866585a2000fe1"
+    },
+    {
+      "id": "G013",
+      "sentence": "I am ready to show a room.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "a29865d1c2468f427c081555b2f4130851878c5429714593b1a87a25c1562722"
+    },
+    {
+      "id": "G014",
+      "sentence": "A room too hard to show.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "b48d932e6e7c87a096b805cff0196cea9580bcb879e9845134d432b9fd264e1d"
+    },
+    {
+      "id": "G015",
+      "sentence": "A room was too hard to.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "6c5d5c69ed45aebcc3b0b5b3290724132a95d3cd3cdb493f88c0476e16db03e1"
+    },
+    {
+      "id": "G016",
+      "sentence": "The book is too hard read.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "30a4a59f5684b6be34d0147a38f0b46ae18aea2eab9590efb99433283f111fea"
+    },
+    {
+      "id": "G017",
+      "sentence": "I giving you a book.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "7bcc04fe50542edb34c2d4d9644579415762f513842c28737a42c9a675036b36"
+    },
+    {
+      "id": "G018",
+      "sentence": "Giving you a book.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "0d6744a7b8162fb24c250503cfc4ea72a88bd1fb3cb3f0a900061a509b2f2415"
+    },
+    {
+      "id": "G019",
+      "sentence": "I book happy run.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "d653ab8bf838b37c8757e9d1f2da481b69e14383ea1be0a3d6db12d17bf6eb39"
+    },
+    {
+      "id": "G020",
+      "sentence": "I give you a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svoo",
+      "hash": "cb0024b1bbcd33525eb195af18acd734fe41d029868c9e8ca0679ef8c21f48e9"
+    },
+    {
+      "id": "G021",
+      "sentence": "I am giving you a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svoo",
+      "hash": "9f856daecfea9159dc9163d9de4ed0889e97850c76301adab592127797dfa5c2"
+    },
+    {
+      "id": "G022",
+      "sentence": "I have given you a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svoo",
+      "hash": "288bed763bb1d9730edba9a71131c1a619331424795321e80233b39fb056e591"
+    },
+    {
+      "id": "G023",
+      "sentence": "I will give you a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svoo",
+      "hash": "0e3731e6672af3e3e082263b4753e1059234eead4318d9a2a36d614fef10c033"
+    },
+    {
+      "id": "G024",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.np",
+      "hash": "d3543c182a6d7dd3ac584d23ff06d79c2708a1e658dab4952db0a7902b126c67"
+    },
+    {
+      "id": "G025",
+      "sentence": "I have often given her a book.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "0026f82627b78da55ec4b08b9567221b8f00ec605f65c4f42a6da53227eeaefa"
+    },
+    {
+      "id": "G026",
+      "sentence": "I will often give her a book.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "5956832fcde60dbd466f56591d9614faf388f00e023ac5149b5a7bae43e30f39"
+    },
+    {
+      "id": "G027",
+      "sentence": "I will often have given her a book.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "94f9cb3cca19fb58afa77c7557b778ebf1501b4cacce10c9b9980e672ea0b1fc"
+    },
+    {
+      "id": "G028",
+      "sentence": "I be often giving you a book.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrameId": "frame.svc.np",
+      "hash": "79d5f90cad1311d8f69d628d3150c468ae203ddde9c48d03c18ae2c55ec1b43c"
+    },
+    {
+      "id": "G029",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrameId": "frame.svc.np",
+      "hash": "d11274b8dc85602b03d6e81540306f055060d49398d864fa60b3b50c9ede0af0"
+    },
+    {
+      "id": "G030",
+      "sentence": "I have give you a book.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrameId": "frame.svoo",
+      "hash": "253977f0ba13f87b755d3c76117069607810cdc99924edc622f442db1c03fd5a"
+    },
+    {
+      "id": "G031",
+      "sentence": "I give a book to you.",
+      "status": "VALID",
+      "mainFrameId": "frame.svo",
+      "hash": "3edba8845c9407ed16aa49964d80b3b6710bf6837d829109b44b38124b362dff"
+    },
+    {
+      "id": "G032",
+      "sentence": "They are usually reading books.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.np",
+      "hash": "b166f7183733ebea3d66d35b4f7193a6d26bfe8aee9d03aa497f0ce7f08de6fe"
+    },
+    {
+      "id": "G033",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "status": "VALID",
+      "mainFrameId": "frame.svoo",
+      "hash": "9574ef1ca0a4058735c774e682b1e1e61464145f5e690253415e55f8ab372f5d"
+    },
+    {
+      "id": "G034",
+      "sentence": "Running is good.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "263df1b1cb5b440814a53689d8df3a701fc0b050366153c47b104e62b1684ee2"
+    },
+    {
+      "id": "G035",
+      "sentence": "I am running.",
+      "status": "VALID",
+      "mainFrameId": "frame.sv",
+      "hash": "ac1fefac8d6a1efbe4c13f5e53c3aed73e6ad7571ced322db07f950c44f96b5c"
+    },
+    {
+      "id": "G036",
+      "sentence": "I like her.",
+      "status": "VALID",
+      "mainFrameId": "frame.svo",
+      "hash": "25e166b2365b5332e017108dbf011b262d631680f9ed3d9fb6dcb9ea807969b7"
+    },
+    {
+      "id": "G037",
+      "sentence": "I like her book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svo",
+      "hash": "78e79b8c236eb6f136070592c655107f59fa5cc90e157c418c9d0d0b67d23176"
+    },
+    {
+      "id": "G038",
+      "sentence": "I am bigger than you.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "1ff114e65d86cf335885751e7251be99352816aba68e24e657442343ee3af836"
+    },
+    {
+      "id": "G039",
+      "sentence": "This is the biggest book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.np",
+      "hash": "6c13d9cb701d1f07ea2e76dc8b777b1e58e3787824ee5ff5b311a4ae9007c523"
+    },
+    {
+      "id": "G040",
+      "sentence": "I am as good as you.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.adj",
+      "hash": "d0ae791d7a0f65e78d9588b0d277fb55f7597ee852603a43d5472fa5ee9f0143"
+    },
+    {
+      "id": "G041",
+      "sentence": "I need more water.",
+      "status": "VALID",
+      "mainFrameId": "frame.svo",
+      "hash": "79a72f5105d6139a57a9edb9eeb731888979c3d20a6ed65383536ac6c450de06"
+    },
+    {
+      "id": "G042",
+      "sentence": "I enjoy to read books.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "38a11f88113e8997c6cc17d68333980263a27666ad7f08846eabbe1d11885f85"
+    },
+    {
+      "id": "G043",
+      "sentence": "I am often giving you a book.",
+      "status": "VALID",
+      "mainFrameId": "frame.svc.np",
+      "hash": "c6467d2b6690d53f1d9540e3f32c042bd598b2b9d89e7a9eb79d32822879505f"
+    },
+    {
+      "id": "G044",
+      "sentence": "I be giving you a book and she has read books.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrameId": "frame.svoo",
+      "hash": "cb818a78904e691f6e766d982a8ff66121c5d1ebe19199728024827c939b688d"
+    },
+    {
+      "id": "G045",
+      "sentence": "A room was too hard to show.",
+      "status": "INVALID_CORE",
+      "mainFrameId": null,
+      "hash": "6bc33d7cb6216652e22ac316f16cc0dc86e39d6b30e874bbc64a571272d228ed"
+    }
+  ]
+}

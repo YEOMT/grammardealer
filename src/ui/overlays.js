@@ -6,7 +6,7 @@ import {learningRecord,reviewProfileLearning,studentStatus,displayLearningRecord
 import {GRAMMAR_GUIDE,ROLE_GUIDE,DATIVE_GUIDE,LOCATION_GUIDE,TIME_ROLE_LABELS,formMeaning,verbUsage,ING_FORM_GUIDE,nonfiniteUsageNotes,nonfiniteLabel} from '../data/grammarGuideData.js';
 import { el, button, modal, toast } from './dom.js';
 import { wordCard, POS_LABELS } from './cards.js';
-import { cardModel } from './models.js';
+import { cardModel, operationText } from './models.js';
 import { registry, registryForVersion, grammarTags } from '../data/language/index.js';
 import { canSaveRun } from '../services/localStore.js';
 
@@ -48,7 +48,7 @@ export function openDeck(state, kind = 'all') {
   const title = isDraw ? `드로우 ${models.length}장 · 순서는 공개하지 않음` : isDiscard ? `버린 카드 ${models.length}장` : isExhausted ? `사용 완료 ${models.length}장 · 다음 전투에 복귀` : `나의 덱 ${models.length}장`;
   const grid = el('div', { class: 'deck-grid' }, models.map((model, index) => el('div', { class: 'deck-entry' },
     wordCard(model, { readonly: true }),
-    el('small', { text: `${isDiscard && index === 0 ? '최근 버린 카드 · ' : ''}${zoneOf(state, model.id)} · ${model.cardKind==='OPERATION'?'운영 · 전투당 1회':(model.temporary?'이번 전투 전용 · 영구 보유 ':'같은 단어 보유 ')+(countByLexeme.get(model.lexemeId)??0)+'장'}` }),
+    el('small', { text: `${isDiscard && index === 0 ? '최근 버린 카드 · ' : ''}${zoneOf(state, model.id)} · ${model.cardKind==='OPERATION'?'운영 · '+operationText(model).limit:(model.temporary?'이번 전투 전용 · 영구 보유 ':'같은 단어 보유 ')+(countByLexeme.get(model.lexemeId)??0)+'장'}` }),
   )));
   return modal(title, [small(isDraw ? '단어 이름순으로 정렬한 목록입니다. 다음에 뽑을 카드는 알 수 없습니다.' : isDiscard ? '가장 최근에 버린 카드부터 표시합니다. 이 화면에서는 카드를 이동하지 않습니다.' : '현재 원정에 남아 있는 실제 카드와 영역입니다. 이 화면에서는 카드를 이동하지 않습니다.'),
     models.length ? grid : small('현재 이 영역에 카드가 없습니다.')], { wide: true });
@@ -189,8 +189,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);
@@ -230,5 +230,5 @@ export function openSaves({ store, profile, state, onLoad }) {
 
 function operationSection(state){
  const models=(state?.activeCardIds??[]).map(id=>cardModel(state.cardInstances[id],null,state.version)).filter(m=>m.cardKind==='OPERATION');
- if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small('손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
+ if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small(state.version==='0.6.1'?'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않습니다. 영구 운영은 최대 +1이며 카드에 표시한 획득 수와 사용 후 이동을 따릅니다.':'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
 }

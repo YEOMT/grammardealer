@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -26,7 +26,8 @@
     "test:browser:cross": "node tests/polish-cross-browser.mjs",
     "test:decks:snow": "node tools/simulate-snow-decks.js",
     "test:runs:snow": "node tools/simulate-snow-runs.js",
-    "test:browser:snow": "node tests/snow-browser.mjs"
+    "test:browser:snow": "node tests/snow-browser.mjs",
+    "test:browser:061": "node tests/polish-061-browser.mjs && node tests/polish-061-edges-browser.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

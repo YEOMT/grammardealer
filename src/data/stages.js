@@ -10,7 +10,7 @@ import { clone,deepFreeze } from '../contracts.js';
 export { STAGE1, STAGE2, STAGE3, STAGE4, STAGE5, STAGE6 };
 export const STAGE_BY_ID = Object.freeze({ [STAGE1.id]: STAGE1, [STAGE2.id]: STAGE2, [STAGE3.id]:STAGE3, [STAGE4.id]:STAGE4, [STAGE5.id]:STAGE5, [STAGE6.id]:STAGE6 });
 export const STAGE_VERSION = 'stage.0.2.0';
-export const isCurrentCampaign = run => ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(run?.version);
+export const isCurrentCampaign = run => ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(run?.version);
 const POLISH_HP={'stage.04':[520,570,620,680,760],'stage.05':[620,670,720,780,960]};
 const POLISH_STAGES=deepFreeze(Object.fromEntries([STAGE4,STAGE5].map(s=>[s.id,{...clone(s),rounds:s.rounds.map((r,i)=>({...clone(r),hp:POLISH_HP[s.id][i]}))}])));
 export function stageForRun(run) {
@@ -18,8 +18,8 @@ export function stageForRun(run) {
   if(stage?.id===STAGE6.id&&!hasSnowCampaign(run))throw new RangeError('Stage 6 requires a 0.6 campaign');
   if (stage?.id===STAGE4.id&&!hasSkyCampaign(run))throw new RangeError('Stage 4 requires a 0.4 campaign');
   if(stage?.id===STAGE5.id&&!hasDesertCampaign(run))throw new RangeError('Stage 5 requires a 0.5 campaign');
-  if (!stage || stage.id === STAGE2.id && !isCurrentCampaign(run)||stage.id===STAGE3.id&&!['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(run?.version)) throw new RangeError('Unsupported stage for this campaign version');
-  return ['0.5.1','0.6.0'].includes(run?.version)?(POLISH_STAGES[stage.id]??stage):stage;
+  if (!stage || stage.id === STAGE2.id && !isCurrentCampaign(run)||stage.id===STAGE3.id&&!['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(run?.version)) throw new RangeError('Unsupported stage for this campaign version');
+  return ['0.5.1','0.6.0','0.6.1'].includes(run?.version)?(POLISH_STAGES[stage.id]??stage):stage;
 }
 export const getStageForRun = stageForRun;
 export function roundsForRun(run) {

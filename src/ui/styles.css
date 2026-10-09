@@ -168,3 +168,49 @@ body:has(.desert-page){background:radial-gradient(ellipse at bottom,#9f79474d,tr
 .frost-crystals{font-size:12px;color:#bdefff;line-height:1.4}
 .snow-combat .enemy-area{background:linear-gradient(110deg,#182d3b,#16202e)}
 .snow-tools .canyon-focus{font-size:11px}
+
+/* 0.6.1 region layers are static and input-free; the Stage 5 gradients above remain intact. */
+body[data-stage-theme]{background:var(--stage-gradient);min-height:100vh}
+body[data-stage-theme="stage.01"]{--stage-gradient:radial-gradient(ellipse at 26% 14%,#9b985d16,transparent 52%),linear-gradient(155deg,#14231f,#1d3027)}
+body[data-stage-theme="stage.02"]{--stage-gradient:radial-gradient(ellipse at 62% 28%,#85b6b918,transparent 52%),linear-gradient(170deg,#12232d,#173c43)}
+body[data-stage-theme="stage.03"]{--stage-gradient:radial-gradient(ellipse at 80% 85%,#b9865917,transparent 52%),linear-gradient(135deg,#231d25,#3c3032)}
+body[data-stage-theme="stage.04"]{--stage-gradient:radial-gradient(ellipse at 50% 0%,#b5bed321,transparent 58%),linear-gradient(160deg,#1b2338,#30344f)}
+body[data-stage-theme="stage.05"]{--stage-gradient:radial-gradient(ellipse at bottom,#9f79474d,transparent 58%),linear-gradient(145deg,#141b38,#312638)}
+body[data-stage-theme="stage.06"]{--stage-gradient:radial-gradient(ellipse at 96% 56%,#80c0d01a,transparent 48%),linear-gradient(145deg,#142433,#223846)}
+body[data-stage-theme]:not([data-stage-theme="stage.05"]) .game-shell{background:var(--stage-gradient)}
+body[data-stage-theme]:not([data-stage-theme="stage.05"]) .snow-combat .enemy-area{background:transparent}
+body[data-stage-theme]:not([data-stage-theme="stage.05"]) .intro-encounters>div,body[data-stage-theme]:not([data-stage-theme="stage.05"]) .panel,body[data-stage-theme]:not([data-stage-theme="stage.05"]) .status-panel,body[data-stage-theme]:not([data-stage-theme="stage.05"]) .rune-panel{background:#101d2bbf;border-color:#91afbe66}
+/* A frost identity covers actual body/footer surfaces, including readonly and drag clones. */
+.word-card.frost-card{--frost-bg:#d9eef6;--frost-bg-edge:#cae3ee;--frost-text:#163746;--frost-muted:#315a6a;--frost-border:#497c91;background:var(--frost-bg);color:var(--frost-text);border-color:var(--frost-border);border-top-color:var(--pos,var(--frost-border));box-shadow:0 4px 0 #789ba9,0 7px 14px #0003}
+.frost-card .card-body{background:var(--frost-bg);color:var(--frost-text)}
+.frost-card .card-footline,.frost-card .form-button,.frost-card .operation-use{background:var(--frost-bg-edge);color:var(--frost-text);border-color:var(--frost-border)}
+.frost-card .pos-label,.frost-card .card-value,.frost-card .card-footline>span:first-child,.frost-card .frost-duration,.frost-card .operation-description,.frost-card .operation-limit{color:var(--frost-muted)}
+.word-card.frost-card.selected{background:var(--frost-bg);box-shadow:0 4px 0 #789ba9,0 0 0 3px #775414}
+.frost-card.selected .card-select{background:#f5db98;color:#253b43}.frost-card .card-select{color:var(--frost-text)}
+.frost-card .form-button:hover,.frost-card .operation-use:hover{background:#b6d7e4}
+.frost-card .card-body:focus-visible,.frost-card button:focus-visible{outline-color:#304c83;outline-offset:-3px}
+.frost-card button:disabled{opacity:1;background:#c2d9e2;color:#3f5661}
+.frost-target{background:#233c4a;border-color:#7cabbc}.frost-target:hover{background:#315164}
+.operation-card .card-body{gap:5px;justify-content:flex-start}.operation-card .card-topline{min-height:14px;font-weight:650;color:#344952}
+.operation-name{font-size:18px;line-height:1.25;word-break:keep-all;overflow-wrap:anywhere;margin:auto 0 0}
+.operation-description{font-size:11px;color:#334e5b;line-height:1.3}.operation-limit{font-size:10px;color:#334e5b;line-height:1.35;margin-bottom:auto;word-break:keep-all;overflow-wrap:anywhere}
+.operation-card .polish-badge{flex:none;white-space:nowrap}.operation-polish-preview{font-size:12px;line-height:1.5;margin:9px 0;max-width:240px}
+.operation-target .word-card{pointer-events:none;flex:none}.operation-target-list{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.operation-card.frost-card{border-top-color:var(--frost-border)}
+@media(max-width:1180px){.operation-name{font-size:16px}.operation-card .card-topline{font-size:9px}.operation-description{font-size:10px}.operation-limit{font-size:10px}}
+/* Reserve the content height of long operation descriptions and two independent 44px targets.
+   Dense layouts spend idle/outer spacing before shrinking any card text or action target. */
+body[data-stage-theme] .game-shell{grid-template-rows:44px minmax(132px,18vh) minmax(0,1fr) max-content}
+body[data-stage-theme] .hand-cards .operation-card{min-width:90px;flex-shrink:0}
+body[data-stage-theme] .hand-cards:has(.operation-card){overflow-x:auto;overflow-y:hidden;justify-content:safe center;padding-bottom:7px}
+body[data-stage-theme] .hand-section{min-height:max-content}
+.operation-name{line-height:1.5}
+@media(max-height:820px){
+ body[data-stage-theme] .game-shell{grid-template-rows:40px minmax(112px,16vh) minmax(0,1fr) max-content}
+ body[data-stage-theme] .score-stage:has(.score-number[hidden]){height:48px;min-height:48px}
+ body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)){padding-block:12px 9px;gap:6px}
+ body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]){height:16px;min-height:16px}
+ body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:4px}
+ body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
+ body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .status-panel{gap:4px;padding-block:6px}
+}

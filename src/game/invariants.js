@@ -1,7 +1,7 @@
 import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {validateTurnHandSeal} from './turnHandSeal.js';
 import {validateOperationHistory} from './operationHistory.js';
-import {cardDefinition,cardKind} from '../data/cardCatalog.js';
+import {cardDefinition,cardKind,maxPolish} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 import {validateFrostCards} from './frostCards.js';
@@ -55,7 +55,7 @@ export function assertRunInvariants(run, registry) {
     const card = run.cardInstances[id];
     assert(card?.instanceId === id, `missing card ${id}`);
     assert(typeof card.cardDefId === 'string', 'missing card definition');
-    assert(nonnegative(card.polishLevel) && card.polishLevel <= 3, 'invalid polish level');
+    assert(nonnegative(card.polishLevel) && card.polishLevel <= maxPolish(card,run.version), 'invalid polish level');
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
@@ -78,6 +78,6 @@ export function assertCardTypes(run){
  assert((c.exhaustedIds??[]).length===0||hasSkyCampaign(run),'legacy exhausted cards');
  for(const slot of c.sentenceSlots)assert(cardKind(run.cardInstances[slot.cardInstanceId],run.version)==='WORD','operation on sentence board');
  for(const id of c.exhaustedIds??[])assert(cardKind(run.cardInstances[id],run.version)==='OPERATION','word in exhausted pile');
- for(const card of Object.values(run.cardInstances))if(cardKind(card,run.version)==='OPERATION')assert(card.polishLevel===0&&card.specialEffectId===null,'enhanced operation');
+ for(const card of Object.values(run.cardInstances))if(cardKind(card,run.version)==='OPERATION')assert(card.polishLevel>=0&&card.polishLevel<=maxPolish(card,run.version)&&card.specialEffectId===null,'enhanced operation');
  return true;
 }
