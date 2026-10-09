@@ -1,0 +1,84 @@
+{
+  "kind": "ACTUAL_HAND_PRODUCTION_UI_LEARNING_COURSE",
+  "status": "PASS",
+  "seed": "run-sequence.57",
+  "results": [
+    {
+      "battle": 23,
+      "expectedTag": "COMPARISON.COMPARATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 23,
+          "sentence": "she was harder to people",
+          "tags": [
+            "FRAME.SVC",
+            "COMPARISON.COMPARATIVE",
+            "PHRASE.PP",
+            "TIME.PAST"
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "starter.11",
+            "starter.20",
+            "entry.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.stage.02.card.0",
+            "reward.offer.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.1.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 24,
+      "expectedTag": "COMPARISON.SUPERLATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 24,
+          "sentence": "she likes taking the hardest park",
+          "tags": [
+            "FRAME.SVO",
+            "MODIFIER.ADJECTIVE",
+            "COMPARISON.SUPERLATIVE",
+            "CLAUSE.GERUND"
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "reward.offer.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.8.card",
+            "starter.16",
+            "starter.26",
+            "starter.20",
+            "reward.offer.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.10.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 25,
+      "expectedTag": "COMPARISON.EQUALITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 25,
+          "sentence": "I was twice as young as him",
+          "tags": [
+            "FRAME.SVC",
+            "MODIFIER.ADVERB",
+            "COMPARISON.EQUALITY",
+            "COMPARISON.MULTIPLIER",
+            "TIME.PAST"
+          ],
+          "physicalCardIds": [
+            "starter.07",
+            "starter.11",
+            "frost.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.battle.25.02",
+            "frost.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.battle.25.01",
+            "reward.offer.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.24.card",
+            "frost.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.battle.25.00",
+            "reward.offer.run.67beac50-c5b8-4625-9ee9-c7b6aade3687.5.card"
+          ]
+        }
+      ]
+    }
+  ],
+  "note": "This is separate evidence for battles23–25, not inferred from the27-battle completion. Policy-generated grammatical sentences are not curated teaching examples."
+}

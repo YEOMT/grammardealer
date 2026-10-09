@@ -1,0 +1,7 @@
+{
+  "finishedAt": "2026-10-09T10:09:25.6552724Z",
+  "output": ".local-validation/v061/ui-edges-reward-final",
+  "startedAt": "2026-10-09T10:09:10.8765566Z",
+  "command": "node tests/polish-061-edges-browser.mjs",
+  "exitCode": 0
+}

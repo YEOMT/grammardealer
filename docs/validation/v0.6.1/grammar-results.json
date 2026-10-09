@@ -1,0 +1,4419 @@
+{
+  "scope": "ACTUAL_PARSER_AND_PURE_SCORE_STAGE_REGISTERED_CARD_FIXTURES_NOT_NATURAL_PLAY",
+  "runAt": "2026-10-09T09:25:43.260Z",
+  "baselineSource": "79ab84ebe3a3240a558aecbd2898efdd8e179029",
+  "baselineCapturedBeforeProductionChanges": true,
+  "currentChecks": {
+    "focused": 62,
+    "focusedFailures": 0,
+    "grammarRegression": 455,
+    "grammarRegressionFailures": 0
+  },
+  "controllerEvidence": "tests/v061-grammar-controller.test.js",
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "A room was too hard to show.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "6bc33d7cb6216652e22ac316f16cc0dc86e39d6b30e874bbc64a571272d228ed"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "DEGREE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PAST",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G002",
+      "sentence": "The book is too hard to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "77e4e542e64f4b833aa8ab7e5e7a8d8bc0993fba35eef7fcf4b0e21e2f95a7f5"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "DEGREE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G003",
+      "sentence": "The book is easy enough to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "3d254a2ee21c6454fd3056f78e5e7ee83437370aedf4d8fbe17881c6a4fe23e2"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "DEGREE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G004",
+      "sentence": "The book is easy to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "d4051b65193bcd442e68b6139cd84156ebfe73fd2c92eabcb0c6539a4230ea3b"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "ADJECTIVE_COMPLEMENT",
+            "headCardId": "fixture.5",
+            "cardIds": [
+              "fixture.4",
+              "fixture.5"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G005",
+      "sentence": "The book was hard to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "02fd81207a72ea77fa8f7abb6a504b998122e1897db208840710468e53e8d824"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "ADJECTIVE_COMPLEMENT",
+            "headCardId": "fixture.5",
+            "cardIds": [
+              "fixture.4",
+              "fixture.5"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PAST",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G006",
+      "sentence": "The book is difficult to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "107dfdc658dbcf17d8e792e98c06e42933be9c6eee9f642a78ae138e8e245e38"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "ADJECTIVE_COMPLEMENT",
+            "headCardId": "fixture.5",
+            "cardIds": [
+              "fixture.4",
+              "fixture.5"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G007",
+      "sentence": "The room is too small to live in.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "bedcb877edf249c16697c0f0470026348715476c24efd18615cd27264c1a1895"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 8,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "DEGREE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6",
+              "fixture.7"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "PREPOSITION_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G008",
+      "sentence": "The book is easy to give you.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "d7673652fb15a514da62972293e4892ad4c06907e018960060595edb88f21fb7"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "ADJECTIVE_COMPLEMENT",
+            "headCardId": "fixture.5",
+            "cardIds": [
+              "fixture.4",
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G009",
+      "sentence": "The book will be easy to read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "analysisHash": "a7aba1fd89c9e5c67d0877e542634bd85a98eaee4a3d24d1d051541a2f99c149"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "ADJECTIVE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              2,
+              4
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 2,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.2",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.2",
+                "role": "WILL"
+              }
+            ],
+            "tenseFamily": "FUTURE",
+            "aspects": [],
+            "futureMarker": "WILL",
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G010",
+      "sentence": "I am too tired to read books.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "0396970d45a85b66947bf5b4352aea5e2935422bb2fa56f393e3a2188ca416b8"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G011",
+      "sentence": "I am strong enough to help you.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "6a730e70906a79672fa018bb13181f00d2024983d981ad94ba2177284e95aba3"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.5"
+            ],
+            "range": [
+              5,
+              6
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.5",
+            "finiteIndex": null,
+            "lexicalIndex": 5,
+            "verbCardIds": [
+              "fixture.5"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G012",
+      "sentence": "I am happy to read a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "9c6ea9c2e3d91858333a812e6cf2f51d1d340cb6e349fc3b51866585a2000fe1"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.4"
+            ],
+            "range": [
+              4,
+              5
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.4",
+            "finiteIndex": null,
+            "lexicalIndex": 4,
+            "verbCardIds": [
+              "fixture.4"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G013",
+      "sentence": "I am ready to show a room.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "analysisHash": "a29865d1c2468f427c081555b2f4130851878c5429714593b1a87a25c1562722"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.4"
+            ],
+            "range": [
+              4,
+              5
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.4",
+            "finiteIndex": null,
+            "lexicalIndex": 4,
+            "verbCardIds": [
+              "fixture.4"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G014",
+      "sentence": "A room too hard to show.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "analysisHash": "b48d932e6e7c87a096b805cff0196cea9580bcb879e9845134d432b9fd264e1d"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G015",
+      "sentence": "A room was too hard to.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "6c5d5c69ed45aebcc3b0b5b3290724132a95d3cd3cdb493f88c0476e16db03e1"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G016",
+      "sentence": "The book is too hard read.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "30a4a59f5684b6be34d0147a38f0b46ae18aea2eab9590efb99433283f111fea"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G017",
+      "sentence": "I giving you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "analysisHash": "7bcc04fe50542edb34c2d4d9644579415762f513842c28737a42c9a675036b36"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G018",
+      "sentence": "Giving you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "analysisHash": "0d6744a7b8162fb24c250503cfc4ea72a88bd1fb3cb3f0a900061a509b2f2415"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "physicalCardCount": 4,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G019",
+      "sentence": "I book happy run.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "analysisHash": "d653ab8bf838b37c8757e9d1f2da481b69e14383ea1be0a3d6db12d17bf6eb39"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "physicalCardCount": 4,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G020",
+      "sentence": "I give you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [],
+        "analysisHash": "cb0024b1bbcd33525eb195af18acd734fe41d029868c9e8ca0679ef8c21f48e9"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G021",
+      "sentence": "I am giving you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "analysisHash": "9f856daecfea9159dc9163d9de4ed0889e97850c76301adab592127797dfa5c2"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G022",
+      "sentence": "I have given you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "analysisHash": "288bed763bb1d9730edba9a71131c1a619331424795321e80233b39fb056e591"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PERFECT"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PERFECT"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G023",
+      "sentence": "I will give you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "analysisHash": "0e3731e6672af3e3e082263b4753e1059234eead4318d9a2a36d614fef10c033"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "WILL"
+              }
+            ],
+            "tenseFamily": "FUTURE",
+            "aspects": [],
+            "futureMarker": "WILL",
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G024",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "analysisHash": "d3543c182a6d7dd3ac584d23ff06d79c2708a1e658dab4952db0a7902b126c67"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 12,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2",
+              "fixture.3",
+              "fixture.4"
+            ],
+            "range": [
+              2,
+              5
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.4",
+            "finiteIndex": 2,
+            "lexicalIndex": 4,
+            "verbCardIds": [
+              "fixture.2",
+              "fixture.4"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.3"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.2",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G025",
+      "sentence": "I have often given her a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "0026f82627b78da55ec4b08b9567221b8f00ec605f65c4f42a6da53227eeaefa"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              1,
+              4
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 1,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PERFECT"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PERFECT"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G026",
+      "sentence": "I will often give her a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "5956832fcde60dbd466f56591d9614faf388f00e023ac5149b5a7bae43e30f39"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              1,
+              4
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 1,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "WILL"
+              }
+            ],
+            "tenseFamily": "FUTURE",
+            "aspects": [],
+            "futureMarker": "WILL",
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G027",
+      "sentence": "I will often have given her a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "94f9cb3cca19fb58afa77c7557b778ebf1501b4cacce10c9b9980e672ea0b1fc"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PERFECT",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "physicalCardCount": 8,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3",
+              "fixture.4"
+            ],
+            "range": [
+              1,
+              5
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.4",
+            "finiteIndex": 1,
+            "lexicalIndex": 4,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3",
+              "fixture.4"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "WILL"
+              },
+              {
+                "cardInstanceId": "fixture.3",
+                "role": "PERFECT"
+              }
+            ],
+            "tenseFamily": "FUTURE",
+            "aspects": [
+              "PERFECT"
+            ],
+            "futureMarker": "WILL",
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G028",
+      "sentence": "I be often giving you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "analysisHash": "79d5f90cad1311d8f69d628d3150c468ae203ddde9c48d03c18ae2c55ec1b43c"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              1,
+              4
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 1,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": false,
+            "temporalEvidenceEligible": false,
+            "issueIds": [
+              "issue.0"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "G029",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "analysisHash": "d11274b8dc85602b03d6e81540306f055060d49398d864fa60b3b50c9ede0af0"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "physicalCardCount": 12,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2",
+              "fixture.3",
+              "fixture.4"
+            ],
+            "range": [
+              2,
+              5
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.4",
+            "finiteIndex": 2,
+            "lexicalIndex": 4,
+            "verbCardIds": [
+              "fixture.2",
+              "fixture.4"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.3"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.2",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": false,
+            "temporalEvidenceEligible": false,
+            "issueIds": [
+              "issue.0"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "G030",
+      "sentence": "I have give you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [
+          "AUXILIARY_FORM_REQUIRED"
+        ],
+        "analysisHash": "253977f0ba13f87b755d3c76117069607810cdc99924edc622f442db1c03fd5a"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [
+          "AUXILIARY_FORM_REQUIRED"
+        ],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PERFECT"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PERFECT"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": false,
+            "temporalEvidenceEligible": false,
+            "issueIds": [
+              "issue.0"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "G031",
+      "sentence": "I give a book to you.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "analysisHash": "3edba8845c9407ed16aa49964d80b3b6710bf6837d829109b44b38124b362dff"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G032",
+      "sentence": "They are usually reading books.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "analysisHash": "b166f7183733ebea3d66d35b4f7193a6d26bfe8aee9d03aa497f0ce7f08de6fe"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              1,
+              4
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 1,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G033",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "analysisHash": "9574ef1ca0a4058735c774e682b1e1e61464145f5e690253415e55f8ab372f5d"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 16,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.4",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.11",
+            "cardIds": [
+              "fixture.8"
+            ],
+            "range": [
+              8,
+              9
+            ],
+            "finiteCardId": "fixture.8",
+            "lexicalVerbCardId": "fixture.8",
+            "finiteIndex": 8,
+            "lexicalIndex": 8,
+            "verbCardIds": [
+              "fixture.8"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.2",
+            "clauseId": "clause.2",
+            "nodeId": "node.13",
+            "cardIds": [
+              "fixture.9"
+            ],
+            "range": [
+              9,
+              10
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.9",
+            "finiteIndex": null,
+            "lexicalIndex": 9,
+            "verbCardIds": [
+              "fixture.9"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          },
+          {
+            "id": "vp.3",
+            "clauseId": "clause.3",
+            "nodeId": "node.19",
+            "cardIds": [
+              "fixture.13"
+            ],
+            "range": [
+              13,
+              14
+            ],
+            "finiteCardId": "fixture.13",
+            "lexicalVerbCardId": "fixture.13",
+            "finiteIndex": 13,
+            "lexicalIndex": 13,
+            "verbCardIds": [
+              "fixture.13"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G034",
+      "sentence": "Running is good.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "analysisHash": "263df1b1cb5b440814a53689d8df3a701fc0b050366153c47b104e62b1684ee2"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "physicalCardCount": 3,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.1",
+            "nodeId": "node.3",
+            "cardIds": [
+              "fixture.0"
+            ],
+            "range": [
+              0,
+              1
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.0",
+            "finiteIndex": null,
+            "lexicalIndex": 0,
+            "verbCardIds": [
+              "fixture.0"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.main",
+            "nodeId": "node.4",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G035",
+      "sentence": "I am running.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "analysisHash": "ac1fefac8d6a1efbe4c13f5e53c3aed73e6ad7571ced322db07f950c44f96b5c"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 3,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G036",
+      "sentence": "I like her.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "analysisHash": "25e166b2365b5332e017108dbf011b262d631680f9ed3d9fb6dcb9ea807969b7"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "physicalCardCount": 3,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G037",
+      "sentence": "I like her book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "analysisHash": "78e79b8c236eb6f136070592c655107f59fa5cc90e157c418c9d0d0b67d23176"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "physicalCardCount": 4,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G038",
+      "sentence": "I am bigger than you.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "analysisHash": "1ff114e65d86cf335885751e7251be99352816aba68e24e657442343ee3af836"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G039",
+      "sentence": "This is the biggest book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "analysisHash": "6c13d9cb701d1f07ea2e76dc8b777b1e58e3787824ee5ff5b311a4ae9007c523"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G040",
+      "sentence": "I am as good as you.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [],
+        "analysisHash": "d0ae791d7a0f65e78d9588b0d277fb55f7597ee852603a43d5472fa5ee9f0143"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [],
+        "physicalCardCount": 6,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G041",
+      "sentence": "I need more water.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MORE"
+        ],
+        "issues": [],
+        "analysisHash": "79a72f5105d6139a57a9edb9eeb731888979c3d20a6ed65383536ac6c450de06"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MORE"
+        ],
+        "issues": [],
+        "physicalCardCount": 4,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1"
+            ],
+            "range": [
+              1,
+              2
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.1",
+            "finiteIndex": 1,
+            "lexicalIndex": 1,
+            "verbCardIds": [
+              "fixture.1"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PRESENT",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G042",
+      "sentence": "I enjoy to read books.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "38a11f88113e8997c6cc17d68333980263a27666ad7f08846eabbe1d11885f85"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "physicalCardCount": 5,
+        "gaps": [],
+        "verbPhrases": []
+      }
+    },
+    {
+      "id": "G043",
+      "sentence": "I am often giving you a book.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID",
+        "mainFrame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "analysisHash": "c6467d2b6690d53f1d9540e3f32c042bd598b2b9d89e7a9eb79d32822879505f"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2",
+              "fixture.3"
+            ],
+            "range": [
+              1,
+              4
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.3",
+            "finiteIndex": 1,
+            "lexicalIndex": 3,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.3"
+            ],
+            "interveningAdverbCardIds": [
+              "fixture.2"
+            ],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G044",
+      "sentence": "I be giving you a book and she has read books.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "analysisHash": "cb818a78904e691f6e766d982a8ff66121c5d1ebe19199728024827c939b688d"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID_WITH_ISSUES",
+        "mainFrame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "physicalCardCount": 11,
+        "gaps": [],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.3",
+            "cardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "range": [
+              1,
+              3
+            ],
+            "finiteCardId": "fixture.1",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 1,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.1",
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.1",
+                "role": "PROGRESSIVE"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PROGRESSIVE"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": false,
+            "temporalEvidenceEligible": false,
+            "issueIds": [
+              "issue.0"
+            ]
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.10",
+            "cardIds": [
+              "fixture.8",
+              "fixture.9"
+            ],
+            "range": [
+              8,
+              10
+            ],
+            "finiteCardId": "fixture.8",
+            "lexicalVerbCardId": "fixture.9",
+            "finiteIndex": 8,
+            "lexicalIndex": 9,
+            "verbCardIds": [
+              "fixture.8",
+              "fixture.9"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [
+              {
+                "cardInstanceId": "fixture.8",
+                "role": "PERFECT"
+              }
+            ],
+            "tenseFamily": "PRESENT",
+            "aspects": [
+              "PERFECT"
+            ],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "G045",
+      "sentence": "A room was too hard to show.",
+      "baseline": {
+        "language": "0.6.0",
+        "status": "INVALID_CORE",
+        "mainFrame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "analysisHash": "6bc33d7cb6216652e22ac316f16cc0dc86e39d6b30e874bbc64a571272d228ed"
+      },
+      "current": {
+        "language": "0.6.1",
+        "status": "VALID",
+        "mainFrame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "physicalCardCount": 7,
+        "gaps": [
+          {
+            "id": "nonfinite.0",
+            "nodeId": "node.4",
+            "formKind": "TO_INFINITIVE",
+            "interpretation": "INFINITIVE",
+            "function": "DEGREE_COMPLEMENT",
+            "headCardId": "fixture.6",
+            "cardIds": [
+              "fixture.5",
+              "fixture.6"
+            ],
+            "parentNodeId": "node.3",
+            "issueIds": [],
+            "controllerNodeId": null,
+            "gapRole": "DIRECT_OBJECT",
+            "antecedentNodeId": "node.1",
+            "governorNodeId": "node.3"
+          }
+        ],
+        "verbPhrases": [
+          {
+            "id": "vp.0",
+            "clauseId": "clause.main",
+            "nodeId": "node.2",
+            "cardIds": [
+              "fixture.2"
+            ],
+            "range": [
+              2,
+              3
+            ],
+            "finiteCardId": "fixture.2",
+            "lexicalVerbCardId": "fixture.2",
+            "finiteIndex": 2,
+            "lexicalIndex": 2,
+            "verbCardIds": [
+              "fixture.2"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": "PAST",
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": true,
+            "issueIds": []
+          },
+          {
+            "id": "vp.1",
+            "clauseId": "clause.1",
+            "nodeId": "node.5",
+            "cardIds": [
+              "fixture.6"
+            ],
+            "range": [
+              6,
+              7
+            ],
+            "finiteCardId": null,
+            "lexicalVerbCardId": "fixture.6",
+            "finiteIndex": null,
+            "lexicalIndex": 6,
+            "verbCardIds": [
+              "fixture.6"
+            ],
+            "interveningAdverbCardIds": [],
+            "auxiliaries": [],
+            "tenseFamily": null,
+            "aspects": [],
+            "futureMarker": null,
+            "chainWellFormed": true,
+            "temporalEvidenceEligible": false,
+            "issueIds": []
+          }
+        ]
+      }
+    }
+  ],
+  "pipeline": [
+    {
+      "text": "A room was too hard to show.",
+      "status": "VALID",
+      "mainFrame": "frame.svc.adj",
+      "power": 502,
+      "veilActive": null,
+      "scoreTimeline": [
+        {
+          "eventId": "attack.sandbox:score.0",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.0",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 0,
+          "after": 10,
+          "evidenceRefs": [
+            "fixture.0"
+          ],
+          "highlightCardIds": [
+            "fixture.0"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.1",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.1",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 10,
+          "after": 20,
+          "evidenceRefs": [
+            "fixture.1"
+          ],
+          "highlightCardIds": [
+            "fixture.1"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.2",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.2",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 20,
+          "after": 30,
+          "evidenceRefs": [
+            "fixture.2"
+          ],
+          "highlightCardIds": [
+            "fixture.2"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.3",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.3",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 30,
+          "after": 40,
+          "evidenceRefs": [
+            "fixture.3"
+          ],
+          "highlightCardIds": [
+            "fixture.3"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.4",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.4",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 40,
+          "after": 50,
+          "evidenceRefs": [
+            "fixture.4"
+          ],
+          "highlightCardIds": [
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.5",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.5",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 50,
+          "after": 60,
+          "evidenceRefs": [
+            "fixture.5"
+          ],
+          "highlightCardIds": [
+            "fixture.5"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.6",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.6",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 60,
+          "after": 70,
+          "evidenceRefs": [
+            "fixture.6"
+          ],
+          "highlightCardIds": [
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.7",
+          "phase": "COMPLETE_BONUS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "COMPLETE_SENTENCE",
+          "labelKo": "완전한 문장!",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 70,
+          "after": 100,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.8",
+          "phase": "MAIN_FRAME",
+          "sourceType": "GRAMMAR",
+          "sourceId": "FRAME.SVC",
+          "labelKo": "주절 · 2형식!",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 8,
+            "den": 5
+          },
+          "before": 100,
+          "after": 160,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.9",
+          "phase": "CONSTRUCTIONS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "TIME.PAST",
+          "labelKo": "과거",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 6,
+            "den": 5
+          },
+          "before": 160,
+          "after": 192,
+          "evidenceRefs": [
+            "hit.vp.0.TIME.PAST"
+          ],
+          "highlightCardIds": [
+            "fixture.2"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.10",
+          "phase": "CONSTRUCTIONS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "CLAUSE.INFINITIVE",
+          "labelKo": "to부정사 ×1.4",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 7,
+            "den": 5
+          },
+          "before": 192,
+          "after": 268,
+          "evidenceRefs": [
+            "hit.structure.1"
+          ],
+          "highlightCardIds": [
+            "fixture.5",
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.11",
+          "phase": "CONSTRUCTIONS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "DEGREE",
+          "labelKo": "정도 표현 ×1.5",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 3,
+            "den": 2
+          },
+          "before": 268,
+          "after": 402,
+          "evidenceRefs": [
+            "hit.structure.0"
+          ],
+          "highlightCardIds": [
+            "fixture.3",
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.12",
+          "phase": "REGION",
+          "sourceType": "STAGE",
+          "sourceId": "stage.06",
+          "labelKo": "거울의 설원 · 비교·정도 ×1.25",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 402,
+          "after": 502,
+          "evidenceRefs": [
+            "hit.structure.0"
+          ],
+          "highlightCardIds": [
+            "fixture.3",
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.13",
+          "phase": "FINAL_POWER",
+          "sourceType": "SYSTEM",
+          "sourceId": "FINAL_POWER",
+          "labelKo": "최종 공격력",
+          "operation": "SET",
+          "operand": 502,
+          "before": 502,
+          "after": 502,
+          "evidenceRefs": [],
+          "highlightCardIds": []
+        }
+      ]
+    },
+    {
+      "text": "A person be often giving you a beautiful environment with small problems.",
+      "status": "VALID_WITH_ISSUES",
+      "mainFrame": "frame.svoo",
+      "power": 333,
+      "veilActive": false,
+      "scoreTimeline": [
+        {
+          "eventId": "attack.sandbox:score.0",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.0",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 0,
+          "after": 10,
+          "evidenceRefs": [
+            "fixture.0"
+          ],
+          "highlightCardIds": [
+            "fixture.0"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.1",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.1",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 10,
+          "after": 20,
+          "evidenceRefs": [
+            "fixture.1"
+          ],
+          "highlightCardIds": [
+            "fixture.1"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.2",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.2",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 20,
+          "after": 30,
+          "evidenceRefs": [
+            "fixture.2"
+          ],
+          "highlightCardIds": [
+            "fixture.2"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.3",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.3",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 30,
+          "after": 40,
+          "evidenceRefs": [
+            "fixture.3"
+          ],
+          "highlightCardIds": [
+            "fixture.3"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.4",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.4",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 40,
+          "after": 50,
+          "evidenceRefs": [
+            "fixture.4"
+          ],
+          "highlightCardIds": [
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.5",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.5",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 50,
+          "after": 60,
+          "evidenceRefs": [
+            "fixture.5"
+          ],
+          "highlightCardIds": [
+            "fixture.5"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.6",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.6",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 60,
+          "after": 70,
+          "evidenceRefs": [
+            "fixture.6"
+          ],
+          "highlightCardIds": [
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.7",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.7",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 70,
+          "after": 80,
+          "evidenceRefs": [
+            "fixture.7"
+          ],
+          "highlightCardIds": [
+            "fixture.7"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.8",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.8",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 80,
+          "after": 90,
+          "evidenceRefs": [
+            "fixture.8"
+          ],
+          "highlightCardIds": [
+            "fixture.8"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.9",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.9",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 90,
+          "after": 100,
+          "evidenceRefs": [
+            "fixture.9"
+          ],
+          "highlightCardIds": [
+            "fixture.9"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.10",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.10",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 100,
+          "after": 110,
+          "evidenceRefs": [
+            "fixture.10"
+          ],
+          "highlightCardIds": [
+            "fixture.10"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.11",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.11",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 110,
+          "after": 120,
+          "evidenceRefs": [
+            "fixture.11"
+          ],
+          "highlightCardIds": [
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.12",
+          "phase": "ACCURACY",
+          "sourceType": "GRAMMAR",
+          "sourceId": "BE_FORM_REQUIRED",
+          "labelKo": "be동사 형태 -10",
+          "operation": "ADD",
+          "operand": -10,
+          "before": 120,
+          "after": 110,
+          "evidenceRefs": [
+            "issue.0"
+          ],
+          "highlightCardIds": [
+            "fixture.2"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.13",
+          "phase": "MAIN_FRAME",
+          "sourceType": "GRAMMAR",
+          "sourceId": "FRAME.SVOO",
+          "labelKo": "주절 · 4형식! ×2.2",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 11,
+            "den": 5
+          },
+          "before": 110,
+          "after": 242,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.14",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADJECTIVE",
+          "labelKo": "형용사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 242,
+          "after": 247,
+          "evidenceRefs": [
+            "hit.structure.1"
+          ],
+          "highlightCardIds": [
+            "fixture.7"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.15",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADJECTIVE",
+          "labelKo": "형용사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 247,
+          "after": 252,
+          "evidenceRefs": [
+            "hit.structure.2"
+          ],
+          "highlightCardIds": [
+            "fixture.10"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.16",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADVERB",
+          "labelKo": "부사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 252,
+          "after": 257,
+          "evidenceRefs": [
+            "hit.structure.0"
+          ],
+          "highlightCardIds": [
+            "fixture.3"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.17",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "PHRASE.PP",
+          "labelKo": "전치사구!",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 257,
+          "after": 267,
+          "evidenceRefs": [
+            "hit.structure.3"
+          ],
+          "highlightCardIds": [
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.18",
+          "phase": "REGION",
+          "sourceType": "STAGE",
+          "sourceId": "stage.02",
+          "labelKo": "전달의 항구 · 4형식 ×1.25",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 267,
+          "after": 333,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.19",
+          "phase": "BOSS",
+          "sourceType": "BOSS",
+          "sourceId": "boss.svooVeil.release",
+          "labelKo": "4형식 적중 · 보호 장막 해제",
+          "operation": "SET",
+          "operand": 333,
+          "before": 333,
+          "after": 333,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ],
+          "bossStateBefore": {
+            "id": "SVOO_VEIL",
+            "active": true,
+            "multiplier": {
+              "num": 1,
+              "den": 4
+            }
+          },
+          "bossStateAfter": {
+            "id": "SVOO_VEIL",
+            "active": false,
+            "multiplier": {
+              "num": 1,
+              "den": 4
+            }
+          }
+        },
+        {
+          "eventId": "attack.sandbox:score.20",
+          "phase": "FINAL_POWER",
+          "sourceType": "SYSTEM",
+          "sourceId": "FINAL_POWER",
+          "labelKo": "최종 공격력",
+          "operation": "SET",
+          "operand": 333,
+          "before": 333,
+          "after": 333,
+          "evidenceRefs": [],
+          "highlightCardIds": []
+        }
+      ]
+    },
+    {
+      "text": "A person is often giving you a beautiful environment with small problems.",
+      "status": "VALID",
+      "mainFrame": "frame.svoo",
+      "power": 567,
+      "veilActive": false,
+      "scoreTimeline": [
+        {
+          "eventId": "attack.sandbox:score.0",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.0",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 0,
+          "after": 10,
+          "evidenceRefs": [
+            "fixture.0"
+          ],
+          "highlightCardIds": [
+            "fixture.0"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.1",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.1",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 10,
+          "after": 20,
+          "evidenceRefs": [
+            "fixture.1"
+          ],
+          "highlightCardIds": [
+            "fixture.1"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.2",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.2",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 20,
+          "after": 30,
+          "evidenceRefs": [
+            "fixture.2"
+          ],
+          "highlightCardIds": [
+            "fixture.2"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.3",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.3",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 30,
+          "after": 40,
+          "evidenceRefs": [
+            "fixture.3"
+          ],
+          "highlightCardIds": [
+            "fixture.3"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.4",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.4",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 40,
+          "after": 50,
+          "evidenceRefs": [
+            "fixture.4"
+          ],
+          "highlightCardIds": [
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.5",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.5",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 50,
+          "after": 60,
+          "evidenceRefs": [
+            "fixture.5"
+          ],
+          "highlightCardIds": [
+            "fixture.5"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.6",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.6",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 60,
+          "after": 70,
+          "evidenceRefs": [
+            "fixture.6"
+          ],
+          "highlightCardIds": [
+            "fixture.6"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.7",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.7",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 70,
+          "after": 80,
+          "evidenceRefs": [
+            "fixture.7"
+          ],
+          "highlightCardIds": [
+            "fixture.7"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.8",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.8",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 80,
+          "after": 90,
+          "evidenceRefs": [
+            "fixture.8"
+          ],
+          "highlightCardIds": [
+            "fixture.8"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.9",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.9",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 90,
+          "after": 100,
+          "evidenceRefs": [
+            "fixture.9"
+          ],
+          "highlightCardIds": [
+            "fixture.9"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.10",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.10",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 100,
+          "after": 110,
+          "evidenceRefs": [
+            "fixture.10"
+          ],
+          "highlightCardIds": [
+            "fixture.10"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.11",
+          "phase": "CARD_BASE",
+          "sourceType": "CARD",
+          "sourceId": "fixture.11",
+          "labelKo": "카드 점수",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 110,
+          "after": 120,
+          "evidenceRefs": [
+            "fixture.11"
+          ],
+          "highlightCardIds": [
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.12",
+          "phase": "COMPLETE_BONUS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "COMPLETE_SENTENCE",
+          "labelKo": "완전한 문장!",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 120,
+          "after": 150,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.13",
+          "phase": "MAIN_FRAME",
+          "sourceType": "GRAMMAR",
+          "sourceId": "FRAME.SVOO",
+          "labelKo": "주절 · 4형식! ×2.2",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 11,
+            "den": 5
+          },
+          "before": 150,
+          "after": 330,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.14",
+          "phase": "CONSTRUCTIONS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "TIME.PROGRESSIVE",
+          "labelKo": "진행",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 13,
+            "den": 10
+          },
+          "before": 330,
+          "after": 429,
+          "evidenceRefs": [
+            "hit.vp.0.TIME.PROGRESSIVE"
+          ],
+          "highlightCardIds": [
+            "fixture.2",
+            "fixture.3",
+            "fixture.4"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.15",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADJECTIVE",
+          "labelKo": "형용사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 429,
+          "after": 434,
+          "evidenceRefs": [
+            "hit.structure.1"
+          ],
+          "highlightCardIds": [
+            "fixture.7"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.16",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADJECTIVE",
+          "labelKo": "형용사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 434,
+          "after": 439,
+          "evidenceRefs": [
+            "hit.structure.2"
+          ],
+          "highlightCardIds": [
+            "fixture.10"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.17",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "MODIFIER.ADVERB",
+          "labelKo": "부사 수식!",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 439,
+          "after": 444,
+          "evidenceRefs": [
+            "hit.structure.0"
+          ],
+          "highlightCardIds": [
+            "fixture.3"
+          ],
+          "connectToCardIds": []
+        },
+        {
+          "eventId": "attack.sandbox:score.18",
+          "phase": "SIMPLE_MODIFIERS",
+          "sourceType": "GRAMMAR",
+          "sourceId": "PHRASE.PP",
+          "labelKo": "전치사구!",
+          "operation": "ADD",
+          "operand": 10,
+          "before": 444,
+          "after": 454,
+          "evidenceRefs": [
+            "hit.structure.3"
+          ],
+          "highlightCardIds": [
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.19",
+          "phase": "REGION",
+          "sourceType": "STAGE",
+          "sourceId": "stage.02",
+          "labelKo": "전달의 항구 · 4형식 ×1.25",
+          "operation": "MULTIPLY",
+          "operand": {
+            "num": 5,
+            "den": 4
+          },
+          "before": 454,
+          "after": 567,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ]
+        },
+        {
+          "eventId": "attack.sandbox:score.20",
+          "phase": "BOSS",
+          "sourceType": "BOSS",
+          "sourceId": "boss.svooVeil.release",
+          "labelKo": "4형식 적중 · 보호 장막 해제",
+          "operation": "SET",
+          "operand": 567,
+          "before": 567,
+          "after": 567,
+          "evidenceRefs": [
+            "hit.mainFrame"
+          ],
+          "highlightCardIds": [
+            "fixture.0",
+            "fixture.1",
+            "fixture.2",
+            "fixture.3",
+            "fixture.4",
+            "fixture.5",
+            "fixture.6",
+            "fixture.7",
+            "fixture.8",
+            "fixture.9",
+            "fixture.10",
+            "fixture.11"
+          ],
+          "bossStateBefore": {
+            "id": "SVOO_VEIL",
+            "active": true,
+            "multiplier": {
+              "num": 1,
+              "den": 4
+            }
+          },
+          "bossStateAfter": {
+            "id": "SVOO_VEIL",
+            "active": false,
+            "multiplier": {
+              "num": 1,
+              "den": 4
+            }
+          }
+        },
+        {
+          "eventId": "attack.sandbox:score.21",
+          "phase": "FINAL_POWER",
+          "sourceType": "SYSTEM",
+          "sourceId": "FINAL_POWER",
+          "labelKo": "최종 공격력",
+          "operation": "SET",
+          "operand": 567,
+          "before": 567,
+          "after": 567,
+          "evidenceRefs": [],
+          "highlightCardIds": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,20 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {registry,registryForVersion,makeToken} from '../src/data/language/index.js';
-import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
+import {registryForVersion,makeToken} from '../src/data/language/index.js';
+import {snapshotFromText as currentSnapshot,analyzeSentence as currentAnalyze} from '../src/engine/grammar/index.js';
 import {generateStarterDeck} from '../src/game/deck.js';
+// These authored 0.3 expectations preserve that campaign's temporal recovery policy.
+const registry=registryForVersion('0.3.0');
+const snapshotFromText=text=>currentSnapshot(text,{registry});
+const analyzeSentence=(snapshot,language=registry)=>currentAnalyze(snapshot,language);
 const design=JSON.parse(fs.readFileSync(new URL('./fixtures/v03-design-expectations.json',import.meta.url)));
 for(const c of design.grammarCases)test(`0.3 ${c.id}: ${c.text}`,()=>{
  const snapshot=snapshotFromText(c.text);
  for(const [position,intent]of Object.entries(c.selectionOverrides??{})){
   const t=snapshot.orderedTokens[position],tense=intent==='PAST_SAME_SURFACE'?'PAST':intent;
   const form=registry.forms.find(f=>f.lexemeId===t.lexemeId&&f.surface.toLowerCase()===t.surface.toLowerCase()&&f.grammaticalFeatures.tense===tense);assert.ok(form);
-  snapshot.orderedTokens[position]=makeToken(t.cardInstanceId,t.cardDefId,form.id,+position);
+  snapshot.orderedTokens[position]=makeToken(t.cardInstanceId,t.cardDefId,form.id,+position,registry);
  }
  const a=analyzeSentence(snapshot),vp=a.verbPhrases?.find(v=>v.clauseId==='clause.main');
  assert.notEqual(a.status,'ENGINE_ERROR',JSON.stringify(a.diagnostics));assert.notEqual(a.status,'UNSUPPORTED',JSON.stringify(a.diagnostics));

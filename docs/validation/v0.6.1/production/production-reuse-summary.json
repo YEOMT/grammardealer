@@ -1,0 +1,82 @@
+{
+  "kind": "SEPARATE_ACTUAL_PRODUCTION_UI_NATURAL_REUSE_ROUTE",
+  "status": "FAIL",
+  "classification": "QA_POLICY_NO_FINITE_MOVE",
+  "execution": {
+    "seed": "run-sequence.57",
+    "command": "npm.cmd run test:e2e",
+    "snowCourse": false,
+    "exitCode": 1,
+    "exerciseOperationReuse": true,
+    "startUtc": "2026-10-09T10:09:13.2192185Z",
+    "endUtc": "2026-10-09T10:15:04.4928852Z"
+  },
+  "error": "Error: No finite QA move",
+  "seed": "run-sequence.57",
+  "sameBattleSameCopyReuse": {
+    "status": "PASS",
+    "count": 2,
+    "evidence": [
+      {
+        "battle": 6,
+        "sourceCardId": "shop.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.stage.02.card.1.owned",
+        "polishLevel": 1,
+        "firstEffectId": "run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e:battle.6:operation.1",
+        "nextEffectId": "run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e:battle.6:operation.2",
+        "firstCommandId": "operation.ui.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.97.1",
+        "nextCommandId": "operation.ui.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.103.2",
+        "firstSourceDestination": "DISCARD",
+        "firstAfterSourceInDiscard": true,
+        "secondBeforeSourceInHand": true,
+        "notSelfDrawnByEitherEffect": true,
+        "differentEffectsAndCommands": true,
+        "actualSecondDrawnIds": [
+          "starter.12",
+          "starter.09"
+        ]
+      },
+      {
+        "battle": 7,
+        "sourceCardId": "shop.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.stage.02.card.1.owned",
+        "polishLevel": 1,
+        "firstEffectId": "run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e:battle.7:operation.1",
+        "nextEffectId": "run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e:battle.7:operation.2",
+        "firstCommandId": "operation.ui.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.145.3",
+        "nextCommandId": "operation.ui.run.3b8f7d97-8354-4b06-ac68-d35e7e02d48e.173.4",
+        "firstSourceDestination": "DISCARD",
+        "firstAfterSourceInDiscard": true,
+        "secondBeforeSourceInHand": true,
+        "notSelfDrawnByEitherEffect": true,
+        "differentEffectsAndCommands": true,
+        "actualSecondDrawnIds": [
+          "starter.08",
+          "starter.17"
+        ]
+      }
+    ]
+  },
+  "notFullCompletion": true,
+  "stopState": {
+    "status": "BATTLE",
+    "battle": 12,
+    "turnsRemaining": 1,
+    "exchangesRemaining": 0,
+    "hp": 240,
+    "phase": "FUTURE"
+  },
+  "operationUses": 6,
+  "checkRecords": 22,
+  "errors": {
+    "page": [],
+    "console": [],
+    "requests": [],
+    "http": []
+  },
+  "explanation": "After real supply+1 purchase/polish and real exchange/redraw, the same physical copy was legitimately used twice in battles6 and7. Each operation and manual restore matched full pile/receipt/RNG state. Later the finite QA policy could not construct a move for golem FUTURE; the browser run stopped while BATTLE remained active with1turn. This is not a gameplay exception, a completed expedition, or proof that the seed is impossible. The separate Controller attempt used the last prepare and ended DEFEAT; it is not substituted for this UI result.",
+  "localRawEvidence": {
+    "report": ".local-validation/v061/production-reuse57/production-browser-failure.json",
+    "log": ".local-validation/v061/production-reuse57.log",
+    "video": ".local-validation/v061/production-reuse57/production-play.webm"
+  },
+  "learningCourse": "NOT RUN on this route; full course is independently recorded in production-course.json"
+}

@@ -1,0 +1,431 @@
+{
+  "schemaVersion": 1,
+  "targetVersion": "0.6.1",
+  "baselineMain": "79ab84ebe3a3240a558aecbd2898efdd8e179029",
+  "operations": [
+    {
+      "id": "card.operation.supply",
+      "nameKo": "보급",
+      "cardKind": "OPERATION",
+      "rarity": "UNCOMMON",
+      "price": 10,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "TOP_GENERAL",
+      "filterId": null,
+      "sourcePile": "DRAW",
+      "type": "SUPPLY",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 2,
+          "afterUse": "DISCARD"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.search",
+      "nameKo": "탐색",
+      "cardKind": "OPERATION",
+      "rarity": "RARE",
+      "price": 14,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "CHOICE",
+      "filterId": "WORD",
+      "sourcePile": "DRAW",
+      "type": "SEARCH",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 1,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 1,
+          "afterUse": "DISCARD"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.nounSearch",
+      "nameKo": "명사 탐색",
+      "cardKind": "OPERATION",
+      "rarity": "UNCOMMON",
+      "price": 10,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "TOP_MATCHING",
+      "filterId": "NOUN_OR_PRONOUN",
+      "sourcePile": "DRAW",
+      "type": "FILTER_DRAW",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 3,
+          "afterUse": "EXHAUSTED"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.verbSearch",
+      "nameKo": "동사 탐색",
+      "cardKind": "OPERATION",
+      "rarity": "UNCOMMON",
+      "price": 10,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "TOP_MATCHING",
+      "filterId": "VERB",
+      "sourcePile": "DRAW",
+      "type": "FILTER_DRAW",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 3,
+          "afterUse": "EXHAUSTED"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.adjectiveSearch",
+      "nameKo": "형용사 탐색",
+      "cardKind": "OPERATION",
+      "rarity": "UNCOMMON",
+      "price": 10,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "TOP_MATCHING",
+      "filterId": "ADJECTIVE",
+      "sourcePile": "DRAW",
+      "type": "FILTER_DRAW",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 3,
+          "afterUse": "EXHAUSTED"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.connectorSearch",
+      "nameKo": "연결어 탐색",
+      "cardKind": "OPERATION",
+      "rarity": "UNCOMMON",
+      "price": 10,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "TOP_MATCHING",
+      "filterId": "CLAUSE_CONNECTOR_WHITELIST",
+      "sourcePile": "DRAW",
+      "type": "FILTER_DRAW",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 1,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        }
+      ]
+    },
+    {
+      "id": "card.operation.recycle",
+      "nameKo": "재활용",
+      "cardKind": "OPERATION",
+      "rarity": "COMMON",
+      "price": 6,
+      "starterEligible": false,
+      "maxPolish": 1,
+      "selectionMode": "UNIFORM_WITHOUT_REPLACEMENT",
+      "filterId": null,
+      "sourcePile": "DISCARD",
+      "type": "RECYCLE",
+      "tiers": [
+        {
+          "polish": 0,
+          "count": 1,
+          "afterUse": "EXHAUSTED"
+        },
+        {
+          "polish": 1,
+          "count": 2,
+          "afterUse": "EXHAUSTED"
+        }
+      ]
+    }
+  ],
+  "connectorWhitelist": [
+    "and",
+    "but",
+    "or",
+    "because",
+    "when",
+    "if",
+    "that"
+  ],
+  "freeConnectorQualification": [
+    "and",
+    "but",
+    "or",
+    "because",
+    "when",
+    "if"
+  ],
+  "freeConnectorChoices": [
+    "and",
+    "but",
+    "because"
+  ],
+  "freeConnectorChoiceCount": 1,
+  "choiceIfExistingConnector": false,
+  "keepThinkThatMissingOnly": true,
+  "shop": {
+    "stages": [
+      2,
+      4,
+      6
+    ],
+    "slots": {
+      "2": {
+        "runes": 1,
+        "words": 1,
+        "operations": 1
+      },
+      "4": {
+        "runes": 2,
+        "words": 2,
+        "operations": 1
+      },
+      "6": {
+        "runes": 2,
+        "words": 2,
+        "operations": 1
+      }
+    },
+    "dedicatedOperationWeights": {
+      "card.operation.supply": 1,
+      "card.operation.search": 1,
+      "card.operation.nounSearch": 1,
+      "card.operation.verbSearch": 1,
+      "card.operation.adjectiveSearch": 1,
+      "card.operation.connectorSearch": 1,
+      "card.operation.recycle": 1
+    },
+    "weightAuthority": "SPEC_IMPLEMENTATION_INITIAL_NOT_SEPARATE_USER_QUOTE",
+    "polishPrice": 8,
+    "polishServicePerVisit": 1,
+    "removeServicePerVisit": 1
+  },
+  "reward": {
+    "outerWeights": "KEEP_BASELINE",
+    "operationBranch": {
+      "OPERATION": 20,
+      "WORD": 80
+    },
+    "operationMaxPerOffer": 1,
+    "protectedRole": "LOCAL_SYNTAX_RELEVANT",
+    "sameRarityOperationWeights": "UNIFORM",
+    "preserveFirstWordOnlyOverride": true
+  },
+  "frostSupport": {
+    "stage": 6,
+    "round": 5,
+    "cardDefId": "card.operation.search",
+    "nameKo": "빙정 탐색",
+    "count": 1,
+    "lifetime": "BATTLE",
+    "polish": 0,
+    "maxPolish": 0,
+    "cardKind": "OPERATION",
+    "crystalBearing": false,
+    "supportOnly": true,
+    "afterUse": "EXHAUSTED",
+    "opening": "AFTER_BASE_OPENING_ADD_ONE_RESPECT_HAND_LIMIT",
+    "defaultOpeningCount": 7,
+    "originalCrystalBearingWords": 8,
+    "crystalsRequired": 5,
+    "bossHp": 1280,
+    "turnLimit": 6
+  },
+  "meteor": {
+    "cardCountBands": [
+      [
+        5,
+        9
+      ],
+      [
+        10,
+        16
+      ]
+    ],
+    "new": [
+      [
+        {
+          "num": 9,
+          "den": 5
+        },
+        {
+          "num": 12,
+          "den": 5
+        }
+      ],
+      [
+        {
+          "num": 11,
+          "den": 5
+        },
+        {
+          "num": 14,
+          "den": 5
+        }
+      ],
+      [
+        {
+          "num": 13,
+          "den": 5
+        },
+        {
+          "num": 16,
+          "den": 5
+        }
+      ]
+    ],
+    "legacy06": [
+      [
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 3,
+          "den": 1
+        }
+      ],
+      [
+        {
+          "num": 9,
+          "den": 4
+        },
+        {
+          "num": 7,
+          "den": 2
+        }
+      ],
+      [
+        {
+          "num": 5,
+          "den": 2
+        },
+        {
+          "num": 4,
+          "den": 1
+        }
+      ]
+    ],
+    "maxApplicationsPerAttack": 1,
+    "countSource": "contributingCardIds",
+    "rounding": "FLOOR_EACH_MULTIPLICATION"
+  },
+  "ui": {
+    "frost": {
+      "bg": "#D9EEF6",
+      "bgEdge": "#CAE3EE",
+      "text": "#163746",
+      "muted": "#315A6A",
+      "border": "#497C91"
+    },
+    "stages": [
+      {
+        "id": 1,
+        "name": "시작의 초원",
+        "base": [
+          "#14231F",
+          "#1D3027"
+        ]
+      },
+      {
+        "id": 2,
+        "name": "전달의 항구",
+        "base": [
+          "#12232D",
+          "#173C43"
+        ]
+      },
+      {
+        "id": 3,
+        "name": "시간의 협곡",
+        "base": [
+          "#231D25",
+          "#3C3032"
+        ]
+      },
+      {
+        "id": 4,
+        "name": "이음의 하늘섬",
+        "base": [
+          "#1B2338",
+          "#30344F"
+        ]
+      },
+      {
+        "id": 5,
+        "name": "소원의 사막",
+        "base": "PRESERVE_EXISTING_GRADIENT"
+      },
+      {
+        "id": 6,
+        "name": "거울의 설원",
+        "base": [
+          "#142433",
+          "#223846"
+        ]
+      }
+    ],
+    "textContrastMinimum": 4.5,
+    "largeTextContrastMinimum": 3.0,
+    "meaningfulUIContrastMinimum": 3.0
+  },
+  "preserve": {
+    "starter": 28,
+    "wordMaxPolish": 3,
+    "combatTurns": 6,
+    "exchangeActions": 4,
+    "defaultHandLimit": 10,
+    "sentenceLimit": 16,
+    "battles": 27,
+    "endBoundary": "STAGE6_END",
+    "enemyHp": "SNAPSHOT_CURRENT_MAIN_UNCHANGED",
+    "legacyRunPolicies": true,
+    "otherRunes": true,
+    "tutorialVersion": "0.2.1",
+    "generatorVersion": "0.4.0"
+  },
+  "sourceTransactionRule": "RESOLVE_ACQUISITION_THEN_PLACE_USED_SOURCE_IN_DISCARD_OR_EXHAUSTED",
+  "noTarget": "NOOP_KEEP_CARD_KEEP_RNG_KEEP_RESOURCES",
+  "handCapacity": "max(0,handLimit-(handBeforeCount-1))"
+}

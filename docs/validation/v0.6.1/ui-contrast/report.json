@@ -1,0 +1,1508 @@
+{
+  "kind": "ASSIGNED_PHYSICAL_STATE_REAL_UI_COMMANDS_NOT_NATURAL_CAMPAIGN",
+  "checks": [
+    {
+      "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_supply_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_supply_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_search_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_search_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_nounSearch_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_nounSearch_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_verbSearch_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_verbSearch_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_adjectiveSearch_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_adjectiveSearch_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_connectorSearch_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_connectorSearch_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_recycle_0",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U021_7_OPERATIONS_recycle_1",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_NORMAL",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_SELECTED",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_HOVER",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_FOCUS",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_DISABLED",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_PRESENTATION_HIGHLIGHT",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U013_FROST_STATE_EFFECTS_REDUCED",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1024_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1024_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1280_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1280_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1366_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1366_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1920_10",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U014_U015_U016_U017_LAYOUT_1920_14",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "A116_METEOR_VERSIONED_TOOLTIP",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U001_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U002_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U003_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U004_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U005_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U006_THEME_COMBAT_INTRO_CLEAR",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U002_U004_U006_THEME_SHOP_2",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U002_U004_U006_THEME_SHOP_4",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U002_U004_U006_THEME_SHOP_6",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U024_THEME_RESET_ON_LOBBY",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U025_DESERT_EXACT_BACKGROUND_PANEL_PRESERVATION",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+      "browser": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+      "browser": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+      "browser": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+      "browser": "webkit",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "ASSIGNED-chromium-stage4-pending-restored.png",
+    "ASSIGNED-chromium-operation-polish-preview.png",
+    "ASSIGNED-chromium-supply-same-source-reused.png",
+    "ASSIGNED-chromium-search-same-source-reused.png",
+    "ASSIGNED-chromium-frost-support-opening.png",
+    "ASSIGNED-chromium-frost-search-list.png",
+    "ASSIGNED-chromium-frost-support-exhausted.png",
+    "ASSIGNED-chromium-gap-submitted.png",
+    "ASSIGNED-chromium-vp-adverb-submitted.png",
+    "ASSIGNED-chromium-frost-state-normal.png",
+    "ASSIGNED-chromium-frost-state-selected.png",
+    "ASSIGNED-chromium-frost-state-hover.png",
+    "ASSIGNED-chromium-frost-state-focus.png",
+    "ASSIGNED-chromium-frost-state-disabled.png",
+    "ASSIGNED-chromium-frost-state-presentation_highlight.png",
+    "ASSIGNED-chromium-frost-state-effects_reduced.png",
+    "ASSIGNED-chromium-capacity-1024-10.png",
+    "ASSIGNED-chromium-capacity-1024-14.png",
+    "ASSIGNED-chromium-capacity-1280-10.png",
+    "ASSIGNED-chromium-capacity-1280-14.png",
+    "ASSIGNED-chromium-capacity-1366-10.png",
+    "ASSIGNED-chromium-capacity-1366-14.png",
+    "ASSIGNED-chromium-capacity-1920-10.png",
+    "ASSIGNED-chromium-capacity-1920-14.png",
+    "ASSIGNED-chromium-meteor-versioned-tooltip.png",
+    "ASSIGNED-chromium-stage-1-combat.png",
+    "ASSIGNED-chromium-stage-1-intro.png",
+    "ASSIGNED-chromium-stage-1-stage_clear.png",
+    "ASSIGNED-chromium-stage-2-combat.png",
+    "ASSIGNED-chromium-stage-2-intro.png",
+    "ASSIGNED-chromium-stage-2-stage_clear.png",
+    "ASSIGNED-chromium-stage-3-combat.png",
+    "ASSIGNED-chromium-stage-3-intro.png",
+    "ASSIGNED-chromium-stage-3-stage_clear.png",
+    "ASSIGNED-chromium-stage-4-combat.png",
+    "ASSIGNED-chromium-stage-4-intro.png",
+    "ASSIGNED-chromium-stage-4-stage_clear.png",
+    "ASSIGNED-chromium-stage-5-combat.png",
+    "ASSIGNED-chromium-stage-5-intro.png",
+    "ASSIGNED-chromium-stage-5-stage_clear.png",
+    "ASSIGNED-chromium-stage-6-combat.png",
+    "ASSIGNED-chromium-stage-6-intro.png",
+    "ASSIGNED-chromium-stage-6-stage_clear.png",
+    "ASSIGNED-chromium-stage-2-shop.png",
+    "ASSIGNED-chromium-stage-4-shop.png",
+    "ASSIGNED-chromium-stage-6-shop.png",
+    "ASSIGNED-chromium-desert-combat-after.png",
+    "ASSIGNED-chromium-desert-intro-after.png",
+    "ASSIGNED-firefox-stage4-pending-restored.png",
+    "ASSIGNED-firefox-operation-polish-preview.png",
+    "ASSIGNED-firefox-supply-same-source-reused.png",
+    "ASSIGNED-firefox-search-same-source-reused.png",
+    "ASSIGNED-firefox-frost-support-opening.png",
+    "ASSIGNED-firefox-frost-search-list.png",
+    "ASSIGNED-firefox-frost-support-exhausted.png",
+    "ASSIGNED-firefox-gap-submitted.png",
+    "ASSIGNED-firefox-vp-adverb-submitted.png",
+    "ASSIGNED-webkit-stage4-pending-restored.png",
+    "ASSIGNED-webkit-operation-polish-preview.png",
+    "ASSIGNED-webkit-supply-same-source-reused.png",
+    "ASSIGNED-webkit-search-same-source-reused.png",
+    "ASSIGNED-webkit-frost-support-opening.png",
+    "ASSIGNED-webkit-frost-search-list.png",
+    "ASSIGNED-webkit-frost-support-exhausted.png",
+    "ASSIGNED-webkit-gap-submitted.png",
+    "ASSIGNED-webkit-vp-adverb-submitted.png"
+  ],
+  "browsers": [
+    {
+      "name": "chromium",
+      "version": "134.0.6998.35"
+    },
+    {
+      "name": "firefox",
+      "version": "135.0"
+    },
+    {
+      "name": "webkit",
+      "version": "18.4"
+    }
+  ],
+  "errors": [],
+  "startedAt": "2026-10-09T10:04:57.476Z",
+  "runtimeOrigins": [
+    "http://127.0.0.1:5173"
+  ],
+  "navigations": [
+    {
+      "browser": "chromium",
+      "url": "http://127.0.0.1:5173/",
+      "time": "2026-10-09T10:04:57.824Z"
+    },
+    {
+      "browser": "firefox",
+      "url": "http://127.0.0.1:5173/",
+      "time": "2026-10-09T10:06:08.524Z"
+    },
+    {
+      "browser": "webkit",
+      "url": "http://127.0.0.1:5173/",
+      "time": "2026-10-09T10:06:31.232Z"
+    }
+  ],
+  "contrastProbes": [
+    {
+      "state": "NORMAL",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-NORMAL-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-NORMAL-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "SELECTED",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-SELECTED-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-SELECTED-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 560.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 559.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 589.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 632.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 578.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 610.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 629.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 658,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(37, 59, 67)",
+          "rect": {
+            "x": 598.421875,
+            "y": 653.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "HOVER",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-HOVER-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-HOVER-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "FOCUS",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-FOCUS-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-FOCUS-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "DISABLED",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-DISABLED-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-DISABLED-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(63, 86, 97)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(63, 86, 97)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "PRESENTATION_HIGHLIGHT",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-PRESENTATION_HIGHLIGHT-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-PRESENTATION_HIGHLIGHT-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    },
+    {
+      "state": "EFFECTS_REDUCED",
+      "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+      "backgroundFile": "ASSIGNED-chromium-contrast-EFFECTS_REDUCED-composited-background.png",
+      "textFile": "ASSIGNED-chromium-contrast-EFFECTS_REDUCED-text.png",
+      "probes": [
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 566.203125,
+            "width": 24.84375,
+            "height": 13
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 610.8125,
+            "y": 565.203125,
+            "width": 11.109375,
+            "height": 15
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 545.78125,
+            "y": 595.671875,
+            "width": 78.140625,
+            "height": 27.59375
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .frost-duration",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 547.78125,
+            "y": 638.734375,
+            "width": 74.140625,
+            "height": 11.25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-name",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 940.34375,
+            "y": 584.203125,
+            "width": 74.140625,
+            "height": 27
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-description",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 616.203125,
+            "width": 74.140625,
+            "height": 14.296875
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+          "foreground": "rgb(49, 90, 106)",
+          "rect": {
+            "x": 940.34375,
+            "y": 635.5,
+            "width": 74.140625,
+            "height": 13.5
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card.operation-card .operation-use",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 945.28125,
+            "y": 664,
+            "width": 20.25,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".hand-cards .frost-card .card-select",
+          "foreground": "rgb(22, 55, 70)",
+          "rect": {
+            "x": 598.421875,
+            "y": 659.5,
+            "width": 17,
+            "height": 25
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".stage-path .active",
+          "foreground": "rgb(241, 213, 143)",
+          "rect": {
+            "x": 26,
+            "y": 24.5,
+            "width": 52.0625,
+            "height": 16
+          },
+          "minimum": 4.5
+        },
+        {
+          "selector": ".enemy-info h2",
+          "foreground": "rgb(240, 234, 216)",
+          "rect": {
+            "x": 608,
+            "y": 89.53125,
+            "width": 285,
+            "height": 36
+          },
+          "minimum": 3
+        },
+        {
+          "selector": ".hand-title",
+          "foreground": "rgb(168, 184, 149)",
+          "rect": {
+            "x": 138,
+            "y": 529.203125,
+            "width": 1090,
+            "height": 15
+          },
+          "minimum": 4.5
+        }
+      ]
+    }
+  ],
+  "desertPreservation": {
+    "combat": {
+      "background": "radial-gradient(circle at 13% 10%, rgb(246, 223, 160) 0px, rgb(246, 223, 160) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 76% 8%, rgb(200, 183, 238) 0px, rgb(200, 183, 238) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 61% 18%, rgb(255, 232, 184) 0px, rgb(255, 232, 184) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 84% 94%, rgba(72, 122, 120, 0.23), rgba(0, 0, 0, 0) 19%) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 30% 128%, rgba(189, 145, 80, 0.396), rgba(0, 0, 0, 0) 48%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(155deg, rgb(25, 28, 57), rgb(36, 32, 56) 60%, rgb(81, 66, 47)) repeat scroll 0% 0% / auto padding-box border-box",
+      "panels": [
+        {
+          "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(142, 120, 90, 0.4)"
+        },
+        {
+          "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(142, 120, 90, 0.4)"
+        }
+      ]
+    },
+    "intro": {
+      "body": "radial-gradient(at center bottom, rgba(159, 121, 71, 0.3), rgba(0, 0, 0, 0) 58%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(145deg, rgb(20, 27, 56), rgb(49, 38, 56)) repeat scroll 0% 0% / auto padding-box border-box",
+      "panels": [
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        },
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        },
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        },
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        },
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        },
+        {
+          "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+          "border": "rgba(169, 140, 88, 0.4)"
+        }
+      ]
+    },
+    "equalOriginalComputedStyles": true
+  },
+  "status": "PASS",
+  "finishedAt": "2026-10-09T10:07:26.676Z"
+}

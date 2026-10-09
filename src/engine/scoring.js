@@ -88,7 +88,7 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
   if (analysis.status === 'VALID' && !(analysis.issues ?? []).length && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
     sourceId: 'COMPLETE_SENTENCE', labelKo: '완전한 문장!', operation: 'ADD', operand: balance.completeBonus,
     evidenceRefs: [frameHit.id], highlightCardIds: scoringCards.map((card) => card.instanceId) });
-  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: ['0.5.0','0.6.0'].includes(analysis.grammarVersion)&&frameId==='frame.svoc'?`${FRAME_LABELS[frameId]} ×${frameMultiplier.num/frameMultiplier.den}`:['0.4.0','0.5.0','0.6.0'].includes(analysis.grammarVersion)&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식','frame.svoc':'5형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
+  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: ['0.5.0','0.6.0','0.6.1'].includes(analysis.grammarVersion)&&frameId==='frame.svoc'?`${FRAME_LABELS[frameId]} ×${frameMultiplier.num/frameMultiplier.den}`:['0.4.0','0.5.0','0.6.0','0.6.1'].includes(analysis.grammarVersion)&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식','frame.svoc':'5형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
     operand: frameMultiplier, evidenceRefs: [frameHit.id], highlightCardIds: frameHit.cardIds ?? [] });
   for(const[tag,operand]of Object.entries(balance.temporalMultipliers??{})){
     const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length)continue;
@@ -126,6 +126,6 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({ phase: 'SIMPLE_MODIFIERS', sourceType: 'GRAMMAR', sourceId: hit.tag, labelKo: '전치사구!', operation: 'ADD', operand: balance.modifierAdds.PP,
       evidenceRefs: [hit.id], highlightCardIds: hit.cardIds ?? [] });
   }
-  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.6.0'?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
+  return { schemaVersion: 1, balanceVersion: ['0.6.0','0.6.1'].includes(analysis.grammarVersion)?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
     contributingCardIds: scoringCards.map((card) => card.instanceId).filter((id) => !excluded.has(id)), excludedCardIds: [...excluded] };
 }

@@ -1,5 +1,7 @@
+import {applyStageTheme} from './theme.js';
 import { el, button, modal, heading } from './dom.js';
 export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onProfile,onCreateProfile,onSandbox,onSettings,onRecords}={}){
+  applyStageTheme(null);
   const nameInput=el('input',{id:'player-name',type:'text',maxLength:24,placeholder:'이름을 입력하세요',value:activeProfile?.displayName||'','aria-label':'플레이어 이름',autocomplete:'off'});
   const modeSelect=el('select',{id:'vocabulary-mode','aria-label':'어휘 수준'},[['BEGINNER','초급 · 익숙한 단어'],['STANDARD','기본 · 어휘 넓히기'],['ADVANCED','심화 · 도전하는 단어'],['FREE','자유 · 모든 어휘']].map(([value,text])=>el('option',{value,text,selected:activeProfile?.settings?.vocabularyMode===value})));
   const seedInput=el('input',{id:'run-seed',type:'text',maxLength:64,placeholder:'비워 두면 무작위', 'aria-label':'선택 시드'});
@@ -15,7 +17,7 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     button('수동 저장 불러오기',onLoad,'secondary full-width'),
     el('p',{class:'local-note',text:'이 기기에 기록되는 개인 원정 · 계정 없이 플레이'}));
   const preview=el('div',{class:'hero-card-fan','aria-hidden':'true'},[['I','대명사','PRONOUN'],['make','동사','VERB'],['stories','명사','NOUN']].map(([word,pos,type],i)=>el('div',{class:`hero-word-card pos-${type} fan-${i}`},el('span',{text:pos}),el('strong',{text:word}),el('small',{text:'10  ◇'}))));
-  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.6.0 · Mirror Snowfield'}))),
+  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.6.1 · Grammar & Operations'}))),
     el('main',{class:'lobby'},el('section',{class:'hero'},el('div',{class:'eyebrow hero-eyebrow'},el('span',{class:'tiny-diamond'}),'WORDS BECOME POWER'),el('h1',{},'신택스',el('br'),el('span',{text:'아틀라스'})),el('p',{class:'hero-description',text:'단어를 잇고, 문장을 완성하고.\n당신의 한 문장이 모험의 힘이 됩니다.'}),preview,
     el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01–06'}),el('div',{},el('span',{class:'eyebrow',text:'TWENTY-SEVEN BATTLES'}),el('h3',{text:'초원 → 항구 → 협곡 → 하늘섬 → 사막 → 설원'}),el('p',{text:'총 27전투 · 비교 문장과 빙정 · 거울뿔 사슴'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
     el('footer',{class:'lobby-footer'},el('span',{text:'과거 · 현재 · 미래로 이어지는 문장 모험'}),onSandbox&&button('문장 샌드박스 ↗',onSandbox,'quiet')));

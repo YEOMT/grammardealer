@@ -1,4 +1,4 @@
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-060-controller.js';
 import {newProfile} from '../../src/services/localStore.js';
 import {registryForVersion} from '../../src/data/language/index.js';
 import {snapshotFromText} from '../../src/engine/grammar/index.js';

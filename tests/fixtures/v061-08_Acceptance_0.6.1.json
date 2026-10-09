@@ -1,0 +1,1263 @@
+{
+  "schemaVersion": 1,
+  "count": 139,
+  "statusConvention": [
+    "PASS",
+    "FAIL",
+    "NOT_RUN"
+  ],
+  "items": [
+    {
+      "id": "A001",
+      "category": "기준/범위",
+      "requirement": "작업 시작 최신 origin/main과 AGENTS를 읽고 실제 SHA·미커밋 상태를 기록한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A002",
+      "category": "기준/범위",
+      "requirement": "기존 코드/테스트/문서를 보존하고 별도 작업 브랜치를 사용한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A003",
+      "category": "기준/범위",
+      "requirement": "신규 0.6.1 정책은 새 원정에만 적용하고 레거시 언어/룬/저장을 보존한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A004",
+      "category": "기준/범위",
+      "requirement": "시작 덱28장·생성기0.4·튜토리얼0.2.1을 변경하지 않는다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A005",
+      "category": "기준/범위",
+      "requirement": "기본6턴/교환4회/손패10/문장16과 룬의 기존 한도 확장을 유지한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A006",
+      "category": "기준/범위",
+      "requirement": "27전투·STAGE6_END·실제 현재 적HP를 유지한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A007",
+      "category": "기준/범위",
+      "requirement": "골렘3부위/문지기장막/스핑크스봉인/사슴5핵·1280HP를 유지한다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A008",
+      "category": "기준/범위",
+      "requirement": "추가 형용사 상시지급·무료턴·새런타임API·Stage7을 넣지 않는다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A009",
+      "category": "기준/범위",
+      "requirement": "문법/점수 미리보기와 의미기반 오답차단을 추가하지 않는다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A010",
+      "category": "기준/범위",
+      "requirement": "원격 main 직접수정·자동merge·Pages 설정/공개배포를 수행하지 않는다.",
+      "minimumEvidenceLevel": "CODE_REVIEW_AND_BASELINE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A011",
+      "category": "운영 정의/효과",
+      "requirement": "영구 OPERATION이 기존2+신규5 총7종이며 모두 starterEligible=false다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A012",
+      "category": "운영 정의/효과",
+      "requirement": "기존 보급/직접탐색의 ID·등급·기본효과2장/1장을 유지한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A013",
+      "category": "운영 정의/효과",
+      "requirement": "신규 품사 탐색4종의 등급은 모두 UNCOMMON이다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A014",
+      "category": "운영 정의/효과",
+      "requirement": "재활용의 등급은 COMMON이다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A015",
+      "category": "운영 정의/효과",
+      "requirement": "모든 영구운영 연마상한은1이고 WORD 상한3은 유지한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A016",
+      "category": "운영 정의/효과",
+      "requirement": "보급/탐색+1은 장수 그대로 사용후DISCARD이며 재사용한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A017",
+      "category": "운영 정의/효과",
+      "requirement": "신규 명사/동사/형용사 탐색은2→3, 연결어탐색1→2장이다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A018",
+      "category": "운영 정의/효과",
+      "requirement": "재활용은1→2장이고 신규5종은+1에서도EXHAUSTED로 간다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A019",
+      "category": "운영 정의/효과",
+      "requirement": "품사 탐색은DRAW 현재순서 자동선별이고 나머지순서가 유지된다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A020",
+      "category": "운영 정의/효과",
+      "requirement": "명사탐색은NOUN/PRONOUN, 동사탐색은VERB, 형용사탐색은ADJECTIVE를 본다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A021",
+      "category": "운영 정의/효과",
+      "requirement": "품사 판정은 카드lexeme 기준이며 현재형태/이전역할로 필터하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A022",
+      "category": "운영 정의/효과",
+      "requirement": "연결어탐색은and/but/or/because/when/if/that만 대상으로 한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A023",
+      "category": "운영 정의/효과",
+      "requirement": "직접 탐색은DRAW WORD 사본1개 선택이고 공개목록이 숨은순서를 노출하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A024",
+      "category": "운영 정의/효과",
+      "requirement": "품사/직접탐색은대상없는DRAW 대신DISCARD를재셔플하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A025",
+      "category": "운영 정의/효과",
+      "requirement": "보급은기존DRAW소진시DISCARD재셔플을 유지한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A026",
+      "category": "운영 정의/효과",
+      "requirement": "재활용은DISCARD에서균등·비복원 추출하며 DRAW를바꾸지 않는다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A027",
+      "category": "운영 정의/효과",
+      "requirement": "재활용은EXHAUSTED/SHATTERED/이전전투카드를 살리지 않는다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A028",
+      "category": "운영 정의/효과",
+      "requirement": "재활용은미사용운영·순환운영·미사용빙정의버린사본을 가져올수있다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A029",
+      "category": "운영 정의/효과",
+      "requirement": "새 단어/복제카드 없이 정확한 물리ID를 이동한다.",
+      "minimumEvidenceLevel": "UNIT_AND_CONTROLLER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A030",
+      "category": "원자정산/반복사용",
+      "requirement": "source를 제거한 후의 손패빈자리로 실제 획득 장수를 제한한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A031",
+      "category": "원자정산/반복사용",
+      "requirement": "만패10장에서 운영사용 시 한도10을 넘기지 않고 빈자리1을 활용한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A032",
+      "category": "원자정산/반복사용",
+      "requirement": "대상이 적으면 있는만큼, 대상0이면 카드/자원/RNG/Undo 모두 불변이다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A033",
+      "category": "원자정산/반복사용",
+      "requirement": "모든운영은턴/교환을소모하지 않고 초과드로우크레딧을남기지 않는다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A034",
+      "category": "원자정산/반복사용",
+      "requirement": "+1보급의 이번효과를 해결한 뒤 source를discard에 넣어 즉시자기재획득을 막는다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A035",
+      "category": "원자정산/반복사용",
+      "requirement": "비어있는DRAW/DISCARD에 source하나뿐인보급은 사용불가다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A036",
+      "category": "원자정산/반복사용",
+      "requirement": "별도정상행동으로 다시뽑은 같은+1 source는 새effectId로 재사용한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A037",
+      "category": "원자정산/반복사용",
+      "requirement": "기본/신규 일회 source는 같은전투에서두번 사용하지 못한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A038",
+      "category": "원자정산/반복사용",
+      "requirement": "동일정의의 서로다른 사본은 각각사용할수 있다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A039",
+      "category": "원자정산/반복사용",
+      "requirement": "반복source 허용과 commandId/revision/effectId 중복정산금지를 구분한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A040",
+      "category": "원자정산/반복사용",
+      "requirement": "직접탐색 열기/취소는RNG/원정/Undo에영향없다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A041",
+      "category": "원자정산/반복사용",
+      "requirement": "선택창의 오래된target/revision은무소모로거절한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A042",
+      "category": "원자정산/반복사용",
+      "requirement": "정상운영후Undo로카드/사용횟수를복제하지 않는다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A043",
+      "category": "원자정산/반복사용",
+      "requirement": "OPERATION_PRESENTING 도중중복사용/새원정/저장로직의기존잠금을 유지한다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A044",
+      "category": "원자정산/반복사용",
+      "requirement": "FINISH/abort/숨김/연출예외는확정된드로우를재실행하지 않는다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A045",
+      "category": "원자정산/반복사용",
+      "requirement": "게임에임의쿨다운/턴당1회제한을추가하지 않고 자동연쇄실행도하지 않는다.",
+      "minimumEvidenceLevel": "CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A046",
+      "category": "연마 거래/영수증",
+      "requirement": "공유 maxPolish/canPolish/operationSpec을 실행·UI·저장·보상에서 사용한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A047",
+      "category": "연마 거래/영수증",
+      "requirement": "상점과보상연마대상에영구+0운영이포함되고+1/임시운영은제외된다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A048",
+      "category": "연마 거래/영수증",
+      "requirement": "상점비용8/방문당1회/원정누적제거가격을 유지한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A049",
+      "category": "연마 거래/영수증",
+      "requirement": "연마취소/중복확정으로재화/서비스/레벨이추가변경되지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A050",
+      "category": "연마 거래/영수증",
+      "requirement": "강화UI가운영효과변화를표시하며WORD의+5점표현을사용하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A051",
+      "category": "연마 거래/영수증",
+      "requirement": "새영수증에source polish/lifetime/destination과실제전후pile/획득ID가 남는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A052",
+      "category": "연마 거래/영수증",
+      "requirement": "operationHistory가같은재사용source의다른effect를허용한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A053",
+      "category": "연마 거래/영수증",
+      "requirement": "exhausted와전체source사용이력이동일집합이라는구식을 제거한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A054",
+      "category": "연마 거래/영수증",
+      "requirement": "새효과별최대획득/빈자리/대상필터/난수소비를 validator가검증한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A055",
+      "category": "연마 거래/영수증",
+      "requirement": "잘못된+2운영/반복일회사용/조작된source snapshot을로드에서거절한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A056",
+      "category": "상점/보상",
+      "requirement": "Stage2는룬1/WORD1/운영1로 기존총칸수를유지한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A057",
+      "category": "상점/보상",
+      "requirement": "Stage4/6은룬2/WORD2/운영1로 기존총칸수를유지한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A058",
+      "category": "상점/보상",
+      "requirement": "각상점운영상품은정확히1개이며 나머지WORD칸에서운영분기를실행하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A059",
+      "category": "상점/보상",
+      "requirement": "전용운영칸7종이같은가중치로실제도달가능하며pool[0]편향이없다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A060",
+      "category": "상점/보상",
+      "requirement": "일반6/고급10/희귀14 가격을유지한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A061",
+      "category": "상점/보상",
+      "requirement": "구매는강제아니며보유골드/부족품사에따라가격을바꾸지 않는다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A062",
+      "category": "상점/보상",
+      "requirement": "상품은생성시고정되고로드/재입장/구매취소로재추첨하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A063",
+      "category": "상점/보상",
+      "requirement": "일반보상외부확률/혼합3칸/최초튜토리얼WORD/첫룬선택을보존한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A064",
+      "category": "상점/보상",
+      "requirement": "기존20/80분기의COMMON에재활용,고급에5종운영,희귀에직접탐색을연결한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A065",
+      "category": "상점/보상",
+      "requirement": "보상offer당운영최대1, LOCAL_SYNTAX_RELEVANT는WORD를 유지한다.",
+      "minimumEvidenceLevel": "UNIT_CONTROLLER_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A066",
+      "category": "Stage4 선택",
+      "requirement": "and/but/or/because/when/if 중영구보유가있으면무료연결어추가지급0이다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A067",
+      "category": "Stage4 선택",
+      "requirement": "위연결어가없으면and/but/because고정3택중1장만 지급한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A068",
+      "category": "Stage4 선택",
+      "requirement": "사전기록·제거카드·that단독을직접연결어보유로오인하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A069",
+      "category": "Stage4 선택",
+      "requirement": "think는내용절지배동사부족시에만, that은영구미보유시에만 지급한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A070",
+      "category": "Stage4 선택",
+      "requirement": "선택pending과완료를저장하며applied는실제지급완료시에만true다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A071",
+      "category": "Stage4 선택",
+      "requirement": "선택/취소/재입장에RNG소비없고카드/상점이중생성이없다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A072",
+      "category": "Stage4 선택",
+      "requirement": "선택완료다음에상점을한번생성하고기존방문history를보존한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A073",
+      "category": "Stage4 선택",
+      "requirement": "완료후카드제거가무료재지급을유발하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A074",
+      "category": "Stage4 선택",
+      "requirement": "구버전의이미고정된entryGrants/상점내용을변경하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A075",
+      "category": "사슴 빙정 탐색",
+      "requirement": "6-5에만 전투한정 SEARCH+0 운영1장을 지급한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A076",
+      "category": "사슴 빙정 탐색",
+      "requirement": "보스의기존기본6손패와첫패결정WORD2장을보존한뒤지원1장을추가한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A077",
+      "category": "사슴 빙정 탐색",
+      "requirement": "기본첫패7장, 초기손패룬증가유지, 최종handLimit을넘기지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A078",
+      "category": "사슴 빙정 탐색",
+      "requirement": "이미만패면안정적1장DRAW이동으로지원운영을HAND에보장하고trace를남긴다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A079",
+      "category": "사슴 빙정 탐색",
+      "requirement": "영구보급/탐색이있어도지원1장을주며영구보유수는늘지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A080",
+      "category": "사슴 빙정 탐색",
+      "requirement": "기존빙정WORD8장/good조건부fallback을바꾸지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A081",
+      "category": "사슴 빙정 탐색",
+      "requirement": "임시탐색의polish는0/상한0이며기존탐색+1순환을상속하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A082",
+      "category": "사슴 빙정 탐색",
+      "requirement": "임시OP은조합대/점수/운석카드수/빙결핵파괴에포함하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A083",
+      "category": "사슴 빙정 탐색",
+      "requirement": "지원사용은DRAW의실제WORD1장을직접고르고그외카드를생성하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A084",
+      "category": "사슴 빙정 탐색",
+      "requirement": "임시탐색은사용후EXHAUSTED, 미사용교환시DISCARD, 종료시모두정리한다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A085",
+      "category": "사슴 빙정 탐색",
+      "requirement": "재활용은미사용임시탐색만회수할수있고이미쓴것은회수불가다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A086",
+      "category": "사슴 빙정 탐색",
+      "requirement": "로드/턴시작/연출재생으로지원운영이추가생성되지 않는다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A087",
+      "category": "사슴 빙정 탐색",
+      "requirement": "영구·임시partition과WORD/OP영역제약이런타임과저장에서같다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A088",
+      "category": "사슴 빙정 탐색",
+      "requirement": "전투종료후임시객체를삭제해도공격/운영기록의스냅샷을읽을수있다.",
+      "minimumEvidenceLevel": "UNIT_STORAGE_AND_BROWSER",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A089",
+      "category": "문법 gap",
+      "requirement": "사용자A room was too hard to show의수정전결과를실행으로기록한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A090",
+      "category": "문법 gap",
+      "requirement": "위문장이실제카드7장으로VALID/SVC/PAST/TO/DEGREE 근거를얻는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A091",
+      "category": "문법 gap",
+      "requirement": "easy/hard/difficult와too/enough의주어-생략목적어연결을구조로구현한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A092",
+      "category": "문법 gap",
+      "requirement": "동일주어를새물리카드로복사하지 않고node참조로연결한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A093",
+      "category": "문법 gap",
+      "requirement": "명시목적어가이미있는경우gap을중복추가하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A094",
+      "category": "문법 gap",
+      "requirement": "실제전치사카드가있는경우에만전치사목적어연결을한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A095",
+      "category": "문법 gap",
+      "requirement": "기존subject-control·동명사·명사수식to의분석을보존한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A096",
+      "category": "문법 gap",
+      "requirement": "없는주어/유한동사/to/전치사를자동삽입하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A097",
+      "category": "문법 gap",
+      "requirement": "바깥SVC와부정사안쪽SVO/SVOO를혼동해주절문형을바꾸지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A098",
+      "category": "문법 gap",
+      "requirement": "정상too빙정문장이사슴결정1개파괴와실제피해까지연결된다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A099",
+      "category": "문법 VP/문형",
+      "requirement": "현재/진행/완료/미래give가동일한실제4형식근거를유지한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A100",
+      "category": "문법 VP/문형",
+      "requirement": "is often giving/has often given/will often give의중간부사를지원한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A101",
+      "category": "문법 VP/문형",
+      "requirement": "허용된등록부사만통과하며미등록already를자동추가하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A102",
+      "category": "문법 VP/문형",
+      "requirement": "부사와동사인덱스/역할을분리하여부사를FINITE_VERB로표시하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A103",
+      "category": "문법 VP/문형",
+      "requirement": "동사구전체에들어간부사가수식점수+5를중복받지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A104",
+      "category": "문법 VP/문형",
+      "requirement": "be often giving은BE형태오류/완전문장보너스없음이되지만식별된4형식은유지한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A105",
+      "category": "문법 VP/문형",
+      "requirement": "잘못된VP의시제콤보만제한하고별도정상절의콤보는유지한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A106",
+      "category": "문법 VP/문형",
+      "requirement": "Stage2장막은원본주절4형식근거를사용하여복구가능오류에서해제한다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A107",
+      "category": "문법 VP/문형",
+      "requirement": "주절3형식+toPP나종속절give를주절4형식으로위조하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A108",
+      "category": "문법 VP/문형",
+      "requirement": "8618관찰문장은16물리카드복합문으로정상분석하되점수를8618로하드코딩하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A109",
+      "category": "문법 VP/문형",
+      "requirement": "편집중미리채점/점수가높은분석우선/UNSUPPORTED가짜성공을하지 않는다.",
+      "minimumEvidenceLevel": "GRAMMAR_CONTROLLER_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A110",
+      "category": "운석",
+      "requirement": "Lv1 5~9장1.8/10~16장2.4를정확히사용한다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A111",
+      "category": "운석",
+      "requirement": "Lv2 5~9장2.2/10~16장2.8를정확히사용한다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A112",
+      "category": "운석",
+      "requirement": "Lv3 5~9장2.6/10~16장3.2를정확히사용한다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A113",
+      "category": "운석",
+      "requirement": "4/5/9/10/16경계와공격당1회적용을검증한다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A114",
+      "category": "운석",
+      "requirement": "실제contributingWORD만세고운영/가상gap/excluded를제외한다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A115",
+      "category": "운석",
+      "requirement": "기존룬순서와단계별내림을유지하며모든UI가같은정의를읽는다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A116",
+      "category": "운석",
+      "requirement": "과거0.6원정운석값과개인최고기록을재계산하지 않는다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A117",
+      "category": "운석",
+      "requirement": "운석이외계수와HP에추가너프를넣지 않는다.",
+      "minimumEvidenceLevel": "UNIT_NUMERIC_AND_UI",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A118",
+      "category": "시각/테마",
+      "requirement": "빙정카드body와footer전체가옅은푸른바탕으로표시된다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A119",
+      "category": "시각/테마",
+      "requirement": "빙정WORD의품사와빙정OP의운영표식을구분한다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A120",
+      "category": "시각/테마",
+      "requirement": "선택/hover/disabled/판정강조에서도빙정정체성과수명정보가읽힌다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A121",
+      "category": "시각/테마",
+      "requirement": "신규운영명칭/효과/연마/순환여부가작은글자에묻히지 않는다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A122",
+      "category": "시각/테마",
+      "requirement": "Stage1~6소개/상점/전투/완료에어두운저채도테마가적용된다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A123",
+      "category": "시각/테마",
+      "requirement": "사용자가만족한현재사막gradient/패널톤을보존한다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A124",
+      "category": "시각/테마",
+      "requirement": "로비/다른지역/저장복원에이전테마가남지 않는다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A125",
+      "category": "시각/테마",
+      "requirement": "테마레이어는입력/드래그/스크롤을방해하지 않는다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A126",
+      "category": "시각/테마",
+      "requirement": "실제합성배경대비4.5/3 기준을상태별로확인한다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A127",
+      "category": "시각/테마",
+      "requirement": "0.5.1의핵심타격감/효과감소/OSreduce/음소거를보존한다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A128",
+      "category": "시각/테마",
+      "requirement": "요구4해상도와10/14손패16조합에서조작부겹침이없다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A129",
+      "category": "시각/테마",
+      "requirement": "새배경이미지외부요청/무거운연속효과를추가하지 않는다.",
+      "minimumEvidenceLevel": "BROWSER_GEOMETRY_AND_CAPTURE",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A130",
+      "category": "최종 증거",
+      "requirement": "새언어/운영/룬정의와새manifest만0.6.1에서사용하며legacyview를보존한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A131",
+      "category": "최종 증거",
+      "requirement": "수정전후모든게임검증의명령/시간/종료코드/실패이력을기록한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A132",
+      "category": "최종 증거",
+      "requirement": "전체npm test·validate:data·build를실행하고실패를숨기지 않는다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A133",
+      "category": "최종 증거",
+      "requirement": "기존공식브라우저·polish·cross와신규집중UI검증을실행한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A134",
+      "category": "최종 증거",
+      "requirement": "Chromium/Firefox/WebKit결과를구분하고실기기로과장하지 않는다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A135",
+      "category": "최종 증거",
+      "requirement": "production실제카드27전투를시도하며운영획득/연마/순환/빙정지원흐름을기록한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A136",
+      "category": "최종 증거",
+      "requirement": "지정상태/순수산술/자동정책/productionUI의증거수준을구분한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A137",
+      "category": "최종 증거",
+      "requirement": "설원1~3목표학습코스가실행안되었다면NOT RUN을유지한다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A138",
+      "category": "최종 증거",
+      "requirement": "새게임코드에테스트정답목록/지정카드/피해주입이없다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "A139",
+      "category": "최종 증거",
+      "requirement": "문서자체검사결과를게임테스트PASS로재사용하지 않는다.",
+      "minimumEvidenceLevel": "ACTUAL_EXECUTION_REPORT",
+      "required": true,
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "note": "모든 항목 초기 NOT_RUN. 일부 특정 기기/학습경로 미실행은 범위와 영향 명시; 다른 테스트로 대신 PASS 금지."
+}

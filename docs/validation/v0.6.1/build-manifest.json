@@ -1,0 +1,34 @@
+{
+  "builtAt": "2026-10-09T09:50:43Z",
+  "baseMain": "79ab84ebe3a3240a558aecbd2898efdd8e179029",
+  "files": [
+    {
+      "path": "dist/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dist/assets/index-BlCiLwdC.css",
+      "bytes": 56656,
+      "sha256": "daf3599f5d1999c48d7c7e98f202f342e402f3026553c527725ff5d6b5b81deb"
+    },
+    {
+      "path": "dist/assets/index-DZYDdBpK.js",
+      "bytes": 417481,
+      "sha256": "abca54a205c23178a4eb360bd92d30d34a5ad15032904fc4314479a1d1b1f25f"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 707,
+      "sha256": "e91ced8034af30b62324a06bc704db1b89915ca0af1e34e46c69f3ace553c6f0"
+    }
+  ],
+  "closingBuild": {
+    "command": "npm.cmd run build",
+    "start": "2026-10-09T10:16:49.2557919Z",
+    "end": "2026-10-09T10:16:54.8494175Z",
+    "exitCode": 0,
+    "log": ".local-validation/v061/closure-build.log",
+    "allBytesMatchProductionTestBuild": true
+  }
+}

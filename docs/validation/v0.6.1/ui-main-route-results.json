@@ -1,0 +1,35 @@
+{
+  "kind": "ASSIGNED_VALID_SAVE_ACTUAL_PRODUCTION_MAIN_ROUTE_NO_GAME_HOOKS",
+  "url": "http://127.0.0.1:4176/",
+  "startedAt": "2026-10-09T10:19:57.002Z",
+  "checks": [
+    {
+      "id": "A043_ACTUAL_MAIN_PRESENTING_DUPLICATE_SAVE_LOBBY_LOCK_AND_ROUTE_GUARD",
+      "status": "PASS"
+    },
+    {
+      "id": "A043_ACTUAL_MAIN_ONE_RECEIPT_EQUALS_ONE_CONTROLLER_COMMAND_FINISH",
+      "status": "PASS"
+    },
+    {
+      "id": "A043_ACTUAL_MAIN_RELOAD_AND_RESTORE_WITHOUT_SECOND_EFFECT",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "ASSIGNED-production-operation-main-after.png",
+    "ASSIGNED-production-operation-main-restored.png"
+  ],
+  "errors": [],
+  "stateSummary": {
+    "runVersion": "0.6.1",
+    "runIdPreserved": true,
+    "operationCount": 1,
+    "sourceDestination": "DISCARD",
+    "actualDrawCount": 2,
+    "turnsPreserved": true,
+    "exchangesPreserved": true
+  },
+  "status": "PASS",
+  "finishedAt": "2026-10-09T10:20:00.664Z"
+}

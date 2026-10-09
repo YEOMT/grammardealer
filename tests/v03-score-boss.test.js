@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
+import {snapshotFromText as currentSnapshot,analyzeSentence as analyzeWithRegistry} from '../src/engine/grammar/index.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {TIME_PACKS} from '../src/data/language/timeLanguage.js';
 import {resolveAttack,resolveEncounter} from '../src/engine/stage.js';
@@ -9,6 +9,10 @@ import {STAGE1,STAGE2,STAGE3,getEncounter} from '../src/data/stages.js';
 import {applyRunes} from '../src/engine/runes.js';
 import {validateTimeGolem} from '../src/engine/timeGolem.js';
 const design=JSON.parse(fs.readFileSync(new URL('./fixtures/v03-design-expectations.json',import.meta.url)));
+// Historical score/temporal expectations use their original language/rune view.
+const language=registryForVersion('0.3.0');
+const snapshotFromText=text=>currentSnapshot(text,{registry:language});
+const analyzeSentence=(snapshot,registry=language)=>analyzeWithRegistry(snapshot,registry);
 export function attack(text,{unlocks=['pack.svoo',...TIME_PACKS],stage=STAGE3,runes=[],enemy={hp:10000,maxHp:10000,kind:'NORMAL'}}={}){
  const sentenceSnapshot=snapshotFromText(text),analysis=analyzeSentence(sentenceSnapshot),cards=sentenceSnapshot.orderedTokens.map(t=>({instanceId:t.cardInstanceId,cardDefId:t.cardDefId,polishLevel:0}));
  return resolveAttack({analysis,cards,sentenceSnapshot,stage,enemy,equippedRunes:runes,policyVersion:'0.3.0',comboEligibility:{version:'0.3.0',unlocks}});

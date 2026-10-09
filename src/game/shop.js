@@ -1,6 +1,7 @@
-import {hasSkyCampaign,hasSnowCampaign} from '../data/campaignFeatures.js';
-import {selectOperation} from './operationPool.js';
-import {cardDefinition,isOperation} from '../data/cardCatalog.js';
+import {hasSkyCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {selectOperation,selectDedicatedOperation} from './operationPool.js';
+import {cardDefinition,isOperation,canPolish} from '../data/cardCatalog.js';
+import {operationSpec} from '../data/operationSpec.js';
 import {isCurrentCampaign} from '../data/stages.js';
 import { registryForVersion } from '../data/language/index.js';
 import { RUNE_MAX_LEVEL } from '../data/runes.js';
@@ -97,20 +98,25 @@ export function createShop(run) {
   }
   const cardPool = orderById(eligibleRewardCards(run));
   for (let slot = 0; slot < (second?3:SHOP_BALANCE.cardSlots); slot++) {
+    if(hasPolishCampaign(run)&&slot===(second?2:SHOP_BALANCE.cardSlots-1)){
+      const operation=selectDedicatedOperation(run,stream,trace);
+      inventory.push({itemId:`${shopId}.card.${slot}`,kind:'CARD',cardDefId:operation.id,rarity:operation.rarity,price:SHOP_BALANCE.cardPrices[operation.rarity],purchased:false,role:'DEDICATED_OPERATION'});
+      continue;
+    }
     const pool = cardPool.filter(card => !inventory.some(item => item.cardDefId === card.id));
     const rarity = weightedPick(stream, Object.fromEntries(Object.entries(SHOP_BALANCE.cardRarityWeights).filter(([key]) => pool.some(card => card.rarity === key))));
     const sameRarity = pool.filter(card => card.rarity === rarity);
     const role = slot === 0 ? 'LOCAL_SYNTAX_RELEVANT' : 'IMPLEMENTED_POOL_WILDCARD';
     let candidates = slot === 0 ? sameRarity.filter(card => isStageRelevantCard(run, card)) : sameRarity;
     if (!candidates.length) { candidates = sameRarity; trace.push({ kind: 'SAME_RARITY_ROLE_FALLBACK', role, rarity }); }
-    const operation=selectOperation(run,rarity,role,new Set(inventory.map(x=>x.cardDefId)),stream,trace);
+    const operation=hasPolishCampaign(run)?null:selectOperation(run,rarity,role,new Set(inventory.map(x=>x.cardDefId)),stream,trace);
     const cardDefId = operation?.id??weightedPick(stream, Object.fromEntries(candidates.map(card => [card.id, cardWeight(card)])));
     inventory.push({ itemId: `${shopId}.card.${slot}`, kind: 'CARD', cardDefId, rarity,
       price: SHOP_BALANCE.cardPrices[rarity], purchased: false, role });
   }
   const paidRemovalCount = safeInteger(run.economy.paidRemovalCount ?? 0, 'paid removal count', { min: 0 });
   const removalPrice = addSafe(SHOP_BALANCE.firstRemovalPrice, paidRemovalCount * SHOP_BALANCE.removalIncrement);
-  run.shop = { shopId, stageId, shopVersion: hasSkyCampaign(run)?'0.4.0':SHOP_VERSION,...(hasSkyCampaign(run)?{paidRemovalCountAtEntry:paidRemovalCount}:{}), closed: false, inventory,
+  run.shop = { shopId, stageId, shopVersion: hasPolishCampaign(run)?'0.6.1':hasSkyCampaign(run)?'0.4.0':SHOP_VERSION,...(hasSkyCampaign(run)?{paidRemovalCountAtEntry:paidRemovalCount}:{}), closed: false, inventory,
     services: { POLISH: { price: SHOP_BALANCE.polishPrice, used: false }, REMOVE: { price: removalPrice, used: false } }, trace };
   rememberCardDefinitions(run, inventory.filter(item => item.kind === 'CARD').map(item => cardDefinition(item.cardDefId,run.version)));
   return run.shop;
@@ -179,7 +185,7 @@ export function useShopService(run, shopId, serviceKind, { targetCardInstanceId 
   if (!targetCardInstanceId) return fail('보유 카드 한 장을 선택하세요.', { needsTarget: true, serviceKind });
   const card = run.cardInstances[targetCardInstanceId];
   if (!card || !run.activeCardIds.includes(targetCardInstanceId)) return fail('현재 덱에 없는 카드입니다.');
-  if (serviceKind === 'POLISH' && (isOperation(card,run.version) || !Number.isInteger(card.polishLevel) || card.polishLevel < 0 || card.polishLevel >= 3)) return fail('이미 최대 연마 +3이거나 연마할 수 없는 카드입니다.');
+  if (serviceKind === 'POLISH' && !canPolish(card,run.version)) return fail('이미 최대 연마이거나 연마할 수 없는 카드입니다.');
   const nextRemovalCount = serviceKind === 'REMOVE' ? addSafe(run.economy.paidRemovalCount ?? 0, 1) : null;
   if (serviceKind === 'REMOVE') {
     const warning = getRemovalWarning(run, targetCardInstanceId);
@@ -195,9 +201,10 @@ export function useShopService(run, shopId, serviceKind, { targetCardInstanceId 
   run.economy.gold -= service.price;
   service.used = true;
   service.targetCardInstanceId = targetCardInstanceId;
+  if(hasPolishCampaign(run)&&serviceKind==='POLISH')Object.assign(service,{cardDefId:card.cardDefId,beforeLevel,afterLevel:card.polishLevel});
   return { ok: true, message: serviceKind === 'POLISH' ? `카드를 연마 +${card.polishLevel}로 강화했습니다.` : '선택한 카드 한 장을 제거했습니다.',
     ...(serviceKind === 'POLISH' ? { rewardEffect: { kind: 'POLISH', cardInstanceId: card.instanceId, cardDefId: card.cardDefId,
-      beforeLevel, afterLevel: card.polishLevel, beforeScore: 10 + beforeLevel * 5, afterScore: 10 + card.polishLevel * 5 } } : {}) };
+      beforeLevel, afterLevel: card.polishLevel,...(isOperation(card,run.version)?{cardKind:'OPERATION',beforeOperation:operationSpec(card.cardDefId,beforeLevel,'PERMANENT',run.version),afterOperation:operationSpec(card.cardDefId,card.polishLevel,'PERMANENT',run.version)}:{beforeScore:10+beforeLevel*5,afterScore:10+card.polishLevel*5}) } } : {}) };
 }
 
 export function closeShop(run, shopId) {

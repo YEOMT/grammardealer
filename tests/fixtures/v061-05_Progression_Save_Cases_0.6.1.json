@@ -1,0 +1,438 @@
+{
+  "schemaVersion": 1,
+  "target": "0.6.1",
+  "kind": "PROGRESSION_SAVE_EXPECTATIONS",
+  "scope": "AUTHORED_EXPECTATIONS_NOT_GAME_EXECUTION",
+  "count": 50,
+  "cases": [
+    {
+      "id": "P001",
+      "name": "Stage4 연결어 자격 없음",
+      "ownedPermanentLemmas": [],
+      "expectedChoiceRequired": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P002",
+      "name": "Stage4 연결어 자격 and",
+      "ownedPermanentLemmas": [
+        "and"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P003",
+      "name": "Stage4 연결어 자격 but",
+      "ownedPermanentLemmas": [
+        "but"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P004",
+      "name": "Stage4 연결어 자격 or",
+      "ownedPermanentLemmas": [
+        "or"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P005",
+      "name": "Stage4 연결어 자격 because",
+      "ownedPermanentLemmas": [
+        "because"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P006",
+      "name": "Stage4 연결어 자격 when",
+      "ownedPermanentLemmas": [
+        "when"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P007",
+      "name": "Stage4 연결어 자격 if",
+      "ownedPermanentLemmas": [
+        "if"
+      ],
+      "expectedChoiceRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P008",
+      "name": "Stage4 연결어 자격 that",
+      "ownedPermanentLemmas": [
+        "that"
+      ],
+      "expectedChoiceRequired": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P009",
+      "name": "Stage4 연결어 자격 that/think",
+      "ownedPermanentLemmas": [
+        "that",
+        "think"
+      ],
+      "expectedChoiceRequired": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P010",
+      "name": "Stage4 and 선택",
+      "ownedPermanentLemmas": [],
+      "selected": "and",
+      "expectedGrants": [
+        "and",
+        "think",
+        "that"
+      ],
+      "expectedRngDrawsForChoice": 0,
+      "expectedMaxAddedPermanent": 3,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P011",
+      "name": "Stage4 but 선택",
+      "ownedPermanentLemmas": [],
+      "selected": "but",
+      "expectedGrants": [
+        "but",
+        "think",
+        "that"
+      ],
+      "expectedRngDrawsForChoice": 0,
+      "expectedMaxAddedPermanent": 3,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P012",
+      "name": "Stage4 because 선택",
+      "ownedPermanentLemmas": [],
+      "selected": "because",
+      "expectedGrants": [
+        "because",
+        "think",
+        "that"
+      ],
+      "expectedRngDrawsForChoice": 0,
+      "expectedMaxAddedPermanent": 3,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P013",
+      "name": "know/that 보유 연결어없음",
+      "ownedPermanentLemmas": [
+        "know",
+        "that"
+      ],
+      "selected": "but",
+      "expectedGrants": [
+        "but"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P014",
+      "name": "and/think/that 이미보유",
+      "ownedPermanentLemmas": [
+        "and",
+        "think",
+        "that"
+      ],
+      "expectedGrants": [],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P015",
+      "name": "사전기록만있는 연결어",
+      "encounteredOnly": [
+        "and",
+        "because"
+      ],
+      "ownedPermanentLemmas": [],
+      "expectedChoiceRequired": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P016",
+      "name": "선택중 저장/로드",
+      "expected": "SAME_PENDING_OPTIONS_NO_GRANT_NO_SHOP_REROLL",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P017",
+      "name": "선택중 취소/창닫기",
+      "expected": "REMAINS_PENDING_NO_AUTOPICK",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P018",
+      "name": "선택중 재입장/중복선택",
+      "expectedPermanentGrantsMax": 1,
+      "expectedShopCreatedOnce": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P019",
+      "name": "선택후 카드제거",
+      "expectedRegrant": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P020",
+      "name": "Stage2 운영1칸",
+      "stage": 2,
+      "expectedSlots": {
+        "runes": 1,
+        "words": 1,
+        "operations": 1
+      },
+      "operationWeights": "UNIFORM_7",
+      "purchaseRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P021",
+      "name": "Stage2 상품 저장/로드",
+      "stage": 2,
+      "expected": "EXACT_INVENTORY_RNG_PRICES_SERVICES",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P022",
+      "name": "Stage4 운영1칸",
+      "stage": 4,
+      "expectedSlots": {
+        "runes": 2,
+        "words": 2,
+        "operations": 1
+      },
+      "operationWeights": "UNIFORM_7",
+      "purchaseRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P023",
+      "name": "Stage4 상품 저장/로드",
+      "stage": 4,
+      "expected": "EXACT_INVENTORY_RNG_PRICES_SERVICES",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P024",
+      "name": "Stage6 운영1칸",
+      "stage": 6,
+      "expectedSlots": {
+        "runes": 2,
+        "words": 2,
+        "operations": 1
+      },
+      "operationWeights": "UNIFORM_7",
+      "purchaseRequired": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P025",
+      "name": "Stage6 상품 저장/로드",
+      "stage": 6,
+      "expected": "EXACT_INVENTORY_RNG_PRICES_SERVICES",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P026",
+      "name": "상점전용칸7종 도달가능",
+      "selectionDomain": [
+        "card.operation.supply",
+        "card.operation.search",
+        "card.operation.nounSearch",
+        "card.operation.verbSearch",
+        "card.operation.adjectiveSearch",
+        "card.operation.connectorSearch",
+        "card.operation.recycle"
+      ],
+      "expected": "ALL_REACHABLE_NO_POOL_ZERO_INDEX_BIAS",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P027",
+      "name": "상점 운영 연마+0",
+      "expectedGoldDelta": -8,
+      "expectedNewPolish": 1,
+      "expectedServiceUsed": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P028",
+      "name": "상점 운영 연마+1거절",
+      "expectedGoldDelta": 0,
+      "expectedNewPolish": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P029",
+      "name": "보상 운영 연마",
+      "expected": "PUBLIC_TARGET_HAS_POLISH0_OPERATION_SOURCE_SINGLE_COMMIT",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P030",
+      "name": "WORD+2 연마",
+      "expectedNewPolish": 3,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P031",
+      "name": "재활용 COMMON 보상",
+      "expected": "ALLOWED_NONPROTECTED_CARD_BRANCH_WITH_OUTER_WEIGHTS_UNCHANGED",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P032",
+      "name": "보상 offer 운영최대1",
+      "expectedOperationMax": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P033",
+      "name": "사슴 첫패 기본6+지원1",
+      "baseOpeningCount": 6,
+      "handLimit": 10,
+      "expectedHandCount": 7,
+      "expectedSupportOperations": 1,
+      "expectedBearingWordMin": 2,
+      "expectedPermanentDeckDelta": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P034",
+      "name": "사슴 초기손패룬",
+      "baseOpeningCount": 8,
+      "handLimit": 10,
+      "expectedHandCount": 9,
+      "expectedSupportOperations": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P035",
+      "name": "사슴 초기손패 이미한도",
+      "baseOpeningCount": 10,
+      "handLimit": 10,
+      "expectedHandCount": 10,
+      "expectedSupportOperations": 1,
+      "expectedBearingWordMin": 2,
+      "moveExistingCardToDraw": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P036",
+      "name": "사슴 일반탐색 보유해도 지원",
+      "ownedPermanentSearch": true,
+      "expectedSupportOperations": 1,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P037",
+      "name": "good fallback있는사슴",
+      "expectedBearingWords": 8,
+      "expectedSupportGood": 1,
+      "expectedSupportOperations": 1,
+      "expectedTemporaryTotal": 10,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P038",
+      "name": "good fallback없는사슴",
+      "expectedBearingWords": 8,
+      "expectedSupportGood": 0,
+      "expectedSupportOperations": 1,
+      "expectedTemporaryTotal": 9,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P039",
+      "name": "보스지원 탐색으로 too확보",
+      "expected": "REAL_DRAW_ID_TO_HAND_NO_CRYSTAL_BREAK_UNTIL_WORD_SUBMISSION",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P040",
+      "name": "보스지원 사용후 저장복원",
+      "expected": "TEMP_SEARCH_IN_EXHAUSTED_NO_RESPAWN",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P041",
+      "name": "빙정지원 미사용교환후 재활용",
+      "expected": "ALLOWED_ON_SAME_LIVE_TEMP_INSTANCE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P042",
+      "name": "승리/패배cleanup",
+      "expected": "REMOVE_ALL_TEMP_INSTANCES_KEEP_PERMANENT_OPERATIONS_HISTORY_READABLE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P043",
+      "name": "다음전투 영구운영 복귀",
+      "expected": "EXHAUSTED_PERMANENT_RETURN_NOT_TEMP",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P044",
+      "name": "0.6 저장정책",
+      "version": "0.6.0",
+      "expectedOperationCount": 2,
+      "expectedOperationMaxPolish": 0,
+      "expectedMeteor": "LEGACY_06",
+      "expectedSupportOperations": 0,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P045",
+      "name": "0.5.1 이하 저장",
+      "expected": "ORIGINAL_VERSIONED_SCOPE_AND_TERMINAL_BOUNDARY",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P046",
+      "name": "과거최고위력8618",
+      "expected": "PRESERVE_HISTORICAL_VALUE_NO_RECALC",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P047",
+      "name": "미지0.6.1 사본을0.6에주입",
+      "expected": "REJECT_FOREIGN_DEFINITION",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P048",
+      "name": "모든영구OPMAX+1",
+      "tamperPolish": 2,
+      "expected": "REJECT_SAVE",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P049",
+      "name": "임시OP가공격조합대에있음",
+      "expected": "REJECT_SAVE_AND_COMMAND",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P050",
+      "name": "shattered/exhausted 영역바꿔치기",
+      "expected": "REJECT_FOR_WRONG_KIND_AND_RECEIPT",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

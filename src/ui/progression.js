@@ -6,7 +6,9 @@ import { el, button, heading, modal, confirmDialog, toast } from './dom.js';
 import { renderCombat } from './combat.js';
 import { isMixedOffer } from '../game/rewards.js';
 import { wordCard } from './cards.js';
-import { cardModel, runeDescription as describeRuneForUI } from './models.js';
+import { cardModel, operationPolishPreview, runeDescription as describeRuneForUI } from './models.js';
+import {applyStageTheme} from './theme.js';
+import {campaignBattleCount,hasPolishCampaign} from '../data/campaignFeatures.js';
 import { RUNE_BY_ID } from '../data/runes.js';
 import { stageForRun, roundsForRun, isCurrentCampaign } from '../data/stages.js';
 import { STAGE2_VEIL_HINT } from '../data/stage2.js';
@@ -17,9 +19,11 @@ const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar
 const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
 
 export const HARBOR_BOSS_HINT = STAGE2_VEIL_HINT;
-export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords } = {}) {
+export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords, onSaves, onChooseConnector } = {}) {
+  applyStageTheme(state);
   const snow=state.progress.stageId==='stage.06',desert=state.progress.stageId==='stage.05',sky=state.progress.stageId==='stage.04',harbor=state.progress.stageId==='stage.02',canyon=state.progress.stageId==='stage.03',stage=stageForRun(state);
-  root.replaceChildren(nav({ onLobby,onDeck }), el('main', { class: `intro-page ${desert?'desert-page':harbor?'harbor-page':''}` },
+  const choice=hasPolishCampaign(state)&&sky&&state.entryChoice?.pending?state.entryChoice:null;
+  root.replaceChildren(nav({ onLobby,onDeck,onSaves:choice?onSaves:null }), el('main', { class: `intro-page ${desert?'desert-page':harbor?'harbor-page':''}` },
     el('span', { class: 'eyebrow', text: snow?'CHAPTER 06 · MIRROR SNOWFIELD':desert?'CHAPTER 05 · WISH DESERT':sky?'CHAPTER 04 · SKY ISLANDS':canyon?'CHAPTER 03 · TIME CANYON':harbor?'CHAPTER 02 · DELIVERY HARBOR':'CHAPTER 01 · FIRST SENTENCE' }),
     el('div', { class: 'intro-art', text: snow?'❄':desert?'✦':sky?'☁':canyon?'⌛':harbor?'⚓':'🌾', role: 'img', 'aria-label': stage.nameKo }),
     el('h1', { text: stage.nameKo }),
@@ -34,12 +38,17 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords }
     el('p', { class: 'helper', text: snow?'세 번째 상점에서 준비합니다. 빙정 WORD는 전투마다 공급되며 영구 덱에 추가되지 않습니다. 조합·교환·보급·탐색으로 사용할 수 있습니다.':desert?'없는 to, want/need, like/enjoy/finish 재료만 최대 세 장 받습니다. 이 지역에는 상점이 없습니다.':sky?'없는 연결 재료만 받습니다. 두 번째 상점에서 준비한 뒤 다섯 전투를 시작합니다.':canyon?'입장할 때 현재 덱에 없는 be·have·will을 각각 한 장만 받습니다. 이 지역에는 상점이 없습니다.':harbor?'입장에 필요한 동사·연결 카드를 확인한 뒤 첫 상점에 들릅니다. 상점을 나올 때 덱을 섞고 첫 손패를 뽑습니다.':'각 전투는 6턴입니다. 공격하거나 준비할 때 턴을 사용합니다. 초원 수호자에게 별도의 문법 면역은 없습니다.' }),
     !isCurrentCampaign(state)&&el('p',{class:'legacy-notice',text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
     harbor&&onRecords&&button('4형식 도감 보기',onRecords,'secondary'),
+    choice?el('section',{class:'panel stage4-connector-choice','aria-label':'무료 연결어 선택'},
+      el('h2',{text:'연결어 한 장을 선택하세요'}),el('p',{text:'나머지 연결어는 보상과 상점에서 얻을 수 있습니다.'}),
+      el('div',{class:'reward-choices'},choice.cardDefIds.map(cardDefId=>{const model=cardModel({instanceId:'preview.'+cardDefId,cardDefId,polishLevel:0},null,state.version);return el('section',{class:'reward-choice'},wordCard(model,{readonly:true,compact:true}),el('p',{text:{'card.and':'그리고 · 단어와 절을 이어 줍니다.','card.but':'그러나 · 대조되는 절을 이어 줍니다.','card.because':'왜냐하면 · 이유를 나타내는 절을 이어 줍니다.'}[cardDefId]}),button(`${model.surface} 선택`,()=>onChooseConnector?.({choiceId:choice.choiceId,entryId:choice.entryId,cardDefId}),'primary',{id:'choose-stage4-'+cardDefId.slice(5)}));})),
+      el('p',{class:'helper',text:'선택 전에는 카드를 받지 않습니다. 나중에 돌아와 이어서 선택할 수 있습니다.'})):
     button(snow?'입장 준비 · 세 번째 상점으로':desert?'소원의 사막에 들어가기':sky?'입장 준비 · 두 번째 상점으로':canyon?'시간의 협곡에 들어가기':harbor?'입장 준비 · 상점으로':'초원에 들어가기', onStart, 'primary start-button', { id: (harbor||canyon||sky||desert||snow)?'enter-stage':'start-battle' })));
 }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
+  applyStageTheme(state);
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
-    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${state.version==='0.6.0'?27:['0.5.0','0.5.1'].includes(state.version)?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:7}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
+    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${campaignBattleCount(state)}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
     el('p',{text:state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·재화를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'재화')),
     el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
@@ -47,6 +56,7 @@ export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
 
 /** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
 function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } = {}) {
+  applyStageTheme(state);
   const runeDescription=(r,l)=>describeRuneForUI(r,l,state.version);
   const offer = state.reward;
   if (!offer) {
@@ -111,9 +121,10 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
 }
 
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
+  applyStageTheme(state);
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
-    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${state.version==='0.6.0'?27:['0.5.0','0.5.1'].includes(state.version)?22:state.version==='0.4.0'?17:state.version==='0.3.0'?12:isCurrentCampaign(state)?7:3}` }),
+    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
     el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
     el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·재화는 유지됩니다.` }),
     state.progress.stageId==='stage.06'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:FROST_HINT}),
@@ -124,6 +135,7 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
 }
 
 export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves, onLobby, onRecords } = {}) {
+  applyStageTheme(state);
   const complete = state.status === 'CONTENT_COMPLETE',snow=state.progress.contentBoundary==='STAGE6_END',desert=state.progress.contentBoundary==='STAGE5_END',sky=state.progress.contentBoundary==='STAGE4_END',harbor=state.progress.contentBoundary==='STAGE2_END',canyon=state.progress.contentBoundary==='STAGE3_END';
   const enemy = state.combat?.enemyState;
   const actions = complete ? [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), button('기록 보기', onRecords, 'secondary'), button('완료 상태 저장', onSaves, 'secondary')]
@@ -161,8 +173,8 @@ export function renderReward(root,state,handlers={}){
   function runeCard(choice,action){const def=RUNE_BY_ID[choice.runeId];return el('section',{class:'reward-choice',style:`--rune-color:${def.color}`,dataset:{choiceId:choice.choiceId,runeId:choice.runeId}},el('div',{class:'reward-gem',text:'◆'}),el('h3',{text:def.nameKo}),el('small',{text:choice.ownedLevel?`Lv.${choice.ownedLevel} → Lv.${choice.offeredLevel}`:'Lv.1 · 새 룬'}),el('p',{text:runeDescription(def,choice.offeredLevel)}),button('이 룬 선택',action,'primary'));}
   function showReplacement(choice){modal('교체할 룬을 선택하세요',[el('p',{text:'취소하면 세 후보와 기존 룬이 그대로 유지됩니다.'}),el('div',{class:'reward-choices'},state.runes.orderedInstanceIds.map(id=>{const r=state.runes.instances[id],def=RUNE_BY_ID[r.runeId];return el('section',{class:'reward-choice'},el('h3',{text:`${def.nameKo} Lv.${r.level}`}),el('p',{text:runeDescription(def,r.level)}),button('이 룬과 교체',()=>choose(choice,{replaceRuneInstanceId:id}),'primary'));})),button('교체 취소',showChoices,'secondary')],{wide:true,onClose:()=>{}});}
   function showTargets(choice){const polish=choice.serviceKind==='POLISH';modal(polish?'연마할 카드 한 장 선택':'제거할 카드 한 장 선택',[
-    el('p',{text:polish?'연마 단계 +1 · 기본 10점에 단계마다 +5점. 최대 +3.':'선택한 실제 카드만 제거합니다. 기본 문장 경로를 잃으면 추가 확인을 요청합니다.'}),
-    el('div',{class:'reward-target-grid'},choice.targetCardIds.map(id=>{const instance=state.cardInstances[id],model=cardModel(instance,null,state.version);return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>choose(choice,{targetCardInstanceId:id}),'primary'));})),
+    el('p',{text:polish?(hasPolishCampaign(state)?'단어는 단계마다 기본 점수 +5, 최대 +3. 운영은 효과를 강화하며 최대 +1입니다.':'연마 단계 +1 · 기본 10점에 단계마다 +5점. 최대 +3.'):'선택한 실제 카드만 제거합니다. 기본 문장 경로를 잃으면 추가 확인을 요청합니다.'}),
+    el('div',{class:'reward-target-grid'},choice.targetCardIds.map(id=>{const instance=state.cardInstances[id],model=cardModel(instance,null,state.version);return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&model.cardKind==='OPERATION'&&el('p',{text:operationPolishPreview(model)}),button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>choose(choice,{targetCardInstanceId:id}),'primary'));})),
     button('대상 선택 취소 · 원래 보상',showChoices,'secondary',{id:'cancel-reward-target'})],{wide:true});}
   function showChoices(){const summary=state.combat.victorySummary;
     modal(offer.firstRuneIntro?'첫 룬을 선택하세요':'전투 승리 · 보상 하나를 선택하세요',[

@@ -1,0 +1,143 @@
+{
+  "baseline": [
+    {
+      "finished": "2026-10-09T18:14:38.2994618+09:00",
+      "command": "npm.cmd run test",
+      "exitCode": 0,
+      "started": "2026-10-09T18:12:31.6257355+09:00"
+    },
+    {
+      "finished": "2026-10-09T18:14:39.3341547+09:00",
+      "command": "npm.cmd run validate:data",
+      "exitCode": 0,
+      "started": "2026-10-09T18:14:38.3017018+09:00"
+    },
+    {
+      "finished": "2026-10-09T18:14:41.6353951+09:00",
+      "command": "npm.cmd run build",
+      "exitCode": 0,
+      "started": "2026-10-09T18:14:39.3342378+09:00"
+    }
+  ],
+  "final": [
+    {
+      "command": "npm.cmd test",
+      "start": "2026-10-09T09:47:53.2732349Z",
+      "end": "2026-10-09T09:50:41.1402606Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-unit.log"
+    },
+    {
+      "command": "npm.cmd run validate:data",
+      "start": "2026-10-09T09:50:41.2080378Z",
+      "end": "2026-10-09T09:50:42.0627961Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-data.log"
+    },
+    {
+      "command": "npm.cmd run build",
+      "start": "2026-10-09T09:50:42.0776155Z",
+      "end": "2026-10-09T09:50:43.5263065Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-build.log"
+    },
+    {
+      "command": "npm.cmd run test:decks:snow",
+      "start": "2026-10-09T09:51:47.7747141Z",
+      "end": "2026-10-09T09:52:20.5934843Z",
+      "exitCode": 0
+    },
+    {
+      "command": "npm.cmd run test:browser",
+      "start": "2026-10-09T09:57:07.7426411Z",
+      "end": "2026-10-09T10:04:15.8916459Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-test-browser.log"
+    },
+    {
+      "command": "npm.cmd run test:browser:polish",
+      "start": "2026-10-09T10:04:16.0430928Z",
+      "end": "2026-10-09T10:05:57.2696883Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-test-browser-polish.log"
+    },
+    {
+      "command": "npm.cmd run test:browser:cross",
+      "start": "2026-10-09T10:05:57.3005109Z",
+      "end": "2026-10-09T10:08:42.5725684Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/final-test-browser-cross.log"
+    },
+    {
+      "startedAt": "2026-10-09T10:04:56.0425129Z",
+      "finishedAt": "2026-10-09T10:07:38.7754746Z",
+      "edgeOutput": ".local-validation/v061/ui-edges-final",
+      "exitCode": 0,
+      "command": "npm.cmd run test:browser:061",
+      "mainOutput": ".local-validation/v061/ui-final"
+    },
+    {
+      "finishedAt": "2026-10-09T10:09:25.6552724Z",
+      "output": ".local-validation/v061/ui-edges-reward-final",
+      "startedAt": "2026-10-09T10:09:10.8765566Z",
+      "command": "node tests/polish-061-edges-browser.mjs",
+      "exitCode": 0
+    },
+    {
+      "command": "npm.cmd run test:e2e",
+      "seed": "run-sequence.57",
+      "exitCode": 0,
+      "exerciseOperationReuse": false,
+      "startUtc": "2026-10-09T09:53:17.4751614Z",
+      "endUtc": "2026-10-09T10:07:44.7726494Z",
+      "snowCourse": true
+    },
+    {
+      "command": "node tests/polish-061-main-edge-browser.mjs",
+      "url": "http://127.0.0.1:4176/",
+      "start": "2026-10-09T10:19:57.002Z",
+      "end": "2026-10-09T10:20:00.664Z",
+      "exitCode": 0,
+      "kind": "ASSIGNED_VALID_SAVE_ACTUAL_PRODUCTION_MAIN_ROUTE_NO_GAME_HOOKS",
+      "checks": 3
+    }
+  ],
+  "closingConfirmation": [
+    {
+      "command": "npm.cmd test",
+      "start": "2026-10-09T10:13:26.6981244Z",
+      "end": "2026-10-09T10:15:07.6104599Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/closure-unit.log"
+    },
+    {
+      "command": "npm.cmd run validate:data",
+      "start": "2026-10-09T10:15:07.7208475Z",
+      "end": "2026-10-09T10:15:09.0142421Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/closure-data.log"
+    },
+    {
+      "command": "npm.cmd run build",
+      "start": "2026-10-09T10:16:49.2557919Z",
+      "end": "2026-10-09T10:16:54.8494175Z",
+      "exitCode": 0,
+      "log": ".local-validation/v061/closure-build.log"
+    }
+  ],
+  "separateNaturalReuse": {
+    "seed": "run-sequence.57",
+    "command": "npm.cmd run test:e2e",
+    "snowCourse": false,
+    "exitCode": 1,
+    "exerciseOperationReuse": true,
+    "startUtc": "2026-10-09T10:09:13.2192185Z",
+    "endUtc": "2026-10-09T10:15:04.4928852Z",
+    "result": "FAIL overall: QA policy no finite move at battle12; same-copy natural reuse2 separately PASS; not gameplay DEFEAT"
+  },
+  "cleanup": {
+    "ownedServersAndBrowsersStopped": true,
+    "developmentServerSessionExitCode": 1,
+    "message": "Vite watcher EBUSY on ignored raw production-play.webm after completed validations; no validation command changed to PASS."
+  }
+}

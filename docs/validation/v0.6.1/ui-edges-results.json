@@ -1,0 +1,119 @@
+{
+  "kind": "ASSIGNED_061_UI_CONTROLLER_PRESENTATION_EDGES",
+  "checks": [
+    {
+      "id": "A033_FULL_HAND10_USE_REMOVES_SOURCE_BEFORE_CAP",
+      "status": "PASS"
+    },
+    {
+      "id": "A035_ZERO_TARGET_DISABLED_BUT_EXCHANGE_ALLOWED",
+      "status": "PASS"
+    },
+    {
+      "id": "SOURCE_ONLY_SEARCH_PLUS1_DISABLED_NO_SELF_TARGET",
+      "status": "PASS"
+    },
+    {
+      "id": "SOURCE_ONLY_SUPPLY_PLUS1_DISABLED_NO_SELF_TARGET",
+      "status": "PASS"
+    },
+    {
+      "id": "A030_SEARCH_CANCEL_EXACT_STATE_RNG",
+      "status": "PASS"
+    },
+    {
+      "id": "A031_STALE_SEARCH_TARGET_NO_COMMIT",
+      "status": "PASS"
+    },
+    {
+      "id": "A032_DUPLICATE_USE_FINISH_NO_MOVEMENT",
+      "status": "PASS"
+    },
+    {
+      "id": "ONE_SHOT_SOURCE_EXHAUSTED_NO_SECOND_USE",
+      "status": "PASS"
+    },
+    {
+      "id": "SAME_DEFINITION_DISTINCT_COPIES_EACH_USE",
+      "status": "PASS"
+    },
+    {
+      "id": "OPERATION_THEN_UNDO_DOES_NOT_DUPLICATE",
+      "status": "PASS"
+    },
+    {
+      "id": "A044_SHOP_POLISH_CANCEL_EXACT_STATE",
+      "status": "PASS"
+    },
+    {
+      "id": "A039_A040_A041_ASSIGNED_PRESENTER_ABORT_COMMIT_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "A039_A040_A041_ASSIGNED_PRESENTER_HIDDEN_COMMIT_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "A039_A040_A041_ASSIGNED_PRESENTER_EXCEPTION_COMMIT_ONCE",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1024",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1280",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1920",
+      "status": "PASS"
+    },
+    {
+      "id": "A064_COMMON_RECYCLE_REAL_GENERATED_MIXED_REWARD_RENDER",
+      "status": "PASS"
+    },
+    {
+      "id": "A065_PROTECTED_WORD_AND_MAX_ONE_OPERATION_RENDER",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "ASSIGNED-scroll-access-1024-14.png",
+    "ASSIGNED-scroll-access-1280-14.png",
+    "ASSIGNED-scroll-access-1366-14.png",
+    "ASSIGNED-scroll-access-1920-14.png",
+    "ASSIGNED-real-generated-mixed-reward-common-recycle.png"
+  ],
+  "rewardProbe": {
+    "seed": "061.ui.reward.1",
+    "choices": [
+      {
+        "kind": "CARD",
+        "rarity": "COMMON",
+        "cardDefId": "card.problem",
+        "role": "LOCAL_SYNTAX_RELEVANT",
+        "choiceId": "offer.run.cbe13d00-99af-46cb-86d8-ed73bc476eac.1.choice.0"
+      },
+      {
+        "kind": "CARD",
+        "rarity": "COMMON",
+        "cardDefId": "card.operation.recycle",
+        "role": "GENERAL",
+        "choiceId": "offer.run.cbe13d00-99af-46cb-86d8-ed73bc476eac.1.choice.1"
+      },
+      {
+        "kind": "CARD",
+        "rarity": "COMMON",
+        "cardDefId": "card.or",
+        "role": "IMPLEMENTED_POOL_WILDCARD",
+        "choiceId": "offer.run.cbe13d00-99af-46cb-86d8-ed73bc476eac.1.choice.2"
+      }
+    ]
+  },
+  "status": "PASS"
+}
