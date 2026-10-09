@@ -1,0 +1,727 @@
+{
+  "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+  "checks": [
+    {
+      "id": "SUPPLY_2_THEME",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_5_THEME",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_EXCHANGE_REAL_UI",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SUPPLY",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_NOUNSEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_VERBSEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_ADJECTIVESEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_CONNECTORSEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_RECYCLE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_2_THEME",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_5_THEME",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_EXCHANGE_REAL_UI",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SUPPLY",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_NOUNSEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_VERBSEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_ADJECTIVESEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_CONNECTORSEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_RECYCLE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_2_THEME",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "SUPPLY_5_THEME",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_EXCHANGE_REAL_UI",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SUPPLY",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_SEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_NOUNSEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_VERBSEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_ADJECTIVESEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_CONNECTORSEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_UI_RECYCLE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "webkit",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "ASSIGNED-chromium-normal-opening.png",
+    "ASSIGNED-chromium-boss-opening.png",
+    "ASSIGNED-chromium-dust-keyboard-selected.png",
+    "ASSIGNED-chromium-supply-result.png",
+    "ASSIGNED-chromium-word-search-excludes-dust.png",
+    "ASSIGNED-chromium-search-result.png",
+    "ASSIGNED-chromium-nounSearch-result.png",
+    "ASSIGNED-chromium-verbSearch-result.png",
+    "ASSIGNED-chromium-adjectiveSearch-result.png",
+    "ASSIGNED-chromium-connectorSearch-result.png",
+    "ASSIGNED-chromium-recycle-result.png",
+    "ASSIGNED-chromium-submitted-roles-The-running-child-is-happy-.png",
+    "ASSIGNED-chromium-grammar-The-running-child-is-happy-.png",
+    "ASSIGNED-chromium-submitted-roles-The-finished-homework-is-easy-.png",
+    "ASSIGNED-chromium-grammar-The-finished-homework-is-easy-.png",
+    "ASSIGNED-chromium-submitted-roles-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-chromium-grammar-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-chromium-submitted-roles-The-food-made-today-is-good-.png",
+    "ASSIGNED-chromium-grammar-The-food-made-today-is-good-.png",
+    "ASSIGNED-chromium-submitted-roles-Food-is-eaten-.png",
+    "ASSIGNED-chromium-grammar-Food-is-eaten-.png",
+    "ASSIGNED-chromium-submitted-roles-I-see-him-run-.png",
+    "ASSIGNED-chromium-grammar-I-see-him-run-.png",
+    "ASSIGNED-chromium-submitted-roles-I-see-him-running-.png",
+    "ASSIGNED-chromium-grammar-I-see-him-running-.png",
+    "ASSIGNED-chromium-submitted-roles-I-see-the-food-eaten-.png",
+    "ASSIGNED-chromium-grammar-I-see-the-food-eaten-.png",
+    "ASSIGNED-chromium-submitted-roles-I-have-made-food-.png",
+    "ASSIGNED-chromium-grammar-I-have-made-food-.png",
+    "ASSIGNED-chromium-submitted-roles-I-enjoy-eating-food-.png",
+    "ASSIGNED-chromium-grammar-I-enjoy-eating-food-.png",
+    "ASSIGNED-chromium-1024x768-hand10.png",
+    "ASSIGNED-chromium-1024x768-hand14.png",
+    "ASSIGNED-chromium-1280x800-hand10.png",
+    "ASSIGNED-chromium-1280x800-hand14.png",
+    "ASSIGNED-chromium-1366x768-hand10.png",
+    "ASSIGNED-chromium-1366x768-hand14.png",
+    "ASSIGNED-chromium-1920x1080-hand10.png",
+    "ASSIGNED-chromium-1920x1080-hand14.png",
+    "ASSIGNED-firefox-normal-opening.png",
+    "ASSIGNED-firefox-boss-opening.png",
+    "ASSIGNED-firefox-dust-keyboard-selected.png",
+    "ASSIGNED-firefox-supply-result.png",
+    "ASSIGNED-firefox-word-search-excludes-dust.png",
+    "ASSIGNED-firefox-search-result.png",
+    "ASSIGNED-firefox-nounSearch-result.png",
+    "ASSIGNED-firefox-verbSearch-result.png",
+    "ASSIGNED-firefox-adjectiveSearch-result.png",
+    "ASSIGNED-firefox-connectorSearch-result.png",
+    "ASSIGNED-firefox-recycle-result.png",
+    "ASSIGNED-firefox-submitted-roles-The-running-child-is-happy-.png",
+    "ASSIGNED-firefox-grammar-The-running-child-is-happy-.png",
+    "ASSIGNED-firefox-submitted-roles-The-finished-homework-is-easy-.png",
+    "ASSIGNED-firefox-grammar-The-finished-homework-is-easy-.png",
+    "ASSIGNED-firefox-submitted-roles-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-firefox-grammar-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-firefox-submitted-roles-The-food-made-today-is-good-.png",
+    "ASSIGNED-firefox-grammar-The-food-made-today-is-good-.png",
+    "ASSIGNED-firefox-submitted-roles-Food-is-eaten-.png",
+    "ASSIGNED-firefox-grammar-Food-is-eaten-.png",
+    "ASSIGNED-firefox-submitted-roles-I-see-him-run-.png",
+    "ASSIGNED-firefox-grammar-I-see-him-run-.png",
+    "ASSIGNED-firefox-submitted-roles-I-see-him-running-.png",
+    "ASSIGNED-firefox-grammar-I-see-him-running-.png",
+    "ASSIGNED-firefox-submitted-roles-I-see-the-food-eaten-.png",
+    "ASSIGNED-firefox-grammar-I-see-the-food-eaten-.png",
+    "ASSIGNED-firefox-submitted-roles-I-have-made-food-.png",
+    "ASSIGNED-firefox-grammar-I-have-made-food-.png",
+    "ASSIGNED-firefox-submitted-roles-I-enjoy-eating-food-.png",
+    "ASSIGNED-firefox-grammar-I-enjoy-eating-food-.png",
+    "ASSIGNED-firefox-1024x768-hand10.png",
+    "ASSIGNED-firefox-1024x768-hand14.png",
+    "ASSIGNED-firefox-1280x800-hand10.png",
+    "ASSIGNED-firefox-1280x800-hand14.png",
+    "ASSIGNED-firefox-1366x768-hand10.png",
+    "ASSIGNED-firefox-1366x768-hand14.png",
+    "ASSIGNED-firefox-1920x1080-hand10.png",
+    "ASSIGNED-firefox-1920x1080-hand14.png",
+    "ASSIGNED-webkit-normal-opening.png",
+    "ASSIGNED-webkit-boss-opening.png",
+    "ASSIGNED-webkit-dust-keyboard-selected.png",
+    "ASSIGNED-webkit-supply-result.png",
+    "ASSIGNED-webkit-word-search-excludes-dust.png",
+    "ASSIGNED-webkit-search-result.png",
+    "ASSIGNED-webkit-nounSearch-result.png",
+    "ASSIGNED-webkit-verbSearch-result.png",
+    "ASSIGNED-webkit-adjectiveSearch-result.png",
+    "ASSIGNED-webkit-connectorSearch-result.png",
+    "ASSIGNED-webkit-recycle-result.png",
+    "ASSIGNED-webkit-submitted-roles-The-running-child-is-happy-.png",
+    "ASSIGNED-webkit-grammar-The-running-child-is-happy-.png",
+    "ASSIGNED-webkit-submitted-roles-The-finished-homework-is-easy-.png",
+    "ASSIGNED-webkit-grammar-The-finished-homework-is-easy-.png",
+    "ASSIGNED-webkit-submitted-roles-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-webkit-grammar-The-child-reading-a-book-is-happy-.png",
+    "ASSIGNED-webkit-submitted-roles-The-food-made-today-is-good-.png",
+    "ASSIGNED-webkit-grammar-The-food-made-today-is-good-.png",
+    "ASSIGNED-webkit-submitted-roles-Food-is-eaten-.png",
+    "ASSIGNED-webkit-grammar-Food-is-eaten-.png",
+    "ASSIGNED-webkit-submitted-roles-I-see-him-run-.png",
+    "ASSIGNED-webkit-grammar-I-see-him-run-.png",
+    "ASSIGNED-webkit-submitted-roles-I-see-him-running-.png",
+    "ASSIGNED-webkit-grammar-I-see-him-running-.png",
+    "ASSIGNED-webkit-submitted-roles-I-see-the-food-eaten-.png",
+    "ASSIGNED-webkit-grammar-I-see-the-food-eaten-.png",
+    "ASSIGNED-webkit-submitted-roles-I-have-made-food-.png",
+    "ASSIGNED-webkit-grammar-I-have-made-food-.png",
+    "ASSIGNED-webkit-submitted-roles-I-enjoy-eating-food-.png",
+    "ASSIGNED-webkit-grammar-I-enjoy-eating-food-.png",
+    "ASSIGNED-webkit-1024x768-hand10.png",
+    "ASSIGNED-webkit-1024x768-hand14.png",
+    "ASSIGNED-webkit-1280x800-hand10.png",
+    "ASSIGNED-webkit-1280x800-hand14.png",
+    "ASSIGNED-webkit-1366x768-hand10.png",
+    "ASSIGNED-webkit-1366x768-hand14.png",
+    "ASSIGNED-webkit-1920x1080-hand10.png",
+    "ASSIGNED-webkit-1920x1080-hand14.png"
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    },
+    {
+      "engine": "firefox",
+      "version": "135.0"
+    },
+    {
+      "engine": "webkit",
+      "version": "18.4"
+    }
+  ],
+  "errors": [],
+  "startedAt": "2026-10-09T14:48:29.200Z",
+  "status": "PASS",
+  "finishedAt": "2026-10-09T14:55:11.771Z"
+}

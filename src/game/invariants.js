@@ -1,10 +1,11 @@
+import {validateEmberScale} from '../engine/emberScaleShield.js';
 import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {validateTurnHandSeal} from './turnHandSeal.js';
 import {validateOperationHistory} from './operationHistory.js';
 import {cardDefinition,cardKind,maxPolish} from '../data/cardCatalog.js';
 import { assertRng } from './rng.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
-import {validateFrostCards} from './frostCards.js';
+import {validateTemporaryCards} from './temporaryCards.js';
 import {validateFrostCrystalLock} from '../engine/frostCrystalLock.js';
 
 const assert = (condition, message) => { if (!condition) throw new Error(`State invariant: ${message}`); };
@@ -38,6 +39,7 @@ export function assertCombatInvariants(activeCardIds, combat, cardInstances) {
   if (combat.exchangesRemaining !== undefined) assert(nonnegative(combat.exchangesRemaining), 'invalid remaining exchanges');
   const hp = combat.enemyState?.hp ?? combat.enemyState?.hpRemaining;
   if (hp !== undefined) assert(nonnegative(hp), 'invalid enemy HP');
+  if(combat.enemyState?.bossMechanic?.id==='EMBER_SCALE_SHIELD')validateEmberScale(combat.enemyState);
   if(combat.enemyState?.bossMechanic?.id==='TIME_GOLEM')validateTimeGolem(combat.enemyState);
   if(combat.enemyState?.bossMechanic?.id==='FROST_CRYSTAL_LOCK')validateFrostCrystalLock(combat.enemyState);
   return true;
@@ -53,13 +55,14 @@ export function assertRunInvariants(run, registry) {
   assert(run.cardInstances && typeof run.cardInstances === 'object', 'missing card instances');
   for (const id of run.activeCardIds) {
     const card = run.cardInstances[id];
+    assert(cardKind(card,run.version)!=='OBSTACLE','obstacle permanently owned');
     assert(card?.instanceId === id, `missing card ${id}`);
     assert(typeof card.cardDefId === 'string', 'missing card definition');
     assert(nonnegative(card.polishLevel) && card.polishLevel <= maxPolish(card,run.version), 'invalid polish level');
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
-  validateFrostCards(run);
+  validateTemporaryCards(run);
   if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);validateTurnHandSeal(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);

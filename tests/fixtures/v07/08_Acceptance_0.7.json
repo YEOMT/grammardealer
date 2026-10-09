@@ -1,0 +1,990 @@
+{
+  "count": 123,
+  "status": "NOT_RUN",
+  "items": [
+    {
+      "id": "P001",
+      "group": "BASELINE_SCOPE",
+      "requirement": "작업 시작 최신 origin/main과 AGENTS.md를 확인하고 새 브랜치에서 시작 SHA/dirty상태를 기록한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P002",
+      "group": "BASELINE_SCOPE",
+      "requirement": "0.6.1 정상 동작을 새 구현으로 덮어 재작성하지 않고 필요한 경계만 확장한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P003",
+      "group": "BASELINE_SCOPE",
+      "requirement": "새 원정은0.7.0이며 구버전 run/save는 해당 버전 정책으로 읽는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P004",
+      "group": "BASELINE_SCOPE",
+      "requirement": "기존35동사+will을 실제 export로 열거해 source별 누락 없는36목록을 만든다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P005",
+      "group": "BASELINE_SCOPE",
+      "requirement": "WORD/OPERATION 신규 정의 수는0, 새 물리 신규 정의는 검은 먼지1종뿐이다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P006",
+      "group": "BASELINE_SCOPE",
+      "requirement": "look를 삭제하거나 look at를 별도 카드로 만들지 않는다. 실제 기존 정상범위는 보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P007",
+      "group": "BASELINE_SCOPE",
+      "requirement": "언어 인식과 콤보 해금/보상/보스 정책을 분리한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P008",
+      "group": "BASELINE_SCOPE",
+      "requirement": "현재 28장 생성기·기본자원·기존6지역HP·운석0.6.1·운영7종/연마+1을 보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P009",
+      "group": "BASELINE_SCOPE",
+      "requirement": "새 룬·5번째 룬 슬롯·Stage7상점·영구 무료 문법 재료를 추가하지 않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P010",
+      "group": "BASELINE_SCOPE",
+      "requirement": "원격main 직접push/자동병합/승인없는Pages배포를 하지 않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P011",
+      "group": "PROGRESSION",
+      "requirement": "Stage7은 잿불 동굴, 전투28~32의5전투다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P012",
+      "group": "PROGRESSION",
+      "requirement": "불씨 도롱뇽/현무암 거북/화로 대장장이 정령/메아리 박쥐/잠든 잿불룡 순서를 지킨다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P013",
+      "group": "PROGRESSION",
+      "requirement": "일반전의학습초점은 분사수식/수동태/사역·준사역/지각, 보스는종합이다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P014",
+      "group": "PROGRESSION",
+      "requirement": "HP960/1040/1120/1200/1440은 이번 구현 초깃값으로 기록한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P015",
+      "group": "PROGRESSION",
+      "requirement": "0.7 원정의 Stage6보스클리어는 새pack과기존보상해금을 한 번만 적용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P016",
+      "group": "PROGRESSION",
+      "requirement": "Stage6보상해결→완료화면→Stage7소개→첫전투로 이어지며 상점은없다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P017",
+      "group": "PROGRESSION",
+      "requirement": "Stage7입장무료WORD와OPERATION0장; 재접속으로무료카드를반복지급하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P018",
+      "group": "PROGRESSION",
+      "requirement": "Stage7보상은기존혼합3칸·일반/보스확률과경제를 그대로 사용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P019",
+      "group": "PROGRESSION",
+      "requirement": "Stage7보스승리는 profile단계7을1회기록하며 storyClearCount를올리지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P020",
+      "group": "PROGRESSION",
+      "requirement": "Stage7보상후 CONTENT_COMPLETE/STAGE7_END, 총32전투로종료한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P021",
+      "group": "PROGRESSION",
+      "requirement": "기존0.6.1저장은27전투/STAGE6_END에서끝나며 몰래Stage7로연장하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P022",
+      "group": "GRAMMAR",
+      "requirement": "분사수식은 명사 앞·뒤를모두분석하고 실제수식명사ID를보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P023",
+      "group": "GRAMMAR",
+      "requirement": "현재분사수식의본동사는원래Frame의필수목적어를잃지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P024",
+      "group": "GRAMMAR",
+      "requirement": "PP수식은해당수동/상태용법에근거하며모든VERB PP를무조건AP로허용하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P025",
+      "group": "GRAMMAR",
+      "requirement": "명사수식·동명사·진행·완료·목적격보어역할을서로구별한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P026",
+      "group": "GRAMMAR",
+      "requirement": "품사형용사카드 interesting/tired의철자로분사판정을만들지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P027",
+      "group": "GRAMMAR",
+      "requirement": "본동사시제와동형PP는실제역할증거를사용해구별한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P028",
+      "group": "GRAMMAR",
+      "requirement": "수동태는be계열보조동사+PP와타동Sense/수동허용정보를필수로한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P029",
+      "group": "GRAMMAR",
+      "requirement": "소유have·연결be/become·게임에등록된SV전용용법을일괄수동화하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P030",
+      "group": "GRAMMAR",
+      "requirement": "검수된gone상태예외는비문으로잘못처리하지않으며VOICE.PASSIVE를주지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P031",
+      "group": "GRAMMAR",
+      "requirement": "수동문에by없어도정상이며by카드를새로만들지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P032",
+      "group": "GRAMMAR",
+      "requirement": "현재/과거단순수동·진행수동·완료수동·will수동을실제복수사본으로검사한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P033",
+      "group": "GRAMMAR",
+      "requirement": "기존조동사사이부사처리를수동태경로에도적용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P034",
+      "group": "GRAMMAR",
+      "requirement": "수동문의표면문형과원래타동Frame을각각기록하고같은4형식보너스를중복주지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P035",
+      "group": "GRAMMAR",
+      "requirement": "give/show/send의수혜자승격과대상승격수동문에서남은목적어/전치사구를검사한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P036",
+      "group": "GRAMMAR",
+      "requirement": "make의수동원형보어는to형태가필요한대표경로를지원한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P037",
+      "group": "GRAMMAR",
+      "requirement": "see의능동원형/ING/PP를모두정식지원한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P038",
+      "group": "GRAMMAR",
+      "requirement": "have의O+BARE/ING/PP를지원하고완료/수동과구분한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P039",
+      "group": "GRAMMAR",
+      "requirement": "feel의대표지각ING·find/keep의ING/PP를동사별등록한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P040",
+      "group": "GRAMMAR",
+      "requirement": "want/need/like의검수된PP보어는같은일반PP보어경로로지원하되사역으로오표시하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P041",
+      "group": "GRAMMAR",
+      "requirement": "help는기존원형/to를보존하고모든ING/PP직접보어를일괄허용하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P042",
+      "group": "GRAMMAR",
+      "requirement": "make/find/keep의기존AP/NP분석을임의삭제하지않고애매한keep NP는교육기본예문으로확대하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P043",
+      "group": "GRAMMAR",
+      "requirement": "명사뒤분사수식으로성립하는문장은그동사의직접OC형식이없다는이유로거절하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P044",
+      "group": "GRAMMAR",
+      "requirement": "실제CARD ID/범위/주절/부절/head/대상/누락논항연결을직렬화한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P045",
+      "group": "GRAMMAR",
+      "requirement": "같은NP 참조를가짜물리카드나가짜점수기여로만들지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P046",
+      "group": "GRAMMAR",
+      "requirement": "문법분석선택은고정규칙이며점수·룬·보스·해금과무관하다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P047",
+      "group": "GRAMMAR",
+      "requirement": "이미수정한AP-to gap과is often giving/has often given의4형식인정을보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P048",
+      "group": "GRAMMAR",
+      "requirement": "실제없는주어/유한동사/보어를자동삽입하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P049",
+      "group": "GRAMMAR",
+      "requirement": "INVALID_CORE도WORD제출·턴/카드소모·0피해안내를기존대로처리한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P050",
+      "group": "GRAMMAR",
+      "requirement": "기술적한도초과/파서오류는카드·턴무소모로보고하며가짜정답으로바꾸지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P051",
+      "group": "GRAMMAR",
+      "requirement": "의미가이상한정상구조를가산/감산/갑옷해제gate로사용하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P052",
+      "group": "SCORING",
+      "requirement": "새 수동태배수×1.8을팩자격을갖춘정상VOICE.PASSIVE에공격당한번적용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P053",
+      "group": "SCORING",
+      "requirement": "분사수식은기존형용사수식점수를재사용하며별도중복분사배수를추가하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P054",
+      "group": "SCORING",
+      "requirement": "분사OC는기존5형식×2.5, 명사수식이나동명사보너스를자동으로중복하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P055",
+      "group": "SCORING",
+      "requirement": "사역/지각분류표시는가능하지만추가숨은배수를만들지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P056",
+      "group": "SCORING",
+      "requirement": "Stage7지역×1.25는정상신규분사수식/수동/OC/대표사역지각구조에공격당한번이다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P057",
+      "group": "SCORING",
+      "requirement": "진행·완료·동명사만쓴공격은보스우회는되지만그사실만으로Stage7지역배수를받지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P058",
+      "group": "SCORING",
+      "requirement": "기존점수순서의시간뒤수동태배수를삽입하고다른기존계수/룬순서는유지한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P059",
+      "group": "SCORING",
+      "requirement": "매곱셈내림·16장제한·유효카드수중복방지·운석계수를보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P060",
+      "group": "SCORING",
+      "requirement": "07점수예제를실제parser→score로검사하고다르면근거없이fixture를고치지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P061",
+      "group": "SCORING",
+      "requirement": "생성문장목록/기대JSON을production채점정답표로읽지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P062",
+      "group": "DUST_OPERATIONS",
+      "requirement": "검은먼지는OBSTACLE이고lexeme/품사/형태/점수/연마가없다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P063",
+      "group": "DUST_OPERATIONS",
+      "requirement": "일반2/보스5를전투시작한번만생성하며activeCardIds에는넣지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P064",
+      "group": "DUST_OPERATIONS",
+      "requirement": "임시ID는run/battle/source/index에귀속되고동일생성재시도는중복되지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P065",
+      "group": "DUST_OPERATIONS",
+      "requirement": "첫손패먼지최대1과WORD witness를안정적교환으로보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P066",
+      "group": "DUST_OPERATIONS",
+      "requirement": "첫손패자리가부족하면가짜WORD를생성하거나먼지상한을몰래깨지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P067",
+      "group": "DUST_OPERATIONS",
+      "requirement": "먼지shuffle은deck RNG만사용하고다른stream은불변이다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P068",
+      "group": "DUST_OPERATIONS",
+      "requirement": "먼지는HAND/DRAW/DISCARD에서손패·드로우칸을정상차지한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P069",
+      "group": "DUST_OPERATIONS",
+      "requirement": "먼지ADD/SET_FORM/SWAP/USE는모두UI와Controller에서차단한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P070",
+      "group": "DUST_OPERATIONS",
+      "requirement": "먼지교환은허용하고보통교환비용만쓰며즉시소멸시키지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P071",
+      "group": "DUST_OPERATIONS",
+      "requirement": "재셔플로먼지가다시나올수있고이를버그로자동제거하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P072",
+      "group": "DUST_OPERATIONS",
+      "requirement": "보급ALL은먼지도뽑고actualDrawCount에포함한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P073",
+      "group": "DUST_OPERATIONS",
+      "requirement": "탐색WORD와품사탐색은명시적으로cardKind WORD만읽는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P074",
+      "group": "DUST_OPERATIONS",
+      "requirement": "재활용ALL은DISCARD의먼지를정상적으로가져올수있다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P075",
+      "group": "DUST_OPERATIONS",
+      "requirement": "보급/탐색+1의같은사본재사용과효과뒤discard를그대로보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P076",
+      "group": "DUST_OPERATIONS",
+      "requirement": "0대상무소모·한도초과클리핑·취소무소모규칙을보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P077",
+      "group": "DUST_OPERATIONS",
+      "requirement": "먼지를점수/유효단어수/룬트리거/교환외보상으로세지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P078",
+      "group": "DUST_OPERATIONS",
+      "requirement": "승리·패배·새원정정리에서먼지사본을회수하고기록은검증가능한종료정보로남긴다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P079",
+      "group": "DUST_OPERATIONS",
+      "requirement": "Stage6빙정WORD/임시SEARCH와Stage7먼지는source별검증하며상호오인하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P080",
+      "group": "DUST_OPERATIONS",
+      "requirement": "아무temporary를허용하는식으로기존outside-snow검증을무력화하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P081",
+      "group": "DUST_OPERATIONS",
+      "requirement": "D사례의중복ID/누락/위조/잘못된pile/강화/source저장은거절한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P082",
+      "group": "BOSS",
+      "requirement": "검댕비늘은최초active true, active일때피해25%만적용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P083",
+      "group": "BOSS",
+      "requirement": "정상-ing/PP실제역할1개이상이있고보스적용전양수위력일때해제한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P084",
+      "group": "BOSS",
+      "requirement": "분사수식/OC/수동뿐아니라진행·완료·동명사정상사용도해제한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P085",
+      "group": "BOSS",
+      "requirement": "과거형made/read 또는lexical interesting의철자만으로해제하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P086",
+      "group": "BOSS",
+      "requirement": "INVALID_CORE 또는잘못된해당형태는갑옷을해제하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P087",
+      "group": "BOSS",
+      "requirement": "부분오류가별도절에있어도해제근거자체가정상이면인정한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P088",
+      "group": "BOSS",
+      "requirement": "해제한그공격부터정상피해며이후공격에서다시갑옷을생성하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P089",
+      "group": "BOSS",
+      "requirement": "HP1잠금/부위순서/매턴먼지생성/필수다섯문장기믹을추가하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P090",
+      "group": "BOSS",
+      "requirement": "반감후에도충분히큰화력은갑옷미해제상태로처치가능하다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P091",
+      "group": "BOSS",
+      "requirement": "반감후0피해와INVALID_CORE안내를구분한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P092",
+      "group": "BOSS",
+      "requirement": "동일attackId재생으로갑옷이나피해가두번정산되지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P093",
+      "group": "BOSS",
+      "requirement": "갑옷상태·마지막해제근거/attackID·피해는저장/로드에서보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P094",
+      "group": "UI",
+      "requirement": "잿불동굴은어두운자주/적갈배경과국소주황빛으로표현하고무서운지옥/강한전체플래시를피한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P095",
+      "group": "UI",
+      "requirement": "기존사막그라데이션과설원빙정의푸른배경을훼손하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P096",
+      "group": "UI",
+      "requirement": "검은먼지는다른카드와같은크기지만회색바탕/방해카드/전투한정설명으로구분한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P097",
+      "group": "UI",
+      "requirement": "먼지교환체크44px와키보드포커스는유지하고사용버튼/형태버튼은보이지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P098",
+      "group": "UI",
+      "requirement": "몹/보스별실루엣과기본이모지fallback을지원하고최종이미지없어도게임이완주된다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P099",
+      "group": "UI",
+      "requirement": "분사수식의대상강조, 수동V전체, OC영역은제출후에만표시한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P100",
+      "group": "UI",
+      "requirement": "보스비늘과HP변경을IMPACT에같이반영하고cancel/finish는재정산하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P101",
+      "group": "UI",
+      "requirement": "효과감소에서핵심피격반응을유지하고OS reduce에는비이동대체를사용한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P102",
+      "group": "UI",
+      "requirement": "도감은문법제목(형태)+1~2문장설명, 고정교과서예문/전체한국어번역을추가하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P103",
+      "group": "UI",
+      "requirement": "분사수식·수동태·사역·지각항목을Stage6설명다음학습순서로배치한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P104",
+      "group": "UI",
+      "requirement": "덱UI는영구보유수와현재전투먼지수를분리해표시하고사전보유수에먼지를더하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P105",
+      "group": "UI",
+      "requirement": "1024/1280/1366/1920 및10/14손패·16문장·4룬에서조작영역/명칭이겹치지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P106",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "현재가동중전투·보상·상점·완료의신규저장과기존0.6.1저장을검사한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P107",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "형태/먼지/보스상태/운영영수증/RNG는save/load후동일하다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P108",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "알수없는version/불일치manifest는기존슬롯을지우지않고거절한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P109",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "구버전registry/점수/rune/보상/상점golden을새policy로재생성해맞추지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P110",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "npm test/validate:data/build를실제실행하고중간실패와최종결과를구분한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P111",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "기존공식browser/0.5.1polish/cross/0.6.1집중검사를호환view로보존한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P112",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "Stage7집중UI는Chromium/Firefox/WebKit에서실행한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P113",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "일반/보스먼지2/5및보급/탐색/재활용상호작용을실제UI로검사한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P114",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "새production정상경로로1~7지역32전투를카드/HP주입없이완주한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P115",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "7-1수식·7-2수동·7-3사역·7-4지각학습과정을실제손패제출증거로별도기록한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P116",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "기존6-1/6-2/6-3학습검증을일반완주와혼동하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P117",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "운영미보유상태의Stage7집중플레이와다른보스우회문법도지정상태로분리검증한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P118",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "고점장문과짧은문장·먼지많은경계에서parser작업량/응답을측정한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P119",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "자동정책이후보를못찾은경우게임버그/불가능시드/사람승률로치환하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P120",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "실제iPad/Android/Safari·교사최종검수·스피커청취는미실행시NOT_RUN이다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P121",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "완료보고서·문법audit·먼지수명검토·인수표·선별캡처·실행환경/명령을제출한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P122",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "기존증거를보존하고대형raw로그/개인경로덤프/node_modules/dist를불필요하게커밋하지않는다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    },
+    {
+      "id": "P123",
+      "group": "SAVE_QA_DELIVERY",
+      "requirement": "PR 생성은완료시Ready for review로하고실제로Draft이면그상태를명시한다.",
+      "level": "REQUIRED",
+      "status": "NOT_RUN",
+      "evidence": null
+    }
+  ]
+}

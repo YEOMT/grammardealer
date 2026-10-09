@@ -1,0 +1,859 @@
+{
+  "status": "PASS",
+  "campaignVersion": "0.6.1",
+  "emberCourse": false,
+  "emberLearningCourse": [
+    {
+      "battle": 28,
+      "expectedTag": "PARTICIPLE.PRESENT",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "battle": 29,
+      "expectedTag": "VOICE.PASSIVE",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "battle": 30,
+      "expectedTag": "CONSTRUCTION.CAUSATIVE",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "battle": 31,
+      "expectedTag": "CONSTRUCTION.PERCEPTION",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "skipTutorial": true,
+  "browser": "134.0.6998.35",
+  "viewport": {
+    "width": 1366,
+    "height": 768
+  },
+  "effectsOff": false,
+  "seed": "run-sequence.57",
+  "policy": "LEARNING",
+  "urlPath": "/grammardealer/",
+  "offlineFullStage1": true,
+  "offlineFullStage2": true,
+  "offlineFullStage3": true,
+  "offlineFullStage4": true,
+  "offlineFullStage5": true,
+  "offlineFullStage6": true,
+  "frostOpening": true,
+  "frostMultiple": true,
+  "frostNoncomparison": true,
+  "frostLock": true,
+  "frostLastKill": true,
+  "snowPlanReport": {
+    "status": "NO_REVIEWED_ROUTE_FOR_THIS_CONFIGURATION"
+  },
+  "vocabularyMode": "STANDARD",
+  "snowCourse": true,
+  "exerciseOperationReuse": false,
+  "reuseExercised": false,
+  "learningCourse": [
+    {
+      "battle": 23,
+      "expectedTag": "COMPARISON.COMPARATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 23,
+          "sentence": "she was harder to people",
+          "tags": [
+            "FRAME.SVC",
+            "COMPARISON.COMPARATIVE",
+            "PHRASE.PP",
+            "TIME.PAST"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.10",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.11",
+              "after": 35
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.20",
+              "after": 45
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.d8a3015c-5ee1-4030-b738-2ee696617e01.stage.02.card.0",
+              "after": 55
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.1.card",
+              "after": 65
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 95
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 152
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 182
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.COMPARATIVE",
+              "after": 327
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "PHRASE.PP",
+              "after": 337
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 357
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 642
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 802
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 802
+            }
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "starter.11",
+            "starter.20",
+            "entry.run.d8a3015c-5ee1-4030-b738-2ee696617e01.stage.02.card.0",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.1.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 24,
+      "expectedTag": "COMPARISON.SUPERLATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 24,
+          "sentence": "she likes taking the hardest park",
+          "tags": [
+            "FRAME.SVO",
+            "MODIFIER.ADJECTIVE",
+            "COMPARISON.SUPERLATIVE",
+            "CLAUSE.GERUND"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.10",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.8.card",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.16",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.26",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.20",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.10.card",
+              "after": 60
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 90
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVO",
+              "after": 162
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.GERUND",
+              "after": 226
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.SUPERLATIVE",
+              "after": 429
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADJECTIVE",
+              "after": 434
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 454
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 817
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 1021
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1021
+            }
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.8.card",
+            "starter.16",
+            "starter.26",
+            "starter.20",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.10.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 25,
+      "expectedTag": "COMPARISON.EQUALITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 25,
+          "sentence": "I was twice as young as him",
+          "tags": [
+            "FRAME.SVC",
+            "MODIFIER.ADVERB",
+            "COMPARISON.EQUALITY",
+            "COMPARISON.MULTIPLIER",
+            "TIME.PAST"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.07",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.11",
+              "after": 35
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.02",
+              "after": 45
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.01",
+              "after": 55
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.24.card",
+              "after": 65
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.00",
+              "after": 75
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.5.card",
+              "after": 85
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 115
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 184
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 220
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.EQUALITY",
+              "after": 396
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.MULTIPLIER",
+              "after": 416
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADVERB",
+              "after": 421
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 441
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 793
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 991
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 991
+            }
+          ],
+          "physicalCardIds": [
+            "starter.07",
+            "starter.11",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.02",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.01",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.24.card",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.00",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.5.card"
+          ]
+        }
+      ]
+    }
+  ],
+  "operationUses": 17,
+  "playedBattles": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+  ],
+  "svooCaptured": true,
+  "veilCaptured": true,
+  "sealCaptured": true,
+  "attacksAfterTutorial": 59,
+  "invalidSubmissions": 1,
+  "totalActualAttacks": 60,
+  "checks": [
+    {
+      "ids": [
+        "LEGACY061_SAVE"
+      ],
+      "description": "Explicit 0.6.1 generated initial save loaded by current production UI; not a newly created 0.7 run",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P01",
+        "P02",
+        "U12",
+        "U13"
+      ],
+      "description": "production subpath, profile and initial six-card save/load exact (including RNG)",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V051-P035",
+        "V051-P038"
+      ],
+      "description": "actual tutorial skip restores normal S1-1 without reward",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P11"
+      ],
+      "description": "network disabled after all initial static resources loaded",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U01",
+        "U07",
+        "U08",
+        "C13"
+      ],
+      "description": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P03",
+        "P04"
+      ],
+      "description": "frozen reward and unlock baseline survive real IndexedDB restore",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P10"
+      ],
+      "description": "dictionary remains resource and RNG neutral after tutorial",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P04",
+        "V022-P05",
+        "V022-P62"
+      ],
+      "description": "actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "D10",
+        "D15",
+        "U03"
+      ],
+      "description": "invalid submission then real card exchange via UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R02"
+      ],
+      "description": "first rune choices rendered crystal/amber/copper",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.02 preview and once-only entry; first shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V061-NATURAL-OPERATION-POLISH"
+      ],
+      "description": "naturally purchased reusable operation polished through shop UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.03 preview and once-only entry; no shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PAST break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P068",
+        "P087"
+      ],
+      "description": "real golem PRESENT break and offline phase save/load",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.04 preview and once-only entry; second shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V061-NATURAL-STAGE4-CHOICE"
+      ],
+      "description": "real Stage 4 connector choice and exact pending completion save",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.05 preview and once-only entry; no shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V05-P056",
+        "V05-P071",
+        "V05-P073",
+        "V05-P083"
+      ],
+      "description": "natural sphinx first draw seal: actual UI illegal placement is free and safe save/load preserves seal and all RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.06 preview and once-only entry; third shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V06-P054",
+        "V06-P056",
+        "V06-P127"
+      ],
+      "description": "natural boss save/load preserves shattered frost, crystals and exact RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V06-P054",
+        "V06-P056",
+        "V06-P127"
+      ],
+      "description": "natural boss save/load preserves shattered frost, crystals and exact RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "C12",
+        "R17",
+        "P11",
+        "V02-P26"
+      ],
+      "description": "all expected production battles complete offline with real cards, SVOO and boss veil release",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "completed campaign save restores its exact completion screen without another milestone",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P05"
+      ],
+      "description": "Stage 1, 2, 3, 4, 5 and 6 completion each persisted once, no story clear",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P06",
+        "V022-P47",
+        "V022-P48"
+      ],
+      "description": "end-screen English grammar/power codex has no translations or internal labels and does not reapply profile records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R04"
+      ],
+      "description": "new expedition works offline and previously seen guide is not forced",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P49"
+      ],
+      "description": "production debug query/hash cannot expose developer grammar diagnostics or change records",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U14"
+      ],
+      "description": "no page/console errors, failed resources or external runtime requests",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "badResponses": [],
+  "requestOrigins": [
+    "http://127.0.0.1:4176"
+  ],
+  "commandCount": 755,
+  "rawLocalEvidence": ".local-validation/v07/e2e-legacy061-second/production-browser.json",
+  "rawSha256": "9e40b2dc28ec88fc97fef80c244ac7709444878fcd54e43aea871abbab7dad70",
+  "captureCount": 60,
+  "runKind": "VERSION_PINNED_061_START_SAVE_THEN_REAL_UI",
+  "videoLocalPath": ".local-validation/v07/e2e-legacy061-second/production-play.webm"
+}

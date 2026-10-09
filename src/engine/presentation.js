@@ -201,6 +201,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='EMBER_SCALE_SHIELD'){const n=find(root,'ember-scale');if(n){n.dataset.active=String(state.active);n.textContent=state.active?'검댕 비늘 · 피해 75% 감소':'검댕 비늘 해제';}}
     if(state?.id==='FROST_CRYSTAL_LOCK'){const n=find(root,'frost-crystals');if(n){const changed=n.dataset.remaining!==undefined&&Number(n.dataset.remaining)>state.crystalsRemaining;n.dataset.remaining=String(state.crystalsRemaining);n.textContent='◆'.repeat(state.crystalsRemaining)+'◇'.repeat(5-state.crystalsRemaining)+' · 빙결핵 '+state.crystalsRemaining+' / 5 · '+(state.crystalsRemaining?'HP 1 잠금':'잠금 해제');if(changed)animateCore(n,[{filter:'brightness(2)'},{filter:'brightness(1)'}],300);}}
     if(state?.id==='TIME_GOLEM'){
       const phases=find(root,'golem-phases');

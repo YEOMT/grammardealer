@@ -1,0 +1,174 @@
+{
+  "count": 12,
+  "cases": [
+    {
+      "id": "U01",
+      "kind": "NATURAL_UI_COURSE",
+      "battle": 28,
+      "require": [
+        "NOUN_MODIFIER_ING_OR_PP"
+      ],
+      "additionalAssigned": [
+        "NOUN_MODIFIER_ING_PRE",
+        "NOUN_MODIFIER_ING_POST",
+        "NOUN_MODIFIER_PP_PRE",
+        "NOUN_MODIFIER_PP_POST"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U02",
+      "kind": "NATURAL_UI_COURSE",
+      "battle": 29,
+      "require": [
+        "VOICE.PASSIVE",
+        "PASSIVE_SCORE_EVENT",
+        "REGION_EVENT"
+      ],
+      "forbid": [
+        "INJECTED_CARDS",
+        "REDUCED_HP"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U03",
+      "kind": "NATURAL_UI_COURSE",
+      "battle": 30,
+      "require": [
+        "CAUSATIVE_OR_ASSISTANCE_REAL_GOVERNOR"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U04",
+      "kind": "NATURAL_UI_COURSE",
+      "battle": 31,
+      "require": [
+        "PERCEPTION_REAL_GOVERNOR"
+      ],
+      "additionalAssigned": [
+        "SEE_BARE",
+        "SEE_ING",
+        "SEE_PP"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U05",
+      "kind": "NATURAL_UI_COURSE",
+      "battle": 32,
+      "require": [
+        "DUST5",
+        "VALID_ING_PP_RELEASE",
+        "KILL_OR_DOCUMENTED_NONKILL_BEFORE_NEXT_ATTACK"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U06",
+      "kind": "ASSIGNED_REAL_UI",
+      "require": [
+        "BOSS_SHIELD_NOT_RELEASED_WITH_PAST_MADE",
+        "QUARTER_DAMAGE",
+        "RELEASE_ON_CURRENT_ATTACK",
+        "NEXT_PLAIN_ATTACK_FULL_POWER"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U07",
+      "kind": "ASSIGNED_REAL_UI",
+      "require": [
+        "NO_OWNED_OPERATION",
+        "NORMAL_EXCHANGE_DUST",
+        "VALID_PASSIVE_OR_ING_ATTACK",
+        "NO_FREE_OPERATION_IN_STAGE7"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U08",
+      "kind": "CROSS_BROWSER",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "require": [
+        "DUST_CARD_DISABLED_BODY_ENABLED_EXCHANGE",
+        "OPERATION_TARGET_FILTER",
+        "SAVE_LOAD",
+        "SHIELD_IMPACT"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U09",
+      "kind": "LAYOUT",
+      "viewports": [
+        [
+          1024,
+          768
+        ],
+        [
+          1280,
+          800
+        ],
+        [
+          1366,
+          768
+        ],
+        [
+          1920,
+          1080
+        ]
+      ],
+      "handCounts": [
+        10,
+        14
+      ],
+      "sentenceCount": 16,
+      "runes": 4,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U10",
+      "kind": "ART",
+      "require": [
+        "SAME_DESERT_BASELINE",
+        "DARK_EMBER_BACKGROUND",
+        "DUST_VISIBLE_NO_WORD_CONFUSION",
+        "NO_FIXED_IMAGE_DEPENDENCY"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U11",
+      "kind": "FULL_PRODUCTION",
+      "require": [
+        "1_TO_32_BATTLES",
+        "SUBPATH_GRAMMARDEALER",
+        "REAL_REWARDS_SHOPS",
+        "NO_FIXTURE_INJECTION",
+        "ERROR_ARRAYS",
+        "COMMAND_TRACE",
+        "SCREENSHOTS",
+        "SAVE_RESTORE",
+        "ONE_TIME_PROFILE_STAGE7"
+      ],
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U12",
+      "kind": "QA_CLASSIFICATION",
+      "require": [
+        "NATURAL_VS_ASSIGNED_SEPARATE",
+        "POLICY_STALL_NOT_GAME_DEFEAT",
+        "NOT_RUN_KEPT",
+        "NO_HUMAN_BALANCE_CLAIM"
+      ],
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

@@ -1,0 +1,2423 @@
+[
+  {
+    "source": ".local-validation/v07/061-final/report.json",
+    "sha256": "4408a87478682d895fd3a5fb4e4859056aa9ad8ea18c7bbf61053a79659c700e",
+    "report": {
+      "kind": "ASSIGNED_PHYSICAL_STATE_REAL_UI_COMMANDS_NOT_NATURAL_CAMPAIGN",
+      "checks": [
+        {
+          "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_supply_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_supply_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_search_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_search_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_nounSearch_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_nounSearch_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_verbSearch_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_verbSearch_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_adjectiveSearch_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_adjectiveSearch_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_connectorSearch_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_connectorSearch_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_recycle_0",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U021_7_OPERATIONS_recycle_1",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_NORMAL",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_SELECTED",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_HOVER",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_FOCUS",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_DISABLED",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_PRESENTATION_HIGHLIGHT",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U013_FROST_STATE_EFFECTS_REDUCED",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1024_10",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1024_14",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1280_10",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1280_14",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1366_10",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1366_14",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1920_10",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U014_U015_U016_U017_LAYOUT_1920_14",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "A116_METEOR_VERSIONED_TOOLTIP",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U001_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U002_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U003_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U004_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U005_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U006_THEME_COMBAT_INTRO_CLEAR",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U002_U004_U006_THEME_SHOP_2",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U002_U004_U006_THEME_SHOP_4",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U002_U004_U006_THEME_SHOP_6",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U024_THEME_RESET_ON_LOBBY",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U025_DESERT_EXACT_BACKGROUND_PANEL_PRESERVATION",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+          "browser": "chromium",
+          "status": "PASS"
+        },
+        {
+          "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+          "browser": "firefox",
+          "status": "PASS"
+        },
+        {
+          "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+          "browser": "webkit",
+          "status": "PASS"
+        },
+        {
+          "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+          "browser": "webkit",
+          "status": "PASS"
+        }
+      ],
+      "captures": [
+        "ASSIGNED-chromium-stage4-pending-restored.png",
+        "ASSIGNED-chromium-operation-polish-preview.png",
+        "ASSIGNED-chromium-supply-same-source-reused.png",
+        "ASSIGNED-chromium-search-same-source-reused.png",
+        "ASSIGNED-chromium-frost-support-opening.png",
+        "ASSIGNED-chromium-frost-search-list.png",
+        "ASSIGNED-chromium-frost-support-exhausted.png",
+        "ASSIGNED-chromium-gap-submitted.png",
+        "ASSIGNED-chromium-vp-adverb-submitted.png",
+        "ASSIGNED-chromium-frost-state-normal.png",
+        "ASSIGNED-chromium-frost-state-selected.png",
+        "ASSIGNED-chromium-frost-state-hover.png",
+        "ASSIGNED-chromium-frost-state-focus.png",
+        "ASSIGNED-chromium-frost-state-disabled.png",
+        "ASSIGNED-chromium-frost-state-presentation_highlight.png",
+        "ASSIGNED-chromium-frost-state-effects_reduced.png",
+        "ASSIGNED-chromium-capacity-1024-10.png",
+        "ASSIGNED-chromium-capacity-1024-14.png",
+        "ASSIGNED-chromium-capacity-1280-10.png",
+        "ASSIGNED-chromium-capacity-1280-14.png",
+        "ASSIGNED-chromium-capacity-1366-10.png",
+        "ASSIGNED-chromium-capacity-1366-14.png",
+        "ASSIGNED-chromium-capacity-1920-10.png",
+        "ASSIGNED-chromium-capacity-1920-14.png",
+        "ASSIGNED-chromium-meteor-versioned-tooltip.png",
+        "ASSIGNED-chromium-stage-1-combat.png",
+        "ASSIGNED-chromium-stage-1-intro.png",
+        "ASSIGNED-chromium-stage-1-stage_clear.png",
+        "ASSIGNED-chromium-stage-2-combat.png",
+        "ASSIGNED-chromium-stage-2-intro.png",
+        "ASSIGNED-chromium-stage-2-stage_clear.png",
+        "ASSIGNED-chromium-stage-3-combat.png",
+        "ASSIGNED-chromium-stage-3-intro.png",
+        "ASSIGNED-chromium-stage-3-stage_clear.png",
+        "ASSIGNED-chromium-stage-4-combat.png",
+        "ASSIGNED-chromium-stage-4-intro.png",
+        "ASSIGNED-chromium-stage-4-stage_clear.png",
+        "ASSIGNED-chromium-stage-5-combat.png",
+        "ASSIGNED-chromium-stage-5-intro.png",
+        "ASSIGNED-chromium-stage-5-stage_clear.png",
+        "ASSIGNED-chromium-stage-6-combat.png",
+        "ASSIGNED-chromium-stage-6-intro.png",
+        "ASSIGNED-chromium-stage-6-stage_clear.png",
+        "ASSIGNED-chromium-stage-2-shop.png",
+        "ASSIGNED-chromium-stage-4-shop.png",
+        "ASSIGNED-chromium-stage-6-shop.png",
+        "ASSIGNED-chromium-desert-combat-after.png",
+        "ASSIGNED-chromium-desert-intro-after.png",
+        "ASSIGNED-firefox-stage4-pending-restored.png",
+        "ASSIGNED-firefox-operation-polish-preview.png",
+        "ASSIGNED-firefox-supply-same-source-reused.png",
+        "ASSIGNED-firefox-search-same-source-reused.png",
+        "ASSIGNED-firefox-frost-support-opening.png",
+        "ASSIGNED-firefox-frost-search-list.png",
+        "ASSIGNED-firefox-frost-support-exhausted.png",
+        "ASSIGNED-firefox-gap-submitted.png",
+        "ASSIGNED-firefox-vp-adverb-submitted.png",
+        "ASSIGNED-webkit-stage4-pending-restored.png",
+        "ASSIGNED-webkit-operation-polish-preview.png",
+        "ASSIGNED-webkit-supply-same-source-reused.png",
+        "ASSIGNED-webkit-search-same-source-reused.png",
+        "ASSIGNED-webkit-frost-support-opening.png",
+        "ASSIGNED-webkit-frost-search-list.png",
+        "ASSIGNED-webkit-frost-support-exhausted.png",
+        "ASSIGNED-webkit-gap-submitted.png",
+        "ASSIGNED-webkit-vp-adverb-submitted.png"
+      ],
+      "browsers": [
+        {
+          "name": "chromium",
+          "version": "134.0.6998.35"
+        },
+        {
+          "name": "firefox",
+          "version": "135.0"
+        },
+        {
+          "name": "webkit",
+          "version": "18.4"
+        }
+      ],
+      "errors": [],
+      "startedAt": "2026-10-09T14:45:00.005Z",
+      "runtimeOrigins": [
+        "http://127.0.0.1:5173"
+      ],
+      "navigations": [
+        {
+          "browser": "chromium",
+          "url": "http://127.0.0.1:5173/",
+          "time": "2026-10-09T14:45:00.925Z"
+        },
+        {
+          "browser": "firefox",
+          "url": "http://127.0.0.1:5173/",
+          "time": "2026-10-09T14:46:14.780Z"
+        },
+        {
+          "browser": "webkit",
+          "url": "http://127.0.0.1:5173/",
+          "time": "2026-10-09T14:46:46.552Z"
+        }
+      ],
+      "contrastProbes": [
+        {
+          "state": "NORMAL",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-NORMAL-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-NORMAL-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "SELECTED",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-SELECTED-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-SELECTED-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 560.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 559.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 589.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 632.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 578.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 610.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 629.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 658,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(37, 59, 67)",
+              "rect": {
+                "x": 598.421875,
+                "y": 653.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "HOVER",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-HOVER-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-HOVER-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "FOCUS",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-FOCUS-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-FOCUS-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "DISABLED",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-DISABLED-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-DISABLED-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(63, 86, 97)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(63, 86, 97)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "PRESENTATION_HIGHLIGHT",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-PRESENTATION_HIGHLIGHT-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-PRESENTATION_HIGHLIGHT-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        },
+        {
+          "state": "EFFECTS_REDUCED",
+          "kind": "ACTUAL_COMPOSITED_BROWSER_PNG_BACKGROUND_WITH_TRANSPARENT_TEXT",
+          "backgroundFile": "ASSIGNED-chromium-contrast-EFFECTS_REDUCED-composited-background.png",
+          "textFile": "ASSIGNED-chromium-contrast-EFFECTS_REDUCED-text.png",
+          "probes": [
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .pos-label",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 566.203125,
+                "width": 24.84375,
+                "height": 13
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-value",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 610.8125,
+                "y": 565.203125,
+                "width": 11.109375,
+                "height": 15
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card:not(.operation-card) .card-word",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 545.78125,
+                "y": 595.671875,
+                "width": 78.140625,
+                "height": 27.59375
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .frost-duration",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 547.78125,
+                "y": 638.734375,
+                "width": 74.140625,
+                "height": 11.25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-name",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 940.34375,
+                "y": 584.203125,
+                "width": 74.140625,
+                "height": 27
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-description",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 616.203125,
+                "width": 74.140625,
+                "height": 14.296875
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-limit",
+              "foreground": "rgb(49, 90, 106)",
+              "rect": {
+                "x": 940.34375,
+                "y": 635.5,
+                "width": 74.140625,
+                "height": 13.5
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card.operation-card .operation-use",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 945.28125,
+                "y": 664,
+                "width": 20.25,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".hand-cards .frost-card .card-select",
+              "foreground": "rgb(22, 55, 70)",
+              "rect": {
+                "x": 598.421875,
+                "y": 659.5,
+                "width": 17,
+                "height": 25
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".stage-path .active",
+              "foreground": "rgb(241, 213, 143)",
+              "rect": {
+                "x": 26,
+                "y": 24.5,
+                "width": 52.0625,
+                "height": 16
+              },
+              "minimum": 4.5
+            },
+            {
+              "selector": ".enemy-info h2",
+              "foreground": "rgb(240, 234, 216)",
+              "rect": {
+                "x": 608,
+                "y": 89.53125,
+                "width": 285,
+                "height": 36
+              },
+              "minimum": 3
+            },
+            {
+              "selector": ".hand-title",
+              "foreground": "rgb(168, 184, 149)",
+              "rect": {
+                "x": 138,
+                "y": 529.203125,
+                "width": 1090,
+                "height": 15
+              },
+              "minimum": 4.5
+            }
+          ]
+        }
+      ],
+      "desertPreservation": {
+        "combat": {
+          "background": "radial-gradient(circle at 13% 10%, rgb(246, 223, 160) 0px, rgb(246, 223, 160) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 76% 8%, rgb(200, 183, 238) 0px, rgb(200, 183, 238) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(circle at 61% 18%, rgb(255, 232, 184) 0px, rgb(255, 232, 184) 1px, rgba(0, 0, 0, 0) 2px) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 84% 94%, rgba(72, 122, 120, 0.23), rgba(0, 0, 0, 0) 19%) repeat scroll 0% 0% / auto padding-box border-box, radial-gradient(at 30% 128%, rgba(189, 145, 80, 0.396), rgba(0, 0, 0, 0) 48%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(155deg, rgb(25, 28, 57), rgb(36, 32, 56) 60%, rgb(81, 66, 47)) repeat scroll 0% 0% / auto padding-box border-box",
+          "panels": [
+            {
+              "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(142, 120, 90, 0.4)"
+            },
+            {
+              "background": "rgba(25, 30, 49, 0.733) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(142, 120, 90, 0.4)"
+            }
+          ]
+        },
+        "intro": {
+          "body": "radial-gradient(at center bottom, rgba(159, 121, 71, 0.3), rgba(0, 0, 0, 0) 58%) repeat scroll 0% 0% / auto padding-box border-box, rgba(0, 0, 0, 0) linear-gradient(145deg, rgb(20, 27, 56), rgb(49, 38, 56)) repeat scroll 0% 0% / auto padding-box border-box",
+          "panels": [
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            },
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            },
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            },
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            },
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            },
+            {
+              "background": "rgb(41, 39, 61) none repeat scroll 0% 0% / auto padding-box border-box",
+              "border": "rgba(169, 140, 88, 0.4)"
+            }
+          ]
+        },
+        "equalOriginalComputedStyles": true
+      },
+      "status": "PASS",
+      "finishedAt": "2026-10-09T14:48:08.099Z"
+    }
+  },
+  {
+    "source": ".local-validation/v07/061-edges-final/report.json",
+    "sha256": "74574fc0d5f8152f23436bbee44dffac8147bdbacbc56c21e7cdf6db4efe127b",
+    "report": {
+      "kind": "ASSIGNED_061_UI_CONTROLLER_PRESENTATION_EDGES",
+      "checks": [
+        {
+          "id": "A033_FULL_HAND10_USE_REMOVES_SOURCE_BEFORE_CAP",
+          "status": "PASS"
+        },
+        {
+          "id": "A035_ZERO_TARGET_DISABLED_BUT_EXCHANGE_ALLOWED",
+          "status": "PASS"
+        },
+        {
+          "id": "SOURCE_ONLY_SEARCH_PLUS1_DISABLED_NO_SELF_TARGET",
+          "status": "PASS"
+        },
+        {
+          "id": "SOURCE_ONLY_SUPPLY_PLUS1_DISABLED_NO_SELF_TARGET",
+          "status": "PASS"
+        },
+        {
+          "id": "A030_SEARCH_CANCEL_EXACT_STATE_RNG",
+          "status": "PASS"
+        },
+        {
+          "id": "A031_STALE_SEARCH_TARGET_NO_COMMIT",
+          "status": "PASS"
+        },
+        {
+          "id": "A032_DUPLICATE_USE_FINISH_NO_MOVEMENT",
+          "status": "PASS"
+        },
+        {
+          "id": "ONE_SHOT_SOURCE_EXHAUSTED_NO_SECOND_USE",
+          "status": "PASS"
+        },
+        {
+          "id": "SAME_DEFINITION_DISTINCT_COPIES_EACH_USE",
+          "status": "PASS"
+        },
+        {
+          "id": "OPERATION_THEN_UNDO_DOES_NOT_DUPLICATE",
+          "status": "PASS"
+        },
+        {
+          "id": "A044_SHOP_POLISH_CANCEL_EXACT_STATE",
+          "status": "PASS"
+        },
+        {
+          "id": "A039_A040_A041_ASSIGNED_PRESENTER_ABORT_COMMIT_ONCE",
+          "status": "PASS"
+        },
+        {
+          "id": "A039_A040_A041_ASSIGNED_PRESENTER_HIDDEN_COMMIT_ONCE",
+          "status": "PASS"
+        },
+        {
+          "id": "A039_A040_A041_ASSIGNED_PRESENTER_EXCEPTION_COMMIT_ONCE",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1024",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1280",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1366",
+          "status": "PASS"
+        },
+        {
+          "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1920",
+          "status": "PASS"
+        },
+        {
+          "id": "A064_COMMON_RECYCLE_REAL_GENERATED_MIXED_REWARD_RENDER",
+          "status": "PASS"
+        },
+        {
+          "id": "A065_PROTECTED_WORD_AND_MAX_ONE_OPERATION_RENDER",
+          "status": "PASS"
+        }
+      ],
+      "captures": [
+        "ASSIGNED-scroll-access-1024-14.png",
+        "ASSIGNED-scroll-access-1280-14.png",
+        "ASSIGNED-scroll-access-1366-14.png",
+        "ASSIGNED-scroll-access-1920-14.png",
+        "ASSIGNED-real-generated-mixed-reward-common-recycle.png"
+      ],
+      "rewardProbe": {
+        "seed": "061.ui.reward.1",
+        "choices": [
+          {
+            "kind": "CARD",
+            "rarity": "COMMON",
+            "cardDefId": "card.problem",
+            "role": "LOCAL_SYNTAX_RELEVANT",
+            "choiceId": "offer.run.e533f0ee-cd00-44d1-871f-d36e3dd22610.1.choice.0"
+          },
+          {
+            "kind": "CARD",
+            "rarity": "COMMON",
+            "cardDefId": "card.operation.recycle",
+            "role": "GENERAL",
+            "choiceId": "offer.run.e533f0ee-cd00-44d1-871f-d36e3dd22610.1.choice.1"
+          },
+          {
+            "kind": "CARD",
+            "rarity": "COMMON",
+            "cardDefId": "card.or",
+            "role": "IMPLEMENTED_POOL_WILDCARD",
+            "choiceId": "offer.run.e533f0ee-cd00-44d1-871f-d36e3dd22610.1.choice.2"
+          }
+        ]
+      },
+      "status": "PASS"
+    }
+  },
+  {
+    "source": ".local-validation/v07/cross-final/firefox-core-polish-browser/report.json",
+    "sha256": "1c908b1aaa90d505c6ef6b441f452c61774f280d2907e921ed85f837895d9f4c",
+    "report": {
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "checks": [
+        {
+          "id": "CORE_MATRIX_0",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_1",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_2",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_3",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_4",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_5",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_6",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_7",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_8",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_9",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_10",
+          "status": "PASS"
+        },
+        {
+          "id": "V01",
+          "status": "PASS"
+        },
+        {
+          "id": "V02",
+          "status": "PASS"
+        },
+        {
+          "id": "V03",
+          "status": "PASS"
+        },
+        {
+          "id": "V04",
+          "status": "PASS"
+        },
+        {
+          "id": "V05",
+          "status": "PASS"
+        },
+        {
+          "id": "V06",
+          "status": "PASS"
+        },
+        {
+          "id": "V07",
+          "status": "PASS"
+        },
+        {
+          "id": "V08",
+          "status": "PASS"
+        },
+        {
+          "id": "V09",
+          "status": "PASS"
+        },
+        {
+          "id": "V10",
+          "status": "PASS"
+        },
+        {
+          "id": "V11",
+          "status": "PASS"
+        },
+        {
+          "id": "V12",
+          "status": "PASS"
+        },
+        {
+          "id": "V13",
+          "status": "PASS"
+        },
+        {
+          "id": "V14",
+          "status": "PASS"
+        },
+        {
+          "id": "V15",
+          "status": "PASS"
+        },
+        {
+          "id": "V16",
+          "status": "PASS"
+        },
+        {
+          "id": "V17",
+          "status": "PASS"
+        },
+        {
+          "id": "V18",
+          "status": "PASS"
+        },
+        {
+          "id": "V19",
+          "status": "PASS"
+        },
+        {
+          "id": "V20",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_TEACHING_EFFECTS_OFF",
+          "status": "PASS",
+          "evidence": {
+            "roles": 2,
+            "pulse": true,
+            "label": "루비 룬 ×1.6",
+            "expected": "루비 룬 ×1.6",
+            "score": "104",
+            "after": 104
+          }
+        }
+      ],
+      "captures": [
+        "core-0-finished.png",
+        "core-1-finished.png",
+        "core-2-finished.png",
+        "core-3-finished.png",
+        "core-4-finished.png",
+        "core-5-finished.png",
+        "core-6-finished.png",
+        "core-7-finished.png",
+        "core-8-finished.png",
+        "core-9-finished.png",
+        "core-10-finished.png"
+      ],
+      "errors": [],
+      "engine": "firefox",
+      "platform": "win32",
+      "browserVersion": "135.0",
+      "videoArchive": "All native recordings copied into evidence directory"
+    }
+  },
+  {
+    "source": ".local-validation/v07/cross-final/firefox-polish-ui-browser/report.json",
+    "sha256": "3e1a5bf615b62c97f523ab88b8b1c2b4e246853e7be18549ee08aaf303633f14",
+    "report": {
+      "engine": "firefox",
+      "platform": "win32",
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "checks": [
+        {
+          "id": "SKIP_CANCEL",
+          "status": "PASS",
+          "evidence": "actual initial confirmation, no card/RNG mutation"
+        },
+        {
+          "id": "INITIAL_SKIP",
+          "status": "PASS",
+          "evidence": "actual UI skip starts normal S1-1"
+        },
+        {
+          "id": "SKIP_INDEXEDDB",
+          "status": "PASS",
+          "evidence": "actual safe slot round trip"
+        },
+        {
+          "id": "CLICK_KEYBOARD_DRAG",
+          "status": "PASS",
+          "evidence": "real card motion commands"
+        },
+        {
+          "id": "EDUCATION_1366",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1366",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1280",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1280",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1024",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1024",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "ZOOM_125",
+          "status": "PASS",
+          "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+        },
+        {
+          "id": "HER_ALIASES",
+          "status": "PASS",
+          "evidence": "assigned old object/possessive selections show one current her button"
+        },
+        {
+          "id": "ASSIGNED_OPERATION_SAVE",
+          "status": "PASS",
+          "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+        },
+        {
+          "id": "REPLAY_ISOLATION",
+          "status": "PASS",
+          "evidence": "independent controller, actual UI close"
+        }
+      ],
+      "captures": [
+        "skipped-normal-first-hand.png",
+        "codex-1366.png",
+        "assigned-long-record-1366.png",
+        "codex-1280.png",
+        "assigned-long-record-1280.png",
+        "codex-1024.png",
+        "assigned-long-record-1024.png",
+        "codex-zoom125.png"
+      ],
+      "errors": [],
+      "browserVersion": "135.0"
+    }
+  },
+  {
+    "source": ".local-validation/v07/cross-final/webkit-core-polish-browser/report.json",
+    "sha256": "81a8eee3114b92d62e85067c2f350175f6fb73f8296b4789deb638cb97309e9a",
+    "report": {
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "checks": [
+        {
+          "id": "CORE_MATRIX_0",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_1",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_2",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_3",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_4",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_5",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_6",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_7",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_8",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_9",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_10",
+          "status": "PASS"
+        },
+        {
+          "id": "V01",
+          "status": "PASS"
+        },
+        {
+          "id": "V02",
+          "status": "PASS"
+        },
+        {
+          "id": "V03",
+          "status": "PASS"
+        },
+        {
+          "id": "V04",
+          "status": "PASS"
+        },
+        {
+          "id": "V05",
+          "status": "PASS"
+        },
+        {
+          "id": "V06",
+          "status": "PASS"
+        },
+        {
+          "id": "V07",
+          "status": "PASS"
+        },
+        {
+          "id": "V08",
+          "status": "PASS"
+        },
+        {
+          "id": "V09",
+          "status": "PASS"
+        },
+        {
+          "id": "V10",
+          "status": "PASS"
+        },
+        {
+          "id": "V11",
+          "status": "PASS"
+        },
+        {
+          "id": "V12",
+          "status": "PASS"
+        },
+        {
+          "id": "V13",
+          "status": "PASS"
+        },
+        {
+          "id": "V14",
+          "status": "PASS"
+        },
+        {
+          "id": "V15",
+          "status": "PASS"
+        },
+        {
+          "id": "V16",
+          "status": "PASS"
+        },
+        {
+          "id": "V17",
+          "status": "PASS"
+        },
+        {
+          "id": "V18",
+          "status": "PASS"
+        },
+        {
+          "id": "V19",
+          "status": "PASS"
+        },
+        {
+          "id": "V20",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_TEACHING_EFFECTS_OFF",
+          "status": "PASS",
+          "evidence": {
+            "roles": 2,
+            "pulse": true,
+            "label": "루비 룬 ×1.6",
+            "expected": "루비 룬 ×1.6",
+            "score": "104",
+            "after": 104
+          }
+        }
+      ],
+      "captures": [
+        "core-0-finished.png",
+        "core-1-finished.png",
+        "core-2-finished.png",
+        "core-3-finished.png",
+        "core-4-finished.png",
+        "core-5-finished.png",
+        "core-6-finished.png",
+        "core-7-finished.png",
+        "core-8-finished.png",
+        "core-9-finished.png",
+        "core-10-finished.png"
+      ],
+      "errors": [],
+      "engine": "webkit",
+      "platform": "win32",
+      "browserVersion": "18.4",
+      "videoArchive": "All native recordings copied into evidence directory"
+    }
+  },
+  {
+    "source": ".local-validation/v07/cross-final/webkit-polish-ui-browser/report.json",
+    "sha256": "a7e1304262d9a88c7299462636e0858977a6b143d4b6e1803d19931672c8bf8f",
+    "report": {
+      "engine": "webkit",
+      "platform": "win32",
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "checks": [
+        {
+          "id": "SKIP_CANCEL",
+          "status": "PASS",
+          "evidence": "actual initial confirmation, no card/RNG mutation"
+        },
+        {
+          "id": "INITIAL_SKIP",
+          "status": "PASS",
+          "evidence": "actual UI skip starts normal S1-1"
+        },
+        {
+          "id": "SKIP_INDEXEDDB",
+          "status": "PASS",
+          "evidence": "actual safe slot round trip"
+        },
+        {
+          "id": "CLICK_KEYBOARD_DRAG",
+          "status": "PASS",
+          "evidence": "real card motion commands"
+        },
+        {
+          "id": "EDUCATION_1366",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1366",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1280",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1280",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1024",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1024",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "ZOOM_125",
+          "status": "PASS",
+          "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+        },
+        {
+          "id": "HER_ALIASES",
+          "status": "PASS",
+          "evidence": "assigned old object/possessive selections show one current her button"
+        },
+        {
+          "id": "ASSIGNED_OPERATION_SAVE",
+          "status": "PASS",
+          "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+        },
+        {
+          "id": "REPLAY_ISOLATION",
+          "status": "PASS",
+          "evidence": "independent controller, actual UI close"
+        }
+      ],
+      "captures": [
+        "skipped-normal-first-hand.png",
+        "codex-1366.png",
+        "assigned-long-record-1366.png",
+        "codex-1280.png",
+        "assigned-long-record-1280.png",
+        "codex-1024.png",
+        "assigned-long-record-1024.png",
+        "codex-zoom125.png"
+      ],
+      "errors": [],
+      "browserVersion": "18.4"
+    }
+  },
+  {
+    "source": ".local-validation/v051/core-browser/report.json",
+    "sha256": "0a030c40ba837c6e0b16de5402f677fe93918935da902718b9ae3996178b6bd1",
+    "report": {
+      "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+      "checks": [
+        {
+          "id": "CORE_MATRIX_0",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_1",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_2",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_3",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_4",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_5",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_6",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_7",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_8",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_9",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_MATRIX_10",
+          "status": "PASS"
+        },
+        {
+          "id": "V01",
+          "status": "PASS"
+        },
+        {
+          "id": "V02",
+          "status": "PASS"
+        },
+        {
+          "id": "V03",
+          "status": "PASS"
+        },
+        {
+          "id": "V04",
+          "status": "PASS"
+        },
+        {
+          "id": "V05",
+          "status": "PASS"
+        },
+        {
+          "id": "V06",
+          "status": "PASS"
+        },
+        {
+          "id": "V07",
+          "status": "PASS"
+        },
+        {
+          "id": "V08",
+          "status": "PASS"
+        },
+        {
+          "id": "V09",
+          "status": "PASS"
+        },
+        {
+          "id": "V10",
+          "status": "PASS"
+        },
+        {
+          "id": "V11",
+          "status": "PASS"
+        },
+        {
+          "id": "V12",
+          "status": "PASS"
+        },
+        {
+          "id": "V13",
+          "status": "PASS"
+        },
+        {
+          "id": "V14",
+          "status": "PASS"
+        },
+        {
+          "id": "V15",
+          "status": "PASS"
+        },
+        {
+          "id": "V16",
+          "status": "PASS"
+        },
+        {
+          "id": "V17",
+          "status": "PASS"
+        },
+        {
+          "id": "V18",
+          "status": "PASS"
+        },
+        {
+          "id": "V19",
+          "status": "PASS"
+        },
+        {
+          "id": "V20",
+          "status": "PASS"
+        },
+        {
+          "id": "CORE_TEACHING_EFFECTS_OFF",
+          "status": "PASS",
+          "evidence": {
+            "roles": 2,
+            "pulse": true,
+            "label": "루비 룬 ×1.6",
+            "expected": "루비 룬 ×1.6",
+            "score": "104",
+            "after": 104
+          }
+        }
+      ],
+      "captures": [
+        "core-0-finished.png",
+        "core-1-finished.png",
+        "core-2-finished.png",
+        "core-3-finished.png",
+        "core-4-finished.png",
+        "core-5-finished.png",
+        "core-6-finished.png",
+        "core-7-finished.png",
+        "core-8-finished.png",
+        "core-9-finished.png",
+        "core-10-finished.png"
+      ],
+      "errors": [],
+      "engine": "chromium",
+      "platform": "win32",
+      "browserVersion": "134.0.6998.35",
+      "videoArchive": "All native recordings copied into evidence directory"
+    }
+  },
+  {
+    "source": ".local-validation/v051/ui-chromium/report.json",
+    "sha256": "a5659445fe242ad39aee0f2e5410b4b3f116154eae67e22290cc02a8711856b6",
+    "report": {
+      "engine": "chromium",
+      "platform": "win32",
+      "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+      "checks": [
+        {
+          "id": "SKIP_CANCEL",
+          "status": "PASS",
+          "evidence": "actual initial confirmation, no card/RNG mutation"
+        },
+        {
+          "id": "INITIAL_SKIP",
+          "status": "PASS",
+          "evidence": "actual UI skip starts normal S1-1"
+        },
+        {
+          "id": "SKIP_INDEXEDDB",
+          "status": "PASS",
+          "evidence": "actual safe slot round trip"
+        },
+        {
+          "id": "CLICK_KEYBOARD_DRAG",
+          "status": "PASS",
+          "evidence": "real card motion commands"
+        },
+        {
+          "id": "EDUCATION_1366",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1366",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1280",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1280",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "EDUCATION_1024",
+          "status": "PASS",
+          "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+        },
+        {
+          "id": "ASSIGNED_LONG_RECORD_1024",
+          "status": "PASS",
+          "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+        },
+        {
+          "id": "ZOOM_125",
+          "status": "PASS",
+          "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+        },
+        {
+          "id": "HER_ALIASES",
+          "status": "PASS",
+          "evidence": "assigned old object/possessive selections show one current her button"
+        },
+        {
+          "id": "ASSIGNED_OPERATION_SAVE",
+          "status": "PASS",
+          "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+        },
+        {
+          "id": "REPLAY_ISOLATION",
+          "status": "PASS",
+          "evidence": "independent controller, actual UI close"
+        },
+        {
+          "id": "GATE_SKIP_26",
+          "status": "PASS",
+          "evidence": "real two attacks, prepare/forms, abort + no stale finalizer"
+        },
+        {
+          "id": "GATE_SKIP_27",
+          "status": "PASS",
+          "evidence": "real two attacks, prepare/forms, abort + no stale finalizer"
+        },
+        {
+          "id": "GATE_SKIP_28",
+          "status": "PASS",
+          "evidence": "real two attacks, prepare/forms, abort + no stale finalizer"
+        }
+      ],
+      "captures": [
+        "skipped-normal-first-hand.png",
+        "codex-1366.png",
+        "assigned-long-record-1366.png",
+        "codex-1280.png",
+        "assigned-long-record-1280.png",
+        "codex-1024.png",
+        "assigned-long-record-1024.png",
+        "codex-zoom125.png",
+        "before-skip-gate-26.png",
+        "before-skip-gate-27.png",
+        "before-skip-gate-28.png"
+      ],
+      "errors": [],
+      "browserVersion": "134.0.6998.35"
+    }
+  }
+]

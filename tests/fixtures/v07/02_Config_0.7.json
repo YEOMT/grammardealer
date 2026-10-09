@@ -1,0 +1,175 @@
+{
+  "documentVersion": "0.7-spec-1.0",
+  "targetGameVersion": "0.7.0",
+  "baselineMain": "e2a878640dc88bce12e62ad6041a59867e09ef92",
+  "branch": "codex/v0.7-ember-cave-participles-dust",
+  "scope": {
+    "implementedStages": 7,
+    "battleTotal": 32,
+    "contentBoundary": "STAGE7_END",
+    "newWordCardDefinitions": 0,
+    "newOperationCardDefinitions": 0,
+    "newRunes": 0,
+    "stage7PermanentEntryGrant": 0,
+    "additionalShops": 0,
+    "runeSlotLimitAfterStage3": 4,
+    "runeSlot5Activation": "DEFERRED_EXPLICIT_SCOPE_DECISION"
+  },
+  "encounters": [
+    {
+      "battleNumber": 28,
+      "round": 1,
+      "id": "battle.07.01",
+      "nameKo": "불씨 도롱뇽",
+      "placeholderEmoji": "🦎",
+      "focus": "CURRENT_AND_PAST_PARTICIPLE_MODIFICATION",
+      "hp": 960,
+      "dustCount": 2,
+      "kind": "NORMAL"
+    },
+    {
+      "battleNumber": 29,
+      "round": 2,
+      "id": "battle.07.02",
+      "nameKo": "현무암 거북",
+      "placeholderEmoji": "🐢",
+      "focus": "PASSIVE_VOICE",
+      "hp": 1040,
+      "dustCount": 2,
+      "kind": "NORMAL"
+    },
+    {
+      "battleNumber": 30,
+      "round": 3,
+      "id": "battle.07.03",
+      "nameKo": "화로 대장장이 정령",
+      "placeholderEmoji": "🔥",
+      "focus": "CAUSATIVE_AND_ASSISTANCE",
+      "hp": 1120,
+      "dustCount": 2,
+      "kind": "NORMAL"
+    },
+    {
+      "battleNumber": 31,
+      "round": 4,
+      "id": "battle.07.04",
+      "nameKo": "메아리 박쥐",
+      "placeholderEmoji": "🦇",
+      "focus": "PERCEPTION_COMPLEMENTS",
+      "hp": 1200,
+      "dustCount": 2,
+      "kind": "NORMAL"
+    },
+    {
+      "battleNumber": 32,
+      "round": 5,
+      "id": "battle.07.05",
+      "nameKo": "잠든 잿불룡",
+      "placeholderEmoji": "🐉",
+      "focus": "INTEGRATED_ING_PP_USE",
+      "hp": 1440,
+      "dustCount": 5,
+      "kind": "REGIONAL_BOSS"
+    }
+  ],
+  "immutableExistingRules": {
+    "turnLimit": 6,
+    "discardActions": 4,
+    "initialHand": 6,
+    "handLimit": 10,
+    "sentenceLimit": 16,
+    "existingRuneOverrides": "PRESERVE_0.6.1",
+    "wordPolishMax": 3,
+    "operationPolishMax": 1
+  },
+  "dust": {
+    "cardDefId": "card.obstacle.blackDust",
+    "cardKind": "OBSTACLE",
+    "nameKo": "검은 먼지",
+    "source": "EMBER_CAVE",
+    "lifetime": "BATTLE",
+    "countNormal": 2,
+    "countBoss": 5,
+    "firstHandMaximum": 1,
+    "firstHandPolicy": "PRESERVE_REAL_WORD_WITNESS; STABLE_SWAP_EXCESS_DUST; SHORT_HAND_IF_NO_ALTERNATIVE",
+    "injection": "ONCE_PER_BATTLE_START",
+    "canSubmit": false,
+    "canUse": false,
+    "canExchange": true,
+    "exchangeDestination": "DISCARD",
+    "reshuffleEligible": true,
+    "shatterOnExchange": false,
+    "eligibleInSupply": true,
+    "eligibleInDirectSearch": false,
+    "eligibleInPOSSearch": false,
+    "eligibleInRecycle": true,
+    "scoreContribution": null,
+    "polishMax": 0
+  },
+  "boss": {
+    "id": "EMBER_SCALE_SHIELD",
+    "nameKo": "검댕 비늘",
+    "activeOnStart": true,
+    "damageMultiplierWhileActive": {
+      "num": 1,
+      "den": 4
+    },
+    "releaseOnce": true,
+    "releaseAppliesToTriggerAttack": true,
+    "requiresPositivePreBossPower": true,
+    "requiresMatchedValidIngOrPPUse": true,
+    "allowsValidUseInIssueSentence": true,
+    "noMinimumHp": true,
+    "newDustEachTurn": 0,
+    "requiresSpecificSequence": false,
+    "additionalQualifiedRoles": [
+      "VERB_PP_AS_REVIEWED_STATE_ADJECTIVE"
+    ]
+  },
+  "newScoringInitialValues": {
+    "passiveMultiplier": {
+      "num": 9,
+      "den": 5
+    },
+    "stage7RegionMultiplier": {
+      "num": 5,
+      "den": 4
+    },
+    "additionalParticipleMultiplier": null,
+    "participleModifierUsesExistingAdjectiveRule": true,
+    "causativePerceptionUsesExistingSvocMultiplier": {
+      "num": 5,
+      "den": 2
+    }
+  },
+  "packs": {
+    "onStage6Clear": [
+      "pack.participles",
+      "pack.passive",
+      "pack.causativePerception"
+    ],
+    "grammarRecognition": "NOT_GATED_BY_PACK",
+    "bossRelease": "ORIGINAL_STRUCTURAL_EVIDENCE_NOT_COMBO_UNLOCK",
+    "stage7RegionRequiresPack": true
+  },
+  "newNumbersAre": "IMPLEMENTATION_START_VALUES_NOT_MEASURED_BALANCE",
+  "versionsProposed": {
+    "game": "0.7.0",
+    "save": "0.7.0",
+    "language": "0.7.0",
+    "grammar": "0.7.0",
+    "balance": "0.7.0",
+    "comboEligibility": "0.7.0",
+    "learningRecord": "0.7.0",
+    "generator": "0.4.0",
+    "reward": "0.6.1",
+    "shop": "0.6.1",
+    "entry": "0.7.0",
+    "operation": "0.7.0",
+    "meaning": "0.2.0",
+    "tutorial": "0.2.1",
+    "runes": "0.6.1",
+    "presentation": "0.7.0"
+  },
+  "verificationStatus": "NOT_RUN_GAME_IMPLEMENTATION"
+}

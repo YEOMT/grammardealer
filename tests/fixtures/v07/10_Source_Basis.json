@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-09",
+  "baseline": "e2a878640dc88bce12e62ad6041a59867e09ef92",
+  "note": "외부 문법 확인은 언어 규칙 근거다. 모든 용법이 한국 중학교 교과서의 같은 학년/단원에 있다는 주장 아님. 사용자 결정과 구현자가 정할 세칙을 구별한다.",
+  "sources": [
+    {
+      "id": "R01",
+      "kind": "REPOSITORY_READ",
+      "title": "AGENTS.md",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/AGENTS.md",
+      "scope": "작업·검증·원격 변경 권한"
+    },
+    {
+      "id": "R02",
+      "kind": "REPOSITORY_READ",
+      "title": "RunController 0.6.1",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/game/runController.js",
+      "scope": "27전투, 4룬 슬롯, 입장·승리·보상·임시카드 커밋"
+    },
+    {
+      "id": "R03",
+      "kind": "REPOSITORY_READ",
+      "title": "frostCards.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/game/frostCards.js",
+      "scope": "임시 WORD/OPERATION과 source 전용 검증 경계"
+    },
+    {
+      "id": "R04",
+      "kind": "REPOSITORY_READ",
+      "title": "operationResolution.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/game/operationResolution.js",
+      "scope": "ALL/WORD/품사 필터, 효과 뒤 source discard"
+    },
+    {
+      "id": "R05",
+      "kind": "REPOSITORY_READ",
+      "title": "balance.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/data/balance.js",
+      "scope": "6턴·교환4·손패10·문장16, 현행 점수·보상"
+    },
+    {
+      "id": "R06",
+      "kind": "REPOSITORY_READ",
+      "title": "contracts.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/contracts.js",
+      "scope": "정책 버전 분리와 직렬화 계약"
+    },
+    {
+      "id": "R07",
+      "kind": "REPOSITORY_READ",
+      "title": "package.json",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/package.json",
+      "scope": "현재 명령·의존성"
+    },
+    {
+      "id": "R08",
+      "kind": "REPOSITORY_READ",
+      "title": "seed.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/data/language/seed.js",
+      "scope": "기존 어휘, send 포함, by 없음"
+    },
+    {
+      "id": "R09",
+      "kind": "PREVIOUS_TURN_REPOSITORY_READ",
+      "title": "language/index + learningFrames + time/sky/desert/grammarPolishLanguage",
+      "url": "https://github.com/YEOMT/grammardealer/blob/e2a878640dc88bce12e62ad6041a59867e09ef92/src/data/language/index.js",
+      "scope": "언어 레지스트리의 누적 36동사 및 기존 활용; 구현자가 현재 export를 다시 전수 확인"
+    },
+    {
+      "id": "L01",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: See",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/see",
+      "scope": "see + O + 원형/-ing/p.p."
+    },
+    {
+      "id": "L02",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Have something done",
+      "url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/have-something-done",
+      "scope": "have O 원형/ING/PP, 완료와의 구별"
+    },
+    {
+      "id": "L03",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Make",
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/make",
+      "scope": "make O AP/NP/BARE, for, 수동형 be made to"
+    },
+    {
+      "id": "L04",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Passive forms",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/passive-forms",
+      "scope": "be + PP, 타동 용법, 이중 목적어, 연결동사 제외"
+    },
+    {
+      "id": "L05",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Help somebody (to) do",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/help-somebody-to-do",
+      "scope": "help의 원형/to, 무조건 ING 허용 금지"
+    },
+    {
+      "id": "L06",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Verb patterns with and without objects",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/transitive-and-intransitive-verbs",
+      "scope": "동사별 Object + ed절; find/need/want/like 및 제한된 feel"
+    },
+    {
+      "id": "L07",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Want dictionary",
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/want",
+      "scope": "want O PP가 실제 허용됨"
+    },
+    {
+      "id": "L08",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Gone",
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/gone",
+      "scope": "gone의 형용사 상태 용법은 수동태와 별개"
+    },
+    {
+      "id": "L09",
+      "kind": "EXTERNAL_GRAMMAR_CHECK",
+      "title": "Cambridge: Keep",
+      "url": "https://dictionary.cambridge.org/us/dictionary/english/keep",
+      "scope": "keep O AP/ING, keep ING 지속"
+    }
+  ]
+}

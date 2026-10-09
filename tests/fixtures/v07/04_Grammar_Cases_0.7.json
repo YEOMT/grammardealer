@@ -1,0 +1,1005 @@
+{
+  "kind": "AUTHORED_EXPECTATIONS_NOT_ENGINE_RESULTS",
+  "count": 73,
+  "caseStatusLegend": {
+    "NON_VALID_EXACT_STATUS_BASELINE_DEPENDENT": "VALID로 정상 허용하지 않되 기존 오류 복구 계약을 따라 status를 기록한다. 변경 전/후 실제 근거로 설명한다.",
+    "forbidScoreTags": "복구 의도 hit가 분석에 남더라도 해당 보너스는 금지. forbidTags와 구별한다."
+  },
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "The running child is happy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PRESENT",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC",
+      "requireRelations": [
+        {
+          "form": "running",
+          "function": "NOUN_MODIFIER",
+          "target": "child"
+        }
+      ]
+    },
+    {
+      "id": "G002",
+      "sentence": "The child running in the park is happy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PRESENT",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G003",
+      "sentence": "The child eating food is happy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PRESENT",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G004",
+      "sentence": "The finished homework is easy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PAST",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G005",
+      "sentence": "The homework finished today is easy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PAST",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [
+        "TIME.PAST",
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G006",
+      "sentence": "The picture made for you is beautiful.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PAST",
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G007",
+      "sentence": "The room changed today is beautiful.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G008",
+      "sentence": "A running room is beautiful.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC",
+      "note": "의미가 기묘해도 구조상 정상. 의미 자연스러움을 문법/피해 gate로 사용하지 않는다."
+    },
+    {
+      "id": "G009",
+      "sentence": "The child running in the park.",
+      "expectedStatus": "INVALID_CORE",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "주절 유한동사를 보충하지 않는다."
+    },
+    {
+      "id": "G010",
+      "sentence": "The child seen in the park.",
+      "expectedStatus": "INVALID_CORE",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "seen은 saw와 다른 PP. 주절의 was를 가정해서 넣지 않는다."
+    },
+    {
+      "id": "G011",
+      "sentence": "I enjoy eating food.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "CLAUSE.GERUND"
+      ],
+      "forbidTags": [
+        "PARTICIPLE.PRESENT",
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G012",
+      "sentence": "The child is running.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "TIME.PROGRESSIVE"
+      ],
+      "forbidTags": [
+        "MODIFIER.ADJECTIVE",
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G013",
+      "sentence": "I have eaten food.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "TIME.PERFECT"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G014",
+      "sentence": "Food is eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [
+        "TIME.PERFECT"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G015",
+      "sentence": "Food was eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PAST"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G016",
+      "sentence": "Food is being eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PROGRESSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV",
+      "note": "be 카드 2사본 필요; 같은 사본으로 is/being을 동시에 만들지 않음."
+    },
+    {
+      "id": "G017",
+      "sentence": "Food has been eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PERFECT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G018",
+      "sentence": "Food had been eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PERFECT",
+        "TIME.PAST"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G019",
+      "sentence": "Food will be eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.FUTURE_WILL"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G020",
+      "sentence": "Food will have been eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.FUTURE_WILL",
+        "TIME.PERFECT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G021",
+      "sentence": "Food is often eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G022",
+      "sentence": "She was given a book.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PAST"
+      ],
+      "forbidTags": [
+        "FRAME.SVOO"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G023",
+      "sentence": "A book was given to her.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "TIME.PAST"
+      ],
+      "forbidTags": [
+        "FRAME.SVOO"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G024",
+      "sentence": "The picture was shown to her.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G025",
+      "sentence": "She was shown the picture.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G026",
+      "sentence": "She was sent a book.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G027",
+      "sentence": "A game was made for her.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV"
+    },
+    {
+      "id": "G028",
+      "sentence": "She was made happy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G029",
+      "sentence": "She was made a teacher.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G030",
+      "sentence": "He was made to work.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC",
+      "note": "수동 make의 TO 요구. 실제 TO가 있으므로 기존 to부정사 증거도 유지."
+    },
+    {
+      "id": "G031",
+      "sentence": "He was seen to run.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G032",
+      "sentence": "He was seen running.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G033",
+      "sentence": "The food was found eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "VOICE.PASSIVE",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G034",
+      "sentence": "Food is eat.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "requireTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "복구된 수동 의도/Frame 증거는 가능하지만 정상 수동 콤보·새 비늘 해제 불가.",
+      "forbidScoreTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": []
+    },
+    {
+      "id": "G035",
+      "sentence": "Food be eaten.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "requireTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "be 활용 오류. 검증된 완전한 해당 PP-use가 없으면 비늘 해제 불가. 노출용 정상 수동태로 기록하지 않음.",
+      "forbidScoreTags": [
+        "VOICE.PASSIVE"
+      ],
+      "forbidTags": []
+    },
+    {
+      "id": "G036",
+      "sentence": "The child was become.",
+      "expectedStatus": "INVALID_CORE",
+      "requireTags": [],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "연결동사 become을 수동화하지 않는다. 다른 정상 분석이 없는 fixture."
+    },
+    {
+      "id": "G037",
+      "sentence": "The child is running food.",
+      "expectedStatus": "INVALID_CORE",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "현재 게임 run=달리다의 SV 용법. 별도 운영하다 뜻을 몰래 추가하지 않음."
+    },
+    {
+      "id": "G038",
+      "sentence": "I am gone.",
+      "expectedStatus": "VALID",
+      "requireTags": [],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC",
+      "note": "검수된 gone=떠난 상태 AP 예외. 자동사 PP를 전부 틀린 수동문으로 만드는 것을 방지하는 좁은 어휘 예외."
+    },
+    {
+      "id": "G039",
+      "sentence": "I make him work.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.CAUSATIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G040",
+      "sentence": "I have him work.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.CAUSATIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G041",
+      "sentence": "I have him working.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC",
+      "note": "have O ING는 사역/경험 가능. 의미를 강제 분류하지 않아도 PP/ING OC 근거로 지역 대상."
+    },
+    {
+      "id": "G042",
+      "sentence": "I have the food made.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE",
+        "TIME.PERFECT"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G043",
+      "sentence": "I had the food made.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST",
+        "TIME.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE",
+        "TIME.PERFECT"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G044",
+      "sentence": "I see him run.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G045",
+      "sentence": "I see him running.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PRESENT",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [
+        "TIME.PROGRESSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G046",
+      "sentence": "I saw the food eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G047",
+      "sentence": "I saw her given a book.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC",
+      "note": "PP의 원래 이중목적어 구조에서 실제 book이 남는다."
+    },
+    {
+      "id": "G048",
+      "sentence": "I feel the room change.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G049",
+      "sentence": "I feel the room changing.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PRESENT",
+        "CONSTRUCTION.PERCEPTION"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G050",
+      "sentence": "I help him work.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.ASSISTANCE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G051",
+      "sentence": "I help him to work.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "CONSTRUCTION.ASSISTANCE",
+        "CLAUSE.INFINITIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G052",
+      "sentence": "I found him working.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G053",
+      "sentence": "I found the food eaten.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G054",
+      "sentence": "I keep him working.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G055",
+      "sentence": "I keep the room changed.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC",
+      "note": "상태 유지 의미가 어색하다는 이유로 문법 정답을 막지 않는 구조 fixture."
+    },
+    {
+      "id": "G056",
+      "sentence": "I keep reading books.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "CLAUSE.GERUND"
+      ],
+      "forbidTags": [
+        "FRAME.SVOC"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO"
+    },
+    {
+      "id": "G057",
+      "sentence": "I want the homework finished.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE",
+        "CONSTRUCTION.CAUSATIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G058",
+      "sentence": "I need the picture changed.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G059",
+      "sentence": "I like the homework finished.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOC",
+        "PARTICIPLE.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOC"
+    },
+    {
+      "id": "G060",
+      "sentence": "I see him to run.",
+      "expectedStatus": "NON_VALID_EXACT_STATUS_BASELINE_DEPENDENT",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "직접 지각 목적격보어의 불필요한 to. 기존 정상 오류정책이 INVALID_CORE이면 변경 전 로그로 설명하고 새 자동 성공으로 바꾸지 않음."
+    },
+    {
+      "id": "G061",
+      "sentence": "I help him working.",
+      "expectedStatus": "NON_VALID_EXACT_STATUS_BASELINE_DEPENDENT",
+      "requireTags": [],
+      "forbidTags": [
+        "CONSTRUCTION.ASSISTANCE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "help의 직접 ING 보어로 정상 인정하지 않는다. 명사 수식 대안과 구별되는 대명사 fixture."
+    },
+    {
+      "id": "G062",
+      "sentence": "I help the child running in the park.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PRESENT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO",
+      "note": "child의 후치 분사수식은 가능. help 직접 ING 보어 금지로 문장 전체를 거절하지 않는다."
+    },
+    {
+      "id": "G063",
+      "sentence": "I enjoy to work.",
+      "expectedStatus": "NON_VALID_EXACT_STATUS_BASELINE_DEPENDENT",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "기존 오류 처리 보존. 즐기다 enjoy의 to 목적어를 정상으로 확장 금지."
+    },
+    {
+      "id": "G064",
+      "sentence": "I finish to read.",
+      "expectedStatus": "NON_VALID_EXACT_STATUS_BASELINE_DEPENDENT",
+      "requireTags": [],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "완료하다 finish의 to 목적어 정상 허용 금지."
+    },
+    {
+      "id": "G065",
+      "sentence": "A room was too hard to show.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "DEGREE.TOO",
+        "CLAUSE.INFINITIVE",
+        "TIME.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVC"
+    },
+    {
+      "id": "G066",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOO",
+        "TIME.PROGRESSIVE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOO"
+    },
+    {
+      "id": "G067",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "requireTags": [
+        "FRAME.SVOO"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOO",
+      "forbidScoreTags": [
+        "TIME.PROGRESSIVE"
+      ],
+      "forbidTags": []
+    },
+    {
+      "id": "G068",
+      "sentence": "I have often given you a book.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOO",
+        "TIME.PERFECT"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVOO"
+    },
+    {
+      "id": "G069",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "FRAME.SVOO",
+        "TIME.PROGRESSIVE",
+        "CLAUSE.GERUND",
+        "LINK.CLAUSE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "note": "16장의 기존 사용자 회귀. 이전8618점은 동일 rune/연마 snapshot이 없어 기대값으로 고정하지 않음."
+    },
+    {
+      "id": "G070",
+      "sentence": "The food made today is eaten because I am happy.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "PARTICIPLE.PAST",
+        "VOICE.PASSIVE",
+        "LINK.CLAUSE"
+      ],
+      "forbidTags": [],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SV",
+      "note": "수동/수식 근거가 서로 다른 실제 사본에 있음. 단어 made의 과거시제 오검출 금지."
+    },
+    {
+      "id": "G071",
+      "sentence": "I have made food.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "TIME.PERFECT"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE",
+        "PARTICIPLE.PAST"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO",
+      "note": "made의 실제 PP 역할은 보스 해제에 쓰지만 명사수식/OC PARTICIPLE.PAST 태그는 아니어야 함."
+    },
+    {
+      "id": "G072",
+      "sentence": "I made food.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "TIME.PAST"
+      ],
+      "forbidTags": [
+        "VOICE.PASSIVE",
+        "PARTICIPLE.PAST"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO",
+      "note": "과거형 made는 철자 같아도 보스 PP-use가 아니다."
+    },
+    {
+      "id": "G073",
+      "sentence": "I like interesting books.",
+      "expectedStatus": "VALID",
+      "requireTags": [
+        "MODIFIER.ADJECTIVE"
+      ],
+      "forbidTags": [
+        "PARTICIPLE.PRESENT"
+      ],
+      "executionStatus": "NOT_RUN",
+      "scenario": "LANGUAGE_UNIT_AND_ASSIGNED_UI",
+      "schoolFrame": "SVO",
+      "note": "interesting은 기존 독립 ADJECTIVE 카드. 어미 ing만으로 분사/보스 발동 금지."
+    }
+  ]
+}

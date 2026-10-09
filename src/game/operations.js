@@ -1,4 +1,4 @@
-import {hasSkyCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {hasEmberCampaign,hasSkyCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {operationSpec} from '../data/operationSpec.js';
 import {operationLifetime,operationTargetIds,operationPileSnapshot,resolveOperationMovement} from './operationResolution.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
@@ -41,7 +41,7 @@ export function useOperation(run,command){
   const cardSnapshots=Object.fromEntries([...new Set([...before.handIds,...before.drawIds,...before.discardIds,...before.exhaustedIds,...before.shatteredTemporaryIds])].map(id=>[id,structuredClone(run.cardInstances[id])]));
   const drawnCardIds=resolveOperationMovement(c,run.cardInstances,run.version,spec,sourceCardId,targetCardId,c.rulesSnapshot.handLimit,run.rng.deck);
   c.operationSequence++;const effectId=`${run.runId}:battle.${run.progress.battleNumber}:operation.${c.operationSequence}`;
-  const effect={operationVersion:'0.6.1',effectId,commandId,runId:run.runId,battleId,expectedRevision,operationSequence:c.operationSequence,sourceCardId,cardDefId:source.cardDefId,operationType:spec.type,sourceSnapshot:{polishLevel:source.polishLevel,lifetime:operationLifetime(source),afterUseDestination:spec.afterUseDestination},requestedCount:spec.requestedCount,actualDrawCount:drawnCardIds.length,drawnCardIds,sourcePile:spec.sourcePile,selectionMode:spec.selectionMode,filterId:spec.filterId,targetCardId:targetCardId??null,postUseDestination:spec.afterUseDestination,before,after:operationPileSnapshot(c,run.rng.deck),cardSnapshots,versions:{game:run.version,operation:'0.6.1'}};
+  const effect={operationVersion:hasEmberCampaign(run)?'0.7.0':'0.6.1',effectId,commandId,runId:run.runId,battleId,expectedRevision,operationSequence:c.operationSequence,sourceCardId,cardDefId:source.cardDefId,operationType:spec.type,sourceSnapshot:{polishLevel:source.polishLevel,lifetime:operationLifetime(source),afterUseDestination:spec.afterUseDestination},requestedCount:spec.requestedCount,actualDrawCount:drawnCardIds.length,drawnCardIds,sourcePile:spec.sourcePile,selectionMode:spec.selectionMode,filterId:spec.filterId,targetCardId:targetCardId??null,postUseDestination:spec.afterUseDestination,before,after:operationPileSnapshot(c,run.rng.deck),cardSnapshots,versions:{game:run.version,operation:hasEmberCampaign(run)?'0.7.0':'0.6.1'}};
   c.operationHistory.push(effect);c.pendingOperationId=effectId;c.phase='OPERATION_PRESENTING';c.battleDirty=true;
   return {ok:true,operationEffect:effect};
  }

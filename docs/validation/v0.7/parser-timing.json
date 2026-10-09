@@ -1,0 +1,102 @@
+{
+  "kind": "LOCAL_PARSER_TIMING_NOT_HUMAN_DIFFICULTY",
+  "node": "v24.19.0",
+  "repetitions": 30,
+  "samples": [
+    {
+      "text": "I run.",
+      "cardCount": 2,
+      "status": "VALID",
+      "minMs": 0.07820000000003802,
+      "meanMs": 0.8807966666666781,
+      "maxMs": 15.87190000000004,
+      "diagnostics": {
+        "workUnits": 5,
+        "candidateCount": 1,
+        "limits": {
+          "work": 90000,
+          "depth": 6,
+          "candidates": 128
+        }
+      }
+    },
+    {
+      "text": "Food is eaten.",
+      "cardCount": 3,
+      "status": "VALID",
+      "minMs": 0.12669999999997117,
+      "meanMs": 0.6737099999999998,
+      "maxMs": 7.314000000000021,
+      "diagnostics": {
+        "workUnits": 21,
+        "candidateCount": 2,
+        "limits": {
+          "work": 90000,
+          "depth": 6,
+          "candidates": 128
+        }
+      }
+    },
+    {
+      "text": "The food made today is eaten because I am happy.",
+      "cardCount": 10,
+      "status": "VALID",
+      "minMs": 0.8763000000000147,
+      "meanMs": 2.3208266666666644,
+      "maxMs": 6.800599999999974,
+      "diagnostics": {
+        "workUnits": 366,
+        "candidateCount": 2,
+        "limits": {
+          "work": 90000,
+          "depth": 6,
+          "candidates": 128
+        }
+      }
+    },
+    {
+      "text": "I will have been eating food and she will have been reading a useful book today.",
+      "cardCount": 16,
+      "status": "VALID",
+      "minMs": 2.2106999999999744,
+      "meanMs": 6.027510000000012,
+      "maxMs": 36.06710000000004,
+      "diagnostics": {
+        "workUnits": 827,
+        "candidateCount": 6,
+        "limits": {
+          "work": 90000,
+          "depth": 6,
+          "candidates": 128
+        }
+      }
+    },
+    {
+      "text": "I see the food eaten.",
+      "cardCount": 5,
+      "status": "VALID",
+      "minMs": 0.16059999999993124,
+      "meanMs": 0.979353333333313,
+      "maxMs": 8.661899999999946,
+      "diagnostics": {
+        "workUnits": 28,
+        "candidateCount": 3,
+        "limits": {
+          "work": 90000,
+          "depth": 6,
+          "candidates": 128
+        }
+      }
+    }
+  ],
+  "dust": "OBSTACLE is rejected before sentence creation; it never expands parser candidates.",
+  "dustControllerMeasurement": {
+    "kind": "ASSIGNED_FIVE_DUST_HAND_ADD_REJECTION",
+    "repetitions": 30,
+    "minMs": 0.3583000000000993,
+    "meanMs": 0.8145000000000209,
+    "maxMs": 2.8449000000000524,
+    "stateUnchanged": true,
+    "codeBoundary": "ADD_CARD rejection before sentence creation; parser timing separately measured above"
+  }
+}

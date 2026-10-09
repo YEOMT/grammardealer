@@ -12,8 +12,8 @@ export function expandSkyCandidates(state,bases,{limit=240}={}){
  return out;
 }
 export function operationMove(state){
- if(!['0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(state.version))return null;
- const modern=state.version==='0.6.1',history=state.combat.operationHistory??[];
+ if(!['0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0'].includes(state.version))return null;
+ const modern=['0.6.1','0.7.0'].includes(state.version),history=state.combat.operationHistory??[];
  // Finite QA policy only: repeated manual circulation stays legal in the game.
  // After 24 operations this runner resumes attack/exchange/prepare decisions.
  if(modern&&history.length>=24)return null;
@@ -33,18 +33,18 @@ export function operationMove(state){
 }
 /** Public offers only. The 0.6.1 route exercises a reusable operation when offered. */
 export function qaShopItems(state){
- const modern=state.version==='0.6.1';
+ const modern=['0.6.1','0.7.0'].includes(state.version);
  const reusable=item=>['card.operation.supply','card.operation.search'].includes(item.cardDefId);
  return [...state.shop.inventory].sort((a,b)=>(modern?Number(reusable(b))-Number(reusable(a)):0)||Number(b.runeId==='rune.svoo')-Number(a.runeId==='rune.svoo')||Number(b.kind==='RUNE')-Number(a.kind==='RUNE'));
 }
 export function qaShopPolishTarget(state){
- if(state.version!=='0.6.1'||state.shop.services.POLISH.used||state.economy.gold<state.shop.services.POLISH.price)return null;
+ if(!['0.6.1','0.7.0'].includes(state.version)||state.shop.services.POLISH.used||state.economy.gold<state.shop.services.POLISH.price)return null;
  return state.activeCardIds.find(id=>['card.operation.supply','card.operation.search'].includes(state.cardInstances[id].cardDefId)&&state.cardInstances[id].polishLevel===0)??null;
 }
 
 /** Optional natural-play QA exercise: spend real exchanges to reach a reusable source again. */
 export function qaOperationReuseExchange(state){
- if(state.version!=='0.6.1'||state.combat.exchangesRemaining<1)return null;
+ if(!['0.6.1','0.7.0'].includes(state.version)||state.combat.exchangesRemaining<1)return null;
  const history=state.combat.operationHistory??[],source=history.find(e=>e.postUseDestination==='DISCARD'&&history.filter(x=>x.sourceCardId===e.sourceCardId).length===1);
  if(!source)return null;
  const cardIds=state.combat.handIds.filter(id=>cardKind(state.cardInstances[id],state.version)==='WORD');

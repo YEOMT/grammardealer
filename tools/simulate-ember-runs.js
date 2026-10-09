@@ -1,0 +1,4 @@
+import fs from 'node:fs/promises';import {simulateRun} from './simulate-runs.js';
+const runs=[];for(const seed of (process.env.SB_EMBER_SEEDS||'run-sequence.57').split(',')){
+ const r=simulateRun({seed,vocabularyMode:process.env.SB_E2E_MODE||'STANDARD',policy:'LEARNING',maxCommands:2000,campaignVersion:'0.7.0',skipTutorial:true,invalidExercise:true,exerciseResources:true,snowCourse:process.env.SB_E2E_SNOW_COURSE==='1',emberCourse:process.env.SB_EMBER_COURSE==='1'});runs.push(r);console.log(seed,r.result,r.final,r.error??'');
+}const report={kind:'ACTUAL_CONTROLLER_COMMAND_CAMPAIGN_NOT_BROWSER',runs,status:runs.every(r=>r.result==='CONTENT_COMPLETE')?'PASS':'FAIL'};await fs.writeFile(process.env.SB_EMBER_RUN_OUT||'.local-validation/v07/ember-runs.json',JSON.stringify(report,null,2));if(report.status!=='PASS')process.exitCode=1;

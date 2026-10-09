@@ -1,3 +1,12 @@
+## 0.7 분사·수동·먼지 경계
+
+- `emberLanguage`는 0.6.1 registry의 독립 view입니다. Sense/frameBindings에 수동 대안과 개별 OC를 등록하며 언어 판정과 콤보 해금을 분리합니다. 기존 ING/PP Form ID와 단어 정의는 그대로입니다.
+- VP는 유한 시제·aspect·voice·lexical verb를 분리합니다. 수동의 sourceFrameId와 표면 frameId는 별도이며 NP 수식/OC/진행/완료/동명사는 formUses의 실제 물리 카드/절/대상/범위로 구분합니다.
+- 점수 순서에 시간 뒤 수동 ×1.8을 한 번 삽입합니다. NP 분사 수식은 기존 수식 점수, OC는 5형식 점수를 사용합니다. 새 지역 ×1.25와 보스 비늘 정책은 각각 독립입니다.
+- 순수 `emberScaleEvent`는 원본 분석과 양수 preBossScore에서 실제 정상 ING/PP를 찾습니다. RunController가 HP와 비늘을 한 번 커밋하고 Presentation은 IMPACT에서 동시에 표시합니다. 저장 validator는 해제 공격을 재분석합니다.
+- `temporaryCards`는 source별 dispatcher입니다. 기존 frost 검증을 유지하고 `emberDust`만 Stage7의 OBSTACLE 공급/정리를 담당합니다. HAND/DRAW/DISCARD partition과 영구 activeCardIds를 분리하며 종료 영수증의 임시 ID도 공급 trace와 대조합니다.
+- Stage6→7은 완료/소개/입장 경계이며 추가 상점·지급이 없습니다. 새 0.7만 STAGE7_END, 구버전은 원래 완료 경계를 유지합니다. 공용 UI는 state.version을 읽고 저장을 자동 재작성하지 않습니다.
+
 ## 0.6.1 운영·문법 정책 경계
 
 - `POLISH_VERSIONS`는 0.6.1 저장 정책을 고정한다. 기본 현재 버전의 별칭과 분리해 다음 버전의 현재 값이 이전 저장에 소급되지 않게 한다. 카드/룬/언어 view 선택은 원정 버전으로 한다.

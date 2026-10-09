@@ -1,4 +1,4 @@
-import {isOperation} from '../data/cardCatalog.js';
+import {isOperation,cardKind} from '../data/cardCatalog.js';
 import { registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
 import { analyzeSentence } from '../engine/grammar/index.js';
 import { createRng, createStream, pick, shuffle, weightedPick, assertStream } from './rng.js';
@@ -19,7 +19,7 @@ const feature = (form, name) => form.grammaticalFeatures?.[name];
 const getFrames = row => row.lexeme.frameIds || [];
 
 function cardRows(ids, instances, language = registry) {
-  return ids.filter(id=>!isOperation(instances[id],language.version)).map(id => {
+  return ids.filter(id=>cardKind(instances[id],language.version)==='WORD').map(id => {
     const card = instances[id];
     if (!card) throw new Error(`Unknown card instance: ${id}`);
     const lexeme = language.lexemeById[language.cardById[card.cardDefId]?.lexemeId];
@@ -282,7 +282,7 @@ export function createBattlePiles({ activeCardIds, cardInstances, stream, initia
   assertStream(stream);
   const startCursor = stream.cursor;
   const randomizedIds = shuffle(stream, activeCardIds);
-  const searchIds = focusFrame || tutorial ? [...randomizedIds.filter(id=>!isOperation(cardInstances[id],language.version)&&lexemeForCard(cardInstances[id],language).pos==='PRONOUN'),...randomizedIds.filter(id=>isOperation(cardInstances[id],language.version)||lexemeForCard(cardInstances[id],language).pos!=='PRONOUN')] : randomizedIds;
+  const searchIds = focusFrame || tutorial ? [...randomizedIds.filter(id=>cardKind(cardInstances[id],language.version)==='WORD'&&lexemeForCard(cardInstances[id],language).pos==='PRONOUN'),...randomizedIds.filter(id=>cardKind(cardInstances[id],language.version)!=='WORD'||lexemeForCard(cardInstances[id],language).pos!=='PRONOUN')] : randomizedIds;
   const witnesses = findPlayableSentences(searchIds, cardInstances, { perFrame: 4, maxCards: initialHand, maxChecks: 768, registry: language });
   const availableFrames = BASIC_FRAMES.filter(frame => witnesses.some(w => w.frameId === frame));
   let candidates = availableFrames.filter(frame => !previousOpeningFrames.includes(frame));

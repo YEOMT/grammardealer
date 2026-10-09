@@ -10,7 +10,7 @@ export function operationTargetIds(piles,cards,version,spec){
  return ids.filter(id=>{
   const def=cardDefinition(cards[id],version);if(!def)return false;
   if(spec.filterId==='ALL')return true;
-  if(def.cardKind==='OPERATION')return false;
+  if((def.cardKind??'WORD')!=='WORD')return false;
   const lex=language.lexemeById[def.lexemeId];
   switch(spec.filterId){case 'WORD':return true;case 'NOUN_PRONOUN':return ['NOUN','PRONOUN'].includes(lex.pos);case 'VERB':return lex.pos==='VERB';case 'ADJECTIVE':return lex.pos==='ADJECTIVE';case 'CONNECTOR':return ['and','but','or','because','when','if','that'].includes(lex.lemma);default:throw Error('Unknown operation filter');}
  });

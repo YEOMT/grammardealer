@@ -1,0 +1,317 @@
+{
+  "kind": "ACTUAL_PRODUCTION_UI_FROM_VERSION_PINNED_061_SAVE",
+  "results": [
+    {
+      "battle": 23,
+      "expectedTag": "COMPARISON.COMPARATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 23,
+          "sentence": "she was harder to people",
+          "tags": [
+            "FRAME.SVC",
+            "COMPARISON.COMPARATIVE",
+            "PHRASE.PP",
+            "TIME.PAST"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.10",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.11",
+              "after": 35
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.20",
+              "after": 45
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.d8a3015c-5ee1-4030-b738-2ee696617e01.stage.02.card.0",
+              "after": 55
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.1.card",
+              "after": 65
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 95
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 152
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 182
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.COMPARATIVE",
+              "after": 327
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "PHRASE.PP",
+              "after": 337
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 357
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 642
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 802
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 802
+            }
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "starter.11",
+            "starter.20",
+            "entry.run.d8a3015c-5ee1-4030-b738-2ee696617e01.stage.02.card.0",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.1.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 24,
+      "expectedTag": "COMPARISON.SUPERLATIVE",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 24,
+          "sentence": "she likes taking the hardest park",
+          "tags": [
+            "FRAME.SVO",
+            "MODIFIER.ADJECTIVE",
+            "COMPARISON.SUPERLATIVE",
+            "CLAUSE.GERUND"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.10",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.8.card",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.16",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.26",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.20",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.10.card",
+              "after": 60
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 90
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVO",
+              "after": 162
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.GERUND",
+              "after": 226
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.SUPERLATIVE",
+              "after": 429
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADJECTIVE",
+              "after": 434
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 454
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 817
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 1021
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1021
+            }
+          ],
+          "physicalCardIds": [
+            "starter.10",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.8.card",
+            "starter.16",
+            "starter.26",
+            "starter.20",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.10.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 25,
+      "expectedTag": "COMPARISON.EQUALITY",
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 25,
+          "sentence": "I was twice as young as him",
+          "tags": [
+            "FRAME.SVC",
+            "MODIFIER.ADVERB",
+            "COMPARISON.EQUALITY",
+            "COMPARISON.MULTIPLIER",
+            "TIME.PAST"
+          ],
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.07",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.11",
+              "after": 35
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.02",
+              "after": 45
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.01",
+              "after": 55
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.24.card",
+              "after": 65
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.00",
+              "after": 75
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.5.card",
+              "after": 85
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 115
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 184
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 220
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.EQUALITY",
+              "after": 396
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "COMPARISON.MULTIPLIER",
+              "after": 416
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADVERB",
+              "after": 421
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 441
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 793
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.06",
+              "after": 991
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 991
+            }
+          ],
+          "physicalCardIds": [
+            "starter.07",
+            "starter.11",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.02",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.01",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.24.card",
+            "frost.run.d8a3015c-5ee1-4030-b738-2ee696617e01.battle.25.00",
+            "reward.offer.run.d8a3015c-5ee1-4030-b738-2ee696617e01.5.card"
+          ]
+        }
+      ]
+    }
+  ]
+}

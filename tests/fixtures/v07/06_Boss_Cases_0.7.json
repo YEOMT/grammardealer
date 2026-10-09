@@ -1,0 +1,382 @@
+{
+  "arithmeticCount": 12,
+  "arithmetic": [
+    {
+      "id": "B001",
+      "description": "반감만, 피해25%",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 1000,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 250,
+        "actualHpLoss": 250,
+        "hpAfter": 1190,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B002",
+      "description": "1/4 단계 내림",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 1001,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 250,
+        "actualHpLoss": 250,
+        "hpAfter": 1190,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B003",
+      "description": "마지막HP1은 산술결과일뿐 HP1잠금이아님",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 1439,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": true,
+        "shieldActiveAfter": false,
+        "finalPower": 1439,
+        "actualHpLoss": 1439,
+        "hpAfter": 1,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B004",
+      "description": "갑옷해제 공격으로 즉시격파",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 1440,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": true,
+        "shieldActiveAfter": false,
+        "finalPower": 1440,
+        "actualHpLoss": 1440,
+        "hpAfter": 0,
+        "overkill": 0,
+        "killed": true
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B005",
+      "description": "정상오버킬",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 2000,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": true,
+        "shieldActiveAfter": false,
+        "finalPower": 2000,
+        "actualHpLoss": 1440,
+        "hpAfter": 0,
+        "overkill": 560,
+        "killed": true
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B006",
+      "description": "비늘을 깨지 않고도 고점 원킬 허용",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 5760,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 1440,
+        "actualHpLoss": 1440,
+        "hpAfter": 0,
+        "overkill": 0,
+        "killed": true
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B007",
+      "description": "비늘 유지한 고점 처치에서도 정리",
+      "input": {
+        "hp": 1440,
+        "shieldActive": true,
+        "preBossPower": 6000,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 1500,
+        "actualHpLoss": 1440,
+        "hpAfter": 0,
+        "overkill": 60,
+        "killed": true
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B008",
+      "description": "반감후0, 이유는보스반감이며 영어비문아님",
+      "input": {
+        "hp": 10,
+        "shieldActive": true,
+        "preBossPower": 3,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "hpAfter": 10,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B009",
+      "description": "올바른역할 양수공격이면1피해로해제",
+      "input": {
+        "hp": 10,
+        "shieldActive": true,
+        "preBossPower": 1,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": true,
+        "shieldActiveAfter": false,
+        "finalPower": 1,
+        "actualHpLoss": 1,
+        "hpAfter": 9,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B010",
+      "description": "기본위력0이면갑옷해제하지않음",
+      "input": {
+        "hp": 10,
+        "shieldActive": true,
+        "preBossPower": 0,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": true,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "hpAfter": 10,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B011",
+      "description": "이미해제면 일반단문도정상피해",
+      "input": {
+        "hp": 800,
+        "shieldActive": false,
+        "preBossPower": 500,
+        "hasQualifiedIngOrPPUse": false
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": false,
+        "finalPower": 500,
+        "actualHpLoss": 500,
+        "hpAfter": 300,
+        "overkill": 0,
+        "killed": false
+      },
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B012",
+      "description": "해제재연출없음, 오버킬200",
+      "input": {
+        "hp": 800,
+        "shieldActive": false,
+        "preBossPower": 1000,
+        "hasQualifiedIngOrPPUse": true
+      },
+      "expected": {
+        "releasedThisAttack": false,
+        "shieldActiveAfter": false,
+        "finalPower": 1000,
+        "actualHpLoss": 800,
+        "hpAfter": 0,
+        "overkill": 200,
+        "killed": true
+      },
+      "executionStatus": "NOT_RUN"
+    }
+  ],
+  "roleCases": [
+    {
+      "id": "Q001",
+      "sentence": "I enjoy eating food.",
+      "semanticRole": "GERUND",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q002",
+      "sentence": "I am eating food.",
+      "semanticRole": "PROGRESSIVE",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q003",
+      "sentence": "I have eaten food.",
+      "semanticRole": "PERFECT_PP",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q004",
+      "sentence": "Food is eaten.",
+      "semanticRole": "PASSIVE_PP",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q005",
+      "sentence": "I saw the food eaten.",
+      "semanticRole": "OBJECT_COMPLEMENT_PP",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q006",
+      "sentence": "The running child is happy.",
+      "semanticRole": "NOUN_MODIFIER_ING",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q007",
+      "sentence": "The finished homework is easy.",
+      "semanticRole": "NOUN_MODIFIER_PP",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q008",
+      "sentence": "I have the food made.",
+      "semanticRole": "OBJECT_COMPLEMENT_PP",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q009",
+      "sentence": "I made food.",
+      "semanticRole": "FINITE_PAST_SAME_SURFACE",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q010",
+      "sentence": "I read books.",
+      "semanticRole": "FINITE_READ_SAME_SURFACE",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q011",
+      "sentence": "I make him work.",
+      "semanticRole": "BARE_COMPLEMENT_ONLY",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q012",
+      "sentence": "I see him run.",
+      "semanticRole": "BARE_COMPLEMENT_ONLY",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q013",
+      "sentence": "I like interesting books.",
+      "semanticRole": "LEXICAL_ADJECTIVE_ENDS_ING",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q014",
+      "sentence": "I am tired.",
+      "semanticRole": "LEXICAL_ADJECTIVE",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q015",
+      "sentence": "I be eating food.",
+      "semanticRole": "MALFORMED_PROGRESSIVE_USE",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q016",
+      "sentence": "Food is eat.",
+      "semanticRole": "WRONG_PP_FORM",
+      "qualified": false,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q017",
+      "sentence": "I are happy and food is eaten.",
+      "semanticRole": "UNRELATED_ISSUE_VALID_PASSIVE_IN_OTHER_CLAUSE",
+      "qualified": true,
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "Q018",
+      "sentence": "I am gone.",
+      "semanticRole": "REVIEWED_STATE_FROM_VERB_PP_NOT_PASSIVE",
+      "qualified": true,
+      "executionStatus": "NOT_RUN",
+      "note": "go의실제PP형태를검수된상태AP로썼음. 독립ADJECTIVE tired와구별."
+    }
+  ],
+  "receiptCases": [
+    "same_attack_id_no_second_release_or_damage",
+    "stale_revision_rejected",
+    "save_after_release_preserves_false",
+    "ui_updates_scales_only_at_IMPACT",
+    "cancel_vfx_does_not_recompute_game"
+  ],
+  "note": "roleCases는 문자열이나 선택메뉴 이름이 아니라 실제 parser 역할 증거로 검사한다."
+}

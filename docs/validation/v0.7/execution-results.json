@@ -1,0 +1,190 @@
+{
+  "platform": "Windows x64",
+  "node": "24.19.0",
+  "npm": "11.17.0",
+  "git": "2.51.0.windows.2",
+  "playwright": "1.51.1",
+  "vite": "8.3.2",
+  "commands": [
+    {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "finishedAt": "2026-10-09T14:16:13.5283178Z",
+      "startedAt": "2026-10-09T14:13:08.4078524Z",
+      "attempt": "first final source verification",
+      "log": ".local-validation/v07/final-test.log",
+      "logSha256": "83552ca49651651b3b83e88b328844d1211e100b106fd2068040b236b9de84e7"
+    },
+    {
+      "command": "npm.cmd run validate:data",
+      "exitCode": 0,
+      "finishedAt": "2026-10-09T14:16:16.5326327Z",
+      "startedAt": "2026-10-09T14:16:13.6337691Z",
+      "attempt": "first final source verification",
+      "log": ".local-validation/v07/final-data.log",
+      "logSha256": "c77bf19ae7bc17cd77d6a4b57cc1f93965bb311e83e3360eb47ea9a7168112a1"
+    },
+    {
+      "command": "npm.cmd run build",
+      "exitCode": 0,
+      "finishedAt": "2026-10-09T14:16:19.9004106Z",
+      "startedAt": "2026-10-09T14:16:16.5500197Z",
+      "attempt": "first final source verification",
+      "log": ".local-validation/v07/final-build.log",
+      "logSha256": "8b4428ed642f7f3361052d824e7116eec4497ef40d9057f52f33ccb61d7f8c74"
+    },
+    {
+      "startedAt": "2026-10-09T14:18:08.1395587Z",
+      "exitCode": 1,
+      "finishedAt": "2026-10-09T14:19:49.6336546Z",
+      "command": "npm.cmd run test:browser",
+      "log": ".local-validation/v07/final-test-browser.log",
+      "logSha256": "bedfa62017250fd928df1515b005db1f1942c7added8862cb9c0851f06846ee8"
+    },
+    {
+      "startedAt": "2026-10-09T14:19:49.7715595Z",
+      "exitCode": 0,
+      "finishedAt": "2026-10-09T14:22:04.1146178Z",
+      "command": "npm.cmd run test:browser:polish",
+      "log": ".local-validation/v07/final-test-browser-polish.log",
+      "logSha256": "fa63c2eb8015a339780346048455d64f2abb2a4ab5e18a0d07f5ddd43c35e395"
+    },
+    {
+      "startedAt": "2026-10-09T14:22:04.1417216Z",
+      "exitCode": 1,
+      "finishedAt": "2026-10-09T14:24:46.1837074Z",
+      "command": "npm.cmd run test:browser:cross",
+      "log": ".local-validation/v07/final-test-browser-cross.log",
+      "logSha256": "42a98d07cf4c7e69d6b113db93144cd389345163b2b7c0b90f90431b8b9073af"
+    },
+    {
+      "startedAt": "2026-10-09T14:24:46.2584161Z",
+      "exitCode": 1,
+      "finishedAt": "2026-10-09T14:29:12.1203783Z",
+      "command": "npm.cmd run test:browser:061",
+      "log": ".local-validation/v07/final-test-browser-061.log",
+      "logSha256": "bf9093bf85e9dd024ec1abbbece3cd6205b43836134a8942effb3658e128d713"
+    },
+    {
+      "startedAt": "2026-10-09T14:29:12.1598068Z",
+      "exitCode": 1,
+      "finishedAt": "2026-10-09T14:36:29.5186443Z",
+      "command": "npm.cmd run test:browser:ember",
+      "log": ".local-validation/v07/final-test-browser-ember.log",
+      "logSha256": "1e25b980f5e2ef96c91af801506b106c792bf4170765470435e9d1e5bd07fdd0"
+    },
+    {
+      "command": "npm.cmd run test:browser",
+      "log": ".local-validation/v07/recheck-test-browser.log",
+      "finishedAt": "2026-10-09T14:40:41.7496476Z",
+      "startedAt": "2026-10-09T14:40:06.3443616Z",
+      "exitCode": 1,
+      "logSha256": "b38d572bcd682f686074b53cb4d748591f100a7b0fc28cb3aaa2b72c5c418244"
+    },
+    {
+      "command": "npm.cmd run test:browser:cross",
+      "log": ".local-validation/v07/recheck-test-browser-cross.log",
+      "finishedAt": "2026-10-09T14:44:56.2515287Z",
+      "startedAt": "2026-10-09T14:40:41.8515408Z",
+      "exitCode": 0,
+      "logSha256": "bd668ecdd9e666824e8c58f8d6765da6feee4513811ae7a7f2557eb035624a96"
+    },
+    {
+      "command": "npm.cmd run test:browser:061",
+      "log": ".local-validation/v07/recheck-test-browser-061.log",
+      "finishedAt": "2026-10-09T14:48:25.7983013Z",
+      "startedAt": "2026-10-09T14:44:56.2811005Z",
+      "exitCode": 0,
+      "logSha256": "2c4e52cb9944c1c0434f29b81426c76e662b2c835d1ffc67959fd8636fcedcf1"
+    },
+    {
+      "command": "npm.cmd run test:browser:ember",
+      "log": ".local-validation/v07/recheck-test-browser-ember.log",
+      "finishedAt": "2026-10-09T14:55:11.8868927Z",
+      "startedAt": "2026-10-09T14:48:25.8092941Z",
+      "exitCode": 0,
+      "logSha256": "4219c0f3b69e0e3aea013ad46d0ee0d4ddef6f0587e1ae763d30b0549f5ce7f0"
+    },
+    {
+      "log": ".local-validation/v07/official-serial.log",
+      "startedAt": "2026-10-09T14:55:42.7537904Z",
+      "finishedAt": "2026-10-09T15:05:33.7306734Z",
+      "execution": "single browser suite after other processes completed",
+      "exitCode": 0,
+      "command": "npm.cmd run test:browser",
+      "logSha256": "e89a4648eaf1cbebc80ea0b450ac82d4779da1c24cf92d70065c02d08aa95d2e"
+    },
+    {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "log": ".local-validation/v07/complete-unit.log",
+      "pass": 1187,
+      "fail": 0,
+      "skip": 0,
+      "attempt": "last full unit, after final QA assertion addition",
+      "logSha256": "0fde03267e947aa6f5f02d4ec2050a65afa8b3967cf49da79ea2dd12cd58ee11"
+    },
+    {
+      "command": "node tools/simulate-ember-decks.js",
+      "exitCode": 0,
+      "log": ".local-validation/v07/ember-decks.log",
+      "pass": 10000,
+      "logSha256": "dfda21578010e6f2672f1a9244e0f47e9290a5322807df8fc3bc8a720c0ba0e5"
+    },
+    {
+      "command": "npm.cmd run test:decks:snow",
+      "exitCode": 0,
+      "log": ".local-validation/v07/snow-decks.log",
+      "pass": 10000,
+      "logSha256": "926c27d1e7ca3b4753280d94e646e8d2e3c89a7019db10eb5bb7e1de3a5facb8"
+    },
+    {
+      "command": "node tools/simulate-ember-runs.js",
+      "environment": {
+        "SB_EMBER_RUN_OUT": ".local-validation/v07/ember-runs-second.json"
+      },
+      "exitCode": 0,
+      "log": ".local-validation/v07/runs-second.log",
+      "logSha256": "b07ab3bafeb83a5b252b4e6e7071427fc0f3808dc1b7dacd14a884f0ad691f96"
+    },
+    {
+      "command": "node tools/simulate-ember-runs.js",
+      "environment": {
+        "SB_EMBER_COURSE": "1",
+        "SB_EMBER_RUN_OUT": ".local-validation/v07/ember-course-fourth.json"
+      },
+      "exitCode": 0,
+      "log": ".local-validation/v07/course-fourth.log",
+      "logSha256": "895054b090a2cdfe728c7786f6042326f0fa323fd35fa9a15e21d3b590861316"
+    },
+    {
+      "command": "npm.cmd run test:e2e:ember",
+      "environment": {
+        "SB_EMBER_COURSE": "1",
+        "SB_EVIDENCE_DIR": ".local-validation/v07/e2e-course"
+      },
+      "exitCode": 0,
+      "log": ".local-validation/v07/e2e-course.log",
+      "logSha256": "cc5f7c43a3859770023a2c4da70ee7402089073dee5fd100e28317fbb3270c98"
+    },
+    {
+      "command": "npm.cmd run test:e2e",
+      "environment": {
+        "SB_E2E_SNOW_COURSE": "1",
+        "SB_EVIDENCE_DIR": ".local-validation/v07/e2e-legacy061-second"
+      },
+      "exitCode": 0,
+      "log": ".local-validation/v07/e2e-legacy061-second.log",
+      "logSha256": "bb84a1c2a469a60ad0ecfb3476612eb9381530459b9acc3791172d483966000e"
+    },
+    {
+      "command": "npm.cmd run test:browser",
+      "exitCode": 1,
+      "log": ".local-validation/v07/official-warm.log",
+      "attempt": "intermediate concurrent run: canyon FINISHED vs FAST_FORWARDED, retained",
+      "logSha256": "4ca3a89ee5aaeb7c0a9b7a14b69e048c66c593aa38fd3d32c6527995c178a21b"
+    }
+  ],
+  "devServerStopped": true,
+  "localWarning": "Vite watcher EBUSY on an in-use ignored production video was observed. No production browser resource/console failure; root cause of earlier timing failures is not asserted."
+}

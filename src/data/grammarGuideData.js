@@ -1,6 +1,11 @@
 import {isIngForm} from './language/desertLanguage.js';
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'PARTICIPLE.PAST':{label:'과거분사',description:'p.p.형이 명사를 수식하거나 목적어의 상태를 설명할 수 있습니다. 과거 시제나 완료·수동태와 구분합니다.',examples:[]},
+ 'VOICE.PASSIVE':{label:'수동태',description:'be + p.p.로 주어가 동작의 대상임을 나타냅니다. 본동사의 원래 문형과 남은 목적어·보어를 함께 확인합니다.',examples:[]},
+ 'CONSTRUCTION.CAUSATIVE':{label:'사역',description:'make·have 뒤에 목적어와 동사 원형을 두어 행동을 하게 함을 나타낼 수 있습니다.',examples:[]},
+ 'CONSTRUCTION.ASSISTANCE':{label:'도움·준사역',description:'help 뒤에 목적어와 동사 원형 또는 to부정사를 둘 수 있습니다.',examples:[]},
+ 'CONSTRUCTION.PERCEPTION':{label:'지각',description:'보거나 느끼는 대상의 행동·상태를 나타냅니다. 동사별로 검수된 목적격보어 형태를 사용합니다.',examples:[]},
  'COMPARISON.COMPARATIVE':{label:'비교급',description:'형용사·부사의 비교급으로 정도를 비교합니다. than 뒤에는 비교 기준이 옵니다.',examples:[]},
  'COMPARISON.SUPERLATIVE':{label:'최상급',description:'비교 범위에서 가장 높은 정도를 나타냅니다. 형용사 최상급에는 the나 소유 한정사 등이 필요합니다.',examples:[]},
  'COMPARISON.EQUALITY':{label:'동등 비교',description:'as + 원급 + as로 정도가 같음을 나타냅니다. twice as ~ as는 두 배의 정도입니다.',examples:[]},
@@ -48,7 +53,7 @@ export const PRONOUN_MEANINGS={
 export const ING_FORM_GUIDE='-ing형은 문장 속 쓰임에 따라 동명사·분사로 사용되고, be와 결합해 진행형을 만들 수 있습니다.';
 export const NONFINITE_INTERPRETATIONS={INFINITIVE:'to부정사',GERUND:'동명사',PARTICIPLE:'현재분사'};
 export const NONFINITE_FUNCTIONS={SUBJECT:'주어',OBJECT:'목적어',SUBJECT_COMPLEMENT:'주격보어',PREPOSITION_OBJECT:'전치사의 목적어',NOUN_MODIFIER:'명사 수식',PURPOSE:'목적 표현',ADJECTIVE_COMPLEMENT:'형용사 연결',OBJECT_COMPLEMENT:'목적격보어'};
-export function nonfiniteLabel(phrase){return [NONFINITE_INTERPRETATIONS[phrase.interpretation],NONFINITE_FUNCTIONS[phrase.function]].filter(Boolean).join(' · ');}
+export function nonfiniteLabel(phrase){return [phrase.interpretation==='PARTICIPLE'&&phrase.formKind==='PP'?'과거분사':NONFINITE_INTERPRETATIONS[phrase.interpretation],NONFINITE_FUNCTIONS[phrase.function]].filter(Boolean).join(' · ');}
 export function formMeaning(word,form){if(isIngForm(form))return '-ing형';const group=PRONOUN_MEANINGS[word.lemma];if(!group)return form.labelKo;return group[{NOMINATIVE:0,OBJECTIVE:1,POSSESSIVE_DETERMINER:2}[form.grammaticalFeatures.case]]??'대명사 형태';}
 export function verbUsage(word){
  const frames=new Set(word.frameIds);const parts=[];
@@ -61,6 +66,8 @@ export function verbUsage(word){
  if(frames.has('frame.svoc.adj'))parts.push('목적어 + 형용사 보어');
  if(frames.has('frame.svoc.np'))parts.push('목적어 + 명사 보어');
  if(frames.has('frame.svoc.to'))parts.push('목적어 + to + 동사 원형');
+ if(frames.has('frame.svoc.ing'))parts.push('목적어 + -ing 보어');
+ if(frames.has('frame.svoc.pp'))parts.push('목적어 + p.p. 보어');
  if(frames.has('frame.svoc.bare'))parts.push('목적어 + 동사 원형');
  if(frames.has('frame.svo.to'))parts.push('to + 동사 원형');
  if([...frames].some(id=>id.startsWith('frame.svo.gerund')))parts.push('동명사(-ing) 목적어');

@@ -127,3 +127,11 @@ export const SNOW_GRAMMAR_DISPLAY=Object.freeze([...GRAMMAR_DISPLAY,
  {order:200,tag:'COMPARISON.EQUALITY',titleKo:'동등 비교',pattern:'as + 원급 + as + 비교 기준',shortDescriptionKo:'성질이나 행동의 정도가 같음을 나타냅니다. twice as ~ as는 두 배의 정도를 나타냅니다.'},
  {order:210,tag:'DEGREE.TOO',relatedTags:['DEGREE.ENOUGH'],titleKo:'too / enough',pattern:'too + 형용사·부사 / 형용사·부사 + enough',shortDescriptionKo:'too는 지나친 정도, enough는 충분한 정도를 나타냅니다. enough + 명사는 충분한 수량을 나타냅니다.'}
 ]);
+
+export const EMBER_GRAMMAR_DISPLAY=Object.freeze([
+ ...SNOW_GRAMMAR_DISPLAY.filter(g=>g.tag!=='PARTICIPLE.PRESENT'),
+ {order:220,tag:'PARTICIPLE.PRESENT',relatedTags:['PARTICIPLE.PAST'],titleKo:'분사 수식',pattern:'-ing / p.p. + 명사 · 명사 + 분사구',shortDescriptionKo:'기존 동사의 -ing·p.p.형으로 명사를 설명합니다. 동사에 필요한 목적어·보어와 수식 대상의 연결도 확인합니다.'},
+ {order:230,tag:'VOICE.PASSIVE',titleKo:'수동태',pattern:'be + p.p.',shortDescriptionKo:'주어가 동작의 대상이 되는 구조입니다. 시제·진행·완료와 별개이며, 등록된 타동 용법과 남은 목적어·보어를 확인합니다.'},
+ {order:240,tag:'CONSTRUCTION.CAUSATIVE',relatedTags:['CONSTRUCTION.ASSISTANCE'],titleKo:'사역·준사역',pattern:'동사 + 목적어 + 원형 / to부정사 등',shortDescriptionKo:'목적어가 하는 행동을 시키거나 돕습니다. make·have·help 등 동사마다 허용하는 보어 형태가 다릅니다.'},
+ {order:250,tag:'CONSTRUCTION.PERCEPTION',titleKo:'지각',pattern:'동사 + 목적어 + 원형 / -ing / p.p.',shortDescriptionKo:'보거나 느끼는 행동·상태를 설명합니다. 원형은 행동 전체, -ing는 진행 중인 모습 등을 나타내며 모든 동사가 세 형태를 모두 받지는 않습니다.'}
+]);

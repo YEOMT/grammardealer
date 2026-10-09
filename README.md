@@ -1,3 +1,11 @@
+## Syntax Atlas 0.7.0 · 잿불 동굴
+
+새 원정은 7지역/32전투입니다. 기존 동사 형태로 분사 수식·수동태·동사별 목적격보어를 조합하고, 전투 한정 검은 먼지와 잠든 잿불룡의 검댕 비늘에 대응합니다. 기존 0.6.1 이하 저장은 원래 정책과 완료 경계를 유지합니다.
+
+[변경 내역](docs/PATCH_NOTES_0.7_KO.md) · [실제 검증과 한계](docs/TEST_REPORT_0.7.md) · [123개 인수 조건](docs/ACCEPTANCE_0.7.md). 추가 명령은 `test:browser:ember`, `test:decks:ember`, `test:runs:ember`, `test:e2e:ember`입니다. `test:e2e`는 현재 production UI에서 버전을 고정한 0.6.1 초기 저장을 불러오는 호환 경로입니다. 새 0.7 원정은 `test:e2e:ember`에서 UI로 시작합니다.
+
+아래는 이전 버전 기록입니다.
+
 ## Syntax Atlas 0.6.1 · Grammar & Operations Polish
 
 27전투와 기존 자원을 유지하며 운영 7종/+1 연마, 보급·직접 탐색 재사용, 상점 운영 전용 칸, Stage 4 연결어 선택과 보스 빙정 탐색을 연결합니다. 새 언어 view의 AP-to 생략 목적어 연결/동사구 부사 판정, 새 운석 배율, 지역 테마와 빙정 가독성을 개선합니다. 0.6 이하 저장은 자동 업그레이드하지 않습니다.

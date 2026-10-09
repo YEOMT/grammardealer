@@ -214,3 +214,27 @@ body[data-stage-theme] .hand-section{min-height:max-content}
  body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
  body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .status-panel{gap:4px;padding-block:6px}
 }
+
+/* Ember uses the existing playfield and card dimensions. Dust has no WORD decoration. */
+body[data-stage-theme="stage.07"]{--stage-gradient:radial-gradient(ellipse at 70% 20%,#a65b381a,transparent 55%),linear-gradient(145deg,#211b2c,#35262c)}
+.obstacle-card{background:#d9d5ce!important;border-color:#77716a!important;color:#302c29;box-shadow:0 3px 0 #645e57;}
+.obstacle-card .card-body{background:linear-gradient(150deg,#e2ded6,#c9c5bf);color:#302c29;cursor:default;}
+.obstacle-card small,.obstacle-card .card-topline,.obstacle-footer{color:#4d4741;}
+.obstacle-name{font-size:17px;white-space:nowrap;display:block;margin:12px 0 8px;}
+.obstacle-duration,.obstacle-rule{display:block;font-size:10px;line-height:1.45;white-space:nowrap;}
+.obstacle-footer{display:flex;justify-content:space-between;align-items:center;background:#d3cfc8;padding-left:5px;font-size:9px;}
+.obstacle-footer>span{white-space:nowrap}.obstacle-footer .card-select{min-width:44px;min-height:44px;}
+.hand-cards:has(.obstacle-card)>.word-card{min-width:90px;flex:0 0 max(90px,var(--card-w));}
+.hand-cards:has(.obstacle-card){overflow-x:auto;overflow-y:hidden;justify-content:safe center;padding-bottom:7px;}
+.ember-combat .enemy-area{display:grid;grid-template-columns:90px minmax(230px,340px) minmax(210px,290px);justify-content:center;gap:22px;}
+.ember-combat .enemy-avatar{width:auto;font-size:70px;}
+.ember-combat .enemy-info{width:auto;min-width:0;}
+.ember-combat .enemy-info h2{font-size:23px;margin-bottom:6px;}
+.ember-tools{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;min-width:0;}
+.ember-combat .region-bonus{position:static;padding:3px 7px;font-size:11px;}
+.ember-focus{font-size:11px;color:#dfc9bd;line-height:1.4;}
+.dust-counter{font-size:11px;color:#eee2d6;}
+.ember-strategy{font-size:11px;padding:5px 9px;min-height:36px;}
+.ember-scale{display:block;font-size:11px;color:#f1d2ab;line-height:1.5;margin-top:3px;}
+.ember-scale[data-active="false"]{color:#d9e6c2;}
+@media(max-width:1180px){.ember-combat .enemy-area{grid-template-columns:70px minmax(210px,300px) minmax(200px,260px);gap:14px;}.ember-combat .enemy-avatar{font-size:58px;}.ember-combat .enemy-info h2{font-size:21px;}}
