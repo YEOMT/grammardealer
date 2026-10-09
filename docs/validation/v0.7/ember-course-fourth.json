@@ -1,0 +1,941 @@
+{
+  "kind": "ACTUAL_CONTROLLER_COMMAND_CAMPAIGN_NOT_BROWSER",
+  "runs": [
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 32,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 0,
+        "hand": 3,
+        "draw": 32,
+        "discard": 27,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 81,
+        "status": "CONTENT_COMPLETE",
+        "phase": null,
+        "willInHand": true,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "commands": 924,
+      "durationMs": 36368,
+      "stats": {
+        "attacks": 71,
+        "exchanges": 33,
+        "runeAppearances": 24,
+        "polishedCards": 2,
+        "preparations": 34,
+        "bestAttack": 1803
+      },
+      "contentBoundary": "STAGE7_END",
+      "profileStage1Runs": 1,
+      "storyClearCount": 0,
+      "bossVeilReleased": true,
+      "shops": [
+        {
+          "gold": 22,
+          "entryGrant": {
+            "entryGrantId": "run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2:stage.02.entryGrant",
+            "applied": true,
+            "cardInstanceIds": [
+              "entry.run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2.stage.02.card.0"
+            ],
+            "representativeVerbCardDefId": "card.show",
+            "connectorCardDefId": "card.to",
+            "witness": {
+              "found": true,
+              "frameId": "frame.svoo",
+              "cardIds": [
+                "starter.01",
+                "starter.17",
+                "starter.02",
+                "starter.03"
+              ]
+            },
+            "warningKo": "",
+            "trace": [
+              {
+                "kind": "ENTRY_REPRESENTATIVE",
+                "cardDefId": "card.show",
+                "policy": "SORTED_OWNED_RUNTIME_BINDING"
+              },
+              {
+                "kind": "ENTRY_GRANT",
+                "cardDefIds": [
+                  "card.to"
+                ]
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "card.operation.supply",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "gold": 57,
+          "entryGrant": {
+            "entryGrantId": "run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2:stage.04.entryGrant",
+            "entryVersion": "0.6.1",
+            "applied": true,
+            "selectedConnectorCardDefId": "card.and",
+            "cardInstanceIds": [
+              "entry.run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2.stage.04.card.0",
+              "entry.run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2.stage.04.card.1",
+              "entry.run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2.stage.04.card.2"
+            ],
+            "cardDefIds": [
+              "card.and",
+              "card.think",
+              "card.that"
+            ],
+            "trace": [
+              {
+                "kind": "MISSING_ACTIVE_WORD_CAPABILITY_ONLY",
+                "policy": "ONE_DIRECT_CONNECTOR_CHOICE",
+                "alreadyOwnedDirectConnector": false,
+                "cardDefIds": [
+                  "card.and",
+                  "card.think",
+                  "card.that"
+                ]
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "rune.svoo",
+              "price": 24
+            },
+            {
+              "id": "card.when",
+              "price": 10
+            },
+            {
+              "id": "card.they",
+              "price": 6
+            },
+            {
+              "id": "card.operation.adjectiveSearch",
+              "price": 10
+            }
+          ]
+        },
+        {
+          "gold": 59,
+          "entryGrant": {
+            "entryGrantId": "run.0cc132ee-4e67-499b-8179-4bf1c63ddeb2:stage.06.entryGrant",
+            "applied": true,
+            "cardInstanceIds": [],
+            "cardDefIds": [],
+            "trace": [
+              {
+                "kind": "BATTLE_ONLY_FROST_SUPPLY",
+                "permanentCardsAdded": 0
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "card.that",
+              "price": 14
+            },
+            {
+              "id": "card.food",
+              "price": 6
+            },
+            {
+              "id": "card.operation.connectorSearch",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "battles": [
+        {
+          "battle": 1,
+          "enemy": "풀잎 슬라임",
+          "startingHp": 77,
+          "openingHand": [
+            "card.a",
+            "card.i",
+            "card.person",
+            "card.be",
+            "card.a",
+            "card.have"
+          ]
+        },
+        {
+          "battle": 2,
+          "enemy": "숲 달팽이",
+          "startingHp": 132,
+          "openingHand": [
+            "card.she",
+            "card.person",
+            "card.they",
+            "card.show",
+            "card.be",
+            "card.at"
+          ]
+        },
+        {
+          "battle": 3,
+          "enemy": "초원 수호자",
+          "startingHp": 242,
+          "openingHand": [
+            "card.run",
+            "card.become",
+            "card.show",
+            "card.hard",
+            "card.you",
+            "card.person"
+          ]
+        },
+        {
+          "battle": 4,
+          "enemy": "부두 갈매기",
+          "startingHp": 220,
+          "openingHand": [
+            "card.i",
+            "card.person",
+            "card.the",
+            "card.hard",
+            "card.cat",
+            "card.become"
+          ]
+        },
+        {
+          "battle": 5,
+          "enemy": "짐꾼 게",
+          "startingHp": 300,
+          "openingHand": [
+            "card.a",
+            "card.cat",
+            "card.show",
+            "card.a",
+            "card.she",
+            "card.person"
+          ]
+        },
+        {
+          "battle": 6,
+          "enemy": "파도 문어",
+          "startingHp": 380,
+          "openingHand": [
+            "card.day",
+            "card.a",
+            "card.the",
+            "card.take",
+            "card.be",
+            "card.i"
+          ]
+        },
+        {
+          "battle": 7,
+          "enemy": "항구 수문장",
+          "startingHp": 640,
+          "openingHand": [
+            "card.show",
+            "card.a",
+            "card.she",
+            "card.live",
+            "card.person",
+            "card.be"
+          ]
+        },
+        {
+          "battle": 8,
+          "enemy": "고대의 거북이",
+          "startingHp": 320,
+          "openingHand": [
+            "card.be",
+            "card.really",
+            "card.a",
+            "card.time",
+            "card.i",
+            "card.he"
+          ]
+        },
+        {
+          "battle": 9,
+          "enemy": "질주하는 토끼",
+          "startingHp": 360,
+          "openingHand": [
+            "card.take",
+            "card.have",
+            "card.i",
+            "card.run",
+            "card.a",
+            "card.person"
+          ]
+        },
+        {
+          "battle": 10,
+          "enemy": "사냥을 완료한 늑대",
+          "startingHp": 400,
+          "openingHand": [
+            "card.be",
+            "card.cat",
+            "card.to",
+            "card.run",
+            "card.live",
+            "card.day"
+          ]
+        },
+        {
+          "battle": 11,
+          "enemy": "미래를 보는 독수리",
+          "startingHp": 440,
+          "openingHand": [
+            "card.run",
+            "card.become",
+            "card.day",
+            "card.have",
+            "card.time",
+            "card.a"
+          ]
+        },
+        {
+          "battle": 12,
+          "enemy": "시간의 골렘",
+          "startingHp": 720,
+          "openingHand": [
+            "card.live",
+            "card.you",
+            "card.person",
+            "card.run",
+            "card.be",
+            "card.he"
+          ]
+        },
+        {
+          "battle": 13,
+          "enemy": "구름양",
+          "startingHp": 520,
+          "openingHand": [
+            "card.when",
+            "card.school",
+            "card.quickly",
+            "card.live",
+            "card.day",
+            "card.show"
+          ]
+        },
+        {
+          "battle": 14,
+          "enemy": "갈래바람 정령",
+          "startingHp": 570,
+          "openingHand": [
+            "card.to",
+            "card.school",
+            "card.tired",
+            "card.when",
+            "card.she",
+            "card.become"
+          ]
+        },
+        {
+          "battle": 15,
+          "enemy": "매듭뱀",
+          "startingHp": 620,
+          "openingHand": [
+            "card.like",
+            "card.when",
+            "card.the",
+            "card.be",
+            "card.school",
+            "card.day"
+          ]
+        },
+        {
+          "battle": 16,
+          "enemy": "메아리 새",
+          "startingHp": 680,
+          "openingHand": [
+            "card.they",
+            "card.tired",
+            "card.become",
+            "card.school",
+            "card.she",
+            "card.that"
+          ]
+        },
+        {
+          "battle": 17,
+          "enemy": "하늘길의 문지기",
+          "startingHp": 760,
+          "openingHand": [
+            "card.say",
+            "card.think",
+            "card.be",
+            "card.the",
+            "card.she",
+            "card.day"
+          ]
+        },
+        {
+          "battle": 18,
+          "enemy": "별길 낙타",
+          "startingHp": 620,
+          "openingHand": [
+            "card.book",
+            "card.and",
+            "card.live",
+            "card.they",
+            "card.say",
+            "card.operation.supply"
+          ]
+        },
+        {
+          "battle": 19,
+          "enemy": "금빛 전갈",
+          "startingHp": 670,
+          "openingHand": [
+            "card.person",
+            "card.become",
+            "card.because",
+            "card.operation.supply",
+            "card.the",
+            "card.day"
+          ]
+        },
+        {
+          "battle": 20,
+          "enemy": "별꽃 선인장",
+          "startingHp": 720,
+          "openingHand": [
+            "card.at",
+            "card.tired",
+            "card.when",
+            "card.be",
+            "card.person",
+            "card.day"
+          ]
+        },
+        {
+          "battle": 21,
+          "enemy": "신기루 여우",
+          "startingHp": 780,
+          "openingHand": [
+            "card.show",
+            "card.they",
+            "card.become",
+            "card.know",
+            "card.day",
+            "card.time"
+          ]
+        },
+        {
+          "battle": 22,
+          "enemy": "소원의 스핑크스",
+          "startingHp": 960,
+          "openingHand": [
+            "card.and",
+            "card.hobby",
+            "card.you",
+            "card.be",
+            "card.like",
+            "card.at"
+          ]
+        },
+        {
+          "battle": 23,
+          "enemy": "눈토끼",
+          "startingHp": 760,
+          "openingHand": [
+            "card.be",
+            "card.than",
+            "card.hard",
+            "card.operation.supply",
+            "card.will",
+            "card.she"
+          ]
+        },
+        {
+          "battle": 24,
+          "enemy": "설원 늑대",
+          "startingHp": 830,
+          "openingHand": [
+            "card.become",
+            "card.hard",
+            "card.she",
+            "card.most",
+            "card.say",
+            "card.park"
+          ]
+        },
+        {
+          "battle": 25,
+          "enemy": "눈꽃 정령",
+          "startingHp": 900,
+          "openingHand": [
+            "card.as",
+            "card.be",
+            "card.i",
+            "card.show",
+            "card.and",
+            "card.young"
+          ]
+        },
+        {
+          "battle": 26,
+          "enemy": "북극곰",
+          "startingHp": 970,
+          "openingHand": [
+            "card.be",
+            "card.too",
+            "card.operation.supply",
+            "card.say",
+            "card.you",
+            "card.tired"
+          ]
+        },
+        {
+          "battle": 27,
+          "enemy": "거울뿔 사슴",
+          "startingHp": 1280,
+          "openingHand": [
+            "card.twice",
+            "card.tired",
+            "card.she",
+            "card.a",
+            "card.be",
+            "card.as",
+            "card.operation.search"
+          ]
+        },
+        {
+          "battle": 28,
+          "enemy": "불씨 도롱뇽",
+          "startingHp": 960,
+          "openingHand": [
+            "card.young",
+            "card.be",
+            "card.like",
+            "card.a",
+            "card.cat",
+            "card.time"
+          ]
+        },
+        {
+          "battle": 29,
+          "enemy": "현무암 거북",
+          "startingHp": 1040,
+          "openingHand": [
+            "card.person",
+            "card.think",
+            "card.food",
+            "card.hard",
+            "card.quickly",
+            "card.be"
+          ]
+        },
+        {
+          "battle": 30,
+          "enemy": "화로 대장장이 정령",
+          "startingHp": 1120,
+          "openingHand": [
+            "card.obstacle.blackDust",
+            "card.they",
+            "card.book",
+            "card.he",
+            "card.a",
+            "card.show"
+          ]
+        },
+        {
+          "battle": 31,
+          "enemy": "메아리 박쥐",
+          "startingHp": 1200,
+          "openingHand": [
+            "card.say",
+            "card.time",
+            "card.hobby",
+            "card.will",
+            "card.and",
+            "card.think"
+          ]
+        },
+        {
+          "battle": 32,
+          "enemy": "잠든 잿불룡",
+          "startingHp": 1440,
+          "openingHand": [
+            "card.person",
+            "card.she",
+            "card.a",
+            "card.and",
+            "card.obstacle.blackDust",
+            "card.be"
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "battle": 1,
+          "type": "MIXED",
+          "choices": [
+            "card.person",
+            "card.happy",
+            "card.play"
+          ],
+          "chosen": "card.person",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 2,
+          "type": "RUNE_INTRO",
+          "choices": [
+            "rune.perfectSentence",
+            "rune.short",
+            "rune.discards"
+          ],
+          "chosen": "rune.perfectSentence",
+          "firstRuneIntro": true
+        },
+        {
+          "battle": 3,
+          "type": "MIXED",
+          "choices": [
+            "rune.handSize",
+            "rune.polished",
+            "rune.openingHand"
+          ],
+          "chosen": "rune.handSize",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 4,
+          "type": "MIXED",
+          "choices": [
+            "rune.adverbs",
+            "card.a",
+            "card.finish"
+          ],
+          "chosen": "rune.adverbs",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 5,
+          "type": "MIXED",
+          "choices": [
+            "card.he",
+            "card.new",
+            "REMOVE"
+          ],
+          "chosen": "card.he",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 6,
+          "type": "MIXED",
+          "choices": [
+            "card.hobby",
+            "card.picture",
+            "card.but"
+          ],
+          "chosen": "card.hobby",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 7,
+          "type": "MIXED",
+          "choices": [
+            "rune.discards",
+            "POLISH",
+            "rune.longSentence"
+          ],
+          "chosen": "rune.longSentence",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 8,
+          "type": "MIXED",
+          "choices": [
+            "card.like",
+            "rune.polished",
+            "card.operation.recycle"
+          ],
+          "chosen": "card.like",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 9,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "REMOVE",
+            "card.carefully"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 10,
+          "type": "MIXED",
+          "choices": [
+            "card.park",
+            "POLISH",
+            "card.finish"
+          ],
+          "chosen": "card.park",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 11,
+          "type": "MIXED",
+          "choices": [
+            "card.day",
+            "POLISH",
+            "card.now"
+          ],
+          "chosen": "card.day",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 12,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "card.that",
+            "rune.svo"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 13,
+          "type": "MIXED",
+          "choices": [
+            "card.think",
+            "card.school",
+            "card.need"
+          ],
+          "chosen": "card.think",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 14,
+          "type": "MIXED",
+          "choices": [
+            "card.say",
+            "card.operation.recycle",
+            "card.change"
+          ],
+          "chosen": "card.say",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 15,
+          "type": "MIXED",
+          "choices": [
+            "card.know",
+            "card.strong",
+            "rune.sv"
+          ],
+          "chosen": "card.know",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 16,
+          "type": "MIXED",
+          "choices": [
+            "REMOVE",
+            "card.say",
+            "rune.discards"
+          ],
+          "chosen": "card.say",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 17,
+          "type": "MIXED",
+          "choices": [
+            "card.because",
+            "rune.handSize",
+            "rune.adverbs"
+          ],
+          "chosen": "card.because",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 18,
+          "type": "MIXED",
+          "choices": [
+            "card.it",
+            "rune.openingHand",
+            "REMOVE"
+          ],
+          "chosen": "card.it",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 19,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "card.kind",
+            "rune.svo"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 20,
+          "type": "MIXED",
+          "choices": [
+            "card.they",
+            "POLISH",
+            "card.send"
+          ],
+          "chosen": "card.send",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 21,
+          "type": "MIXED",
+          "choices": [
+            "card.problem",
+            "POLISH",
+            "REMOVE"
+          ],
+          "chosen": "card.problem",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 22,
+          "type": "MIXED",
+          "choices": [
+            "rune.sv",
+            "rune.openingHand",
+            "POLISH"
+          ],
+          "chosen": "rune.sv",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 23,
+          "type": "MIXED",
+          "choices": [
+            "card.useful",
+            "card.kind",
+            "REMOVE"
+          ],
+          "chosen": "card.useful",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 24,
+          "type": "MIXED",
+          "choices": [
+            "card.young",
+            "rune.svc",
+            "card.like"
+          ],
+          "chosen": "card.young",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 25,
+          "type": "MIXED",
+          "choices": [
+            "card.often",
+            "REMOVE",
+            "card.now"
+          ],
+          "chosen": "card.often",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 26,
+          "type": "MIXED",
+          "choices": [
+            "card.clearly",
+            "card.big",
+            "card.that"
+          ],
+          "chosen": "card.clearly",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 27,
+          "type": "MIXED",
+          "choices": [
+            "rune.short",
+            "rune.handSize",
+            "card.that"
+          ],
+          "chosen": "rune.short",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 28,
+          "type": "MIXED",
+          "choices": [
+            "card.environment",
+            "REMOVE",
+            "card.keep"
+          ],
+          "chosen": "card.environment",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 29,
+          "type": "MIXED",
+          "choices": [
+            "card.see",
+            "card.too",
+            "rune.longSentence"
+          ],
+          "chosen": "card.see",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 30,
+          "type": "MIXED",
+          "choices": [
+            "card.live",
+            "card.for",
+            "card.operation.recycle"
+          ],
+          "chosen": "card.live",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 31,
+          "type": "MIXED",
+          "choices": [
+            "card.environment",
+            "REMOVE",
+            "card.clearly"
+          ],
+          "chosen": "card.environment",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 32,
+          "type": "MIXED",
+          "choices": [
+            "rune.openingHand",
+            "POLISH",
+            "card.operation.nounSearch"
+          ],
+          "chosen": "rune.openingHand",
+          "firstRuneIntro": false
+        }
+      ],
+      "actionCount": 327
+    }
+  ],
+  "status": "PASS",
+  "rawLocalEvidence": ".local-validation/v07/ember-course-fourth.json",
+  "rawSha256": "de54067c315782e1ef64a5af3237afdaf795ce7b95622368fed4ffe5324d112d"
+}

@@ -11,7 +11,7 @@ import {grantStage6Entry} from '../src/game/mirrorSnowfield.js';
 import {validateSkyShops} from '../src/game/skyShopValidation.js';
 import {createRewardOffer,resolveReward} from '../src/game/rewards.js';
 import {selectOperation} from '../src/game/operationPool.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-061-controller.js';
 import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
 import {registryForVersion} from '../src/data/language/index.js';
 

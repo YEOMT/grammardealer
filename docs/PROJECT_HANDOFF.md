@@ -1,3 +1,15 @@
+# 0.7 현재 인계
+
+기준 main: e2a878640dc88bce12e62ad6041a59867e09ef92. 작업 브랜치: codex/v0.7-ember-cave-participles-dust. 기존 0.6.1 기반 위에 7지역/32전투를 추가했습니다. 이 브랜치의 원격 등록은 main 병합이나 공개 배포와 별개입니다.
+
+핵심 경계: `emberLanguage`는 frozen 0.6.1을 복제하며 기존 카드/형태 ID를 유지합니다. `emberEvidence`가 실제 구조의 formUses/sourceFrame을 기록하고, 점수/해금/보스는 그 증거를 소비합니다. `emberDust`와 `temporaryCards`는 먼지와 기존 빙정의 수명·저장 경계를 분리합니다. 상태 커밋은 기존 RunController만 수행합니다.
+
+먼지는 OBSTACLE이므로 일반 카드처럼 보이더라도 WORD 문법·점수·탐색으로 보내면 안 됩니다. 보급/재활용 ALL과 교환에서는 포함합니다. 보스 비늘은 진행/완료/동명사 정상 사용도 허용하며, 실제 ING/PP 사용 근거를 철자나 새 콤보 해금으로 대체하면 안 됩니다.
+
+검증: [TEST_REPORT_0.7](TEST_REPORT_0.7.md), [ACCEPTANCE_0.7](ACCEPTANCE_0.7.md), [동사 검토](VERB_COMPLEMENT_PASSIVE_AUDIT_0.7.md), [먼지 수명](DUST_LIFECYCLE_REVIEW_0.7.md). 학습 경로·합성 산술·지정 상태·실제 Controller 원정·production UI 완주는 서로 다른 증거입니다. 부속 기대 JSON의 NOT_RUN을 실행 PASS로 복사하지 않습니다.
+
+이하 내용은 이전 버전 기록이며 과거 결과를 이번 실행 결과로 해석하지 않습니다.
+
 ## 0.6.1 개발 인계
 
 기준은 작업 시작에 fetch한 `origin/main`의 `79ab84ebe3a3240a558aecbd2898efdd8e179029`(0.6 병합)이며 시작 checkout은 clean이었다. `codex/v0.6.1-grammar-operations-polish`에서 작업한다. 전체 계약은 `spec/0.6.1_GRAMMAR_OPERATIONS_POLISH.md`다. 첨부 JSON은 기대값으로만 보존하며 실제 실행 결과는 별도 기록한다.

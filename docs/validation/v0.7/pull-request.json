@@ -1,0 +1,12 @@
+{
+  "url": "https://github.com/YEOMT/grammardealer/pull/11",
+  "number": 11,
+  "draft": false,
+  "state": "open",
+  "headSha": "5cf8ff23a92ae7474136b42c9ef85b671d9db145",
+  "head": "codex/v0.7-ember-cave-participles-dust",
+  "base": "main",
+  "autoMerge": null,
+  "createdAt": "2026-10-09T15:12:39Z",
+  "method": "Existing Git Credential Manager authentication; connector create attempt returned 403"
+}

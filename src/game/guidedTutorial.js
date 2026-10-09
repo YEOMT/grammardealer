@@ -65,7 +65,7 @@ export function tutorialCommand(run,command){const t=run.tutorialSession;return 
 export function validateTutorial(run){
  const t=run.tutorialSession;if(!t)return true;
  const fail=()=>{throw Error('잘못된 고정 튜토리얼 저장입니다.');};
- if(!['0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1'].includes(run.version)||t.version!==GUIDED_VERSION||!Number.isInteger(t.attempt)||t.attempt<1||t.sessionId!==`${run.runId}:tutorial:${t.attempt}`)fail();
+ if(!['0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0'].includes(run.version)||t.version!==GUIDED_VERSION||!Number.isInteger(t.attempt)||t.attempt<1||t.sessionId!==`${run.runId}:tutorial:${t.attempt}`)fail();
  if(!t.active&&t.endReason==='SKIPPED'){if(t.step<1||t.step>31||t.parked||t.skipReceipt!==`${t.sessionId}:skip`||run.activeCardIds.some(x=>x.startsWith('tutorial.021.')))fail();return true;}
  if(!t.active){if(t.step!==32||t.parked||run.activeCardIds.some(x=>x.startsWith('tutorial.021.')))fail();return true;}
  if(run.progress.battleNumber!==1||run.progress.stageId!=='stage.01'||!Number.isInteger(t.step)||t.step<1||t.step>31||run.runes.orderedInstanceIds.length||!t.parked)fail();

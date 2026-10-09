@@ -16,7 +16,7 @@ try{
   page.on('pageerror',error=>report.errors.push(error.message));
   await page.goto(base);await page.locator('#start-run').waitFor();
   // The lobby advertises the new campaign; the assigned legacy scenarios below retain their own versions.
-  assert.match(await page.locator('.version-badge').innerText(),/0\.6/);
+  assert.equal(await page.locator('.version-badge').innerText(),'0.7.0 · Ember Cave');
   await page.evaluate(async()=>{
     const [{RunController},{newProfile,LocalStore},{renderIntro,renderStageClear,renderResult},{renderShop},{openDeck,openDictionary,openRecords,openSaves},{RUNE_BY_ID}]=await Promise.all([
       import('/tests/helpers/legacy-controller.js'),import('/src/services/localStore.js'),import('/src/ui/progression.js'),import('/src/ui/shop.js'),import('/src/ui/overlays.js'),import('/src/data/runes.js')]);
@@ -87,7 +87,7 @@ try{
     s.combat.sentenceSlots=snapshot.orderedTokens.map(token=>({cardInstanceId:token.cardInstanceId,selection:{formId:token.selectionId}}));s.combat.handIds=[];s.combat.drawIds=[];s.combat.discardIds=[];s.combat.enemyState={...getEncounter('stage.02',3),maxHp:640};
     s.runes={slotLimit:3,orderedInstanceIds:['ui02.topaz'],instances:{'ui02.topaz':{instanceId:'ui02.topaz',runeId:'rune.svoo',level:1}}};
     const resolution=resolveAttack({attackId:'ui02.presentation',stage:STAGE2,sentenceSnapshot:snapshot,analysis:analyzeSentence(snapshot),cards:Object.values(s.cardInstances).map(card=>({...card,baseScore:10})),equippedRunes:Object.values(s.runes.instances),enemy:s.combat.enemyState});
-    const view=renderCombat(document.querySelector('#app'),s,{locked:true}),adapter=createDOMPresentation(view.element,{hpMax:640});view.beginPresentation();
+    const view=renderCombat(document.querySelector('#app'),s,{locked:true}),adapter=createDOMPresentation(view.element,{hpMax:640});view.beginPresentation();const charge=adapter.charge;ui02.chargeState=null;adapter.charge=(...args)=>{charge(...args);ui02.chargeState={phase:view.element.dataset.corePhase,active:view.element.querySelector('[data-presentation=boss-veil]').dataset.active,hp:view.element.querySelector('[data-presentation=hp]').textContent};};
     ui02.resolution=resolution;ui02.done=null;ui02.presentation=playAttack(resolution,adapter,{speed:1}).then(result=>ui02.done=result);
     const badge=document.createElement('aside');badge.textContent='0.2 연출 합성 fixture · 실제 공격 기록 아님';badge.style='position:fixed;bottom:0;left:0;padding:4px;background:#eee0a8;color:#173421';document.querySelector('#app').append(badge);
   });
@@ -100,7 +100,7 @@ try{
   assert.equal(await page.locator('[data-argument-role=DO]').count(),3);assert.equal(await page.locator('[data-presentation=boss-veil]').getAttribute('data-active'),'true');assert.equal(await page.locator('[data-presentation=hp]').innerText(),'640 / 640');await screenshot(page,'svoo-role-ranges');check('SVOO_IO_DO_RANGE_EVENT');
   await page.waitForFunction(()=>document.querySelector('.rune-flight[data-rune-id="rune.svoo"]'));await screenshot(page,'topaz-flight');check('TOPAZ_COLORED_FLIGHT');
   // 0.5.1 §3: boss appearance and HP change together at IMPACT, never during scoring.
-  await page.waitForFunction(()=>document.querySelector('.game-shell')?.dataset.corePhase==='CHARGE');assert.equal(await page.locator('[data-presentation=boss-veil]').getAttribute('data-active'),'true');assert.equal(await page.locator('[data-presentation=hp]').innerText(),'640 / 640');await screenshot(page,'veil-before-impact');check('VEIL_AND_HP_BEFORE_IMPACT');
+  await page.waitForFunction(()=>ui02.chargeState);const chargeState=await page.evaluate(()=>ui02.chargeState);assert.deepEqual(chargeState,{phase:'CHARGE',active:'true',hp:'640 / 640'});await screenshot(page,'veil-charge-observation');check('VEIL_AND_HP_BEFORE_IMPACT',{chargeState});
   await page.waitForFunction(()=>document.querySelector('[data-presentation=boss-veil]')?.dataset.active==='false');assert.equal(await page.locator('[data-presentation=hp]').innerText(),`${await page.evaluate(()=>ui02.resolution.enemyHpAfter)} / 640`);check('VEIL_AND_HP_AT_IMPACT');
   await page.waitForFunction(()=>ui02.done,{},{timeout:20000});s=await page.evaluate(()=>({done:ui02.done,result:ui02.resolution}));assert.equal(s.done.status,'FINISHED');assert.equal(await page.locator('[data-presentation=hp]').innerText(),`${s.result.enemyHpAfter} / 640`);await screenshot(page,'veil-impact');check('VEIL_IMPACT_FINAL_HP');
   for(const [width,height]of [[1920,1080],[1366,768],[1180,820],[1024,768]])for(const handSize of [10,14]){

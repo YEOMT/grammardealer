@@ -260,6 +260,7 @@ export const SNOW_SCORE_BALANCE=deepFreeze({...DESERT_SCORE_BALANCE,
  comparisonMultipliers:{'COMPARISON.COMPARATIVE':{num:9,den:5},'COMPARISON.SUPERLATIVE':{num:19,den:10},'COMPARISON.EQUALITY':{num:9,den:5}},degreeMultiplier:{num:3,den:2},comparisonMultiplierAdd:20,
  issuePenalties:{...DESERT_SCORE_BALANCE.issuePenalties,COMPARISON_FORM_MISMATCH:10,DOUBLE_COMPARISON_MARKING:10,AS_REQUIRES_POSITIVE_DEGREE:10,SUPERLATIVE_FORM_OR_DETERMINER:10,COMPARISON_STANDARD_REQUIRED:10},
 });
-export const scoreBalanceForVersion=version=>['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
+export const EMBER_SCORE_BALANCE=deepFreeze({...SNOW_SCORE_BALANCE,passiveMultiplier:{num:9,den:5}});
+export const scoreBalanceForVersion=version=>version==='0.7.0'?EMBER_SCORE_BALANCE:['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;

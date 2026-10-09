@@ -1,0 +1,721 @@
+{
+  "kind": "DESIGN_ARITHMETIC_NOT_GAME_EXECUTION",
+  "count": 13,
+  "cases": [
+    {
+      "id": "S001",
+      "sentence": "Food is eaten.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 30,
+          "after": 60
+        },
+        {
+          "event": "SURFACE_SV",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 60,
+          "after": 78
+        },
+        {
+          "event": "PASSIVE",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 78,
+          "after": 140
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 140,
+          "after": 175
+        }
+      ],
+      "expectedPower": 175,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "VOICE.PASSIVE"
+      ]
+    },
+    {
+      "id": "S002",
+      "sentence": "Food was eaten.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 0,
+          "after": 30
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 30,
+          "after": 60
+        },
+        {
+          "event": "SURFACE_SV",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 60,
+          "after": 78
+        },
+        {
+          "event": "PAST",
+          "operation": "MUL",
+          "operand": [
+            6,
+            5
+          ],
+          "before": 78,
+          "after": 93
+        },
+        {
+          "event": "PASSIVE",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 93,
+          "after": 167
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 167,
+          "after": 208
+        }
+      ],
+      "expectedPower": 208,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "VOICE.PASSIVE",
+        "TIME.PAST"
+      ]
+    },
+    {
+      "id": "S003",
+      "sentence": "Food has been eaten.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SURFACE_SV",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 70,
+          "after": 91
+        },
+        {
+          "event": "PERFECT",
+          "operation": "MUL",
+          "operand": [
+            7,
+            5
+          ],
+          "before": 91,
+          "after": 127
+        },
+        {
+          "event": "PASSIVE",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 127,
+          "after": 228
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 228,
+          "after": 285
+        }
+      ],
+      "expectedPower": 285,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "VOICE.PASSIVE",
+        "TIME.PERFECT"
+      ]
+    },
+    {
+      "id": "S004",
+      "sentence": "Food is being eaten.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SURFACE_SV",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 70,
+          "after": 91
+        },
+        {
+          "event": "PROGRESSIVE",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 91,
+          "after": 118
+        },
+        {
+          "event": "PASSIVE",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 118,
+          "after": 212
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 212,
+          "after": 265
+        }
+      ],
+      "expectedPower": 265,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "VOICE.PASSIVE",
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "S005",
+      "sentence": "She is given a book.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 50,
+          "after": 80
+        },
+        {
+          "event": "SURFACE_SVO",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 80,
+          "after": 144
+        },
+        {
+          "event": "PASSIVE",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 144,
+          "after": 259
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 259,
+          "after": 323
+        }
+      ],
+      "expectedPower": 323,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "VOICE.PASSIVE"
+      ]
+    },
+    {
+      "id": "S006",
+      "sentence": "I see him running.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SVOC",
+          "operation": "MUL",
+          "operand": [
+            5,
+            2
+          ],
+          "before": 70,
+          "after": 175
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 175,
+          "after": 218
+        }
+      ],
+      "expectedPower": 218,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "PARTICIPLE.PRESENT"
+      ]
+    },
+    {
+      "id": "S007",
+      "sentence": "I have the food made.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 50,
+          "after": 80
+        },
+        {
+          "event": "SVOC",
+          "operation": "MUL",
+          "operand": [
+            5,
+            2
+          ],
+          "before": 80,
+          "after": 200
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 200,
+          "after": 250
+        }
+      ],
+      "expectedPower": 250,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "PARTICIPLE.PAST"
+      ]
+    },
+    {
+      "id": "S008",
+      "sentence": "I make him work.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SVOC",
+          "operation": "MUL",
+          "operand": [
+            5,
+            2
+          ],
+          "before": 70,
+          "after": 175
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 175,
+          "after": 218
+        }
+      ],
+      "expectedPower": 218,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "CONSTRUCTION.CAUSATIVE"
+      ]
+    },
+    {
+      "id": "S009",
+      "sentence": "I help him to work.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 50,
+          "after": 80
+        },
+        {
+          "event": "SVOC",
+          "operation": "MUL",
+          "operand": [
+            5,
+            2
+          ],
+          "before": 80,
+          "after": 200
+        },
+        {
+          "event": "INFINITIVE",
+          "operation": "MUL",
+          "operand": [
+            7,
+            5
+          ],
+          "before": 200,
+          "after": 280
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 280,
+          "after": 350
+        }
+      ],
+      "expectedPower": 350,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "CONSTRUCTION.ASSISTANCE"
+      ]
+    },
+    {
+      "id": "S010",
+      "sentence": "The running child is happy.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 50,
+          "after": 80
+        },
+        {
+          "event": "SVC",
+          "operation": "MUL",
+          "operand": [
+            8,
+            5
+          ],
+          "before": 80,
+          "after": 128
+        },
+        {
+          "event": "ADJECTIVE_MODIFIER",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 128,
+          "after": 133
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 133,
+          "after": 166
+        }
+      ],
+      "expectedPower": 166,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "PARTICIPLE.PRESENT",
+        "MODIFIER.ADJECTIVE"
+      ]
+    },
+    {
+      "id": "S011",
+      "sentence": "The finished homework is easy.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 50,
+          "before": 0,
+          "after": 50
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 50,
+          "after": 80
+        },
+        {
+          "event": "SVC",
+          "operation": "MUL",
+          "operand": [
+            8,
+            5
+          ],
+          "before": 80,
+          "after": 128
+        },
+        {
+          "event": "ADJECTIVE_MODIFIER",
+          "operation": "ADD",
+          "operand": 5,
+          "before": 128,
+          "after": 133
+        },
+        {
+          "event": "REGION",
+          "operation": "MUL",
+          "operand": [
+            5,
+            4
+          ],
+          "before": 133,
+          "after": 166
+        }
+      ],
+      "expectedPower": 166,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "PARTICIPLE.PAST",
+        "MODIFIER.ADJECTIVE"
+      ]
+    },
+    {
+      "id": "S012",
+      "sentence": "I am eating food.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SVO",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 70,
+          "after": 126
+        },
+        {
+          "event": "PROGRESSIVE",
+          "operation": "MUL",
+          "operand": [
+            13,
+            10
+          ],
+          "before": 126,
+          "after": 163
+        }
+      ],
+      "expectedPower": 163,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "TIME.PROGRESSIVE"
+      ]
+    },
+    {
+      "id": "S013",
+      "sentence": "I have eaten food.",
+      "context": "ALL_RELEVANT_PACKS; NO_RUNE; NO_POLISH; STAGE7_NORMAL",
+      "trace": [
+        {
+          "event": "CARD_BASE",
+          "operation": "ADD",
+          "operand": 40,
+          "before": 0,
+          "after": 40
+        },
+        {
+          "event": "COMPLETE",
+          "operation": "ADD",
+          "operand": 30,
+          "before": 40,
+          "after": 70
+        },
+        {
+          "event": "SVO",
+          "operation": "MUL",
+          "operand": [
+            9,
+            5
+          ],
+          "before": 70,
+          "after": 126
+        },
+        {
+          "event": "PERFECT",
+          "operation": "MUL",
+          "operand": [
+            7,
+            5
+          ],
+          "before": 126,
+          "after": 176
+        }
+      ],
+      "expectedPower": 176,
+      "executionStatus": "NOT_RUN",
+      "requiredTags": [
+        "TIME.PERFECT"
+      ]
+    }
+  ],
+  "rules": [
+    "floor_after_every_multiplier",
+    "stage7_region_not_awarded_for_progressive_perfect_gerund_alone",
+    "OC_participle_not_automatically_NP_modifier_or_gerund",
+    "passive_multiplier_once_per_attack_even_if_multiple_passive_clauses",
+    "evidence_card_ids_deduplicated",
+    "at_boss_apply_1_4_only_after_all_prior_events_if_still_shielded"
+  ]
+}

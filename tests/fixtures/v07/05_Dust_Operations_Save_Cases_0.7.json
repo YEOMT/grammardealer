@@ -1,0 +1,349 @@
+{
+  "count": 43,
+  "cases": [
+    {
+      "id": "D001",
+      "title": "일반 공급",
+      "setup": "7-1 신규 전투",
+      "action": "START",
+      "expected": "OBSTACLE 2사본, 영구 덱 변화0, 같은 battle source",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D002",
+      "title": "보스 공급",
+      "setup": "7-5 신규 전투",
+      "action": "START",
+      "expected": "OBSTACLE 5사본, 매턴추가 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D003",
+      "title": "멱등 생성",
+      "setup": "기존 전투가 이미 준비됨",
+      "action": "같은 시작 명령 재전달",
+      "expected": "사본 추가0, RNG 추가소모0",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D004",
+      "title": "첫 손패 제한",
+      "setup": "초기 shuffle에 먼지3개 첫패",
+      "action": "opening 보정",
+      "expected": "첫패≤1, 실제 WORD witness 유지, 안정적인 swap trace",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D005",
+      "title": "다른 RNG",
+      "setup": "동일 runId/seed/영구 덱",
+      "action": "먼지 시작",
+      "expected": "deck만 변화, reward/shop/encounter 그대로",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D006",
+      "title": "전투 시작 재현",
+      "setup": "동일 config와 ID",
+      "action": "2회 clone simulation",
+      "expected": "같은 먼지ID/초기 위치/trace",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D007",
+      "title": "작은 덱",
+      "setup": "비먼지1/먼지5, initialHand6",
+      "action": "opening",
+      "expected": "비먼지1+먼지≤1; 나머지는 draw. 가짜 카드 생성 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D008",
+      "title": "추가 손패 룬",
+      "setup": "손패14까지 허용된 상태",
+      "action": "시작",
+      "expected": "실제 rulesSnapshot 존중, 먼지≤1 첫패",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D009",
+      "title": "조합대 클릭",
+      "setup": "HAND dust",
+      "action": "ADD_CARD",
+      "expected": "거절, 무소모, RNG/undo/상태 불변",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D010",
+      "title": "조합대 드래그",
+      "setup": "HAND dust",
+      "action": "DROP",
+      "expected": "거절, pointer state정리, 교환 체크는 가능",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D011",
+      "title": "맞교환 우회",
+      "setup": "HAND dust, BOARD word",
+      "action": "SWAP_CARDS",
+      "expected": "거절, 둘 다 원래영역",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D012",
+      "title": "형태 선택 우회",
+      "setup": "dust id",
+      "action": "SET_FORM",
+      "expected": "거절; 가짜 영어 형태 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D013",
+      "title": "직접 사용 우회",
+      "setup": "dust id",
+      "action": "USE_OPERATION",
+      "expected": "거절; command receipt 생성0",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D014",
+      "title": "교환",
+      "setup": "dust HAND",
+      "action": "EXCHANGE",
+      "expected": "DISCARD 이동, 교환1소모, turn불변, 같은 수 보충",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D015",
+      "title": "동시 교환",
+      "setup": "word+dust+operation HAND",
+      "action": "EXCHANGE",
+      "expected": "3사본 discard/3장보충 기본조건 내, 중복ID 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D016",
+      "title": "재셔플",
+      "setup": "DRAW 빈/DISCARD dust+word",
+      "action": "PREPARE draw",
+      "expected": "기존 규칙대로 둘을 섞음; dust 재등장 가능",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D017",
+      "title": "보급에서 먼지",
+      "setup": "다음2장이 dust",
+      "action": "SUPPLY",
+      "expected": "정상2장획득, dust도actualDrawCount에 포함, 손패한도준수",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D018",
+      "title": "직접 탐색",
+      "setup": "DRAW dust와word",
+      "action": "SEARCH",
+      "expected": "word만 후보; dust target 조작은 거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D019",
+      "title": "NOUN_SEARCH의 제외",
+      "setup": "DRAW dust만 해당 필터 아님",
+      "action": "NOUN_SEARCH",
+      "expected": "먼지대상0; lexeme null 오류없음; 대상0이면 무소모",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D020",
+      "title": "VERB_SEARCH의 제외",
+      "setup": "DRAW dust만 해당 필터 아님",
+      "action": "VERB_SEARCH",
+      "expected": "먼지대상0; lexeme null 오류없음; 대상0이면 무소모",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D021",
+      "title": "ADJECTIVE_SEARCH의 제외",
+      "setup": "DRAW dust만 해당 필터 아님",
+      "action": "ADJECTIVE_SEARCH",
+      "expected": "먼지대상0; lexeme null 오류없음; 대상0이면 무소모",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D022",
+      "title": "CONNECTOR_SEARCH의 제외",
+      "setup": "DRAW dust만 해당 필터 아님",
+      "action": "CONNECTOR_SEARCH",
+      "expected": "먼지대상0; lexeme null 오류없음; 대상0이면 무소모",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D023",
+      "title": "재활용 먼지",
+      "setup": "DISCARD dust만",
+      "action": "RECYCLE",
+      "expected": "동일 먼지사본 1장 HAND, source EXHAUSTED, 새 먼지 생성 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D024",
+      "title": "재활용+1",
+      "setup": "DISCARD dust+word",
+      "action": "RECYCLE+1",
+      "expected": "두 서로다른 사본, deck RNG만 소비",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D025",
+      "title": "보급+1 재사용",
+      "setup": "source 보급+1, DRAW dust+word",
+      "action": "USE then redraw USE",
+      "expected": "source 효과중 자기draw없음, 이후DISCARD, 새command/effect 재사용 정상",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D026",
+      "title": "사용 후 fullhand",
+      "setup": "HAND가한도, source운영포함",
+      "action": "SUPPLY",
+      "expected": "source가비운1칸까지, 초과분지연credit없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D027",
+      "title": "반복 영수증",
+      "setup": "동일 operation effectId",
+      "action": "replay",
+      "expected": "추가 dust/word 이동0, RNG추가0",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D028",
+      "title": "선택 취소",
+      "setup": "SEARCH 후보모달",
+      "action": "cancel",
+      "expected": "상태/턴/교환/RNG변화0",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D029",
+      "title": "저장 복원",
+      "setup": "dust가HAND/DRAW/DISCARD에 각각 있음",
+      "action": "SAVE_LOAD",
+      "expected": "위치·ID·RNG·보스 상태 완전 동일; 재생성 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D030",
+      "title": "과거영수증과 dust정리",
+      "setup": "RECYCLE로먼지뽑은뒤승리",
+      "action": "cleanup then save",
+      "expected": "삭제된임시ID의 정의/범위는 확정 영수증/종료명세로 검증; 정상load거절하지않음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D031",
+      "title": "승리 정리",
+      "setup": "여러영역 dust",
+      "action": "WIN",
+      "expected": "모든 먼지 live instance삭제, 다음전투전영구카드보존",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D032",
+      "title": "패배 정리",
+      "setup": "마지막턴 dust손패",
+      "action": "DEFEAT",
+      "expected": "먼지모두정리, 패배기록보존",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D033",
+      "title": "새 원정",
+      "setup": "먼지전투포기 후 새원정",
+      "action": "NEW_RUN",
+      "expected": "새원정 먼지없음, 기존 슬롯은명시저장상태그대로",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D034",
+      "title": "잘못된 저장",
+      "setup": "dust in activeCardIds",
+      "action": "LOAD",
+      "expected": "거절/기존슬롯덮어쓰기없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D035",
+      "title": "잘못된 영역",
+      "setup": "dust in sentence/exhausted/shattered",
+      "action": "LOAD",
+      "expected": "거절, 자동수리/무료복구 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D036",
+      "title": "잘못된 source",
+      "setup": "Stage7에 MIRROR_SNOWFIELD dust",
+      "action": "LOAD",
+      "expected": "거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D037",
+      "title": "강화 위조",
+      "setup": "dust polishLevel1",
+      "action": "LOAD",
+      "expected": "거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D038",
+      "title": "중복 위조",
+      "setup": "같은 dustID HAND+DRAW",
+      "action": "LOAD",
+      "expected": "거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D039",
+      "title": "제외 위조",
+      "setup": "dust manifest5이나 실제4",
+      "action": "LOAD",
+      "expected": "거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D040",
+      "title": "이전 설원",
+      "setup": "0.7 run Stage6",
+      "action": "FROST support operations",
+      "expected": "8WORD+조건지원+임시SEARCH 0.6.1 규칙 보존, 먼지0",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D041",
+      "title": "오염방지",
+      "setup": "Stage7에서 공급종료 후 Stage1/로비",
+      "action": "RENDER",
+      "expected": "빙정 CSS/룬리스트/영구사전 dust 누출 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D042",
+      "title": "초과 보상",
+      "setup": "dust만 대상으로 reward/연마",
+      "action": "TRY",
+      "expected": "후보에서 제외, 강제ID거절",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "D043",
+      "title": "모든 카드가먼지",
+      "setup": "교환0/남은1턴",
+      "action": "UI",
+      "expected": "무응답이 아니라 규칙상 준비/마지막턴패배확인 가능",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

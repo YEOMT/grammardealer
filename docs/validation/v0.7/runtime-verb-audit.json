@@ -1,0 +1,2412 @@
+{
+  "kind": "ACTUAL_RUNTIME_REGISTRY_AUDIT",
+  "count": 36,
+  "verbs": [
+    {
+      "lemma": "be",
+      "lexemeId": "lex.be.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.be.am",
+          "surface": "am"
+        },
+        {
+          "id": "form.be.is",
+          "surface": "is"
+        },
+        {
+          "id": "form.be.are",
+          "surface": "are"
+        },
+        {
+          "id": "form.be.base",
+          "surface": "be"
+        },
+        {
+          "id": "form.be.was",
+          "surface": "was"
+        },
+        {
+          "id": "form.be.were",
+          "surface": "were"
+        },
+        {
+          "id": "form.be.ing",
+          "surface": "being"
+        },
+        {
+          "id": "form.be.pp",
+          "surface": "been"
+        }
+      ],
+      "oldFrames": [
+        "frame.svc.adj",
+        "frame.svc.np",
+        "frame.beLocative"
+      ],
+      "frames": [
+        "frame.svc.adj",
+        "frame.svc.np",
+        "frame.beLocative"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.be.verb.sense.basic",
+          "frameId": "frame.svc.adj",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.be.verb.sense.basic",
+          "frameId": "frame.svc.np",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.be.verb.sense.basic",
+          "frameId": "frame.beLocative",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 2형식."
+    },
+    {
+      "lemma": "have",
+      "lexemeId": "lex.have.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.have.present",
+          "surface": "have"
+        },
+        {
+          "id": "form.have.third",
+          "surface": "has"
+        },
+        {
+          "id": "form.have.past",
+          "surface": "had"
+        },
+        {
+          "id": "form.have.ing",
+          "surface": "having"
+        },
+        {
+          "id": "form.have.pp",
+          "surface": "had"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.bare"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.bare",
+        "frame.svoc.ing",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.have.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.have.verb.sense.objectBare",
+          "frameId": "frame.svoc.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "construction": "CAUSATIVE"
+        },
+        {
+          "sense": "lex.have.verb.sense.ember.ing",
+          "frameId": "frame.svoc.ing",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.have.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤에 원형, -ing, p.p.를 둘 수 있습니다. have + 목적어 + p.p.는 완료 시제와 다릅니다."
+    },
+    {
+      "lemma": "do",
+      "lexemeId": "lex.do.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.do.present",
+          "surface": "do"
+        },
+        {
+          "id": "form.do.third",
+          "surface": "does"
+        },
+        {
+          "id": "form.do.past",
+          "surface": "did"
+        },
+        {
+          "id": "form.do.ing",
+          "surface": "doing"
+        },
+        {
+          "id": "form.do.pp",
+          "surface": "done"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.do.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식."
+    },
+    {
+      "lemma": "go",
+      "lexemeId": "lex.go.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.go.present",
+          "surface": "go"
+        },
+        {
+          "id": "form.go.third",
+          "surface": "goes"
+        },
+        {
+          "id": "form.go.past",
+          "surface": "went"
+        },
+        {
+          "id": "form.go.ing",
+          "surface": "going"
+        },
+        {
+          "id": "form.go.pp",
+          "surface": "gone"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.go.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "gone은 be 뒤에서 떠나 있는 상태를 나타낼 수 있습니다. go 자체의 수동태는 아닙니다."
+    },
+    {
+      "lemma": "come",
+      "lexemeId": "lex.come.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.come.present",
+          "surface": "come"
+        },
+        {
+          "id": "form.come.third",
+          "surface": "comes"
+        },
+        {
+          "id": "form.come.past",
+          "surface": "came"
+        },
+        {
+          "id": "form.come.ing",
+          "surface": "coming"
+        },
+        {
+          "id": "form.come.pp",
+          "surface": "come"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.come.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 1형식."
+    },
+    {
+      "lemma": "run",
+      "lexemeId": "lex.run.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.run.present",
+          "surface": "run"
+        },
+        {
+          "id": "form.run.third",
+          "surface": "runs"
+        },
+        {
+          "id": "form.run.past",
+          "surface": "ran"
+        },
+        {
+          "id": "form.run.ing",
+          "surface": "running"
+        },
+        {
+          "id": "form.run.pp",
+          "surface": "run"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.run.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 1형식."
+    },
+    {
+      "lemma": "live",
+      "lexemeId": "lex.live.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.live.present",
+          "surface": "live"
+        },
+        {
+          "id": "form.live.third",
+          "surface": "lives"
+        },
+        {
+          "id": "form.live.past",
+          "surface": "lived"
+        },
+        {
+          "id": "form.live.ing",
+          "surface": "living"
+        },
+        {
+          "id": "form.live.pp",
+          "surface": "lived"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.live.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 1형식."
+    },
+    {
+      "lemma": "work",
+      "lexemeId": "lex.work.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.work.present",
+          "surface": "work"
+        },
+        {
+          "id": "form.work.third",
+          "surface": "works"
+        },
+        {
+          "id": "form.work.past",
+          "surface": "worked"
+        },
+        {
+          "id": "form.work.ing",
+          "surface": "working"
+        },
+        {
+          "id": "form.work.pp",
+          "surface": "worked"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.work.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 1형식."
+    },
+    {
+      "lemma": "play",
+      "lexemeId": "lex.play.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.play.present",
+          "surface": "play"
+        },
+        {
+          "id": "form.play.third",
+          "surface": "plays"
+        },
+        {
+          "id": "form.play.past",
+          "surface": "played"
+        },
+        {
+          "id": "form.play.ing",
+          "surface": "playing"
+        },
+        {
+          "id": "form.play.pp",
+          "surface": "played"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.play.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.play.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 1형식, 3형식."
+    },
+    {
+      "lemma": "eat",
+      "lexemeId": "lex.eat.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.eat.present",
+          "surface": "eat"
+        },
+        {
+          "id": "form.eat.third",
+          "surface": "eats"
+        },
+        {
+          "id": "form.eat.past",
+          "surface": "ate"
+        },
+        {
+          "id": "form.eat.ing",
+          "surface": "eating"
+        },
+        {
+          "id": "form.eat.pp",
+          "surface": "eaten"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.eat.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.eat.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 1형식, 3형식."
+    },
+    {
+      "lemma": "read",
+      "lexemeId": "lex.read.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.read.present",
+          "surface": "read"
+        },
+        {
+          "id": "form.read.third",
+          "surface": "reads"
+        },
+        {
+          "id": "form.read.past",
+          "surface": "read"
+        },
+        {
+          "id": "form.read.ing",
+          "surface": "reading"
+        },
+        {
+          "id": "form.read.pp",
+          "surface": "read"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.read.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.read.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 1형식, 3형식."
+    },
+    {
+      "lemma": "like",
+      "lexemeId": "lex.like.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.like.present",
+          "surface": "like"
+        },
+        {
+          "id": "form.like.third",
+          "surface": "likes"
+        },
+        {
+          "id": "form.like.past",
+          "surface": "liked"
+        },
+        {
+          "id": "form.like.ing",
+          "surface": "liking"
+        },
+        {
+          "id": "form.like.pp",
+          "surface": "liked"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to",
+        "frame.svo.gerund"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to",
+        "frame.svo.gerund",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.like.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.like.verb.sense.objectTo",
+          "frameId": "frame.svoc.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.like.verb.sense.to",
+          "frameId": "frame.svo.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.like.verb.sense.gerund",
+          "frameId": "frame.svo.gerund",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.like.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤 to부정사나 p.p.를 써 선호하는 행동·상태를 나타낼 수 있습니다."
+    },
+    {
+      "lemma": "want",
+      "lexemeId": "lex.want.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.want.present",
+          "surface": "want"
+        },
+        {
+          "id": "form.want.third",
+          "surface": "wants"
+        },
+        {
+          "id": "form.want.past",
+          "surface": "wanted"
+        },
+        {
+          "id": "form.want.ing",
+          "surface": "wanting"
+        },
+        {
+          "id": "form.want.pp",
+          "surface": "wanted"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.want.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.want.verb.sense.objectTo",
+          "frameId": "frame.svoc.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.want.verb.sense.to",
+          "frameId": "frame.svo.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.want.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤 to부정사나 p.p.를 쓸 수 있습니다. 욕구를 나타내며 사역 동사로 분류하지 않습니다."
+    },
+    {
+      "lemma": "need",
+      "lexemeId": "lex.need.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.need.present",
+          "surface": "need"
+        },
+        {
+          "id": "form.need.third",
+          "surface": "needs"
+        },
+        {
+          "id": "form.need.past",
+          "surface": "needed"
+        },
+        {
+          "id": "form.need.ing",
+          "surface": "needing"
+        },
+        {
+          "id": "form.need.pp",
+          "surface": "needed"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to",
+        "frame.svo.gerund"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svo.to",
+        "frame.svo.gerund",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.need.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.need.verb.sense.objectTo",
+          "frameId": "frame.svoc.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.need.verb.sense.to",
+          "frameId": "frame.svo.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.need.verb.sense.gerund",
+          "frameId": "frame.svo.gerund",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "nonfiniteObjectGap": true
+        },
+        {
+          "sense": "lex.need.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤 to부정사나 p.p.를 쓸 수 있습니다. need -ing의 대상 연결도 유지합니다."
+    },
+    {
+      "lemma": "make",
+      "lexemeId": "lex.make.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.make.present",
+          "surface": "make"
+        },
+        {
+          "id": "form.make.third",
+          "surface": "makes"
+        },
+        {
+          "id": "form.make.past",
+          "surface": "made"
+        },
+        {
+          "id": "form.make.ing",
+          "surface": "making"
+        },
+        {
+          "id": "form.make.pp",
+          "surface": "made"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoo",
+        "frame.svoc.adj",
+        "frame.svoc.np",
+        "frame.svoc.bare"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoo",
+        "frame.svoc.adj",
+        "frame.svoc.np",
+        "frame.svoc.bare"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.make.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.make.verb.sense.basic",
+          "frameId": "frame.svoo",
+          "requiredCapabilityIds": [
+            "cap.present.basic",
+            "cap.svoo"
+          ],
+          "runtimeReady": true,
+          "dativePreposition": "for",
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT",
+              "requiredPreposition": "for"
+            }
+          ]
+        },
+        {
+          "sense": "lex.make.verb.sense.objectAdjective",
+          "frameId": "frame.svoc.adj",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.adj",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.make.verb.sense.objectNoun",
+          "frameId": "frame.svoc.np",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.np",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.make.verb.sense.objectBare",
+          "frameId": "frame.svoc.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.to",
+              "promotion": "OBJECT"
+            }
+          ],
+          "construction": "CAUSATIVE"
+        }
+      ],
+      "note": "목적어 뒤 원형을 쓰는 사역 구조가 있습니다. 이 구조를 수동태로 바꾸면 to부정사를 씁니다."
+    },
+    {
+      "lemma": "give",
+      "lexemeId": "lex.give.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.give.present",
+          "surface": "give"
+        },
+        {
+          "id": "form.give.third",
+          "surface": "gives"
+        },
+        {
+          "id": "form.give.past",
+          "surface": "gave"
+        },
+        {
+          "id": "form.give.ing",
+          "surface": "giving"
+        },
+        {
+          "id": "form.give.pp",
+          "surface": "given"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.give.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.give.verb.sense.basic",
+          "frameId": "frame.svoo",
+          "requiredCapabilityIds": [
+            "cap.present.basic",
+            "cap.svoo"
+          ],
+          "runtimeReady": true,
+          "dativePreposition": "to",
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svo",
+              "promotion": "INDIRECT_OBJECT"
+            },
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT",
+              "requiredPreposition": "to"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식, 4형식."
+    },
+    {
+      "lemma": "see",
+      "lexemeId": "lex.see.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.see.present",
+          "surface": "see"
+        },
+        {
+          "id": "form.see.third",
+          "surface": "sees"
+        },
+        {
+          "id": "form.see.past",
+          "surface": "saw"
+        },
+        {
+          "id": "form.see.ing",
+          "surface": "seeing"
+        },
+        {
+          "id": "form.see.pp",
+          "surface": "seen"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.bare"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.bare",
+        "frame.svoc.ing",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.see.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.see.verb.sense.objectBare",
+          "frameId": "frame.svoc.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.to",
+              "promotion": "OBJECT"
+            }
+          ],
+          "construction": "PERCEPTION"
+        },
+        {
+          "sense": "lex.see.verb.sense.ember.ing",
+          "frameId": "frame.svoc.ing",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.ing",
+              "promotion": "OBJECT"
+            }
+          ],
+          "construction": "PERCEPTION"
+        },
+        {
+          "sense": "lex.see.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "construction": "PERCEPTION"
+        }
+      ],
+      "note": "목적어 뒤 원형은 행동 전체, -ing는 진행 중인 모습, p.p.는 대상이 받는 동작을 나타낼 수 있습니다."
+    },
+    {
+      "lemma": "help",
+      "lexemeId": "lex.help.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.help.present",
+          "surface": "help"
+        },
+        {
+          "id": "form.help.third",
+          "surface": "helps"
+        },
+        {
+          "id": "form.help.past",
+          "surface": "helped"
+        },
+        {
+          "id": "form.help.ing",
+          "surface": "helping"
+        },
+        {
+          "id": "form.help.pp",
+          "surface": "helped"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svoc.bare",
+        "frame.svo.to",
+        "frame.svo.bare"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo",
+        "frame.svoc.to",
+        "frame.svoc.bare",
+        "frame.svo.to",
+        "frame.svo.bare"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.help.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.help.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.help.verb.sense.objectTo",
+          "frameId": "frame.svoc.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.to",
+              "promotion": "OBJECT"
+            }
+          ],
+          "construction": "ASSISTANCE"
+        },
+        {
+          "sense": "lex.help.verb.sense.objectBare",
+          "frameId": "frame.svoc.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.to",
+              "promotion": "OBJECT"
+            }
+          ],
+          "construction": "ASSISTANCE"
+        },
+        {
+          "sense": "lex.help.verb.sense.to",
+          "frameId": "frame.svo.to",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.help.verb.sense.bare",
+          "frameId": "frame.svo.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤 동사 원형과 to부정사를 모두 쓸 수 있습니다. 모든 -ing·p.p. 보어를 허용하는 동사는 아닙니다."
+    },
+    {
+      "lemma": "feel",
+      "lexemeId": "lex.feel.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.feel.present",
+          "surface": "feel"
+        },
+        {
+          "id": "form.feel.third",
+          "surface": "feels"
+        },
+        {
+          "id": "form.feel.past",
+          "surface": "felt"
+        },
+        {
+          "id": "form.feel.ing",
+          "surface": "feeling"
+        },
+        {
+          "id": "form.feel.pp",
+          "surface": "felt"
+        }
+      ],
+      "oldFrames": [
+        "frame.svc.adj",
+        "frame.svo",
+        "frame.svoc.bare"
+      ],
+      "frames": [
+        "frame.svc.adj",
+        "frame.svo",
+        "frame.svoc.bare",
+        "frame.svoc.ing"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.feel.verb.sense.basic",
+          "frameId": "frame.svc.adj",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.feel.verb.sense.perception",
+          "frameId": "frame.svo",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.feel.verb.sense.objectBare",
+          "frameId": "frame.svoc.bare",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "construction": "PERCEPTION"
+        },
+        {
+          "sense": "lex.feel.verb.sense.ember.ing",
+          "frameId": "frame.svoc.ing",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "construction": "PERCEPTION"
+        }
+      ],
+      "note": "목적어 뒤 원형이나 -ing로 느껴지는 행동을 나타낼 수 있습니다."
+    },
+    {
+      "lemma": "become",
+      "lexemeId": "lex.become.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.become.present",
+          "surface": "become"
+        },
+        {
+          "id": "form.become.third",
+          "surface": "becomes"
+        },
+        {
+          "id": "form.become.past",
+          "surface": "became"
+        },
+        {
+          "id": "form.become.ing",
+          "surface": "becoming"
+        },
+        {
+          "id": "form.become.pp",
+          "surface": "become"
+        }
+      ],
+      "oldFrames": [
+        "frame.svc.adj",
+        "frame.svc.np"
+      ],
+      "frames": [
+        "frame.svc.adj",
+        "frame.svc.np"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.become.verb.sense.basic",
+          "frameId": "frame.svc.adj",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.become.verb.sense.basic",
+          "frameId": "frame.svc.np",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 2형식."
+    },
+    {
+      "lemma": "look",
+      "lexemeId": "lex.look.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.look.present",
+          "surface": "look"
+        },
+        {
+          "id": "form.look.third",
+          "surface": "looks"
+        },
+        {
+          "id": "form.look.past",
+          "surface": "looked"
+        },
+        {
+          "id": "form.look.ing",
+          "surface": "looking"
+        },
+        {
+          "id": "form.look.pp",
+          "surface": "looked"
+        }
+      ],
+      "oldFrames": [
+        "frame.svc.adj"
+      ],
+      "frames": [
+        "frame.svc.adj"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.look.verb.sense.basic",
+          "frameId": "frame.svc.adj",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "현재 지원: 2형식."
+    },
+    {
+      "lemma": "take",
+      "lexemeId": "lex.take.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.take.present",
+          "surface": "take"
+        },
+        {
+          "id": "form.take.third",
+          "surface": "takes"
+        },
+        {
+          "id": "form.take.past",
+          "surface": "took"
+        },
+        {
+          "id": "form.take.ing",
+          "surface": "taking"
+        },
+        {
+          "id": "form.take.pp",
+          "surface": "taken"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.take.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식."
+    },
+    {
+      "lemma": "keep",
+      "lexemeId": "lex.keep.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.keep.present",
+          "surface": "keep"
+        },
+        {
+          "id": "form.keep.third",
+          "surface": "keeps"
+        },
+        {
+          "id": "form.keep.past",
+          "surface": "kept"
+        },
+        {
+          "id": "form.keep.ing",
+          "surface": "keeping"
+        },
+        {
+          "id": "form.keep.pp",
+          "surface": "kept"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.adj",
+        "frame.svoc.np"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.adj",
+        "frame.svoc.np",
+        "frame.svoc.ing",
+        "frame.svoc.pp",
+        "frame.svo.gerund"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.keep.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.keep.verb.sense.objectAdjective",
+          "frameId": "frame.svoc.adj",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.adj",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.keep.verb.sense.objectNoun",
+          "frameId": "frame.svoc.np",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        },
+        {
+          "sense": "lex.keep.verb.sense.ember.ing",
+          "frameId": "frame.svoc.ing",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.ing",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.keep.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.pp",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.keep.verb.sense.ember.gerund",
+          "frameId": "frame.svo.gerund",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "목적어 뒤 -ing나 p.p.로 지속되는 동작·상태를 나타낼 수 있습니다. keep -ing는 계속 ~하다입니다."
+    },
+    {
+      "lemma": "find",
+      "lexemeId": "lex.find.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.find.present",
+          "surface": "find"
+        },
+        {
+          "id": "form.find.third",
+          "surface": "finds"
+        },
+        {
+          "id": "form.find.past",
+          "surface": "found"
+        },
+        {
+          "id": "form.find.ing",
+          "surface": "finding"
+        },
+        {
+          "id": "form.find.pp",
+          "surface": "found"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoc.adj",
+        "frame.svoc.np"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoc.adj",
+        "frame.svoc.np",
+        "frame.svoc.ing",
+        "frame.svoc.pp"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.find.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.find.verb.sense.objectAdjective",
+          "frameId": "frame.svoc.adj",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.adj",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.find.verb.sense.objectNoun",
+          "frameId": "frame.svoc.np",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.np",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.find.verb.sense.ember.ing",
+          "frameId": "frame.svoc.ing",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.ing",
+              "promotion": "OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.find.verb.sense.ember.pp",
+          "frameId": "frame.svoc.pp",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svc.pp",
+              "promotion": "OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "목적어 뒤 형용사, 명사, -ing, p.p.로 발견한 상태나 행동을 나타낼 수 있습니다."
+    },
+    {
+      "lemma": "show",
+      "lexemeId": "lex.show.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.show.present",
+          "surface": "show"
+        },
+        {
+          "id": "form.show.third",
+          "surface": "shows"
+        },
+        {
+          "id": "form.show.past",
+          "surface": "showed"
+        },
+        {
+          "id": "form.show.ing",
+          "surface": "showing"
+        },
+        {
+          "id": "form.show.pp",
+          "surface": "shown"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.show.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.show.verb.sense.basic",
+          "frameId": "frame.svoo",
+          "requiredCapabilityIds": [
+            "cap.present.basic",
+            "cap.svoo"
+          ],
+          "runtimeReady": true,
+          "dativePreposition": "to",
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svo",
+              "promotion": "INDIRECT_OBJECT"
+            },
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT",
+              "requiredPreposition": "to"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식, 4형식."
+    },
+    {
+      "lemma": "create",
+      "lexemeId": "lex.create.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.create.present",
+          "surface": "create"
+        },
+        {
+          "id": "form.create.third",
+          "surface": "creates"
+        },
+        {
+          "id": "form.create.past",
+          "surface": "created"
+        },
+        {
+          "id": "form.create.ing",
+          "surface": "creating"
+        },
+        {
+          "id": "form.create.pp",
+          "surface": "created"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.create.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식."
+    },
+    {
+      "lemma": "improve",
+      "lexemeId": "lex.improve.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.improve.present",
+          "surface": "improve"
+        },
+        {
+          "id": "form.improve.third",
+          "surface": "improves"
+        },
+        {
+          "id": "form.improve.past",
+          "surface": "improved"
+        },
+        {
+          "id": "form.improve.ing",
+          "surface": "improving"
+        },
+        {
+          "id": "form.improve.pp",
+          "surface": "improved"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.improve.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.improve.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 1형식, 3형식."
+    },
+    {
+      "lemma": "develop",
+      "lexemeId": "lex.develop.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.develop.present",
+          "surface": "develop"
+        },
+        {
+          "id": "form.develop.third",
+          "surface": "develops"
+        },
+        {
+          "id": "form.develop.past",
+          "surface": "developed"
+        },
+        {
+          "id": "form.develop.ing",
+          "surface": "developing"
+        },
+        {
+          "id": "form.develop.pp",
+          "surface": "developed"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.sv"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.sv"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.develop.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.develop.verb.sense.growth",
+          "frameId": "frame.sv",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식."
+    },
+    {
+      "lemma": "change",
+      "lexemeId": "lex.change.verb",
+      "firstView": "0.1.0",
+      "forms": [
+        {
+          "id": "form.change.present",
+          "surface": "change"
+        },
+        {
+          "id": "form.change.third",
+          "surface": "changes"
+        },
+        {
+          "id": "form.change.past",
+          "surface": "changed"
+        },
+        {
+          "id": "form.change.ing",
+          "surface": "changing"
+        },
+        {
+          "id": "form.change.pp",
+          "surface": "changed"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.change.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.change.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 1형식, 3형식."
+    },
+    {
+      "lemma": "send",
+      "lexemeId": "lex.send.verb",
+      "firstView": "0.2.0",
+      "forms": [
+        {
+          "id": "form.send.present",
+          "surface": "send"
+        },
+        {
+          "id": "form.send.third",
+          "surface": "sends"
+        },
+        {
+          "id": "form.send.past",
+          "surface": "sent"
+        },
+        {
+          "id": "form.send.ing",
+          "surface": "sending"
+        },
+        {
+          "id": "form.send.pp",
+          "surface": "sent"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svoo"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.send.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.send.verb.sense.basic",
+          "frameId": "frame.svoo",
+          "requiredCapabilityIds": [
+            "cap.present.basic",
+            "cap.svoo"
+          ],
+          "runtimeReady": true,
+          "dativePreposition": "to",
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.svo",
+              "promotion": "INDIRECT_OBJECT"
+            },
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT",
+              "requiredPreposition": "to"
+            }
+          ]
+        }
+      ],
+      "note": "현재 지원: 3형식, 4형식."
+    },
+    {
+      "lemma": "will",
+      "lexemeId": "lex.will.verb",
+      "firstView": "0.3.0",
+      "forms": [
+        {
+          "id": "form.will.base",
+          "surface": "will"
+        }
+      ],
+      "oldFrames": [],
+      "frames": [],
+      "bindings": [],
+      "note": "will 뒤에는 동사 원형을 씁니다. 미래를 나타내는 조동사입니다."
+    },
+    {
+      "lemma": "think",
+      "lexemeId": "lex.think.verb",
+      "firstView": "0.4.0",
+      "forms": [
+        {
+          "id": "form.think.present",
+          "surface": "think"
+        },
+        {
+          "id": "form.think.third",
+          "surface": "thinks"
+        },
+        {
+          "id": "form.think.past",
+          "surface": "thought"
+        },
+        {
+          "id": "form.think.pp",
+          "surface": "thought"
+        },
+        {
+          "id": "form.think.ing",
+          "surface": "thinking"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo.content"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo.content"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.think.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.think.verb.sense.basic",
+          "frameId": "frame.svo.content",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "등록된 기본 뜻과 문형에서 판정합니다."
+    },
+    {
+      "lemma": "know",
+      "lexemeId": "lex.know.verb",
+      "firstView": "0.4.0",
+      "forms": [
+        {
+          "id": "form.know.present",
+          "surface": "know"
+        },
+        {
+          "id": "form.know.third",
+          "surface": "knows"
+        },
+        {
+          "id": "form.know.past",
+          "surface": "knew"
+        },
+        {
+          "id": "form.know.pp",
+          "surface": "known"
+        },
+        {
+          "id": "form.know.ing",
+          "surface": "knowing"
+        }
+      ],
+      "oldFrames": [
+        "frame.sv",
+        "frame.svo",
+        "frame.svo.content"
+      ],
+      "frames": [
+        "frame.sv",
+        "frame.svo",
+        "frame.svo.content"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.know.verb.sense.basic",
+          "frameId": "frame.sv",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        },
+        {
+          "sense": "lex.know.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.know.verb.sense.basic",
+          "frameId": "frame.svo.content",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "등록된 기본 뜻과 문형에서 판정합니다."
+    },
+    {
+      "lemma": "say",
+      "lexemeId": "lex.say.verb",
+      "firstView": "0.4.0",
+      "forms": [
+        {
+          "id": "form.say.present",
+          "surface": "say"
+        },
+        {
+          "id": "form.say.third",
+          "surface": "says"
+        },
+        {
+          "id": "form.say.past",
+          "surface": "said"
+        },
+        {
+          "id": "form.say.pp",
+          "surface": "said"
+        },
+        {
+          "id": "form.say.ing",
+          "surface": "saying"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svo.content"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svo.content"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.say.verb.sense.basic",
+          "frameId": "frame.svo",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true,
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.say.verb.sense.basic",
+          "frameId": "frame.svo.content",
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "runtimeReady": true
+        }
+      ],
+      "note": "등록된 기본 뜻과 문형에서 판정합니다."
+    },
+    {
+      "lemma": "enjoy",
+      "lexemeId": "lex.enjoy.verb",
+      "firstView": "0.5.0",
+      "forms": [
+        {
+          "id": "form.enjoy.present",
+          "surface": "enjoy"
+        },
+        {
+          "id": "form.enjoy.third",
+          "surface": "enjoys"
+        },
+        {
+          "id": "form.enjoy.past",
+          "surface": "enjoyed"
+        },
+        {
+          "id": "form.enjoy.pp",
+          "surface": "enjoyed"
+        },
+        {
+          "id": "form.enjoy.ing",
+          "surface": "enjoying"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svo.gerund"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svo.gerund"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.enjoy.verb.sense.basic",
+          "frameId": "frame.svo",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.enjoy.verb.sense.basic",
+          "frameId": "frame.svo.gerund",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "enjoy 뒤에는 동명사(-ing)를 씁니다. 명사 목적어도 사용할 수 있습니다."
+    },
+    {
+      "lemma": "finish",
+      "lexemeId": "lex.finish.verb",
+      "firstView": "0.5.0",
+      "forms": [
+        {
+          "id": "form.finish.present",
+          "surface": "finish"
+        },
+        {
+          "id": "form.finish.third",
+          "surface": "finishes"
+        },
+        {
+          "id": "form.finish.past",
+          "surface": "finished"
+        },
+        {
+          "id": "form.finish.pp",
+          "surface": "finished"
+        },
+        {
+          "id": "form.finish.ing",
+          "surface": "finishing"
+        }
+      ],
+      "oldFrames": [
+        "frame.svo",
+        "frame.svo.gerund"
+      ],
+      "frames": [
+        "frame.svo",
+        "frame.svo.gerund"
+      ],
+      "bindings": [
+        {
+          "sense": "lex.finish.verb.sense.basic",
+          "frameId": "frame.svo",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ],
+          "passiveAlternatives": [
+            {
+              "frameId": "frame.sv",
+              "promotion": "DIRECT_OBJECT"
+            }
+          ]
+        },
+        {
+          "sense": "lex.finish.verb.sense.basic",
+          "frameId": "frame.svo.gerund",
+          "runtimeReady": true,
+          "requiredCapabilityIds": [
+            "cap.present.basic"
+          ]
+        }
+      ],
+      "note": "finish 뒤에는 명사나 동명사(-ing)를 씁니다."
+    }
+  ]
+}

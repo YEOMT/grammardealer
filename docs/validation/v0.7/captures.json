@@ -1,0 +1,63 @@
+[
+  {
+    "published": "docs/validation/v0.7/assigned-maximum-layout.png",
+    "source": ".local-validation/v07/ember-final/ASSIGNED-chromium-1366x768-hand14.png",
+    "sha256": "1d363d953ef26486cf844340e4b00a6b0d491cd93037850cec49b92fa3c5dac2",
+    "kind": "ASSIGNED_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/assigned-webkit-small-layout.png",
+    "source": ".local-validation/v07/ember-final/ASSIGNED-webkit-1024x768-hand14.png",
+    "sha256": "cbb6e878e377a966ca5654c7f1fc58854d338cba4424b07214cc920f5d3c1777",
+    "kind": "ASSIGNED_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/assigned-participle-roles.png",
+    "source": ".local-validation/v07/ember-final/ASSIGNED-chromium-submitted-roles-The-child-reading-a-book-is-happy-.png",
+    "sha256": "3de8278ce2802a6c812e8ea7e6e188d0058d59e5ac65b19961b6990f50ce5f05",
+    "kind": "ASSIGNED_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-7-1-modifier.png",
+    "source": ".local-validation/v07/e2e-course/ember-battle-28-attack-60.png",
+    "sha256": "c28811188c7de327eeac4d504bd07746ec2e699b1bbb1c5245a45437e6adc6bb",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-7-2-passive.png",
+    "source": ".local-validation/v07/e2e-course/ember-battle-29-attack-62.png",
+    "sha256": "2756468cfa246e195e50fb112dbd931f980d5e7ab64a5432123dea052d051c06",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-7-3-causative.png",
+    "source": ".local-validation/v07/e2e-course/ember-battle-30-attack-63.png",
+    "sha256": "6271ce2348a84daa3c1a764fa74ee6f7a21ee4c17b48579c1475a98b5c795529",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-7-4-perception.png",
+    "source": ".local-validation/v07/e2e-course/ember-battle-31-attack-65.png",
+    "sha256": "6dbaae15926b853104c0755bb0b68e76ecdbb801924f3f18555c6864af78aa96",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-scale-release.png",
+    "source": ".local-validation/v07/e2e-course/ember-scale-release.png",
+    "sha256": "f462498d8d72a24132de48437e9c0ae5dd322cc7bb6ce51021aa6f26aaf466e0",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-stage7-complete.png",
+    "source": ".local-validation/v07/e2e-course/stage6-complete.png",
+    "sha256": "7ca47a71b83bb7e90e48666f79228f4c387dba7958f326f78b1f678e8c43eae3",
+    "kind": "ACTUAL_PRODUCTION_UI"
+  },
+  {
+    "published": "docs/validation/v0.7/production-stage7-complete.png",
+    "source": ".local-validation/v07/e2e-course/stage6-complete-restored.png",
+    "sha256": "7ca47a71b83bb7e90e48666f79228f4c387dba7958f326f78b1f678e8c43eae3",
+    "kind": "ACTUAL_PRODUCTION_UI",
+    "note": "Restored-state screenshot is byte-identical; one published image, separate raw source retained."
+  }
+]

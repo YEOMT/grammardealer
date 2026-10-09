@@ -5,6 +5,7 @@ import {describeRune} from '../engine/runes.js';
 export function cardModel(instance, selection = null, version='0.3.0') {
   const registry=registryForVersion(version);
   const card = cardDefinition(instance,version);
+  if(card.cardKind==='OBSTACLE')return {id:instance.instanceId,cardKind:'OBSTACLE',surface:card.nameKo,definition:card,temporary:instance.temporary,forms:[],polish:0,version};
   if(cardKind(instance,version)==='OPERATION'){
     const lifetime=instance.temporary?'BATTLE':'PERMANENT',polish=instance.polishLevel??0,spec=operationSpec(card.id,polish,lifetime,version);
     return {id:instance.instanceId,cardKind:'OPERATION',surface:instance.temporary?'빙정 탐색':card.nameKo,descriptionKo:card.descriptionKo,rarity:card.rarity,definition:card,polish,forms:[],temporary:instance.temporary,lifetime,version,operation:spec};

@@ -1,0 +1,5 @@
+import {deepFreeze} from '../contracts.js';
+export const EMBER_HINT='검댕 비늘은 피해를 75% 줄입니다. 문법적으로 성립한 양수 피해 공격에 실제 -ing·p.p.형 동사 카드를 정상 사용하면 그 공격부터 비늘이 영구 해제됩니다. 진행·완료·동명사도 가능하며, 과거형이나 별도 형용사 카드는 해당하지 않습니다.';
+export const STAGE7=deepFreeze({id:'stage.07',nameKo:'잿불 동굴',theme:'ember',focusFrames:[],regionLabelKo:'잿불 동굴 · 분사·수동·목적격보어 ×1.25',regionMultiplier:{num:5,den:4},bossHintKo:EMBER_HINT,
+ rounds:[['불씨 도롱뇽','🦎',960,'분사 수식 · -ing / p.p.와 명사'],['현무암 거북','🐢',1040,'수동태 · be + p.p.'],['화로 대장장이 정령','🔥',1120,'사역·도움 · 동사별 목적격보어'],['메아리 박쥐','🦇',1200,'지각 · 원형 / -ing / p.p.'],['잠든 잿불룡','🐉',1440,'정상 -ing·p.p. 사용으로 검댕 비늘 해제']].map(([nameKo,emoji,hp,focusKo],i)=>({battleNumber:28+i,id:`battle.07.0${i+1}`,enemyId:i===4?'boss.stage7':`enemy.stage7.0${i+1}`,nameKo,emoji,hp,focusKo,kind:i===4?'REGIONAL_BOSS':'NORMAL',dustCount:i===4?5:2,...(i===4?{bossMechanic:{id:'EMBER_SCALE_SHIELD',active:true,releasedAttackId:null,releaseEvidence:[]}}:{})})),exitStatus:'CONTENT_COMPLETE',contentBoundary:'STAGE7_END',notStoryClear:true,nextStageImplemented:false});
+export const EMBER_PACKS=Object.freeze(['pack.participles','pack.passive','pack.causativePerception']);

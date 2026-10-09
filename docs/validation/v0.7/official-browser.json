@@ -1,0 +1,3016 @@
+{
+  "command": {
+    "log": ".local-validation/v07/official-serial.log",
+    "startedAt": "2026-10-09T14:55:42.7537904Z",
+    "finishedAt": "2026-10-09T15:05:33.7306734Z",
+    "execution": "single browser suite after other processes completed",
+    "exitCode": 0,
+    "command": "npm.cmd run test:browser"
+  },
+  "status": "PASS",
+  "scriptCount": 14,
+  "checks": 291,
+  "captures": 185,
+  "reports": [
+    {
+      "source": "docs/evidence-0.1.1/phase-b-browser.json",
+      "sha256": "6e7465c579c4c443da420fc0c38789bf97c87815c034c588f526a3652e0c58a7",
+      "report": {
+        "status": "PASS",
+        "browser": "134.0.6998.35",
+        "checks": [
+          {
+            "ids": [
+              "P07"
+            ],
+            "description": "check three then one discard command refills three, spends only one exchange",
+            "status": "PASS"
+          },
+          {
+            "ids": [
+              "P08",
+              "P09"
+            ],
+            "description": "body click still assembles and prunes only the moved selected ID",
+            "status": "PASS"
+          },
+          {
+            "ids": [
+              "P12",
+              "P13"
+            ],
+            "description": "actual be default and manual form selection",
+            "status": "PASS"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "source": "docs/evidence-0.1.1/phase-c-browser.json",
+      "sha256": "498f5cf000226f76a091830d419fc4adf9a2deb70ddeaf03724059d2eca52110",
+      "report": {
+        "status": "PASS",
+        "browser": "134.0.6998.35",
+        "fixture": "Synthetic victory state using real physical deck and production reward generator/controller; no claim of gameplay victory",
+        "checks": [
+          "P25/P27 cancel keeps same three candidates and all state",
+          "P33 native IndexedDB roundtrip after target cancellation",
+          "P27 real controller applies polish only after target confirmation",
+          "P39 full app commits +1 then presents 10→15 before next screen"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "source": "docs/evidence-0.1.1/phase-d-browser.json",
+      "sha256": "c97f86b1e7d477b082977e117ffb696eeeafa3fcf769b4d3af9a85bd14179e4b",
+      "report": {
+        "status": "PASS",
+        "browser": "134.0.6998.35",
+        "checks": [
+          "P16 actual be form/exchange/prepare/precommit explanation/first hit; guide completes only after actions",
+          "P18 separate practice controller leaves live state/profile unchanged",
+          "0.2.2 P48 offline codex has no translation; legacy pure meaning module remains compatible",
+          "P23 legacy string-only records open without invented meaning or recalculation"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "source": "docs/evidence-0.1.1/phase-e-browser.json",
+      "sha256": "2e3f8694df8f372de1e34152d65fc56526590ac8b19dbfff791d365eed733ae6",
+      "report": {
+        "status": "PASS",
+        "fixture": "Real grammar/score resolutions in isolated renderer; hidden/fault deliberately injected",
+        "browser": "134.0.6998.35",
+        "checks": [
+          {
+            "id": "ruby",
+            "status": "FINISHED",
+            "reason": null,
+            "attackId": "attack.sandbox",
+            "plannedDuration": 4510,
+            "watchdogMs": 6510,
+            "events": [
+              {
+                "kind": "score",
+                "id": "fixture.0",
+                "after": 10,
+                "at": 785.1999999880791,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.1",
+                "after": 20,
+                "at": 969.3000000119209,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "COMPLETE_SENTENCE",
+                "after": 50,
+                "at": 1141.5999999940395,
+                "combo": 1
+              },
+              {
+                "kind": "score",
+                "id": "FRAME.SV",
+                "after": 65,
+                "at": 1693,
+                "combo": 2
+              },
+              {
+                "kind": "flight",
+                "id": "rune.sv",
+                "at": 2245.5999999940395,
+                "before": "65",
+                "color": "rgb(234, 97, 111)",
+                "definitionColor": "#ea616f",
+                "duration": 220
+              },
+              {
+                "kind": "score",
+                "id": "rune.sv",
+                "after": 182,
+                "at": 2468.9000000059605,
+                "combo": 3
+              },
+              {
+                "kind": "score",
+                "id": "stage.01",
+                "after": 227,
+                "at": 2994.5999999940395,
+                "combo": 3
+              },
+              {
+                "kind": "score",
+                "id": "FINAL_POWER",
+                "after": 227,
+                "at": 3548.4000000059605,
+                "combo": 3
+              }
+            ]
+          },
+          {
+            "id": "sapphire",
+            "status": "FINISHED",
+            "reason": null,
+            "attackId": "attack.sandbox",
+            "plannedDuration": 4680,
+            "watchdogMs": 6680,
+            "events": [
+              {
+                "kind": "score",
+                "id": "fixture.0",
+                "after": 10,
+                "at": 5431.800000011921,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.1",
+                "after": 20,
+                "at": 5603.199999988079,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.2",
+                "after": 30,
+                "at": 5785.9000000059605,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "COMPLETE_SENTENCE",
+                "after": 60,
+                "at": 5958.0999999940395,
+                "combo": 1
+              },
+              {
+                "kind": "score",
+                "id": "FRAME.SVC",
+                "after": 96,
+                "at": 6519.699999988079,
+                "combo": 2
+              },
+              {
+                "kind": "flight",
+                "id": "rune.svc",
+                "at": 7074,
+                "before": "96",
+                "color": "rgb(105, 168, 230)",
+                "definitionColor": "#69a8e6",
+                "duration": 220
+              },
+              {
+                "kind": "score",
+                "id": "rune.svc",
+                "after": 268,
+                "at": 7302.5999999940395,
+                "combo": 3
+              },
+              {
+                "kind": "score",
+                "id": "stage.01",
+                "after": 335,
+                "at": 7831.5999999940395,
+                "combo": 3
+              },
+              {
+                "kind": "score",
+                "id": "FINAL_POWER",
+                "after": 335,
+                "at": 8386.699999988079,
+                "combo": 3
+              }
+            ]
+          },
+          {
+            "id": "high-combo",
+            "status": "FINISHED",
+            "reason": null,
+            "attackId": "attack.sandbox",
+            "plannedDuration": 8985,
+            "watchdogMs": 12130,
+            "events": [
+              {
+                "kind": "score",
+                "id": "fixture.0",
+                "after": 10,
+                "at": 10262.699999988079,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.1",
+                "after": 20,
+                "at": 10435.09999999404,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.2",
+                "after": 30,
+                "at": 10618.90000000596,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.3",
+                "after": 40,
+                "at": 10802.800000011921,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.4",
+                "after": 50,
+                "at": 10973.5,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.5",
+                "after": 60,
+                "at": 11144.800000011921,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.6",
+                "after": 70,
+                "at": 11320,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.7",
+                "after": 80,
+                "at": 11502.199999988079,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "fixture.8",
+                "after": 90,
+                "at": 11673.5,
+                "combo": 0
+              },
+              {
+                "kind": "score",
+                "id": "COMPLETE_SENTENCE",
+                "after": 120,
+                "at": 11847.800000011921,
+                "combo": 1
+              },
+              {
+                "kind": "score",
+                "id": "FRAME.SVO",
+                "after": 216,
+                "at": 12404.59999999404,
+                "combo": 2
+              },
+              {
+                "kind": "score",
+                "id": "MODIFIER.ADJECTIVE",
+                "after": 221,
+                "at": 12960.300000011921,
+                "combo": 3
+              },
+              {
+                "kind": "score",
+                "id": "MODIFIER.ADVERB",
+                "after": 226,
+                "at": 13515.800000011921,
+                "combo": 4
+              },
+              {
+                "kind": "score",
+                "id": "PHRASE.PP",
+                "after": 236,
+                "at": 14067.40000000596,
+                "combo": 5
+              },
+              {
+                "kind": "flight",
+                "id": "rune.svo",
+                "at": 14619.09999999404,
+                "before": "236",
+                "color": "rgb(104, 196, 160)",
+                "definitionColor": "#68c4a0",
+                "duration": 220
+              },
+              {
+                "kind": "score",
+                "id": "rune.svo",
+                "after": 660,
+                "at": 14847.300000011921,
+                "combo": 6
+              },
+              {
+                "kind": "flight",
+                "id": "rune.adverbs",
+                "at": 15370.5,
+                "before": "660",
+                "color": "rgb(131, 197, 162)",
+                "definitionColor": "#83c5a2",
+                "duration": 220
+              },
+              {
+                "kind": "score",
+                "id": "rune.adverbs",
+                "after": 672,
+                "at": 15593,
+                "combo": 7
+              },
+              {
+                "kind": "flight",
+                "id": "rune.perfectSentence",
+                "at": 16120.59999999404,
+                "before": "672",
+                "color": "rgb(183, 228, 229)",
+                "definitionColor": "#b7e4e5",
+                "duration": 220
+              },
+              {
+                "kind": "score",
+                "id": "rune.perfectSentence",
+                "after": 722,
+                "at": 16342,
+                "combo": 8
+              },
+              {
+                "kind": "score",
+                "id": "stage.01",
+                "after": 902,
+                "at": 16871.19999998808,
+                "combo": 8
+              },
+              {
+                "kind": "score",
+                "id": "FINAL_POWER",
+                "after": 902,
+                "at": 17422.59999999404,
+                "combo": 8
+              }
+            ]
+          },
+          {
+            "id": "abort",
+            "status": "PASS",
+            "done": {
+              "status": "FAST_FORWARDED",
+              "reason": "aborted",
+              "attackId": "attack.sandbox",
+              "plannedDuration": 2255,
+              "watchdogMs": 4255
+            },
+            "hp": "772 / 999",
+            "expected": "772 / 999",
+            "nodes": 0,
+            "busy": "false"
+          },
+          {
+            "id": "hidden",
+            "status": "PASS",
+            "done": {
+              "status": "FAST_FORWARDED",
+              "reason": "hidden",
+              "attackId": "attack.sandbox",
+              "plannedDuration": 2255,
+              "watchdogMs": 4255
+            },
+            "hp": "772 / 999",
+            "expected": "772 / 999",
+            "nodes": 0,
+            "busy": "false"
+          },
+          {
+            "id": "fault",
+            "status": "PASS",
+            "done": {
+              "status": "FAST_FORWARDED",
+              "reason": "view-error",
+              "attackId": "attack.sandbox",
+              "plannedDuration": 2255,
+              "watchdogMs": 4255
+            },
+            "hp": "772 / 999",
+            "expected": "772 / 999",
+            "nodes": 0,
+            "busy": "false"
+          },
+          {
+            "id": "effectsOff",
+            "status": "PASS",
+            "done": {
+              "status": "FINISHED",
+              "reason": null,
+              "attackId": "attack.sandbox",
+              "plannedDuration": 2255,
+              "watchdogMs": 4255
+            },
+            "hp": "772 / 999",
+            "expected": "772 / 999",
+            "nodes": 0,
+            "busy": "false"
+          },
+          {
+            "id": "reducedMotion",
+            "status": "PASS",
+            "done": {
+              "status": "FINISHED",
+              "reason": null,
+              "attackId": "attack.sandbox",
+              "plannedDuration": 2255,
+              "watchdogMs": 4255
+            },
+            "hp": "772 / 999",
+            "expected": "772 / 999",
+            "nodes": 0,
+            "busy": "false"
+          }
+        ],
+        "errors": []
+      }
+    },
+    {
+      "source": "docs/evidence-0.1.1/ui-browser.json",
+      "sha256": "56d1ff7719538b3909dd37a31a3dd7f9545cdda2955bfe912d454c2f583c81bd",
+      "report": {
+        "environment": {
+          "browser": "134.0.6998.35",
+          "kind": "HEADLESS_CHROMIUM_NOT_PHYSICAL_TABLET"
+        },
+        "checks": [
+          {
+            "id": "VIEWPORT_1366",
+            "description": "1366×768 lobby/edit layout readable",
+            "status": "PASS",
+            "width": 1366,
+            "height": 768,
+            "viewportWidth": 1366,
+            "viewportHeight": 768,
+            "middleBottom": 538,
+            "handTop": 546
+          },
+          {
+            "id": "U01_1366",
+            "description": "editing reveals no grammar role, correctness, score, or combo",
+            "status": "PASS"
+          },
+          {
+            "id": "U02_1366",
+            "description": "form button opens menu without returning card",
+            "status": "PASS"
+          },
+          {
+            "id": "U03_1366",
+            "description": "exchange selection does not add to sentence",
+            "status": "PASS"
+          },
+          {
+            "id": "U10_1366",
+            "description": "piles are read only, draw order hidden",
+            "status": "PASS"
+          },
+          {
+            "id": "UI_FEEDBACK_TIMING",
+            "description": "30 real card clicks measured to next frame",
+            "status": "PASS",
+            "measurement": "Card click capture to next requestAnimationFrame with DOM zone changed; desktop headless, not hardware end-to-end latency",
+            "samples": 30,
+            "p50Ms": 11.400000005960464,
+            "p95Ms": 15.900000005960464,
+            "maxMs": 17.5
+          },
+          {
+            "id": "U04",
+            "description": "mouse drag and subsequent click move exactly once",
+            "status": "PASS"
+          },
+          {
+            "id": "U04_GAP",
+            "description": "drop in actual whitespace between cards inserts at that position",
+            "status": "PASS"
+          },
+          {
+            "id": "D17",
+            "description": "pointercancel leaves every card in original pile once",
+            "status": "PASS"
+          },
+          {
+            "id": "U06_KEYBOARD",
+            "description": "focused card + Enter moves; Escape closes form menu",
+            "status": "PASS"
+          },
+          {
+            "id": "U05",
+            "description": "resize preserves card identities, order, and game state",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1366",
+            "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+            "status": "PASS",
+            "actionBottom": 538,
+            "handTop": 546,
+            "width": 1366,
+            "height": 768
+          },
+          {
+            "id": "CAPACITY_1920",
+            "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+            "status": "PASS",
+            "actionBottom": 809,
+            "handTop": 825,
+            "width": 1920,
+            "height": 1080
+          },
+          {
+            "id": "CAPACITY_1024",
+            "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+            "status": "PASS",
+            "actionBottom": 541,
+            "handTop": 549,
+            "width": 1024,
+            "height": 768
+          },
+          {
+            "id": "CAPACITY_1180",
+            "description": "16 sentence + 10 hand synthetic layout has separate controls/hand",
+            "status": "PASS",
+            "actionBottom": 593,
+            "handTop": 601,
+            "width": 1180,
+            "height": 820
+          },
+          {
+            "id": "P45_14_1920",
+            "description": "14 hand + 16 sentence + three runes, larger side fonts",
+            "status": "PASS",
+            "bottom": 826,
+            "hand": 842,
+            "width": 1920,
+            "font": "14px",
+            "rune": "13px"
+          },
+          {
+            "id": "P45_14_1366",
+            "description": "14 hand + 16 sentence + three runes, larger side fonts",
+            "status": "PASS",
+            "bottom": 538,
+            "hand": 546,
+            "width": 1366,
+            "font": "14px",
+            "rune": "12px"
+          },
+          {
+            "id": "P45_14_1180",
+            "description": "14 hand + 16 sentence + three runes, larger side fonts",
+            "status": "PASS",
+            "bottom": 593,
+            "hand": 601,
+            "width": 1180,
+            "font": "14px",
+            "rune": "12px"
+          },
+          {
+            "id": "P45_14_1024",
+            "description": "14 hand + 16 sentence + three runes, larger side fonts",
+            "status": "PASS",
+            "bottom": 541,
+            "hand": 549,
+            "width": 1024,
+            "font": "14px",
+            "rune": "12px"
+          },
+          {
+            "id": "D14_UI",
+            "description": "10 hand + 16 sentence synthetic renderer exposes direct body-drop swap",
+            "status": "PASS"
+          },
+          {
+            "id": "BROWSER_ERRORS_1366",
+            "description": "no browser uncaught errors",
+            "status": "PASS"
+          },
+          {
+            "id": "VIEWPORT_1920",
+            "description": "1920×1080 lobby/edit layout readable",
+            "status": "PASS",
+            "width": 1920,
+            "height": 1080,
+            "viewportWidth": 1920,
+            "viewportHeight": 1080,
+            "middleBottom": 809,
+            "handTop": 825
+          },
+          {
+            "id": "U01_1920",
+            "description": "editing reveals no grammar role, correctness, score, or combo",
+            "status": "PASS"
+          },
+          {
+            "id": "U02_1920",
+            "description": "form button opens menu without returning card",
+            "status": "PASS"
+          },
+          {
+            "id": "U03_1920",
+            "description": "exchange selection does not add to sentence",
+            "status": "PASS"
+          },
+          {
+            "id": "U10_1920",
+            "description": "piles are read only, draw order hidden",
+            "status": "PASS"
+          },
+          {
+            "id": "BROWSER_ERRORS_1920",
+            "description": "no browser uncaught errors",
+            "status": "PASS"
+          },
+          {
+            "id": "VIEWPORT_1024",
+            "description": "1024×768 lobby/edit layout readable",
+            "status": "PASS",
+            "width": 1024,
+            "height": 768,
+            "viewportWidth": 1024,
+            "viewportHeight": 768,
+            "middleBottom": 541,
+            "handTop": 549
+          },
+          {
+            "id": "U01_1024",
+            "description": "editing reveals no grammar role, correctness, score, or combo",
+            "status": "PASS"
+          },
+          {
+            "id": "U02_1024",
+            "description": "form button opens menu without returning card",
+            "status": "PASS"
+          },
+          {
+            "id": "U03_1024",
+            "description": "exchange selection does not add to sentence",
+            "status": "PASS"
+          },
+          {
+            "id": "U10_1024",
+            "description": "piles are read only, draw order hidden",
+            "status": "PASS"
+          },
+          {
+            "id": "BROWSER_ERRORS_1024",
+            "description": "no browser uncaught errors",
+            "status": "PASS"
+          },
+          {
+            "id": "VIEWPORT_1180",
+            "description": "1180×820 lobby/edit layout readable",
+            "status": "PASS",
+            "width": 1180,
+            "height": 820,
+            "viewportWidth": 1180,
+            "viewportHeight": 820,
+            "middleBottom": 593,
+            "handTop": 601
+          },
+          {
+            "id": "U01_1180",
+            "description": "editing reveals no grammar role, correctness, score, or combo",
+            "status": "PASS"
+          },
+          {
+            "id": "U02_1180",
+            "description": "form button opens menu without returning card",
+            "status": "PASS"
+          },
+          {
+            "id": "U03_1180",
+            "description": "exchange selection does not add to sentence",
+            "status": "PASS"
+          },
+          {
+            "id": "U10_1180",
+            "description": "piles are read only, draw order hidden",
+            "status": "PASS"
+          },
+          {
+            "id": "BROWSER_ERRORS_1180",
+            "description": "no browser uncaught errors",
+            "status": "PASS"
+          },
+          {
+            "id": "P10_TOUCH_CANCEL",
+            "description": "CDP touchCancel and resize clear drag nodes without state mutation",
+            "status": "PASS"
+          },
+          {
+            "id": "U06_TOUCH",
+            "description": "Chromium touch emulation tap and pointer drag work (not a physical iPad test)",
+            "status": "PASS"
+          }
+        ],
+        "screenshots": [
+          "docs/evidence-0.1.1/ui-1366-lobby.png",
+          "docs/evidence-0.1.1/ui-1366-edit.png",
+          "docs/evidence-0.1.1/ui-1366-form.png",
+          "docs/evidence-0.1.1/ui-1366-exchange.png",
+          "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+          "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+          "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+          "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+          "docs/evidence-0.1.1/capacity-14-1920.png",
+          "docs/evidence-0.1.1/capacity-14-1366.png",
+          "docs/evidence-0.1.1/capacity-14-1180.png",
+          "docs/evidence-0.1.1/capacity-14-1024.png",
+          "docs/evidence-0.1.1/ui-1920-lobby.png",
+          "docs/evidence-0.1.1/ui-1920-edit.png",
+          "docs/evidence-0.1.1/ui-1920-form.png",
+          "docs/evidence-0.1.1/ui-1920-exchange.png",
+          "docs/evidence-0.1.1/ui-1024-lobby.png",
+          "docs/evidence-0.1.1/ui-1024-edit.png",
+          "docs/evidence-0.1.1/ui-1024-form.png",
+          "docs/evidence-0.1.1/ui-1024-exchange.png",
+          "docs/evidence-0.1.1/ui-1180-lobby.png",
+          "docs/evidence-0.1.1/ui-1180-edit.png",
+          "docs/evidence-0.1.1/ui-1180-form.png",
+          "docs/evidence-0.1.1/ui-1180-exchange.png",
+          "docs/evidence-0.1.1/ui-touch-1024.png"
+        ],
+        "latency": [
+          {
+            "viewport": 1366,
+            "action": "click_roundtrip_upper_bound",
+            "ms": 104.73210000000017
+          },
+          {
+            "viewport": 1920,
+            "action": "click_roundtrip_upper_bound",
+            "ms": 56.67989999999918
+          },
+          {
+            "viewport": 1024,
+            "action": "click_roundtrip_upper_bound",
+            "ms": 68.45290000000023
+          },
+          {
+            "viewport": 1180,
+            "action": "click_roundtrip_upper_bound",
+            "ms": 76.39500000000044
+          }
+        ],
+        "feedbackTiming": {
+          "measurement": "Card click capture to next requestAnimationFrame with DOM zone changed; desktop headless, not hardware end-to-end latency",
+          "samples": 30,
+          "p50Ms": 11.400000005960464,
+          "p95Ms": 15.900000005960464,
+          "maxMs": 17.5
+        },
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v07/official-serial/v02/v02-ui-browser.json",
+      "sha256": "0a2ffe7a3822dca5977c00bffcfa12a336c745b48087be19f23ed59168f04118",
+      "report": {
+        "kind": "SYNTHETIC_UI_AND_CONTROLLER_FIXTURES_NOT_CAMPAIGN_COMPLETION",
+        "browser": "134.0.6998.35",
+        "checks": [
+          {
+            "id": "STAGE2_PREVIEW_ENTRY_SHOP",
+            "status": "PASS",
+            "granted": 2
+          },
+          {
+            "id": "SHOP_LAYOUT_1920",
+            "status": "PASS",
+            "scrollWidth": 1920,
+            "width": 1920,
+            "items": 3,
+            "serviceButtons": [
+              44,
+              44
+            ]
+          },
+          {
+            "id": "SHOP_LAYOUT_1366",
+            "status": "PASS",
+            "scrollWidth": 1366,
+            "width": 1366,
+            "items": 3,
+            "serviceButtons": [
+              44,
+              44
+            ]
+          },
+          {
+            "id": "SHOP_LAYOUT_1180",
+            "status": "PASS",
+            "scrollWidth": 1180,
+            "width": 1180,
+            "items": 3,
+            "serviceButtons": [
+              44,
+              44
+            ]
+          },
+          {
+            "id": "SHOP_LAYOUT_1024",
+            "status": "PASS",
+            "scrollWidth": 1024,
+            "width": 1024,
+            "items": 3,
+            "serviceButtons": [
+              44,
+              44
+            ]
+          },
+          {
+            "id": "SHOP_INFORMATION_NO_MUTATION",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_POLISH_CANCEL_1180",
+            "status": "PASS",
+            "dialogBottom": 719.015625,
+            "viewport": 820,
+            "cancelBottom": 694.015625,
+            "targets": 30
+          },
+          {
+            "id": "SHOP_REMOVE_CANCEL_1180",
+            "status": "PASS",
+            "dialogBottom": 719.015625,
+            "viewport": 820,
+            "cancelBottom": 694.015625,
+            "targets": 30
+          },
+          {
+            "id": "SHOP_POLISH_CANCEL_1024",
+            "status": "PASS",
+            "dialogBottom": 680.53125,
+            "viewport": 768,
+            "cancelBottom": 655.53125,
+            "targets": 30
+          },
+          {
+            "id": "SHOP_REMOVE_CANCEL_1024",
+            "status": "PASS",
+            "dialogBottom": 680.53125,
+            "viewport": 768,
+            "cancelBottom": 655.53125,
+            "targets": 30
+          },
+          {
+            "id": "SHOP_EQUIPPED_RUNE_INFORMATION",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_RUNE_FULL_CANCEL",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_CARD_PURCHASE",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_POLISH_COMMIT",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_REMOVE_COMMIT",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP_SAVE_LOAD",
+            "status": "PASS"
+          },
+          {
+            "id": "SVOO_IO_DO_RANGE_EVENT",
+            "status": "PASS"
+          },
+          {
+            "id": "TOPAZ_COLORED_FLIGHT",
+            "status": "PASS"
+          },
+          {
+            "id": "VEIL_AND_HP_BEFORE_IMPACT",
+            "status": "PASS",
+            "chargeState": {
+              "phase": "CHARGE",
+              "active": "true",
+              "hp": "640 / 640"
+            }
+          },
+          {
+            "id": "VEIL_AND_HP_AT_IMPACT",
+            "status": "PASS"
+          },
+          {
+            "id": "VEIL_IMPACT_FINAL_HP",
+            "status": "PASS"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1920_10",
+            "status": "PASS",
+            "width": 1920,
+            "height": 1080,
+            "actionBottom": 809,
+            "handTop": 825,
+            "exchangeBottom": 1062,
+            "handCards": 10,
+            "statusFont": "14px",
+            "runeFont": "13px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1920_14",
+            "status": "PASS",
+            "width": 1920,
+            "height": 1080,
+            "actionBottom": 826,
+            "handTop": 842,
+            "exchangeBottom": 1059.796875,
+            "handCards": 14,
+            "statusFont": "14px",
+            "runeFont": "13px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1366_10",
+            "status": "PASS",
+            "width": 1366,
+            "height": 768,
+            "actionBottom": 547.59375,
+            "handTop": 555.59375,
+            "exchangeBottom": 765.59375,
+            "handCards": 10,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1366_14",
+            "status": "PASS",
+            "width": 1366,
+            "height": 768,
+            "actionBottom": 547.59375,
+            "handTop": 555.59375,
+            "exchangeBottom": 765.59375,
+            "handCards": 14,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1180_10",
+            "status": "PASS",
+            "width": 1180,
+            "height": 820,
+            "actionBottom": 593,
+            "handTop": 601,
+            "exchangeBottom": 811,
+            "handCards": 10,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1180_14",
+            "status": "PASS",
+            "width": 1180,
+            "height": 820,
+            "actionBottom": 593,
+            "handTop": 601,
+            "exchangeBottom": 811,
+            "handCards": 14,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1024_10",
+            "status": "PASS",
+            "width": 1024,
+            "height": 768,
+            "actionBottom": 541,
+            "handTop": 549,
+            "exchangeBottom": 759,
+            "handCards": 10,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "HARBOR_CAPACITY_1024_14",
+            "status": "PASS",
+            "width": 1024,
+            "height": 768,
+            "actionBottom": 541,
+            "handTop": 549,
+            "exchangeBottom": 759,
+            "handCards": 14,
+            "statusFont": "14px",
+            "runeFont": "12px"
+          },
+          {
+            "id": "STAGE2_COMPLETION_RENDER",
+            "status": "PASS"
+          }
+        ],
+        "screenshots": [
+          "stage2-intro.png",
+          "shop-entry.png",
+          "shop-1920.png",
+          "shop-1366.png",
+          "shop-1180.png",
+          "shop-1024.png",
+          "shop-polish-1180.png",
+          "shop-remove-1180.png",
+          "shop-polish-1024.png",
+          "shop-remove-1024.png",
+          "shop-rune-replacement.png",
+          "shop-restored.png",
+          "svoo-role-ranges.png",
+          "topaz-flight.png",
+          "veil-charge-observation.png",
+          "veil-impact.png",
+          "harbor-capacity-1366-hand14.png",
+          "harbor-capacity-1024-hand14.png",
+          "stage2-complete-synthetic.png"
+        ],
+        "errors": [],
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v07/official-serial/v021/report.json",
+      "sha256": "7adf823a02f80aa7e98ce4a82da5cf46b098363ec13243bd3b3c29b56fe5f47f",
+      "report": {
+        "kind": "ACTUAL_GUIDED_UI_WITH_SYNTHETIC_VISIBILITY_EVENT",
+        "checks": [
+          {
+            "id": "ACTUAL_GATE_RESTART",
+            "status": "PASS"
+          },
+          {
+            "id": "ACTUAL_SCROLL_TARGET",
+            "status": "PASS"
+          },
+          {
+            "id": "RESIZE_ORIENTATION_EVENT_TARGET",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_1",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_4",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_6",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_8",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_11",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_13",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_18",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_21",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_22",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_23",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_25",
+            "status": "PASS"
+          },
+          {
+            "id": "GUIDED_VISIBILITY_EVENT_NO_FINISH",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_30",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1366_31",
+            "status": "PASS"
+          },
+          {
+            "id": "COMPLETE_1366",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_1",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_4",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_6",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_8",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_11",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_13",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_18",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_21",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_22",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_23",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_25",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_30",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1024_31",
+            "status": "PASS"
+          },
+          {
+            "id": "COMPLETE_1024",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_1",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_4",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_6",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_8",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_11",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_13",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_18",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_21",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_22",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_23",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_25",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_30",
+            "status": "PASS"
+          },
+          {
+            "id": "TARGET_1920_31",
+            "status": "PASS"
+          },
+          {
+            "id": "COMPLETE_1920",
+            "status": "PASS"
+          },
+          {
+            "id": "HEAVY_ENGINE_PRESENTATION_FIXTURE",
+            "status": "PASS",
+            "detail": {
+              "outcome": {
+                "status": "FINISHED",
+                "reason": null,
+                "attackId": "attack.sandbox",
+                "plannedDuration": 3925,
+                "watchdogMs": 5925
+              },
+              "power": 50,
+              "tier": "HEAVY",
+              "calls": [
+                {
+                  "type": "card",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "card",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "score",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "score",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "score",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "score",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "charge",
+                  "hp": "77 / 77"
+                },
+                {
+                  "type": "impact",
+                  "hp": "27 / 77"
+                },
+                {
+                  "type": "impactLow",
+                  "hp": "27 / 77"
+                }
+              ]
+            }
+          }
+        ],
+        "captures": [
+          "1366-tutorial-start.png",
+          "1366-discard-selected.png",
+          "1366-first-hit.png",
+          "1366-prepared.png",
+          "1366-score-gate-26.png",
+          "1366-score-gate-27.png",
+          "1366-score-gate-28.png",
+          "1366-overpower-defeat.png",
+          "1366-tutorial-reward.png",
+          "1024-tutorial-start.png",
+          "1024-discard-selected.png",
+          "1024-first-hit.png",
+          "1024-prepared.png",
+          "1024-score-gate-26.png",
+          "1024-score-gate-27.png",
+          "1024-score-gate-28.png",
+          "1024-overpower-defeat.png",
+          "1024-tutorial-reward.png",
+          "1920-tutorial-start.png",
+          "1920-discard-selected.png",
+          "1920-first-hit.png",
+          "1920-prepared.png",
+          "1920-score-gate-26.png",
+          "1920-score-gate-27.png",
+          "1920-score-gate-28.png",
+          "1920-overpower-defeat.png",
+          "1920-tutorial-reward.png"
+        ],
+        "errors": [],
+        "browser": "134.0.6998.35",
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v07/official-serial/v022/report.json",
+      "sha256": "697a11e3e777dc7b3357c38c35844e11e9e3db0391392f463a0a8a32848c307b",
+      "report": {
+        "kind": "SYNTHETIC_LEGAL_CARD_STATE_WITH_REAL_CONTROLLER_UI",
+        "checks": [
+          {
+            "id": "SUBMIT_1366_incomplete",
+            "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1366_locked-svoo",
+            "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1366_unlocked-svoo",
+            "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1366_whole-io-do",
+            "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "LAST_TURN_1366",
+            "detail": "Last invalid submission defeats after presentation without draw",
+            "status": "PASS"
+          },
+          {
+            "id": "DICTIONARY_1366",
+            "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+            "status": "PASS"
+          },
+          {
+            "id": "LEGACY_1366",
+            "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1920_incomplete",
+            "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1920_locked-svoo",
+            "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1920_unlocked-svoo",
+            "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1920_whole-io-do",
+            "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "LAST_TURN_1920",
+            "detail": "Last invalid submission defeats after presentation without draw",
+            "status": "PASS"
+          },
+          {
+            "id": "DICTIONARY_1920",
+            "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+            "status": "PASS"
+          },
+          {
+            "id": "LEGACY_1920",
+            "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1024_incomplete",
+            "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1024_locked-svoo",
+            "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1024_unlocked-svoo",
+            "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1024_whole-io-do",
+            "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "LAST_TURN_1024",
+            "detail": "Last invalid submission defeats after presentation without draw",
+            "status": "PASS"
+          },
+          {
+            "id": "DICTIONARY_1024",
+            "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+            "status": "PASS"
+          },
+          {
+            "id": "LEGACY_1024",
+            "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1180_incomplete",
+            "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1180_locked-svoo",
+            "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1180_unlocked-svoo",
+            "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMIT_1180_whole-io-do",
+            "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+            "status": "PASS"
+          },
+          {
+            "id": "LAST_TURN_1180",
+            "detail": "Last invalid submission defeats after presentation without draw",
+            "status": "PASS"
+          },
+          {
+            "id": "DICTIONARY_1180",
+            "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+            "status": "PASS"
+          },
+          {
+            "id": "LEGACY_1180",
+            "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "1366-incomplete-feedback.png",
+          "1366-incomplete-record.png",
+          "1366-locked-svoo-record.png",
+          "1366-unlocked-svoo-record.png",
+          "1366-whole-io-do-record.png",
+          "1366-develop-dictionary.png",
+          "1366-legacy-codex.png",
+          "1920-incomplete-feedback.png",
+          "1920-incomplete-record.png",
+          "1920-locked-svoo-record.png",
+          "1920-unlocked-svoo-record.png",
+          "1920-whole-io-do-record.png",
+          "1920-develop-dictionary.png",
+          "1920-legacy-codex.png",
+          "1024-incomplete-feedback.png",
+          "1024-incomplete-record.png",
+          "1024-locked-svoo-record.png",
+          "1024-unlocked-svoo-record.png",
+          "1024-whole-io-do-record.png",
+          "1024-develop-dictionary.png",
+          "1024-legacy-codex.png",
+          "1180-incomplete-feedback.png",
+          "1180-incomplete-record.png",
+          "1180-locked-svoo-record.png",
+          "1180-unlocked-svoo-record.png",
+          "1180-whole-io-do-record.png",
+          "1180-develop-dictionary.png",
+          "1180-legacy-codex.png"
+        ],
+        "errors": [],
+        "browser": "134.0.6998.35",
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v07/official-serial/v03/report.json",
+      "sha256": "27c9bae21cb25159009fa7877957e12eae0091b864a30233562fca0e80e192eb",
+      "report": {
+        "kind": "ASSIGNED_STATE_UI_AND_ENGINE_PRESENTATION",
+        "checks": [
+          {
+            "id": "LAYOUT_1366_10",
+            "status": "PASS",
+            "width": 1366,
+            "height": 768,
+            "actions": 538,
+            "hand": 546,
+            "phases": 3,
+            "focus": {
+              "x": 1207.53125,
+              "y": 97.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 97.5,
+              "right": 1340,
+              "bottom": 114.5,
+              "left": 1207.53125
+            },
+            "strategy": {
+              "x": 1238,
+              "y": 120,
+              "width": 102,
+              "height": 36,
+              "top": 120,
+              "right": 1340,
+              "bottom": 156,
+              "left": 1238
+            },
+            "bonus": {
+              "x": 1242.96875,
+              "y": 66,
+              "width": 97.03125,
+              "height": 26,
+              "top": 66,
+              "right": 1340,
+              "bottom": 92,
+              "left": 1242.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 10
+          },
+          {
+            "id": "LAYOUT_1366_14",
+            "status": "PASS",
+            "width": 1366,
+            "height": 768,
+            "actions": 538,
+            "hand": 546,
+            "phases": 3,
+            "focus": {
+              "x": 1207.53125,
+              "y": 97.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 97.5,
+              "right": 1340,
+              "bottom": 114.5,
+              "left": 1207.53125
+            },
+            "strategy": {
+              "x": 1238,
+              "y": 120,
+              "width": 102,
+              "height": 36,
+              "top": 120,
+              "right": 1340,
+              "bottom": 156,
+              "left": 1238
+            },
+            "bonus": {
+              "x": 1242.96875,
+              "y": 66,
+              "width": 97.03125,
+              "height": 26,
+              "top": 66,
+              "right": 1340,
+              "bottom": 92,
+              "left": 1242.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 14
+          },
+          {
+            "id": "LAYOUT_1440_10",
+            "status": "PASS",
+            "width": 1440,
+            "height": 900,
+            "actions": 666,
+            "hand": 678,
+            "phases": 3,
+            "focus": {
+              "x": 1281.53125,
+              "y": 111.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 111.5,
+              "right": 1414,
+              "bottom": 128.5,
+              "left": 1281.53125
+            },
+            "strategy": {
+              "x": 1312,
+              "y": 144,
+              "width": 102,
+              "height": 36,
+              "top": 144,
+              "right": 1414,
+              "bottom": 180,
+              "left": 1312
+            },
+            "bonus": {
+              "x": 1316.96875,
+              "y": 70,
+              "width": 97.03125,
+              "height": 26,
+              "top": 70,
+              "right": 1414,
+              "bottom": 96,
+              "left": 1316.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 10
+          },
+          {
+            "id": "LAYOUT_1440_14",
+            "status": "PASS",
+            "width": 1440,
+            "height": 900,
+            "actions": 666,
+            "hand": 678,
+            "phases": 3,
+            "focus": {
+              "x": 1281.53125,
+              "y": 111.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 111.5,
+              "right": 1414,
+              "bottom": 128.5,
+              "left": 1281.53125
+            },
+            "strategy": {
+              "x": 1312,
+              "y": 144,
+              "width": 102,
+              "height": 36,
+              "top": 144,
+              "right": 1414,
+              "bottom": 180,
+              "left": 1312
+            },
+            "bonus": {
+              "x": 1316.96875,
+              "y": 70,
+              "width": 97.03125,
+              "height": 26,
+              "top": 70,
+              "right": 1414,
+              "bottom": 96,
+              "left": 1316.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 14
+          },
+          {
+            "id": "LAYOUT_1024_10",
+            "status": "PASS",
+            "width": 1024,
+            "height": 768,
+            "actions": 541,
+            "hand": 549,
+            "phases": 3,
+            "focus": {
+              "x": 877.53125,
+              "y": 91,
+              "width": 132.46875,
+              "height": 17,
+              "top": 91,
+              "right": 1010,
+              "bottom": 108,
+              "left": 877.53125
+            },
+            "strategy": {
+              "x": 908,
+              "y": 114,
+              "width": 102,
+              "height": 36,
+              "top": 114,
+              "right": 1010,
+              "bottom": 150,
+              "left": 908
+            },
+            "bonus": {
+              "x": 920.15625,
+              "y": 60,
+              "width": 89.84375,
+              "height": 25,
+              "top": 60,
+              "right": 1010,
+              "bottom": 85,
+              "left": 920.15625
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 10
+          },
+          {
+            "id": "LAYOUT_1024_14",
+            "status": "PASS",
+            "width": 1024,
+            "height": 768,
+            "actions": 541,
+            "hand": 549,
+            "phases": 3,
+            "focus": {
+              "x": 877.53125,
+              "y": 91,
+              "width": 132.46875,
+              "height": 17,
+              "top": 91,
+              "right": 1010,
+              "bottom": 108,
+              "left": 877.53125
+            },
+            "strategy": {
+              "x": 908,
+              "y": 114,
+              "width": 102,
+              "height": 36,
+              "top": 114,
+              "right": 1010,
+              "bottom": 150,
+              "left": 908
+            },
+            "bonus": {
+              "x": 920.15625,
+              "y": 60,
+              "width": 89.84375,
+              "height": 25,
+              "top": 60,
+              "right": 1010,
+              "bottom": 85,
+              "left": 920.15625
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 14
+          },
+          {
+            "id": "LAYOUT_1280_10",
+            "status": "PASS",
+            "width": 1280,
+            "height": 800,
+            "actions": 570,
+            "hand": 578,
+            "phases": 3,
+            "focus": {
+              "x": 1121.53125,
+              "y": 97.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 97.5,
+              "right": 1254,
+              "bottom": 114.5,
+              "left": 1121.53125
+            },
+            "strategy": {
+              "x": 1152,
+              "y": 120,
+              "width": 102,
+              "height": 36,
+              "top": 120,
+              "right": 1254,
+              "bottom": 156,
+              "left": 1152
+            },
+            "bonus": {
+              "x": 1156.96875,
+              "y": 66,
+              "width": 97.03125,
+              "height": 26,
+              "top": 66,
+              "right": 1254,
+              "bottom": 92,
+              "left": 1156.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 10
+          },
+          {
+            "id": "LAYOUT_1280_14",
+            "status": "PASS",
+            "width": 1280,
+            "height": 800,
+            "actions": 570,
+            "hand": 578,
+            "phases": 3,
+            "focus": {
+              "x": 1121.53125,
+              "y": 97.5,
+              "width": 132.46875,
+              "height": 17,
+              "top": 97.5,
+              "right": 1254,
+              "bottom": 114.5,
+              "left": 1121.53125
+            },
+            "strategy": {
+              "x": 1152,
+              "y": 120,
+              "width": 102,
+              "height": 36,
+              "top": 120,
+              "right": 1254,
+              "bottom": 156,
+              "left": 1152
+            },
+            "bonus": {
+              "x": 1156.96875,
+              "y": 66,
+              "width": 97.03125,
+              "height": 26,
+              "top": 66,
+              "right": 1254,
+              "bottom": 92,
+              "left": 1156.96875
+            },
+            "buttons": [
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              },
+              {
+                "h": 36,
+                "w": 40
+              }
+            ],
+            "sentence": 16,
+            "handCards": 14
+          },
+          {
+            "id": "RUNE_BUTTON_KEYBOARD",
+            "status": "PASS"
+          },
+          {
+            "id": "RUNE_POINTER_DRAG",
+            "status": "PASS"
+          },
+          {
+            "id": "RUNE_SCROLL_CANCEL_NO_RESOURCE_MUTATION",
+            "status": "PASS"
+          },
+          {
+            "id": "RUNE_INFORMATION_NEUTRAL",
+            "status": "PASS"
+          },
+          {
+            "id": "IMPACT_PHASE_0_false",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "PAST"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "240 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 490,
+            "loss": 240,
+            "excess": 250
+          },
+          {
+            "id": "IMPACT_PHASE_0_true",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "PAST"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "240 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 490,
+            "loss": 240,
+            "excess": 250
+          },
+          {
+            "id": "IMPACT_PHASE_1_false",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "PRESENT"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "0 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "240 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 408,
+            "loss": 240,
+            "excess": 168
+          },
+          {
+            "id": "IMPACT_PHASE_1_true",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "PRESENT"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "0 / 240",
+                  "240 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "240 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 408,
+            "loss": 240,
+            "excess": 168
+          },
+          {
+            "id": "IMPACT_PHASE_2_false",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "FUTURE"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "0 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 585,
+            "loss": 240,
+            "excess": 345
+          },
+          {
+            "id": "IMPACT_PHASE_2_true",
+            "status": "PASS",
+            "trace": [
+              {
+                "when": "boss-score",
+                "active": "FUTURE"
+              },
+              {
+                "when": "before",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "240 / 240"
+                ]
+              },
+              {
+                "when": "after",
+                "bars": [
+                  "0 / 240",
+                  "0 / 240",
+                  "0 / 240"
+                ],
+                "avatar": "1"
+              }
+            ],
+            "power": 585,
+            "loss": 240,
+            "excess": 345
+          },
+          {
+            "id": "WRONG_TIME_BLOCKED_NO_DAMAGE_SHAKE",
+            "status": "PASS"
+          },
+          {
+            "id": "CANCEL_CONVERGES_WITHOUT_STATE_WRITE",
+            "status": "PASS"
+          },
+          {
+            "id": "GROUPED_FORMS",
+            "status": "PASS"
+          },
+          {
+            "id": "CODEX_TYPOGRAPHY_FEEDBACK",
+            "status": "PASS",
+            "color": "rgb(255, 255, 255)",
+            "size": "21px",
+            "weight": "750",
+            "line": "31.5px"
+          },
+          {
+            "id": "CODEX_NO_FIXED_EXAMPLES",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "capacity-1366-10.png",
+          "capacity-1366-14.png",
+          "capacity-1440-10.png",
+          "capacity-1440-14.png",
+          "capacity-1024-10.png",
+          "capacity-1024-14.png",
+          "capacity-1280-10.png",
+          "capacity-1280-14.png",
+          "rune-insertion.png",
+          "phase-0-normal.png",
+          "phase-0-reduced.png",
+          "phase-1-normal.png",
+          "phase-1-reduced.png",
+          "phase-2-normal.png",
+          "phase-2-reduced.png",
+          "blocked-past.png",
+          "be-grouped-forms.png",
+          "codex-no-fixed-examples.png"
+        ],
+        "errors": [],
+        "browser": "134.0.6998.35",
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v07/official-serial/v04/results.json",
+      "sha256": "317a416751514f67fa956c50f643e7d5325c094195055aac127df9d7a15534fc",
+      "report": {
+        "kind": "ASSIGNED_FORMS_UI",
+        "checks": [
+          {
+            "id": "BRANDING",
+            "status": "PASS"
+          },
+          {
+            "id": "FORM_ROWS_1366",
+            "status": "PASS"
+          },
+          {
+            "id": "FORM_ROWS_1280",
+            "status": "PASS"
+          },
+          {
+            "id": "FORM_ROWS_1024",
+            "status": "PASS"
+          },
+          {
+            "id": "ALL_BE_FORMS_KEYBOARD",
+            "status": "PASS"
+          },
+          {
+            "id": "ALL_BE_FORMS_TOUCH",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "lobby.png",
+          "forms-1366.png",
+          "forms-1280.png",
+          "forms-1024.png"
+        ]
+      }
+    },
+    {
+      "source": ".local-validation/v04/operations-browser/results.json",
+      "sha256": "1b01d8856bea4ab9c7a15aedb82cae64093ff67934ea99280be4a292e735fe4d",
+      "report": {
+        "kind": "ASSIGNED_OPERATION_UI_NOT_CAMPAIGN_PLAY",
+        "checks": [
+          {
+            "id": "CAPACITY_1366_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1366_14",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1280_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1280_14",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1024_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1024_14",
+            "status": "PASS"
+          },
+          {
+            "id": "BODY_DESCRIPTION_NO_USE",
+            "status": "PASS"
+          },
+          {
+            "id": "NO_OPERATION_DRAG",
+            "status": "PASS"
+          },
+          {
+            "id": "SEARCH_CANCEL_NO_STATE_RNG_CHANGE",
+            "status": "PASS"
+          },
+          {
+            "id": "REAL_SUPPLY_COMMIT_PRESENTATION",
+            "status": "PASS"
+          },
+          {
+            "id": "REAL_SEARCH_COMMIT_ORDER_RNG",
+            "status": "PASS"
+          },
+          {
+            "id": "EXHAUSTED_AND_DECK_SEPARATION",
+            "status": "PASS"
+          },
+          {
+            "id": "NEXT_BATTLE_REAL_UI_RETURN_ASSIGNED_BOUNDARY",
+            "status": "PASS"
+          },
+          {
+            "id": "SUPPLY_RESHUFFLE_HAND_LIMIT_UI",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "capacity-1366-10.png",
+          "capacity-1366-14.png",
+          "capacity-1280-10.png",
+          "capacity-1280-14.png",
+          "capacity-1024-10.png",
+          "capacity-1024-14.png",
+          "search-target.png",
+          "supply-used.png",
+          "exhausted.png",
+          "deck-operation-section.png",
+          "next-battle-operations-returned.png",
+          "supply-recycle-hand-cap.png"
+        ],
+        "errors": []
+      }
+    },
+    {
+      "source": ".local-validation/v04/sky-browser/report.json",
+      "sha256": "d44930648fab637abfaccc496ed171b78acfcd24ed5e5d1f31884dddaf120ca3",
+      "report": {
+        "kind": "ASSIGNED_STATE_UI_NOT_CAMPAIGN",
+        "checks": [
+          {
+            "id": "STAGE4_PREVIEW",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP2_1366",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP2_1280",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP2_1024",
+            "status": "PASS"
+          },
+          {
+            "id": "SHOP2_REAL_INDEXEDDB_EXACT",
+            "status": "PASS"
+          },
+          {
+            "id": "THREE_VERSIONED_SLOTS_OPERATION_EXHAUST_RNG_AND_UNLOCK_ISOLATION",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1366_10",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1366_14",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1280_10",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1280_14",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1024_10",
+            "status": "PASS"
+          },
+          {
+            "id": "SKY_CAPACITY_1024_14",
+            "status": "PASS"
+          },
+          {
+            "id": "LINK_PRESENTATION_I like music and she reads books",
+            "status": "PASS"
+          },
+          {
+            "id": "LINK_PRESENTATION_I think that she likes music",
+            "status": "PASS"
+          },
+          {
+            "id": "LINK_PRESENTATION_I like games and music",
+            "status": "PASS"
+          },
+          {
+            "id": "LINK_PRESENTATION_I think she likes music",
+            "status": "PASS"
+          },
+          {
+            "id": "INTERRUPTED_DISPLAY_CONVERGES_NO_STATE_WRITE",
+            "status": "PASS"
+          },
+          {
+            "id": "NESTED_EDUCATION_NO_RAW_IDS_TRANSLATIONS",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "stage4-preview.png",
+          "shop2-1366.png",
+          "shop2-1280.png",
+          "shop2-1024.png",
+          "sky-capacity-1366-10.png",
+          "sky-capacity-1366-14.png",
+          "sky-capacity-1280-10.png",
+          "sky-capacity-1280-14.png",
+          "sky-capacity-1024-10.png",
+          "sky-capacity-1024-14.png",
+          "coordinate-clause-bridge.png",
+          "content-clause-bridge.png",
+          "nested-content-record.png"
+        ],
+        "errors": [],
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v05/desert-browser/report.json",
+      "sha256": "2e267bace784d81f24569ecde2749a9ec6ce898691be675b8856f9175c2f446b",
+      "report": {
+        "kind": "ASSIGNED_DESERT_SEAL_AND_SUBMITTED_ROLE_UI",
+        "checks": [
+          {
+            "id": "FIRST_SEAL_EXACT_COPY_AND_RULE",
+            "status": "PASS"
+          },
+          {
+            "id": "FIRST_TURN_UI_INDEXEDDB_SAVE_PAGE_RELOAD_LOAD_EXACT",
+            "status": "PASS"
+          },
+          {
+            "id": "MOUSE_KEYBOARD_TOUCH_ADD_BLOCKED_NO_COST",
+            "status": "PASS"
+          },
+          {
+            "id": "SEALED_BODY_SWAP_DRAG_BLOCKED",
+            "status": "PASS"
+          },
+          {
+            "id": "FORM_MENU_SWAP_GUARD",
+            "status": "PASS"
+          },
+          {
+            "id": "SEALED_DRAG_CANCEL_RESIZE_BLUR_CLEANUP",
+            "status": "PASS"
+          },
+          {
+            "id": "SEALED_CHECK_EXCHANGE_ALLOWED_NO_RESEAL",
+            "status": "PASS"
+          },
+          {
+            "id": "SEARCH_CANCEL_SEAL_RNG_UNDO_UNCHANGED",
+            "status": "PASS"
+          },
+          {
+            "id": "SUPPLY_PRESENTATION_PRESERVES_SEAL",
+            "status": "PASS"
+          },
+          {
+            "id": "ASSIGNED_DRAW_SEAL_REAL_SEARCH_RETURN_STILL_BLOCKED",
+            "status": "PASS"
+          },
+          {
+            "id": "PREPARE_NEXT_TURN_SEAL_ONCE",
+            "status": "PASS"
+          },
+          {
+            "id": "ZERO_CORE_SUBMISSION_NEXT_TURN_SEAL_ONCE",
+            "status": "PASS"
+          },
+          {
+            "id": "DESERT_FIVE_ENEMIES_NO_SHOP",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1024_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1024_14",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1280_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1280_14",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1366_10",
+            "status": "PASS"
+          },
+          {
+            "id": "CAPACITY_1366_14",
+            "status": "PASS"
+          },
+          {
+            "id": "SINGLE_ING_THREE_ROW_MENU_1024",
+            "status": "PASS"
+          },
+          {
+            "id": "SINGLE_ING_THREE_ROW_MENU_1280",
+            "status": "PASS"
+          },
+          {
+            "id": "SINGLE_ING_THREE_ROW_MENU_1366",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_동명사 · 주어",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_동명사 · 목적어",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_동명사 · 주격보어",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_동명사 · 전치사의 목적어",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_현재분사 · 명사 수식",
+            "status": "PASS"
+          },
+          {
+            "id": "SUBMITTED_ROLE_to부정사 · 목적격보어",
+            "status": "PASS"
+          },
+          {
+            "id": "NO_SEAL_UI_LEAK_IN_OTHER_BATTLE",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_ENJOY",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_ENJOY",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_FINISH",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_FINISH",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_HOBBY",
+            "status": "PASS"
+          },
+          {
+            "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_HOBBY",
+            "status": "PASS"
+          },
+          {
+            "id": "DEV_SANDBOX_CURRENT_REGISTRY_NEW_WORD_AND_EXISTING_ING",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "sphinx-first-turn.png",
+          "safe-slot-after-page-reload.png",
+          "sealed-exchanged-not-replaced.png",
+          "search-returned-copy-still-sealed.png",
+          "desert-intro.png",
+          "capacity-1024-10.png",
+          "capacity-1024-14.png",
+          "capacity-1280-10.png",
+          "capacity-1280-14.png",
+          "capacity-1366-10.png",
+          "capacity-1366-14.png",
+          "role-11.png",
+          "role-12.png",
+          "role-13.png",
+          "role-14.png",
+          "role-15.png",
+          "role-16.png",
+          "new-word-polish-enjoy.png",
+          "new-word-polish-finish.png",
+          "new-word-polish-hobby.png"
+        ],
+        "errors": [],
+        "status": "PASS"
+      }
+    },
+    {
+      "source": ".local-validation/v06/snow-browser/report.json",
+      "sha256": "057ee69b59c2064cfae4385fac35bacb302b2e2cf59fb53f2c37f6545f6ca3b1",
+      "report": {
+        "kind": "ASSIGNED_PHYSICAL_CARDS_REAL_UI_AND_CONTROLLER_NOT_NATURAL_RUN",
+        "checks": [
+          {
+            "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P116_NONCOMPARISON_MORE_WATER",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P121_P123_P138_HP_ONE_LOCK_REASON",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P125_LAST_CRYSTAL_SAME_ATTACK_KILL",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P018_P019_P021_THIRD_SHOP_UI",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P080_P142_GROUPED_REVIEWED_FORMS",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P140_P141_P143_FIXED_GUIDES_AND_TEMPORARY_OWNERSHIP",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1280_10",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1280_14",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1366_10",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1366_14",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1920_10",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P130_P132_LAYOUT_1920_14",
+            "browser": "chromium",
+            "status": "PASS"
+          },
+          {
+            "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P116_NONCOMPARISON_MORE_WATER",
+            "browser": "firefox",
+            "status": "PASS"
+          },
+          {
+            "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+            "browser": "webkit",
+            "status": "PASS"
+          },
+          {
+            "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+            "browser": "webkit",
+            "status": "PASS"
+          },
+          {
+            "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+            "browser": "webkit",
+            "status": "PASS"
+          },
+          {
+            "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+            "browser": "webkit",
+            "status": "PASS"
+          },
+          {
+            "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+            "browser": "webkit",
+            "status": "PASS"
+          },
+          {
+            "id": "P116_NONCOMPARISON_MORE_WATER",
+            "browser": "webkit",
+            "status": "PASS"
+          }
+        ],
+        "captures": [
+          "chromium-boss-opening.png",
+          "chromium-two-crystals-broken.png",
+          "chromium-hp-one-lock.png",
+          "chromium-last-crystal-kill.png",
+          "chromium-snow-intro.png",
+          "chromium-third-shop.png",
+          "chromium-comparison-forms.png",
+          "chromium-frost-pile-ownership.png",
+          "chromium-comparison-codex.png",
+          "chromium-cards-1280-10.png",
+          "chromium-cards-1280-14.png",
+          "chromium-cards-1366-10.png",
+          "chromium-cards-1366-14.png",
+          "chromium-cards-1920-10.png",
+          "chromium-cards-1920-14.png",
+          "firefox-boss-opening.png",
+          "firefox-two-crystals-broken.png",
+          "webkit-boss-opening.png",
+          "webkit-two-crystals-broken.png"
+        ],
+        "browsers": [
+          {
+            "name": "chromium",
+            "version": "134.0.6998.35"
+          },
+          {
+            "name": "firefox",
+            "version": "135.0"
+          },
+          {
+            "name": "webkit",
+            "version": "18.4"
+          }
+        ],
+        "errors": [],
+        "status": "PASS"
+      }
+    }
+  ]
+}

@@ -1,5 +1,10 @@
 /** Asset IDs are stable. Missing optional art resolves to a local emoji, never a URL request. */
 export const ASSETS = Object.freeze({
+  'stage07.salamander':Object.freeze({kind:'emoji',value:'🦎',labelKo:'불씨 도롱뇽'}),
+  'stage07.turtle':Object.freeze({kind:'emoji',value:'🐢',labelKo:'현무암 거북'}),
+  'stage07.smith':Object.freeze({kind:'emoji',value:'🔥',labelKo:'화로 대장장이 정령'}),
+  'stage07.bat':Object.freeze({kind:'emoji',value:'🦇',labelKo:'메아리 박쥐'}),
+  'stage07.dragon':Object.freeze({kind:'emoji',value:'🐉',labelKo:'잠든 잿불룡'}),
   'enemy.stage1.01': Object.freeze({ kind: 'emoji', value: '🌱', labelKo: '풀잎 슬라임' }),
   'enemy.stage1.02': Object.freeze({ kind: 'emoji', value: '🐌', labelKo: '숲 달팽이' }),
   'boss.stage1': Object.freeze({ kind: 'emoji', value: '🌳', labelKo: '초원 수호자' }),

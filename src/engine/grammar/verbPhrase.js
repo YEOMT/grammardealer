@@ -2,7 +2,7 @@
  * Surface-compatible forms win inside a chain. Only an independent finite `read`
  * uses the explicit past/present choice to disambiguate its temporal family.
  */
-export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=false}={}) {
+export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=false,ember=false}={}) {
  const out=[],token=i=>tokens[i],forms=i=>token(i)?.forms??[];
  const matches=(i,required)=>forms(i).some(f=>required==='BASE'?f.surface.toLowerCase()===token(i).lex.lemma.toLowerCase():f.grammaticalFeatures.tense===required);
  const finiteForm=i=>{
@@ -20,15 +20,16 @@ export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=
   // A lexical -ing / p.p. without its finite head cannot stand alone.
   if(t.lex.lemma!=='will')out.push({start,end:i+1,lexicalIndex:i,finiteIndex:finite?start:null,auxiliaries,aspects,issues:nextIssues,...(polish061?{verbIndices:[...verbIndices,i],interveningAdverbIndices:[...adverbIndices]}:{}),
    tenseFamily:finite?(token(start).lex.lemma==='will'?'FUTURE':finiteForm(start)?.grammaticalFeatures.tense==='PAST'?'PAST':'PRESENT'):null,
+   ...(ember?{voice:auxiliaries.some(a=>a.role==='PASSIVE')?'PASSIVE':'ACTIVE'}:{}),
    futureMarker:auxiliaries.some(a=>a.role==='WILL')?'WILL':null,
    chainWellFormed:!nextIssues.length&&!(finite&&token(start).lex.lemma==='be'&&token(start).surface==='be')});
   const aux=t.lex.lemma==='will'&&first&&finite&&rank<1?['WILL',1,'BASE',null]
    :t.lex.lemma==='have'&&rank<2?['PERFECT',2,'PAST_PARTICIPLE','PERFECT']
    :t.lex.lemma==='be'&&rank<3?['PROGRESSIVE',3,'PRESENT_PARTICIPLE','PROGRESSIVE']:null;
-  if(aux){
+  for(const choice of [aux,...(ember&&t.lex.lemma==='be'&&rank<4?[['PASSIVE',4,'PAST_PARTICIPLE',null]]:[])].filter(Boolean)){
    let next=i+1;const between=[];
    if(polish061)while(next<end&&token(next)?.lex.pos==='ADVERB'&&token(next).senses.some(s=>s.adverbPolicy?.auxiliaryPositions?.includes('AFTER_AUXILIARY'))){tick();between.push(next++);}
-   visit(next,aux[1],aux[2],[...auxiliaries,{index:i,role:aux[0]}],aux[3]?[...aspects,aux[3]]:aspects,nextIssues,[...verbIndices,i],[...adverbIndices,...between]);
+   visit(next,choice[1],choice[2],[...auxiliaries,{index:i,role:choice[0]}],choice[3]?[...aspects,choice[3]]:aspects,nextIssues,[...verbIndices,i],[...adverbIndices,...between]);
   }
  }
  visit(start,0,'BASE',[],[],[]);return out;

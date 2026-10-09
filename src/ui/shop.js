@@ -53,7 +53,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
     const polish=kind==='POLISH',ids=state.activeCardIds.filter(id=>!polish||canPolish(state.cardInstances[id],state.version));
     let view;
     view=modal(polish?'상점 · 연마할 카드 한 장 선택':'상점 · 제거할 카드 한 장 선택',[
-      el('p',{text:polish?(state.version==='0.6.1'?'8 재화 · 단어 최대 +3, 영구 운영 최대 +1. 이 상점에서 한 번 사용할 수 있습니다.':'8 재화 · 한 카드 +1, 최대 +3. 이 상점에서 한 번 사용할 수 있습니다.'):'선택한 실제 카드 한 장을 제거합니다. 확정 전에는 재화와 서비스 횟수를 사용하지 않습니다.'}),
+      el('p',{text:polish?(['0.6.1','0.7.0'].includes(state.version)?'8 재화 · 단어 최대 +3, 영구 운영 최대 +1. 이 상점에서 한 번 사용할 수 있습니다.':'8 재화 · 한 카드 +1, 최대 +3. 이 상점에서 한 번 사용할 수 있습니다.'):'선택한 실제 카드 한 장을 제거합니다. 확정 전에는 재화와 서비스 횟수를 사용하지 않습니다.'}),
       el('div',{class:'reward-target-grid'},ids.map(id=>{
         const model=cardModel(state.cardInstances[id],null,state.version);
         return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&model.cardKind==='OPERATION'&&el('p',{class:'operation-polish-preview',text:operationPolishPreview(model)}),
@@ -78,7 +78,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
       button(item.purchased?'구매 완료':gold<item.price?'재화 부족':'구매',()=>buy(item),'primary',{disabled:item.purchased||gold<item.price,'aria-label':`${item.kind==='RUNE'?RUNE_BY_ID[item.runeId].nameKo:cardModel({instanceId:'preview',cardDefId:item.cardDefId},null,state.version).surface} 구매`}));
   });
   const services=Object.entries(shop.services).map(([kind,entry])=>el('article',{class:'shop-service panel',dataset:{serviceKind:kind}},
-    el('div',{},el('h2',{text:kind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:kind==='POLISH'?(state.version==='0.6.1'?'단어 최대 +3 · 영구 운영 최대 +1':'카드 한 장 +1 · 단계마다 +5점 · 최대 +3'):'실제 카드 한 장을 덱에서 제거'}),
+    el('div',{},el('h2',{text:kind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:kind==='POLISH'?(['0.6.1','0.7.0'].includes(state.version)?'단어 최대 +3 · 영구 운영 최대 +1':'카드 한 장 +1 · 단계마다 +5점 · 최대 +3'):'실제 카드 한 장을 덱에서 제거'}),
       el('strong',{text:entry.used?'사용 완료 · 상점당 1회':`${entry.price} 재화 · 상점당 1회`})),
     button(entry.used?'사용 완료':gold<entry.price?'재화 부족':'대상 선택',()=>targets(kind),'secondary',{disabled:entry.used||gold<entry.price,'aria-label':`${kind==='POLISH'?'연마':'제거'} 대상 선택`})));
   const animateGrant=grant&&!displayedGrants.has(grant.entryGrantId);

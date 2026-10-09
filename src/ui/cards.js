@@ -8,6 +8,7 @@ export const POS_LABELS = { NOUN: '명사', PRONOUN: '대명사', VERB: '동사'
 export const RARITY_LABELS = { COMMON: '일반', UNCOMMON: '고급', RARE: '희귀' };
 /** Display-only card model. No grammar inspection takes place while rendering. */
 export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false, onUse, useCount, useDisabled=false, sealed=false } = {}) {
+  if(model.cardKind==='OBSTACLE')return obstacleCard(model,{zone,onSelect,selected,readonly,compact});
   if(model.cardKind==='OPERATION')return operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled});
   const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''} ${sealed?'turn-sealed':''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly',sealed:String(sealed) } });
   const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-disabled':sealed?'true':null, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${sealed?', '+TURN_HAND_SEAL_LABEL+' · 교환 가능':readonly ? '' : ', Enter로 이동'}` },
@@ -59,7 +60,7 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     const zone = target?.closest('[data-card-zone]');
     if (!zone || !container.contains(zone)) return null;
     const card = target.closest('.word-card');
-    if(card?.dataset.cardKind==='OPERATION'&&active.zone==='sentence')return null;
+    if(['OPERATION','OBSTACLE'].includes(card?.dataset.cardKind)&&active.zone==='sentence')return null;
     if (card && zone.contains(card)) {
       const rect = card.getBoundingClientRect(); const offset = (x - rect.left) / rect.width;
       const crossZone = active.zone !== zone.dataset.cardZone;
@@ -77,7 +78,7 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
   const down = e => {
     if (active || !enabled() || e.button !== 0 || e.target.closest('button')) return;
     const body = e.target.closest('.card-body'), node = body?.closest('.word-card');
-    if (!node || node.dataset.cardKind==='OPERATION' || !container.contains(node) || body.tabIndex < 0) return;
+    if (!node || ['OPERATION','OBSTACLE'].includes(node.dataset.cardKind) || !container.contains(node) || body.tabIndex < 0) return;
     active = { node, body, pointerId: e.pointerId, startX:e.clientX, startY:e.clientY, id:node.dataset.cardId, zone:node.dataset.zone, dragging:false };
     body.setPointerCapture(e.pointerId);
   };
@@ -117,5 +118,12 @@ function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useC
  const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 더미로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'})]);
  body.addEventListener('click',explain);body.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();explain();}});node.append(body);
  if(onSelect&&!readonly){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline operation-footer'},button('사용',e=>{e.stopPropagation();onUse?.();},'operation-use',{disabled:useDisabled||!onUse,'aria-label':model.surface+' 사용',title:useDisabled?'현재 유효 대상이나 손패 빈자리가 없습니다.':copy.effect,onpointerdown:e=>e.stopPropagation()}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':model.surface+' 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation()})));}
+ return node;
+}
+
+function obstacleCard(model,{zone,onSelect,selected,readonly,compact}){
+ const node=el('article',{class:`word-card obstacle-card ${selected?'selected ':''}${compact?'compact ':''}`,dataset:{cardId:model.id,cardKind:'OBSTACLE',zone:zone??'readonly',temporary:'true'}});
+ node.append(el('div',{class:'card-body',role:'group','aria-label':'검은 먼지 · 방해 · 이번 전투 한정 · 조합과 사용 불가, 교환 가능'},el('div',{class:'card-topline'},el('span',{text:'방해'})),el('strong',{class:'obstacle-name',text:model.surface}),el('small',{class:'obstacle-duration',text:'이번 전투 한정'}),el('small',{class:'obstacle-rule',text:'조합 불가 · 교환 가능'})));
+ if(onSelect&&!readonly){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline obstacle-footer'},el('span',{text:'교환'}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':'검은 먼지 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()})));}
  return node;
 }

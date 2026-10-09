@@ -1,0 +1,621 @@
+{
+  "kind": "BOUNDED_EXISTING_CARD_LANGUAGE_PLAN",
+  "count": 36,
+  "noNewWordCards": true,
+  "note": "targetObjectComplements는 등록할 대표 OC만 뜻한다. 목록 밖이라는 이유로 다른 정상 NP 수식 분석을 거절하지 않는다. 실제 영어 전체에서의 금지표가 아니다. like/want/need PP 정식화는 문법 근거를 반영한 구현 세칙, feel 제한 PP는 심화 확장 대상이며 생략했다고 비문이라고 설명하지 않는다.",
+  "verbs": [
+    {
+      "lemma": "be",
+      "cardDefId": "card.be",
+      "baselineCore": [
+        "SVC_AP",
+        "SVC_NP",
+        "SV_LOCATION",
+        "AUX_PROGRESSIVE"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [
+        "AUX_PASSIVE"
+      ],
+      "passivizableSourcePatterns": [],
+      "note": "be 자체를 수동화하지 않는다. gone 등 검수된 상태 해석은 일반 수동태와 구분.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "have",
+      "cardDefId": "card.have",
+      "baselineCore": [
+        "SVO_POSSESSION",
+        "AUX_PERFECT",
+        "SVOC_BARE"
+      ],
+      "targetObjectComplements": [
+        "BARE",
+        "ING",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_ING",
+        "SVOC_PP"
+      ],
+      "passivizableSourcePatterns": [],
+      "note": "보유 have는 passive 금지. have O PP는 완료도 be-passive도 아니다. 경험/사역 구분은 장문 설명 강제 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "do",
+      "cardDefId": "card.do",
+      "baselineCore": [
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "의문·부정 조동사 확장은 범위 밖.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "go",
+      "cardDefId": "card.go",
+      "baselineCore": [
+        "SV"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 대표 자동 용법 보존. p.p. 형태 존재만으로 passive 허용하지 않음. 구동사/새 타동 뜻 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "come",
+      "cardDefId": "card.come",
+      "baselineCore": [
+        "SV"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 대표 자동 용법 보존. p.p. 형태 존재만으로 passive 허용하지 않음. 구동사/새 타동 뜻 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "run",
+      "cardDefId": "card.run",
+      "baselineCore": [
+        "SV"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 대표 자동 용법 보존. p.p. 형태 존재만으로 passive 허용하지 않음. 구동사/새 타동 뜻 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "live",
+      "cardDefId": "card.live",
+      "baselineCore": [
+        "SV"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 대표 자동 용법 보존. p.p. 형태 존재만으로 passive 허용하지 않음. 구동사/새 타동 뜻 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "work",
+      "cardDefId": "card.work",
+      "baselineCore": [
+        "SV"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 대표 자동 용법 보존. p.p. 형태 존재만으로 passive 허용하지 않음. 구동사/새 타동 뜻 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "play",
+      "cardDefId": "card.play",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "현재분사는 사용한 원래 Frame의 목적어 요구를 지킨다. read는 같은 철자의 시제/역할을 근거로 구분.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "eat",
+      "cardDefId": "card.eat",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "현재분사는 사용한 원래 Frame의 목적어 요구를 지킨다. read는 같은 철자의 시제/역할을 근거로 구분.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "read",
+      "cardDefId": "card.read",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "현재분사는 사용한 원래 Frame의 목적어 요구를 지킨다. read는 같은 철자의 시제/역할을 근거로 구분.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "like",
+      "cardDefId": "card.like",
+      "baselineCore": [
+        "SVO",
+        "SVO_TO",
+        "SVO_ING",
+        "SVOC_TO"
+      ],
+      "targetObjectComplements": [
+        "TO",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_PP"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "O+PP는 L06의 실제 용법을 같은 PP 보어 경로로 지원하는 구현 세칙. 선호 의미를 사역이라고 표시하지 않음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "want",
+      "cardDefId": "card.want",
+      "baselineCore": [
+        "SVO",
+        "SVO_TO",
+        "SVOC_TO"
+      ],
+      "targetObjectComplements": [
+        "TO",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_PP"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "I want the homework finished.를 지원. 욕구 want+원형은 허용하지 않음. 지역 사역 태그를 자동 부여하지 않음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "need",
+      "cardDefId": "card.need",
+      "baselineCore": [
+        "SVO",
+        "SVO_TO",
+        "SVO_ING_PASSIVE_MEANING",
+        "SVOC_TO"
+      ],
+      "targetObjectComplements": [
+        "TO",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_PP"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "need -ing의 기존 특수 연결 유지. need O PP는 기존 카드로 필요한 기본 지원; 준조동사 need 별도 확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "make",
+      "cardDefId": "card.make",
+      "baselineCore": [
+        "SVO",
+        "SVOO_FOR",
+        "SVOC_AP",
+        "SVOC_NP",
+        "SVOC_BARE"
+      ],
+      "targetObjectComplements": [
+        "AP",
+        "NP",
+        "BARE"
+      ],
+      "stage7Additions": [
+        "PASSIVE_CAUSATIVE_TO"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOO_FOR_THEME",
+        "SVOC_AP",
+        "SVOC_NP",
+        "SVOC_BARE_TO"
+      ],
+      "note": "make oneself understood 등 별도 어휘가 필요한 제한 PP 용법은 추가하지 않음. make O NP 중의성의 기존 4형식 우선순위 유지.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "give",
+      "cardDefId": "card.give",
+      "baselineCore": [
+        "SVO",
+        "SVOO_TO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOO_TO_RECIPIENT",
+        "SVOO_TO_THEME"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "see",
+      "cardDefId": "card.see",
+      "baselineCore": [
+        "SVO",
+        "SVOC_BARE"
+      ],
+      "targetObjectComplements": [
+        "BARE",
+        "ING",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_ING",
+        "SVOC_PP",
+        "PASSIVE_PERCEPTION_TO_ING"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOC_BARE_TO",
+        "SVOC_ING"
+      ],
+      "note": "see O PP 정식 필수. 능동 see O toV는 오류. 명사 수식과 OC가 겹치면 등록된 지각 OC 분석을 대표로.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "help",
+      "cardDefId": "card.help",
+      "baselineCore": [
+        "SV",
+        "SVO",
+        "SVO_BARE",
+        "SVO_TO",
+        "SVOC_BARE",
+        "SVOC_TO"
+      ],
+      "targetObjectComplements": [
+        "BARE",
+        "TO"
+      ],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOC_TO",
+        "SVOC_BARE_TO"
+      ],
+      "note": "도움 구조는 준사역/보조로 표시. 직접 O+ING/PP를 일괄 허용하지 않음; NP 내부 분사 수식으로 성립하는 문장은 별개.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "feel",
+      "cardDefId": "card.feel",
+      "baselineCore": [
+        "SVC_AP",
+        "SVO",
+        "SVOC_BARE"
+      ],
+      "targetObjectComplements": [
+        "BARE",
+        "ING"
+      ],
+      "stage7Additions": [
+        "SVOC_ING"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "느끼다/촉각의 ING 지원. PP는 대표 무제한 OC 규칙으로 추가하지 않음. 실제 상태 AP/NP후치분사 대안은 보존; 제한적인 feel oneself PP는 새 재귀대명사 없이 범위 밖.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "become",
+      "cardDefId": "card.become",
+      "baselineCore": [
+        "SVC_AP",
+        "SVC_NP"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "연결동사 자체의 passive 금지.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "look",
+      "cardDefId": "card.look",
+      "baselineCore": [
+        "SVC_AP"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "삭제·look at별도카드 생성 없음. 새 구동사/전치사동사 확장 제외, 기존 정상 해석 보존.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "take",
+      "cardDefId": "card.take",
+      "baselineCore": [
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "keep",
+      "cardDefId": "card.keep",
+      "baselineCore": [
+        "SVO",
+        "SVOC_AP",
+        "SVOC_NP_LEGACY"
+      ],
+      "targetObjectComplements": [
+        "AP",
+        "NP_LEGACY",
+        "ING",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_ING",
+        "SVOC_PP",
+        "SVO_ING_CONTINUATION"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOC_AP",
+        "SVOC_ING",
+        "SVOC_PP"
+      ],
+      "note": "keep reading을 기존 동명사 경로로 지원. NP는 기존 호환을 임의 삭제하지 않고 대표 학습용 허용표에는 제외; 미검수 일반명사 OC를 새로 확장하지 않음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "find",
+      "cardDefId": "card.find",
+      "baselineCore": [
+        "SVO",
+        "SVOC_AP",
+        "SVOC_NP"
+      ],
+      "targetObjectComplements": [
+        "AP",
+        "NP",
+        "ING",
+        "PP"
+      ],
+      "stage7Additions": [
+        "SVOC_ING",
+        "SVOC_PP"
+      ],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOC_AP",
+        "SVOC_NP",
+        "SVOC_ING",
+        "SVOC_PP"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "show",
+      "cardDefId": "card.show",
+      "baselineCore": [
+        "SVO",
+        "SVOO_TO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOO_TO_RECIPIENT",
+        "SVOO_TO_THEME"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "create",
+      "cardDefId": "card.create",
+      "baselineCore": [
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "improve",
+      "cardDefId": "card.improve",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "자동/타동 뜻이 공존. 수동은 등록된 타동 Sense에서만.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "develop",
+      "cardDefId": "card.develop",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "자동/타동 뜻이 공존. 수동은 등록된 타동 Sense에서만.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "change",
+      "cardDefId": "card.change",
+      "baselineCore": [
+        "SV",
+        "SVO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "자동/타동 뜻이 공존. 수동은 등록된 타동 Sense에서만.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "send",
+      "cardDefId": "card.send",
+      "baselineCore": [
+        "SVO",
+        "SVOO_TO"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP",
+        "SVOO_TO_RECIPIENT",
+        "SVOO_TO_THEME"
+      ],
+      "note": "",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "will",
+      "cardDefId": "card.will",
+      "baselineCore": [
+        "AUX_FUTURE"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [
+        "FUTURE_WITH_PASSIVE"
+      ],
+      "passivizableSourcePatterns": [],
+      "note": "독립 본동사 Frame·ING/PP를 만들지 않음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "think",
+      "cardDefId": "card.think",
+      "baselineCore": [
+        "SV",
+        "SVO_CONTENT"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [],
+      "note": "기존 내용절 유지. 새로운 reporting passive/raising은 이번 핵심 확장에서 제외.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "know",
+      "cardDefId": "card.know",
+      "baselineCore": [
+        "SV",
+        "SVO",
+        "SVO_CONTENT"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "기존 진행상 이슈 정책 유지. It is known that류 보고수동 전면확장 없음.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "say",
+      "cardDefId": "card.say",
+      "baselineCore": [
+        "SVO",
+        "SVO_CONTENT"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "실제 발화내용 명사구 용법만 수동화. reporting passive는 새 구현 범위 밖.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "enjoy",
+      "cardDefId": "card.enjoy",
+      "baselineCore": [
+        "SVO",
+        "SVO_ING"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "to 목적어 일반 허용 금지.",
+      "runtimeAuditStatus": "NOT_RUN"
+    },
+    {
+      "lemma": "finish",
+      "cardDefId": "card.finish",
+      "baselineCore": [
+        "SVO",
+        "SVO_ING"
+      ],
+      "targetObjectComplements": [],
+      "stage7Additions": [],
+      "passivizableSourcePatterns": [
+        "SVO_NP"
+      ],
+      "note": "to 목적어 일반 허용 금지.",
+      "runtimeAuditStatus": "NOT_RUN"
+    }
+  ]
+}

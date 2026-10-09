@@ -1,4 +1,4 @@
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-061-controller.js';
 import {newProfile} from '../../src/services/localStore.js';
 import {cardKind} from '../../src/data/cardCatalog.js';
 import {registryForVersion} from '../../src/data/language/index.js';
