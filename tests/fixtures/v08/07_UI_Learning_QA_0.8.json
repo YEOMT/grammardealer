@@ -1,0 +1,99 @@
+{
+  "documentVersion": "1.0",
+  "targetVersion": "0.8.0",
+  "purpose": "EXECUTION_PLAN_NOT_COMPLETED_UI_TESTS",
+  "count": 15,
+  "gameExecutionByAuthor": "NOT_RUN",
+  "cases": [
+    {
+      "id": "U001",
+      "area": "Stage8 intro→choice→Shop4",
+      "requirementKo": "보스 조건 선공개·NONE 경고·고정 선택 복원·올바른 순서",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U002",
+      "area": "8-3 frost appearance and actions",
+      "requirementKo": "청백색 본문/하단·실제 WORD 조작·교환/탐색·사용 소멸",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U003",
+      "area": "Four viewport stress states",
+      "requirementKo": "1024/1280/1366/1920, 10/14손패+16조합+4룬; 버튼44px·본문 가독성 유지",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U004",
+      "area": "Relative evidence after submission",
+      "requirementKo": "선행사-관계절 연결·수동 주격·생략 목적격; 사전 힌트 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U005",
+      "area": "Question actual input",
+      "requirementKo": "where/when/who/which 기본 의문문·간접의문문·물음표 없는 카드 배열의 실제 제출",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U006",
+      "area": "Boss no accumulation",
+      "requirementKo": "주격 제출→목적격 제출해도 잠금 유지; 화면에 누적 체크 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U007",
+      "area": "Boss same-sentence pair",
+      "requirementKo": "생략 포함 동시 해제·HP 보호 해제·처치/미처치 두 경로",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U008",
+      "area": "Core feedback and reduced motion",
+      "requirementKo": "점수 읽기/돌진/충돌/HP·인장 IMPACT; OS reduce 대체표시; 중복 상태계산 없음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U009",
+      "area": "City visual identity",
+      "requirementKo": "석조/청동/수로/마법장치, 하늘섬 구름/부유섬 복사 금지; 기존 지역 테마 보존",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U010",
+      "area": "Grammar records",
+      "requirementKo": "제목(형태)+짧은 설명·실제 영어 문장·붉은 피드백·역할/콤보 분리",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U011",
+      "area": "Assigned browser regression",
+      "requirementKo": "입장·Shop4·얼음·질문·인장·저장 Chromium/Firefox/WebKit 핵심",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U012",
+      "area": "Actual production learning course",
+      "requirementKo": "33SUBJECT/34OBJECT_OMITTED/35RELATIVE_ADVERB/36COMPOSITE/37DUAL; 자연 카드·실제 클릭",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U013",
+      "area": "Actual full production route",
+      "requirementKo": "37전투/STAGE8_END, 최소1시드. 별도 학습표를 완주로 대체하지 않음",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U014",
+      "area": "Other card-choice strategies",
+      "requirementKo": "who/which/that-only+NONE 각각의 공략; 실제 실행 수준 분리",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "U015",
+      "area": "Persistence and failure handling",
+      "requirementKo": "슬롯3·오프라인 계속플레이·로드·오래된callback·취소·재시도·UI 무응답 없음",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

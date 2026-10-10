@@ -2,15 +2,16 @@
 export const COMBO_VERSION = '0.2.2';
 export function comboEligibility(run) {
   const own=run?.eligibility?.runOwnUnlocks??[],baseline=run?.eligibility?.runStartUnlockBaseline??[];
-  return {version:['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0'].includes(run?.version)?(run.version==='0.5.1'?'0.5.0':run.version):COMBO_VERSION,unlocks:[...new Set([...baseline.filter(id=>!['0.6.0','0.6.1','0.7.0'].includes(run.version)||!['pack.comparison','pack.degree'].includes(id)),...own])].sort()};
+  return {version:['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(run?.version)?(run.version==='0.5.1'?'0.5.0':run.version):COMBO_VERSION,unlocks:[...new Set([...baseline.filter(id=>!['0.6.0','0.6.1','0.7.0','0.8.0'].includes(run.version)||!['pack.comparison','pack.degree',...(run.version==='0.8.0'?['pack.relative','pack.relativeAdverb']:[])].includes(id)),...own])].sort()};
 }
 export function scoreableAnalysis(analysis, eligibility) {
   if (!eligibility) return analysis; // Explicit pre-0.2.2 numerical contract.
   const hits=(analysis.grammarHits??[]).filter(hit=>hit.comboImplemented!==false && hit.bonusEligible!==false &&
+    (!hit.tag.startsWith('CLAUSE.RELATIVE.')||hit.validity==='VALID'&&eligibility.unlocks.includes(hit.tag==='CLAUSE.RELATIVE.ADVERBIAL'?'pack.relativeAdverb':'pack.relative'))&&
     (hit.tag!=='VOICE.PASSIVE'||hit.validity==='VALID'&&eligibility.unlocks.includes('pack.passive'))&&
     (!hit.tag.startsWith('PARTICIPLE.')||hit.validity==='VALID'&&eligibility.unlocks.includes('pack.participles'))&&
     (!hit.tag.startsWith('CONSTRUCTION.')||hit.validity==='VALID'&&eligibility.unlocks.includes('pack.causativePerception'))&&
-    (!(analysis.grammarVersion==='0.7.0'&&hit.tag==='MODIFIER.ADJECTIVE'&&hit.modifierCardIds)||eligibility.unlocks.includes('pack.participles'))&&
+    (!(['0.7.0','0.8.0'].includes(analysis.grammarVersion)&&hit.tag==='MODIFIER.ADJECTIVE'&&hit.modifierCardIds)||eligibility.unlocks.includes('pack.participles'))&&
     (!hit.tag.startsWith('COMPARISON.')||hit.validity==='VALID'&&eligibility.unlocks.includes('pack.comparison'))&&
     (!hit.tag.startsWith('DEGREE.')||hit.validity==='VALID'&&eligibility.unlocks.includes('pack.degree'))&&
     (!hit.tag.startsWith('LINK.')||eligibility.unlocks.includes('pack.clauseLink'))&&

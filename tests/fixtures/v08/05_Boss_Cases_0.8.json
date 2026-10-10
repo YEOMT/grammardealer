@@ -1,0 +1,585 @@
+{
+  "documentVersion": "1.0",
+  "targetVersion": "0.8.0",
+  "purpose": "SYNTHETIC_POLICY_ARITHMETIC_NOT_REAL_BOSS_RUN",
+  "count": 24,
+  "gameExecutionByAuthor": "NOT_RUN",
+  "cases": [
+    {
+      "id": "B001",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "인장 유지. 피해는 1599만 적용; 과잉401은 prevented.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B002",
+      "input": {
+        "hpBefore": 1,
+        "powerAfterRegion": 240,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "OBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 0,
+        "preventedDamage": 240,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "이전 공격에서 SUBJECT를 썼어도 누적 금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B003",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 700,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 700,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "같은 공격에서 해제. HP가 남으므로 자동 승리 아님.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B004",
+      "input": {
+        "hpBefore": 900,
+        "powerAfterRegion": 1200,
+        "unlockedBefore": true,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 0,
+        "unlockedAfter": true,
+        "actualHpLoss": 900,
+        "preventedDamage": 0,
+        "overkill": 300,
+        "replayed": false
+      },
+      "noteKo": "해제 이후 일반 공격으로 격파.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B005",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 0,
+        "unlockedAfter": true,
+        "actualHpLoss": 1600,
+        "preventedDamage": 0,
+        "overkill": 400,
+        "replayed": false
+      },
+      "noteKo": "첫 공격 동시 해제/처치, 초과400.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B006",
+      "input": {
+        "hpBefore": 1,
+        "powerAfterRegion": 100,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 0,
+        "unlockedAfter": true,
+        "actualHpLoss": 1,
+        "preventedDamage": 0,
+        "overkill": 99,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B007",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 1600,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 0,
+        "unlockedAfter": true,
+        "actualHpLoss": 1600,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B008",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 0,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1600,
+        "unlockedAfter": false,
+        "actualHpLoss": 0,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "0 위력은 해제 자격 없음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B009",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 0,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "INVALID_CORE",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1600,
+        "unlockedAfter": false,
+        "actualHpLoss": 0,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B010",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 100,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID_WITH_ISSUES",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1500,
+        "unlockedAfter": true,
+        "actualHpLoss": 100,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "오류가 주절에만 있고 두 관계절은 정상.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B011",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "OBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID_WITH_ISSUES",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "주격 관계절 자체의 핵심 오류로 목적격 근거만 적격. 쌍 미충족.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B012",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "SUBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B013",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "OBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B014",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "where/when 관계부사만 포함.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B015",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "의문사 who/which만 포함, 선행사를 수식하는 관계절 없음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B016",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "SUBJECT"
+        ],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 1599,
+        "preventedDamage": 401,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "같은 주격 관계절 노드를 두 AST 경로에서 방문해도 목적격 근거가 생기지 않는다. 저장 위조 거절은 별도 검사.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B017",
+      "input": {
+        "hpBefore": 900,
+        "powerAfterRegion": 1200,
+        "unlockedBefore": true,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": true
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 0,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B018",
+      "input": {
+        "hpBefore": 1,
+        "powerAfterRegion": 10,
+        "unlockedBefore": true,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 0,
+        "unlockedAfter": true,
+        "actualHpLoss": 1,
+        "preventedDamage": 0,
+        "overkill": 9,
+        "replayed": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B019",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 500,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1100,
+        "unlockedAfter": false,
+        "actualHpLoss": 500,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "일반 공격도 인장 유지 중 HP를 줄임.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B020",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 700,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 700,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "생략 목적격, 별도 관계사 카드 없이 동일 자격.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B021",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 700,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 700,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "서로 중첩된 관계절도 실제 노드가 별개면 자격.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B022",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 700,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 700,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "실제 and로 연결된 단일 문장 그래프 내부의 별개 관계절.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B023",
+      "input": {
+        "hpBefore": 1,
+        "powerAfterRegion": 2000,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [],
+        "qualifyingPair": false,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 1,
+        "unlockedAfter": false,
+        "actualHpLoss": 0,
+        "preventedDamage": 2000,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "HP1에서 인장 유지: 0피해는 오답이 아니라 BOSS_BLOCKED.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B024",
+      "input": {
+        "hpBefore": 1600,
+        "powerAfterRegion": 700,
+        "unlockedBefore": false,
+        "eligibleRolesInThisAttack": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "qualifyingPair": true,
+        "analysisStatus": "VALID",
+        "replayedAttackId": false
+      },
+      "expected": {
+        "hpAfter": 900,
+        "unlockedAfter": true,
+        "actualHpLoss": 700,
+        "preventedDamage": 0,
+        "overkill": 0,
+        "replayed": false
+      },
+      "noteKo": "수동 주격 관계절+별개 목적격 관계절. 수동 자체를 OBJECT로 세지 않음.",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

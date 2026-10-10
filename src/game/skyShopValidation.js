@@ -1,13 +1,13 @@
-import {hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {hasWaterwaysCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition,maxPolish} from '../data/cardCatalog.js';
 import {runeForVersion} from '../data/runes.js';
 const integer=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateSkyShops(run){
  const fail=()=>{throw Error('0.4 상점 방문·상품·서비스 기록이 잘못되었습니다.');};
- if(!Array.isArray(run.shopHistory)||run.shopHistory.length>(hasSnowCampaign(run)?2:1))fail();
+ if(!Array.isArray(run.shopHistory)||run.shopHistory.length>(hasWaterwaysCampaign(run)?3:hasSnowCampaign(run)?2:1))fail();
  const history=run.shopHistory,current=run.shop;
  if(!current){if(history.length||run.status==='SHOP'||run.progress.battleNumber>3&&!(run.progress.stageId==='stage.02'&&run.status==='STAGE_INTRO'))fail();return true;}
- if(hasSnowCampaign(run)){const index=['stage.02','stage.04','stage.06'].indexOf(current.stageId);const expected=run.progress.battleNumber<13?0:run.progress.battleNumber<23?1:2;const entering=run.status==='STAGE_INTRO'&&run.progress.roundIndex===0&&['stage.04','stage.06'].includes(run.progress.stageId);if(index!==(entering?expected-1:expected))fail();if(index<0||history.length!==index||history.some((s,i)=>s.stageId!==['stage.02','stage.04'][i]||!s.closed)||run.progress.battleNumber>=23&&run.status!=='STAGE_INTRO'&&index!==2)fail();}
+ if(hasSnowCampaign(run)){const index=['stage.02','stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[])].indexOf(current.stageId);const expected=run.progress.battleNumber<13?0:run.progress.battleNumber<23?1:run.progress.battleNumber<33||!hasWaterwaysCampaign(run)?2:3;const entering=run.status==='STAGE_INTRO'&&run.progress.roundIndex===0&&['stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[])].includes(run.progress.stageId);if(index!==(entering?expected-1:expected))fail();if(index<0||history.length!==index||history.some((s,i)=>s.stageId!==['stage.02','stage.04','stage.06'][i]||!s.closed)||run.progress.battleNumber>=23&&run.status!=='STAGE_INTRO'&&index!==expected)fail();}
  else if(current.stageId==='stage.04'&&!['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
  const third=current.stageId==='stage.06';if(third&&!hasSnowCampaign(run))fail();
  const second=current.stageId==='stage.04';
@@ -15,8 +15,8 @@ export function validateSkyShops(run){
  if((run.status==='SHOP')===current.closed)fail();
  let paid=0;
  for(const shop of [...history,current]){
-  const two=['stage.04','stage.06'].includes(shop.stageId),runes=two?2:1,cards=two?3:2;
-  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
+  const two=['stage.04','stage.06','stage.08'].includes(shop.stageId),runes=two?2:1,cards=two?3:2;
+  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[]),...(hasWaterwaysCampaign(run)?['stage.08']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
   if(!Array.isArray(shop.inventory)||shop.inventory.length!==runes+cards||new Set(shop.inventory.map(x=>x.itemId)).size!==shop.inventory.length)fail();
   let operationCount=0;const content=new Set();
   for(const [i,item]of shop.inventory.entries()){

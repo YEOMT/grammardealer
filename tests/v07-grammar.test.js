@@ -21,4 +21,4 @@ test('0.7 form evidence distinguishes physical past/pp homographs and independen
  assert.ok(analyze('I am gone.').formUses.some(u=>u.function==='SUBJECT_COMPLEMENT'&&u.resolvedMorphology==='PP'));
  const s=snapshotFromText('I read books.',{registry:r});s.orderedTokens[1]=makeToken('fixture.1','card.read','form.read.past',1,r);const a=analyzeSentence(s,r);assert.equal(a.formUses.length,0);assert.ok(a.grammarHits.some(h=>h.tag==='TIME.PAST'));
 });
-test('0.7 forms/cards stay physically identical to061; unrecognized version is rejected',()=>{const old=registryForVersion('0.6.1');assert.deepEqual(r.forms,old.forms);assert.deepEqual(r.cards,old.cards);assert.throws(()=>registryForVersion('0.8.0'));});
+test('0.7 forms/cards stay physically identical to061; unrecognized version is rejected',()=>{const old=registryForVersion('0.6.1');assert.deepEqual(r.forms,old.forms);assert.deepEqual(r.cards,old.cards);assert.throws(()=>registryForVersion('99.0.0'));});

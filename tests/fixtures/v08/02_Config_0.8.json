@@ -1,0 +1,233 @@
+{
+  "documentVersion": "1.0",
+  "targetGameVersion": "0.8.0",
+  "observedMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+  "implementationBase": "LATEST_ORIGIN_MAIN_AT_START_DO_NOT_RESET_TO_OBSERVED_SHA",
+  "branch": "codex/v0.8-ancient-waterways-relative-seal",
+  "stage": {
+    "id": "stage.08",
+    "nameKo": "고대의 수로도시",
+    "source": "ANCIENT_WATERWAYS",
+    "firstBattle": 33,
+    "lastBattle": 37,
+    "totalCampaignBattles": 37,
+    "contentBoundary": "STAGE8_END",
+    "encounters": [
+      {
+        "round": 1,
+        "battleNumber": 33,
+        "id": "battle.08.01",
+        "nameKo": "청동 교각병",
+        "focus": "RELATIVE_SUBJECT",
+        "hp": 1280
+      },
+      {
+        "round": 2,
+        "battleNumber": 34,
+        "id": "battle.08.02",
+        "nameKo": "운하 수호상",
+        "focus": "RELATIVE_OBJECT_AND_OMISSION",
+        "hp": 1360
+      },
+      {
+        "round": 3,
+        "battleNumber": 35,
+        "id": "battle.08.03",
+        "nameKo": "물시계 자동인형",
+        "focus": "RELATIVE_ADVERB",
+        "hp": 1440
+      },
+      {
+        "round": 4,
+        "battleNumber": 36,
+        "id": "battle.08.04",
+        "nameKo": "회로 수호기사",
+        "focus": "RELATIVE_APPLICATION",
+        "hp": 1520
+      },
+      {
+        "round": 5,
+        "battleNumber": 37,
+        "id": "battle.08.05",
+        "nameKo": "청동 수문장",
+        "focus": "SAME_SENTENCE_SUBJECT_AND_OBJECT",
+        "hp": 1600
+      }
+    ],
+    "hpStatus": "NEW_IMPLEMENTATION_START_VALUES_NOT_PLAYTEST_APPROVED",
+    "globalRulesUnchanged": {
+      "baseTurns": 6,
+      "baseExchangeActions": 4,
+      "baseInitialHand": 6,
+      "baseHandLimit": 10,
+      "turnDraw": 3,
+      "sentenceLimit": 16,
+      "runeSlots": 4
+    }
+  },
+  "entry": {
+    "offer": [
+      "WHO",
+      "WHICH",
+      "NONE"
+    ],
+    "choiceOncePerStage": true,
+    "alwaysShowOptionalOffer": true,
+    "maxPermanentCardsGranted": 1,
+    "duplicateOwnershipDisplayOnly": true,
+    "noAutomaticThat": true,
+    "noSkipGold": true,
+    "warningOnNoRelativeMarker": true,
+    "forcedBossFallback": false
+  },
+  "newWordCards": [
+    {
+      "id": "card.who",
+      "lemma": "who",
+      "pos": "FUNCTION",
+      "rarity": "UNCOMMON",
+      "baseScore": 10,
+      "starterEligible": false
+    },
+    {
+      "id": "card.which",
+      "lemma": "which",
+      "pos": "FUNCTION",
+      "rarity": "UNCOMMON",
+      "baseScore": 10,
+      "starterEligible": false
+    },
+    {
+      "id": "card.where",
+      "lemma": "where",
+      "pos": "FUNCTION",
+      "rarity": "UNCOMMON",
+      "baseScore": 10,
+      "starterEligible": false
+    }
+  ],
+  "extendedExistingWord": "card.when",
+  "notAdded": [
+    "whose",
+    "whom",
+    "what",
+    "whether",
+    "why",
+    "how",
+    "not",
+    "can",
+    "would",
+    "wish",
+    "by"
+  ],
+  "unlocks": {
+    "onStage7ClearRunOnly": [
+      "pack.relative",
+      "pack.relativeAdverb",
+      "pack.waterwaysWords.reward"
+    ],
+    "onStage8ClearProfile": [
+      "pack.waterwaysWords.reward"
+    ],
+    "relativeComboPacksExcludedFromFutureRunBaseline": [
+      "pack.relative",
+      "pack.relativeAdverb"
+    ],
+    "directAndEmbeddedQuestionCombos": false
+  },
+  "frost": {
+    "round": 3,
+    "cardDefs": [
+      "card.where",
+      "card.when"
+    ],
+    "copies": [
+      1,
+      1
+    ],
+    "alwaysSupplyEvenIfOwned": true,
+    "initialVisibleMinimum": 1,
+    "crystalBearing": false,
+    "supportOnly": true,
+    "cardKind": "WORD",
+    "lifetime": "BATTLE",
+    "source": "ANCIENT_WATERWAYS",
+    "otherStage8RoundsSupply": false,
+    "freeOperation": false
+  },
+  "shop": {
+    "stageId": "stage.08",
+    "visitNumber": 4,
+    "runes": 2,
+    "wordCards": 2,
+    "operations": 1,
+    "polishUses": 1,
+    "removeUses": 1,
+    "polishPrice": 8,
+    "cardPrices": {
+      "COMMON": 6,
+      "UNCOMMON": 10,
+      "RARE": 14
+    },
+    "runePrices": {
+      "COMMON": 18,
+      "UNCOMMON": 24,
+      "RARE": 32
+    },
+    "firstRemovePrice": 6,
+    "removeIncrement": 2,
+    "preserveEarlierShops": true
+  },
+  "scoring": {
+    "relativeFamilyMultiplier": {
+      "num": 2,
+      "den": 1
+    },
+    "relativeFamilyMaxEvents": 1,
+    "regionalMultiplier": {
+      "num": 5,
+      "den": 4
+    },
+    "regionalMaxEvents": 1,
+    "relativeSubjectAndObjectUsePack": "pack.relative",
+    "relativeAdverbUsesPack": "pack.relativeAdverb",
+    "separateDoubleRelativeBonus": false,
+    "questionBonus": false,
+    "embeddedQuestionBonus": false,
+    "newRecoverableIssuePenalty": 10,
+    "status": "NEW_IMPLEMENTATION_START_VALUES"
+  },
+  "boss": {
+    "id": "DUAL_RELATIVE_SEAL",
+    "requiredRoles": [
+      "SUBJECT",
+      "OBJECT"
+    ],
+    "sameAttack": true,
+    "sameSentenceGraph": true,
+    "distinctRelativeClauseNodes": true,
+    "objectMarkerOmissionAllowed": true,
+    "accumulateBetweenAttacks": false,
+    "lockedHpFloor": 1,
+    "unlockedHpFloor": 0,
+    "unlockAttackCanKill": true,
+    "relock": false,
+    "additionalReduction": false,
+    "dust": 0,
+    "extraFrost": 0,
+    "extraTurns": 0,
+    "needsPositivePower": true,
+    "countQuestionWhAsRelative": false,
+    "countRelativeAdverbAsObject": false
+  },
+  "newPolicyDecisions": [
+    "HP_VALUES",
+    "RELATIVE_FAMILY_X2",
+    "NEW_WORD_RARITIES",
+    "ENTRY_OFFER_ALWAYS_OPTIONAL",
+    "NEW_WORD_REWARD_UNLOCK_TIMING",
+    "CITY_FROST_FIRST_HAND_MIN_ONE",
+    "NORMAL_ENEMY_NAMES"
+  ],
+  "gameTestsRunByDocumentAuthor": false
+}

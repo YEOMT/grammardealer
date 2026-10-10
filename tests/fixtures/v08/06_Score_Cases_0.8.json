@@ -1,0 +1,884 @@
+{
+  "documentVersion": "1.0",
+  "targetVersion": "0.8.0",
+  "purpose": "SYNTHETIC_ARITHMETIC_WITH_FIXED_CONTEXT",
+  "count": 16,
+  "gameExecutionByAuthor": "NOT_RUN",
+  "cases": [
+    {
+      "id": "S001",
+      "sentence": "The child who runs is happy.",
+      "wordCount": 6,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 90
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 144
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 288
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 360
+        }
+      ],
+      "expectedPowerBeforeBoss": 360,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S002",
+      "sentence": "The book you made is good.",
+      "wordCount": 6,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 90
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 144
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 172
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 344
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 430
+        }
+      ],
+      "expectedPowerBeforeBoss": 430,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S003",
+      "sentence": "The book which I made is good.",
+      "wordCount": 7,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 100
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 160
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 192
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 384
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 480
+        }
+      ],
+      "expectedPowerBeforeBoss": 480,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S004",
+      "sentence": "A child who runs likes a book I made.",
+      "wordCount": 9,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 120
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 216
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 259
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 518
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 647
+        }
+      ],
+      "expectedPowerBeforeBoss": 647,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "이중 관계절이어도 상대배수는 한 번.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S005",
+      "sentence": "A child who runs likes a book that I made.",
+      "wordCount": 10,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 130
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 234
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 280
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 560
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 700
+        }
+      ],
+      "expectedPowerBeforeBoss": 700,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S006",
+      "sentence": "This is the school where I work.",
+      "wordCount": 7,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 100
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 160
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 320
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 400
+        }
+      ],
+      "expectedPowerBeforeBoss": 400,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S007",
+      "sentence": "I know when you will come.",
+      "wordCount": 6,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 90
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 162
+        },
+        {
+          "phase": "FUTURE",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 194
+        }
+      ],
+      "expectedPowerBeforeBoss": 194,
+      "expectedRelativeEvents": 0,
+      "expectedRegionEvents": 0,
+      "noteKo": "간접의문문은 전용/관계절/지역 보너스 없음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S008",
+      "sentence": "Where do you work?",
+      "wordCount": 4,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SV"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 70
+        },
+        {
+          "phase": "MAIN_SV",
+          "operation": "mul",
+          "operand": [
+            13,
+            10
+          ],
+          "after": 91
+        }
+      ],
+      "expectedPowerBeforeBoss": 91,
+      "expectedRelativeEvents": 0,
+      "expectedRegionEvents": 0,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S009",
+      "sentence": "When did she come?",
+      "wordCount": 4,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SV"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 70
+        },
+        {
+          "phase": "MAIN_SV",
+          "operation": "mul",
+          "operand": [
+            13,
+            10
+          ],
+          "after": 91
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 109
+        }
+      ],
+      "expectedPowerBeforeBoss": 109,
+      "expectedRelativeEvents": 0,
+      "expectedRegionEvents": 0,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S010",
+      "sentence": "Which book do you like?",
+      "wordCount": 5,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 80
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 144
+        }
+      ],
+      "expectedPowerBeforeBoss": 144,
+      "expectedRelativeEvents": 0,
+      "expectedRegionEvents": 0,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S011",
+      "sentence": "The book which was made is good.",
+      "wordCount": 7,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 100
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 160
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 192
+        },
+        {
+          "phase": "PASSIVE",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 345
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 690
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 862
+        }
+      ],
+      "expectedPowerBeforeBoss": 862,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S012",
+      "sentence": "The child I like runs.",
+      "wordCount": 5,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SV"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 80
+        },
+        {
+          "phase": "MAIN_SV",
+          "operation": "mul",
+          "operand": [
+            13,
+            10
+          ],
+          "after": 104
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 208
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 260
+        }
+      ],
+      "expectedPowerBeforeBoss": 260,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S013",
+      "sentence": "I like the child who runs.",
+      "wordCount": 6,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 90
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 162
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 324
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 405
+        }
+      ],
+      "expectedPowerBeforeBoss": 405,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S014",
+      "sentence": "I like the day when you came.",
+      "wordCount": 7,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 100
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 180
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 216
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 432
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 540
+        }
+      ],
+      "expectedPowerBeforeBoss": 540,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S015",
+      "sentence": "The child who runs is happy and the book I made is good.",
+      "wordCount": 13,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVC"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 160
+        },
+        {
+          "phase": "MAIN_SVC",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 256
+        },
+        {
+          "phase": "PAST",
+          "operation": "mul",
+          "operand": [
+            6,
+            5
+          ],
+          "after": 307
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 614
+        },
+        {
+          "phase": "CLAUSE_LINK",
+          "operation": "mul",
+          "operand": [
+            8,
+            5
+          ],
+          "after": 982
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 1227
+        }
+      ],
+      "expectedPowerBeforeBoss": 1227,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "S016",
+      "sentence": "A child who runs likes a dog which plays.",
+      "wordCount": 9,
+      "conditions": {
+        "version": "0.8.0",
+        "allPolishLevels": 0,
+        "runes": [],
+        "allRequiredPacksUnlocked": true,
+        "analysisStatus": "VALID",
+        "stage": "stage.08",
+        "enemy": "NON_BOSS",
+        "mainFrame": "SVO"
+      },
+      "ledger": [
+        {
+          "phase": "CARDS_PLUS_COMPLETE",
+          "after": 120
+        },
+        {
+          "phase": "MAIN_SVO",
+          "operation": "mul",
+          "operand": [
+            9,
+            5
+          ],
+          "after": 216
+        },
+        {
+          "phase": "RELATIVE_FAMILY",
+          "operation": "mul",
+          "operand": [
+            2,
+            1
+          ],
+          "after": 432
+        },
+        {
+          "phase": "REGION",
+          "operation": "mul",
+          "operand": [
+            5,
+            4
+          ],
+          "after": 540
+        }
+      ],
+      "expectedPowerBeforeBoss": 540,
+      "expectedRelativeEvents": 1,
+      "expectedRegionEvents": 1,
+      "noteKo": "서로 다른 주격 관계절 둘: 배수 한 번, 보스 쌍은 미충족.",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

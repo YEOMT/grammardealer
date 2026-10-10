@@ -238,3 +238,25 @@ body[data-stage-theme="stage.07"]{--stage-gradient:radial-gradient(ellipse at 70
 .ember-scale{display:block;font-size:11px;color:#f1d2ab;line-height:1.5;margin-top:3px;}
 .ember-scale[data-active="false"]{color:#d9e6c2;}
 @media(max-width:1180px){.ember-combat .enemy-area{grid-template-columns:70px minmax(210px,300px) minmax(200px,260px);gap:14px;}.ember-combat .enemy-avatar{font-size:58px;}.ember-combat .enemy-info h2{font-size:21px;}}
+
+/* Waterways: stone, bronze and low canal reflections within the existing playfield. */
+body[data-stage-theme="stage.08"]{--stage-gradient:repeating-linear-gradient(0deg,transparent 0 90px,#ac8e5b0a 91px 92px),radial-gradient(ellipse at 50% 110%,#397a7b40,transparent 55%),linear-gradient(145deg,#142833,#25333b)}
+.waterways-combat .enemy-area{display:grid;grid-template-columns:90px minmax(230px,340px) minmax(210px,300px);justify-content:center;gap:20px;}
+.waterways-combat .enemy-avatar{width:auto;font-size:68px;}.waterways-combat .enemy-info{width:auto;min-width:0;}.waterways-combat .enemy-info h2{font-size:23px;margin-bottom:6px;}
+.waterways-tools{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px;min-width:0;}.waterways-combat .region-bonus{position:static;padding:3px 7px;font-size:11px;}
+.waterways-focus{font-size:11px;color:#c3dad8;line-height:1.45;}.waterways-strategy{min-height:44px;padding:6px 10px;font-size:12px;}
+.relative-seal{display:block;color:#ebd3a1;font-size:11px;line-height:1.5;}.relative-seal[data-unlocked="true"]{color:#bfe6dc;}
+.waterways-knight{filter:drop-shadow(0 5px 6px #ad97654a)}
+.waterways-choice{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;}.waterways-choice>section{padding:12px;border:1px solid #a68b62;border-radius:10px;background:#132630;}.waterways-choice button{min-height:44px;}
+.word-card[data-relative-role]{outline:2px solid #6dabb4;outline-offset:2px;}.word-card[data-relative-antecedent]{box-shadow:0 0 0 2px #b8985d,0 5px 12px #0004;}
+[data-relative-label]{position:absolute;top:-20px;left:0;z-index:3;white-space:nowrap;background:#17353d;color:#ebd3a1;border-bottom:1px solid #b8985d;padding:1px 4px;font-size:11px;pointer-events:none;}
+.relative-evidence{border-left:2px solid #ba9861;padding-left:9px;}.question-evidence{border-left:2px solid #7cabb7;padding-left:9px;}
+@media(max-width:1180px){.waterways-combat .enemy-area{grid-template-columns:70px minmax(210px,280px) minmax(210px,290px);gap:14px;}.waterways-combat .enemy-avatar{font-size:58px;}.waterways-combat .enemy-info h2{font-size:21px;}}
+
+.waterways-combat .enemy-label{margin-bottom:3px;}.waterways-combat .enemy-hp{margin-top:4px;}.waterways-tools>small{font-size:11px;line-height:1.4;}
+
+.waterways-combat .combat-actions button{min-height:44px;}
+
+.waterways-knight{position:relative;isolation:isolate;}.waterways-knight::before,.waterways-open-gate::before{content:'';position:absolute;z-index:-1;inset:-5px -3px 0;border:5px solid #92794f;border-bottom:0;border-radius:45px 45px 0 0;background:repeating-linear-gradient(90deg,#253838 0 13px,#8f794a55 14px 16px);opacity:.65;}
+.waterways-knight[data-gate-open="true"]::before,.waterways-open-gate::before{background:linear-gradient(90deg,#8f794a55 0 15%,#8dcacc18 15% 85%,#8f794a55 85%);border-color:#c5a268;box-shadow:0 0 16px #8ac6b133;}
+.waterways-open-gate{position:relative;isolation:isolate;width:150px;margin-inline:auto;}.waterways-open-gate::before{inset:0 0 8px;}

@@ -11,7 +11,8 @@
  */
 export const POLISH_VERSIONS = Object.freeze({game:'0.6.1',save:'0.6.1',language:'0.6.1',grammar:'0.6.1',balance:'0.6.0',comboEligibility:'0.6.1',learningRecord:'0.6.1',generator:'0.4.0',reward:'0.6.1',shop:'0.6.1',entry:'0.6.1',operation:'0.6.1',meaning:'0.2.0',tutorial:'0.2.1',runes:'0.6.1',presentation:'0.6.0'});
 export const EMBER_VERSIONS=Object.freeze({...POLISH_VERSIONS,game:'0.7.0',save:'0.7.0',language:'0.7.0',grammar:'0.7.0',balance:'0.7.0',comboEligibility:'0.7.0',learningRecord:'0.7.0',entry:'0.7.0',operation:'0.7.0',presentation:'0.7.0'});
-export const VERSIONS = EMBER_VERSIONS;
+export const WATERWAYS_VERSIONS=Object.freeze({...EMBER_VERSIONS,game:'0.8.0',save:'0.8.0',language:'0.8.0',grammar:'0.8.0',balance:'0.8.0',comboEligibility:'0.8.0',learningRecord:'0.8.0',entry:'0.8.0',presentation:'0.8.0'});
+export const VERSIONS = WATERWAYS_VERSIONS;
 export const clone = value => structuredClone(value);
 export function deepFreeze(value) {if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.freeze(value);Object.values(value).forEach(deepFreeze);}return value;}
 export function requireInteger(value,name,min=0,max=Number.MAX_SAFE_INTEGER) {if(!Number.isSafeInteger(value)||value<min||value>max)throw new TypeError(`${name}: invalid integer`);return value;}

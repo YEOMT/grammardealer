@@ -135,3 +135,9 @@ export const EMBER_GRAMMAR_DISPLAY=Object.freeze([
  {order:240,tag:'CONSTRUCTION.CAUSATIVE',relatedTags:['CONSTRUCTION.ASSISTANCE'],titleKo:'사역·준사역',pattern:'동사 + 목적어 + 원형 / to부정사 등',shortDescriptionKo:'목적어가 하는 행동을 시키거나 돕습니다. make·have·help 등 동사마다 허용하는 보어 형태가 다릅니다.'},
  {order:250,tag:'CONSTRUCTION.PERCEPTION',titleKo:'지각',pattern:'동사 + 목적어 + 원형 / -ing / p.p.',shortDescriptionKo:'보거나 느끼는 행동·상태를 설명합니다. 원형은 행동 전체, -ing는 진행 중인 모습 등을 나타내며 모든 동사가 세 형태를 모두 받지는 않습니다.'}
 ]);
+
+export const WATERWAYS_GRAMMAR_DISPLAY=Object.freeze([...EMBER_GRAMMAR_DISPLAY,
+ {order:260,tag:'CLAUSE.RELATIVE.SUBJECT',titleKo:'주격 관계절',pattern:'명사 + who / which / that + 동사',shortDescriptionKo:'앞의 명사를 설명하는 절에서 관계사가 주어 역할을 합니다. 수동태에서도 절 안의 주어 역할을 확인합니다.'},
+ {order:270,tag:'CLAUSE.RELATIVE.OBJECT',titleKo:'목적격 관계절',pattern:'명사 + (who / which / that) + 주어 + 동사',shortDescriptionKo:'앞의 명사가 관계절 안에서 동사나 전치사의 목적어에 해당합니다. 목적격 관계사는 생략할 수 있습니다.'},
+ {order:280,tag:'CLAUSE.RELATIVE.ADVERBIAL',titleKo:'관계부사절',pattern:'장소 명사 + where / 시간 명사 + when + 절',shortDescriptionKo:'앞의 장소·시간 명사를 설명합니다. 절 안에는 필요한 주어와 목적어가 따로 있어야 합니다.'}
+]);

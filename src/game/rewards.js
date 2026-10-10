@@ -41,6 +41,7 @@ export function eligibleRewardCards(run) {
 
 export function isStageRelevantCard(run, card) {
   const registry = registryForVersion(run.version), lexeme = registry.lexemeById[card.lexemeId];
+  if(run.version==='0.8.0'&&run.progress.stageId==='stage.08')return ['who','which','where','when','that'].includes(lexeme.lemma)||['NOUN','PRONOUN','DETERMINER'].includes(lexeme.pos);
   if(hasSnowCampaign(run)&&run.progress.stageId==='stage.06')return Boolean(lexeme.comparisonPolicy&&lexeme.comparisonPolicy.strategy!=='NONE')||['more','most','as','than','too','enough','twice'].includes(lexeme.lemma);
   const focus = STAGE_BY_ID[run.progress?.stageId]?.focusFrames ?? [...BASIC_FRAMES];
   if(hasDesertCampaign(run)&&run.progress?.stageId==='stage.05')return ['to','want','need','like','enjoy','finish'].includes(lexeme.lemma)||['NOUN','PRONOUN','DETERMINER','ADJECTIVE'].includes(lexeme.pos)||lexeme.frameIds?.some(id=>id.startsWith('frame.svoc'));
@@ -158,7 +159,7 @@ export function createRewardOffer(run,profile){
     while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length)throw Error('Rune introduction requires three valid runes');const r=chooseRune(run,pool);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
   }else{
     const intro=battleNumber===1&&run.tutorial?.isIntroRun;
-    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
+    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
     const boss = encounter ? encounter.kind==='REGIONAL_BOSS' : battleNumber===3;
     const baseWeights=intro?{CARD_COMMON:100}:boss?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
     for(let index=0;index<3;index++){
@@ -198,7 +199,7 @@ export function getRemovalWarning(run, cardInstanceId) {
   if (!run.activeCardIds.includes(cardInstanceId)) return '';
   if (run.activeCardIds.length === 1) return '덱의 마지막 카드입니다. 제거하면 다음 전투에서 문장을 만들 수 없습니다. 그래도 제거할까요?';
   const classify = (frameId) => frameId === 'frame.sv' || frameId === 'frame.beLocative' ? '1형식' : frameId.startsWith('frame.svc') ? '2형식' : frameId==='frame.svoo'?'4형식':'3형식';
-  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0'].includes(run.version) };
+  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(run.version) };
   const before = new Set(findPlayableSentences(run.activeCardIds, run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const after = new Set(findPlayableSentences(run.activeCardIds.filter((id) => id !== cardInstanceId), run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const lost = [...before].filter((frame) => !after.has(frame));

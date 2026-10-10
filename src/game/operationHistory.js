@@ -33,6 +33,7 @@ function validatePolishedHistory(run){
  if(!list(c.exhaustedIds)||!Array.isArray(c.operationHistory)||!Number.isSafeInteger(c.operationSequence)||c.operationSequence!==c.operationHistory.length)fail();
  const exhausted=[],uses=new Map(),commands=new Set();
  const dustDefinitions=new Map(hasEmberCampaign(run)?(c.dustSupplyTrace?.cardIds??[]).map(id=>[id,c.dustSupplyTrace.cardDefId]):[]);
+ const cityDefinitions=new Map(run.version==='0.8.0'?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
  const frostDefinitions=new Map((c.frostSupplyTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.battle.${run.progress.battleNumber}.${String(i).padStart(2,'0')}`,def]));
  for(const [i,e]of c.operationHistory.entries()){
   const def=cardDefinition(e.cardDefId,run.version),ss=e.sourceSnapshot;
@@ -55,13 +56,14 @@ function validatePolishedHistory(run){
    if(!Number.isSafeInteger(card.polishLevel)||card.polishLevel<0||card.polishLevel>maxPolish(card,run.version)||card.specialEffectId!==null)fail();
    const current=run.cardInstances[id];
    const removedByReward=run.reward?.resolved&&run.reward.resolution?.kind==='REMOVE'&&run.reward.resolution.cardInstanceId===id;
-   if(!current&&(run.status==='BATTLE'||!frostDefinitions.has(id)&&!dustDefinitions.has(id)&&!removedByReward))fail();
+   if(!current&&(run.status==='BATTLE'||!frostDefinitions.has(id)&&!dustDefinitions.has(id)&&!cityDefinitions.has(id)&&!removedByReward))fail();
    if(current&&(operationLifetime(current)!==operationLifetime(card)||(run.status==='BATTLE'?current.polishLevel!==card.polishLevel:current.polishLevel<card.polishLevel)))fail();
    // Cleanup deletes temporary objects, but the fixed supply trace still proves
    // which physical IDs were battle-only and what each of those cards was.
    if(frostDefinitions.has(id)){
     if(card.cardDefId!==frostDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='MIRROR_SNOWFIELD'||card.temporary.battleId!==c.enemyState.id)fail();
-   }else if(dustDefinitions.has(id)){if(card.cardDefId!==dustDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='EMBER_CAVE'||card.temporary.battleId!==c.enemyState.id)fail();}
+   }else if(cityDefinitions.has(id)){if(card.cardDefId!==cityDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='ANCIENT_WATERWAYS'||card.temporary.battleId!==c.enemyState.id)fail();}
+   else if(dustDefinitions.has(id)){if(card.cardDefId!==dustDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='EMBER_CAVE'||card.temporary.battleId!==c.enemyState.id)fail();}
    else if(card.temporary||card.cardDefId==='card.obstacle.blackDust')fail();
   }
   const source=e.cardSnapshots[e.sourceCardId];if(!source||source.cardDefId!==e.cardDefId||source.polishLevel!==ss.polishLevel||operationLifetime(source)!==ss.lifetime)fail();

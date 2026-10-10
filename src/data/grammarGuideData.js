@@ -29,6 +29,13 @@ export const GRAMMAR_GUIDE = {
  'MODIFIER.ADVERB':{label:'부사 수식',description:'부사는 허용된 위치에서 동사·형용사·부사를 수식합니다.',examples:['He runs very fast.']},
  'PHRASE.PP':{label:'전치사구',description:'전치사와 명사구가 함께 쓰여 위치나 대상 등의 관계를 나타냅니다.',examples:['I am at school.']},
 };
+Object.assign(GRAMMAR_GUIDE,{
+ 'CLAUSE.RELATIVE.SUBJECT':{label:'주격 관계절',description:'관계절 내부에서 관계사가 주어 역할을 합니다.',examples:[]},
+ 'CLAUSE.RELATIVE.OBJECT':{label:'목적격 관계절',description:'관계절 내부에서 앞의 명사가 목적어 자리에 연결됩니다. 관계사 생략도 가능합니다.',examples:[]},
+ 'CLAUSE.RELATIVE.ADVERBIAL':{label:'관계부사절',description:'앞의 장소·시간 명사를 완전한 절로 설명합니다.',examples:[]}
+});
+export const RELATIVE_ROLE_LABELS={SUBJECT:'주격 관계절',OBJECT:'목적격 관계절',ADVERBIAL:'관계부사절'};
+export const QUESTION_ROLE_LABELS={SUBJECT:'주어 질문',OBJECT:'목적어 질문',COMPLEMENT:'보어 질문',ADVERBIAL:'장소·시간 질문'};
 export const ROLE_GUIDE={
  SUBJECT:{label:'주어 S',description:'문장에서 말하는 대상을 나타냅니다.'},
  FINITE_VERB:{label:'동사 V',description:'주어의 행동이나 상태를 나타냅니다.'},
@@ -60,6 +67,8 @@ export function verbUsage(word){
  if(frames.has('frame.sv'))parts.push('주어 + 동사');
  if(frames.has('frame.beLocative'))parts.push('주어 + be + 장소 표현');
  if(frames.has('frame.svc.adj')||frames.has('frame.svc.np'))parts.push('주어 + 동사 + 주격보어');
+ if(frames.has('frame.svo.wh'))parts.push('주어 + 동사 + 간접의문절 / 의문사 + to + 동사');
+ if(frames.has('frame.svoo.wh'))parts.push('주어 + 동사 + 받는 대상 + 간접의문절');
  if(frames.has('frame.svo.content'))parts.push('주어 + 동사 + (that) 내용 목적어절');
  if(frames.has('frame.svo'))parts.push('주어 + 동사 + 목적어');
  if(frames.has('frame.svoo'))parts.push('주어 + 동사 + 간접목적어 + 직접목적어');
@@ -77,6 +86,6 @@ export function verbUsage(word){
 
 export function nonfiniteUsageNotes(word){return [word.lemma==='enjoy'?'enjoy 뒤에는 동명사(-ing)를 씁니다.':null,word.lemma==='need'?"need + -ing는 '~될 필요가 있다'의 뜻으로도 씁니다.":null].filter(Boolean);}
 
-export const CLAUSE_ROLES={NONFINITE:'준동사구',MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절'};
+export const CLAUSE_ROLES={NONFINITE:'준동사구',MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절',EMBEDDED_QUESTION:'간접의문절'};
 export const LINK_ROLES={COORDINATED_CLAUSES:'등위절 연결',ADVERBIAL_CLAUSE:'부사절 연결',CONTENT_CLAUSE:'내용 목적어절',SHARED_SUBJECT_VP:'주어를 공유하는 동사구',NP_COORDINATION:'명사구 연결',AP_COORDINATION:'형용사구 연결',PP_COORDINATION:'전치사구 연결',ADVP_COORDINATION:'부사구 연결'};
 export const CLAUSE_GUIDE={clause:'절은 주어와 동사를 중심으로 이루어진 덩어리입니다.',coordinate:'등위절은 대등한 두 절입니다. 왼쪽 절이 계산 기준이어도 오른쪽 절이 종속절이 되지는 않습니다.',adverbial:'부사절은 이유·시간·조건 등의 정보를 주절에 덧붙입니다.',content:'명사절은 절 전체가 명사처럼 목적어 등의 자리를 맡습니다.',that:'that은 지시 한정사·대명사·관계절 연결·내용절 연결 역할을 문장 구조에 따라 맡습니다.'};
