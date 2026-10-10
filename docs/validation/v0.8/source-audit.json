@@ -185,7 +185,7 @@
     "tools/waterways-candidates.js"
   ],
   "workflowDeployGuard": "main only; pull_request never uploads/deploys Pages; workflow unchanged",
-  "publicationState": "FINAL_LOCAL_VERIFICATION_COMPLETE_WITH_CROSS_BROWSER_BLOCKER; branch push and Draft PR next",
+  "publicationState": "BRANCH_PUSHED_DRAFT_PR_CREATED_WITH_DOCUMENTED_BLOCKERS",
   "sourceFrozenSinceImplementationCommit": true,
   "postProductionRunnerChange": "tests/e2e.mjs console label only: Stage8 first shop -> fourth shop; no assertion or control-flow change",
   "latestChecks": {
@@ -197,5 +197,13 @@
     "production37": "PASS",
     "stage8LearningTargets": 5,
     "crossBrowser": "FAIL_NATIVE_WEBKIT_TIMEOUT"
+  },
+  "pullRequest": {
+    "url": "https://github.com/YEOMT/grammardealer/pull/12",
+    "draft": true,
+    "base": "main",
+    "autoMerge": null,
+    "mainShaAtPublication": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+    "startMainUnchanged": true
   }
 }

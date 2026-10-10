@@ -91,6 +91,6 @@ production의 행동 선택 및 상세 parser/score 기록은 같은 실제 입�
 - 문법은 등록된 단어/Frame과 bounded 학교 문법 범위다. 이 버전의 숫자는 구현 초깃값이다. 범위 밖 Stage9/새룬/추가 슬롯/질문 전용 콤보를 추가하지 않았다.
 - 필수 결과와 조건별 수준은 [A001–A120](ACCEPTANCE_0.8.md), 변경 내역은 [패치 노트](PATCH_NOTES_0.8_KO.md), 언어/공급/보스/UI 검토표는 각각 별도 문서에 있다.
 
-원격 PR 생성 전 검증 문서다. 실제 push/PR 결과는 `validation/v0.8/pull-request.json` 생성 후 갱신한다.
+작업 브랜치 push를 완료하고 [main 대상 Draft PR #12](https://github.com/YEOMT/grammardealer/pull/12)를 생성했다. 구현 커밋은 `127936b363417dc4a89c883ea54bd7ad6a6e8b20`, 검증·보고 커밋은 `2f74c16de8217f93ded342f4b590204913116855`다. 이 문서의 PR 결과 기록은 후속 문서 커밋으로 반영한다. A110의 미해결 WebKit watchdog 실패와 A003/A118의 증거 절차상 공백 때문에 Ready for review로 전환하지 않았다. 원격 PR 생성 시 main은 시작 SHA 그대로였고 auto-merge는 꺼져 있다. main push/merge·Pages 설정 변경·공개 배포는 수행하지 않았다. 실제 원격 응답은 `validation/v0.8/pull-request.json`에 기록했다.
 
 사용자 검토: 기존 실습/무보상 스킵 → Stage7 보상 → 수로도시 사전 안내/선택/Shop4 →33주격/34생략/35빙정/36기존 시제·수동과 결합 →37동일 문장 쌍/HP1/해제 → 완료 슬롯 복원 순서. main 병합·공개 배포는 별도 승인 대상이다.

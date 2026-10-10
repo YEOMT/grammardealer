@@ -1,7 +1,7 @@
 {
   "kind": "ACTUAL_IMPLEMENTATION_ACCEPTANCE_NOT_INPUT_EXPECTATIONS",
   "targetVersion": "0.8.0",
-  "recordedAt": "2026-10-10T16:20:42.856716+00:00",
+  "recordedAt": "2026-10-10T16:30:10.785719+00:00",
   "counts": {
     "PASS": 115,
     "FAIL": 3,
@@ -1533,7 +1533,7 @@
         "pull-request.json",
         "source-audit.json"
       ],
-      "noteKo": "작업 브랜치 push와 main 대상 PR만 수행. main/merge/auto-merge/Pages 설정/공개 배포 변경 없음."
+      "noteKo": "작업 브랜치 push와 main 대상 Draft PR #12 생성은 완료했다. A110 WebKit watchdog 실패 및 A003/A118 증거 절차상 공백 때문에 Ready for review 전환은 NOT_RUN이다. main/merge/auto-merge/Pages 설정/공개 배포 변경 없음. PR 생성 시 원격 main은 시작 SHA와 동일하다."
     }
   ]
 }
