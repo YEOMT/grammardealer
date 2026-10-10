@@ -1,3 +1,15 @@
+# 0.8 현재 인계
+
+시작 main은 `ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd`이며 0.7 PR #11의 병합을 실제 코드로 확인했다. 시작 checkout은 clean이었다. 작업 브랜치는 `codex/v0.8-ancient-waterways-relative-seal`이다. 계약은 `spec/SyntaxAtlas_0.8_Codex_Spec.md`; 부속 JSON은 `tests/fixtures/v08/`의 기대값이다.
+
+새 원정만 Stage 8까지 37전투다. Stage 7 보스/보상 뒤 관계절 원정 팩과 정규 단어 풀을 열고, 소개 → 선택 → Shop 4 → 첫 전투를 진행한다. 선택은 선택하지 않을 자유를 포함한다. 8-3 도시 빙정의 출처와 수명은 설원/먼지와 분리하며 영구 덱에 넣지 않는다.
+
+`waterwaysLanguage`는 frozen 0.7 view에서 별도 언어를 만든다. parser의 실제 finite relative/WH 분석과 `skyEvidence`의 relativeClauses/questionClauses를 점수·보스·도감이 소비한다. 주절 오류와 관계절 자체 오류, 문법 정답과 콤보 해금을 구분한다. 보스는 같은 실제 제출의 별개 SUBJECT/OBJECT 근거만 인정하며 공격 간 누적을 만들면 안 된다. unlocking receipt는 최근 history와 별도로 보존한다. RunController만 상태를 커밋한다.
+
+보존 기준과 실제 검증은 [TEST_REPORT_0.8](TEST_REPORT_0.8.md), [ACCEPTANCE_0.8](ACCEPTANCE_0.8.md), [언어·교육](RELATIVE_WH_GRAMMAR_REVIEW_0.8.md), [공급·저장](WATERWAYS_SUPPLY_SAVE_REVIEW_0.8.md), [인장](DUAL_RELATIVE_SEAL_REVIEW_0.8.md), [UI](UI_THEME_REVIEW_0.8.md)를 따른다. 수치·이름은 명세의 초깃값이다. 자연 학습 코스와 일반 완주, 지정 상태와 산술을 각각 확인한다.
+
+이후 작업도 그 시점 최신 main에서 별도 브랜치로 시작하고 미커밋 변경을 보존한다. 현재 작업은 개발 브랜치 push/PR까지만 허용하며 main 변경·배포는 별도 승인이다. 이하 과거 인계는 당시 기록으로 보존한다.
+
 # 0.7 현재 인계
 
 기준 main: e2a878640dc88bce12e62ad6041a59867e09ef92. 작업 브랜치: codex/v0.7-ember-cave-participles-dust. 기존 0.6.1 기반 위에 7지역/32전투를 추가했습니다. 이 브랜치의 원격 등록은 main 병합이나 공개 배포와 별개입니다.

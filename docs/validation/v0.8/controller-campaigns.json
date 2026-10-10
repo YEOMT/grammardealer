@@ -1,0 +1,3507 @@
+{
+  "kind": "ACTUAL_CONTROLLER_COMMANDS_NOT_UI",
+  "campaigns": [
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 37,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 40,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 67,
+        "status": "CONTENT_COMPLETE",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "commands": 1101,
+      "durationMs": 44338,
+      "stats": {
+        "attacks": 84,
+        "exchanges": 26,
+        "runeAppearances": 28,
+        "polishedCards": 3,
+        "preparations": 45,
+        "bestAttack": 2137
+      },
+      "contentBoundary": "STAGE8_END",
+      "profileStage1Runs": 1,
+      "storyClearCount": 0,
+      "sourceEvidence": {
+        "path": ".local-validation/v08/waterways-runs.json",
+        "sha256": "ce7c0b0e74c3b195a2aa5b4e3df9988ad5289413fd8c5e404884fbb5e741ff60"
+      },
+      "claim": "Initial ordinary completion; not learning-course proof",
+      "completionStatus": "PASS",
+      "courseStatus": "NOT_RUN",
+      "targets": [
+        {
+          "battle": 33,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 34,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 35,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 36,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 37,
+          "status": "NOT_RUN",
+          "evidence": []
+        }
+      ],
+      "stage8Submissions": [
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1280,
+            "hand": 6,
+            "draw": 53,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 755,
+            "hand": 6,
+            "draw": 53,
+            "discard": 6,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "clearly people had become hard",
+          "expectedPower": 525,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.26.card",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.1.card",
+            "starter.15",
+            "starter.18",
+            "starter.20"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 755,
+            "hand": 7,
+            "draw": 47,
+            "discard": 6,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 7,
+            "draw": 47,
+            "discard": 11,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "I say that days knew",
+          "expectedPower": 1000,
+          "usedCardIds": [
+            "starter.07",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.16.card",
+            "entry.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.04.card.2",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.11.card",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.15.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1360,
+            "hand": 6,
+            "draw": 54,
+            "discard": 0,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 340,
+            "hand": 6,
+            "draw": 54,
+            "discard": 6,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days become people who really lived",
+          "expectedPower": 1020,
+          "usedCardIds": [
+            "starter.01",
+            "starter.18",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.1.card",
+            "entry.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.08.card.0",
+            "starter.22",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 340,
+            "hand": 6,
+            "draw": 49,
+            "discard": 6,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 43,
+            "hand": 6,
+            "draw": 49,
+            "discard": 10,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "environments they said run",
+          "expectedPower": 297,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.31.card",
+            "starter.09",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.14.card",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 5,
+            "turnsRemaining": 2,
+            "hp": 43,
+            "hand": 7,
+            "draw": 42,
+            "discard": 14,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": true,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 5,
+            "turnsRemaining": 1,
+            "hp": 0,
+            "hand": 7,
+            "draw": 42,
+            "discard": 16,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": true,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "they knew",
+          "expectedPower": 98,
+          "usedCardIds": [
+            "shop.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.04.card.1.owned",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.15.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1440,
+            "hand": 4,
+            "draw": 58,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 791,
+            "hand": 4,
+            "draw": 58,
+            "discard": 6,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "I become tired when they ran",
+          "expectedPower": 649,
+          "usedCardIds": [
+            "starter.07",
+            "starter.18",
+            "starter.21",
+            "frost.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.waterways.1",
+            "starter.09",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 791,
+            "hand": 4,
+            "draw": 51,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 299,
+            "hand": 4,
+            "draw": 51,
+            "discard": 13,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "books had the park to days",
+          "expectedPower": 492,
+          "usedCardIds": [
+            "starter.03",
+            "starter.15",
+            "starter.26",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.10.card",
+            "entry.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.02.card.0",
+            "starter.01"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 5,
+            "turnsRemaining": 2,
+            "hp": 299,
+            "hand": 3,
+            "draw": 44,
+            "discard": 17,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 5,
+            "turnsRemaining": 1,
+            "hp": 83,
+            "hand": 3,
+            "draw": 44,
+            "discard": 21,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "environments were saying hobbies",
+          "expectedPower": 216,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.28.card",
+            "starter.12",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.16.card",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.6.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 6,
+            "turnsRemaining": 1,
+            "hp": 83,
+            "hand": 4,
+            "draw": 37,
+            "discard": 25,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 6,
+            "turnsRemaining": 0,
+            "hp": 0,
+            "hand": 4,
+            "draw": 37,
+            "discard": 27,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 54,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people lived",
+          "expectedPower": 98,
+          "usedCardIds": [
+            "starter.05",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1520,
+            "hand": 4,
+            "draw": 56,
+            "discard": 0,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 242,
+            "hand": 4,
+            "draw": 56,
+            "discard": 8,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "stories send a school and cats were running",
+          "expectedPower": 1278,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.34.card",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.20.card",
+            "starter.24",
+            "starter.02",
+            "entry.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.04.card.0",
+            "starter.04",
+            "starter.11",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 5,
+            "turnsRemaining": 2,
+            "hp": 242,
+            "hand": 7,
+            "draw": 46,
+            "discard": 12,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 5,
+            "turnsRemaining": 1,
+            "hp": 107,
+            "hand": 7,
+            "draw": 46,
+            "discard": 15,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "parks became interesting",
+          "expectedPower": 135,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.35.card",
+            "starter.18",
+            "starter.19"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 6,
+            "turnsRemaining": 1,
+            "hp": 107,
+            "hand": 7,
+            "draw": 39,
+            "discard": 19,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 6,
+            "turnsRemaining": 0,
+            "hp": 0,
+            "hand": 7,
+            "draw": 39,
+            "discard": 22,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people had thought",
+          "expectedPower": 150,
+          "usedCardIds": [
+            "starter.05",
+            "starter.15",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.13.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1600,
+            "hand": 2,
+            "draw": 40,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 58,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 2,
+            "draw": 40,
+            "discard": 26,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 58,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "environments they say and days that clearly lived are useful",
+          "expectedPower": 2137,
+          "usedCardIds": [
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.28.card",
+            "shop.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.04.card.1.owned",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.14.card",
+            "entry.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.04.card.0",
+            "starter.01",
+            "shop.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.stage.06.card.0.owned",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.26.card",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.30.card",
+            "starter.12",
+            "reward.offer.run.d29f3116-3387-42d3-ab15-c91fb5f2df77.23.card"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 37,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 2,
+        "draw": 40,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 72,
+        "status": "CONTENT_COMPLETE",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "commands": 1077,
+      "durationMs": 84572,
+      "stats": {
+        "attacks": 80,
+        "exchanges": 35,
+        "runeAppearances": 28,
+        "polishedCards": 3,
+        "preparations": 44,
+        "bestAttack": 2137
+      },
+      "contentBoundary": "STAGE8_END",
+      "profileStage1Runs": 1,
+      "storyClearCount": 0,
+      "sourceEvidence": {
+        "path": ".local-validation/v08/waterways-course-01.json",
+        "sha256": "9d133d9732a96778b7f0b5e84179c0ce1c37aa9b20f33ba9f1ac75b7854366fe"
+      },
+      "claim": "Initial course policy: completion and learning targets assessed separately",
+      "completionStatus": "PASS",
+      "courseStatus": "FAIL",
+      "targets": [
+        {
+          "battle": 33,
+          "status": "FAIL",
+          "evidence": []
+        },
+        {
+          "battle": 34,
+          "status": "FAIL",
+          "evidence": []
+        },
+        {
+          "battle": 35,
+          "status": "FAIL",
+          "evidence": []
+        },
+        {
+          "battle": 36,
+          "status": "FAIL",
+          "evidence": []
+        },
+        {
+          "battle": 37,
+          "status": "FAIL",
+          "evidence": []
+        }
+      ],
+      "stage8Submissions": [
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1280,
+            "hand": 5,
+            "draw": 45,
+            "discard": 9,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 0,
+            "hand": 5,
+            "draw": 45,
+            "discard": 15,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people that had known become days",
+          "expectedPower": 1375,
+          "usedCardIds": [
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.1.card",
+            "entry.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.04.card.2",
+            "starter.15",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.15.card",
+            "starter.18",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.11.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1360,
+            "hand": 6,
+            "draw": 37,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 53,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 239,
+            "hand": 6,
+            "draw": 37,
+            "discard": 22,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 53,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days say people who became them",
+          "expectedPower": 1121,
+          "usedCardIds": [
+            "starter.01",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.14.card",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.1.card",
+            "entry.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.08.card.0",
+            "starter.18",
+            "starter.09"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 239,
+            "hand": 5,
+            "draw": 34,
+            "discard": 22,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 53,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 5,
+            "draw": 34,
+            "discard": 26,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 53,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "hobbies that thought live",
+          "expectedPower": 297,
+          "usedCardIds": [
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.6.card",
+            "shop.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.06.card.0.owned",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.13.card",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1440,
+            "hand": 1,
+            "draw": 51,
+            "discard": 8,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 263,
+            "hand": 1,
+            "draw": 51,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "I have become the book when parks took days",
+          "expectedPower": 1177,
+          "usedCardIds": [
+            "starter.07",
+            "starter.15",
+            "starter.18",
+            "starter.26",
+            "starter.03",
+            "frost.run.cd7458af-6da1-4482-b2d8-01e808caa97b.waterways.1",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.10.card",
+            "starter.16",
+            "starter.01"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 263,
+            "hand": 4,
+            "draw": 45,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 82,
+            "hand": 4,
+            "draw": 45,
+            "discard": 19,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "hobbies were running",
+          "expectedPower": 181,
+          "usedCardIds": [
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.6.card",
+            "starter.12",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 6,
+            "turnsRemaining": 1,
+            "hp": 82,
+            "hand": 8,
+            "draw": 39,
+            "discard": 19,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 6,
+            "turnsRemaining": 0,
+            "hp": 0,
+            "hand": 8,
+            "draw": 39,
+            "discard": 21,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 57,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people lived",
+          "expectedPower": 98,
+          "usedCardIds": [
+            "starter.05",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1520,
+            "hand": 5,
+            "draw": 40,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 59,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 343,
+            "hand": 5,
+            "draw": 40,
+            "discard": 23,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 59,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "they think stories were sending a school",
+          "expectedPower": 1177,
+          "usedCardIds": [
+            "shop.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.04.card.1.owned",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.13.card",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.34.card",
+            "starter.11",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.20.card",
+            "starter.24",
+            "starter.02"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 343,
+            "hand": 3,
+            "draw": 37,
+            "discard": 23,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 59,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": true,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 3,
+            "draw": 37,
+            "discard": 28,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 59,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "often hobbies will have run",
+          "expectedPower": 442,
+          "usedCardIds": [
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.25.card",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.6.card",
+            "entry.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.03.card.0",
+            "starter.15",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1600,
+            "hand": 2,
+            "draw": 40,
+            "discard": 16,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 63,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 2,
+            "draw": 40,
+            "discard": 26,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 63,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "environments they say and days that clearly lived are useful",
+          "expectedPower": 2137,
+          "usedCardIds": [
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.28.card",
+            "shop.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.04.card.1.owned",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.14.card",
+            "entry.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.04.card.0",
+            "starter.01",
+            "shop.run.cd7458af-6da1-4482-b2d8-01e808caa97b.stage.06.card.0.owned",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.26.card",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.30.card",
+            "starter.12",
+            "reward.offer.run.cd7458af-6da1-4482-b2d8-01e808caa97b.23.card"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 37,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 4,
+        "draw": 48,
+        "discard": 16,
+        "exchangesRemaining": 2,
+        "seal": null,
+        "gold": 74,
+        "status": "CONTENT_COMPLETE",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "commands": 1052,
+      "durationMs": 93785,
+      "stats": {
+        "attacks": 78,
+        "exchanges": 24,
+        "runeAppearances": 28,
+        "polishedCards": 3,
+        "preparations": 44,
+        "bestAttack": 1825
+      },
+      "contentBoundary": "STAGE8_END",
+      "profileStage1Runs": 1,
+      "storyClearCount": 0,
+      "sourceEvidence": {
+        "path": ".local-validation/v08/waterways-course-02.json",
+        "sha256": "17c15a22fe8a2dbb3de5da66756370c6a365798da1878fae6b8aa70cb3581137"
+      },
+      "claim": "Improved visible-hand policy; actual Controller commands, not UI",
+      "completionStatus": "PASS",
+      "courseStatus": "PASS",
+      "targets": [
+        {
+          "battle": 33,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.33:attack.2"
+              },
+              "before": {
+                "battle": 33,
+                "turn": 2,
+                "turnsRemaining": 4,
+                "hp": 267,
+                "hand": 5,
+                "draw": 53,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 33,
+                "turn": 3,
+                "turnsRemaining": 4,
+                "hp": 267,
+                "hand": 8,
+                "draw": 50,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1013,
+              "actualHpLoss": 1013,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.33.2",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+                  "markerCardId": "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+                  "markerLemma": "who",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card"
+                  ],
+                  "gapGovernorNodeId": "node.6",
+                  "cardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.26.card",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0"
+                  ],
+                  "range": [
+                    1,
+                    4
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVC",
+                "MODIFIER.ADVERB",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": false,
+              "bossReleased": false
+            },
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.33:attack.4"
+              },
+              "before": {
+                "battle": 33,
+                "turn": 4,
+                "turnsRemaining": 2,
+                "hp": 0,
+                "hand": 5,
+                "draw": 47,
+                "discard": 13,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 33,
+                "turn": 4,
+                "turnsRemaining": 2,
+                "hp": 0,
+                "hand": 5,
+                "draw": 47,
+                "discard": 13,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 51,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1121,
+              "actualHpLoss": 267,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.33.4",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.11.card",
+                  "markerCardId": "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.2",
+                  "markerLemma": "that",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card"
+                  ],
+                  "gapGovernorNodeId": "node.4",
+                  "cardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.2",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card",
+                    "starter.07"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.2"
+                  ],
+                  "range": [
+                    1,
+                    4
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.11.card",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.2"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVO",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 34,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.34:attack.3"
+              },
+              "before": {
+                "battle": 34,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 49,
+                "discard": 12,
+                "exchangesRemaining": 3,
+                "seal": null,
+                "gold": 51,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 34,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 49,
+                "discard": 12,
+                "exchangesRemaining": 3,
+                "seal": null,
+                "gold": 56,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1446,
+              "actualHpLoss": 1360,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.34.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "starter.01",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "DIRECT_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.14.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.14.card"
+                  ],
+                  "gapGovernorNodeId": "node.5",
+                  "cardIds": [
+                    "starter.09",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.14.card"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    3
+                  ],
+                  "ownEssentialCardIds": [
+                    "starter.01",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.14.card"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                },
+                {
+                  "id": "relative.1",
+                  "nodeId": "node.8",
+                  "childClauseId": "clause.2",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.34.3",
+                  "antecedentNodeId": "node.7",
+                  "antecedentHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+                  "markerCardId": "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+                  "markerLemma": "who",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "starter.14",
+                  "finiteVerbCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0"
+                  ],
+                  "gapGovernorNodeId": "node.10",
+                  "cardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.14"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0"
+                  ],
+                  "range": [
+                    5,
+                    8
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.14",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVC",
+                "TIME.PAST",
+                "TIME.FUTURE_WILL",
+                "CLAUSE.RELATIVE.OBJECT",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 35,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.35:attack.2"
+              },
+              "before": {
+                "battle": 35,
+                "turn": 2,
+                "turnsRemaining": 4,
+                "hp": 330,
+                "hand": 3,
+                "draw": 58,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 56,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 35,
+                "turn": 3,
+                "turnsRemaining": 4,
+                "hp": 330,
+                "hand": 6,
+                "draw": 55,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 56,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1110,
+              "actualHpLoss": 1110,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.4",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.35.2",
+                  "antecedentNodeId": "node.3",
+                  "antecedentHeadCardId": "starter.01",
+                  "markerCardId": "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1",
+                  "markerLemma": "when",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_ADVERB",
+                  "relativeRole": "ADVERBIAL",
+                  "objectRole": null,
+                  "adverbKind": "TIME",
+                  "predicateHeadCardId": "starter.13",
+                  "finiteVerbCardIds": [
+                    "starter.13"
+                  ],
+                  "gapGovernorNodeId": "node.7",
+                  "cardIds": [
+                    "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1",
+                    "starter.26",
+                    "starter.03",
+                    "starter.13"
+                  ],
+                  "markerCardIds": [
+                    "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1"
+                  ],
+                  "range": [
+                    3,
+                    7
+                  ],
+                  "ownEssentialCardIds": [
+                    "starter.01",
+                    "starter.13",
+                    "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [
+                "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1"
+              ],
+              "tags": [
+                "FRAME.SVC",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.ADVERBIAL"
+              ],
+              "killed": false,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 36,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.36:attack.3"
+              },
+              "before": {
+                "battle": 36,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 5,
+                "draw": 56,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 60,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 36,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 5,
+                "draw": 56,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 65,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1825,
+              "actualHpLoss": 1520,
+              "formUses": [
+                {
+                  "useId": "formUse.0",
+                  "formCardId": "starter.13",
+                  "resolvedMorphology": "ING",
+                  "function": "PROGRESSIVE",
+                  "phraseCardIds": [
+                    "starter.11",
+                    "starter.13"
+                  ],
+                  "headCardId": "starter.13",
+                  "targetNPId": null,
+                  "targetHeadCardId": null,
+                  "parentClauseId": "clause.1",
+                  "sourceVerbSenseId": "lex.run.verb.sense.basic",
+                  "validity": "VALID",
+                  "excludedCardIds": []
+                }
+              ],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.36.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.34.card",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "PREPOSITION_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "starter.13",
+                  "finiteVerbCardIds": [
+                    "starter.11"
+                  ],
+                  "gapGovernorNodeId": "node.5",
+                  "cardIds": [
+                    "starter.04",
+                    "starter.11",
+                    "starter.13",
+                    "starter.28"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    5
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.34.card",
+                    "starter.11",
+                    "starter.13"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVO",
+                "TIME.PAST",
+                "TIME.PROGRESSIVE",
+                "CLAUSE.RELATIVE.OBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 37,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b:battle.37:attack.3"
+              },
+              "before": {
+                "battle": 37,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 48,
+                "discard": 16,
+                "exchangesRemaining": 2,
+                "seal": null,
+                "gold": 65,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 37,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 48,
+                "discard": 16,
+                "exchangesRemaining": 2,
+                "seal": null,
+                "gold": 74,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1793,
+              "actualHpLoss": 1600,
+              "formUses": [
+                {
+                  "useId": "formUse.0",
+                  "formCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+                  "resolvedMorphology": "ING",
+                  "function": "PROGRESSIVE",
+                  "phraseCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card"
+                  ],
+                  "headCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+                  "targetNPId": null,
+                  "targetHeadCardId": null,
+                  "parentClauseId": "clause.2",
+                  "sourceVerbSenseId": "lex.think.verb.sense.basic",
+                  "validity": "VALID",
+                  "excludedCardIds": []
+                }
+              ],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.37.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.1.owned",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "DIRECT_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card"
+                  ],
+                  "gapGovernorNodeId": "node.8",
+                  "cardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.28.card",
+                    "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    7
+                  ],
+                  "ownEssentialCardIds": [
+                    "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.1.owned",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                },
+                {
+                  "id": "relative.1",
+                  "nodeId": "node.5",
+                  "childClauseId": "clause.2",
+                  "parentClauseId": "clause.1",
+                  "rootSentenceId": "run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.37.3",
+                  "antecedentNodeId": "node.4",
+                  "antecedentHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.28.card",
+                  "markerCardId": "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned",
+                  "markerLemma": "that",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+                  "finiteVerbCardIds": [
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0"
+                  ],
+                  "gapGovernorNodeId": "node.7",
+                  "cardIds": [
+                    "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card"
+                  ],
+                  "markerCardIds": [
+                    "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned"
+                  ],
+                  "range": [
+                    2,
+                    6
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.28.card",
+                    "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+                    "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SV",
+                "TIME.PROGRESSIVE",
+                "TIME.FUTURE_WILL",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.OBJECT",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "preventedDamage": 0,
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        }
+      ],
+      "stage8Submissions": [
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1280,
+            "hand": 5,
+            "draw": 53,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 267,
+            "hand": 5,
+            "draw": 53,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people who clearly knew become hard",
+          "expectedPower": 1013,
+          "usedCardIds": [
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+            "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.26.card",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card",
+            "starter.18",
+            "starter.20"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 267,
+            "hand": 5,
+            "draw": 47,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 5,
+            "draw": 47,
+            "discard": 13,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days that said me like parks",
+          "expectedPower": 1121,
+          "usedCardIds": [
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.11.card",
+            "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.2",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card",
+            "starter.07",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.8.card",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.10.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1360,
+            "hand": 4,
+            "draw": 49,
+            "discard": 4,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": true,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 4,
+            "draw": 49,
+            "discard": 12,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days they said become people who will live",
+          "expectedPower": 1446,
+          "usedCardIds": [
+            "starter.01",
+            "starter.09",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.14.card",
+            "starter.18",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.1.card",
+            "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.08.card.0",
+            "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1440,
+            "hand": 3,
+            "draw": 58,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 330,
+            "hand": 3,
+            "draw": 58,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "I become days when the book ran",
+          "expectedPower": 1110,
+          "usedCardIds": [
+            "starter.07",
+            "starter.18",
+            "starter.01",
+            "frost.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.waterways.1",
+            "starter.26",
+            "starter.03",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 330,
+            "hand": 4,
+            "draw": 42,
+            "discard": 17,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 4,
+            "draw": 42,
+            "discard": 22,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "quickly they had said parks",
+          "expectedPower": 588,
+          "usedCardIds": [
+            "starter.23",
+            "starter.09",
+            "starter.15",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.16.card",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.10.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1520,
+            "hand": 5,
+            "draw": 56,
+            "discard": 0,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 60,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 5,
+            "draw": 56,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 60,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "stories cats were running with send schools",
+          "expectedPower": 1825,
+          "usedCardIds": [
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.34.card",
+            "starter.04",
+            "starter.11",
+            "starter.13",
+            "starter.28",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.20.card",
+            "starter.02"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1600,
+            "hand": 4,
+            "draw": 48,
+            "discard": 8,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 65,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": true,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 4,
+            "draw": 48,
+            "discard": 16,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 65,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "they environments that will be thinking knew live",
+          "expectedPower": 1793,
+          "usedCardIds": [
+            "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.04.card.1.owned",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.28.card",
+            "shop.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.06.card.0.owned",
+            "entry.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.stage.03.card.0",
+            "starter.12",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.13.card",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.15.card",
+            "reward.offer.run.84af4ed2-ef05-4bf7-92e6-b78108f13c7b.30.card"
+          ]
+        }
+      ]
+    },
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "CONTENT_COMPLETE",
+      "final": {
+        "battle": 37,
+        "turn": 3,
+        "turnsRemaining": 3,
+        "hp": 0,
+        "hand": 4,
+        "draw": 48,
+        "discard": 16,
+        "exchangesRemaining": 2,
+        "seal": null,
+        "gold": 74,
+        "status": "CONTENT_COMPLETE",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "commands": 1052,
+      "durationMs": 106547,
+      "stats": {
+        "attacks": 78,
+        "exchanges": 24,
+        "runeAppearances": 28,
+        "polishedCards": 3,
+        "preparations": 44,
+        "bestAttack": 1825
+      },
+      "contentBoundary": "STAGE8_END",
+      "profileStage1Runs": 1,
+      "storyClearCount": 0,
+      "sourceEvidence": {
+        "path": ".local-validation/v08/controller-course-final.json",
+        "sha256": "4ad249cd34c9c9d5cba1b3b432a515a32b44fdd29cce2f7d4ef721388032885a"
+      },
+      "claim": "Final actual Controller course replay, not UI",
+      "completionStatus": "PASS",
+      "courseStatus": "PASS",
+      "targets": [
+        {
+          "battle": 33,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.33:attack.2"
+              },
+              "before": {
+                "battle": 33,
+                "turn": 2,
+                "turnsRemaining": 4,
+                "hp": 267,
+                "hand": 5,
+                "draw": 53,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 33,
+                "turn": 3,
+                "turnsRemaining": 4,
+                "hp": 267,
+                "hand": 8,
+                "draw": 50,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1013,
+              "actualHpLoss": 1013,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.33.2",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+                  "markerCardId": "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+                  "markerLemma": "who",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card"
+                  ],
+                  "gapGovernorNodeId": "node.6",
+                  "cardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.26.card",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0"
+                  ],
+                  "range": [
+                    1,
+                    4
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVC",
+                "MODIFIER.ADVERB",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": false,
+              "bossReleased": false
+            },
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.33:attack.4"
+              },
+              "before": {
+                "battle": 33,
+                "turn": 4,
+                "turnsRemaining": 2,
+                "hp": 0,
+                "hand": 5,
+                "draw": 47,
+                "discard": 13,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 47,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 33,
+                "turn": 4,
+                "turnsRemaining": 2,
+                "hp": 0,
+                "hand": 5,
+                "draw": 47,
+                "discard": 13,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 51,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1121,
+              "actualHpLoss": 267,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.33.4",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.11.card",
+                  "markerCardId": "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.2",
+                  "markerLemma": "that",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card"
+                  ],
+                  "gapGovernorNodeId": "node.4",
+                  "cardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.2",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card",
+                    "starter.07"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.2"
+                  ],
+                  "range": [
+                    1,
+                    4
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.11.card",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.2"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVO",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 34,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.34:attack.3"
+              },
+              "before": {
+                "battle": 34,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 49,
+                "discard": 12,
+                "exchangesRemaining": 3,
+                "seal": null,
+                "gold": 51,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 34,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 49,
+                "discard": 12,
+                "exchangesRemaining": 3,
+                "seal": null,
+                "gold": 56,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1446,
+              "actualHpLoss": 1360,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.34.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "starter.01",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "DIRECT_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.14.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.14.card"
+                  ],
+                  "gapGovernorNodeId": "node.5",
+                  "cardIds": [
+                    "starter.09",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.14.card"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    3
+                  ],
+                  "ownEssentialCardIds": [
+                    "starter.01",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.14.card"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                },
+                {
+                  "id": "relative.1",
+                  "nodeId": "node.8",
+                  "childClauseId": "clause.2",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.34.3",
+                  "antecedentNodeId": "node.7",
+                  "antecedentHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+                  "markerCardId": "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+                  "markerLemma": "who",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "starter.14",
+                  "finiteVerbCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0"
+                  ],
+                  "gapGovernorNodeId": "node.10",
+                  "cardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.14"
+                  ],
+                  "markerCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0"
+                  ],
+                  "range": [
+                    5,
+                    8
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.14",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVC",
+                "TIME.PAST",
+                "TIME.FUTURE_WILL",
+                "CLAUSE.RELATIVE.OBJECT",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 35,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.35:attack.2"
+              },
+              "before": {
+                "battle": 35,
+                "turn": 2,
+                "turnsRemaining": 4,
+                "hp": 330,
+                "hand": 3,
+                "draw": 58,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 56,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 35,
+                "turn": 3,
+                "turnsRemaining": 4,
+                "hp": 330,
+                "hand": 6,
+                "draw": 55,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 56,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1110,
+              "actualHpLoss": 1110,
+              "formUses": [],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.4",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.35.2",
+                  "antecedentNodeId": "node.3",
+                  "antecedentHeadCardId": "starter.01",
+                  "markerCardId": "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1",
+                  "markerLemma": "when",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_ADVERB",
+                  "relativeRole": "ADVERBIAL",
+                  "objectRole": null,
+                  "adverbKind": "TIME",
+                  "predicateHeadCardId": "starter.13",
+                  "finiteVerbCardIds": [
+                    "starter.13"
+                  ],
+                  "gapGovernorNodeId": "node.7",
+                  "cardIds": [
+                    "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1",
+                    "starter.26",
+                    "starter.03",
+                    "starter.13"
+                  ],
+                  "markerCardIds": [
+                    "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1"
+                  ],
+                  "range": [
+                    3,
+                    7
+                  ],
+                  "ownEssentialCardIds": [
+                    "starter.01",
+                    "starter.13",
+                    "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [
+                "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1"
+              ],
+              "tags": [
+                "FRAME.SVC",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.ADVERBIAL"
+              ],
+              "killed": false,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 36,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.36:attack.3"
+              },
+              "before": {
+                "battle": 36,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 5,
+                "draw": 56,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 60,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 36,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 5,
+                "draw": 56,
+                "discard": 7,
+                "exchangesRemaining": 4,
+                "seal": null,
+                "gold": 65,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1825,
+              "actualHpLoss": 1520,
+              "formUses": [
+                {
+                  "useId": "formUse.0",
+                  "formCardId": "starter.13",
+                  "resolvedMorphology": "ING",
+                  "function": "PROGRESSIVE",
+                  "phraseCardIds": [
+                    "starter.11",
+                    "starter.13"
+                  ],
+                  "headCardId": "starter.13",
+                  "targetNPId": null,
+                  "targetHeadCardId": null,
+                  "parentClauseId": "clause.1",
+                  "sourceVerbSenseId": "lex.run.verb.sense.basic",
+                  "validity": "VALID",
+                  "excludedCardIds": []
+                }
+              ],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.36.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.34.card",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "PREPOSITION_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "starter.13",
+                  "finiteVerbCardIds": [
+                    "starter.11"
+                  ],
+                  "gapGovernorNodeId": "node.5",
+                  "cardIds": [
+                    "starter.04",
+                    "starter.11",
+                    "starter.13",
+                    "starter.28"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    5
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.34.card",
+                    "starter.11",
+                    "starter.13"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SVO",
+                "TIME.PAST",
+                "TIME.PROGRESSIVE",
+                "CLAUSE.RELATIVE.OBJECT"
+              ],
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        },
+        {
+          "battle": 37,
+          "status": "PASS",
+          "evidence": [
+            {
+              "action": "FINISH_PRESENTATION",
+              "command": {
+                "type": "FINISH_PRESENTATION",
+                "attackId": "run.e88b5e66-0bd6-4479-b311-c90320385114:battle.37:attack.3"
+              },
+              "before": {
+                "battle": 37,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 48,
+                "discard": 16,
+                "exchangesRemaining": 2,
+                "seal": null,
+                "gold": 65,
+                "status": "BATTLE",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "after": {
+                "battle": 37,
+                "turn": 3,
+                "turnsRemaining": 3,
+                "hp": 0,
+                "hand": 4,
+                "draw": 48,
+                "discard": 16,
+                "exchangesRemaining": 2,
+                "seal": null,
+                "gold": 74,
+                "status": "REWARD",
+                "phase": null,
+                "willInHand": false,
+                "willInSentence": false,
+                "willOwned": true
+              },
+              "actualPower": 1793,
+              "actualHpLoss": 1600,
+              "formUses": [
+                {
+                  "useId": "formUse.0",
+                  "formCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+                  "resolvedMorphology": "ING",
+                  "function": "PROGRESSIVE",
+                  "phraseCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card"
+                  ],
+                  "headCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+                  "targetNPId": null,
+                  "targetHeadCardId": null,
+                  "parentClauseId": "clause.2",
+                  "sourceVerbSenseId": "lex.think.verb.sense.basic",
+                  "validity": "VALID",
+                  "excludedCardIds": []
+                }
+              ],
+              "relativeClauses": [
+                {
+                  "id": "relative.0",
+                  "nodeId": "node.2",
+                  "childClauseId": "clause.1",
+                  "parentClauseId": "clause.main",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.37.3",
+                  "antecedentNodeId": "node.1",
+                  "antecedentHeadCardId": "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.1.owned",
+                  "markerCardId": null,
+                  "markerLemma": null,
+                  "markerOmitted": true,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "OBJECT",
+                  "objectRole": "DIRECT_OBJECT",
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card",
+                  "finiteVerbCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card"
+                  ],
+                  "gapGovernorNodeId": "node.8",
+                  "cardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.28.card",
+                    "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card"
+                  ],
+                  "markerCardIds": [],
+                  "range": [
+                    1,
+                    7
+                  ],
+                  "ownEssentialCardIds": [
+                    "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.1.owned",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                },
+                {
+                  "id": "relative.1",
+                  "nodeId": "node.5",
+                  "childClauseId": "clause.2",
+                  "parentClauseId": "clause.1",
+                  "rootSentenceId": "run.e88b5e66-0bd6-4479-b311-c90320385114.37.3",
+                  "antecedentNodeId": "node.4",
+                  "antecedentHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.28.card",
+                  "markerCardId": "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned",
+                  "markerLemma": "that",
+                  "markerOmitted": false,
+                  "kind": "RELATIVE_PRONOUN",
+                  "relativeRole": "SUBJECT",
+                  "objectRole": null,
+                  "adverbKind": null,
+                  "predicateHeadCardId": "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+                  "finiteVerbCardIds": [
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0"
+                  ],
+                  "gapGovernorNodeId": "node.7",
+                  "cardIds": [
+                    "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card"
+                  ],
+                  "markerCardIds": [
+                    "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned"
+                  ],
+                  "range": [
+                    2,
+                    6
+                  ],
+                  "ownEssentialCardIds": [
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.28.card",
+                    "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+                    "starter.12",
+                    "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+                    "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned"
+                  ],
+                  "ownIssueIds": [],
+                  "validity": "VALID",
+                  "bonusEligible": true
+                }
+              ],
+              "waterwaysTargetSatisfied": true,
+              "consumedTemporaryCardIds": [],
+              "tags": [
+                "FRAME.SV",
+                "TIME.PROGRESSIVE",
+                "TIME.FUTURE_WILL",
+                "TIME.PAST",
+                "CLAUSE.RELATIVE.OBJECT",
+                "CLAUSE.RELATIVE.SUBJECT"
+              ],
+              "preventedDamage": 0,
+              "killed": true,
+              "bossReleased": false
+            }
+          ]
+        }
+      ],
+      "stage8Submissions": [
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1280,
+            "hand": 5,
+            "draw": 53,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 267,
+            "hand": 5,
+            "draw": 53,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "people who clearly knew become hard",
+          "expectedPower": 1013,
+          "usedCardIds": [
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+            "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.26.card",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card",
+            "starter.18",
+            "starter.20"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 267,
+            "hand": 5,
+            "draw": 47,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 33,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 5,
+            "draw": 47,
+            "discard": 13,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 47,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days that said me like parks",
+          "expectedPower": 1121,
+          "usedCardIds": [
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.11.card",
+            "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.2",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card",
+            "starter.07",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.8.card",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.10.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1360,
+            "hand": 4,
+            "draw": 49,
+            "discard": 4,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": true,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 34,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 4,
+            "draw": 49,
+            "discard": 12,
+            "exchangesRemaining": 3,
+            "seal": null,
+            "gold": 51,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "days they said become people who will live",
+          "expectedPower": 1446,
+          "usedCardIds": [
+            "starter.01",
+            "starter.09",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.14.card",
+            "starter.18",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.1.card",
+            "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.08.card.0",
+            "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+            "starter.14"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 5,
+            "hp": 1440,
+            "hand": 3,
+            "draw": 58,
+            "discard": 1,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 2,
+            "turnsRemaining": 4,
+            "hp": 330,
+            "hand": 3,
+            "draw": 58,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "I become days when the book ran",
+          "expectedPower": 1110,
+          "usedCardIds": [
+            "starter.07",
+            "starter.18",
+            "starter.01",
+            "frost.run.e88b5e66-0bd6-4479-b311-c90320385114.waterways.1",
+            "starter.26",
+            "starter.03",
+            "starter.13"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 3,
+            "hp": 330,
+            "hand": 4,
+            "draw": 42,
+            "discard": 17,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 35,
+            "turn": 4,
+            "turnsRemaining": 2,
+            "hp": 0,
+            "hand": 4,
+            "draw": 42,
+            "discard": 22,
+            "exchangesRemaining": 0,
+            "seal": null,
+            "gold": 56,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "quickly they had said parks",
+          "expectedPower": 588,
+          "usedCardIds": [
+            "starter.23",
+            "starter.09",
+            "starter.15",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.16.card",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.10.card"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1520,
+            "hand": 5,
+            "draw": 56,
+            "discard": 0,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 60,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 36,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 5,
+            "draw": 56,
+            "discard": 7,
+            "exchangesRemaining": 4,
+            "seal": null,
+            "gold": 60,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "stories cats were running with send schools",
+          "expectedPower": 1825,
+          "usedCardIds": [
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.34.card",
+            "starter.04",
+            "starter.11",
+            "starter.13",
+            "starter.28",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.20.card",
+            "starter.02"
+          ]
+        },
+        {
+          "action": "SUBMIT",
+          "command": {
+            "type": "SUBMIT"
+          },
+          "before": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 4,
+            "hp": 1600,
+            "hand": 4,
+            "draw": 48,
+            "discard": 8,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 65,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": true,
+            "willOwned": true
+          },
+          "after": {
+            "battle": 37,
+            "turn": 3,
+            "turnsRemaining": 3,
+            "hp": 0,
+            "hand": 4,
+            "draw": 48,
+            "discard": 16,
+            "exchangesRemaining": 2,
+            "seal": null,
+            "gold": 65,
+            "status": "BATTLE",
+            "phase": null,
+            "willInHand": false,
+            "willInSentence": false,
+            "willOwned": true
+          },
+          "sentence": "they environments that will be thinking knew live",
+          "expectedPower": 1793,
+          "usedCardIds": [
+            "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.04.card.1.owned",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.28.card",
+            "shop.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.06.card.0.owned",
+            "entry.run.e88b5e66-0bd6-4479-b311-c90320385114.stage.03.card.0",
+            "starter.12",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.13.card",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.15.card",
+            "reward.offer.run.e88b5e66-0bd6-4479-b311-c90320385114.30.card"
+          ]
+        }
+      ]
+    }
+  ]
+}

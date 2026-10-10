@@ -1,0 +1,246 @@
+{
+  "kind": "PURE_PARSER_MEASUREMENT_NOT_UI_OR_WIN_RATE",
+  "measuredAt": "2026-10-10T14:36:48.914Z",
+  "rows": [
+    {
+      "id": "G013",
+      "sentence": "A child who runs likes a book I made.",
+      "cards": 9,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 3.7676520000000027,
+      "maxMs": 38.797000000000025,
+      "workUnits": 72,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G014",
+      "sentence": "A child who runs likes a book that I made.",
+      "cards": 10,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 1.16157200000001,
+      "maxMs": 2.055999999999983,
+      "workUnits": 81,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G015",
+      "sentence": "A child that runs likes a book I made.",
+      "cards": 9,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 0.6257600000000002,
+      "maxMs": 2.474299999999971,
+      "workUnits": 72,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G016",
+      "sentence": "A book which helps a child I like is good.",
+      "cards": 10,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 1.9016599999999995,
+      "maxMs": 6.3548999999999864,
+      "workUnits": 179,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G017",
+      "sentence": "The child who likes a book I made runs.",
+      "cards": 9,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 1.7143720000000007,
+      "maxMs": 6.526700000000005,
+      "workUnits": 106,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G018",
+      "sentence": "A child who runs likes a dog which plays.",
+      "cards": 9,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 0.5511879999999882,
+      "maxMs": 1.3523000000000138,
+      "workUnits": 61,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G019",
+      "sentence": "A child I like shows a book you made.",
+      "cards": 9,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 0.9572720000000072,
+      "maxMs": 3.213200000000029,
+      "workUnits": 82,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G020",
+      "sentence": "The child who runs is happy and the book I made is good.",
+      "cards": 13,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 2.2671720000000004,
+      "maxMs": 6.687900000000013,
+      "workUnits": 275,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G025",
+      "sentence": "A child who has worked likes the book I made.",
+      "cards": 10,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 1.0603560000000107,
+      "maxMs": 3.219000000000051,
+      "workUnits": 86,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G037",
+      "sentence": "A child who runs likes the school where I work.",
+      "cards": 10,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 0.5816240000000107,
+      "maxMs": 1.6415000000000646,
+      "workUnits": 71,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G041",
+      "sentence": "A child who runs like a book I made.",
+      "cards": 9,
+      "status": "VALID_WITH_ISSUES",
+      "iterations": 25,
+      "averageMs": 0.8413839999999982,
+      "maxMs": 2.3899000000000115,
+      "workUnits": 72,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "G042",
+      "sentence": "A child who run likes a book I made.",
+      "cards": 9,
+      "status": "VALID_WITH_ISSUES",
+      "iterations": 25,
+      "averageMs": 0.8658839999999963,
+      "maxMs": 2.046899999999937,
+      "workUnits": 75,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "Q031",
+      "sentence": "Who likes the child who knows the book I made?",
+      "cards": 10,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 1.3218920000000163,
+      "maxMs": 2.749400000000037,
+      "workUnits": 133,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "R002",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "cards": 12,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 3.5005480000000126,
+      "maxMs": 38.388000000000034,
+      "workUnits": 164,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "R003",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "cards": 12,
+      "status": "VALID_WITH_ISSUES",
+      "iterations": 25,
+      "averageMs": 1.5600800000000117,
+      "maxMs": 3.4477000000000544,
+      "workUnits": 164,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    },
+    {
+      "id": "R004",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "cards": 16,
+      "status": "VALID",
+      "iterations": 25,
+      "averageMs": 5.729616000000005,
+      "maxMs": 10.324100000000044,
+      "workUnits": 851,
+      "limits": {
+        "work": 90000,
+        "depth": 6,
+        "candidates": 128
+      }
+    }
+  ]
+}

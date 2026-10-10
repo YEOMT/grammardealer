@@ -1,0 +1,201 @@
+{
+  "startMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+  "implementationCommit": "127936b363417dc4a89c883ea54bd7ad6a6e8b20",
+  "branch": "codex/v0.8-ancient-waterways-relative-seal",
+  "startedClean": true,
+  "dependenciesUnchanged": true,
+  "lockfileChanges": "root package version0.7.0→0.8.0 only",
+  "protectedFiles": [
+    {
+      "path": "AGENTS.md",
+      "gitBaseSha256": "1f8b59e62b19487450602d3ae52661c87283a6ef227d16fe86654f8fce6b49d4",
+      "workingSha256": "1f8b59e62b19487450602d3ae52661c87283a6ef227d16fe86654f8fce6b49d4",
+      "contentUnchanged": true
+    },
+    {
+      "path": ".github/workflows/deploy-pages.yml",
+      "gitBaseSha256": "852164f1895f85f9590647a6b95033941028c21b428fc667c583d647e253d987",
+      "workingSha256": "852164f1895f85f9590647a6b95033941028c21b428fc667c583d647e253d987",
+      "contentUnchanged": true
+    },
+    {
+      "path": "vite.config.js",
+      "gitBaseSha256": "0dd886def51991b96a061a1ca3d5f8850586d82b286341a65bb8d5c83b628a62",
+      "workingSha256": "0dd886def51991b96a061a1ca3d5f8850586d82b286341a65bb8d5c83b628a62",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage2.js",
+      "gitBaseSha256": "825bd26292a3b4e51dd729dd2a77bb57c92d7f72fb8b05ddd1b440fc06a7975d",
+      "workingSha256": "825bd26292a3b4e51dd729dd2a77bb57c92d7f72fb8b05ddd1b440fc06a7975d",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage3.js",
+      "gitBaseSha256": "1ca50e1795eac07440d2bb2a362fc1a062a4660c8510d34c3907d2f7f840bff1",
+      "workingSha256": "1ca50e1795eac07440d2bb2a362fc1a062a4660c8510d34c3907d2f7f840bff1",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage4.js",
+      "gitBaseSha256": "8cd7d344cc8c9cfa9aa5bc75d855bb28d62765583fb1751f6ad35ed731899b5d",
+      "workingSha256": "8cd7d344cc8c9cfa9aa5bc75d855bb28d62765583fb1751f6ad35ed731899b5d",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage5.js",
+      "gitBaseSha256": "03bb6155240cba74da70390d264cabb159f3584b2ad026a2ab3928e6acfd4be0",
+      "workingSha256": "03bb6155240cba74da70390d264cabb159f3584b2ad026a2ab3928e6acfd4be0",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage6.js",
+      "gitBaseSha256": "9e2fd5c7373e7df137160e367fb110b6cc7389b9c030f3ce8fa803c8e7da990f",
+      "workingSha256": "9e2fd5c7373e7df137160e367fb110b6cc7389b9c030f3ce8fa803c8e7da990f",
+      "contentUnchanged": true
+    },
+    {
+      "path": "src/data/stage7.js",
+      "gitBaseSha256": "9efc3339a8c295a117a5c4ac7ec623855b786937d3ac95fb7b409dd7d76244a7",
+      "workingSha256": "9efc3339a8c295a117a5c4ac7ec623855b786937d3ac95fb7b409dd7d76244a7",
+      "contentUnchanged": true
+    }
+  ],
+  "attachmentExpectations": [
+    {
+      "path": "tests/fixtures/v08/02_Config_0.8.json",
+      "sha256": "ba12c9afb30f6efb8561c437601a3c8b4c68d7d721d97adb3616d762919fe7de",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/03_Grammar_Cases_0.8.json",
+      "sha256": "eccc4e1803d2cae4b16f9e88bb0c6a5791f3a2a881626e65ff116996b8f706b8",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/04_Entry_Frost_Shop_Save_Cases_0.8.json",
+      "sha256": "ad31ee59f96fc7661334cc8a76460ed22ac406aec33b62eb9629ddc533ccc3db",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/05_Boss_Cases_0.8.json",
+      "sha256": "37f886b9f8077262a32f995e6ac14358edf023a3068dc8f88fcef378de389e7e",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/06_Score_Cases_0.8.json",
+      "sha256": "e0ca8b5c18d02dcc9e10f273fc147c8c3e49c5a73ed8e9d36e85e5542acf87b5",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/07_UI_Learning_QA_0.8.json",
+      "sha256": "dead8185953adc02c75b42da203563660afc7041e7a23962133a4740ca755425",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/08_Source_Map_0.8.json",
+      "sha256": "40f1240ed6afa2a6d37b8279b70a37d8ffd98d6996571d54af5b828e0913544e",
+      "unchangedAttachment": true
+    },
+    {
+      "path": "tests/fixtures/v08/09_Acceptance_0.8.json",
+      "sha256": "c806050f0c4f635fa1e54e162a941d9c3cba27bc4c5f464ae5b8c190f079f2b5",
+      "unchangedAttachment": true
+    }
+  ],
+  "implementationFiles": [
+    "package-lock.json",
+    "package.json",
+    "spec/SyntaxAtlas_0.8_Codex_Spec.md",
+    "src/contracts.js",
+    "src/data/balance.js",
+    "src/data/campaignFeatures.js",
+    "src/data/grammarDisplay.js",
+    "src/data/grammarGuideData.js",
+    "src/data/language/index.js",
+    "src/data/language/waterwaysLanguage.js",
+    "src/data/runes.js",
+    "src/data/stage1.js",
+    "src/data/stage8.js",
+    "src/data/stages.js",
+    "src/engine/comboEligibility.js",
+    "src/engine/dualRelativeSeal.js",
+    "src/engine/emberScaleShield.js",
+    "src/engine/grammar/index.js",
+    "src/engine/grammar/parser.js",
+    "src/engine/grammar/skyEvidence.js",
+    "src/engine/grammar/verbPhrase.js",
+    "src/engine/learningRecords.js",
+    "src/engine/presentation.js",
+    "src/engine/runes.js",
+    "src/engine/scoring.js",
+    "src/engine/stage.js",
+    "src/game/ancientWaterways.js",
+    "src/game/guidedTutorial.js",
+    "src/game/invariants.js",
+    "src/game/operationHistory.js",
+    "src/game/rewards.js",
+    "src/game/runController.js",
+    "src/game/shop.js",
+    "src/game/skyShopValidation.js",
+    "src/game/temporaryCards.js",
+    "src/game/timeCanyon.js",
+    "src/game/turnHandSeal.js",
+    "src/game/waterwaysFrost.js",
+    "src/game/wishDesert.js",
+    "src/main.js",
+    "src/services/localStore.js",
+    "src/ui/combat.js",
+    "src/ui/lobby.js",
+    "src/ui/overlays.js",
+    "src/ui/progression.js",
+    "src/ui/shop.js",
+    "src/ui/styles.css",
+    "src/ui/theme.js",
+    "tests/e2e.mjs",
+    "tests/ember-browser.mjs",
+    "tests/fixtures/v08/02_Config_0.8.json",
+    "tests/fixtures/v08/03_Grammar_Cases_0.8.json",
+    "tests/fixtures/v08/04_Entry_Frost_Shop_Save_Cases_0.8.json",
+    "tests/fixtures/v08/05_Boss_Cases_0.8.json",
+    "tests/fixtures/v08/06_Score_Cases_0.8.json",
+    "tests/fixtures/v08/07_UI_Learning_QA_0.8.json",
+    "tests/fixtures/v08/08_Source_Map_0.8.json",
+    "tests/fixtures/v08/09_Acceptance_0.8.json",
+    "tests/fixtures/v08/legacy-07-hashes.json",
+    "tests/fixtures/v08/legacy-07-shops-reference.json",
+    "tests/helpers/ember-state.js",
+    "tests/helpers/legacy-07-baseline.js",
+    "tests/helpers/legacy-07-controller.js",
+    "tests/helpers/legacy-07-shops.js",
+    "tests/helpers/waterways-state.js",
+    "tests/v02-ui-browser.mjs",
+    "tests/v07-grammar.test.js",
+    "tests/v08-boss.test.js",
+    "tests/v08-entry-frost.test.js",
+    "tests/v08-grammar.test.js",
+    "tests/v08-legacy.test.js",
+    "tests/v08-scoring.test.js",
+    "tests/waterways-browser.mjs",
+    "tests/waterways-e2e.mjs",
+    "tools/simulate-runs.js",
+    "tools/simulate-waterways-decks.js",
+    "tools/simulate-waterways-runs.js",
+    "tools/sky-candidates.js",
+    "tools/waterways-candidates.js"
+  ],
+  "workflowDeployGuard": "main only; pull_request never uploads/deploys Pages; workflow unchanged",
+  "publicationState": "FINAL_LOCAL_VERIFICATION_COMPLETE_WITH_CROSS_BROWSER_BLOCKER; branch push and Draft PR next",
+  "sourceFrozenSinceImplementationCommit": true,
+  "postProductionRunnerChange": "tests/e2e.mjs console label only: Stage8 first shop -> fourth shop; no assertion or control-flow change",
+  "latestChecks": {
+    "unit": 1347,
+    "data": 3046,
+    "stage8Browser": 159,
+    "entryStrategies": 9,
+    "emberBrowser": 117,
+    "production37": "PASS",
+    "stage8LearningTargets": 5,
+    "crossBrowser": "FAIL_NATIVE_WEBKIT_TIMEOUT"
+  }
+}

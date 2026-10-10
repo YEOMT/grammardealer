@@ -1,0 +1,1723 @@
+{
+  "kind": "ACTUAL_PRODUCTION_UI_HAND_COURSE_SEPARATE_FROM_COMPLETION",
+  "courseRequested": true,
+  "results": [
+    {
+      "battle": 33,
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 33,
+          "sentence": "people who clearly knew become hard",
+          "tags": [
+            "FRAME.SVC",
+            "MODIFIER.ADVERB",
+            "TIME.PAST",
+            "CLAUSE.RELATIVE.SUBJECT"
+          ],
+          "formUses": [],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.2",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.33.2",
+              "antecedentNodeId": "node.1",
+              "antecedentHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "markerCardId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "markerLemma": "who",
+              "markerOmitted": false,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "SUBJECT",
+              "objectRole": null,
+              "adverbKind": null,
+              "predicateHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "finiteVerbCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card"
+              ],
+              "gapGovernorNodeId": "node.6",
+              "cardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.26.card",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card"
+              ],
+              "markerCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0"
+              ],
+              "range": [
+                1,
+                4
+              ],
+              "ownEssentialCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "cardDefId": "card.person",
+              "lexemeId": "lex.person.noun",
+              "selectionId": "form.person.plural",
+              "surface": "people",
+              "allowedFormCandidates": [
+                "form.person.plural"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "cardDefId": "card.who",
+              "lexemeId": "lex.who.function",
+              "selectionId": "form.who.base",
+              "surface": "who",
+              "allowedFormCandidates": [
+                "form.who.base"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.26.card",
+              "cardDefId": "card.clearly",
+              "lexemeId": "lex.clearly.adverb",
+              "selectionId": "form.clearly.base",
+              "surface": "clearly",
+              "allowedFormCandidates": [
+                "form.clearly.base"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "cardDefId": "card.know",
+              "lexemeId": "lex.know.verb",
+              "selectionId": "form.know.past",
+              "surface": "knew",
+              "allowedFormCandidates": [
+                "form.know.past"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "starter.18",
+              "cardDefId": "card.become",
+              "lexemeId": "lex.become.verb",
+              "selectionId": "form.become.present",
+              "surface": "become",
+              "allowedFormCandidates": [
+                "form.become.present",
+                "form.become.pp"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "starter.20",
+              "cardDefId": "card.hard",
+              "lexemeId": "lex.hard.adjective",
+              "selectionId": "form.hard.base",
+              "surface": "hard",
+              "allowedFormCandidates": [
+                "form.hard.base"
+              ],
+              "position": 5
+            }
+          ],
+          "actualHpLoss": 1013,
+          "enemyHpBefore": 1280,
+          "enemyHpAfter": 267,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.26.card",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.18",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.20",
+              "after": 60
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 90
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 144
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 172
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 344
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADVERB",
+              "after": 349
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 369
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 811
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1013
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1013
+            }
+          ],
+          "physicalCardIds": [
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+            "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.26.card",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+            "starter.18",
+            "starter.20"
+          ]
+        },
+        {
+          "battle": 33,
+          "sentence": "days that said me like parks",
+          "tags": [
+            "FRAME.SVO",
+            "TIME.PAST",
+            "CLAUSE.RELATIVE.SUBJECT"
+          ],
+          "formUses": [],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.2",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.33.4",
+              "antecedentNodeId": "node.1",
+              "antecedentHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.11.card",
+              "markerCardId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2",
+              "markerLemma": "that",
+              "markerOmitted": false,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "SUBJECT",
+              "objectRole": null,
+              "adverbKind": null,
+              "predicateHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "finiteVerbCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card"
+              ],
+              "gapGovernorNodeId": "node.4",
+              "cardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+                "starter.07"
+              ],
+              "markerCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2"
+              ],
+              "range": [
+                1,
+                4
+              ],
+              "ownEssentialCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.11.card",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.11.card",
+              "cardDefId": "card.day",
+              "lexemeId": "lex.day.noun",
+              "selectionId": "form.day.plural",
+              "surface": "days",
+              "allowedFormCandidates": [
+                "form.day.plural"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2",
+              "cardDefId": "card.that",
+              "lexemeId": "lex.that.function",
+              "selectionId": "form.that.base",
+              "surface": "that",
+              "allowedFormCandidates": [
+                "form.that.base"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "cardDefId": "card.say",
+              "lexemeId": "lex.say.verb",
+              "selectionId": "form.say.past",
+              "surface": "said",
+              "allowedFormCandidates": [
+                "form.say.past",
+                "form.say.pp"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "starter.07",
+              "cardDefId": "card.i",
+              "lexemeId": "lex.i.pronoun",
+              "selectionId": "form.i.object",
+              "surface": "me",
+              "allowedFormCandidates": [
+                "form.i.object"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.8.card",
+              "cardDefId": "card.like",
+              "lexemeId": "lex.like.verb",
+              "selectionId": "form.like.present",
+              "surface": "like",
+              "allowedFormCandidates": [
+                "form.like.present"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card",
+              "cardDefId": "card.park",
+              "lexemeId": "lex.park.noun",
+              "selectionId": "form.park.plural",
+              "surface": "parks",
+              "allowedFormCandidates": [
+                "form.park.plural"
+              ],
+              "position": 5
+            }
+          ],
+          "actualHpLoss": 267,
+          "enemyHpBefore": 267,
+          "enemyHpAfter": 0,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.11.card",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.07",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.8.card",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card",
+              "after": 60
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 90
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVO",
+              "after": 162
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 194
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 388
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 408
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 897
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1121
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1121
+            }
+          ],
+          "physicalCardIds": [
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.11.card",
+            "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.2",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+            "starter.07",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.8.card",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 34,
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 34,
+          "sentence": "days they said become people who will live",
+          "tags": [
+            "FRAME.SVC",
+            "TIME.PAST",
+            "TIME.FUTURE_WILL",
+            "CLAUSE.RELATIVE.OBJECT",
+            "CLAUSE.RELATIVE.SUBJECT"
+          ],
+          "formUses": [],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.2",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.34.3",
+              "antecedentNodeId": "node.1",
+              "antecedentHeadCardId": "starter.01",
+              "markerCardId": null,
+              "markerLemma": null,
+              "markerOmitted": true,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "OBJECT",
+              "objectRole": "DIRECT_OBJECT",
+              "adverbKind": null,
+              "predicateHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card",
+              "finiteVerbCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card"
+              ],
+              "gapGovernorNodeId": "node.5",
+              "cardIds": [
+                "starter.09",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card"
+              ],
+              "markerCardIds": [],
+              "range": [
+                1,
+                3
+              ],
+              "ownEssentialCardIds": [
+                "starter.01",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            },
+            {
+              "id": "relative.1",
+              "nodeId": "node.8",
+              "childClauseId": "clause.2",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.34.3",
+              "antecedentNodeId": "node.7",
+              "antecedentHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "markerCardId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "markerLemma": "who",
+              "markerOmitted": false,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "SUBJECT",
+              "objectRole": null,
+              "adverbKind": null,
+              "predicateHeadCardId": "starter.14",
+              "finiteVerbCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0"
+              ],
+              "gapGovernorNodeId": "node.10",
+              "cardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.14"
+              ],
+              "markerCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0"
+              ],
+              "range": [
+                5,
+                8
+              ],
+              "ownEssentialCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.14",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "starter.01",
+              "cardDefId": "card.day",
+              "lexemeId": "lex.day.noun",
+              "selectionId": "form.day.plural",
+              "surface": "days",
+              "allowedFormCandidates": [
+                "form.day.plural"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.09",
+              "cardDefId": "card.they",
+              "lexemeId": "lex.they.pronoun",
+              "selectionId": "form.they.subject",
+              "surface": "they",
+              "allowedFormCandidates": [
+                "form.they.subject"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card",
+              "cardDefId": "card.say",
+              "lexemeId": "lex.say.verb",
+              "selectionId": "form.say.past",
+              "surface": "said",
+              "allowedFormCandidates": [
+                "form.say.past",
+                "form.say.pp"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "starter.18",
+              "cardDefId": "card.become",
+              "lexemeId": "lex.become.verb",
+              "selectionId": "form.become.present",
+              "surface": "become",
+              "allowedFormCandidates": [
+                "form.become.present",
+                "form.become.pp"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "cardDefId": "card.person",
+              "lexemeId": "lex.person.noun",
+              "selectionId": "form.person.plural",
+              "surface": "people",
+              "allowedFormCandidates": [
+                "form.person.plural"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "cardDefId": "card.who",
+              "lexemeId": "lex.who.function",
+              "selectionId": "form.who.base",
+              "surface": "who",
+              "allowedFormCandidates": [
+                "form.who.base"
+              ],
+              "position": 5
+            },
+            {
+              "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+              "cardDefId": "card.will",
+              "lexemeId": "lex.will.verb",
+              "selectionId": "form.will.base",
+              "surface": "will",
+              "allowedFormCandidates": [
+                "form.will.base"
+              ],
+              "position": 6
+            },
+            {
+              "cardInstanceId": "starter.14",
+              "cardDefId": "card.live",
+              "lexemeId": "lex.live.verb",
+              "selectionId": "form.live.present",
+              "surface": "live",
+              "allowedFormCandidates": [
+                "form.live.present"
+              ],
+              "position": 7
+            }
+          ],
+          "actualHpLoss": 1360,
+          "enemyHpBefore": 1360,
+          "enemyHpAfter": 0,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.01",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.09",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.18",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+              "after": 60
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+              "after": 70
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.14",
+              "after": 80
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 110
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 176
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 211
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.FUTURE_WILL",
+              "after": 253
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 506
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 526
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 1157
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1446
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1446
+            }
+          ],
+          "physicalCardIds": [
+            "starter.01",
+            "starter.09",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.14.card",
+            "starter.18",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.1.card",
+            "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.08.card.0",
+            "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+            "starter.14"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 35,
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 35,
+          "sentence": "I become days when the book ran",
+          "tags": [
+            "FRAME.SVC",
+            "TIME.PAST",
+            "CLAUSE.RELATIVE.ADVERBIAL"
+          ],
+          "formUses": [],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.4",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.35.2",
+              "antecedentNodeId": "node.3",
+              "antecedentHeadCardId": "starter.01",
+              "markerCardId": "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1",
+              "markerLemma": "when",
+              "markerOmitted": false,
+              "kind": "RELATIVE_ADVERB",
+              "relativeRole": "ADVERBIAL",
+              "objectRole": null,
+              "adverbKind": "TIME",
+              "predicateHeadCardId": "starter.13",
+              "finiteVerbCardIds": [
+                "starter.13"
+              ],
+              "gapGovernorNodeId": "node.7",
+              "cardIds": [
+                "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1",
+                "starter.26",
+                "starter.03",
+                "starter.13"
+              ],
+              "markerCardIds": [
+                "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1"
+              ],
+              "range": [
+                3,
+                7
+              ],
+              "ownEssentialCardIds": [
+                "starter.01",
+                "starter.13",
+                "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [
+            "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1"
+          ],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "starter.07",
+              "cardDefId": "card.i",
+              "lexemeId": "lex.i.pronoun",
+              "selectionId": "form.i.subject",
+              "surface": "I",
+              "allowedFormCandidates": [
+                "form.i.subject"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.18",
+              "cardDefId": "card.become",
+              "lexemeId": "lex.become.verb",
+              "selectionId": "form.become.present",
+              "surface": "become",
+              "allowedFormCandidates": [
+                "form.become.present",
+                "form.become.pp"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "starter.01",
+              "cardDefId": "card.day",
+              "lexemeId": "lex.day.noun",
+              "selectionId": "form.day.plural",
+              "surface": "days",
+              "allowedFormCandidates": [
+                "form.day.plural"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1",
+              "cardDefId": "card.when",
+              "lexemeId": "lex.when.function",
+              "selectionId": "form.when.base",
+              "surface": "when",
+              "allowedFormCandidates": [
+                "form.when.base"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "starter.26",
+              "cardDefId": "card.the",
+              "lexemeId": "lex.the.determiner",
+              "selectionId": "form.the.base",
+              "surface": "the",
+              "allowedFormCandidates": [
+                "form.the.base"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "starter.03",
+              "cardDefId": "card.book",
+              "lexemeId": "lex.book.noun",
+              "selectionId": "form.book.singular",
+              "surface": "book",
+              "allowedFormCandidates": [
+                "form.book.singular"
+              ],
+              "position": 5
+            },
+            {
+              "cardInstanceId": "starter.13",
+              "cardDefId": "card.run",
+              "lexemeId": "lex.run.verb",
+              "selectionId": "form.run.past",
+              "surface": "ran",
+              "allowedFormCandidates": [
+                "form.run.past"
+              ],
+              "position": 6
+            }
+          ],
+          "actualHpLoss": 1110,
+          "enemyHpBefore": 1440,
+          "enemyHpAfter": 330,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.07",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.18",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.01",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.26",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.03",
+              "after": 60
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.13",
+              "after": 70
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 100
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVC",
+              "after": 160
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 192
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 384
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 404
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 888
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1110
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1110
+            }
+          ],
+          "physicalCardIds": [
+            "starter.07",
+            "starter.18",
+            "starter.01",
+            "frost.run.6c966144-a9b3-4287-8b53-095025674518.waterways.1",
+            "starter.26",
+            "starter.03",
+            "starter.13"
+          ]
+        },
+        {
+          "battle": 35,
+          "sentence": "quickly they had said parks",
+          "tags": [
+            "FRAME.SVO",
+            "MODIFIER.ADVERB",
+            "TIME.PAST",
+            "TIME.PERFECT"
+          ],
+          "formUses": [
+            {
+              "useId": "formUse.0",
+              "formCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "resolvedMorphology": "PP",
+              "function": "PERFECT",
+              "phraseCardIds": [
+                "starter.15",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card"
+              ],
+              "headCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "targetNPId": null,
+              "targetHeadCardId": null,
+              "parentClauseId": "clause.main",
+              "sourceVerbSenseId": "lex.say.verb.sense.basic",
+              "validity": "VALID",
+              "excludedCardIds": []
+            }
+          ],
+          "relativeClauses": [],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": false,
+          "tokens": [
+            {
+              "cardInstanceId": "starter.23",
+              "cardDefId": "card.quickly",
+              "lexemeId": "lex.quickly.adverb",
+              "selectionId": "form.quickly.base",
+              "surface": "quickly",
+              "allowedFormCandidates": [
+                "form.quickly.base"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.09",
+              "cardDefId": "card.they",
+              "lexemeId": "lex.they.pronoun",
+              "selectionId": "form.they.subject",
+              "surface": "they",
+              "allowedFormCandidates": [
+                "form.they.subject"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "starter.15",
+              "cardDefId": "card.have",
+              "lexemeId": "lex.have.verb",
+              "selectionId": "form.have.past",
+              "surface": "had",
+              "allowedFormCandidates": [
+                "form.have.past",
+                "form.have.pp"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "cardDefId": "card.say",
+              "lexemeId": "lex.say.verb",
+              "selectionId": "form.say.pp",
+              "surface": "said",
+              "allowedFormCandidates": [
+                "form.say.past",
+                "form.say.pp"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card",
+              "cardDefId": "card.park",
+              "lexemeId": "lex.park.noun",
+              "selectionId": "form.park.plural",
+              "surface": "parks",
+              "allowedFormCandidates": [
+                "form.park.plural"
+              ],
+              "position": 4
+            }
+          ],
+          "actualHpLoss": 330,
+          "enemyHpBefore": 330,
+          "enemyHpAfter": 0,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.23",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.09",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.15",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card",
+              "after": 50
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 80
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVO",
+              "after": 144
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 172
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PERFECT",
+              "after": 240
+            },
+            {
+              "phase": "SIMPLE_MODIFIERS",
+              "sourceId": "MODIFIER.ADVERB",
+              "after": 245
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 265
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 583
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.adverbs",
+              "after": 588
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 588
+            }
+          ],
+          "physicalCardIds": [
+            "starter.23",
+            "starter.09",
+            "starter.15",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.16.card",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.10.card"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 36,
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 36,
+          "sentence": "stories cats were running with send schools",
+          "tags": [
+            "FRAME.SVO",
+            "TIME.PAST",
+            "TIME.PROGRESSIVE",
+            "CLAUSE.RELATIVE.OBJECT"
+          ],
+          "formUses": [
+            {
+              "useId": "formUse.0",
+              "formCardId": "starter.13",
+              "resolvedMorphology": "ING",
+              "function": "PROGRESSIVE",
+              "phraseCardIds": [
+                "starter.11",
+                "starter.13"
+              ],
+              "headCardId": "starter.13",
+              "targetNPId": null,
+              "targetHeadCardId": null,
+              "parentClauseId": "clause.1",
+              "sourceVerbSenseId": "lex.run.verb.sense.basic",
+              "validity": "VALID",
+              "excludedCardIds": []
+            }
+          ],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.2",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.36.3",
+              "antecedentNodeId": "node.1",
+              "antecedentHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.34.card",
+              "markerCardId": null,
+              "markerLemma": null,
+              "markerOmitted": true,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "OBJECT",
+              "objectRole": "PREPOSITION_OBJECT",
+              "adverbKind": null,
+              "predicateHeadCardId": "starter.13",
+              "finiteVerbCardIds": [
+                "starter.11"
+              ],
+              "gapGovernorNodeId": "node.5",
+              "cardIds": [
+                "starter.04",
+                "starter.11",
+                "starter.13",
+                "starter.28"
+              ],
+              "markerCardIds": [],
+              "range": [
+                1,
+                5
+              ],
+              "ownEssentialCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.34.card",
+                "starter.11",
+                "starter.13"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.34.card",
+              "cardDefId": "card.story",
+              "lexemeId": "lex.story.noun",
+              "selectionId": "form.story.plural",
+              "surface": "stories",
+              "allowedFormCandidates": [
+                "form.story.plural"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "starter.04",
+              "cardDefId": "card.cat",
+              "lexemeId": "lex.cat.noun",
+              "selectionId": "form.cat.plural",
+              "surface": "cats",
+              "allowedFormCandidates": [
+                "form.cat.plural"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "starter.11",
+              "cardDefId": "card.be",
+              "lexemeId": "lex.be.verb",
+              "selectionId": "form.be.were",
+              "surface": "were",
+              "allowedFormCandidates": [
+                "form.be.were"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "starter.13",
+              "cardDefId": "card.run",
+              "lexemeId": "lex.run.verb",
+              "selectionId": "form.run.ing",
+              "surface": "running",
+              "allowedFormCandidates": [
+                "form.run.ing"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "starter.28",
+              "cardDefId": "card.with",
+              "lexemeId": "lex.with.preposition",
+              "selectionId": "form.with.base",
+              "surface": "with",
+              "allowedFormCandidates": [
+                "form.with.base"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.20.card",
+              "cardDefId": "card.send",
+              "lexemeId": "lex.send.verb",
+              "selectionId": "form.send.present",
+              "surface": "send",
+              "allowedFormCandidates": [
+                "form.send.present"
+              ],
+              "position": 5
+            },
+            {
+              "cardInstanceId": "starter.02",
+              "cardDefId": "card.school",
+              "lexemeId": "lex.school.noun",
+              "selectionId": "form.school.plural",
+              "surface": "schools",
+              "allowedFormCandidates": [
+                "form.school.plural"
+              ],
+              "position": 6
+            }
+          ],
+          "actualHpLoss": 1520,
+          "enemyHpBefore": 1520,
+          "enemyHpAfter": 0,
+          "bossWitness": null,
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.34.card",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.04",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.11",
+              "after": 45
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.13",
+              "after": 55
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.28",
+              "after": 65
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.20.card",
+              "after": 75
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.02",
+              "after": 85
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 115
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SVO",
+              "after": 207
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 248
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PROGRESSIVE",
+              "after": 322
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 644
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 664
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 1460
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1825
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1825
+            }
+          ],
+          "physicalCardIds": [
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.34.card",
+            "starter.04",
+            "starter.11",
+            "starter.13",
+            "starter.28",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.20.card",
+            "starter.02"
+          ]
+        }
+      ]
+    },
+    {
+      "battle": 37,
+      "status": "PASS",
+      "evidence": [
+        {
+          "battle": 37,
+          "sentence": "they environments that will be thinking knew live",
+          "tags": [
+            "FRAME.SV",
+            "TIME.PROGRESSIVE",
+            "TIME.FUTURE_WILL",
+            "TIME.PAST",
+            "CLAUSE.RELATIVE.OBJECT",
+            "CLAUSE.RELATIVE.SUBJECT"
+          ],
+          "formUses": [
+            {
+              "useId": "formUse.0",
+              "formCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+              "resolvedMorphology": "ING",
+              "function": "PROGRESSIVE",
+              "phraseCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.12",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card"
+              ],
+              "headCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+              "targetNPId": null,
+              "targetHeadCardId": null,
+              "parentClauseId": "clause.2",
+              "sourceVerbSenseId": "lex.think.verb.sense.basic",
+              "validity": "VALID",
+              "excludedCardIds": []
+            }
+          ],
+          "relativeClauses": [
+            {
+              "id": "relative.0",
+              "nodeId": "node.2",
+              "childClauseId": "clause.1",
+              "parentClauseId": "clause.main",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.37.3",
+              "antecedentNodeId": "node.1",
+              "antecedentHeadCardId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+              "markerCardId": null,
+              "markerLemma": null,
+              "markerOmitted": true,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "OBJECT",
+              "objectRole": "DIRECT_OBJECT",
+              "adverbKind": null,
+              "predicateHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "finiteVerbCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card"
+              ],
+              "gapGovernorNodeId": "node.8",
+              "cardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+                "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.12",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card"
+              ],
+              "markerCardIds": [],
+              "range": [
+                1,
+                7
+              ],
+              "ownEssentialCardIds": [
+                "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            },
+            {
+              "id": "relative.1",
+              "nodeId": "node.5",
+              "childClauseId": "clause.2",
+              "parentClauseId": "clause.1",
+              "rootSentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.37.3",
+              "antecedentNodeId": "node.4",
+              "antecedentHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+              "markerCardId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+              "markerLemma": "that",
+              "markerOmitted": false,
+              "kind": "RELATIVE_PRONOUN",
+              "relativeRole": "SUBJECT",
+              "objectRole": null,
+              "adverbKind": null,
+              "predicateHeadCardId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+              "finiteVerbCardIds": [
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0"
+              ],
+              "gapGovernorNodeId": "node.7",
+              "cardIds": [
+                "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.12",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card"
+              ],
+              "markerCardIds": [
+                "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned"
+              ],
+              "range": [
+                2,
+                6
+              ],
+              "ownEssentialCardIds": [
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+                "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+                "starter.12",
+                "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+                "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned"
+              ],
+              "ownIssueIds": [],
+              "validity": "VALID",
+              "bonusEligible": true
+            }
+          ],
+          "consumedTemporaryCardIds": [],
+          "waterwaysTargetSatisfied": true,
+          "tokens": [
+            {
+              "cardInstanceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+              "cardDefId": "card.they",
+              "lexemeId": "lex.they.pronoun",
+              "selectionId": "form.they.subject",
+              "surface": "they",
+              "allowedFormCandidates": [
+                "form.they.subject"
+              ],
+              "position": 0
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+              "cardDefId": "card.environment",
+              "lexemeId": "lex.environment.noun",
+              "selectionId": "form.environment.plural",
+              "surface": "environments",
+              "allowedFormCandidates": [
+                "form.environment.plural"
+              ],
+              "position": 1
+            },
+            {
+              "cardInstanceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+              "cardDefId": "card.that",
+              "lexemeId": "lex.that.function",
+              "selectionId": "form.that.base",
+              "surface": "that",
+              "allowedFormCandidates": [
+                "form.that.base"
+              ],
+              "position": 2
+            },
+            {
+              "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+              "cardDefId": "card.will",
+              "lexemeId": "lex.will.verb",
+              "selectionId": "form.will.base",
+              "surface": "will",
+              "allowedFormCandidates": [
+                "form.will.base"
+              ],
+              "position": 3
+            },
+            {
+              "cardInstanceId": "starter.12",
+              "cardDefId": "card.be",
+              "lexemeId": "lex.be.verb",
+              "selectionId": "form.be.base",
+              "surface": "be",
+              "allowedFormCandidates": [
+                "form.be.base"
+              ],
+              "position": 4
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+              "cardDefId": "card.think",
+              "lexemeId": "lex.think.verb",
+              "selectionId": "form.think.ing",
+              "surface": "thinking",
+              "allowedFormCandidates": [
+                "form.think.ing"
+              ],
+              "position": 5
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "cardDefId": "card.know",
+              "lexemeId": "lex.know.verb",
+              "selectionId": "form.know.past",
+              "surface": "knew",
+              "allowedFormCandidates": [
+                "form.know.past"
+              ],
+              "position": 6
+            },
+            {
+              "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.30.card",
+              "cardDefId": "card.live",
+              "lexemeId": "lex.live.verb",
+              "selectionId": "form.live.present",
+              "surface": "live",
+              "allowedFormCandidates": [
+                "form.live.present"
+              ],
+              "position": 7
+            }
+          ],
+          "actualHpLoss": 1600,
+          "enemyHpBefore": 1600,
+          "enemyHpAfter": 0,
+          "bossWitness": {
+            "sentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.37.3",
+            "subjectRelativeId": "relative.1",
+            "objectRelativeId": "relative.0",
+            "subjectEvidenceDigest": "6f4131fb",
+            "objectEvidenceDigest": "048962e7"
+          },
+          "scoreEvents": [
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+              "after": 10
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+              "after": 20
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+              "after": 30
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+              "after": 40
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "starter.12",
+              "after": 50
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+              "after": 60
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+              "after": 70
+            },
+            {
+              "phase": "CARD_BASE",
+              "sourceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.30.card",
+              "after": 80
+            },
+            {
+              "phase": "COMPLETE_BONUS",
+              "sourceId": "COMPLETE_SENTENCE",
+              "after": 110
+            },
+            {
+              "phase": "MAIN_FRAME",
+              "sourceId": "FRAME.SV",
+              "after": 143
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PAST",
+              "after": 171
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.PROGRESSIVE",
+              "after": 222
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "TIME.FUTURE_WILL",
+              "after": 266
+            },
+            {
+              "phase": "CONSTRUCTIONS",
+              "sourceId": "CLAUSE.RELATIVE",
+              "after": 532
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.perfectSentence",
+              "after": 552
+            },
+            {
+              "phase": "RUNES",
+              "sourceId": "rune.longSentence",
+              "after": 1435
+            },
+            {
+              "phase": "REGION",
+              "sourceId": "stage.08",
+              "after": 1793
+            },
+            {
+              "phase": "BOSS",
+              "sourceId": "boss.dualRelativeSeal",
+              "after": 1793
+            },
+            {
+              "phase": "FINAL_POWER",
+              "sourceId": "FINAL_POWER",
+              "after": 1793
+            }
+          ],
+          "physicalCardIds": [
+            "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+            "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+            "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+            "starter.12",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+            "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.30.card"
+          ]
+        }
+      ]
+    }
+  ]
+}

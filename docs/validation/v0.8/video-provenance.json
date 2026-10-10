@@ -1,0 +1,16 @@
+[
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "localPath": ".local-validation/v08/waterways-final/ASSIGNED-chromium-play.webm",
+    "sha256": "aeeb9553f97bf58a22dae87d5c7edb38f98ed2252cfcccec43007ccbf8ca5b48",
+    "bytes": 13590374,
+    "sound": "No recorded audio; not speaker listening evidence"
+  },
+  {
+    "kind": "ACTUAL_PRODUCTION_UI_37_BATTLES_AND_STAGE8_COURSE",
+    "localPath": ".local-validation/v08/e2e-waterways-course/production-play.webm",
+    "sha256": "3ffa201747b154b07eb7364cd76d9be8447e2c7a5b148b1b380e1584f5616c0d",
+    "bytes": 75984043,
+    "sound": "No recorded audio; not speaker listening evidence"
+  }
+]

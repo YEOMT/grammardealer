@@ -1,0 +1,137 @@
+{
+  "kind": "ACTUAL_NATIVE_WEBKIT_COMPARISON_AFTER_IMPLEMENTATION",
+  "classification": "TIMING_FAILURE_REPRODUCED_ON_ORIGINAL_MAIN_ROOT_CAUSE_UNCONFIRMED",
+  "reference": {
+    "base": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+    "archiveSha256": "cdafe860d5d070bb810b9d4a6ba1e261df2812e8e1b1a2c5905262470ae80162",
+    "sameCoreProbeIgnoringCheckoutLineEndings": true,
+    "probeSha256": "67c3189fbddf9a124fd61187462a0a26129b5631926245bd01beed0fe2b92789",
+    "newReferenceDirectory": ".local-validation/v08/original-webkit-reference",
+    "kind": "POST_IMPLEMENTATION_IMMUTABLE_ORIGINAL_MAIN_COMPARISON",
+    "additionalOriginalFiles": [
+      {
+        "path": "spec/05_ACCEPTANCE_CASES_v0_1.json",
+        "sha256": "426794ae4d718c0599277950f947a52a2dad1cb8a3a008204ca535d115c76314",
+        "reason": "Existing development sandbox import; first diagnostic navigation could not mount without it"
+      }
+    ]
+  },
+  "cases": [
+    {
+      "label": "current-initial",
+      "source": {
+        "path": ".local-validation/v051/cross/webkit-core-polish-browser/report.json",
+        "sha256": "3592b5de8b037cc32d9fc89f02c20149eb88edbc6cd2021ef2c3fe132deea0e7"
+      },
+      "passedChecks": 10,
+      "scenario": {
+        "effectsOff": true,
+        "reducedMotion": false,
+        "speed": 1,
+        "capacity": true,
+        "width": 1366,
+        "zoom": 1.25
+      },
+      "result": {
+        "status": "FAST_FORWARDED",
+        "reason": "timeout",
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "nativeFrames": 8,
+      "observedFrameSpanMs": 3653,
+      "hpAtEnd": "0 / 300",
+      "busyAtEnd": "false",
+      "clonesAtEnd": 0,
+      "pageErrors": []
+    },
+    {
+      "label": "current-recheck",
+      "source": {
+        "path": ".local-validation/v08/cross-recheck/webkit-core-polish-browser/report.json",
+        "sha256": "7e3478faf6c5a48a77976b9a9df64dc6c363aaa1fdab7e5e0b4f3165dcc031a0"
+      },
+      "passedChecks": 0,
+      "scenario": {
+        "effectsOff": false,
+        "reducedMotion": false,
+        "speed": 1
+      },
+      "result": {
+        "status": "FAST_FORWARDED",
+        "reason": "timeout",
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "nativeFrames": 15,
+      "observedFrameSpanMs": 3569.000000000002,
+      "hpAtEnd": "0 / 300",
+      "busyAtEnd": "false",
+      "clonesAtEnd": 0,
+      "pageErrors": []
+    },
+    {
+      "label": "original-main",
+      "source": {
+        "path": ".local-validation/v08/original-main-webkit-core-02/report.json",
+        "sha256": "72715de06591dc32288280b54b5f304c1df63cf326ce6c546f94f86ba6ed0833"
+      },
+      "passedChecks": 0,
+      "scenario": {
+        "effectsOff": false,
+        "reducedMotion": false,
+        "speed": 1
+      },
+      "result": {
+        "status": "FAST_FORWARDED",
+        "reason": "timeout",
+        "attackId": "assigned.V10",
+        "plannedDuration": 1780,
+        "watchdogMs": 3780
+      },
+      "nativeFrames": 20,
+      "observedFrameSpanMs": 3680,
+      "hpAtEnd": "0 / 300",
+      "busyAtEnd": "false",
+      "clonesAtEnd": 0,
+      "pageErrors": []
+    }
+  ],
+  "diagnosticCommands": [
+    {
+      "finishedUtc": "2026-10-10T16:15:29.3826455Z",
+      "exitCode": 1,
+      "startedUtc": "2026-10-10T16:14:55.1618411Z",
+      "command": "node .local-validation/v08/original-webkit-reference/tests/core-polish-browser.mjs",
+      "name": "original-main-webkit-core",
+      "log": ".local-validation/v08/original-main-webkit-core.log",
+      "sourceMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+      "logEvidence": {
+        "path": ".local-validation/v08/original-main-webkit-core.log",
+        "sha256": "d29efd49f4a153543303d086cf2564a44e2a52a11e915ed26b2e3b5830917ad3"
+      }
+    },
+    {
+      "finishedUtc": "2026-10-10T16:17:22.9600111Z",
+      "startedUtc": "2026-10-10T16:17:09.2635518Z",
+      "log": ".local-validation/v08/original-main-webkit-core-02.log",
+      "exitCode": 1,
+      "name": "original-main-webkit-core-02",
+      "command": "node .local-validation/v08/original-webkit-reference/tests/core-polish-browser.mjs",
+      "sourceMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+      "logEvidence": {
+        "path": ".local-validation/v08/original-main-webkit-core-02.log",
+        "sha256": "5dc1b3fd49f65457287a5eca579f13df5066972aa69396f19a07e2c57e0f736c"
+      }
+    }
+  ],
+  "firstDiagnosticAttempt": {
+    "status": "FAIL",
+    "coreScenarioStatus": "NOT_RUN",
+    "reason": "The independent reference omitted the existing development sandbox spec import. Copied that exact original Git file, then retried without changing game/test criteria."
+  },
+  "limitations": "Same browser/runtime/assertions, but separate source roots; host load and native rendering latency were not experimentally isolated. This does not prove the exact environment/tool/game-clock root cause.",
+  "minimumFollowupKo": "Windows WebKit의 녹화·rAF/WAAPI와 DOM 프레임 관측 비용을 대조해 타이밍 원인을 분리한다. 현재 watchdog 상향·assertion 완화·영상/스크린샷 비활성화로 통과시키지 않는다."
+}

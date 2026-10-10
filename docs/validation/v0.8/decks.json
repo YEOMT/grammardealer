@@ -1,0 +1,15 @@
+{
+  "kind": "GENERATOR_FROST_OPENING_PARTITION_NOT_WIN_RATE",
+  "campaignVersion": "0.8.0",
+  "checked": 10000,
+  "byMode": {
+    "BEGINNER": 2500,
+    "STANDARD": 2500,
+    "ADVANCED": 2500,
+    "FREE": 2500
+  },
+  "failures": [],
+  "startedAt": "2026-10-10T14:27:21.500Z",
+  "status": "PASS",
+  "finishedAt": "2026-10-10T14:28:36.579Z"
+}

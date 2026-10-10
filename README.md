@@ -1,3 +1,11 @@
+## Syntax Atlas 0.8.0 · 고대의 수로도시
+
+새 원정은 8지역/37전투입니다. 관계절·직접/간접 의문문, 선택형 입장 지급, 네 번째 상점, 8-3 전용 빙정과 청동 수문장의 한 문장 이중 관계절 인장을 추가합니다. 구버전 원정은 원래 언어·수치·RNG·완료 경계를 유지합니다.
+
+[변경 내역](docs/PATCH_NOTES_0.8_KO.md) · [실제 검증과 한계](docs/TEST_REPORT_0.8.md) · [120개 인수 조건](docs/ACCEPTANCE_0.8.md). 개발 서버를 별도로 띄운 뒤 `npm run test:browser:waterways`를 실행합니다. `test:decks:waterways`는 10,000개 시작 덱/빙정 첫 손패 검사이며 승률 검사가 아닙니다. `test:runs:waterways`는 실제 Controller 명령 원정입니다. `test:e2e:waterways`는 production 새 원정을 UI로 시작합니다. `SB_WATERWAYS_COURSE=1`은 별도 Stage 8 목표 문법을 강제 검증합니다.
+
+`test:e2e`와 `test:e2e:ember`는 현재 production에서 버전을 고정한 0.6.1/0.7 초기 저장을 불러오는 호환 경로입니다. 아래는 이전 버전 기록이며 과거 PASS 수를 이번 결과로 해석하지 않습니다.
+
 ## Syntax Atlas 0.7.0 · 잿불 동굴
 
 새 원정은 7지역/32전투입니다. 기존 동사 형태로 분사 수식·수동태·동사별 목적격보어를 조합하고, 전투 한정 검은 먼지와 잠든 잿불룡의 검댕 비늘에 대응합니다. 기존 0.6.1 이하 저장은 원래 정책과 완료 경계를 유지합니다.

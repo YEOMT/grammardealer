@@ -1,3 +1,13 @@
+## 0.8 관계절·질문·수로도시 경계
+
+- `waterwaysLanguage`와 명시적 `WATERWAYS_VERSIONS`가 0.7 및 이전 registry/점수/완료 경계를 보호한다. 기존 operation 0.7, 룬·상점·보상 0.6.1, generator 0.4, tutorial 0.2.1 정책을 재사용한다.
+- parser는 실제 NP 선행사와 절 내부 subject/object/location gap을 연결한다. 새 질문 도치는 물리 카드 인덱스로 처리하고 실제 tokens 배열/카드를 다시 배열하지 않는다. 본동사 Frame과 유한 시제·태는 기존 VP 구조를 사용한다.
+- `skyEvidence`는 실제 node/childClause/root/marker/physical ID/자체 오류 범위를 직렬화한다. 질문·간접 질문은 별도 구조이고 관계절은 자동 LINK.CLAUSE가 아니다.
+- Scoring은 비교 뒤, LINK 앞에 관계절 계열 ×2를 한 번 적용한다. 지역 ×1.25와 보스는 별개 단계다. `dualRelativeSeal`은 현재 양수 제출의 별개 두 근거를 읽고 HP 바닥·초과 피해를 계산하는 순수 resolver다.
+- `ancientWaterways`의 pending choice/entry receipt, 네 번째 shop/history, `waterwaysFrost`의 ANCIENT_WATERWAYS source는 Controller 제안 상태에서만 커밋한다. 기존 설원/먼지 validator를 우회하거나 느슨하게 만들지 않는다.
+- 저장은 별도 unlocking receipt를 실제 parser로 재분석해 확인한다. 최근 history 삭제와 receipt 삭제를 같은 것으로 보지 않는다. UI는 확정된 snapshot만 읽고 IMPACT에 HP/인장을 표시한다.
+- Stage 8 종료는 `STAGE8_END`이고 storyClear가 아니다. Stage 9는 등록하지 않는다. 기존 원정은 원래 종료 경계를 유지한다.
+
 ## 0.7 분사·수동·먼지 경계
 
 - `emberLanguage`는 0.6.1 registry의 독립 view입니다. Sense/frameBindings에 수동 대안과 개별 OC를 등록하며 언어 판정과 콤보 해금을 분리합니다. 기존 ING/PP Form ID와 단어 정의는 그대로입니다.
