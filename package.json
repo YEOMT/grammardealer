@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -31,7 +31,11 @@
     "test:decks:ember": "node tools/simulate-ember-decks.js",
     "test:e2e:ember": "node tests/ember-e2e.mjs",
     "test:runs:ember": "node tools/simulate-ember-runs.js",
-    "test:browser:061": "node tests/polish-061-browser.mjs && node tests/polish-061-edges-browser.mjs"
+    "test:browser:061": "node tests/polish-061-browser.mjs && node tests/polish-061-edges-browser.mjs",
+    "test:browser:waterways": "node tests/waterways-browser.mjs",
+    "test:e2e:waterways": "node tests/waterways-e2e.mjs",
+    "test:runs:waterways": "node tools/simulate-waterways-runs.js",
+    "test:decks:waterways": "node tools/simulate-waterways-decks.js"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

@@ -1,0 +1,5 @@
+import {deepFreeze} from '../contracts.js';
+export const WATERWAYS_HINT='같은 한 문장에 별개의 주격 관계절과 목적격 관계절을 함께 사용하면 인장이 해제됩니다. 목적격 관계사는 생략할 수 있습니다. 서로 다른 공격의 실적은 누적되지 않으며, 해제 전에는 체력 1이 보호됩니다.';
+/** Names and HP are the 0.8 specification's initial implementation values. */
+export const STAGE8=deepFreeze({id:'stage.08',nameKo:'고대의 수로도시',theme:'waterways',focusFrames:[],regionLabelKo:'고대의 수로도시 · 관계절 ×1.25',regionMultiplier:{num:5,den:4},bossHintKo:WATERWAYS_HINT,
+ rounds:[['청동 교각병','🛡️',1280,'주격 관계절'],['운하 수호상','🗿',1360,'목적격 관계절 · 관계사 생략'],['물시계 자동인형','⏳',1440,'관계부사 · 장소와 시간'],['회로 수호기사','⚙️',1520,'관계절과 시제·수동태'],['청동 수문장','🏇',1600,'한 문장에 주격·목적격 관계절']].map(([nameKo,emoji,hp,focusKo],i)=>({id:`battle.08.0${i+1}`,battleNumber:33+i,enemyId:i===4?'boss.stage8':`enemy.stage8.0${i+1}`,nameKo,emoji,hp,focusKo,kind:i===4?'REGIONAL_BOSS':'NORMAL',...(i===4?{bossMechanic:{id:'DUAL_RELATIVE_SEAL',unlocked:false,unlockedByAttackId:null,unlockWitness:null,appliedAttackIds:[],totalPreventedDamage:0}}:{})})),exitStatus:'CONTENT_COMPLETE',contentBoundary:'STAGE8_END',notStoryClear:true,nextStageImplemented:false});

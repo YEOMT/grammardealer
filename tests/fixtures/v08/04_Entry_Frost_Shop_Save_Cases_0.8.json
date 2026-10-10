@@ -1,0 +1,602 @@
+{
+  "documentVersion": "1.0",
+  "targetVersion": "0.8.0",
+  "purpose": "CONTROLLER_UI_SAVE_SCENARIOS",
+  "count": 52,
+  "gameExecutionByAuthor": "NOT_RUN",
+  "cases": [
+    {
+      "id": "E001",
+      "area": "ENTRY",
+      "scenario": "Choose WHO once",
+      "expected": {
+        "permanentAdded": 1,
+        "goldChange": 0,
+        "entryResolved": true,
+        "shopCanOpen": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E002",
+      "area": "ENTRY",
+      "scenario": "Choose WHICH once",
+      "expected": {
+        "permanentAdded": 1,
+        "goldChange": 0,
+        "entryResolved": true,
+        "shopCanOpen": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E003",
+      "area": "ENTRY",
+      "scenario": "Choose NONE once",
+      "expected": {
+        "permanentAdded": 0,
+        "goldChange": 0,
+        "entryResolved": true,
+        "shopCanOpen": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E004",
+      "area": "ENTRY",
+      "scenario": "Repeat same command ID",
+      "expected": {
+        "additionalCards": 0,
+        "additionalShopRng": 0
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E005",
+      "area": "ENTRY",
+      "scenario": "Retry with different command ID after resolving another choice",
+      "expected": {
+        "additionalCards": 0,
+        "choiceUnchanged": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E006",
+      "area": "ENTRY",
+      "scenario": "Save/load pending choice",
+      "expected": {
+        "sameOfferId": true,
+        "sameChoices": true,
+        "sameRng": true,
+        "shopNotGenerated": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E007",
+      "area": "ENTRY",
+      "scenario": "Save/load resolved WHO",
+      "expected": {
+        "samePhysicalCardId": true,
+        "noRegrant": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E008",
+      "area": "ENTRY",
+      "scenario": "Own who/which already",
+      "expected": {
+        "showOwnedCounts": true,
+        "optionalOfferStillOnce": true,
+        "maxNewCards": 1
+      },
+      "noteKo": "구현 기본값; 자동 지급이 아니라 선택.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E009",
+      "area": "ENTRY",
+      "scenario": "Choose NONE with no who/which/that",
+      "expected": {
+        "warning": true,
+        "explicitConfirmationAllowed": true,
+        "noHiddenFallback": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E010",
+      "area": "ENTRY",
+      "scenario": "Remove chosen relative card later",
+      "expected": {
+        "noRegrant": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E011",
+      "area": "ENTRY",
+      "scenario": "No that on entry",
+      "expected": {
+        "stage8ThatGrant": 0,
+        "stage4PolicyUnchanged": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "E012",
+      "area": "ENTRY",
+      "scenario": "Cancel UI target before commit or stale revision",
+      "expected": {
+        "noStateRngMutation": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P001",
+      "area": "PROGRESSION",
+      "scenario": "New 0.8 Stage7 clear reward resolves",
+      "expected": {
+        "next": "STAGE_CLEAR_THEN_STAGE8_INTRO",
+        "battle8Start": 33
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P002",
+      "area": "PROGRESSION",
+      "scenario": "Load 0.7 Stage7 completed run",
+      "expected": {
+        "boundary": "STAGE7_END",
+        "autoUpgrade": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P003",
+      "area": "PROGRESSION",
+      "scenario": "Stage8 completes",
+      "expected": {
+        "boundary": "STAGE8_END",
+        "totalBattles": 37,
+        "highestStage": 8,
+        "storyClearIncrement": 0
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P004",
+      "area": "PROGRESSION",
+      "scenario": "Repeated completion restore/finish callbacks",
+      "expected": {
+        "stage8MilestoneCount": 1,
+        "rewardCountPerWin": 1
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P005",
+      "area": "PROGRESSION",
+      "scenario": "Profile unlock while another run is active",
+      "expected": {
+        "activeBaselineUnchanged": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "P006",
+      "area": "PROGRESSION",
+      "scenario": "New run after Stage8 profile clear",
+      "expected": {
+        "starterCards": 28,
+        "newWordPoolCanBeEligible": true,
+        "relativeComboBeforeStage7Clear": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H001",
+      "area": "SHOP",
+      "scenario": "Generate Shop4 after entry resolution",
+      "expected": {
+        "runes": 2,
+        "words": 2,
+        "operations": 1,
+        "previousShop": "stage.06"
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H002",
+      "area": "SHOP",
+      "scenario": "Generate before unresolved entry choice",
+      "expected": {
+        "rejectNoRngMutation": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H003",
+      "area": "SHOP",
+      "scenario": "Visit/load Shop4 repeatedly",
+      "expected": {
+        "sameInventory": true,
+        "samePrices": true,
+        "sameRng": true,
+        "noNewShopId": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H004",
+      "area": "SHOP",
+      "scenario": "Use polish and removal",
+      "expected": {
+        "polishMaxUses": 1,
+        "removeMaxUses": 1,
+        "separateServices": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H005",
+      "area": "SHOP",
+      "scenario": "Paid removals in earlier shops",
+      "expected": {
+        "priceContinuesCumulatively": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H006",
+      "area": "SHOP",
+      "scenario": "Third shop record transitions into history",
+      "expected": {
+        "allPriorShopsPreserved": true,
+        "noDuplicateIds": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "H007",
+      "area": "SHOP",
+      "scenario": "Stage2/4/6 exact 0.7 golden",
+      "expected": {
+        "unchangedForLegacyRun": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F001",
+      "area": "FROST",
+      "scenario": "Start battle35 with no permanent when/where",
+      "expected": {
+        "temporaryWordDefs": [
+          "card.where",
+          "card.when"
+        ],
+        "permanentAdded": 0,
+        "firstHandMinimum": 1
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F002",
+      "area": "FROST",
+      "scenario": "Start battle35 with owned permanent when/where",
+      "expected": {
+        "temporaryWordDefs": [
+          "card.where",
+          "card.when"
+        ],
+        "separatePhysicalIds": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F003",
+      "area": "FROST",
+      "scenario": "Start Stage8 rounds1/2/4/5",
+      "expected": {
+        "temporaryCityFrost": 0,
+        "dust": 0,
+        "freeOperation": 0
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F004",
+      "area": "FROST",
+      "scenario": "Put frost on board then return",
+      "expected": {
+        "consumed": false,
+        "sameId": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F005",
+      "area": "FROST",
+      "scenario": "Exchange frost",
+      "expected": {
+        "destination": "DISCARD",
+        "shattered": false,
+        "eligibleRecycle": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F006",
+      "area": "FROST",
+      "scenario": "Submit a valid relative-adverb sentence",
+      "expected": {
+        "destination": "SHATTERED",
+        "consumesTurn": true,
+        "relativeBonusEligible": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F007",
+      "area": "FROST",
+      "scenario": "Submit Where do you work using frost where",
+      "expected": {
+        "destination": "SHATTERED",
+        "positiveAttack": true,
+        "relativeBonus": false,
+        "regionBonus": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F008",
+      "area": "FROST",
+      "scenario": "Submit I know when you will come using frost when",
+      "expected": {
+        "destination": "SHATTERED",
+        "positiveAttack": true,
+        "relativeBonus": false,
+        "newQuestionCombo": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F009",
+      "area": "FROST",
+      "scenario": "Submit existing temporal-conjunction when",
+      "expected": {
+        "destination": "SHATTERED",
+        "existingLinkPolicy": true,
+        "relativeBonus": false
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F010",
+      "area": "FROST",
+      "scenario": "Submit INVALID_CORE using city frost",
+      "expected": {
+        "destination": "SHATTERED",
+        "power": 0,
+        "turnConsumed": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F011",
+      "area": "FROST",
+      "scenario": "Analyzer technical error",
+      "expected": {
+        "noConsumption": true,
+        "noRngMutation": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F012",
+      "area": "FROST",
+      "scenario": "Direct SEARCH has frost where in DRAW",
+      "expected": {
+        "selectableAsWord": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F013",
+      "area": "FROST",
+      "scenario": "Connector search has city frost when and where",
+      "expected": {
+        "whenSelectable": true,
+        "whereSelectable": false,
+        "legacyFilterUnchanged": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F014",
+      "area": "FROST",
+      "scenario": "SUPPLY/RECYCLE uses city frost",
+      "expected": {
+        "samePhysicalIdMoves": true,
+        "noExtraShatter": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F015",
+      "area": "FROST",
+      "scenario": "Save/load intact and shattered states",
+      "expected": {
+        "exactPilesMetaReceiptsRng": true,
+        "noRegrantOrVisibilitySwap": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F016",
+      "area": "FROST",
+      "scenario": "Win/defeat/leave expedition",
+      "expected": {
+        "allCityTemporaryInstancesCleaned": true,
+        "historyStillValid": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F017",
+      "area": "FROST",
+      "scenario": "Alter city crystalBearing=true or source=MIRROR_SNOWFIELD",
+      "expected": {
+        "saveRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F018",
+      "area": "FROST",
+      "scenario": "Insert shattered card into discard",
+      "expected": {
+        "saveRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F019",
+      "area": "FROST",
+      "scenario": "Add city frost to permanent active deck or wrong battle",
+      "expected": {
+        "saveRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F020",
+      "area": "FROST",
+      "scenario": "Replace city WORD with OPERATION/OBSTACLE or polish>0",
+      "expected": {
+        "saveRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "F021",
+      "area": "FROST",
+      "scenario": "Visit Stage6/7 in 0.8 run",
+      "expected": {
+        "originalFrostAndDustContractsPreserved": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B001",
+      "area": "BOSS_SAVE",
+      "scenario": "Save HP1/locked after subject-only attack then load and object-only attack",
+      "expected": {
+        "stillLocked": true,
+        "noCrossAttackAccumulation": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B002",
+      "area": "BOSS_SAVE",
+      "scenario": "Save unlocked after a valid dual attack",
+      "expected": {
+        "sameUnlockWitness": true,
+        "stillUnlocked": true,
+        "noAdditionalDamageOnLoad": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B003",
+      "area": "BOSS_SAVE",
+      "scenario": "Forge pair from two attacks or same relativeNodeId",
+      "expected": {
+        "saveRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B004",
+      "area": "BOSS_SAVE",
+      "scenario": "Replay delayed FINISH/SUBMIT after load",
+      "expected": {
+        "noDuplicateHpRewardOrUnlock": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B005",
+      "area": "BOSS_SAVE",
+      "scenario": "Remove used cards from future deck after lawful reward removal",
+      "expected": {
+        "attackSnapshotRemainsAuthoritative": true,
+        "validSaveNotRejected": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "B006",
+      "area": "BOSS_SAVE",
+      "scenario": "Short rolling history evicts old unrelated entries",
+      "expected": {
+        "unlockWitnessRemainsValid": true
+      },
+      "noteKo": "",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

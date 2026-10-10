@@ -1,0 +1,1906 @@
+{
+  "documentVersion": "1.0",
+  "targetVersion": "0.8.0",
+  "purpose": "PARSER_EXPECTATIONS_NOT_SENTENCE_WHITELIST",
+  "count": 88,
+  "gameExecutionByAuthor": "NOT_RUN",
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "The child who runs is happy.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G002",
+      "sentence": "I like the child who runs.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G003",
+      "sentence": "The children who run are happy.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G004",
+      "sentence": "The book which is good helps me.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G005",
+      "sentence": "The dog which runs is happy.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G006",
+      "sentence": "The child that runs is happy.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G007",
+      "sentence": "The child who I like runs.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G008",
+      "sentence": "The child I like runs.",
+      "wordCount": 5,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "목적격 표지 생략, 물리 카드를 추가하지 않는다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G009",
+      "sentence": "The book which I made is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G010",
+      "sentence": "The book that I made is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G011",
+      "sentence": "The book I made is good.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G012",
+      "sentence": "I like the book you made.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G013",
+      "sentence": "A child who runs likes a book I made.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G014",
+      "sentence": "A child who runs likes a book that I made.",
+      "wordCount": 10,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G015",
+      "sentence": "A child that runs likes a book I made.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G016",
+      "sentence": "A book which helps a child I like is good.",
+      "wordCount": 10,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "which 한 장과 생략 목적격. 중첩된 별개 두 관계절도 인정.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G017",
+      "sentence": "The child who likes a book I made runs.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G018",
+      "sentence": "A child who runs likes a dog which plays.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G019",
+      "sentence": "A child I like shows a book you made.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G020",
+      "sentence": "The child who runs is happy and the book I made is good.",
+      "wordCount": 13,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "실제 and로 연결된 하나의 완전한 제출 문장. 최상위 등위절의 기존 점수 기준 보존.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G021",
+      "sentence": "The book which was made is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "forbiddenClaims": [
+          "PASSIVE_PATIENT_IS_RELATIVE_OBJECT"
+        ],
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "수동 동사구의 문법적 주어이므로 SUBJECT다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G022",
+      "sentence": "The book which has been made is good.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G023",
+      "sentence": "The child who is often running is happy.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G024",
+      "sentence": "The book I have made is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G025",
+      "sentence": "A child who has worked likes the book I made.",
+      "wordCount": 10,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G026",
+      "sentence": "The book which I work with is good.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "문장 끝 with의 실제 전치사 목적어 공백. OBJECT 하위유형 PREPOSITION_OBJECT.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G027",
+      "sentence": "The book I work with is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G028",
+      "sentence": "The school in which I work is good.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "새 전치사 없이 in+which. 관계대명사의 전치사 목적격이지 where가 아니다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G029",
+      "sentence": "The book which I gave you is good.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "4형식의 직접목적어 공백과 실제 간접목적어 you.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G030",
+      "sentence": "This is the school where I work.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [
+          "PLACE"
+        ],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G031",
+      "sentence": "I like the day when you came.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [
+          "TIME"
+        ],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G032",
+      "sentence": "The room where I live is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [
+          "PLACE"
+        ],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G033",
+      "sentence": "The school which I like is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "장소 선행사여도 like의 직접목적어에는 which.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G034",
+      "sentence": "I play when you come.",
+      "wordCount": 5,
+      "section": "EXISTING_WHEN",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "기존 시간 부사절/절 연결. 관계부사나 관계대명사로 오분류 금지.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G035",
+      "sentence": "I know that you work.",
+      "wordCount": 5,
+      "section": "EXISTING_THAT",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G036",
+      "sentence": "I like that book.",
+      "wordCount": 4,
+      "section": "EXISTING_THAT",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G037",
+      "sentence": "A child who runs likes the school where I work.",
+      "wordCount": 10,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT"
+        ],
+        "relativeAdverbKinds": [
+          "PLACE"
+        ],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G038",
+      "sentence": "The book made today is good.",
+      "wordCount": 6,
+      "section": "PARTICIPLE_BOUNDARY",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "0.7 분사 수식은 유지하되 유한 주격 관계절로 셈하지 않는다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G039",
+      "sentence": "Reading books is good.",
+      "wordCount": 4,
+      "section": "NONFINITE_BOUNDARY",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G040",
+      "sentence": "The child I like are happy.",
+      "wordCount": 6,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "주절 are 일치 오류. 목적격 관계절 자체는 정상.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G041",
+      "sentence": "A child who runs like a book I made.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "주절 like→likes 오류만 존재. 두 관계절은 정상; 양수 위력 조건.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G042",
+      "sentence": "A child who run likes a book I made.",
+      "wordCount": 9,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": false,
+        "eligibleRelativePronounRoles": [
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "who run의 수일치 오류 때문에 주격 관계절은 보스 적격이 아니다. 목적격은 정상.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G043",
+      "sentence": "The book who I made is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "listedRelativeEvidenceLocallyValid": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "사물 선행사와 who의 등록된 결합 오류. 문장 역할의 복구와 콤보/보스 적격을 분리.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G044",
+      "sentence": "The child who he runs is happy.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "forbiddenClaims": [
+          "FAKE_SUBJECT_GAP"
+        ],
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G045",
+      "sentence": "The book which I made it is good.",
+      "wordCount": 8,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "forbiddenClaims": [
+          "OBJECT_GAP_WITH_RESUMPTIVE_IT"
+        ],
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G046",
+      "sentence": "The room where I like is good.",
+      "wordCount": 7,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "forbiddenClaims": [
+          "WHERE_USED_AS_DIRECT_OBJECT"
+        ],
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G047",
+      "sentence": "The child who runs.",
+      "wordCount": 4,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "주절 없는 명사구를 완전 문장으로 처리하지 않는다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G048",
+      "sentence": "The book I made.",
+      "wordCount": 4,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "G049",
+      "sentence": "The child runs is happy.",
+      "wordCount": 5,
+      "section": "RELATIVE",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "주격 관계사 생략으로 복구하지 않는다.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q001",
+      "sentence": "Where do you work?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q002",
+      "sentence": "Where does she live?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q003",
+      "sentence": "When did she come?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q004",
+      "sentence": "Where is the book?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV_LOCATION",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q005",
+      "sentence": "When will you come?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q006",
+      "sentence": "Where are they working?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q007",
+      "sentence": "Where have you worked?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q008",
+      "sentence": "When was the food made?",
+      "wordCount": 5,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q009",
+      "sentence": "Who runs?",
+      "wordCount": 2,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q010",
+      "sentence": "Who do you like?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q011",
+      "sentence": "Which book do you like?",
+      "wordCount": 5,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q012",
+      "sentence": "Which books help you?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q013",
+      "sentence": "Who are you?",
+      "wordCount": 3,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "you가 실제 주어, who는 의문 보어.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q014",
+      "sentence": "Do you like music?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "공유 질문 경로의 기존 do 활용; 새 의문문 전용 보너스 없음.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q015",
+      "sentence": "Where does she lives?",
+      "wordCount": 4,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "do-support 뒤 원형 오류. 없는 카드를 보충하지 않고 형태 오류로 진단.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q016",
+      "sentence": "Where you live?",
+      "wordCount": 3,
+      "section": "DIRECT_QUESTION",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "이번 학교문법의 표준 의문문 범위. 숨은 do를 삽입하지 않음.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q017",
+      "sentence": "I know where you work.",
+      "wordCount": 5,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q018",
+      "sentence": "I know when you will come.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q019",
+      "sentence": "I know where the book is.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q020",
+      "sentence": "I know who likes music.",
+      "wordCount": 5,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q021",
+      "sentence": "I know who you like.",
+      "wordCount": 5,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q022",
+      "sentence": "I know which book you made.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q023",
+      "sentence": "I know where do you work.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "forbiddenClaims": [
+          "EMBEDDED_SUBJECT_AUX_INVERSION"
+        ],
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q024",
+      "sentence": "I know when will you come.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "INVALID_CORE",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q025",
+      "sentence": "I see where you work.",
+      "wordCount": 5,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q026",
+      "sentence": "She shows me where you work.",
+      "wordCount": 6,
+      "section": "EMBEDDED_QUESTION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVOO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "show + IO + 실제 WH 내용절. 현재 show 의미와 4형식 보존.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q027",
+      "sentence": "I know where to go.",
+      "wordCount": 5,
+      "section": "EMBEDDED_WH_TO",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "제한된 wh+to 보완. 기존 to부정사 점수만 실제 근거가 있으면 유지.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q028",
+      "sentence": "I know who to help.",
+      "wordCount": 5,
+      "section": "EMBEDDED_WH_TO",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q029",
+      "sentence": "I know which book to read.",
+      "wordCount": 6,
+      "section": "EMBEDDED_WH_TO",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q030",
+      "sentence": "I know when to come.",
+      "wordCount": 5,
+      "section": "EMBEDDED_WH_TO",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": true,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "Q031",
+      "sentence": "Who likes the child who knows the book I made?",
+      "wordCount": 10,
+      "section": "MIXED_QUESTION_RELATIVE",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ],
+        "relativeAdverbKinds": [],
+        "directQuestion": true,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": true,
+        "listedRelativeEvidenceLocallyValid": true,
+        "eligibleRelativePronounRoles": [
+          "SUBJECT",
+          "OBJECT"
+        ]
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "의문문 자체는 미적격이지만 내부에 실제 별개 두 관계절이 있으면 인장 해제 가능.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R001",
+      "sentence": "A room was too hard to show.",
+      "wordCount": 7,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R002",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "wordCount": 12,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVOO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R003",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "wordCount": 12,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVOO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R004",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "wordCount": 16,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVOO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "noteKo": "16장 실제 사용자 문장. 8618이라는 과거 최고값은 장착/연마 스냅샷 부재로 기대값이 아님.",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R005",
+      "sentence": "I saw the food made.",
+      "wordCount": 5,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVOC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R006",
+      "sentence": "I have the food made.",
+      "wordCount": 5,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVOC",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R007",
+      "sentence": "I have made food.",
+      "wordCount": 4,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SVO",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    },
+    {
+      "id": "R008",
+      "sentence": "The food has been made.",
+      "wordCount": 5,
+      "section": "LEGACY_REGRESSION",
+      "expected": {
+        "status": "VALID",
+        "relativePronounRoles": [],
+        "relativeAdverbKinds": [],
+        "directQuestion": false,
+        "embeddedQuestion": false,
+        "mainFrame": "SV",
+        "canUnlockSealIfPositivePower": false,
+        "eligibleRelativePronounRoles": []
+      },
+      "executionStatus": "NOT_RUN",
+      "physicalCardsRequired": "ONE_DISTINCT_INSTANCE_PER_TOKEN; USE_REAL_CARD_DEFINITION_AND_FORM_IDS",
+      "fixturePurpose": "STRUCTURAL_GRAMMAR_TEST_NOT_CURATED_CLASSROOM_EXAMPLE"
+    }
+  ]
+}

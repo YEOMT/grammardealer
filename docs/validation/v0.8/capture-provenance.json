@@ -1,0 +1,56 @@
+[
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "source": ".local-validation/v08/waterways-final/ASSIGNED-chromium-entry-WHO.png",
+    "published": "assigned-entry.png",
+    "sha256": "f94493615057b35eccb38672e1c7bd43d6140aed88eee309caa12509a076d952"
+  },
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "source": ".local-validation/v08/waterways-final/ASSIGNED-chromium-shop-WHO.png",
+    "published": "assigned-shop4.png",
+    "sha256": "2123f19ef0ca9e2a7de4b21064b614d282af62d107e3394a753363169f4cbf8c"
+  },
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "source": ".local-validation/v08/waterways-final/ASSIGNED-chromium-roles-A-child-who-runs-likes-a-book-I-made-.png",
+    "published": "assigned-relative-pair.png",
+    "sha256": "a33fe04be8b3eddee173c3fae0f7e11a091d57ca7fd88d94bf058fcd499285b5"
+  },
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "source": ".local-validation/v08/waterways-final/ASSIGNED-chromium-1366x768-hand14.png",
+    "published": "assigned-capacity-1366.png",
+    "sha256": "12e822f1cc92fabce5a53c5db796e2a5d09a6e6151c9027a66be213e42294a11"
+  },
+  {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL",
+    "source": ".local-validation/v08/waterways-final/ASSIGNED-chromium-city-frost-opening.png",
+    "published": "assigned-city-frost.png",
+    "sha256": "f438ea3f38b75729aa81f32b46c5169e0e2c9ccdee14ea62951c61d3ef33c596"
+  },
+  {
+    "kind": "ACTUAL_PRODUCTION_UI_NATURAL_NEW08_CAMPAIGN",
+    "source": ".local-validation/v08/e2e-waterways-course/stage.08-entry-shop.png",
+    "published": "production-shop4.png",
+    "sha256": "9022f8e4c8670504ec31abf5a3547b18b0c84389c301f5d29330d79819e26d27"
+  },
+  {
+    "kind": "ACTUAL_PRODUCTION_UI_NATURAL_NEW08_CAMPAIGN",
+    "source": ".local-validation/v08/e2e-waterways-course/waterways-battle-33-attack-71.png",
+    "published": "production-stage8-combat.png",
+    "sha256": "d0eb65294a8d320500557ab6caa11d780203d351d35d6b030f56cbbb1e068517"
+  },
+  {
+    "kind": "ACTUAL_PRODUCTION_UI_NATURAL_NEW08_CAMPAIGN",
+    "source": ".local-validation/v08/e2e-waterways-course/waterways-battle-35-attack-74.png",
+    "published": "production-after-frost-submission.png",
+    "sha256": "0da41cc15f341d27ad9bef9cdaba28891c40c2d4eb3c85a88d2658a43d91d799"
+  },
+  {
+    "kind": "ACTUAL_PRODUCTION_UI_NATURAL_NEW08_CAMPAIGN",
+    "source": ".local-validation/v08/e2e-waterways-course/stage6-complete-restored.png",
+    "published": "production-stage8-complete.png",
+    "sha256": "bec6adc315f0473b093f1f7bfd7d14ef7d57d8dd284130666bb7685bbb94abba"
+  }
+]

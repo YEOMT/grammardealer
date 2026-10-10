@@ -1,0 +1,937 @@
+{
+  "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+  "checks": [
+    {
+      "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHO_REAL_UI_SHOP4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_NONE_REAL_UI_SHOP4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_effectsOff_NO_DUPLICATE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_cancel_NO_DUPLICATE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RECORDS_THREE_FIXED_GUIDES",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "BATTLE35_FROST_WORD_VISIBLE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_This is the day when I work.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_Where do you work?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_When will you come?",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know where you work.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know when you will come.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I play when you come.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SUPPLY",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SEARCH",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_RECYCLE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHO_REAL_UI_SHOP4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_NONE_REAL_UI_SHOP4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_effectsOff_NO_DUPLICATE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_cancel_NO_DUPLICATE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "RECORDS_THREE_FIXED_GUIDES",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "BATTLE35_FROST_WORD_VISIBLE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_This is the day when I work.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_Where do you work?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_When will you come?",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know where you work.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know when you will come.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I play when you come.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SUPPLY",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SEARCH",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_RECYCLE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHO_REAL_UI_SHOP4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_NONE_REAL_UI_SHOP4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_effectsOff_NO_DUPLICATE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "IMPACT_cancel_NO_DUPLICATE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "RECORDS_THREE_FIXED_GUIDES",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "BATTLE35_FROST_WORD_VISIBLE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_This is the day when I work.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_Where do you work?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_When will you come?",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know where you work.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I know when you will come.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_VARIANT_I play when you come.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SUPPLY",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_SEARCH",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CITY_FROST_REAL_UI_RECYCLE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024x768_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280x800_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_10_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080_14_16_4",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "webkit",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "ASSIGNED-chromium-entry-WHO.png",
+    "ASSIGNED-chromium-shop-WHO.png",
+    "ASSIGNED-chromium-entry-WHICH.png",
+    "ASSIGNED-chromium-shop-WHICH.png",
+    "ASSIGNED-chromium-entry-NONE.png",
+    "ASSIGNED-chromium-shop-NONE.png",
+    "ASSIGNED-chromium-roles-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-chromium-result-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-chromium-roles-The-book-I-made-is-good-.png",
+    "ASSIGNED-chromium-result-The-book-I-made-is-good-.png",
+    "ASSIGNED-chromium-roles-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-chromium-result-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-chromium-roles-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-chromium-result-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-chromium-roles-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-chromium-result-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-chromium-result-Where-do-you-work-.png",
+    "ASSIGNED-chromium-result-When-will-you-come-.png",
+    "ASSIGNED-chromium-result-Who-runs-.png",
+    "ASSIGNED-chromium-result-Which-book-do-you-like-.png",
+    "ASSIGNED-chromium-result-I-know-where-you-work-.png",
+    "ASSIGNED-chromium-result-I-know-when-you-will-come-.png",
+    "ASSIGNED-chromium-result-I-know-who-runs-.png",
+    "ASSIGNED-chromium-result-I-know-which-book-you-like-.png",
+    "ASSIGNED-chromium-roles-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-chromium-result-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-chromium-records.png",
+    "ASSIGNED-chromium-city-frost-opening.png",
+    "ASSIGNED-chromium-same-battle-two-attacks-still-locked.png",
+    "ASSIGNED-chromium-same-sentence-unlock-kill.png",
+    "ASSIGNED-chromium-real-city-frost-submitted.png",
+    "ASSIGNED-chromium-1024x768-hand10.png",
+    "ASSIGNED-chromium-1024x768-hand14.png",
+    "ASSIGNED-chromium-1280x800-hand10.png",
+    "ASSIGNED-chromium-1280x800-hand14.png",
+    "ASSIGNED-chromium-1366x768-hand10.png",
+    "ASSIGNED-chromium-1366x768-hand14.png",
+    "ASSIGNED-chromium-1920x1080-hand10.png",
+    "ASSIGNED-chromium-1920x1080-hand14.png",
+    "ASSIGNED-firefox-entry-WHO.png",
+    "ASSIGNED-firefox-shop-WHO.png",
+    "ASSIGNED-firefox-entry-WHICH.png",
+    "ASSIGNED-firefox-shop-WHICH.png",
+    "ASSIGNED-firefox-entry-NONE.png",
+    "ASSIGNED-firefox-shop-NONE.png",
+    "ASSIGNED-firefox-roles-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-firefox-result-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-firefox-roles-The-book-I-made-is-good-.png",
+    "ASSIGNED-firefox-result-The-book-I-made-is-good-.png",
+    "ASSIGNED-firefox-roles-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-firefox-result-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-firefox-roles-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-firefox-result-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-firefox-roles-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-firefox-result-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-firefox-result-Where-do-you-work-.png",
+    "ASSIGNED-firefox-result-When-will-you-come-.png",
+    "ASSIGNED-firefox-result-Who-runs-.png",
+    "ASSIGNED-firefox-result-Which-book-do-you-like-.png",
+    "ASSIGNED-firefox-result-I-know-where-you-work-.png",
+    "ASSIGNED-firefox-result-I-know-when-you-will-come-.png",
+    "ASSIGNED-firefox-result-I-know-who-runs-.png",
+    "ASSIGNED-firefox-result-I-know-which-book-you-like-.png",
+    "ASSIGNED-firefox-roles-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-firefox-result-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-firefox-records.png",
+    "ASSIGNED-firefox-city-frost-opening.png",
+    "ASSIGNED-firefox-same-battle-two-attacks-still-locked.png",
+    "ASSIGNED-firefox-same-sentence-unlock-kill.png",
+    "ASSIGNED-firefox-real-city-frost-submitted.png",
+    "ASSIGNED-firefox-1024x768-hand10.png",
+    "ASSIGNED-firefox-1024x768-hand14.png",
+    "ASSIGNED-firefox-1280x800-hand10.png",
+    "ASSIGNED-firefox-1280x800-hand14.png",
+    "ASSIGNED-firefox-1366x768-hand10.png",
+    "ASSIGNED-firefox-1366x768-hand14.png",
+    "ASSIGNED-firefox-1920x1080-hand10.png",
+    "ASSIGNED-firefox-1920x1080-hand14.png",
+    "ASSIGNED-webkit-entry-WHO.png",
+    "ASSIGNED-webkit-shop-WHO.png",
+    "ASSIGNED-webkit-entry-WHICH.png",
+    "ASSIGNED-webkit-shop-WHICH.png",
+    "ASSIGNED-webkit-entry-NONE.png",
+    "ASSIGNED-webkit-shop-NONE.png",
+    "ASSIGNED-webkit-roles-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-webkit-result-The-child-who-runs-is-happy-.png",
+    "ASSIGNED-webkit-roles-The-book-I-made-is-good-.png",
+    "ASSIGNED-webkit-result-The-book-I-made-is-good-.png",
+    "ASSIGNED-webkit-roles-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-webkit-result-This-is-the-school-where-I-work-.png",
+    "ASSIGNED-webkit-roles-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-webkit-result-A-child-who-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-webkit-roles-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-webkit-result-The-book-which-was-made-helps-a-child-I-like-.png",
+    "ASSIGNED-webkit-result-Where-do-you-work-.png",
+    "ASSIGNED-webkit-result-When-will-you-come-.png",
+    "ASSIGNED-webkit-result-Who-runs-.png",
+    "ASSIGNED-webkit-result-Which-book-do-you-like-.png",
+    "ASSIGNED-webkit-result-I-know-where-you-work-.png",
+    "ASSIGNED-webkit-result-I-know-when-you-will-come-.png",
+    "ASSIGNED-webkit-result-I-know-who-runs-.png",
+    "ASSIGNED-webkit-result-I-know-which-book-you-like-.png",
+    "ASSIGNED-webkit-roles-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-webkit-result-A-child-that-runs-likes-a-book-I-made-.png",
+    "ASSIGNED-webkit-records.png",
+    "ASSIGNED-webkit-city-frost-opening.png",
+    "ASSIGNED-webkit-same-battle-two-attacks-still-locked.png",
+    "ASSIGNED-webkit-same-sentence-unlock-kill.png",
+    "ASSIGNED-webkit-real-city-frost-submitted.png",
+    "ASSIGNED-webkit-1024x768-hand10.png",
+    "ASSIGNED-webkit-1024x768-hand14.png",
+    "ASSIGNED-webkit-1280x800-hand10.png",
+    "ASSIGNED-webkit-1280x800-hand14.png",
+    "ASSIGNED-webkit-1366x768-hand10.png",
+    "ASSIGNED-webkit-1366x768-hand14.png",
+    "ASSIGNED-webkit-1920x1080-hand10.png",
+    "ASSIGNED-webkit-1920x1080-hand14.png"
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    },
+    {
+      "engine": "firefox",
+      "version": "135.0"
+    },
+    {
+      "engine": "webkit",
+      "version": "18.4"
+    }
+  ],
+  "errors": [],
+  "startedAt": "2026-10-10T14:39:59.813Z",
+  "status": "PASS",
+  "finishedAt": "2026-10-10T14:50:50.385Z"
+}

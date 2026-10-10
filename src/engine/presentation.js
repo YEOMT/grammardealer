@@ -129,7 +129,7 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
 const find = (root, name) => root.querySelector(`[data-presentation="${name}"]`);
 const findCard = (root, id) => [...root.querySelectorAll('[data-card-id]')].find(element => element.dataset.cardId === id);
 
-/** Actual SVG relation renderer; call only in the clearly labeled presentation-only sandbox fixture. */
+/** Read-only SVG relation renderer. Call from submitted evidence or the labeled visual sandbox. */
 export function connect(root, fromCardId, toCardIds) {
   if (!root?.querySelector || typeof fromCardId !== 'string' || !Array.isArray(toCardIds)) throw new TypeError('connect needs a root, a card ID, and target IDs');
   const from = findCard(root, fromCardId);
@@ -201,6 +201,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='DUAL_RELATIVE_SEAL'){const n=find(root,'relative-seal');if(n){n.dataset.unlocked=String(state.unlocked);n.textContent=state.unlocked?'청동 인장 해제 · 처치 가능':'청동 인장 · HP 1 보호';}}
     if(state?.id==='EMBER_SCALE_SHIELD'){const n=find(root,'ember-scale');if(n){n.dataset.active=String(state.active);n.textContent=state.active?'검댕 비늘 · 피해 75% 감소':'검댕 비늘 해제';}}
     if(state?.id==='FROST_CRYSTAL_LOCK'){const n=find(root,'frost-crystals');if(n){const changed=n.dataset.remaining!==undefined&&Number(n.dataset.remaining)>state.crystalsRemaining;n.dataset.remaining=String(state.crystalsRemaining);n.textContent='◆'.repeat(state.crystalsRemaining)+'◇'.repeat(5-state.crystalsRemaining)+' · 빙결핵 '+state.crystalsRemaining+' / 5 · '+(state.crystalsRemaining?'HP 1 잠금':'잠금 해제');if(changed)animateCore(n,[{filter:'brightness(2)'},{filter:'brightness(1)'}],300);}}
     if(state?.id==='TIME_GOLEM'){
@@ -233,6 +234,12 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     },
     onScore(event, { step, intensity,combo=0 }) {
       effectNodes.forEach(n=>n.remove());effectNodes=[];
+      if(event.sourceId==='CLAUSE.RELATIVE')for(const r of current.analysis.relativeClauses??[]){
+        const line=connect(root,r.antecedentHeadCardId,[r.cardIds[0]]);line?.querySelectorAll('path').forEach(p=>{p.setAttribute('stroke','#b8985d');p.setAttribute('stroke-width','1.5');});
+        const head=findCard(root,r.antecedentHeadCardId);if(head)head.dataset.relativeAntecedent='true';
+        for(const id of r.cardIds){const card=findCard(root,id);if(card)card.dataset.relativeRole=r.relativeRole;}
+        const first=findCard(root,r.cardIds[0]);if(first){const label=root.ownerDocument.createElement('span');label.dataset.relativeLabel='true';label.textContent=({SUBJECT:'주격 관계절',OBJECT:'목적격 관계절',ADVERBIAL:'관계부사절'})[r.relativeRole]+(r.markerOmitted?' · 관계사 생략':'');first.append(label);}
+      }
       if(event.phase==='LINKS'){
         for(const [i,c]of (current.analysis.clauses??[]).entries()){const ids=current.analysis.nodes.find(n=>n.id===c.nodeId)?.cardIds??[];for(const id of ids){const card=findCard(root,id);if(card)card.dataset.clauseGroup=String(i%3);}}
         for(const n of current.analysis.nodes.filter(n=>n.type==='CONTENT_CLAUSE'))for(const id of n.cardIds){const card=findCard(root,id);if(card)card.dataset.contentObject='true';}
@@ -316,7 +323,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       }
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {
-      root.dataset.corePhase='IMPACT';showBossState(current?.bossStateAfter);
+      root.dataset.corePhase='IMPACT';showBossState(current?.bossStateAfter);if(current?.bossStateAfter?.id==='DUAL_RELATIVE_SEAL'){const enemy=find(root,'enemy');if(enemy)enemy.dataset.gateOpen=String(current.killed&&current.bossStateAfter.unlocked);}
       for(const id of current?.consumedTemporaryCardIds??[]){const card=findCard(root,id);if(card){card.dataset.shattered='true';animateCore(card,[{filter:'brightness(1)'},{filter:'brightness(2)',opacity:.5},{filter:'brightness(1)',opacity:.25}],280);}}
       showHp(hpAfter); text('label', actualHpLoss === 0 ? (zeroReason==='INCOMPLETE_SENTENCE'?feedbackKo:zeroReason==='ACCURACY_ZERO'?'형태를 확인해 보세요 · 피해 0':'방어에 막힘 · 피해 0') : killed ? `격파! · ${actualHpLoss} 피해` : `${actualHpLoss} 피해!`);
       if(current?.preventedDamage>0)text('label','빙결핵이 HP 1을 보호했습니다 · 막힌 피해 '+current.preventedDamage);
@@ -355,7 +362,10 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       clearHighlights(); adapter.clearConnections();
     },
     connect(fromCardId, toCardIds) { return connect(root, fromCardId, toCardIds); },
-    clearConnections() { root.querySelectorAll('[data-presentation="connector"]').forEach(node => node.remove()); },
+    clearConnections() {
+    root.querySelectorAll('[data-relative-role],[data-relative-antecedent]').forEach(n=>{delete n.dataset.relativeRole;delete n.dataset.relativeAntecedent;});
+    root.querySelectorAll('[data-relative-label]').forEach(n=>n.remove());
+ root.querySelectorAll('[data-presentation="connector"]').forEach(node => node.remove()); },
   };
   return adapter;
 }

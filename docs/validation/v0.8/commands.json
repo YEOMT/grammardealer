@@ -1,0 +1,352 @@
+{
+  "recordedAt": "2026-10-10T16:19:44.566873+00:00",
+  "commands": [
+    {
+      "command": "npm.cmd run test",
+      "startedAt": "2026-10-10T13:28:30.4943855Z",
+      "finishedAt": "2026-10-10T13:31:32.9562912Z",
+      "exitCode": 0,
+      "phase": "PRE_IMPLEMENTATION_ORIGINAL_MAIN",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/baseline-test.log",
+        "sha256": "a92e168f1a377ea7b158c0c1dce5ae1d724711b633efa4922a79c453d6e0d4b0"
+      }
+    },
+    {
+      "command": "npm.cmd run validate:data",
+      "startedAt": "2026-10-10T13:31:33.0643622Z",
+      "finishedAt": "2026-10-10T13:31:34.6537991Z",
+      "exitCode": 0,
+      "phase": "PRE_IMPLEMENTATION_ORIGINAL_MAIN",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/baseline-validate-data.log",
+        "sha256": "c77bf19ae7bc17cd77d6a4b57cc1f93965bb311e83e3360eb47ea9a7168112a1"
+      }
+    },
+    {
+      "command": "npm.cmd run build",
+      "startedAt": "2026-10-10T13:31:34.7197097Z",
+      "finishedAt": "2026-10-10T13:31:42.8648574Z",
+      "exitCode": 0,
+      "phase": "PRE_IMPLEMENTATION_ORIGINAL_MAIN",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/baseline-build.log",
+        "sha256": "52ee3ba75ad0ba4f6165c1cd27f03b141aa263db9d325014e6959b842b929167"
+      }
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-test.log",
+        "sha256": "27534a2137edd65dce8d5dd431505f4eb59cacd7dea7e78ddcc1ddec3d578bed"
+      },
+      "command": "npm.cmd test",
+      "status": "PASS",
+      "name": "test",
+      "startedUtc": "2026-10-10T14:24:24.8225632Z",
+      "finishedUtc": "2026-10-10T14:27:14.6239879Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-data.log",
+        "sha256": "ba72f26c312f54174a961b87c18c3b20ceafcdd69aabf612c4d4f92339689277"
+      },
+      "command": "npm.cmd run validate:data",
+      "status": "PASS",
+      "name": "data",
+      "startedUtc": "2026-10-10T14:27:14.7299804Z",
+      "finishedUtc": "2026-10-10T14:27:16.4925951Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-build.log",
+        "sha256": "eb2cd077b4fa38d2996bbbe38bb216b3abc108a6c4c1b810508ee4dd529ed93f"
+      },
+      "command": "npm.cmd run build",
+      "status": "PASS",
+      "name": "build",
+      "startedUtc": "2026-10-10T14:27:16.5050532Z",
+      "finishedUtc": "2026-10-10T14:27:19.4500267Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-decks-waterways.log",
+        "sha256": "5af4c5139ca33ccb2603071af0309f893589167e7f080b166460686a97476483"
+      },
+      "command": "npm.cmd run test:decks:waterways",
+      "status": "PASS",
+      "name": "decks-waterways",
+      "startedUtc": "2026-10-10T14:27:19.7070919Z",
+      "finishedUtc": "2026-10-10T14:28:36.6932026Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser.log",
+        "sha256": "c7ae65a0c0e35f751fdc60beb26252c2af1ea5bf07471cbb47cddb56c433a47f"
+      },
+      "command": "npm.cmd run test:browser",
+      "status": "FAIL",
+      "name": "browser",
+      "startedUtc": "2026-10-10T14:28:36.7013980Z",
+      "finishedUtc": "2026-10-10T14:30:03.4586450Z",
+      "exitCode": 1,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser-polish.log",
+        "sha256": "f2e80c20d7b123d3bcc7a7e7456f1d522ce95fab50649c23dd44b39fbbff6b60"
+      },
+      "command": "npm.cmd run test:browser:polish",
+      "status": "PASS",
+      "name": "browser-polish",
+      "startedUtc": "2026-10-10T14:30:03.4654207Z",
+      "finishedUtc": "2026-10-10T14:31:50.6010006Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser-cross.log",
+        "sha256": "517cc76a40c008077feea7fd1c97b44d4afc111c293364cdc00121e60cfa44fa"
+      },
+      "command": "npm.cmd run test:browser:cross",
+      "status": "FAIL",
+      "name": "browser-cross",
+      "startedUtc": "2026-10-10T14:31:50.6067127Z",
+      "finishedUtc": "2026-10-10T14:34:53.1582003Z",
+      "exitCode": 1,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser-061.log",
+        "sha256": "4359a597854de849d0e5818ec8a4981bad2710c55ac7ff75c4cbbb08279b1c67"
+      },
+      "command": "npm.cmd run test:browser:061",
+      "status": "PASS",
+      "name": "browser-061",
+      "startedUtc": "2026-10-10T14:34:53.1791565Z",
+      "finishedUtc": "2026-10-10T14:37:44.2204880Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser-ember.log",
+        "sha256": "b29987a4cb34da14af60f688689c13671e95a5303a9df14e1d81fac32ac1f10f"
+      },
+      "command": "npm.cmd run test:browser:ember",
+      "status": "FAIL",
+      "name": "browser-ember",
+      "startedUtc": "2026-10-10T14:37:44.2306707Z",
+      "finishedUtc": "2026-10-10T14:39:58.7268232Z",
+      "exitCode": 1,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-browser-waterways.log",
+        "sha256": "87c83d341a23697d72494720768b4336225626c43f79a732dfcd9051d55f7f34"
+      },
+      "command": "npm.cmd run test:browser:waterways",
+      "status": "PASS",
+      "name": "browser-waterways",
+      "startedUtc": "2026-10-10T14:39:58.7331229Z",
+      "finishedUtc": "2026-10-10T14:50:50.4690273Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-e2e-legacy061.log",
+        "sha256": "f1745cb052cdaef0e08c8cd6778d748525f35c1c32e2ce1031e1b3a1832e4c94"
+      },
+      "command": "npm.cmd run test:e2e",
+      "status": "PASS",
+      "name": "e2e-legacy061",
+      "startedUtc": "2026-10-10T14:50:50.4754863Z",
+      "finishedUtc": "2026-10-10T15:04:08.6014317Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-e2e-legacy07.log",
+        "sha256": "c0d6495ce5e005e068fe04c1c6b04e0c769ed1ff77e931cbc9385c8125f44630"
+      },
+      "command": "npm.cmd run test:e2e:ember",
+      "status": "PASS",
+      "name": "e2e-legacy07",
+      "startedUtc": "2026-10-10T15:04:08.6075336Z",
+      "finishedUtc": "2026-10-10T15:22:03.9209771Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "log": {
+        "path": ".local-validation/v08/final-e2e-waterways-course.log",
+        "sha256": "15a912d8b105b32fd89ed5c83f5794faff542ccf5e582fd1ae1a0a5f9840b0f2"
+      },
+      "command": "npm.cmd run test:e2e:waterways",
+      "status": "PASS",
+      "name": "e2e-waterways-course",
+      "startedUtc": "2026-10-10T15:22:04.0614376Z",
+      "finishedUtc": "2026-10-10T15:45:50.1276513Z",
+      "exitCode": 0,
+      "phase": "final"
+    },
+    {
+      "name": "runs-waterways",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T15:48:06.6784314Z",
+      "command": "npm.cmd run test:runs:waterways",
+      "startedUtc": "2026-10-10T15:46:17.5988401Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-runs-waterways.log",
+        "sha256": "015f229921b77aa232b29d53a638d17a85a9de83d8e1ea87a3976af29ff04a62"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "test",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T15:52:20.5248999Z",
+      "command": "npm.cmd test",
+      "startedUtc": "2026-10-10T15:48:07.0878250Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-test.log",
+        "sha256": "ef72d67a9aa7820b8dc52f35c8ed34f630465a0883c69d61ab1e74a61f1f00c4"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "data",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T15:52:22.0942810Z",
+      "command": "npm.cmd run validate:data",
+      "startedUtc": "2026-10-10T15:52:20.5440677Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-data.log",
+        "sha256": "5b1631d54146877023778a4d0ae587066652c036d64dcb14dd756d928128c4de"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "build",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T15:52:31.9505810Z",
+      "command": "npm.cmd run build",
+      "startedUtc": "2026-10-10T15:52:22.1013589Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-build.log",
+        "sha256": "b52a84397db72e4df0cbc80030295884ccff9576a13ed106d81d70b17c0e30dd"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "browser",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T16:01:09.9056297Z",
+      "command": "npm.cmd run test:browser",
+      "startedUtc": "2026-10-10T15:52:32.5347533Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-browser.log",
+        "sha256": "c914623377d2569eea5659759b3182b6579ca54ccda67e539da996cb83b4df07"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "browser-cross",
+      "exitCode": 1,
+      "finishedUtc": "2026-10-10T16:04:05.0522391Z",
+      "command": "npm.cmd run test:browser:cross",
+      "startedUtc": "2026-10-10T16:01:09.9209368Z",
+      "status": "FAIL",
+      "log": {
+        "path": ".local-validation/v08/recheck-browser-cross.log",
+        "sha256": "20426a5e864cc4fad662642683d41269536cba97be4da82f878375b2041bd0f6"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "browser-ember",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T16:10:43.0014480Z",
+      "command": "npm.cmd run test:browser:ember",
+      "startedUtc": "2026-10-10T16:04:05.0716263Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-browser-ember.log",
+        "sha256": "e7616eef6c05c84ade24942798f40a85b5aa6c4d6f7628b167f4b948cbdec445"
+      },
+      "phase": "recheck"
+    },
+    {
+      "name": "entry-strategies",
+      "exitCode": 0,
+      "finishedUtc": "2026-10-10T16:13:28.0675559Z",
+      "command": "node tests/waterways-entry-strategy-browser.mjs",
+      "startedUtc": "2026-10-10T16:10:43.0155232Z",
+      "status": "PASS",
+      "log": {
+        "path": ".local-validation/v08/recheck-entry-strategies.log",
+        "sha256": "3f48a5e0b05b64a4e6b2417d526cc28e80713b3fe87bb46d1575476c98d00bc1"
+      },
+      "phase": "recheck"
+    }
+  ],
+  "environment": {
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "git": "2.51.0.windows.2",
+    "playwright": "1.51.1",
+    "nodeDirectory": "../.local-tools/node-v24.19.0-win-x64",
+    "browserDirectory": "../.local-tools/playwright-browsers"
+  },
+  "serialExecution": true,
+  "note": "Raw development attempts are additionally indexed in failure-history.json; missing per-attempt timestamps are not invented.",
+  "diagnosticCommands": [
+    {
+      "finishedUtc": "2026-10-10T16:15:29.3826455Z",
+      "exitCode": 1,
+      "startedUtc": "2026-10-10T16:14:55.1618411Z",
+      "command": "node .local-validation/v08/original-webkit-reference/tests/core-polish-browser.mjs",
+      "name": "original-main-webkit-core",
+      "log": ".local-validation/v08/original-main-webkit-core.log",
+      "sourceMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+      "logEvidence": {
+        "path": ".local-validation/v08/original-main-webkit-core.log",
+        "sha256": "d29efd49f4a153543303d086cf2564a44e2a52a11e915ed26b2e3b5830917ad3"
+      }
+    },
+    {
+      "finishedUtc": "2026-10-10T16:17:22.9600111Z",
+      "startedUtc": "2026-10-10T16:17:09.2635518Z",
+      "log": ".local-validation/v08/original-main-webkit-core-02.log",
+      "exitCode": 1,
+      "name": "original-main-webkit-core-02",
+      "command": "node .local-validation/v08/original-webkit-reference/tests/core-polish-browser.mjs",
+      "sourceMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+      "logEvidence": {
+        "path": ".local-validation/v08/original-main-webkit-core-02.log",
+        "sha256": "5dc1b3fd49f65457287a5eca579f13df5066972aa69396f19a07e2c57e0f736c"
+      }
+    }
+  ]
+}

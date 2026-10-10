@@ -1,0 +1,170 @@
+[
+  {
+    "id": "INITIAL_NAVIGATION",
+    "classification": "ENVIRONMENT_OR_STARTUP",
+    "result": "FAIL",
+    "detail": "ERR_NETWORK_ACCESS_DENIED, then initial localhost navigation timeouts; no gameplay assertions executed. Later warmed authorized localhost navigation worked. A root cause beyond observations is not asserted.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/browser-01.log",
+        "sha256": "171a15526aeeb1b85fa09d00d7165d630f17ae1408afed8ba5abfae1b60ee1a3"
+      },
+      {
+        "path": ".local-validation/v08/browser-02.log",
+        "sha256": "aa38c37ba9d38740b83443ba4051df487f7f91d17f6181d2b5b8d5338f5f2dc1"
+      },
+      {
+        "path": ".local-validation/v08/browser-03.log",
+        "sha256": "4ccad8eaabc5ae474cc8371bed0f2e626f78b4bd7ff0bd382eff7c25df8a4f25"
+      }
+    ]
+  },
+  {
+    "id": "RELATIVE_LABEL_LIFETIME",
+    "classification": "UI_CODE",
+    "result": "FAIL_THEN_FIXED",
+    "detail": "Relative labels were cleared by following score events; retained until attack cleanup.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/browser-04.log",
+        "sha256": "65f02d15c678ae5c3a6b4e76e5812470ad602a63dbaab8294dd21450113b062c"
+      },
+      {
+        "path": ".local-validation/v08/browser-05.log",
+        "sha256": "65f02d15c678ae5c3a6b4e76e5812470ad602a63dbaab8294dd21450113b062c"
+      }
+    ]
+  },
+  {
+    "id": "STAGE8_ACTION_SIZE",
+    "classification": "UI_CODE",
+    "result": "FAIL_THEN_FIXED",
+    "detail": "43px action button under max layout; scoped 44px minimum added, assertion unchanged.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/browser-06.log",
+        "sha256": "862c95e7a0ebf7d7c39bfbe3c55c28fb045ec3d29f68c40058b837d28a942f6e"
+      }
+    ]
+  },
+  {
+    "id": "HARNESS_PRESENTATION_OPTIONS",
+    "classification": "TEST_TOOL",
+    "result": "EARLIER_EVIDENCE_INCOMPLETE",
+    "detail": "Earlier 114 checks / 111 screenshots omitted beginPresentation and OS reduce forwarding. Fixed harness and added visible score assertion. Not reused as final evidence.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/browser-cross-final.log",
+        "sha256": "314ae0e66cd327a1c39e0fd20ed95130f161155a3a69881e1e778c9c7eef2dd4"
+      }
+    ]
+  },
+  {
+    "id": "FUTURE_VERSION_UNIT",
+    "classification": "VERSIONED_TEST_EXPECTATION",
+    "result": "FAIL_THEN_UPDATED",
+    "detail": "0.8 is now supported; unrecognized version sentinel changed to99.0.0 without deleting rejection assertion.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/integration-test-01.log",
+        "sha256": "403a695bb1cfbcef8d732bfb8a30e5a096549e08378af49368b9c3e1c3757d6c"
+      }
+    ]
+  },
+  {
+    "id": "LOBBY_VERSION",
+    "classification": "VERSIONED_TEST_EXPECTATION",
+    "result": "FAIL_THEN_FULL_OFFICIAL_BROWSER_PASS",
+    "detail": "Lobby expected0.7 Ember Cave; updated exact expected badge to0.8 Ancient Waterways. Full suite rerun separately.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/final-browser.log",
+        "sha256": "c7ae65a0c0e35f751fdc60beb26252c2af1ea5bf07471cbb47cddb56c433a47f"
+      },
+      {
+        "path": ".local-validation/v08/recheck-browser.log",
+        "sha256": "c914623377d2569eea5659759b3182b6579ca54ccda67e539da996cb83b4df07"
+      }
+    ]
+  },
+  {
+    "id": "EMBER_FUTURE_SLOT",
+    "classification": "VERSIONED_TEST_EXPECTATION",
+    "result": "FAIL_THEN_FULL_EMBER_SUITE_PASS",
+    "detail": "Previous unsupported slot version0.8 is now supported. Use99.0.0; preserve refusal/state/physical IndexedDB row preservation assertions.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/final-browser-ember.log",
+        "sha256": "b29987a4cb34da14af60f688689c13671e95a5303a9df14e1d81fac32ac1f10f"
+      },
+      {
+        "path": ".local-validation/v08/recheck-browser-ember.log",
+        "sha256": "e7616eef6c05c84ade24942798f40a85b5aa6c4d6f7628b167f4b948cbdec445"
+      }
+    ]
+  },
+  {
+    "id": "WEBKIT_WATCHDOG",
+    "classification": "OBSERVED_TIMING_FAILURE_CAUSE_UNCONFIRMED",
+    "result": "FAIL_REPRODUCED_ON_CURRENT_AND_ORIGINAL_MAIN",
+    "detail": "Initial current capacity zoom scenario timed out; current recheck and original main each timed out in the first basic scenario. Exact cause unconfirmed. Assertions, timing and recording unchanged. See webkit-timing-investigation.json.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/final-browser-cross.log",
+        "sha256": "517cc76a40c008077feea7fd1c97b44d4afc111c293364cdc00121e60cfa44fa"
+      },
+      {
+        "path": ".local-validation/v08/recheck-browser-cross.log",
+        "sha256": "20426a5e864cc4fad662642683d41269536cba97be4da82f878375b2041bd0f6"
+      },
+      {
+        "path": ".local-validation/v08/original-main-webkit-core-02.log",
+        "sha256": "5dc1b3fd49f65457287a5eca579f13df5066972aa69396f19a07e2c57e0f736c"
+      }
+    ]
+  },
+  {
+    "id": "COURSE_POLICY_01",
+    "classification": "QA_POLICY_TARGET_MISS_NOT_GAME_DEFEAT",
+    "result": "COMPLETION_PASS_LEARNING_FAIL",
+    "detail": "Actually completed37, but Stage8 battles34/35/36 did not meet requested learning target. Preserved; generic completion is not learning PASS.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/natural-course-01.log",
+        "sha256": "a5fd94412fb47c343325724c269593d00f0610c5e19702adfc37c0657e9572b3"
+      },
+      {
+        "path": ".local-validation/v08/waterways-course-01.json",
+        "sha256": "9d133d9732a96778b7f0b5e84179c0ce1c37aa9b20f33ba9f1ac75b7854366fe"
+      }
+    ]
+  },
+  {
+    "id": "STAGE8_SHOP_LOG_LABEL",
+    "classification": "TEST_LOG_DESCRIPTION_ONLY",
+    "result": "CORRECTED_WITHOUT_ASSERTION_OR_GAME_CHANGE",
+    "detail": "Running production runner used a shared Stage8 log label saying first shop. Actual choice/Shop4/save assertions passed. After the runner had loaded, only the source log label was changed to fourth shop. This original raw log is retained; final unit/data/build/browser follow the text-only correction.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/final-e2e-waterways-course.log",
+        "sha256": "15a912d8b105b32fd89ed5c83f5794faff542ccf5e582fd1ae1a0a5f9840b0f2"
+      }
+    ]
+  },
+  {
+    "id": "ORIGINAL_COMPARISON_SETUP",
+    "classification": "DIAGNOSTIC_REFERENCE_SETUP_ERROR",
+    "result": "CORE_NOT_RUN_THEN_REAL_TIMING_FAILURE",
+    "detail": "The independent reference omitted the existing development sandbox spec import. Copied that exact original Git file, then retried without changing game/test criteria.",
+    "localEvidence": [
+      {
+        "path": ".local-validation/v08/original-main-webkit-core.log",
+        "sha256": "d29efd49f4a153543303d086cf2564a44e2a52a11e915ed26b2e3b5830917ad3"
+      },
+      {
+        "path": ".local-validation/v08/original-main-webkit-core-02.log",
+        "sha256": "5dc1b3fd49f65457287a5eca579f13df5066972aa69396f19a07e2c57e0f736c"
+      }
+    ]
+  }
+]

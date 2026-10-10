@@ -1,0 +1,30 @@
+{
+  "files": [
+    {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "path": "dist/.nojekyll"
+    },
+    {
+      "sha256": "5d56896b244d4ffe340753170ba7afc07e5d69db4e6440c2fae22012a878aa6b",
+      "path": "dist/index.html"
+    },
+    {
+      "sha256": "8a4c41f5607a731b8c16c8af926c721d5073062654011d77a63899fe080843d9",
+      "path": "dist/assets/index-Dnm2vz2z.css"
+    },
+    {
+      "sha256": "6d5e183b036410877cdb8f95fcefe32b3b560a3afd68ff97d908be48240a6f53",
+      "path": "dist/assets/index-DoLreKH-.js"
+    }
+  ],
+  "sameProductionSourceBuildBeforeAndAfterRegression": true,
+  "firstBuild": {
+    "path": ".local-validation/v08/final-build-hashes.json",
+    "sha256": "62b2095942e67fa04bb6955267589098462921496588dbe70a8e79096ed58a73"
+  },
+  "finalBuild": {
+    "path": ".local-validation/v08/recheck-build-hashes.json",
+    "sha256": "234495733d70f89b3bb1cbe644445488f47895fa42fe489a00398c69a5182510"
+  },
+  "note": "Compared two builds of final v0.8 source; changed v0.7-to-v0.8 assets are expected."
+}

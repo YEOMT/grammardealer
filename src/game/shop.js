@@ -1,4 +1,4 @@
-import {hasSkyCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {hasWaterwaysCampaign,hasSkyCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {selectOperation,selectDedicatedOperation} from './operationPool.js';
 import {cardDefinition,isOperation,canPolish} from '../data/cardCatalog.js';
 import {operationSpec} from '../data/operationSpec.js';
@@ -29,7 +29,7 @@ const requireEntryContext = run => {
     throw new TypeError('Stage 2 preparation requires a current campaign outside combat');
 };
 
-const requireShopContext=run=>{if(!isCurrentCampaign(run)||!['stage.02',...(hasSkyCampaign(run)?['stage.04']:[]),...(hasSnowCampaign(run)?['stage.06']:[])].includes(run.progress.stageId)||run.combat!==null)throw Error('Shop outside entry');};
+const requireShopContext=run=>{if(!isCurrentCampaign(run)||!['stage.02',...(hasSkyCampaign(run)?['stage.04']:[]),...(hasSnowCampaign(run)?['stage.06']:[]),...(hasWaterwaysCampaign(run)?['stage.08']:[])].includes(run.progress.stageId)||run.combat!==null)throw Error('Shop outside entry');};
 function rememberCardDefinitions(run, definitions) {
   const seen = new Set(run.vocabulary?.encounteredLexemeIds ?? []);
   for (const definition of definitions) if(definition.lexemeId)seen.add(definition.lexemeId);
@@ -80,11 +80,11 @@ export function grantStage2Entry(run) {
 
 /** Generates only once and consumes only the shop stream. Prices never depend on player gold. */
 export function createShop(run) {
-  requireShopContext(run);const stageId=run.progress.stageId,second=['stage.04','stage.06'].includes(stageId);
+  requireShopContext(run);const stageId=run.progress.stageId,second=['stage.04','stage.06','stage.08'].includes(stageId);
   if (!run.entryGrants?.[stageId]?.applied) throw new TypeError('Entry preparation must precede the shop');
   const shopId = `shop.${run.runId}.${stageId}`;
   if (run.shop?.shopId === shopId) return run.shop;
-  if (run.shop) {if(!second||run.shop.stageId!==(stageId==='stage.06'?'stage.04':'stage.02')||!run.shop.closed||(run.shopHistory??[]).some(s=>s.shopId===run.shop.shopId))throw new TypeError('Another shop already exists');run.shopHistory=[...(run.shopHistory??[]),structuredClone(run.shop)];}
+  if (run.shop) {if(!second||run.shop.stageId!==(stageId==='stage.08'?'stage.06':stageId==='stage.06'?'stage.04':'stage.02')||!run.shop.closed||(run.shopHistory??[]).some(s=>s.shopId===run.shop.shopId))throw new TypeError('Another shop already exists');run.shopHistory=[...(run.shopHistory??[]),structuredClone(run.shop)];}
   const inventory = [], trace = [], stream = run.rng.shop;
   const runePool = eligibleRunes(run);
   for (let slot = 0; slot < (second?2:SHOP_BALANCE.runeSlots); slot++) {

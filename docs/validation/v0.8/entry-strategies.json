@@ -1,0 +1,618 @@
+{
+  "kind": "ASSIGNED_BOSS_AFTER_REAL_ENTRY_CHOICE_UI_NOT_NATURAL",
+  "checks": [
+    {
+      "id": "WHO_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "chromium",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.who.base",
+          "cardDefId": "card.who"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.who"
+      ],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "b1d3ec33",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    },
+    {
+      "id": "WHICH_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "chromium",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.26",
+          "formId": "form.the.base",
+          "cardDefId": "card.the"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.which.base",
+          "cardDefId": "card.which"
+        },
+        {
+          "id": "starter.11",
+          "formId": "form.be.was",
+          "cardDefId": "card.be"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.help.third",
+          "cardDefId": "card.help"
+        },
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.05",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.like.present",
+          "cardDefId": "card.like"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.which"
+      ],
+      "finalPower": 1260,
+      "actualHpLoss": 1260,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "89cf8382",
+        "objectEvidenceDigest": "d02a40f3"
+      }
+    },
+    {
+      "id": "NONE_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "chromium",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.04.card.2",
+          "formId": "form.that.base",
+          "cardDefId": "card.that"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": null,
+      "ownedMarkers": [],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "03701450",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    },
+    {
+      "id": "WHO_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "firefox",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.who.base",
+          "cardDefId": "card.who"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.who"
+      ],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "b1d3ec33",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    },
+    {
+      "id": "WHICH_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "firefox",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.26",
+          "formId": "form.the.base",
+          "cardDefId": "card.the"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.which.base",
+          "cardDefId": "card.which"
+        },
+        {
+          "id": "starter.11",
+          "formId": "form.be.was",
+          "cardDefId": "card.be"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.help.third",
+          "cardDefId": "card.help"
+        },
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.05",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.like.present",
+          "cardDefId": "card.like"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.which"
+      ],
+      "finalPower": 1260,
+      "actualHpLoss": 1260,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "89cf8382",
+        "objectEvidenceDigest": "d02a40f3"
+      }
+    },
+    {
+      "id": "NONE_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "firefox",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.04.card.2",
+          "formId": "form.that.base",
+          "cardDefId": "card.that"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": null,
+      "ownedMarkers": [],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "03701450",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    },
+    {
+      "id": "WHO_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "webkit",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.who.base",
+          "cardDefId": "card.who"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.who"
+      ],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "b1d3ec33",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    },
+    {
+      "id": "WHICH_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "webkit",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.26",
+          "formId": "form.the.base",
+          "cardDefId": "card.the"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+          "formId": "form.which.base",
+          "cardDefId": "card.which"
+        },
+        {
+          "id": "starter.11",
+          "formId": "form.be.was",
+          "cardDefId": "card.be"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.help.third",
+          "cardDefId": "card.help"
+        },
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.05",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.like.present",
+          "cardDefId": "card.like"
+        }
+      ],
+      "gift": "entry.qa.waterways.waterways.assigned.stage.08.card.0",
+      "ownedMarkers": [
+        "card.which"
+      ],
+      "finalPower": 1260,
+      "actualHpLoss": 1260,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "89cf8382",
+        "objectEvidenceDigest": "d02a40f3"
+      }
+    },
+    {
+      "id": "NONE_ACTUAL_ENTRY_GIFT_TO_BOSS",
+      "engine": "webkit",
+      "status": "PASS",
+      "physicalTokens": [
+        {
+          "id": "starter.24",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.01",
+          "formId": "form.child.singular",
+          "cardDefId": "card.child"
+        },
+        {
+          "id": "entry.qa.waterways.waterways.assigned.stage.04.card.2",
+          "formId": "form.that.base",
+          "cardDefId": "card.that"
+        },
+        {
+          "id": "starter.14",
+          "formId": "form.run.third",
+          "cardDefId": "card.run"
+        },
+        {
+          "id": "starter.02",
+          "formId": "form.like.third",
+          "cardDefId": "card.like"
+        },
+        {
+          "id": "starter.25",
+          "formId": "form.a.a",
+          "cardDefId": "card.a"
+        },
+        {
+          "id": "starter.03",
+          "formId": "form.book.singular",
+          "cardDefId": "card.book"
+        },
+        {
+          "id": "starter.07",
+          "formId": "form.i.subject",
+          "cardDefId": "card.i"
+        },
+        {
+          "id": "starter.04",
+          "formId": "form.make.past",
+          "cardDefId": "card.make"
+        }
+      ],
+      "gift": null,
+      "ownedMarkers": [],
+      "finalPower": 647,
+      "actualHpLoss": 647,
+      "witness": {
+        "sentenceId": "qa.waterways.waterways.assigned.37.1",
+        "subjectRelativeId": "relative.0",
+        "objectRelativeId": "relative.1",
+        "subjectEvidenceDigest": "03701450",
+        "objectEvidenceDigest": "b14d74fa"
+      }
+    }
+  ],
+  "captures": [
+    "ASSIGNED-chromium-WHO-gift-to-boss.png",
+    "ASSIGNED-chromium-WHICH-gift-to-boss.png",
+    "ASSIGNED-chromium-NONE-gift-to-boss.png",
+    "ASSIGNED-firefox-WHO-gift-to-boss.png",
+    "ASSIGNED-firefox-WHICH-gift-to-boss.png",
+    "ASSIGNED-firefox-NONE-gift-to-boss.png",
+    "ASSIGNED-webkit-WHO-gift-to-boss.png",
+    "ASSIGNED-webkit-WHICH-gift-to-boss.png",
+    "ASSIGNED-webkit-NONE-gift-to-boss.png"
+  ],
+  "errors": [],
+  "startedAt": "2026-10-10T16:10:44.485Z",
+  "finishedAt": "2026-10-10T16:13:27.969Z",
+  "status": "PASS",
+  "sourceEvidence": {
+    "path": ".local-validation/v08/entry-strategies/report.json",
+    "sha256": "1ac2b91cce1d79ae87892db34fc1fc649cb516f25534ec8011a748a25ce4e778"
+  }
+}

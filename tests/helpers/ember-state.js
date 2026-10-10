@@ -1,4 +1,4 @@
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-07-controller.js';
 import {newProfile,validateRunState} from '../../src/services/localStore.js';
 import {registryForVersion} from '../../src/data/language/index.js';
 import {grantStage2Entry,createShop,closeShop} from '../../src/game/shop.js';

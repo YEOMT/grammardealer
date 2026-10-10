@@ -1,0 +1,98 @@
+{
+  "observedMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+  "sources": [
+    {
+      "id": "R01",
+      "kind": "CURRENT_CODE_READ",
+      "title": "main branch / PR #11 merge",
+      "url": "https://github.com/YEOMT/grammardealer/commit/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+      "note": "관찰한 기준. 작업 시 다시 최신 main을 확인한다."
+    },
+    {
+      "id": "R02",
+      "kind": "CURRENT_CODE_READ",
+      "title": "AGENTS.md",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/AGENTS.md",
+      "note": "현재 소스 보존·Controller·테스트·merge 권한"
+    },
+    {
+      "id": "R03",
+      "kind": "CURRENT_CODE_READ",
+      "title": "parser.js relative clause path",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/engine/grammar/parser.js",
+      "note": "기존 that/생략 경로와 버전 게이트"
+    },
+    {
+      "id": "R04",
+      "kind": "CURRENT_CODE_READ",
+      "title": "grammar/index.js question fixture gate",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/engine/grammar/index.js",
+      "note": "물음표 fixture의 cap.question 미지원 분기"
+    },
+    {
+      "id": "R05",
+      "kind": "CURRENT_CODE_READ",
+      "title": "skyEvidence.js and comboEligibility.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/engine/grammar/skyEvidence.js",
+      "note": "실제 절/노드/VP·gap·해금 분리"
+    },
+    {
+      "id": "R06",
+      "kind": "CURRENT_CODE_READ",
+      "title": "shop.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/game/shop.js",
+      "note": "2/4/6 상점 guard·운영 전용 칸·가격"
+    },
+    {
+      "id": "R07",
+      "kind": "CURRENT_CODE_READ",
+      "title": "frostCards.js / 0.7 handoff",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/game/frostCards.js",
+      "note": "설원 source 계약 및 별도 임시 카드 dispatcher와 통합 필요"
+    },
+    {
+      "id": "R08",
+      "kind": "CURRENT_CODE_READ",
+      "title": "scoring.js / frostCrystalLock.js",
+      "url": "https://github.com/YEOMT/grammardealer/blob/ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd/src/engine/scoring.js",
+      "note": "기존 단계별 점수와 순수 보스 resolver를 읽고 계약 수립"
+    },
+    {
+      "id": "L01",
+      "kind": "EXTERNAL_GRAMMAR_VERIFICATION",
+      "title": "Cambridge English Grammar Today — Relative pronouns",
+      "url": "https://dictionary.cambridge.org/us/grammar/british-grammar/relative-pronouns/",
+      "note": "who/which/that, 목적격 생략, 전치사 목적격, where/when"
+    },
+    {
+      "id": "L02",
+      "kind": "EXTERNAL_GRAMMAR_VERIFICATION",
+      "title": "Cambridge — Relative clauses: defining and non-defining",
+      "url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/relative-clauses-defining-and-non-defining",
+      "note": "관계절 내부의 주격/목적격, 중복 대명사 금지"
+    },
+    {
+      "id": "L03",
+      "kind": "EXTERNAL_GRAMMAR_VERIFICATION",
+      "title": "Cambridge — Questions: wh-questions",
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/wh-questions",
+      "note": "조동사·do-support·의문 주어 예외·의문 어순"
+    },
+    {
+      "id": "L04",
+      "kind": "EXTERNAL_GRAMMAR_VERIFICATION",
+      "title": "Cambridge — Reported speech: indirect speech",
+      "url": "https://dictionary.cambridge.org/grammar/british-grammar/reported-speech-indirect-speech",
+      "note": "간접의문문 평서 어순·기계적 시제 역행 금지"
+    },
+    {
+      "id": "L05",
+      "kind": "EXTERNAL_GRAMMAR_VERIFICATION",
+      "title": "British Council — Reported speech: questions",
+      "url": "https://learnenglish.britishcouncil.org/free-resources/grammar/b1-b2/reported-speech-questions",
+      "note": "질문 내용절 어순 확인. 간접화법 전면 도입 근거로 사용하지 않는다."
+    }
+  ],
+  "userDiscussionIsPrimaryDesignSource": true,
+  "gameExecutionByAuthor": "NOT_RUN"
+}

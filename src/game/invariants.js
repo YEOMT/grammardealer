@@ -1,3 +1,4 @@
+import {validateDualRelativeSeal} from '../engine/dualRelativeSeal.js';
 import {validateEmberScale} from '../engine/emberScaleShield.js';
 import {hasSkyCampaign} from '../data/campaignFeatures.js';
 import {validateTurnHandSeal} from './turnHandSeal.js';
@@ -39,6 +40,7 @@ export function assertCombatInvariants(activeCardIds, combat, cardInstances) {
   if (combat.exchangesRemaining !== undefined) assert(nonnegative(combat.exchangesRemaining), 'invalid remaining exchanges');
   const hp = combat.enemyState?.hp ?? combat.enemyState?.hpRemaining;
   if (hp !== undefined) assert(nonnegative(hp), 'invalid enemy HP');
+  if(combat.enemyState?.bossMechanic?.id==='DUAL_RELATIVE_SEAL')validateDualRelativeSeal(combat.enemyState);
   if(combat.enemyState?.bossMechanic?.id==='EMBER_SCALE_SHIELD')validateEmberScale(combat.enemyState);
   if(combat.enemyState?.bossMechanic?.id==='TIME_GOLEM')validateTimeGolem(combat.enemyState);
   if(combat.enemyState?.bossMechanic?.id==='FROST_CRYSTAL_LOCK')validateFrostCrystalLock(combat.enemyState);

@@ -88,7 +88,7 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
   if (analysis.status === 'VALID' && !(analysis.issues ?? []).length && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
     sourceId: 'COMPLETE_SENTENCE', labelKo: '완전한 문장!', operation: 'ADD', operand: balance.completeBonus,
     evidenceRefs: [frameHit.id], highlightCardIds: scoringCards.map((card) => card.instanceId) });
-  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: ['0.5.0','0.6.0','0.6.1','0.7.0'].includes(analysis.grammarVersion)&&frameId==='frame.svoc'?`${FRAME_LABELS[frameId]} ×${frameMultiplier.num/frameMultiplier.den}`:['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0'].includes(analysis.grammarVersion)&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식','frame.svoc':'5형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
+  if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: ['0.5.0','0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)&&frameId==='frame.svoc'?`${FRAME_LABELS[frameId]} ×${frameMultiplier.num/frameMultiplier.den}`:['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식','frame.svoc':'5형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
     operand: frameMultiplier, evidenceRefs: [frameHit.id], highlightCardIds: frameHit.cardIds ?? [] });
   for(const[tag,operand]of Object.entries(balance.temporalMultipliers??{})){
     const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length)continue;
@@ -106,6 +106,8 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     if(!operand)continue;const evidence=hits.filter(h=>(tag==='DEGREE'?h.tag.startsWith('DEGREE.'):h.tag===tag)&&h.validity==='VALID'&&h.bonusEligible!==false);if(!evidence.length)continue;
     emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:({'COMPARISON.COMPARATIVE':'비교급 ×1.8','COMPARISON.SUPERLATIVE':'최상급 ×1.9','COMPARISON.EQUALITY':'원급 비교 ×1.8',DEGREE:'정도 표현 ×1.5','COMPARISON.MULTIPLIER':'배수 비교 +20'})[tag],operation,operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});
   }
+  const relatives=hits.filter(h=>h.tag.startsWith('CLAUSE.RELATIVE.')&&h.validity==='VALID'&&h.bonusEligible!==false);
+  if(balance.relativeMultiplier&&relatives.length)emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:'CLAUSE.RELATIVE',labelKo:'관계절 ×2',operation:'MULTIPLY',operand:balance.relativeMultiplier,evidenceRefs:relatives.map(h=>h.id),highlightCardIds:[...new Set(relatives.flatMap(h=>h.cardIds))]});
   for(const [tag,operation,operand,labelKo]of [['LINK.CLAUSE','MULTIPLY',balance.clauseLinkMultiplier,'절 연결 ×1.6'],['LINK.PHRASE','ADD',balance.phraseLinkAdd,'단어·구 연결 +10']]){
     const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length||!operand)continue;
     emit({phase:'LINKS',sourceType:'GRAMMAR',sourceId:tag,labelKo,operation,operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))],connectToCardIds:[...new Set(evidence.flatMap(h=>h.connectorCardIds??[]))]});
@@ -128,6 +130,6 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({ phase: 'SIMPLE_MODIFIERS', sourceType: 'GRAMMAR', sourceId: hit.tag, labelKo: '전치사구!', operation: 'ADD', operand: balance.modifierAdds.PP,
       evidenceRefs: [hit.id], highlightCardIds: hit.cardIds ?? [] });
   }
-  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0'].includes(analysis.grammarVersion)?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
+  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.8.0'?'balance.0.8.0':analysis.grammarVersion==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
     contributingCardIds: scoringCards.map((card) => card.instanceId).filter((id) => !excluded.has(id)), excludedCardIds: [...excluded] };
 }

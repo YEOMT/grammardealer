@@ -1,0 +1,22 @@
+{
+  "status": "DRAFT_PR_CREATED",
+  "url": "https://github.com/YEOMT/grammardealer/pull/12",
+  "number": 12,
+  "draft": true,
+  "state": "open",
+  "headShaAtPublication": "2f74c16de8217f93ded342f4b590204913116855",
+  "head": "codex/v0.8-ancient-waterways-relative-seal",
+  "base": "main",
+  "autoMerge": null,
+  "merged": false,
+  "createdAt": "2026-10-10T16:29:37Z",
+  "verifiedAt": "2026-10-10T16:29:37.983098+00:00",
+  "remoteMainSha": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+  "startMainUnchanged": true,
+  "method": "GitHub REST with existing Git Credential Manager authentication; queried existing head PR before creation",
+  "blockers": [
+    "A110: Native WebKit core presentation watchdog timeout, also reproduced on original main; exact cause unresolved",
+    "A003: Partial pre-edit golden capture procedure not completed",
+    "A118: Preservation of all historical ignored raw outputs could not be proven"
+  ]
+}

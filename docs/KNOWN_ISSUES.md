@@ -1,3 +1,15 @@
+## 0.8 검수 범위와 남은 한계
+
+- Windows Playwright WebKit의 기존 native core 연출 검사가 watchdog timeout(FAST_FORWARDED)으로 실패했다. 현재 코드 두 실행과 시작 main의 별도 재실행에서 관측했으며 정확한 원인은 미확정이다. Stage8 집중 UI/37전투 완주와 별개인 교차 브라우저 차단 사항이다. assertion/시간 예산은 변경하지 않았다. 상세는 [비교 진단](validation/v0.8/webkit-timing-investigation.json)을 따른다.
+
+- 수로도시의 HP·일반 적 이름·관계절 배수는 명세의 구현 초깃값이다. 자동 정책 한 시드 완주/학습 검사는 사람 난이도나 승률을 보장하지 않는다.
+- who/which/where/when 및 등록된 동사의 학교 문법을 지원한다. 일반 영어 전체, 미등록 단어, 자유 관계절 what/whose 등은 이번 범위가 아니다. 의미가 어색하다는 이유만으로 구조적 정답을 감점하지 않는다.
+- 자연 원정의 WHO 선택 경로와 지정 상태의 WHICH/that-only NONE 경로를 구분한다. 자동 제출 문장을 학생 모범 예문으로 배포하지 않는다.
+- 기존 0.7 이하 저장은 원래 경계로 끝난다. Stage 8은 새 0.8 원정에서 제공한다. 선택한 관계사를 제거하면 자동 재지급하지 않는다.
+- 실제 iPad/Android/Safari, 스피커 청취, 교사/학생 검수는 NOT_RUN이다. Playwright WebKit과 무음 영상으로 대체하지 않는다.
+- 구현 전 완료 저장 golden을 독립 채취하지 못한 절차상 공백을 명시한다. 이후 시작 main archive/구버전 production 재실행으로 확인한 결과를 구현 전 증거로 소급하지 않는다.
+- 이번 명령별 실패·재실행·최종 상태는 [0.8 실제 보고서](TEST_REPORT_0.8.md)와 [A001–A120](ACCEPTANCE_0.8.md)을 따른다. 아래 내용은 과거 버전 당시 기록이다.
+
 ## 0.6.1 범위와 검수 한계
 
 - 새 문법은 검수된 AP-to gap과 등록된 VP 부사 범위다. 일반 NLP가 아니며 미등록 `already` 같은 단어를 자동 생성하지 않는다. 의미상 기묘한 문장을 의미만으로 거절하지 않는다.

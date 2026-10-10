@@ -1,0 +1,1862 @@
+{
+  "kind": "ACTUAL_ENGINE_RESULTS",
+  "sourceMain": "ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd",
+  "original07Timing": "Retrieved and executed from work-start Git archive after implementation; not a pre-edit capture",
+  "measuredAt": "2026-10-10T14:38:41.832Z",
+  "rows": [
+    {
+      "id": "G001",
+      "sentence": "The child who runs is happy.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 30,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G002",
+      "sentence": "I like the child who runs.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.4",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.5"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 31,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G003",
+      "sentence": "The children who run are happy.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 33,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G004",
+      "sentence": "The book which is good helps me.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 55,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G005",
+      "sentence": "The dog which runs is happy.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 30,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G006",
+      "sentence": "The child that runs is happy.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 30,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G007",
+      "sentence": "The child who I like runs.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 20,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G008",
+      "sentence": "The child I like runs.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 20,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G009",
+      "sentence": "The book which I made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 45,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G010",
+      "sentence": "The book that I made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 45,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G011",
+      "sentence": "The book I made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 45,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G012",
+      "sentence": "I like the book you made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.4",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.5"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 43,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G013",
+      "sentence": "A child who runs likes a book I made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 72,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G014",
+      "sentence": "A child who runs likes a book that I made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 10,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.9"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 81,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G015",
+      "sentence": "A child that runs likes a book I made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 72,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G016",
+      "sentence": "A book which helps a child I like is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 10,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.6",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.7"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 179,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G017",
+      "sentence": "The child who likes a book I made runs.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 9,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.6",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.7"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 106,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G018",
+      "sentence": "A child who runs likes a dog which plays.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 61,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G019",
+      "sentence": "A child I like shows a book you made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.8",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 82,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G020",
+      "sentence": "The child who runs is happy and the book I made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 13,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.3",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.11",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.10"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 275,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G021",
+      "sentence": "The book which was made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 84,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G022",
+      "sentence": "The book which has been made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 8,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 98,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G023",
+      "sentence": "The child who is often running is happy.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 8,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 147,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G024",
+      "sentence": "The book I have made is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 69,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G025",
+      "sentence": "A child who has worked likes the book I made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 10,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.9"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 86,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G026",
+      "sentence": "The book which I work with is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 8,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 30,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G027",
+      "sentence": "The book I work with is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 30,
+      "original07Status": "INVALID_CORE"
+    },
+    {
+      "id": "G028",
+      "sentence": "The school in which I work is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 8,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.5"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 34,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G029",
+      "sentence": "The book which I gave you is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 8,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 50,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G030",
+      "sentence": "This is the school where I work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.np",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.4",
+          "kind": "RELATIVE_ADVERB",
+          "relativeRole": "ADVERBIAL",
+          "adverbKind": "PLACE",
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.6"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 26,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G031",
+      "sentence": "I like the day when you came.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.4",
+          "kind": "RELATIVE_ADVERB",
+          "relativeRole": "ADVERBIAL",
+          "adverbKind": "TIME",
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.6"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 62,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G032",
+      "sentence": "The room where I live is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_ADVERB",
+          "relativeRole": "ADVERBIAL",
+          "adverbKind": "PLACE",
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 32,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G033",
+      "sentence": "The school which I like is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 34,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G034",
+      "sentence": "I play when you come.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 31,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G035",
+      "sentence": "I know that you work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 24,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G036",
+      "sentence": "I like that book.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 23,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G037",
+      "sentence": "A child who runs likes the school where I work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 10,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_ADVERB",
+          "relativeRole": "ADVERBIAL",
+          "adverbKind": "PLACE",
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.9"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 71,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G038",
+      "sentence": "The book made today is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 101,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G039",
+      "sentence": "Reading books is good.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 81,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "G040",
+      "sentence": "The child I like are happy.",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 34,
+      "original07Status": "VALID_WITH_ISSUES"
+    },
+    {
+      "id": "G041",
+      "sentence": "A child who runs like a book I made.",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 72,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G042",
+      "sentence": "A child who run likes a book I made.",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 9,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.3"
+          ],
+          "ownIssueIds": [
+            "issue.0"
+          ],
+          "bonusEligible": false
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.7",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.8"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 75,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G043",
+      "sentence": "The book who I made is good.",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.2",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.4"
+          ],
+          "ownIssueIds": [
+            "issue.0"
+          ],
+          "bonusEligible": false
+        }
+      ],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 45,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G044",
+      "sentence": "The child who he runs is happy.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 7,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 13,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G045",
+      "sentence": "The book which I made it is good.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 8,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 42,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G046",
+      "sentence": "The room where I like is good.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 7,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 21,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G047",
+      "sentence": "The child who runs.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 4,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 8,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "G048",
+      "sentence": "The book I made.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 4,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 20,
+      "original07Status": "INVALID_CORE"
+    },
+    {
+      "id": "G049",
+      "sentence": "The child runs is happy.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 5,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 10,
+      "original07Status": "INVALID_CORE"
+    },
+    {
+      "id": "Q001",
+      "sentence": "Where do you work?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 10,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q002",
+      "sentence": "Where does she live?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 10,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q003",
+      "sentence": "When did she come?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 13,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q004",
+      "sentence": "Where is the book?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 12,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q005",
+      "sentence": "When will you come?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 13,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q006",
+      "sentence": "Where are they working?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 36,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q007",
+      "sentence": "Where have you worked?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 18,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q008",
+      "sentence": "When was the food made?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 53,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q009",
+      "sentence": "Who runs?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 2,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 5,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q010",
+      "sentence": "Who do you like?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 18,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q011",
+      "sentence": "Which book do you like?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 23,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q012",
+      "sentence": "Which books help you?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 17,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q013",
+      "sentence": "Who are you?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 3,
+      "mainFrameId": "frame.svc.np",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 27,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q014",
+      "sentence": "Do you like music?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 15,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q015",
+      "sentence": "Where does she lives?",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 4,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 10,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q016",
+      "sentence": "Where you live?",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 3,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 2,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q017",
+      "sentence": "I know where you work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 21,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q018",
+      "sentence": "I know when you will come.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 39,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "Q019",
+      "sentence": "I know where the book is.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 26,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q020",
+      "sentence": "I know who likes music.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 26,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q021",
+      "sentence": "I know who you like.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 24,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q022",
+      "sentence": "I know which book you made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 53,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q023",
+      "sentence": "I know where do you work.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 6,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 15,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q024",
+      "sentence": "I know when will you come.",
+      "status": "INVALID_CORE",
+      "expectedStatus": "INVALID_CORE",
+      "physicalCount": 6,
+      "mainFrameId": null,
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 24,
+      "original07Status": "INVALID_CORE"
+    },
+    {
+      "id": "Q025",
+      "sentence": "I see where you work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 16,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q026",
+      "sentence": "She shows me where you work.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svoo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 23,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q027",
+      "sentence": "I know where to go.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 29,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q028",
+      "sentence": "I know who to help.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 30,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q029",
+      "sentence": "I know which book to read.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 6,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 55,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "Q030",
+      "sentence": "I know when to come.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": true,
+      "workUnits": 38,
+      "original07Status": "INVALID_CORE"
+    },
+    {
+      "id": "Q031",
+      "sentence": "Who likes the child who knows the book I made?",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 10,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [
+        {
+          "id": "relative.0",
+          "nodeId": "node.4",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "SUBJECT",
+          "adverbKind": null,
+          "markerOmitted": false,
+          "finiteVerbCardIds": [
+            "fixture.5"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        },
+        {
+          "id": "relative.1",
+          "nodeId": "node.8",
+          "kind": "RELATIVE_PRONOUN",
+          "relativeRole": "OBJECT",
+          "adverbKind": null,
+          "markerOmitted": true,
+          "finiteVerbCardIds": [
+            "fixture.9"
+          ],
+          "ownIssueIds": [],
+          "bonusEligible": true
+        }
+      ],
+      "directQuestion": true,
+      "embeddedQuestion": false,
+      "workUnits": 133,
+      "original07Status": "UNSUPPORTED"
+    },
+    {
+      "id": "R001",
+      "sentence": "A room was too hard to show.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 7,
+      "mainFrameId": "frame.svc.adj",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 32,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R002",
+      "sentence": "A person is often giving you a beautiful environment with small problems.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 12,
+      "mainFrameId": "frame.svoo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 164,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R003",
+      "sentence": "A person be often giving you a beautiful environment with small problems.",
+      "status": "VALID_WITH_ISSUES",
+      "expectedStatus": "VALID_WITH_ISSUES",
+      "physicalCount": 12,
+      "mainFrameId": "frame.svoo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 164,
+      "original07Status": "VALID_WITH_ISSUES"
+    },
+    {
+      "id": "R004",
+      "sentence": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 16,
+      "mainFrameId": "frame.svoo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 851,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R005",
+      "sentence": "I saw the food made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svoc",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 44,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R006",
+      "sentence": "I have the food made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.svoc",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 45,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R007",
+      "sentence": "I have made food.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 4,
+      "mainFrameId": "frame.svo",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 31,
+      "original07Status": "VALID"
+    },
+    {
+      "id": "R008",
+      "sentence": "The food has been made.",
+      "status": "VALID",
+      "expectedStatus": "VALID",
+      "physicalCount": 5,
+      "mainFrameId": "frame.sv",
+      "relativeClauses": [],
+      "directQuestion": false,
+      "embeddedQuestion": false,
+      "workUnits": 37,
+      "original07Status": "VALID"
+    }
+  ]
+}

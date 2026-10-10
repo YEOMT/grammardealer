@@ -1,0 +1,4 @@
+import fs from 'node:fs/promises';import {simulateRun} from './simulate-runs.js';
+const runs=[];for(const seed of (process.env.SB_WATERWAYS_SEEDS||'run-sequence.57').split(',')){
+ const r=simulateRun({seed,vocabularyMode:'STANDARD',policy:'LEARNING',maxCommands:2400,campaignVersion:'0.8.0',skipTutorial:true,invalidExercise:true,exerciseResources:true,waterwaysCourse:process.env.SB_WATERWAYS_COURSE==='1',waterwaysChoice:process.env.SB_WATERWAYS_CHOICE||'WHO'});runs.push(r);console.log(seed,r.result,r.final,r.error??'');
+}const report={kind:'ACTUAL_CONTROLLER_COMMAND_CAMPAIGN_NOT_BROWSER',runs,status:runs.every(r=>r.result==='CONTENT_COMPLETE')?'PASS':'FAIL'};await fs.writeFile(process.env.SB_WATERWAYS_RUN_OUT||'.local-validation/v08/waterways-runs.json',JSON.stringify(report,null,2));if(report.status!=='PASS')process.exitCode=1;
