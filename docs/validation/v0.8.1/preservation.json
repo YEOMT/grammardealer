@@ -1,0 +1,82 @@
+{
+  "lockfileDependencyTreeUnchanged": true,
+  "lockfileRootVersionChangedTo": "0.8.1",
+  "protectedFiles": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "1f8b59e62b19487450602d3ae52661c87283a6ef227d16fe86654f8fce6b49d4",
+      "unchanged": true
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "378486f99853290d83d29c2fa844fe95624ba1df6e87d0fc4f45639036123d6f",
+      "unchanged": true
+    },
+    {
+      "path": ".github/workflows/deploy-pages.yml",
+      "sha256": "852164f1895f85f9590647a6b95033941028c21b428fc667c583d647e253d987",
+      "unchanged": true
+    },
+    {
+      "path": "src/engine/scoring.js",
+      "sha256": "19cc1f91e020d1946c87c73e913ae1d70761bf2806de4f3bcd5137a80216a813",
+      "unchanged": true
+    },
+    {
+      "path": "src/engine/presentation.js",
+      "sha256": "c10fc37cb424ee6a12bd5815c2e254b2735f51fbbad412ea7d2d9bc2974bbf83",
+      "unchanged": true
+    },
+    {
+      "path": "src/game/rng.js",
+      "sha256": "48ec5115afe8f0fc28c447ffaf139fcc355e21a1b0c94f40df77dcf59aa8b367",
+      "unchanged": true
+    },
+    {
+      "path": "src/game/operationResolution.js",
+      "sha256": "9c8bbc8a34ba07c1277f9c7ebccea83a25cc42e272db1a8a899ac4404b605ec8",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/operationSpec.js",
+      "sha256": "b3e14786b5ad016da3fa853c12063ab7b0982f235ce938f04dcb98b26a3761d1",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage2.js",
+      "sha256": "825bd26292a3b4e51dd729dd2a77bb57c92d7f72fb8b05ddd1b440fc06a7975d",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage3.js",
+      "sha256": "1ca50e1795eac07440d2bb2a362fc1a062a4660c8510d34c3907d2f7f840bff1",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage4.js",
+      "sha256": "8cd7d344cc8c9cfa9aa5bc75d855bb28d62765583fb1751f6ad35ed731899b5d",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage5.js",
+      "sha256": "03bb6155240cba74da70390d264cabb159f3584b2ad026a2ab3928e6acfd4be0",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage6.js",
+      "sha256": "9e2fd5c7373e7df137160e367fb110b6cc7389b9c030f3ce8fa803c8e7da990f",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage7.js",
+      "sha256": "9efc3339a8c295a117a5c4ac7ec623855b786937d3ac95fb7b409dd7d76244a7",
+      "unchanged": true
+    },
+    {
+      "path": "src/data/stage8.js",
+      "sha256": "66debb388a81b91b2a6f1cd017016239635365ed5f407bbec8c4a2cbbc5887cc",
+      "unchanged": true
+    }
+  ],
+  "note": "Other intentional source changes are listed in Git diff; this does not claim all original source files are unchanged."
+}

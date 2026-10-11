@@ -16,7 +16,11 @@ for(const r of read('05_Core_Feel_Expectations.json').cases)test('0.5.1 finalize
  if(r.expectedPolicy==='MASSIVE')assert.deepEqual([feel.hitStop,feel.recoil,feel.shake],[150,22,8]);
 });
 test('0.5.1 all seventeen grammar headings use reviewed display order and concise copy only',()=>{
- assert.deepEqual(GRAMMAR_DISPLAY,read('04_Education_UI_Catalog.json').entries);assert.equal(GRAMMAR_DISPLAY.length,17);
+ // 0.8.1 section 7: formal names replace only these three display titles.
+ // The historical catalog is preserved; order, tags, patterns and descriptions stay exact.
+ const titles={'TIME.PAST':'과거시제','TIME.PROGRESSIVE':'진행형','TIME.PERFECT':'완료형'};
+ const expected=read('04_Education_UI_Catalog.json').entries.map(g=>({...g,...(titles[g.tag]?{titleKo:titles[g.tag]}:{})}));
+ assert.deepEqual(GRAMMAR_DISPLAY,expected);assert.equal(GRAMMAR_DISPLAY.length,17);
  assert.deepEqual(GRAMMAR_DISPLAY.slice(0,5).map(g=>g.tag),['FRAME.SV','FRAME.SVC','FRAME.SVO','FRAME.SVOO','FRAME.SVOC']);
 });
 test('0.5.1 pronoun same-surface UI keeps old aliases and actual contextual analysis; verb tenses never merge',()=>{

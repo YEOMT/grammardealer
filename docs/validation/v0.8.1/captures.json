@@ -1,0 +1,92 @@
+[
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-help-operations-frost-hand.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-help-operations-frost-hand.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "68310518cd8c0dd44a7ca8a9d4ab20dfe498227134e9f4bd66ab0543b6aecb13"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-details-help-.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-details-help-.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "7541573cac76a21be852c70eff99617dda66b6f15de93757c20fc42be029062d"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-details-than-.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-details-than-.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "13b30d32f8e74426138c38ad1a0ec9b16a4633e9702a5685e60528044325dae7"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-dust-hand.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-dust-hand.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "72bef8e0448201885adf397509ea01bb3eb1f7a44a1a576f69d4c4cb8d15c117"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-rarity-polish-matrix.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-rarity-polish-matrix.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "3d43971aa5dddad1cd3aa211687ecd1d501c60042d5385a5a6c46d55606bbe21"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-guide-5-1.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-guide-5-1.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "5dbab4eb143d2d949cd6ae5eaeeca87b39c9d784d226b97befab3e11f3524fa9"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-guide-5-2.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-guide-5-2.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "e3703400430c00dc1a4f842e8a067f3820a40630bba52ac9c2279ed6a00ec3c0"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-guide-6-5.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-guide-6-5.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "9acd0b8d5cf8c8c824bfac9a3edb60da8a8d0956555ef693de777c01d74f9897"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-deer-details.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-deer-details.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "e5d8c8fe43f96b0e25557bf63897a8d25368d4ae965c5d9e5ab1051edb51482a"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-help-result-noun.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-help-result-noun.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "31a4a424aa36153dbc6df5054c796df2c9bbe0b75613ef8cc3b36075a5b92a59"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-reported-invalid-after.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-reported-invalid-after.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "b733d7c2005976b6e825805526163bbbd2df1401482848cf259c42e50e690863"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/chromium-capacity-1366-14.png",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/chromium-capacity-1366-14.png",
+    "kind": "ASSIGNED_STATE_BROWSER_NOT_NATURAL_CAMPAIGN",
+    "sha256": "1f8b01398c80a27dc15fbaf58d907744f492a05c1fbb82a181d8543898680617"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/production-stage.03-entry-once.png",
+    "source": ".local-validation/v081/production-course/evidence/stage.03-entry-once.png",
+    "kind": "ACTUAL_PRODUCTION_UI_CAMPAIGN",
+    "sha256": "820038fce4d608d46583ff71e5b6352f6186954b5855c5c6f0c5be0e0f8dfbad"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/production-stage.05-entry-once.png",
+    "source": ".local-validation/v081/production-course/evidence/stage.05-entry-once.png",
+    "kind": "ACTUAL_PRODUCTION_UI_CAMPAIGN",
+    "sha256": "d2678f56995be36cf664585d42c80298dd120af1ec6bb405ff8bfb4ac53c5cc9"
+  },
+  {
+    "file": "docs/validation/v0.8.1/captures/production-stage6-complete-restored.png",
+    "source": ".local-validation/v081/production-course/evidence/stage6-complete-restored.png",
+    "kind": "ACTUAL_PRODUCTION_UI_CAMPAIGN",
+    "sha256": "61952c03a097adeacad6f35c574518a72f33e3b848745a50444d4bf9673a7c69"
+  }
+]

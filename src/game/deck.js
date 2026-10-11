@@ -143,7 +143,7 @@ export function findPlayableSentences(availableIds, cardInstances, options = {})
   return results;
 }
 
-const allStarterCards = () => stableSort(campaign021Registry.cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady)));
+const allStarterCards = version => stableSort(campaign021Registry.cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady) && (version!=='0.8.1'||card.id!=='card.help')));
 
 function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
   const candidates = pool.filter(card => (counts[card.lexemeId] || 0) < (distinct ? 1 : 2));
@@ -165,7 +165,7 @@ function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
 }
 
 function buildSlotPlan(mode, stream, trace, version) {
-  const pool = allStarterCards();
+  const pool = allStarterCards(version);
   const counts = {};
   const planned = [];
   const addFixed = (lemma, pos, role) => {
@@ -182,8 +182,8 @@ function buildSlotPlan(mode, stream, trace, version) {
   for (const lemma of [...BALANCE.starter.pronouns,pick(stream,BALANCE.starter.thirdPersonPronounChoices)]) addFixed(lemma, 'PRONOUN', 'PRONOUN');
   addFixed('be', 'VERB', 'BE'); addFixed('be', 'VERB', 'BE');
   for (let i = 0; i < 2; i += 1) choose('SV', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.sv') && ['go','come','run','live'].includes(lex.lemma),true);
-  if(version==='0.4.0')addFixed('have','VERB','HAVE');
-  for (let i = 0; i < (version==='0.4.0'?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
+  if(['0.4.0','0.8.1'].includes(version))addFixed('have','VERB','HAVE');
+  for (let i = 0; i < (['0.4.0','0.8.1'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
   choose('MULTI', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.filter(frame => BASIC_FRAMES.includes(frame)).length > 1);
   for (let i = 0; i < STARTER_SLOT_COUNTS.ADJECTIVE; i += 1) choose('ADJECTIVE', lex => lex.pos === 'ADJECTIVE', i < 3);
   choose('DEGREE_ADVERB', lex => lex.pos === 'ADVERB' && ['very', 'really'].includes(lex.lemma));
@@ -249,7 +249,7 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
     if (target < 0) break;
     const counts = {};
     plan.forEach((entry, index) => { if (index !== target) counts[entry.card.lexemeId] = (counts[entry.card.lexemeId] || 0) + 1; });
-    const candidates = allStarterCards().filter(card => {
+    const candidates = allStarterCards(version).filter(card => {
       const lex = campaign04Registry.lexemeById[card.lexemeId];
       return ['ADJECTIVE', 'NOUN'].includes(targetRole) ? lex.pos === targetRole : lex.pos === 'VERB' && lex.frameIds.includes(frame);
     });

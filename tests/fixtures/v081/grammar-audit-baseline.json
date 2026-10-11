@@ -1,0 +1,6698 @@
+{
+  "source": "587fa1b681c5fcd0ac8090111e7e9850dac95f08",
+  "cases": [
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G001",
+      "text": "The child who runs is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G002",
+      "text": "I like the child who runs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G003",
+      "text": "The children who run are happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G004",
+      "text": "The book which is good helps me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G005",
+      "text": "The dog which runs is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G006",
+      "text": "The child that runs is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G007",
+      "text": "The child who I like runs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G008",
+      "text": "The child I like runs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G009",
+      "text": "The book which I made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G010",
+      "text": "The book that I made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G011",
+      "text": "The book I made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G012",
+      "text": "I like the book you made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G013",
+      "text": "A child who runs likes a book I made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G014",
+      "text": "A child who runs likes a book that I made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G015",
+      "text": "A child that runs likes a book I made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G016",
+      "text": "A book which helps a child I like is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G017",
+      "text": "The child who likes a book I made runs.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G018",
+      "text": "A child who runs likes a dog which plays.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G019",
+      "text": "A child I like shows a book you made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G020",
+      "text": "The child who runs is happy and the book I made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.CLAUSE",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11",
+          "fixture.12"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G021",
+      "text": "The book which was made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G022",
+      "text": "The book which has been made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PERFECT",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G023",
+      "text": "The child who is often running is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "TIME.PROGRESSIVE",
+          "CLAUSE.RELATIVE.SUBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G024",
+      "text": "The book I have made is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PERFECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G025",
+      "text": "A child who has worked likes the book I made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PERFECT",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G026",
+      "text": "The book which I work with is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G027",
+      "text": "The book I work with is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G028",
+      "text": "The school in which I work is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G029",
+      "text": "The book which I gave you is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G030",
+      "text": "This is the school where I work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.ADVERBIAL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G031",
+      "text": "I like the day when you came.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.ADVERBIAL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G032",
+      "text": "The room where I live is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.ADVERBIAL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G033",
+      "text": "The school which I like is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G034",
+      "text": "I play when you come.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G035",
+      "text": "I know that you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G036",
+      "text": "I like that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G037",
+      "text": "A child who runs likes the school where I work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.ADVERBIAL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G038",
+      "text": "The book made today is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G039",
+      "text": "Reading books is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G040",
+      "text": "The child I like are happy.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G041",
+      "text": "A child who runs like a book I made.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G042",
+      "text": "A child who run likes a book I made.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G043",
+      "text": "The book who I made is good.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [
+          "RELATIVE_MARKER_ANTECEDENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G044",
+      "text": "The child who he runs is happy.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G045",
+      "text": "The book which I made it is good.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G046",
+      "text": "The room where I like is good.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G047",
+      "text": "The child who runs.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G048",
+      "text": "The book I made.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "G049",
+      "text": "The child runs is happy.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q001",
+      "text": "Where do you work?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q002",
+      "text": "Where does she live?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q003",
+      "text": "When did she come?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q004",
+      "text": "Where is the book?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q005",
+      "text": "When will you come?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q006",
+      "text": "Where are they working?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q007",
+      "text": "Where have you worked?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q008",
+      "text": "When was the food made?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q009",
+      "text": "Who runs?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q010",
+      "text": "Who do you like?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q011",
+      "text": "Which book do you like?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q012",
+      "text": "Which books help you?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q013",
+      "text": "Who are you?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q014",
+      "text": "Do you like music?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q015",
+      "text": "Where does she lives?",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [
+          "AUXILIARY_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q016",
+      "text": "Where you live?",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q017",
+      "text": "I know where you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q018",
+      "text": "I know when you will come.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q019",
+      "text": "I know where the book is.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q020",
+      "text": "I know who likes music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q021",
+      "text": "I know who you like.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q022",
+      "text": "I know which book you made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q023",
+      "text": "I know where do you work.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q024",
+      "text": "I know when will you come.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q025",
+      "text": "I see where you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q026",
+      "text": "She shows me where you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q027",
+      "text": "I know where to go.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q028",
+      "text": "I know who to help.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q029",
+      "text": "I know which book to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q030",
+      "text": "I know when to come.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "Q031",
+      "text": "Who likes the child who knows the book I made?",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "CLAUSE.RELATIVE.SUBJECT",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R001",
+      "text": "A room was too hard to show.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R002",
+      "text": "A person is often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R003",
+      "text": "A person be often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R004",
+      "text": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11",
+          "fixture.12",
+          "fixture.13",
+          "fixture.14",
+          "fixture.15"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R005",
+      "text": "I saw the food made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R006",
+      "text": "I have the food made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R007",
+      "text": "I have made food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v08/03_Grammar_Cases_0.8.json",
+      "id": "R008",
+      "text": "The food has been made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PERFECT",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G001",
+      "text": "The running child is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G002",
+      "text": "The child running in the park is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PHRASE.PP",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G003",
+      "text": "The child eating food is happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G004",
+      "text": "The finished homework is easy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G005",
+      "text": "The homework finished today is easy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G006",
+      "text": "The picture made for you is beautiful.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PHRASE.PP",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G007",
+      "text": "The room changed today is beautiful.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G008",
+      "text": "A running room is beautiful.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G009",
+      "text": "The child running in the park.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G010",
+      "text": "The child seen in the park.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G011",
+      "text": "I enjoy eating food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G012",
+      "text": "The child is running.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G013",
+      "text": "I have eaten food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G014",
+      "text": "Food is eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G015",
+      "text": "Food was eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G016",
+      "text": "Food is being eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G017",
+      "text": "Food has been eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PERFECT",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G018",
+      "text": "Food had been eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PAST",
+          "TIME.PERFECT",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G019",
+      "text": "Food will be eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.FUTURE_WILL",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G020",
+      "text": "Food will have been eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PERFECT",
+          "TIME.FUTURE_WILL",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G021",
+      "text": "Food is often eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G022",
+      "text": "She was given a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G023",
+      "text": "A book was given to her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "PHRASE.PP",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G024",
+      "text": "The picture was shown to her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "PHRASE.PP",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G025",
+      "text": "She was shown the picture.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G026",
+      "text": "She was sent a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G027",
+      "text": "A game was made for her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "PHRASE.PP",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G028",
+      "text": "She was made happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G029",
+      "text": "She was made a teacher.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G030",
+      "text": "He was made to work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G031",
+      "text": "He was seen to run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G032",
+      "text": "He was seen running.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PRESENT",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G033",
+      "text": "The food was found eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G034",
+      "text": "Food is eat.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [
+          "AUXILIARY_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G035",
+      "text": "Food be eaten.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G036",
+      "text": "The child was become.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G037",
+      "text": "The child is running food.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G038",
+      "text": "I am gone.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G039",
+      "text": "I make him work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CONSTRUCTION.CAUSATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G040",
+      "text": "I have him work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CONSTRUCTION.CAUSATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G041",
+      "text": "I have him working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PRESENT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G042",
+      "text": "I have the food made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G043",
+      "text": "I had the food made.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G044",
+      "text": "I see him run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G045",
+      "text": "I see him running.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PRESENT",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G046",
+      "text": "I saw the food eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G047",
+      "text": "I saw her given a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G048",
+      "text": "I feel the room change.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G049",
+      "text": "I feel the room changing.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PRESENT",
+          "CONSTRUCTION.PERCEPTION"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G050",
+      "text": "I help him work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CONSTRUCTION.ASSISTANCE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G051",
+      "text": "I help him to work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "CLAUSE.INFINITIVE",
+          "CONSTRUCTION.ASSISTANCE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G052",
+      "text": "I found him working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PRESENT",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G053",
+      "text": "I found the food eaten.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G054",
+      "text": "I keep him working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PRESENT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G055",
+      "text": "I keep the room changed.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G056",
+      "text": "I keep reading books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G057",
+      "text": "I want the homework finished.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G058",
+      "text": "I need the picture changed.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G059",
+      "text": "I like the homework finished.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC",
+          "PARTICIPLE.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G060",
+      "text": "I see him to run.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G061",
+      "text": "I help him working.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoc",
+        "tags": [
+          "FRAME.SVOC"
+        ],
+        "issues": [
+          "INFINITIVE_BASE_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G062",
+      "text": "I help the child running in the park.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G063",
+      "text": "I enjoy to work.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G064",
+      "text": "I finish to read.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G065",
+      "text": "A room was too hard to show.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G066",
+      "text": "A person is often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G067",
+      "text": "A person be often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G068",
+      "text": "I have often given you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G069",
+      "text": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11",
+          "fixture.12",
+          "fixture.13",
+          "fixture.14",
+          "fixture.15"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G070",
+      "text": "The food made today is eaten because I am happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "PARTICIPLE.PAST",
+          "MODIFIER.ADJECTIVE",
+          "LINK.CLAUSE",
+          "VOICE.PASSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G071",
+      "text": "I have made food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G072",
+      "text": "I made food.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v07/04_Grammar_Cases_0.7.json",
+      "id": "G073",
+      "text": "I like interesting books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADJECTIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G001",
+      "text": "A room was too hard to show.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G002",
+      "text": "The book is too hard to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G003",
+      "text": "The book is easy enough to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G004",
+      "text": "The book is easy to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G005",
+      "text": "The book was hard to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G006",
+      "text": "The book is difficult to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G007",
+      "text": "The room is too small to live in.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G008",
+      "text": "The book is easy to give you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G009",
+      "text": "The book will be easy to read.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G010",
+      "text": "I am too tired to read books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G011",
+      "text": "I am strong enough to help you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G012",
+      "text": "I am happy to read a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G013",
+      "text": "I am ready to show a room.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G014",
+      "text": "A room too hard to show.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G015",
+      "text": "A room was too hard to.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G016",
+      "text": "The book is too hard read.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G017",
+      "text": "I giving you a book.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G018",
+      "text": "Giving you a book.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_FINITE_VERB"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G019",
+      "text": "I book happy run.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G020",
+      "text": "I give you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G021",
+      "text": "I am giving you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G022",
+      "text": "I have given you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G023",
+      "text": "I will give you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G024",
+      "text": "A person is often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G025",
+      "text": "I have often given her a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G026",
+      "text": "I will often give her a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G027",
+      "text": "I will often have given her a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PERFECT",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G028",
+      "text": "I be often giving you a book.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G029",
+      "text": "A person be often giving you a beautiful environment with small problems.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADJECTIVE",
+          "MODIFIER.ADJECTIVE",
+          "PHRASE.PP"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G030",
+      "text": "I have give you a book.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [
+          "AUXILIARY_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G031",
+      "text": "I give a book to you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G032",
+      "text": "They are usually reading books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G033",
+      "text": "They are giving her a friend because I enjoy eating today and you want a child.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "CLAUSE.GERUND",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10",
+          "fixture.11",
+          "fixture.12",
+          "fixture.13",
+          "fixture.14",
+          "fixture.15"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G034",
+      "text": "Running is good.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.GERUND"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G035",
+      "text": "I am running.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G036",
+      "text": "I like her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G037",
+      "text": "I like her book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G038",
+      "text": "I am bigger than you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G039",
+      "text": "This is the biggest book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G040",
+      "text": "I am as good as you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G041",
+      "text": "I need more water.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MORE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G042",
+      "text": "I enjoy to read books.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G043",
+      "text": "I am often giving you a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "MODIFIER.ADVERB",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G044",
+      "text": "I be giving you a book and she has read books.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10"
+        ]
+      }
+    },
+    {
+      "file": "v061-03_Grammar_Cases_0.6.1.json",
+      "id": "G045",
+      "text": "A room was too hard to show.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G001",
+      "text": "I am bigger than you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G002",
+      "text": "This book is more interesting than that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G003",
+      "text": "This dog is better than that dog.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G004",
+      "text": "I am bigger.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G005",
+      "text": "I am more big than you.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [
+          "COMPARISON_FORM_MISMATCH"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G006",
+      "text": "I am more better than you.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [
+          "DOUBLE_COMPARISON_MARKING"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G007",
+      "text": "This is the biggest book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G008",
+      "text": "She is the most beautiful student.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G009",
+      "text": "This is the best book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G010",
+      "text": "This is most big book.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.SUPERLATIVE"
+        ],
+        "issues": [
+          "DETERMINER_REQUIRED",
+          "SUPERLATIVE_FORM_OR_DETERMINER",
+          "SUPERLATIVE_FORM_OR_DETERMINER"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G011",
+      "text": "I am as strong as you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G012",
+      "text": "This book is twice as big as that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "MODIFIER.ADVERB",
+          "COMPARISON.EQUALITY",
+          "COMPARISON.MULTIPLIER"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G013",
+      "text": "I am as stronger as you.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [
+          "AS_REQUIRES_POSITIVE_DEGREE"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G014",
+      "text": "I am as strong.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G015",
+      "text": "I am too tired.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G016",
+      "text": "I am too tired to run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G017",
+      "text": "I am strong enough.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G018",
+      "text": "I am strong enough to help you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.ENOUGH",
+          "CLAUSE.INFINITIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G019",
+      "text": "I have enough time.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.ENOUGH"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G020",
+      "text": "I need more water.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MORE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G021",
+      "text": "Most students like music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MOST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G022",
+      "text": "I read books twice.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "ADVERB.TWICE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G023",
+      "text": "She runs faster than me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G024",
+      "text": "She runs more carefully than me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G025",
+      "text": "She runs as fast as me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "COMPARISON.EQUALITY"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G026",
+      "text": "I like the bigger dog.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G027",
+      "text": "I like more books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MORE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G028",
+      "text": "I like most books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "QUANTIFIER.MOST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G029",
+      "text": "I am happy and you are stronger than me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G030",
+      "text": "I will be stronger than you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "COMPARISON.COMPARATIVE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G031",
+      "text": "Reading books is more interesting than playing games.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "CLAUSE.GERUND",
+          "PARTICIPLE.PRESENT",
+          "MODIFIER.ADJECTIVE",
+          "COMPARISON.COMPARATIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v06-04_grammar_cases_0.6.json",
+      "id": "G032",
+      "text": "I am too tired because I have worked.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "DEGREE.TOO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G001",
+      "text": "I like music and she likes books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G002",
+      "text": "I am happy and you are kind.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G003",
+      "text": "I run but she reads books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G004",
+      "text": "I will read books or she will play games.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.FUTURE_WILL",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G005",
+      "text": "I played games and she will read books.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.PAST",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G006",
+      "text": "I run and you work and she plays games.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G007",
+      "text": "I like music and she like books.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G008",
+      "text": "I like music and she.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G009",
+      "text": "I like music and.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G010",
+      "text": "I like music you work.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G011",
+      "text": "You and I are happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G012",
+      "text": "He and she are kind.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G013",
+      "text": "He and she is kind.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.PHRASE"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G014",
+      "text": "The dog and the cat run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G015",
+      "text": "The dog or the cats run.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G016",
+      "text": "I like books and music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G017",
+      "text": "She is kind and happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G018",
+      "text": "The book is small but useful.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G019",
+      "text": "I run and play games.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.PHRASE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G020",
+      "text": "She will run and work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.PHRASE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G021",
+      "text": "She is happy and books.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G022",
+      "text": "I like and music.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G023",
+      "text": "I read a book because you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G024",
+      "text": "Because you work I read a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G025",
+      "text": "I read a book when she comes home.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G026",
+      "text": "When she comes home I read a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G027",
+      "text": "I will help you if you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G028",
+      "text": "If you work I will help you.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G029",
+      "text": "I play games if I have time.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G030",
+      "text": "I am reading because she is working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G031",
+      "text": "I have read the book because you are reading it.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G032",
+      "text": "Because you work.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G033",
+      "text": "I read a book because.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G034",
+      "text": "I read a book because happy.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G035",
+      "text": "I read a book when she come home.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "MODIFIER.ADVERB",
+          "LINK.CLAUSE"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G036",
+      "text": "If you will help me I will work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "LINK.CLAUSE",
+          "TIME.FUTURE_WILL",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G037",
+      "text": "I think that she likes music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G038",
+      "text": "They know that I am happy.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G039",
+      "text": "She says that he is working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G040",
+      "text": "I think she likes music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G041",
+      "text": "She says he works.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G042",
+      "text": "I thought that she worked.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.PAST",
+          "TIME.PAST"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G043",
+      "text": "I have known that she works.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.PERFECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G044",
+      "text": "I think that she will help me.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G045",
+      "text": "I think that she like music.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [
+          "SUBJECT_VERB_AGREEMENT"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G046",
+      "text": "I run that she likes music.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G047",
+      "text": "I think that she likes.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G048",
+      "text": "I say her that you work.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "MISSING_REQUIRED_COMPLEMENT"
+        ],
+        "covered": []
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G049",
+      "text": "I am knowing that she works.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [
+          "ASPECT_USAGE"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G050",
+      "text": "I like that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G051",
+      "text": "I like that.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G052",
+      "text": "I like the book that she reads.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G053",
+      "text": "I like the book she reads.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G054",
+      "text": "I think that she likes that book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G055",
+      "text": "I think that she is happy because you help her.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G056",
+      "text": "I like the book that she reads and you like music.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "CLAUSE.RELATIVE.OBJECT"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8",
+          "fixture.9",
+          "fixture.10"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G057",
+      "text": "I like books and music because she reads.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.PHRASE",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G058",
+      "text": "I think that she likes music and you work.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "LINK.CLAUSE",
+          "LINK.CLAUSE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5",
+          "fixture.6",
+          "fixture.7",
+          "fixture.8"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G059",
+      "text": "I give my friend a book.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svoo",
+        "tags": [
+          "FRAME.SVOO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G060",
+      "text": "I am a student.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svc.np",
+        "tags": [
+          "FRAME.SVC"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G061",
+      "text": "I am at school.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "PHRASE.PP"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G062",
+      "text": "They develop.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G063",
+      "text": "I be happy.",
+      "expected": {
+        "status": "VALID_WITH_ISSUES",
+        "frame": "frame.svc.adj",
+        "tags": [
+          "FRAME.SVC"
+        ],
+        "issues": [
+          "BE_FORM_REQUIRED"
+        ],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G064",
+      "text": "He runs very fast.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "MODIFIER.ADVERB",
+          "MODIFIER.ADVERB"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G065",
+      "text": "I have been working.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.sv",
+        "tags": [
+          "FRAME.SV",
+          "TIME.PERFECT",
+          "TIME.PROGRESSIVE"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G066",
+      "text": "I will have been playing games.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO",
+          "TIME.PERFECT",
+          "TIME.PROGRESSIVE",
+          "TIME.FUTURE_WILL"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3",
+          "fixture.4",
+          "fixture.5"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G067",
+      "text": "I like a technology.",
+      "expected": {
+        "status": "VALID",
+        "frame": "frame.svo",
+        "tags": [
+          "FRAME.SVO"
+        ],
+        "issues": [],
+        "covered": [
+          "fixture.0",
+          "fixture.1",
+          "fixture.2",
+          "fixture.3"
+        ]
+      }
+    },
+    {
+      "file": "v04-grammar-expectations.json",
+      "id": "G068",
+      "text": "I book happy run.",
+      "expected": {
+        "status": "INVALID_CORE",
+        "frame": null,
+        "tags": [],
+        "issues": [
+          "CORE_WORD_ORDER"
+        ],
+        "covered": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,980 @@
+[
+  {
+    "label": "baseline-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-11T09:32:04.092424+00:00",
+    "finishedAt": "2026-10-11T09:32:33.747822+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/baseline-data/command.log",
+    "logSha256": "6f3457278d3fd9036e5cde0128d8bc156b54737564fc20b9bceabaa5903b479e",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "baseline-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-11T09:32:34.820117+00:00",
+    "finishedAt": "2026-10-11T09:32:44.377769+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/baseline-build/command.log",
+    "logSha256": "309140cc4c0f761d8b3287aa38bf22175413c60bc5bf9db90a60af85f54d4b22",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "grammar-fix-01",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-grammar-audit.test.js",
+      "tests/v08-grammar.test.js",
+      "tests/v08-boss.test.js"
+    ],
+    "startedAt": "2026-10-11T09:34:30.069872+00:00",
+    "finishedAt": "2026-10-11T09:34:32.720674+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/grammar-fix-01/command.log",
+    "logSha256": "90c833027c532b15642a14fb82e067f9dc8eba541c261fc250c71ca8b00992bb",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "grammar-fix-02",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-grammar-audit.test.js",
+      "tests/v08-grammar.test.js",
+      "tests/v08-boss.test.js"
+    ],
+    "startedAt": "2026-10-11T09:34:59.870490+00:00",
+    "finishedAt": "2026-10-11T09:35:01.932807+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/grammar-fix-02/command.log",
+    "logSha256": "57f70f8548b5f7843e95bed02bad833370fb11b270c4d3873a782d9e7d1384ee",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "integration-unit-01",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-11T09:46:33.362708+00:00",
+    "finishedAt": "2026-10-11T09:49:28.263915+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/integration-unit-01/command.log",
+    "logSha256": "a87814c1043b31ee4f550097c7c2b49f5d2d7b4292a2502dacca810817807012",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-help-01",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-help.test.js",
+      "tests/v081-grammar-audit.test.js"
+    ],
+    "startedAt": "2026-10-11T09:47:49.875996+00:00",
+    "finishedAt": "2026-10-11T09:47:52.054716+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-help-01/command.log",
+    "logSha256": "56af1e33c746168eea668615f6b164b03a73d923872b8ef71b0a9dc89aac91f1",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-help-02",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-help.test.js",
+      "tests/v081-grammar-audit.test.js"
+    ],
+    "startedAt": "2026-10-11T09:49:48.307811+00:00",
+    "finishedAt": "2026-10-11T09:49:51.309582+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-help-02/command.log",
+    "logSha256": "07a3fac378b386ef4291326b2e5abfc8f5414c0cda49bc485b121ee5e28bb2da",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "legacy-pinned-01",
+    "command": [
+      "node",
+      "--test",
+      "tests/v05-progression.test.js",
+      "tests/v051-legacy.test.js",
+      "tests/v08-legacy.test.js"
+    ],
+    "startedAt": "2026-10-11T09:50:23.087456+00:00",
+    "finishedAt": "2026-10-11T09:50:38.753557+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/legacy-pinned-01/command.log",
+    "logSha256": "bfff66456ce994cbccd42453f0a6c6516220d78fb7d1c180aa5af9d4aeaf3bcc",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-01",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:51:45.487456+00:00",
+    "finishedAt": "2026-10-11T09:52:13.125395+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-01/command.log",
+    "logSha256": "88bbaefaeed8ad442611c82258d37b3f0a52f1c4a90fc9f831d8adde96f3cd5a",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-02",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:52:38.108425+00:00",
+    "finishedAt": "2026-10-11T09:53:05.667895+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-02/command.log",
+    "logSha256": "4fa3555296b8240a9ed7b1e40e0784825b2750ef0310719fa241fc383d7c701b",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-03",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:54:06.742004+00:00",
+    "finishedAt": "2026-10-11T09:54:37.220739+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-03/command.log",
+    "logSha256": "44a0cfbbdcd25894b336eaea9401122fb861d9721379eba6e1327ab6cecacd1b",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-04",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:55:34.607640+00:00",
+    "finishedAt": "2026-10-11T09:56:02.343420+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-04/command.log",
+    "logSha256": "12c436b8c54c40dc4a4afb737bc9732605dc691a2d336e4fe31c5badd14537b4",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-05",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:56:56.576269+00:00",
+    "finishedAt": "2026-10-11T09:57:23.236660+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-05/command.log",
+    "logSha256": "25a1bfa170d82da3965a13d3f5bc75e9999f4b7e73bc3e134bcace678b43b515",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-06",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:58:14.058029+00:00",
+    "finishedAt": "2026-10-11T09:58:43.974898+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-ui-06/command.log",
+    "logSha256": "ad0a09f76f05f590fe2a76f9bf05a108a1e88b3310917c3eb6db1343257278e6",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-ui-07",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T09:59:21.146444+00:00",
+    "finishedAt": "2026-10-11T09:59:50.078964+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-ui-07/command.log",
+    "logSha256": "64d373bddacab56dde5724966f6eaace28f3ed5fc93563e836f5650874aa9535",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-help-03",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-help.test.js"
+    ],
+    "startedAt": "2026-10-11T10:00:26.441535+00:00",
+    "finishedAt": "2026-10-11T10:00:29.508755+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-help-03/command.log",
+    "logSha256": "228c3e339b23448a825f8d34e7547bd8f5e1816777638a737cd98459a34acd2e",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-11T10:00:56.987610+00:00",
+    "finishedAt": "2026-10-11T10:03:55.133765+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/final-unit/command.log",
+    "logSha256": "925e6260c5d648df4f47cdb4b16fb31d268fa2c66331482671658ac4e39738f5",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-11T10:03:56.046674+00:00",
+    "finishedAt": "2026-10-11T10:03:57.749711+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-data/command.log",
+    "logSha256": "8cc38660ad950388dcf62437090aed7403ccbc9bf28c1c4f4964921d7f8b1352",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-11T10:03:58.434145+00:00",
+    "finishedAt": "2026-10-11T10:04:01.024485+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-build/command.log",
+    "logSha256": "42a18fb239d7e6cae8da76c32ccb035cd8e8cebe82103126304dd9b4bff221d9",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "official-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-11T10:04:01.808273+00:00",
+    "finishedAt": "2026-10-11T10:05:23.620719+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/official-browser/command.log",
+    "logSha256": "838bbab61c647526809216448dc2a85e74b74065eb6d63063609631460d13229",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-cross",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T10:05:25.062893+00:00",
+    "finishedAt": "2026-10-11T10:06:33.704744+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/focused-cross/command.log",
+    "logSha256": "e2e599a38b4086ca3426eafcb9f923f2f2a6c6db5ac072d7b402c6c2e9e59818",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "waterways-cross",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:waterways"
+    ],
+    "startedAt": "2026-10-11T10:06:34.565913+00:00",
+    "finishedAt": "2026-10-11T10:19:10.192666+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/waterways-cross/command.log",
+    "logSha256": "48019ff58404fd8b8d70e36fa026f3a653489c8d9ddb1356982e4f6415246ad4",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "ADDITIONAL"
+  },
+  {
+    "label": "ember-cross",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:ember"
+    ],
+    "startedAt": "2026-10-11T10:19:10.931239+00:00",
+    "finishedAt": "2026-10-11T10:24:10.416246+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/ember-cross/command.log",
+    "logSha256": "94ad4081c8538c3313f9c0805ae0d31d539eee0b11bd9cfe065de5d3a4ea6e86",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "ADDITIONAL"
+  },
+  {
+    "label": "operations-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:061"
+    ],
+    "startedAt": "2026-10-11T10:24:11.065876+00:00",
+    "finishedAt": "2026-10-11T10:25:04.381489+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/operations-browser/command.log",
+    "logSha256": "a7f4b431f329da2af8bde0918f97692093246d8bbf59be879ae93598195702e5",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "core-cross",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:cross"
+    ],
+    "startedAt": "2026-10-11T10:25:05.724062+00:00",
+    "finishedAt": "2026-10-11T10:28:54.336460+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/core-cross/command.log",
+    "logSha256": "4fbee36908f1786040eb98886a4f7796225b2ff5584045e8cc4497e60f5a3360",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "ADDITIONAL"
+  },
+  {
+    "label": "final-focused-unit",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-grammar-audit.test.js",
+      "tests/v081-help.test.js"
+    ],
+    "startedAt": "2026-10-11T10:29:43.768530+00:00",
+    "finishedAt": "2026-10-11T10:29:46.076219+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-focused-unit/command.log",
+    "logSha256": "1a2e305e6bbfcaa3ee79cce6878a09da61b1b50b33c21112645adf6f29eed61f",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-unit-02",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-11T10:29:46.844224+00:00",
+    "finishedAt": "2026-10-11T10:32:23.346607+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-unit-02/command.log",
+    "logSha256": "b0a9c90288eb61794929ebdbff53e0834ffb424a9b4ffcbae1d9a4a9de2685c1",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-data-02",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-11T10:32:24.200240+00:00",
+    "finishedAt": "2026-10-11T10:32:26.088510+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-data-02/command.log",
+    "logSha256": "8cc38660ad950388dcf62437090aed7403ccbc9bf28c1c4f4964921d7f8b1352",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "final-build-02",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-11T10:32:26.773495+00:00",
+    "finishedAt": "2026-10-11T10:32:29.059388+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/final-build-02/command.log",
+    "logSha256": "3a662813a9fc593e9f1eb806e929a3d6c485e7f502dac31c567aa0abb86aad3e",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "focused-cross-02",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T10:32:29.708673+00:00",
+    "finishedAt": "2026-10-11T10:34:31.964228+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-cross-02/command.log",
+    "logSha256": "1727401969574c26f1f8da0644070ea8c9c1257963a7d5e8f6b1f1db29225526",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "official-browser-02",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-11T10:34:32.785749+00:00",
+    "finishedAt": "2026-10-11T10:42:45.873480+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/official-browser-02/command.log",
+    "logSha256": "bbf82bfda9e2e1777b2a47b88caeb014d4c5ead5ac3359595d09699d553d2b81",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "operations-browser-02",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:061"
+    ],
+    "startedAt": "2026-10-11T10:42:47.491316+00:00",
+    "finishedAt": "2026-10-11T10:43:35.957574+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/operations-browser-02/command.log",
+    "logSha256": "b291ba00a87b79685322b6a85c6c724e3815b9f981bddc01579803125013bd6a",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "controller-course",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:runs:waterways"
+    ],
+    "startedAt": "2026-10-11T10:43:36.629875+00:00",
+    "finishedAt": "2026-10-11T10:44:33.196653+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/controller-course/command.log",
+    "logSha256": "a926c709fe0dfc5cdd15fcc4885943e8cc80671e714aa4ebce47fbf020ca8ca7",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "SUPERSEDED_GRAMMAR_FALSE_POSITIVE_NOT_FINAL_COMPLETION"
+  },
+  {
+    "label": "operations-layout-03",
+    "command": [
+      "node",
+      "tests/polish-061-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T10:46:19.165075+00:00",
+    "finishedAt": "2026-10-11T10:47:13.980428+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/operations-layout-03/command.log",
+    "logSha256": "5e8b96c307f80fe7caf8e5df0d1e69e0bf5be9a59f1641dc088c1cfe992c248a",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "audit-final-04",
+    "command": [
+      "node",
+      "--test",
+      "tests/v081-grammar-audit.test.js",
+      "tests/v081-help.test.js"
+    ],
+    "startedAt": "2026-10-11T10:49:44.654028+00:00",
+    "finishedAt": "2026-10-11T10:49:47.776967+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/audit-final-04/command.log",
+    "logSha256": "412fb13377c9e26e659204482a48017522d98b01429e3eac9ad6a2405f88ffb9",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "ADDITIONAL"
+  },
+  {
+    "label": "operations-layout-04",
+    "command": [
+      "node",
+      "tests/polish-061-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T10:50:28.265750+00:00",
+    "finishedAt": "2026-10-11T10:51:40.779635+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/operations-layout-04/command.log",
+    "logSha256": "9352bbe8a65ba9fc61c694c849e962cb520806a72a547e3e4184fdb080ea4598",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "controller-course-02",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:runs:waterways"
+    ],
+    "startedAt": "2026-10-11T10:51:41.634264+00:00",
+    "finishedAt": "2026-10-11T10:52:50.091961+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/controller-course-02/command.log",
+    "logSha256": "1ae6fae6735d6595ebdefa326a2e5c36171b63ae78b2aad4131557ad65b74417",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "ADDITIONAL"
+  },
+  {
+    "label": "release-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-11T10:54:56.355442+00:00",
+    "finishedAt": "2026-10-11T10:57:34.131593+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-unit/command.log",
+    "logSha256": "03742ea48138f3eac299e7adb6f8d2f95f1dc2dc98e3b8e1ad69bfe7ec387d7b",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "release-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-11T10:57:35.124836+00:00",
+    "finishedAt": "2026-10-11T10:57:37.211499+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-data/command.log",
+    "logSha256": "8cc38660ad950388dcf62437090aed7403ccbc9bf28c1c4f4964921d7f8b1352",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "release-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-11T10:57:37.978827+00:00",
+    "finishedAt": "2026-10-11T10:57:41.067757+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-build/command.log",
+    "logSha256": "0ff9586bff9ae750710970aaa68b42a713d553015c6713a645ef937df4617b2a",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "operations-cross-final",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:061"
+    ],
+    "startedAt": "2026-10-11T10:57:41.987274+00:00",
+    "finishedAt": "2026-10-11T11:00:36.385540+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/operations-cross-final/command.log",
+    "logSha256": "52baeeb0bf5ad590cd1dc34a918926be0dd860acf7dccf473c8da5c83dc7127b",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "focused-cross-final",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T11:00:37.236281+00:00",
+    "finishedAt": "2026-10-11T11:03:44.569614+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-cross-final/command.log",
+    "logSha256": "b0ed88e13c5ae02d8430cdc010458c21e20aa90043c1f4da100feff14fb9984c",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "official-browser-final",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-11T11:03:44.960200+00:00",
+    "finishedAt": "2026-10-11T11:09:30.779081+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v081/official-browser-final/command.log",
+    "logSha256": "80a380b01d87482fd36f937965a6c6a208a59ae5e542baed8d1afcf00a1e529a",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ],
+    "evidenceUse": "HISTORICAL_THIS_TASK"
+  },
+  {
+    "label": "production-course",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e:waterways"
+    ],
+    "startedAt": "2026-10-11T11:09:32.446840+00:00",
+    "finishedAt": "2026-10-11T11:32:16.874416+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/production-course/command.log",
+    "logSha256": "525c42624ed73a856a29525916d0f80b369f71f4130a221145169eb567355751",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "production-legacy061",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e"
+    ],
+    "startedAt": "2026-10-11T11:32:17.889292+00:00",
+    "finishedAt": "2026-10-11T11:47:05.406208+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/production-legacy061/command.log",
+    "logSha256": "c8c019a5775e4f3c62bd5c0709945a6d05378c97ba04ac1700781c77021bba4e",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "official-browser-release",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-11T11:47:07.144471+00:00",
+    "finishedAt": "2026-10-11T11:53:32.644639+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/official-browser-release/command.log",
+    "logSha256": "bbf82bfda9e2e1777b2a47b88caeb014d4c5ead5ac3359595d09699d553d2b81",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "release-unit-visual",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-11T11:53:35.098641+00:00",
+    "finishedAt": "2026-10-11T11:55:33.644375+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-unit-visual/command.log",
+    "logSha256": "922a58fd31fce3e2e3cf1c8d94c95ea12a1cc84169cf76e07c12b17ba915a69d",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "release-data-visual",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-11T11:55:34.005063+00:00",
+    "finishedAt": "2026-10-11T11:55:34.711936+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-data-visual/command.log",
+    "logSha256": "8cc38660ad950388dcf62437090aed7403ccbc9bf28c1c4f4964921d7f8b1352",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "release-build-visual",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-11T11:55:34.972167+00:00",
+    "finishedAt": "2026-10-11T11:55:36.107535+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/release-build-visual/command.log",
+    "logSha256": "6a9bae34db99ed7e2a3c1367843792ef9281212186ce8e41c6d06d075503a555",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "focused-cross-release",
+    "command": [
+      "node",
+      "tests/grammar-polish-browser.mjs"
+    ],
+    "startedAt": "2026-10-11T11:55:36.384984+00:00",
+    "finishedAt": "2026-10-11T11:57:52.635981+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/focused-cross-release/command.log",
+    "logSha256": "b812ba47ab48cbae22eec390d12b8f91154184e936e294c6d27e571fa9ef9a0d",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  },
+  {
+    "label": "production-ornament",
+    "command": [
+      "node",
+      ".local-validation/v081/production-ornament.mjs"
+    ],
+    "startedAt": "2026-10-11T11:57:52.948477+00:00",
+    "finishedAt": "2026-10-11T11:57:54.735524+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v081/production-ornament/command.log",
+    "logSha256": "c5ea0bf97073ec483594039f44a4fdd68a94bfc45f1ff4283745b2c3df63d291",
+    "fixedOutputsArchivedAndRestored": [],
+    "evidenceUse": "FINAL"
+  }
+]

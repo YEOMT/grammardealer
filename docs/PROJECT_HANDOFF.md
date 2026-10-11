@@ -1,3 +1,11 @@
+# 0.8.1 현재 인계
+
+기준 main은 `587fa1b681c5fcd0ac8090111e7e9850dac95f08`(0.8 병합)이며 시작 checkout clean을 확인했다. 브랜치는 `codex/v0.8.1-grammar-help-ui-polish`. 계약은 `spec/Syntax_Atlas_0.8.1_Patch_Spec.md`다. 현재0.8.1은 새37전투를 유지하는 문법/UI 패치이며 [실제 검증](TEST_REPORT_0.8.1.md), [인수 조건](ACCEPTANCE_0.8.1.md), [문법 감사](GRAMMAR_REVIEW_0.8.1.md)가 최신 기준이다.
+
+새 run/save/generator는0.8.1, 언어·문법·밸런스는0.8계약을 재사용한다. 분석에는 grammarPatchVersion을 추가한다. help는 한 물리 카드에 검수된 명사 용법만 연결하며 품사 모드나 점수 최대화 해석은 없다. 이전 원정 생성기를 다시 실행하지 않고 보유 카드·공개 상품·RNG·완료 경계를 보존한다.
+
+이미 정산한0.8 인장/잿불룡 영수증만 역사적 parser로 검증한다. 새 제출에 historicalReceipt를 전달하면 안 된다. 신규0.8.1 영수증은 patch marker가 필수다. 상태 커밋은 RunController만 담당하며 학습 안내는 고정 데이터다. 다음 작업은 AGENTS에 따라 최신main에서 별도 브랜치로 시작한다. 아래는 과거 인계 기록이다.
+
 # 0.8 현재 인계
 
 시작 main은 `ca1675dbb9e546bf2b9442dba8cfc1077c7e12dd`이며 0.7 PR #11의 병합을 실제 코드로 확인했다. 시작 checkout은 clean이었다. 작업 브랜치는 `codex/v0.8-ancient-waterways-relative-seal`이다. 계약은 `spec/SyntaxAtlas_0.8_Codex_Spec.md`; 부속 JSON은 `tests/fixtures/v08/`의 기대값이다.

@@ -1,0 +1,4595 @@
+[
+  {
+    "runId": "operations-cross-final",
+    "source": ".local-validation/v081/operations-cross-final/sb_061_edge_out/report.json",
+    "kind": "ASSIGNED_061_UI_CONTROLLER_PRESENTATION_EDGES",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "A033_FULL_HAND10_USE_REMOVES_SOURCE_BEFORE_CAP",
+        "status": "PASS"
+      },
+      {
+        "id": "A035_ZERO_TARGET_DISABLED_BUT_EXCHANGE_ALLOWED",
+        "status": "PASS"
+      },
+      {
+        "id": "SOURCE_ONLY_SEARCH_PLUS1_DISABLED_NO_SELF_TARGET",
+        "status": "PASS"
+      },
+      {
+        "id": "SOURCE_ONLY_SUPPLY_PLUS1_DISABLED_NO_SELF_TARGET",
+        "status": "PASS"
+      },
+      {
+        "id": "A030_SEARCH_CANCEL_EXACT_STATE_RNG",
+        "status": "PASS"
+      },
+      {
+        "id": "A031_STALE_SEARCH_TARGET_NO_COMMIT",
+        "status": "PASS"
+      },
+      {
+        "id": "A032_DUPLICATE_USE_FINISH_NO_MOVEMENT",
+        "status": "PASS"
+      },
+      {
+        "id": "ONE_SHOT_SOURCE_EXHAUSTED_NO_SECOND_USE",
+        "status": "PASS"
+      },
+      {
+        "id": "SAME_DEFINITION_DISTINCT_COPIES_EACH_USE",
+        "status": "PASS"
+      },
+      {
+        "id": "OPERATION_THEN_UNDO_DOES_NOT_DUPLICATE",
+        "status": "PASS"
+      },
+      {
+        "id": "A044_SHOP_POLISH_CANCEL_EXACT_STATE",
+        "status": "PASS"
+      },
+      {
+        "id": "A039_A040_A041_ASSIGNED_PRESENTER_ABORT_COMMIT_ONCE",
+        "status": "PASS"
+      },
+      {
+        "id": "A039_A040_A041_ASSIGNED_PRESENTER_HIDDEN_COMMIT_ONCE",
+        "status": "PASS"
+      },
+      {
+        "id": "A039_A040_A041_ASSIGNED_PRESENTER_EXCEPTION_COMMIT_ONCE",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1024",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1280",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1366",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_LAST_OPERATION_AND_RUNE4_SCROLL_HIT_ACCESS_1920",
+        "status": "PASS"
+      },
+      {
+        "id": "A064_COMMON_RECYCLE_REAL_GENERATED_MIXED_REWARD_RENDER",
+        "status": "PASS"
+      },
+      {
+        "id": "A065_PROTECTED_WORD_AND_MAX_ONE_OPERATION_RENDER",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 5,
+    "errors": []
+  },
+  {
+    "runId": "operations-cross-final",
+    "source": ".local-validation/v081/operations-cross-final/sb_061_ui_out/report.json",
+    "kind": "ASSIGNED_PHYSICAL_STATE_REAL_UI_COMMANDS_NOT_NATURAL_CAMPAIGN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": [
+      {
+        "name": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "name": "firefox",
+        "version": "135.0"
+      },
+      {
+        "name": "webkit",
+        "version": "18.4"
+      }
+    ],
+    "checks": [
+      {
+        "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_supply_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_supply_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_search_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_search_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_nounSearch_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_nounSearch_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_verbSearch_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_verbSearch_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_adjectiveSearch_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_adjectiveSearch_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_connectorSearch_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_connectorSearch_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_recycle_0",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U021_7_OPERATIONS_recycle_1",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "FROST_DURATION_MOVED_TO_DETAILS_WITHOUT_USE",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_NORMAL",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_SELECTED",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_HOVER",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_FOCUS",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_DISABLED",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_PRESENTATION_HIGHLIGHT",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U013_FROST_STATE_EFFECTS_REDUCED",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1024_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1024_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1280_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1280_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1366_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1366_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1920_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U014_U015_U016_U017_LAYOUT_1920_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "A116_METEOR_VERSIONED_TOOLTIP",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U001_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U002_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U003_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U004_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U005_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U006_THEME_COMBAT_INTRO_CLEAR",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U002_U004_U006_THEME_SHOP_2",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U002_U004_U006_THEME_SHOP_4",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U002_U004_U006_THEME_SHOP_6",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U024_THEME_RESET_ON_LOBBY",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U025_DESERT_EXACT_BACKGROUND_PANEL_PRESERVATION",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "A068_A073_A075_A124_STAGE4_CHOICE_REAL_UI_SAVE_LOBBY_LOAD_CHOOSE",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_BUY_POLISH_OPERATION",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SUPPLY_RECOVER_REUSE",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SUPPLY_REUSE_SAVE_LOAD",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_REAL_SEARCH_RECOVER_REUSE",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_SEARCH_REUSE_SAVE_LOAD",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U007_U018_U019_U020_FROST_SUPPORT_REAL_UI",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "A125_FROST_DRAG_RETURN_THEME_DOES_NOT_INTERCEPT",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_GAP_FORM_SUBMIT_IMPACT",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U018_U019_U020_VP_ADVERB_FORM_SUBMIT_IMPACT",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "U024_NO_PAGE_CONSOLE_RESOURCE_ERRORS",
+        "browser": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 66,
+    "errors": []
+  },
+  {
+    "runId": "focused-cross-release",
+    "source": ".local-validation/v081/focused-cross-release/sb_081_ui_out/report.json",
+    "kind": "ASSIGNED_STATE_ACTUAL_UI_NOT_NATURAL_CAMPAIGN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": [
+      {
+        "engine": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "engine": "firefox",
+        "version": "135.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "18.4"
+      }
+    ],
+    "checks": [
+      {
+        "id": "HELP_SAME_CARD_SIZE_AND_NO_BADGE_OVERLAP",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_FROST_OPERATION_TOUCH_DETAILS_NO_STATE_CHANGE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REUSABLE_OPERATION_LABEL_STAYS_ACCURATE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DETAILS_NO_STATE_CHANGE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_POLISH_MATRIX_INDEPENDENT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RARE_ORNAMENT_PRESERVES_INSERT_AND_SWAP_CUES",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_1_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_2_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_3_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_4_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_5_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_6_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_7_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_8_CURRICULUM_ALL_ROUNDS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DESERT_MODIFIER_PURPOSE_SEPARATE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DEER_PRECISE_EXCEPTIONS_RETAINED",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_NOUN",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_VERB",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_PRONOUN",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_NONFINITE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_HELP_PLUS3_INDEXEDDB_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1920",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1920",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1366",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1366",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1280",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1280",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1024",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1024",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_SAME_CARD_SIZE_AND_NO_BADGE_OVERLAP",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_FROST_OPERATION_TOUCH_DETAILS_NO_STATE_CHANGE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REUSABLE_OPERATION_LABEL_STAYS_ACCURATE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DETAILS_NO_STATE_CHANGE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_POLISH_MATRIX_INDEPENDENT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RARE_ORNAMENT_PRESERVES_INSERT_AND_SWAP_CUES",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_1_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_2_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_3_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_4_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_5_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_6_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_7_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_8_CURRICULUM_ALL_ROUNDS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DESERT_MODIFIER_PURPOSE_SEPARATE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DEER_PRECISE_EXCEPTIONS_RETAINED",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_NOUN",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_VERB",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_PRONOUN",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_NONFINITE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_HELP_PLUS3_INDEXEDDB_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1920",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1920",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1366",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1366",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1280",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1280",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1024",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1024",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_SAME_CARD_SIZE_AND_NO_BADGE_OVERLAP",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_FROST_OPERATION_TOUCH_DETAILS_NO_STATE_CHANGE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REUSABLE_OPERATION_LABEL_STAYS_ACCURATE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DETAILS_NO_STATE_CHANGE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_POLISH_MATRIX_INDEPENDENT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RARE_ORNAMENT_PRESERVES_INSERT_AND_SWAP_CUES",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_1_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_2_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_3_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_4_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_5_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_6_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_7_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "STAGE_8_CURRICULUM_ALL_ROUNDS",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DESERT_MODIFIER_PURPOSE_SEPARATE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DEER_PRECISE_EXCEPTIONS_RETAINED",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_NOUN",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "HELP_REAL_FORMS_ATTACK_VERB",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_PRONOUN",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "MALFORMED_REAL_UI_ZERO_DAMAGE_LOCKED_NONFINITE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_HELP_PLUS3_INDEXEDDB_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1920",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1920",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1366",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1366",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1280",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1280",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_10_1024",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_16_14_1024",
+        "engine": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": [
+      {
+        "engine": "chromium",
+        "cues": [
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "맞교환",
+            "current": "\"맞교환\"",
+            "previous": "\"\""
+          }
+        ]
+      },
+      {
+        "engine": "firefox",
+        "cues": [
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "맞교환",
+            "current": "\"맞교환\"",
+            "previous": "\"\""
+          }
+        ]
+      },
+      {
+        "engine": "webkit",
+        "cues": [
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "삽입",
+            "current": "\"삽입\"",
+            "previous": "\"\""
+          },
+          {
+            "label": "맞교환",
+            "current": "\"맞교환\"",
+            "previous": "\"\""
+          }
+        ]
+      }
+    ],
+    "captureCount": 93,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_snow_ui_evidence/report.json",
+    "kind": "ASSIGNED_PHYSICAL_CARDS_REAL_UI_AND_CONTROLLER_NOT_NATURAL_RUN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": [
+      {
+        "name": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "name": "firefox",
+        "version": "135.0"
+      },
+      {
+        "name": "webkit",
+        "version": "18.4"
+      }
+    ],
+    "checks": [
+      {
+        "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P116_NONCOMPARISON_MORE_WATER",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P121_P123_P138_HP_ONE_LOCK_REASON",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P125_LAST_CRYSTAL_SAME_ATTACK_KILL",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P018_P019_P021_THIRD_SHOP_UI",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P080_P142_GROUPED_REVIEWED_FORMS",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P140_P141_P143_FIXED_GUIDES_AND_TEMPORARY_OWNERSHIP",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1280_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1280_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1366_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1366_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1920_10",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P130_P132_LAYOUT_1920_14",
+        "browser": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P116_NONCOMPARISON_MORE_WATER",
+        "browser": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "P058_P066_P130_P131_P136_BOSS_OPENING",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "P036_CLICK_RETURN_DRAG_PHYSICAL_FROST",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "P037_FROST_DISCARD_CHECK_EXCHANGE",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "P115_P135_P137_TWO_REAL_COPIES_SHATTER",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER",
+        "browser": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "P116_NONCOMPARISON_MORE_WATER",
+        "browser": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 19,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_v021_evidence/report.json",
+    "kind": "ACTUAL_GUIDED_UI_WITH_SYNTHETIC_VISIBILITY_EVENT",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "ACTUAL_GATE_RESTART",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_SCROLL_TARGET",
+        "status": "PASS"
+      },
+      {
+        "id": "RESIZE_ORIENTATION_EVENT_TARGET",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_1",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_4",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_6",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_8",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_11",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_13",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_18",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_21",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_22",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_23",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_25",
+        "status": "PASS"
+      },
+      {
+        "id": "GUIDED_VISIBILITY_EVENT_NO_FINISH",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_30",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1366_31",
+        "status": "PASS"
+      },
+      {
+        "id": "COMPLETE_1366",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_1",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_4",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_6",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_8",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_11",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_13",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_18",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_21",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_22",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_23",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_25",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_30",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1024_31",
+        "status": "PASS"
+      },
+      {
+        "id": "COMPLETE_1024",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_1",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_4",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_6",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_8",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_11",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_13",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_18",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_21",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_22",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_23",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_25",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_30",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_1920_31",
+        "status": "PASS"
+      },
+      {
+        "id": "COMPLETE_1920",
+        "status": "PASS"
+      },
+      {
+        "id": "HEAVY_ENGINE_PRESENTATION_FIXTURE",
+        "status": "PASS",
+        "detail": {
+          "outcome": {
+            "status": "FINISHED",
+            "reason": null,
+            "attackId": "attack.sandbox",
+            "plannedDuration": 3925,
+            "watchdogMs": 5925
+          },
+          "power": 50,
+          "tier": "HEAVY",
+          "calls": [
+            {
+              "type": "card",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "card",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "score",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "score",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "score",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "score",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "charge",
+              "hp": "77 / 77"
+            },
+            {
+              "type": "impact",
+              "hp": "27 / 77"
+            },
+            {
+              "type": "impactLow",
+              "hp": "27 / 77"
+            }
+          ]
+        }
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 27,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_v022_evidence/report.json",
+    "kind": "SYNTHETIC_LEGAL_CARD_STATE_WITH_REAL_CONTROLLER_UI",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "SUBMIT_1366_incomplete",
+        "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1366_locked-svoo",
+        "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1366_unlocked-svoo",
+        "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1366_whole-io-do",
+        "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "LAST_TURN_1366",
+        "detail": "Last invalid submission defeats after presentation without draw",
+        "status": "PASS"
+      },
+      {
+        "id": "DICTIONARY_1366",
+        "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_1366",
+        "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1920_incomplete",
+        "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1920_locked-svoo",
+        "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1920_unlocked-svoo",
+        "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1920_whole-io-do",
+        "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "LAST_TURN_1920",
+        "detail": "Last invalid submission defeats after presentation without draw",
+        "status": "PASS"
+      },
+      {
+        "id": "DICTIONARY_1920",
+        "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_1920",
+        "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1024_incomplete",
+        "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1024_locked-svoo",
+        "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1024_unlocked-svoo",
+        "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1024_whole-io-do",
+        "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "LAST_TURN_1024",
+        "detail": "Last invalid submission defeats after presentation without draw",
+        "status": "PASS"
+      },
+      {
+        "id": "DICTIONARY_1024",
+        "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_1024",
+        "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1180_incomplete",
+        "detail": "Actual UI submission and recorded power 0, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1180_locked-svoo",
+        "detail": "Actual UI submission and recorded power 70, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1180_unlocked-svoo",
+        "detail": "Actual UI submission and recorded power 140, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMIT_1180_whole-io-do",
+        "detail": "Actual UI submission and recorded power 160, one turn consumed, translated/internal labels absent",
+        "status": "PASS"
+      },
+      {
+        "id": "LAST_TURN_1180",
+        "detail": "Last invalid submission defeats after presentation without draw",
+        "status": "PASS"
+      },
+      {
+        "id": "DICTIONARY_1180",
+        "detail": "Owned/encountered dictionary, forms, removed word retained, modal fits viewport",
+        "status": "PASS"
+      },
+      {
+        "id": "LEGACY_1180",
+        "detail": "Evidence-based correction without historical score changes; uncertain string preserved outside model examples",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 28,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_v03_evidence/report.json",
+    "kind": "ASSIGNED_STATE_UI_AND_ENGINE_PRESENTATION",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "LAYOUT_1366_10",
+        "status": "PASS",
+        "width": 1366,
+        "height": 768,
+        "actions": 538,
+        "hand": 546,
+        "phases": 3,
+        "focus": {
+          "x": 1281.4375,
+          "y": 97,
+          "width": 58.5625,
+          "height": 17,
+          "top": 97,
+          "right": 1340,
+          "bottom": 114,
+          "left": 1281.4375
+        },
+        "strategy": {
+          "x": 1238,
+          "y": 120,
+          "width": 102,
+          "height": 36,
+          "top": 120,
+          "right": 1340,
+          "bottom": 156,
+          "left": 1238
+        },
+        "bonus": {
+          "x": 1131.34375,
+          "y": 66,
+          "width": 208.65625,
+          "height": 25,
+          "top": 66,
+          "right": 1340,
+          "bottom": 91,
+          "left": 1131.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 10
+      },
+      {
+        "id": "LAYOUT_1366_14",
+        "status": "PASS",
+        "width": 1366,
+        "height": 768,
+        "actions": 538,
+        "hand": 546,
+        "phases": 3,
+        "focus": {
+          "x": 1281.4375,
+          "y": 97,
+          "width": 58.5625,
+          "height": 17,
+          "top": 97,
+          "right": 1340,
+          "bottom": 114,
+          "left": 1281.4375
+        },
+        "strategy": {
+          "x": 1238,
+          "y": 120,
+          "width": 102,
+          "height": 36,
+          "top": 120,
+          "right": 1340,
+          "bottom": 156,
+          "left": 1238
+        },
+        "bonus": {
+          "x": 1131.34375,
+          "y": 66,
+          "width": 208.65625,
+          "height": 25,
+          "top": 66,
+          "right": 1340,
+          "bottom": 91,
+          "left": 1131.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 14
+      },
+      {
+        "id": "LAYOUT_1440_10",
+        "status": "PASS",
+        "width": 1440,
+        "height": 900,
+        "actions": 666,
+        "hand": 678,
+        "phases": 3,
+        "focus": {
+          "x": 1355.4375,
+          "y": 111,
+          "width": 58.5625,
+          "height": 17,
+          "top": 111,
+          "right": 1414,
+          "bottom": 128,
+          "left": 1355.4375
+        },
+        "strategy": {
+          "x": 1312,
+          "y": 144,
+          "width": 102,
+          "height": 36,
+          "top": 144,
+          "right": 1414,
+          "bottom": 180,
+          "left": 1312
+        },
+        "bonus": {
+          "x": 1205.34375,
+          "y": 70,
+          "width": 208.65625,
+          "height": 25,
+          "top": 70,
+          "right": 1414,
+          "bottom": 95,
+          "left": 1205.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 10
+      },
+      {
+        "id": "LAYOUT_1440_14",
+        "status": "PASS",
+        "width": 1440,
+        "height": 900,
+        "actions": 666,
+        "hand": 678,
+        "phases": 3,
+        "focus": {
+          "x": 1355.4375,
+          "y": 111,
+          "width": 58.5625,
+          "height": 17,
+          "top": 111,
+          "right": 1414,
+          "bottom": 128,
+          "left": 1355.4375
+        },
+        "strategy": {
+          "x": 1312,
+          "y": 144,
+          "width": 102,
+          "height": 36,
+          "top": 144,
+          "right": 1414,
+          "bottom": 180,
+          "left": 1312
+        },
+        "bonus": {
+          "x": 1205.34375,
+          "y": 70,
+          "width": 208.65625,
+          "height": 25,
+          "top": 70,
+          "right": 1414,
+          "bottom": 95,
+          "left": 1205.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 14
+      },
+      {
+        "id": "LAYOUT_1024_10",
+        "status": "PASS",
+        "width": 1024,
+        "height": 768,
+        "actions": 541,
+        "hand": 549,
+        "phases": 3,
+        "focus": {
+          "x": 951.4375,
+          "y": 91,
+          "width": 58.5625,
+          "height": 17,
+          "top": 91,
+          "right": 1010,
+          "bottom": 108,
+          "left": 951.4375
+        },
+        "strategy": {
+          "x": 908,
+          "y": 114,
+          "width": 102,
+          "height": 36,
+          "top": 114,
+          "right": 1010,
+          "bottom": 150,
+          "left": 908
+        },
+        "bonus": {
+          "x": 801.34375,
+          "y": 60,
+          "width": 208.65625,
+          "height": 25,
+          "top": 60,
+          "right": 1010,
+          "bottom": 85,
+          "left": 801.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 10
+      },
+      {
+        "id": "LAYOUT_1024_14",
+        "status": "PASS",
+        "width": 1024,
+        "height": 768,
+        "actions": 541,
+        "hand": 549,
+        "phases": 3,
+        "focus": {
+          "x": 951.4375,
+          "y": 91,
+          "width": 58.5625,
+          "height": 17,
+          "top": 91,
+          "right": 1010,
+          "bottom": 108,
+          "left": 951.4375
+        },
+        "strategy": {
+          "x": 908,
+          "y": 114,
+          "width": 102,
+          "height": 36,
+          "top": 114,
+          "right": 1010,
+          "bottom": 150,
+          "left": 908
+        },
+        "bonus": {
+          "x": 801.34375,
+          "y": 60,
+          "width": 208.65625,
+          "height": 25,
+          "top": 60,
+          "right": 1010,
+          "bottom": 85,
+          "left": 801.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 14
+      },
+      {
+        "id": "LAYOUT_1280_10",
+        "status": "PASS",
+        "width": 1280,
+        "height": 800,
+        "actions": 570,
+        "hand": 578,
+        "phases": 3,
+        "focus": {
+          "x": 1195.4375,
+          "y": 97,
+          "width": 58.5625,
+          "height": 17,
+          "top": 97,
+          "right": 1254,
+          "bottom": 114,
+          "left": 1195.4375
+        },
+        "strategy": {
+          "x": 1152,
+          "y": 120,
+          "width": 102,
+          "height": 36,
+          "top": 120,
+          "right": 1254,
+          "bottom": 156,
+          "left": 1152
+        },
+        "bonus": {
+          "x": 1045.34375,
+          "y": 66,
+          "width": 208.65625,
+          "height": 25,
+          "top": 66,
+          "right": 1254,
+          "bottom": 91,
+          "left": 1045.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 10
+      },
+      {
+        "id": "LAYOUT_1280_14",
+        "status": "PASS",
+        "width": 1280,
+        "height": 800,
+        "actions": 570,
+        "hand": 578,
+        "phases": 3,
+        "focus": {
+          "x": 1195.4375,
+          "y": 97,
+          "width": 58.5625,
+          "height": 17,
+          "top": 97,
+          "right": 1254,
+          "bottom": 114,
+          "left": 1195.4375
+        },
+        "strategy": {
+          "x": 1152,
+          "y": 120,
+          "width": 102,
+          "height": 36,
+          "top": 120,
+          "right": 1254,
+          "bottom": 156,
+          "left": 1152
+        },
+        "bonus": {
+          "x": 1045.34375,
+          "y": 66,
+          "width": 208.65625,
+          "height": 25,
+          "top": 66,
+          "right": 1254,
+          "bottom": 91,
+          "left": 1045.34375
+        },
+        "buttons": [
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          },
+          {
+            "h": 36,
+            "w": 40
+          }
+        ],
+        "sentence": 16,
+        "handCards": 14
+      },
+      {
+        "id": "RUNE_BUTTON_KEYBOARD",
+        "status": "PASS"
+      },
+      {
+        "id": "RUNE_POINTER_DRAG",
+        "status": "PASS"
+      },
+      {
+        "id": "RUNE_SCROLL_CANCEL_NO_RESOURCE_MUTATION",
+        "status": "PASS"
+      },
+      {
+        "id": "RUNE_INFORMATION_NEUTRAL",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_PHASE_0_false",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "PAST"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "240 / 240",
+              "240 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "240 / 240",
+              "240 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 490,
+        "loss": 240,
+        "excess": 250
+      },
+      {
+        "id": "IMPACT_PHASE_0_true",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "PAST"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "240 / 240",
+              "240 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "240 / 240",
+              "240 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 490,
+        "loss": 240,
+        "excess": 250
+      },
+      {
+        "id": "IMPACT_PHASE_1_false",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "PRESENT"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "0 / 240",
+              "240 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "240 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 408,
+        "loss": 240,
+        "excess": 168
+      },
+      {
+        "id": "IMPACT_PHASE_1_true",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "PRESENT"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "0 / 240",
+              "240 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "240 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 408,
+        "loss": 240,
+        "excess": 168
+      },
+      {
+        "id": "IMPACT_PHASE_2_false",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "FUTURE"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "0 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 585,
+        "loss": 240,
+        "excess": 345
+      },
+      {
+        "id": "IMPACT_PHASE_2_true",
+        "status": "PASS",
+        "trace": [
+          {
+            "when": "boss-score",
+            "active": "FUTURE"
+          },
+          {
+            "when": "before",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "240 / 240"
+            ]
+          },
+          {
+            "when": "after",
+            "bars": [
+              "0 / 240",
+              "0 / 240",
+              "0 / 240"
+            ],
+            "avatar": "1"
+          }
+        ],
+        "power": 585,
+        "loss": 240,
+        "excess": 345
+      },
+      {
+        "id": "WRONG_TIME_BLOCKED_NO_DAMAGE_SHAKE",
+        "status": "PASS"
+      },
+      {
+        "id": "CANCEL_CONVERGES_WITHOUT_STATE_WRITE",
+        "status": "PASS"
+      },
+      {
+        "id": "GROUPED_FORMS",
+        "status": "PASS"
+      },
+      {
+        "id": "CODEX_TYPOGRAPHY_FEEDBACK",
+        "status": "PASS",
+        "color": "rgb(255, 255, 255)",
+        "size": "21px",
+        "weight": "750",
+        "line": "31.5px"
+      },
+      {
+        "id": "CODEX_NO_FIXED_EXAMPLES",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 18,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_v04_ui_evidence/report.json",
+    "kind": "ASSIGNED_STATE_UI_NOT_CAMPAIGN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "STAGE4_PREVIEW",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP2_1366",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP2_1280",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP2_1024",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP2_REAL_INDEXEDDB_EXACT",
+        "status": "PASS"
+      },
+      {
+        "id": "THREE_VERSIONED_SLOTS_OPERATION_EXHAUST_RNG_AND_UNLOCK_ISOLATION",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1366_10",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1366_14",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1280_10",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1280_14",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1024_10",
+        "status": "PASS"
+      },
+      {
+        "id": "SKY_CAPACITY_1024_14",
+        "status": "PASS"
+      },
+      {
+        "id": "LINK_PRESENTATION_I like music and she reads books",
+        "status": "PASS"
+      },
+      {
+        "id": "LINK_PRESENTATION_I think that she likes music",
+        "status": "PASS"
+      },
+      {
+        "id": "LINK_PRESENTATION_I like games and music",
+        "status": "PASS"
+      },
+      {
+        "id": "LINK_PRESENTATION_I think she likes music",
+        "status": "PASS"
+      },
+      {
+        "id": "INTERRUPTED_DISPLAY_CONVERGES_NO_STATE_WRITE",
+        "status": "PASS"
+      },
+      {
+        "id": "NESTED_EDUCATION_NO_RAW_IDS_TRANSLATIONS",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 13,
+    "errors": []
+  },
+  {
+    "runId": "official-browser-release",
+    "source": ".local-validation/v081/official-browser-release/sb_v05_ui_evidence/report.json",
+    "kind": "ASSIGNED_DESERT_SEAL_AND_SUBMITTED_ROLE_UI",
+    "status": "PASS",
+    "engine": null,
+    "browsers": null,
+    "checks": [
+      {
+        "id": "FIRST_SEAL_EXACT_COPY_AND_RULE",
+        "status": "PASS"
+      },
+      {
+        "id": "FIRST_TURN_UI_INDEXEDDB_SAVE_PAGE_RELOAD_LOAD_EXACT",
+        "status": "PASS"
+      },
+      {
+        "id": "MOUSE_KEYBOARD_TOUCH_ADD_BLOCKED_NO_COST",
+        "status": "PASS"
+      },
+      {
+        "id": "SEALED_BODY_SWAP_DRAG_BLOCKED",
+        "status": "PASS"
+      },
+      {
+        "id": "FORM_MENU_SWAP_GUARD",
+        "status": "PASS"
+      },
+      {
+        "id": "SEALED_DRAG_CANCEL_RESIZE_BLUR_CLEANUP",
+        "status": "PASS"
+      },
+      {
+        "id": "SEALED_CHECK_EXCHANGE_ALLOWED_NO_RESEAL",
+        "status": "PASS"
+      },
+      {
+        "id": "SEARCH_CANCEL_SEAL_RNG_UNDO_UNCHANGED",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_PRESENTATION_PRESERVES_SEAL",
+        "status": "PASS"
+      },
+      {
+        "id": "ASSIGNED_DRAW_SEAL_REAL_SEARCH_RETURN_STILL_BLOCKED",
+        "status": "PASS"
+      },
+      {
+        "id": "PREPARE_NEXT_TURN_SEAL_ONCE",
+        "status": "PASS"
+      },
+      {
+        "id": "ZERO_CORE_SUBMISSION_NEXT_TURN_SEAL_ONCE",
+        "status": "PASS"
+      },
+      {
+        "id": "DESERT_FIVE_ENEMIES_NO_SHOP",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1024_10",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1024_14",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1280_10",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1280_14",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1366_10",
+        "status": "PASS"
+      },
+      {
+        "id": "CAPACITY_1366_14",
+        "status": "PASS"
+      },
+      {
+        "id": "SINGLE_ING_THREE_ROW_MENU_1024",
+        "status": "PASS"
+      },
+      {
+        "id": "SINGLE_ING_THREE_ROW_MENU_1280",
+        "status": "PASS"
+      },
+      {
+        "id": "SINGLE_ING_THREE_ROW_MENU_1366",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_동명사 · 주어",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_동명사 · 목적어",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_동명사 · 주격보어",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_동명사 · 전치사의 목적어",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_현재분사 · 명사 수식",
+        "status": "PASS"
+      },
+      {
+        "id": "SUBMITTED_ROLE_to부정사 · 목적격보어",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_SEAL_UI_LEAK_IN_OTHER_BATTLE",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_ENJOY",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_ENJOY",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_FINISH",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_FINISH",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_SERVICE_TARGETS_CANCEL_HOBBY",
+        "status": "PASS"
+      },
+      {
+        "id": "NEW_WORD_MAIN_POLISH_CONFIRM_UNLOCK_HOBBY",
+        "status": "PASS"
+      },
+      {
+        "id": "DEV_SANDBOX_CURRENT_REGISTRY_NEW_WORD_AND_EXISTING_ING",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 20,
+    "errors": []
+  },
+  {
+    "runId": "waterways-cross",
+    "source": ".local-validation/v081/waterways-cross/sb_waterways_ui_out/report.json",
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": [
+      {
+        "engine": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "engine": "firefox",
+        "version": "135.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "18.4"
+      }
+    ],
+    "checks": [
+      {
+        "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHO_REAL_UI_SHOP4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_NONE_REAL_UI_SHOP4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_effectsOff_NO_DUPLICATE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_cancel_NO_DUPLICATE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RECORDS_THREE_FIXED_GUIDES",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "BATTLE35_FROST_WORD_VISIBLE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_This is the day when I work.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_Where do you work?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_When will you come?",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know where you work.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know when you will come.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I play when you come.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SUPPLY",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_RECYCLE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHO_REAL_UI_SHOP4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_NONE_REAL_UI_SHOP4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_effectsOff_NO_DUPLICATE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_cancel_NO_DUPLICATE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RECORDS_THREE_FIXED_GUIDES",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "BATTLE35_FROST_WORD_VISIBLE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_This is the day when I work.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_Where do you work?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_When will you come?",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know where you work.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know when you will come.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I play when you come.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SUPPLY",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_RECYCLE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHO_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHO_REAL_UI_SHOP4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_WHICH_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_WHICH_REAL_UI_SHOP4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PENDING_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "SHOP4_NONE_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_NONE_REAL_UI_SHOP4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NONE_WARNING_CANCEL_AND_CONFIRM",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The child who runs is happy.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book I made is good.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_This is the school where I work.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child who runs likes a book I made.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_The book which was made helps a child I like.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Where do you work?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_When will you come?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Who runs?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_Which book do you like?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know where you work.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know when you will come.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know who runs.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_I know which book you like.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ACTUAL_FORMS_SUBMIT_A child that runs likes a book I made.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_effectsOff_NO_DUPLICATE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_reducedMotion_NO_DUPLICATE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "IMPACT_cancel_NO_DUPLICATE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "UNLOCK_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RECORDS_THREE_FIXED_GUIDES",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_OPENING_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "BATTLE35_FROST_WORD_VISIBLE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LOCKED_HP1_INDEXEDDB_SLOT_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_CROSS_ATTACK_ACCUMULATION_AT_HP1",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "SAME_SENTENCE_UNLOCK_AND_KILL",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_FORM_RELATIVE_SUBMIT_SHATTER",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_This is the day when I work.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_Where do you work?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_When will you come?",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know where you work.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I know when you will come.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_VARIANT_I play when you come.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SUPPLY",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_SEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CITY_FROST_REAL_UI_RECYCLE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 117,
+    "errors": []
+  },
+  {
+    "runId": "ember-cross",
+    "source": ".local-validation/v081/ember-cross/sb_ember_ui_out/report.json",
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+    "status": "PASS",
+    "engine": null,
+    "browsers": [
+      {
+        "engine": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "engine": "firefox",
+        "version": "135.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "18.4"
+      }
+    ],
+    "checks": [
+      {
+        "id": "SUPPLY_2_THEME",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_5_THEME",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_EXCHANGE_REAL_UI",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SUPPLY",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_NOUNSEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_VERBSEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_ADJECTIVESEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_CONNECTORSEARCH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_RECYCLE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_2_THEME",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_5_THEME",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_EXCHANGE_REAL_UI",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SUPPLY",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_NOUNSEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_VERBSEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_ADJECTIVESEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_CONNECTORSEARCH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_RECYCLE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_2_THEME",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "SUPPLY_5_THEME",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_KEYBOARD_44PX_NO_FORM_USE_SCORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_DRAG_REJECT_NO_POINTER_RESIDUE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_EXCHANGE_REAL_UI",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "ONLY_DUST_NO_EXCHANGE_STILL_PREPARES_WITH_REAL_DRAW",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SUPPLY",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_SEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_NOUNSEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_VERBSEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_ADJECTIVESEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_CONNECTORSEARCH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_UI_RECYCLE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DUST_OPERATION_RECEIPT_INDEXEDDB_EXACT_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_VERSION_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REJECT_MANIFEST_WITHOUT_ERASING_INDEXEDDB_SLOT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The running child is happy.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_OPERATION_DUST_EXCHANGE_THEN_REAL_ATTACK",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The finished homework is easy.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The child reading a book is happy.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_The food made today is good.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_Food is eaten.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him run.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see him running.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I see the food eaten.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I have made food.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORMS_ENGINE_IMPACT_I enjoy eating food.",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_EFFECTSOFF_NO_DOUBLE_COMMIT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_REDUCEDMOTION_NO_DOUBLE_COMMIT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PRESENTATION_CANCEL_NO_DOUBLE_COMMIT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024x768_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280x800_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366x768_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_10_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920x1080_14_16_4",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 117,
+    "errors": []
+  },
+  {
+    "runId": "core-cross",
+    "source": ".local-validation/v081/core-cross/sb_cross_out/firefox-core-polish-browser/report.json",
+    "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+    "status": "PASS",
+    "engine": "firefox",
+    "browsers": null,
+    "checks": [
+      {
+        "id": "CORE_MATRIX_0",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_1",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_2",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_3",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_4",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_5",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_6",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_7",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_8",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_9",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_10",
+        "status": "PASS"
+      },
+      {
+        "id": "V01",
+        "status": "PASS"
+      },
+      {
+        "id": "V02",
+        "status": "PASS"
+      },
+      {
+        "id": "V03",
+        "status": "PASS"
+      },
+      {
+        "id": "V04",
+        "status": "PASS"
+      },
+      {
+        "id": "V05",
+        "status": "PASS"
+      },
+      {
+        "id": "V06",
+        "status": "PASS"
+      },
+      {
+        "id": "V07",
+        "status": "PASS"
+      },
+      {
+        "id": "V08",
+        "status": "PASS"
+      },
+      {
+        "id": "V09",
+        "status": "PASS"
+      },
+      {
+        "id": "V10",
+        "status": "PASS"
+      },
+      {
+        "id": "V11",
+        "status": "PASS"
+      },
+      {
+        "id": "V12",
+        "status": "PASS"
+      },
+      {
+        "id": "V13",
+        "status": "PASS"
+      },
+      {
+        "id": "V14",
+        "status": "PASS"
+      },
+      {
+        "id": "V15",
+        "status": "PASS"
+      },
+      {
+        "id": "V16",
+        "status": "PASS"
+      },
+      {
+        "id": "V17",
+        "status": "PASS"
+      },
+      {
+        "id": "V18",
+        "status": "PASS"
+      },
+      {
+        "id": "V19",
+        "status": "PASS"
+      },
+      {
+        "id": "V20",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_TEACHING_EFFECTS_OFF",
+        "status": "PASS",
+        "evidence": {
+          "roles": 2,
+          "pulse": true,
+          "label": "루비 룬 ×1.6",
+          "expected": "루비 룬 ×1.6",
+          "score": "104",
+          "after": 104
+        }
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 11,
+    "errors": []
+  },
+  {
+    "runId": "core-cross",
+    "source": ".local-validation/v081/core-cross/sb_cross_out/firefox-polish-ui-browser/report.json",
+    "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+    "status": "PASS",
+    "engine": "firefox",
+    "browsers": null,
+    "checks": [
+      {
+        "id": "SKIP_CANCEL",
+        "status": "PASS",
+        "evidence": "actual initial confirmation, no card/RNG mutation"
+      },
+      {
+        "id": "INITIAL_SKIP",
+        "status": "PASS",
+        "evidence": "actual UI skip starts normal S1-1"
+      },
+      {
+        "id": "SKIP_INDEXEDDB",
+        "status": "PASS",
+        "evidence": "actual safe slot round trip"
+      },
+      {
+        "id": "CLICK_KEYBOARD_DRAG",
+        "status": "PASS",
+        "evidence": "real card motion commands"
+      },
+      {
+        "id": "EDUCATION_1366",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1366",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "EDUCATION_1280",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1280",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "EDUCATION_1024",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1024",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "ZOOM_125",
+        "status": "PASS",
+        "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+      },
+      {
+        "id": "HER_ALIASES",
+        "status": "PASS",
+        "evidence": "assigned old object/possessive selections show one current her button"
+      },
+      {
+        "id": "ASSIGNED_OPERATION_SAVE",
+        "status": "PASS",
+        "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+      },
+      {
+        "id": "REPLAY_ISOLATION",
+        "status": "PASS",
+        "evidence": "independent controller, actual UI close"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 8,
+    "errors": []
+  },
+  {
+    "runId": "core-cross",
+    "source": ".local-validation/v081/core-cross/sb_cross_out/webkit-core-polish-browser/report.json",
+    "kind": "ASSIGNED_RESOLUTION_NATIVE_CLOCK_DOM_FRAMES",
+    "status": "PASS",
+    "engine": "webkit",
+    "browsers": null,
+    "checks": [
+      {
+        "id": "CORE_MATRIX_0",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_1",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_2",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_3",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_4",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_5",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_6",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_7",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_8",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_9",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_MATRIX_10",
+        "status": "PASS"
+      },
+      {
+        "id": "V01",
+        "status": "PASS"
+      },
+      {
+        "id": "V02",
+        "status": "PASS"
+      },
+      {
+        "id": "V03",
+        "status": "PASS"
+      },
+      {
+        "id": "V04",
+        "status": "PASS"
+      },
+      {
+        "id": "V05",
+        "status": "PASS"
+      },
+      {
+        "id": "V06",
+        "status": "PASS"
+      },
+      {
+        "id": "V07",
+        "status": "PASS"
+      },
+      {
+        "id": "V08",
+        "status": "PASS"
+      },
+      {
+        "id": "V09",
+        "status": "PASS"
+      },
+      {
+        "id": "V10",
+        "status": "PASS"
+      },
+      {
+        "id": "V11",
+        "status": "PASS"
+      },
+      {
+        "id": "V12",
+        "status": "PASS"
+      },
+      {
+        "id": "V13",
+        "status": "PASS"
+      },
+      {
+        "id": "V14",
+        "status": "PASS"
+      },
+      {
+        "id": "V15",
+        "status": "PASS"
+      },
+      {
+        "id": "V16",
+        "status": "PASS"
+      },
+      {
+        "id": "V17",
+        "status": "PASS"
+      },
+      {
+        "id": "V18",
+        "status": "PASS"
+      },
+      {
+        "id": "V19",
+        "status": "PASS"
+      },
+      {
+        "id": "V20",
+        "status": "PASS"
+      },
+      {
+        "id": "CORE_TEACHING_EFFECTS_OFF",
+        "status": "PASS",
+        "evidence": {
+          "roles": 2,
+          "pulse": true,
+          "label": "루비 룬 ×1.6",
+          "expected": "루비 룬 ×1.6",
+          "score": "104",
+          "after": 104
+        }
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 11,
+    "errors": []
+  },
+  {
+    "runId": "core-cross",
+    "source": ".local-validation/v081/core-cross/sb_cross_out/webkit-polish-ui-browser/report.json",
+    "kind": "ACTUAL_APP_INPUT_AND_LABELLED_ASSIGNED_STATE",
+    "status": "PASS",
+    "engine": "webkit",
+    "browsers": null,
+    "checks": [
+      {
+        "id": "SKIP_CANCEL",
+        "status": "PASS",
+        "evidence": "actual initial confirmation, no card/RNG mutation"
+      },
+      {
+        "id": "INITIAL_SKIP",
+        "status": "PASS",
+        "evidence": "actual UI skip starts normal S1-1"
+      },
+      {
+        "id": "SKIP_INDEXEDDB",
+        "status": "PASS",
+        "evidence": "actual safe slot round trip"
+      },
+      {
+        "id": "CLICK_KEYBOARD_DRAG",
+        "status": "PASS",
+        "evidence": "real card motion commands"
+      },
+      {
+        "id": "EDUCATION_1366",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1366",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "EDUCATION_1280",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1280",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "EDUCATION_1024",
+        "status": "PASS",
+        "evidence": "21 headings (0.6 adds comparison/degree), search, no state/profile mutation, no horizontal clipping"
+      },
+      {
+        "id": "ASSIGNED_LONG_RECORD_1024",
+        "status": "PASS",
+        "evidence": "real parsed record in separate read-only display; white English, readable font, expandable detail and no horizontal overflow"
+      },
+      {
+        "id": "ZOOM_125",
+        "status": "PASS",
+        "evidence": "CSS zoom proxy (not OS/browser toolbar zoom)"
+      },
+      {
+        "id": "HER_ALIASES",
+        "status": "PASS",
+        "evidence": "assigned old object/possessive selections show one current her button"
+      },
+      {
+        "id": "ASSIGNED_OPERATION_SAVE",
+        "status": "PASS",
+        "evidence": "actual supply transaction and IndexedDB, no natural acquisition claim"
+      },
+      {
+        "id": "REPLAY_ISOLATION",
+        "status": "PASS",
+        "evidence": "independent controller, actual UI close"
+      }
+    ],
+    "dragCueProofs": null,
+    "captureCount": 8,
+    "errors": []
+  }
+]

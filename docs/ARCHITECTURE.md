@@ -1,3 +1,12 @@
+## 0.8.1 문법·표시 경계
+
+- `helpUsage`는 frozen0.8 언어 view에 한 카드의 보조 MASS명사 lexeme만 연결한다. 후보는 실제선택surface가help일 때만 추가하고 NP에서 확정된 selectedPos/selectedLexemeId를 피드백·기록에 전달한다. 기존 동사 Form ID와 전투 밖 주품사 탐색은 유지한다.
+- `parser.waterwaysRelatives`는 생략 목적격 관계절의 인칭대명사 선행사와 비정형 절의 명사어휘 승격을 차단한다. 정상 명사구/내부관계절/명시관계사를 일괄 차단하지 않는다. Grammar→Scoring→Rune→Stage→Presentation 순서는 그대로다.
+- `historicalReceipt`는 이미정산한 구0.8 인장·잿불룡 영수증의 재생 검증 전용이다. 일반SUBMIT에는 사용하지 않는다. 새0.8.1 저장은 patch marker삭제를 거부하고 과거 공격을 재정산하지 않는다.
+- 새 생성기0.8.1은28장/have고정 구성에서help만 후보에서 제외한다. 실제 상점도shopEligible을 적용하되 저장된상품/보상은 재생성하지 않는다. 기존 생성기는 그대로다.
+- `battleLearningGuide`는37개 고정 교육 항목과 실제stage지역배율을 읽는다. 입력 문장의 정답이나 점수를 계산하지 않는다. 공격 중에는 기존 피드백, EDIT에는 안내를 표시한다. 실제entryGrant가 처음생긴 명령만 획득toast를 낸다.
+- UI 상세열기와 장식은 RunState를 변경하지 않는다. cardSize/44px버튼/점수/룬/HP/보스기믹은 유지한다. 상세 검증 및 한계는 [0.8.1 보고서](TEST_REPORT_0.8.1.md) 참조.
+
 ## 0.8 관계절·질문·수로도시 경계
 
 - `waterwaysLanguage`와 명시적 `WATERWAYS_VERSIONS`가 0.7 및 이전 registry/점수/완료 경계를 보호한다. 기존 operation 0.7, 룬·상점·보상 0.6.1, generator 0.4, tutorial 0.2.1 정책을 재사용한다.

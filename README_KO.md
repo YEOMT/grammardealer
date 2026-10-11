@@ -1,3 +1,9 @@
+## Syntax Atlas 0.8.1 · 문법·카드 정보 정돈
+
+기존8지역/37전투와 수치를 유지하며 관계절 오인정 교정, help 동사·불가산명사 겸용, 손패 상세·희귀도·연마 표시, 고정 문법 안내와 보스 설명을 정돈했습니다. 새 시작/상점에서help를 제외하고 고급 전투 보상에서 획득합니다. 기존 보유 카드와 저장은 보존합니다.
+
+[변경 내역](docs/PATCH_NOTES_0.8.1_KO.md) · [이번 실제 검증](docs/TEST_REPORT_0.8.1.md) · [48개 인수 조건](docs/ACCEPTANCE_0.8.1.md) · [문법·DB 감사](docs/GRAMMAR_REVIEW_0.8.1.md). 개발 서버를 띄운 뒤 추가 집중 검사는 `node tests/grammar-polish-browser.mjs`입니다. `test:e2e:waterways`는 현재0.8.1 새 원정의 production UI를 사용하며 `SB_WATERWAYS_COURSE=1`로 Stage8 목표 문법도 별도 검사합니다. 아래는 이전 버전 기록입니다.
+
 ## 0.8.0 고대의 수로도시
 
 새 원정은 37전투 / STAGE8_END입니다. 관계절과 실제 의문문 판정, who/which/받지 않기, 네 번째 상점, 8-3 where/when 빙정, 청동 수문장의 같은 문장 주격+목적격 인장을 추가했습니다. 기존 저장은 자동 확장하지 않습니다. [변경 내역](docs/PATCH_NOTES_0.8_KO.md)과 [실제 검증](docs/TEST_REPORT_0.8.md)을 먼저 확인하세요. 아래 내용은 이전 버전 기록입니다.

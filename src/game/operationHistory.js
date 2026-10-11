@@ -33,7 +33,7 @@ function validatePolishedHistory(run){
  if(!list(c.exhaustedIds)||!Array.isArray(c.operationHistory)||!Number.isSafeInteger(c.operationSequence)||c.operationSequence!==c.operationHistory.length)fail();
  const exhausted=[],uses=new Map(),commands=new Set();
  const dustDefinitions=new Map(hasEmberCampaign(run)?(c.dustSupplyTrace?.cardIds??[]).map(id=>[id,c.dustSupplyTrace.cardDefId]):[]);
- const cityDefinitions=new Map(run.version==='0.8.0'?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
+ const cityDefinitions=new Map(['0.8.0','0.8.1'].includes(run.version)?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
  const frostDefinitions=new Map((c.frostSupplyTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.battle.${run.progress.battleNumber}.${String(i).padStart(2,'0')}`,def]));
  for(const [i,e]of c.operationHistory.entries()){
   const def=cardDefinition(e.cardDefId,run.version),ss=e.sourceSnapshot;

@@ -1,0 +1,25 @@
+{
+  "runId": "release-build-visual",
+  "files": [
+    {
+      "path": "dist/.nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dist/index.html",
+      "bytes": 707,
+      "sha256": "c5c2da46f4ae238d2ba2d0631d96f0d0151c786005bfcca06e7342de6ed4ef4d"
+    },
+    {
+      "path": "dist/assets/index-D82l8QTU.js",
+      "bytes": 497333,
+      "sha256": "36444d2af8223bde0c693bb1a3de4e55d093fded3686446cdd038e7830f32fea"
+    },
+    {
+      "path": "dist/assets/index-wZ6De20r.css",
+      "bytes": 64579,
+      "sha256": "57de5181fbb958c3be101d7d1d4f6cace7e766056d87a82e38d5d7ae7e092485"
+    }
+  ]
+}

@@ -59,21 +59,21 @@ export const GRAMMAR_DISPLAY = Object.freeze([
   {
     "order": 90,
     "tag": "TIME.PAST",
-    "titleKo": "과거",
+    "titleKo": "과거시제",
     "pattern": "동사 과거형",
     "shortDescriptionKo": "과거의 행동이나 상태를 표현합니다."
   },
   {
     "order": 100,
     "tag": "TIME.PROGRESSIVE",
-    "titleKo": "진행",
+    "titleKo": "진행형",
     "pattern": "be + -ing",
     "shortDescriptionKo": "기준 시점에 진행 중인 행동을 표현합니다."
   },
   {
     "order": 110,
     "tag": "TIME.PERFECT",
-    "titleKo": "완료",
+    "titleKo": "완료형",
     "pattern": "have + p.p.",
     "shortDescriptionKo": "기준 시점까지의 일이나 그 시점에 남은 영향을 표현합니다. 현재완료는 과거의 일이 지금과 이어짐을 나타냅니다."
   },

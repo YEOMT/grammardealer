@@ -6,6 +6,7 @@ export function learningRecord(r){
  return {version:['0.6.0','0.6.1','0.7.0','0.8.0'].includes(a.grammarVersion)?a.grammarVersion:LEARNING_VERSION,recordId:r.attackId,sentenceSnapshot:structuredClone(r.sentenceSnapshot),
   ...(['0.7.0','0.8.0'].includes(a.grammarVersion)?{formUses:structuredClone(a.formUses??[])}:{}),
   ...(a.grammarVersion==='0.8.0'?{relativeClauses:structuredClone(a.relativeClauses??[]),questionClauses:structuredClone(a.questionClauses??[]),embeddedQuestions:structuredClone(a.embeddedQuestions??[])}:{}),
+  ...(a.grammarPatchVersion?{grammarPatchVersion:a.grammarPatchVersion,lexicalUses:structuredClone((a.resolvedTokenRoles??[]).filter(r=>r.selectedPos))}:{}),
   grammarVersion:a.grammarVersion??null,status:a.status??null,mainFrameId:a.mainFrameId??null,
   ...(['0.6.0','0.6.1','0.7.0','0.8.0'].includes(a.grammarVersion)?{comparisonEvidence:structuredClone((a.grammarHits??[]).filter(h=>/^(COMPARISON|DEGREE|QUANTIFIER|ADVERB)\./.test(h.tag)))}:{}),
   roles:roleRanges(a,r.sentenceSnapshot),...clauseEvidence(a),issues:(a.issues??[]).map(i=>({code:i.code,messageKo:i.messageKo??null})),
