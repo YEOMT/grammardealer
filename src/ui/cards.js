@@ -1,3 +1,4 @@
+import {CRYSTAL_WORDS} from '../game/mirrorSnowfield.js';
 import {operationText} from './models.js';
 import {visibleForms,formLabel} from './formView.js';
 import {isIngForm} from '../data/language/desertLanguage.js';
@@ -10,7 +11,7 @@ export const RARITY_LABELS = { COMMON: '일반', UNCOMMON: '고급', RARE: '희�
 export function wordCard(model, { zone, onActivate, onForm, onSelect, selected = false, readonly = false, compact = false, onUse, useCount, useDisabled=false, sealed=false } = {}) {
   if(model.cardKind==='OBSTACLE')return obstacleCard(model,{zone,onSelect,selected,readonly,compact});
   if(model.cardKind==='OPERATION')return operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled});
-  const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''} ${sealed?'turn-sealed':''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly',sealed:String(sealed) } });
+  const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} rarity-${model.rarity} polish-${model.polish||0} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''} ${sealed?'turn-sealed':''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly',sealed:String(sealed) } });
   const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-disabled':sealed?'true':null, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${sealed?', '+TURN_HAND_SEAL_LABEL+' · 교환 가능':readonly ? '' : ', Enter로 이동'}` },
     el('div', { class: 'card-topline' }, el('span', { class: 'pos-label', text: POS_LABELS[model.pos] || model.pos }), el('span', { class: 'card-value', text: `${(model.baseScore ?? 10)+(model.polish||0)*5}` })),
     el('strong', { class: `card-word ${model.surface?.length > 10 ? 'long-word' : ''}`, text: model.surface, style: `--fit-factor:${Math.max(1,model.surface.length * .66)}` }),
@@ -21,7 +22,15 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   }
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
   node.append(body);
-  if(model.temporary){node.classList.add('frost-card');node.dataset.temporary='true';body.querySelector('.card-footline span').textContent='빙정';body.append(el('span',{class:'frost-duration',text:'이번 전투 한정'}));node.title+=' · 공격 제출 시 파괴 · 전투 종료 시 소멸';}
+  const dual=model.secondaryLexemes?.length>0;
+  if(dual){node.classList.add('dual-usage-card');const top=body.querySelector('.card-topline'),value=top.querySelector('.card-value');top.querySelector('.pos-label').append(' ',value);top.append(el('span',{class:'dual-usage-badge',text:'동·명'}));}
+  if((dual||model.temporary)&&['hand','sentence'].includes(zone)){
+    const details=()=>modal(model.surface+' · 카드 상세',[
+      ...(dual?[el('p',{text:'동사: 돕다 / 명사: 도움(셀 수 없는 명사)'}),el('p',{text:'I help you.'}),el('p',{text:'I need more help.'}),el('p',{text:'명사 도움은 기본형 help로 씁니다. 실제 용법은 문장 제출 후 판정합니다.'})]:[]),
+      ...(model.temporary?[el('p',{text:'이번 전투 한정 WORD입니다. 일반 단어처럼 조합·교환·보급·탐색할 수 있습니다. 공격 제출 시 깨지고 전투가 끝나면 사라집니다.'}),el('p',{text:model.temporary.source==='MIRROR_SNOWFIELD'&&CRYSTAL_WORDS.has(model.definition.id.slice(5))?'거울뿔 사슴전에서 문법적으로 성립한 양수 피해 공격에 사용하면 이 빙정 사본이 핵 하나를 깹니다. 비교 문장일 필요는 없습니다.':'지원용 빙정입니다. 빙결핵을 깨지 않습니다.'})]:[])]);
+    body.append(button('ⓘ',e=>{e.stopPropagation();details();},'card-info',{'aria-label':model.surface+' 카드 상세',onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
+  }
+  if(model.temporary){node.classList.add('frost-card');node.dataset.temporary='true';body.querySelector('.card-footline span').textContent='빙정';node.title+=' · 공격 제출 시 파괴 · 전투 종료 시 소멸';}
   if(sealed)body.append(el('span',{class:'seal-badge',text:TURN_HAND_SEAL_LABEL,'aria-hidden':'true'}));
   if(onSelect&&!readonly){
     node.classList.add('selectable-card');
@@ -114,7 +123,7 @@ function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useC
  const node=el('article',{class:'word-card operation-card '+(selected?'selected ':'')+(compact?'compact ':'')+(model.temporary?'frost-card':''),dataset:{cardId:model.id,cardKind:'OPERATION',zone:zone??'readonly',temporary:String(!!model.temporary)}});
  const body=el('div',{class:'card-body',role:'button',tabIndex:0,'aria-label':model.surface+' · 운영 · '+copy.effect+' · '+copy.limit,title:copy.effect+' · '+copy.limit},
    el('div',{class:'card-topline'},el('span',{text:'운영 · '+RARITY_LABELS[model.rarity]}),el('span',{class:model.polish?'polish-badge':'',text:model.polish?`+${model.polish}`:''})),
-   el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-description',text:copy.effect}),el('small',{class:'operation-limit',text:copy.limit}));
+   el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-limit',text:model.temporary?'전투당 1회':model.operation.afterUseDestination==='DISCARD'?'다시 뽑아 재사용':'전투당 1회'}));
  const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 더미로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'})]);
  body.addEventListener('click',explain);body.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();explain();}});node.append(body);
  if(onSelect&&!readonly){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline operation-footer'},button('사용',e=>{e.stopPropagation();onUse?.();},'operation-use',{disabled:useDisabled||!onUse,'aria-label':model.surface+' 사용',title:useDisabled?'현재 유효 대상이나 손패 빈자리가 없습니다.':copy.effect,onpointerdown:e=>e.stopPropagation()}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':model.surface+' 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation()})));}
@@ -123,7 +132,9 @@ function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useC
 
 function obstacleCard(model,{zone,onSelect,selected,readonly,compact}){
  const node=el('article',{class:`word-card obstacle-card ${selected?'selected ':''}${compact?'compact ':''}`,dataset:{cardId:model.id,cardKind:'OBSTACLE',zone:zone??'readonly',temporary:'true'}});
- node.append(el('div',{class:'card-body',role:'group','aria-label':'검은 먼지 · 방해 · 이번 전투 한정 · 조합과 사용 불가, 교환 가능'},el('div',{class:'card-topline'},el('span',{text:'방해'})),el('strong',{class:'obstacle-name',text:model.surface}),el('small',{class:'obstacle-duration',text:'이번 전투 한정'}),el('small',{class:'obstacle-rule',text:'조합 불가 · 교환 가능'})));
+ const body=el('div',{class:'card-body',role:'button',tabIndex:0,'aria-label':'검은 먼지 · 방해 · 상세 보기'},el('div',{class:'card-topline'},el('span',{text:'방해'})),el('strong',{class:'obstacle-name',text:model.surface}));
+ const explain=()=>modal('검은 먼지 · 방해',el('p',{text:'이번 전투 한정입니다. 조합하거나 사용할 수 없지만 교환할 수 있습니다. 재셔플·보급·재활용 대상이며 단어·품사 탐색에서는 제외됩니다. 전투가 끝나면 모두 사라집니다.'}));
+ body.addEventListener('click',explain);body.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();explain();}});node.append(body);
  if(onSelect&&!readonly){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline obstacle-footer'},el('span',{text:'교환'}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':'검은 먼지 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()})));}
  return node;
 }

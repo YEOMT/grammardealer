@@ -65,7 +65,7 @@ export function openDictionary(state,{ownedOnly=false}={}) {
   const filter=el('select',{'aria-label':'단어 목록',onchange:()=>{ownedOnly=filter.value==='owned';render();}},el('option',{value:'owned',text:'보유 카드',selected:ownedOnly}),el('option',{value:'encountered',text:'이번 원정에서 만난 단어',selected:!ownedOnly}));
   const render = () => {
     const term = search.value.trim().toLocaleLowerCase();
-    const filtered = words.filter(word => (!ownedOnly||state.activeCardIds.some(id=>registry.cardById[state.cardInstances[id]?.cardDefId]?.lexemeId===word.id))).filter(word => `${word.lemma} ${word.glossKo}`.toLocaleLowerCase().includes(term));
+    const filtered = words.filter(word => (!ownedOnly||state.activeCardIds.some(id=>registry.cardById[state.cardInstances[id]?.cardDefId]?.lexemeId===word.id))).filter(word => `${word.lemma} ${word.glossKo} ${(registry.cards.find(c=>c.lexemeId===word.id)?.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id].glossKo).join(' ')}`.toLocaleLowerCase().includes(term));
     count.textContent = `${filtered.length} / ${words.length}개 단어`;
     grid.replaceChildren(...filtered.map(word => {
       const senses = word.senseIds.map(id => registry.senseById[id]).filter(Boolean);
@@ -73,7 +73,8 @@ export function openDictionary(state,{ownedOnly=false}={}) {
       const owned=Object.values(state?.cardInstances??{}).filter(c=>state.activeCardIds.includes(c.instanceId)&&registry.cardById[c.cardDefId]?.lexemeId===word.id);
       const polishSummary=[0,1,2,3].map(level=>{const count=owned.filter(c=>c.polishLevel===level).length;return count?`연마 +${level}: 기본 10 + 연마 ${level*5} = ${10+level*5}점 · ${count}장`:null;}).filter(Boolean);
       const tips={want:'want + to V / 목적어 + to V',need:'need + to V / 목적어 + to V; need + -ing는 ~될 필요가 있다는 뜻도 있습니다.',enjoy:'enjoy 뒤에는 동명사(-ing)를 씁니다.',finish:'finish 뒤에는 명사나 동명사(-ing)를 씁니다.',give:'give + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',show:'show + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',send:'send + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',make:'make + 간접목적어 + 직접목적어 / 직접목적어 + for + 대상',to:'명사구 앞 전치사 / 동사 원형 앞 부정사 표지',that:'지시 한정사·대명사 / 관계절·내용 목적어절 연결'};
-      const notes=[tips[word.lemma]??(word.pos==='VERB'?null:word.usageNoteKo)].filter(Boolean);
+      const dual=(registry.cards.find(c=>c.lexemeId===word.id)?.secondaryLexemeIds??[]).length>0;
+      const notes=[...(dual?['동사: 돕다 / 명사: 도움(셀 수 없는 명사)','I help you. / I need more help.','명사 도움은 기본형 help로 씁니다. 활용형은 기존 동사 용법을 따릅니다.']:[]),tips[word.lemma]??(word.pos==='VERB'?null:word.usageNoteKo)].filter(Boolean);
       if(word.pos==='NOUN')notes.push(({COUNT:'가산명사: 단수에는 한정사를 쓰고, 복수형도 사용할 수 있습니다.',MASS:'불가산명사: 이 게임의 뜻에서는 a/an과 복수형을 사용하지 않습니다.',BOTH:'가산·불가산 용법: 종류·개별 사례는 a/an 또는 복수형, 일반 개념·물질은 무관사 단수형을 사용할 수 있습니다.'})[senses[0]?.countability]);
       return el('article', { class: 'dictionary-entry' },
         el('strong', { class:'word-heading', text: word.lemma }), el('span', { class: 'badge', text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
@@ -94,6 +95,7 @@ function learningBlock(record){
  record=displayLearningRecord(record);
  if(!record)return small('이전 기록 · 검증 가능한 문장 증거가 없습니다.');
  return el('section',{class:'learning-evidence'},el('strong',{text:studentStatus(record)}),
+  ...(record.lexicalUses??[]).map(r=>el('p',{class:'lexical-use',text:(record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===r.cardInstanceId)?.surface??'')+' · '+POS_LABELS[r.selectedPos]})),
   el('div',{class:'grammar-badges'},...(record.scoreableTags??[]).filter(tag=>GRAMMAR_GUIDE[tag]).map(tag=>el('span',{class:'badge',text:GRAMMAR_GUIDE[tag].label}))),
   ...(record.clauses?.length?record.clauses.map(c=>el('section',{class:'clause-learning'+(c.parentClauseId?' nested-clause':''),style:'--clause-depth:'+Math.min(c.level,3)},el('strong',{text:(c.id===record.primaryScoringClauseId&&record.clauses.some(x=>x.role==='COORDINATE'&&!x.parentClauseId)?'첫 번째 절 · 계산 기준':CLAUSE_ROLES[c.role]??'절')}),el('p',{class:'player-sentence',text:c.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')}),...(record.roles??[]).filter(r=>r.clauseId===c.id&&ROLE_GUIDE[r.role]).map(r=>el('p',{text:r.text+' · '+ROLE_GUIDE[r.role].label})))):(record.roles??[]).filter(r=>ROLE_GUIDE[r.role]).map(r=>el('p',{text:r.text+' · '+ROLE_GUIDE[r.role].label,title:ROLE_GUIDE[r.role].description}))),
   ...(record.links??[]).map(l=>el('p',{class:'record-metadata',text:(l.connectorCardIds.length?l.connectorCardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' / '):'that 생략')+' · '+(LINK_ROLES[l.role]??'구 연결')})),
@@ -191,8 +193,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);
@@ -232,5 +234,5 @@ export function openSaves({ store, profile, state, onLoad }) {
 
 function operationSection(state){
  const models=(state?.activeCardIds??[]).map(id=>cardModel(state.cardInstances[id],null,state.version)).filter(m=>m.cardKind==='OPERATION');
- if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small(['0.6.1','0.7.0','0.8.0'].includes(state.version)?'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않습니다. 영구 운영은 최대 +1이며 카드에 표시한 획득 수와 사용 후 이동을 따릅니다.':'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
+ if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small(['0.6.1','0.7.0','0.8.0','0.8.1'].includes(state.version)?'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않습니다. 영구 운영은 최대 +1이며 카드에 표시한 획득 수와 사용 후 이동을 따릅니다.':'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
 }

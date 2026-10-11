@@ -48,6 +48,11 @@ async function runCommand(command){
     return result;
   }
   if(result.noRender)return result;
+  const after=controller.getState();
+  for(const stageId of ['stage.03','stage.05'])if(!before.entryGrants?.[stageId]&&after.entryGrants?.[stageId]){
+    const words=after.entryGrants[stageId].cardDefIds.map(id=>registry.lexemeById[registry.cardById[id]?.lexemeId]?.lemma??id);
+    toast(words.length?'입장 준비 · '+words.join(' · ')+' 획득':'입장 준비 · 필요한 재료를 이미 보유하고 있습니다.');
+  }
   if(result.operationEffect){await presentOperationResult(before,result.operationEffect);return result;}
   if(['ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
   if(result.rewardEffect){

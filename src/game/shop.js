@@ -96,7 +96,7 @@ export function createShop(run) {
     inventory.push({ itemId: `${shopId}.rune.${slot}`, kind: 'RUNE', runeId: definition.id, rarity,
       price: SHOP_BALANCE.runePrices[rarity], purchased: false, ownedLevel, offeredLevel: ownedLevel + 1 });
   }
-  const cardPool = orderById(eligibleRewardCards(run));
+  const cardPool = orderById(eligibleRewardCards(run).filter(card=>card.shopEligible!==false));
   for (let slot = 0; slot < (second?3:SHOP_BALANCE.cardSlots); slot++) {
     if(hasPolishCampaign(run)&&slot===(second?2:SHOP_BALANCE.cardSlots-1)){
       const operation=selectDedicatedOperation(run,stream,trace);

@@ -13,7 +13,9 @@ export function validateEmberReleaseReceipt(run){
  const b=run.combat?.enemyState.bossMechanic;if(b?.id!=='EMBER_SCALE_SHIELD'||b.active)return true;
  const receipt=run.stats.history.find(r=>r.attackId===b.releasedAttackId),fail=()=>{throw Error('Invalid ember release receipt');};
  if(!receipt||receipt.battleId!==run.combat.enemyState.id||receipt.preBossScore<=0||receipt.bossStateBefore?.active!==true||receipt.bossStateAfter?.active!==false||JSON.stringify(receipt.bossStateAfter)!==JSON.stringify(b))fail();
- const analysis=analyzeSentence(receipt.sentenceSnapshot,registryForVersion(run.version==='0.8.0'?'0.8.0':'0.7.0'));
+ const patch=receipt.analysis?.grammarPatchVersion;
+ if(run.version==='0.8.1'&&patch!=='0.8.1'||patch!==undefined&&patch!=='0.8.1')fail();
+ const analysis=analyzeSentence(receipt.sentenceSnapshot,registryForVersion(['0.8.0','0.8.1'].includes(run.version)?'0.8.0':'0.7.0'),{historicalReceipt:run.version==='0.8.0'&&patch===undefined});
  const event=emberScaleEvent(analysis,receipt.preBossScore,receipt.bossStateBefore,{attackId:receipt.attackId,submittedCards:receipt.cardScoringSnapshot});
  if(JSON.stringify(event.bossStateAfter)!==JSON.stringify(b))fail();return true;
 }

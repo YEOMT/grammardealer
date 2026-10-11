@@ -1,0 +1,40 @@
+{
+  "status": "PASS",
+  "kind": "ACTUAL_PRODUCTION_NEW_RUN_AND_ASSIGNED_RARE_VISUAL_CLASSES_NOT_EXTRA_CAMPAIGN",
+  "programJsIdenticalTo37BattleBuild": true,
+  "previousJsHashes": {
+    "index-DlNKUEAh.js": "36444d2af8223bde0c693bb1a3de4e55d093fded3686446cdd038e7830f32fea"
+  },
+  "jsHashes": {
+    "index-D82l8QTU.js": "36444d2af8223bde0c693bb1a3de4e55d093fded3686446cdd038e7830f32fea"
+  },
+  "jsFilenamesChanged": true,
+  "cues": [
+    {
+      "cls": "drop-before",
+      "label": "삽입",
+      "content": "\"삽입\""
+    },
+    {
+      "cls": "drop-after",
+      "label": "삽입",
+      "content": "\"삽입\""
+    },
+    {
+      "cls": "drop-replace",
+      "label": "맞교환",
+      "content": "\"맞교환\""
+    }
+  ],
+  "resources": [
+    {
+      "url": "/grammardealer/assets/index-wZ6De20r.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D82l8QTU.js",
+      "status": 200
+    }
+  ],
+  "errors": []
+}

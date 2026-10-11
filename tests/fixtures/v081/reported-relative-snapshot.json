@@ -1,0 +1,106 @@
+{
+  "provenance": "Restored actual v0.8 production tokens; independently reproduced before edits on 587fa1b",
+  "snapshot": {
+    "schemaVersion": 1,
+    "sentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.37.3",
+    "languageVersion": "0.8.0",
+    "orderedTokens": [
+      {
+        "cardInstanceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.04.card.1.owned",
+        "cardDefId": "card.they",
+        "lexemeId": "lex.they.pronoun",
+        "selectionId": "form.they.subject",
+        "surface": "they",
+        "allowedFormCandidates": [
+          "form.they.subject"
+        ],
+        "position": 0
+      },
+      {
+        "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.28.card",
+        "cardDefId": "card.environment",
+        "lexemeId": "lex.environment.noun",
+        "selectionId": "form.environment.plural",
+        "surface": "environments",
+        "allowedFormCandidates": [
+          "form.environment.plural"
+        ],
+        "position": 1
+      },
+      {
+        "cardInstanceId": "shop.run.6c966144-a9b3-4287-8b53-095025674518.stage.06.card.0.owned",
+        "cardDefId": "card.that",
+        "lexemeId": "lex.that.function",
+        "selectionId": "form.that.base",
+        "surface": "that",
+        "allowedFormCandidates": [
+          "form.that.base"
+        ],
+        "position": 2
+      },
+      {
+        "cardInstanceId": "entry.run.6c966144-a9b3-4287-8b53-095025674518.stage.03.card.0",
+        "cardDefId": "card.will",
+        "lexemeId": "lex.will.verb",
+        "selectionId": "form.will.base",
+        "surface": "will",
+        "allowedFormCandidates": [
+          "form.will.base"
+        ],
+        "position": 3
+      },
+      {
+        "cardInstanceId": "starter.12",
+        "cardDefId": "card.be",
+        "lexemeId": "lex.be.verb",
+        "selectionId": "form.be.base",
+        "surface": "be",
+        "allowedFormCandidates": [
+          "form.be.base"
+        ],
+        "position": 4
+      },
+      {
+        "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.13.card",
+        "cardDefId": "card.think",
+        "lexemeId": "lex.think.verb",
+        "selectionId": "form.think.ing",
+        "surface": "thinking",
+        "allowedFormCandidates": [
+          "form.think.ing"
+        ],
+        "position": 5
+      },
+      {
+        "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.15.card",
+        "cardDefId": "card.know",
+        "lexemeId": "lex.know.verb",
+        "selectionId": "form.know.past",
+        "surface": "knew",
+        "allowedFormCandidates": [
+          "form.know.past"
+        ],
+        "position": 6
+      },
+      {
+        "cardInstanceId": "reward.offer.run.6c966144-a9b3-4287-8b53-095025674518.30.card",
+        "cardDefId": "card.live",
+        "lexemeId": "lex.live.verb",
+        "selectionId": "form.live.present",
+        "surface": "live",
+        "allowedFormCandidates": [
+          "form.live.present"
+        ],
+        "position": 7
+      }
+    ]
+  },
+  "beforeStatus": "VALID",
+  "beforeSealPair": {
+    "sentenceId": "run.6c966144-a9b3-4287-8b53-095025674518.37.3",
+    "subjectRelativeId": "relative.1",
+    "objectRelativeId": "relative.0",
+    "subjectEvidenceDigest": "6f4131fb",
+    "objectEvidenceDigest": "048962e7"
+  }
+}

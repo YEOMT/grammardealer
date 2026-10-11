@@ -6,7 +6,7 @@ import {isIngForm} from '../../data/language/desertLanguage.js';
 const LABELS={RELATIVE_MARKER_ANTECEDENT:'선행사에 맞는 관계사를 확인하세요.',COMPARISON_FORM_MISMATCH:'이 단어의 비교 형태를 확인하세요.',DOUBLE_COMPARISON_MARKING:'비교 표지를 두 번 붙이지 않습니다.',AS_REQUIRES_POSITIVE_DEGREE:'as와 as 사이에는 원급을 씁니다.',SUPERLATIVE_FORM_OR_DETERMINER:'최상급 형태와 the 또는 소유 한정사를 확인하세요.',COMPARISON_STANDARD_REQUIRED:'비교 기준을 완성하세요.',ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
 const LIMITS={work:12000,depth:4,candidates:128};
 
-export function parseSupportedClause(tokens,registry) {
+export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={}) {
  const waterways=registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
  const polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6';
@@ -23,7 +23,11 @@ export function parseSupportedClause(tokens,registry) {
  const ingAt=i=>tok(i)?.lex.pos==='VERB'&&tok(i).forms.some(isIngForm);
  const ppAt=i=>ember&&tok(i)?.lex.pos==='VERB'&&tok(i).forms.some(f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE');
  const cardIds=(start,end)=>tokens.slice(start,end).map(t=>t.cardInstanceId);
- const role=(i,type)=>({cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:({SUBJECT:'주어 S',FINITE_VERB:'동사 V',OBJECT:'목적어 O',INDIRECT_OBJECT:'간접목적어 IO',DIRECT_OBJECT:'직접목적어 DO',COMPLEMENT:'보어 C',NONFINITE_VERB:'동사 원형',INFINITIVE_CONNECTOR:'부정사 to',RELATIVE_CONNECTOR:'관계사',DETERMINER:'한정사',ADJECTIVE:'형용사',ADVERB:'부사',PREPOSITION:'전치사',PP_OBJECT:'전치사 목적어',NOUN_HEAD:'명사'}[type]??type)});
+ const role=(i,type,usage=tok(i).lex)=>{
+  const selected=registry.cardById[tok(i).cardDefId]?.secondaryLexemeIds?.length;
+  const label=({SUBJECT:'주어 S',FINITE_VERB:'동사 V',OBJECT:'목적어 O',INDIRECT_OBJECT:'간접목적어 IO',DIRECT_OBJECT:'직접목적어 DO',COMPLEMENT:'보어 C',NONFINITE_VERB:'동사 원형',INFINITIVE_CONNECTOR:'부정사 to',RELATIVE_CONNECTOR:'관계사',DETERMINER:'한정사',ADJECTIVE:'형용사',ADVERB:'부사',PREPOSITION:'전치사',PP_OBJECT:'전치사 목적어',NOUN_HEAD:'명사'}[type]??type);
+  return {cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:label+(selected&&!historicalReceipt?(usage.pos==='NOUN'?' · 명사':' · 동사'):''),...(selected&&!historicalReceipt?{selectedLexemeId:usage.id,selectedPos:usage.pos}:{})};
+ };
  const hit=(tag,start,end,head=start)=>({tag,cardIds:cardIds(start,end),headCardId:tok(head).cardInstanceId,evidenceKey:`${tag}:${cardIds(start,end).join('|')}`});
  const issue=(code,indices)=>({code,cardIds:indices.map(i=>tok(i).cardInstanceId),causeId:`${code}:${indices.map(i=>tok(i).cardInstanceId).join('|')}`,messageKo:LABELS[code]});
  const phrase=(kind,start,end,head,more={})=>({kind,start,end,head,features:{},issues:[],hits:[],roles:[],children:[],...more});
@@ -138,11 +142,12 @@ export function parseSupportedClause(tokens,registry) {
   while(true){const ap=parseAP(p,{attributive:true,depth,determiner:determinant})[0];if(!ap)break;aps.push(ap);p=ap.end;}
   if(hasRole(p,'NOUN_HEAD')) {
    const noun=tok(p);const f=noun.forms.find(f=>f.allowedRoleCandidates.includes('NOUN_HEAD'));
+   const nounLex=registry.lexemeById[f.lexemeId],nounSense=nounLex.id===noun.lex.id?noun.sense:registry.senseById[nounLex.senseIds[0]];
    const nounAps=desert?aps.map(ap=>({...ap,hits:ap.hits.map(h=>h.tag==='MODIFIER.ADJECTIVE'&&h.modifierCardIds?{...h,targetCardIds:[tok(p).cardInstanceId]}:h),children:ap.children.map(n=>n.nonfinite?{...n,nonfinite:{...n.nonfinite,controllerHead:p}}:n)})):aps;
-   const features={person:3,number:f.grammaticalFeatures.number,countability:noun.sense.countability};
+   const features={person:3,number:f.grammaticalFeatures.number,countability:nounSense.countability};
    const issues=[];const indefinite=determinant!==null&&tok(determinant).lex.lemma==='a';
    const singularDet=determinant!==null&&(indefinite||['this','that'].includes(word(determinant)));
-   const bareAllowed=noun.sense.contextualBareRoles.some(rule=>rule.role==='PP_OBJECT'&&rule.prepositions.includes(prep));
+   const bareAllowed=nounSense.contextualBareRoles.some(rule=>rule.role==='PP_OBJECT'&&rule.prepositions.includes(prep));
    if(determinant===null&&features.number==='SINGULAR'&&features.countability==='COUNT'&&!bareAllowed)issues.push(issue('DETERMINER_REQUIRED',[p]));
    else if(singularDet&&features.number==='PLURAL')issues.push(issue('DETERMINER_NUMBER_AGREEMENT',[determinant,p]));
    else if(indefinite&&features.countability==='MASS')issues.push(issue('ARTICLE_COUNTABILITY_MISMATCH',[determinant,p]));
@@ -152,7 +157,7 @@ export function parseSupportedClause(tokens,registry) {
     if((word(determinant)==='an')!==needsAn)issues.push(issue('ARTICLE_FORM',[determinant,determinant+1]));
    }
    if(snow&&determinant!==null&&['more','most','enough'].includes(word(determinant))&&features.number==='SINGULAR'&&features.countability==='COUNT')issues.push(issue('DETERMINER_NUMBER_AGREEMENT',[determinant,p]));
-   const np=phrase('NP',start,p+1,p,{npRole,features,issues:[...issues,...nounAps.flatMap(ap=>ap.issues)],hits:nounAps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...nounAps.flatMap(ap=>ap.roles),role(p,npRole)],children:nounAps,...(desert&&determinant===null&&(ingAt(start)||ppAt(start))?{interpretationPriority:2}:{})});
+   const np=phrase('NP',start,p+1,p,{npRole,features,issues:[...issues,...nounAps.flatMap(ap=>ap.issues)],hits:nounAps.flatMap(ap=>ap.hits),roles:[...(determinant===null?[]:[role(determinant,'DETERMINER')]),...nounAps.flatMap(ap=>ap.roles),role(p,npRole,nounLex)],children:nounAps,...(desert&&determinant===null&&(ingAt(start)||ppAt(start))?{interpretationPriority:2}:{})});
    if(snow&&determinant!==null&&['more','most','enough'].includes(word(determinant)))np.hits.push({...hit(`QUANTIFIER.${word(determinant).toUpperCase()}`,determinant,p+1,p),markerCardIds:[tok(determinant).cardInstanceId],comboImplemented:false});
    out.push(np);
    if(desert&&depth<limits.depth){
@@ -190,6 +195,13 @@ export function parseSupportedClause(tokens,registry) {
   const mi=markerIndex+(frontPrep?1:0),marker=['who','which','that','where','when'].includes(word(mi))?word(mi):null;
   if(frontPrep&&!marker)return out;
   const adverb=['where','when'].includes(marker),start=marker?mi+1:markerIndex;
+  // A zero relative needs a nominal antecedent. Personal pronouns do not
+  // license an omitted object relative ("I you know run"). Historic receipts
+  // alone replay the old parser so already settled saves remain loadable.
+  if(!historicalReceipt&&!marker&&tok(base.head)?.lex.pos==='PRONOUN')return out;
+  // A clause used in an NP slot is still a clause, not a registered noun
+  // antecedent. Keep relatives inside its real noun arguments available.
+  if(!historicalReceipt&&base.children.some(child=>child.nonfinite&&child.head===base.head))return out;
   const cls=tok(base.head)?.lex.relativeAntecedentClass;
   if(adverb&&(marker==='where'?cls!=='PLACE':cls!=='TIME'))return out;
   const mismatch=marker==='who'&&!['PERSON','ANIMAL'].includes(cls)||marker==='which'&&cls==='PERSON';

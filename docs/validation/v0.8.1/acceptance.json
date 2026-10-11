@@ -1,0 +1,290 @@
+[
+  {
+    "id": "B01",
+    "requirement": "작업 기준 소스·커밋·변경 사항을 기록하고 기존 사용자 수정을 보존했다.",
+    "evidence": "baseline-source.json: 시작 clean/main SHA/799파일 해시, 독립 브랜치와 최종 Git diff 확인.",
+    "status": "PASS"
+  },
+  {
+    "id": "B02",
+    "requirement": "명시된 문법 교정·help 개편·표시 개선 외 콘텐츠·밸런스 변경이 없다.",
+    "evidence": "수정 전 stage/rune 데이터와 deepEqual, 전체 회귀 및 의존성/기존 데이터 보존 해시 확인.",
+    "status": "PASS"
+  },
+  {
+    "id": "G01",
+    "requirement": "실제 DB·형태·기존 지원 문법 기준으로 감사 범위와 커버리지를 기록했다.",
+    "evidence": "GRAMMAR_REVIEW_0.8.1: 활성143 lexeme 인벤토리, 306회 사전/사후 비교, 추가156 DB probe.",
+    "status": "PASS"
+  },
+  {
+    "id": "G02",
+    "requirement": "관계절 신고 원문을 시험하고, 독립 재현 여부와 카드 복원 한계를 구분해 기록했다.",
+    "evidence": "reported-relative-snapshot.json의 원본 물리 ID·Form ID와 원문 텍스트를 각각 원본 main에서 재현.",
+    "status": "PASS"
+  },
+  {
+    "id": "G03",
+    "requirement": "신고된 비정상 구조가 정상 완전문장 및 성립하지 않은 관계절·인장 근거로 인정되지 않는다.",
+    "evidence": "v081-grammar-audit: 실제 SUBMIT은 INVALID_CORE/0 HP 피해/턴·카드 소모/인장 유지.",
+    "status": "PASS"
+  },
+  {
+    "id": "G04",
+    "requirement": "정상 주격·목적격 관계절과 기존 지원 복합 문장을 회귀 검증했다.",
+    "evidence": "306개 보존 입력 및 정상 중첩·분리 주격+목적격, Stage8 3엔진 UI159검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "G05",
+    "requirement": "제출 토큰의 일부를 누락한 채 전체 문장을 정상으로 처리하지 않는다.",
+    "evidence": "6쌍 최소 대조와 306개 consumedCardIds 대조, 여분 토큰·중복 목적어 거부.",
+    "status": "PASS"
+  },
+  {
+    "id": "G06",
+    "requirement": "콤보·이중 연결 인장이 실제 구문 근거를 따르며 중복·허위 인정을 하지 않는다.",
+    "evidence": "relativeSealPair 동일 노드 중복 거부, 현재 한 제출의 두 관계절, 실제 잠금·해제 UI.",
+    "status": "PASS"
+  },
+  {
+    "id": "G07",
+    "requirement": "비문·확인된 미지원·미확정 분석 실패를 구분하고 무리한 정오 단정을 하지 않는다.",
+    "evidence": "감사표에 지원 범위·실제 구조 오류·명사 more-than-NP 미확정 해석 구분. INVALID_CORE는 영어 전체 판정이 아님.",
+    "status": "PASS"
+  },
+  {
+    "id": "G08",
+    "requirement": "`She is more than the problem.`을 위해 비교급 인정 범위나 공략 예외를 추가하지 않았다.",
+    "evidence": "She is more than the problem: 수정 전후 INVALID_CORE, COMPARISON hit 없음. 새 예외 없음.",
+    "status": "PASS"
+  },
+  {
+    "id": "G09",
+    "requirement": "수정 경로마다 정상·오류 대조 테스트를 추가하고 기존 정상 결과를 보존했다.",
+    "evidence": "신규35개 검사: 6쌍 최소 대조·추가 절/명사 경계·help NP역할, 306개 기존 결과 동일. 전체1382 PASS.",
+    "status": "PASS"
+  },
+  {
+    "id": "H01",
+    "requirement": "help는 고급 등급이며 신규 시작 덱과 상점·다른 신규 입수 경로에서 제외된다.",
+    "evidence": "120시드/4모드 시작28장과 have 유지/help제외; Stage2/4/6/8 상점80회 제외.",
+    "status": "PASS"
+  },
+  {
+    "id": "H02",
+    "requirement": "help가 실제 고급 전투 보상에 등장하고 선택·획득·사용된다.",
+    "evidence": "실제 초기 손패→SUBMIT 처치→고급 보상→CHOOSE_REWARD 획득. 획득 사본을 별도 지정 전투에서 명사 제출.",
+    "status": "PASS"
+  },
+  {
+    "id": "H03",
+    "requirement": "`I help you.`의 기존 동사 분석을 보존한다.",
+    "evidence": "I help you: frame.svo와 수정 전 scoreAttack 전체 객체 동일.",
+    "status": "PASS"
+  },
+  {
+    "id": "H04",
+    "requirement": "`I need more help.`를 명사 ‘도움’ 용법으로 분석하며 단순 more 출현에 비교급 콤보를 지급하지 않는다.",
+    "evidence": "I need more help: VALID/NOUN OBJECT, 비교 콤보 없음; 실제 형태 메뉴/공격/기록 UI.",
+    "status": "PASS"
+  },
+  {
+    "id": "H05",
+    "requirement": "명사 help의 불가산성·기본형 제한과 기존 동사 활용을 각각 지킨다.",
+    "evidence": "MASS 기본형 help, a help 기존 가산성 경고, helps/helped 명사 해석 거부.",
+    "status": "PASS"
+  },
+  {
+    "id": "H06",
+    "requirement": "동사 활용형의 일괄 명사화를 하지 않으며 기존 동명사·분사 분석은 보존한다.",
+    "evidence": "Helping you is good / am helping / have helped VALID, 기존 동사 Form ID 목록 동일.",
+    "status": "PASS"
+  },
+  {
+    "id": "H07",
+    "requirement": "수동 품사 전환·철자 자동 변경·점수 최대화 해석 선택을 추가하지 않았다.",
+    "evidence": "추가 명사 모드 없음, 동일 surface에 등록된 후보만 구조 분석. 점수는 분석 후 계산.",
+    "status": "PASS"
+  },
+  {
+    "id": "H08",
+    "requirement": "실제 사용 품사를 채점·룬·피드백이 일관되게 참조하고 한 사본을 두 품사로 중복 계산하지 않는다.",
+    "evidence": "selectedPos/selectedLexemeId를 피드백·기록에 전달; 물리 카드 수만큼 CARD_BASE, 동사 기존 점수 유지.",
+    "status": "PASS"
+  },
+  {
+    "id": "H09",
+    "requirement": "기존 동사색 단색과 작은 `동·명` 배지를 사용하며 반반 배색·실시간 색 변경이 없다.",
+    "evidence": "3엔진 help 단색/동·명/실제 제출 후 품사기록, 카드 크기·배지 교차검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "H10",
+    "requirement": "help의 기존 저장·사본 수·연마 상태를 보존하고 다른 단어의 자동 겸용을 추가하지 않았다.",
+    "evidence": "구0.8 help+3 원본 state/profile 및 실제 IndexedDB 슬롯 왕복; secondaryLexeme 카드는 help 하나.",
+    "status": "PASS"
+  },
+  {
+    "id": "U01",
+    "requirement": "운영 카드 손패는 이름과 작은 ‘전투당 1회’ 중심이며 효과·사용 조건은 상세에서 확인된다.",
+    "evidence": "긴 설명 대신 이름/작은 수명표시, 클릭·터치 상세. +1보급/직접탐색은 기존 확정 재사용 규칙 우선.",
+    "status": "PASS"
+  },
+  {
+    "id": "U02",
+    "requirement": "빙정의 긴 설명은 상세로 이동하고 실제 효과·전투 한정 정보는 정확히 유지된다.",
+    "evidence": "빙정 상세에서 WORD 수명·양수 피해·지원 예외, hand의 긴 설명 제거; 실제빙정 UI회귀.",
+    "status": "PASS"
+  },
+  {
+    "id": "U03",
+    "requirement": "검은 먼지의 이름과 효과를 유지하며 표시 카테고리를 ‘방해’로 통일했다.",
+    "evidence": "검은 먼지 이름/방해 분류/교환 및 기존 공급·재활용 경계; Stage7 UI117검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "U04",
+    "requirement": "클릭·터치로 상세를 볼 수 있고 상세 열기가 사용·소모·턴 진행을 일으키지 않는다.",
+    "evidence": "help/운영/빙정/먼지 상세 클릭·터치 전후 RunState deepEqual.",
+    "status": "PASS"
+  },
+  {
+    "id": "U05",
+    "requirement": "카드 크기·손패 공간·기존 조작을 유지하고 실제 지원 화면에서 겹침·잘림을 확인했다.",
+    "evidence": "4해상도×10/14손패/16조합/4룬 배치, help와 단일품사 대조 카드 동일 크기. 혼합 운영/빙정의1366×768 최대배치도 운영회귀에서 PASS.",
+    "status": "PASS"
+  },
+  {
+    "id": "V01",
+    "requirement": "WORD의 상아색 배경·기존 상단 품사색·일반 디자인을 유지했다.",
+    "evidence": "3등급×4연마 CSS/캡처, 동일 상아색·품사색. 빙정 기존 푸른색 대비 회귀.",
+    "status": "PASS"
+  },
+  {
+    "id": "V02",
+    "requirement": "고급은 은빛 테두리, 희귀는 세공 문양의 금빛 테두리로 구분된다.",
+    "evidence": "일반/고급은빛/희귀금빛 테두리의 computed style 구분 및 세공 캡처.",
+    "status": "PASS"
+  },
+  {
+    "id": "V03",
+    "requirement": "+1·+2·+3 배지가 품사색과 실제 연마 단계에 맞게 표시된다.",
+    "evidence": "3등급×+0~+3 매트릭스와 품사색 배지, 실제 단계별 텍스트 검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "V04",
+    "requirement": "+3 안쪽 장식이 희귀도 테두리·카드명·상태 표시를 가리지 않는다.",
+    "evidence": "+3 내부 장식 존재/단어·배지 실측 및 4해상도 캡처.",
+    "status": "PASS"
+  },
+  {
+    "id": "V05",
+    "requirement": "help의 `동·명`·연마·희귀도 표시가 함께 있어도 겹치지 않는다.",
+    "evidence": "help+3 크기/상단 점수·동명 배지 경계 검사 및 캡처.",
+    "status": "PASS"
+  },
+  {
+    "id": "I01",
+    "requirement": "enjoy 등 기존 필요 재료 지급 조건과 원정당 횟수를 보존했다.",
+    "evidence": "기존 입장 지급 함수 조건 보존, 전체단위/실제 production 입장·저장/RNG 대조.",
+    "status": "PASS"
+  },
+  {
+    "id": "I02",
+    "requirement": "지급 안내는 입장·획득 시 한 번 표시하고 전투 안내 영역을 상시 차지하지 않는다.",
+    "evidence": "production-course의 V081-I01/I02 두 지역 기록: Stage3/5 실제 입장 toast, 저장/로드 뒤 중복 없음.",
+    "status": "PASS"
+  },
+  {
+    "id": "I03",
+    "requirement": "학습 주제·형태·한 줄 설명·실제 지역 보너스를 구분하여 표시한다.",
+    "evidence": "37개 고정 안내와 실제 stage.regionMultiplier 단위/3엔진 렌더 검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "I04",
+    "requirement": "학습 주제를 라운드별 새 보너스로 오인시키지 않고 실제 데이터와 배율을 일치시킨다.",
+    "evidence": "학습 주제와 지역 보너스 별도 필드; 새 라운드 점수규칙 추가 없음.",
+    "status": "PASS"
+  },
+  {
+    "id": "I05",
+    "requirement": "사막의 to부정사 용어와 형용사적·부사적 용법 설명을 혼동하지 않는다.",
+    "evidence": "Stage5 지정UI 상세 및 I have a book to read / I went to the park to read parser VALID.",
+    "status": "PASS"
+  },
+  {
+    "id": "I06",
+    "requirement": "Stage 1~8 안내·관련 도감 명칭을 검수하고 지원 범위와 설명을 일치시켰다.",
+    "evidence": "Stage1~8 고정 검수표와 37개렌더, 도감 과거시제/진행형/완료형 기대 제목 변경 이유 기록.",
+    "status": "PASS"
+  },
+  {
+    "id": "I07",
+    "requirement": "공격 중에는 기존 점수 피드백을 유지하고 다음 편집 단계에서 학습 안내로 복귀한다.",
+    "evidence": "실제 help 공격 중 안내 제거·점수 표시, 연출 후 EDIT 안내 복귀; 기존 presentation 회귀.",
+    "status": "PASS"
+  },
+  {
+    "id": "I08",
+    "requirement": "제출 전 정답·예상 점수·성공 콤보 힌트를 추가하지 않았다.",
+    "evidence": "고정 데이터 렌더만 사용; 편집 중 score 숨김, 제출 후 분석품사·콤보 표시.",
+    "status": "PASS"
+  },
+  {
+    "id": "D01",
+    "requirement": "보스 기본 설명을 간소화하되 필요한 상세 예외를 삭제하지 않았다.",
+    "evidence": "보스 7개 특징/행동/처치 기본요약 + 기존 상세 유지; 전 라운드 UI검사.",
+    "status": "PASS"
+  },
+  {
+    "id": "D02",
+    "requirement": "사슴의 핵 5개·빙정 공급·대상 사본·파괴 수·양수 피해 조건을 보존했다.",
+    "evidence": "기존 사슴 단위/설원 브라우저/production 회귀: 5핵·실제 대상·양수피해.",
+    "status": "PASS"
+  },
+  {
+    "id": "D03",
+    "requirement": "영구 카드·지원용 빙정을 핵 파괴 대상으로 넓히거나 비교 문장을 필수화하지 않았다.",
+    "evidence": "실제 비비교 빙정공격 허용/영구·지원 제외, 동일 boss resolver 보존.",
+    "status": "PASS"
+  },
+  {
+    "id": "D04",
+    "requirement": "HP 1 보호와 마지막 핵을 깨는 공격부터 격파 가능한 처리를 보존했다.",
+    "evidence": "HP1·마지막핵 같은공격 처치 단위/실제UI, 해제 관련 게임 수치 없음.",
+    "status": "PASS"
+  },
+  {
+    "id": "D05",
+    "requirement": "사슴전 정답 추천·◆ 신규 표시·비교급 특별 통과 규칙 등 미확정 기능을 추가하지 않았다.",
+    "evidence": "미확정 정답추천/◆/특별비교통과 코드 없음. 명세 확정 설명만 변경.",
+    "status": "PASS"
+  },
+  {
+    "id": "R01",
+    "requirement": "신규 원정·기존 저장·보상 획득·저장 후 재개를 검증했다.",
+    "evidence": "신규 원정/구버전13개정책/보상 실제획득/0.8 help와 인장·잿불룡 영수증/IndexedDB 왕복.",
+    "status": "PASS"
+  },
+  {
+    "id": "R02",
+    "requirement": "기존 Stage 1~8 진행·보스·학습코스의 회귀 경로를 재사용해 수정 영향을 확인했다.",
+    "evidence": "production-course 새37전투/Stage8 별도5목표, production-legacy061 구저장27전투. Stage7/8 지정 UI와 기존 공식 묶음도 PASS.",
+    "status": "PASS"
+  },
+  {
+    "id": "R03",
+    "requirement": "기존 자동 테스트, 추가 테스트, 브라우저 검증, 빌드 결과를 실제 실행 여부와 함께 보고했다.",
+    "evidence": "commands.json 실제 실행 시각/exit/log hash, 단위·데이터·빌드·각 브라우저 결과 분리.",
+    "status": "PASS"
+  },
+  {
+    "id": "R04",
+    "requirement": "테스트 미실행·미확정·남은 오류를 분리하고 과거 버전 PASS를 이번 PASS로 재사용하지 않았다.",
+    "evidence": "최초 실패·재시도 보존, 지정상태/Controller/production/미실행을 별도 보고.",
+    "status": "PASS"
+  }
+]

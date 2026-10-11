@@ -19,14 +19,14 @@ import {TIME_PACKS} from '../data/language/timeLanguage.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
 import {learningRecord,reviewProfileLearning} from '../engine/learningRecords.js';
-import { clone, requireInteger, assertSerializable,POLISH_VERSIONS,EMBER_VERSIONS,WATERWAYS_VERSIONS } from '../contracts.js';
+import { clone, requireInteger, assertSerializable,POLISH_VERSIONS,EMBER_VERSIONS,WATERWAYS_VERSIONS,PATCH081_VERSIONS } from '../contracts.js';
 import { assertRng } from '../game/rng.js';
 import { RUNE_BY_ID, runeForVersion,runesForVersion, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.8.0';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(version);
+export const SAVE_VERSION = '0.8.1';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -65,8 +65,8 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE6_CLEAR'&&hasEmberCampaign(event.version))p.unlocks=[...new Set([...p.unlocks,...EMBER_PACKS])];
   if(event.type==='STAGE4_CLEAR'&&!(p.stage4CompletedRunIds??[]).includes(event.runId)){p.stage4CompletedRunIds=[...(p.stage4CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,4);}
   if(event.type==='STAGE5_CLEAR'&&!(p.stage5CompletedRunIds??[]).includes(event.runId)){p.stage5CompletedRunIds=[...(p.stage5CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,5);}
-  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
-  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
+  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
+  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
   return reviewTimeUnlocks(p);
 }
 export function reviewTimeUnlocks(profile){
@@ -79,8 +79,8 @@ export function canSaveRun(run) {
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
   if(hasPolishCampaign(run)&&run.status==='STAGE_INTRO'&&(run.entryChoice?.pending===true||run.waterwaysEntryChoice?.pending===true)&&run.combat===null)return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -122,7 +122,7 @@ export function validateRunState(run,registry) {
       const sameIds=(a,b)=>JSON.stringify([...a].sort())===JSON.stringify([...b].sort());
       if(!sameIds(manifest.cardDefIds,campaignCards(run.version).filter(c=>c.runtimeReady).map(c=>c.id))||!sameIds(manifest.runeIds,runesForVersion(run.version).filter(r=>r.runtimeReady).map(r=>r.id)))fail('0.6.1 콘텐츠 목록이 불완전합니다.');
       const versions=record(run.contentVersions,'정책 버전');
-      if(Object.entries(waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
+      if(Object.entries(run.version==='0.8.1'?PATCH081_VERSIONS:waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
     }
     if(manifest.stageIds.join('|')!==(waterways?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08':ember?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07':snow?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06':desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
     requireInteger(run.economy.paidRemovalCount,'paidRemovalCount');

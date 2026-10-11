@@ -10,7 +10,7 @@ export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',reg
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
  const words=text.trim().replace(['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
  const orderedTokens=words.map((word,position)=>{
-  const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase());
+  const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase()&&!registry.lexemeById[f.lexemeId].secondaryOnly);
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];
   const selected=matches.find(f=>f.runtimeReady)??matches[0];
   if(!selected||lexemeIds.length!==1&&!(['0.6.0','0.6.1','0.7.0','0.8.0'].includes(registry.version)&&matches.every(f=>f.grammaticalFeatures.degree&&f.grammaticalFeatures.degree!=='POSITIVE')))return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
@@ -32,7 +32,7 @@ const emptyResult=(snapshot)=>({schemaVersion:1,grammarVersion:GRAMMAR_VERSION,i
  * @param {object} languageRegistry Immutable language database, never scoring/game data.
  * @returns {object} AnalysisResult
  */
-export function analyzeSentence(snapshot,languageRegistry=defaultRegistry) {
+export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{historicalReceipt=false}={}) {
  let result;
  try {
   if(!snapshot||!Array.isArray(snapshot.orderedTokens))throw new TypeError('Malformed SentenceSnapshot');
@@ -51,12 +51,14 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry) {
    // Never trust a hidden selection ID to choose the syntactic role of a homograph.
    const candidates=lex.formIds.map(id=>languageRegistry.formById[id]).filter(f=>f.surface.toLowerCase()===selection.surface.toLowerCase());
    const active=candidates.filter(f=>f.runtimeReady);
-   return {...token,lex,sense:languageRegistry.senseById[lex.senseIds.find(id=>id.endsWith('.sense.basic'))??[...lex.senseIds].sort()[0]],senses:[...lex.senseIds].sort().map(id=>languageRegistry.senseById[id]).filter(Boolean),forms:active,surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
+   const secondaryForms=(historicalReceipt?[]:def.secondaryLexemeIds??[]).flatMap(id=>languageRegistry.lexemeById[id].formIds.map(fid=>languageRegistry.formById[fid])).filter(f=>f.runtimeReady&&f.surface.toLowerCase()===selection.surface.toLowerCase());
+   return {...token,lex,sense:languageRegistry.senseById[lex.senseIds.find(id=>id.endsWith('.sense.basic'))??[...lex.senseIds].sort()[0]],senses:[...lex.senseIds].sort().map(id=>languageRegistry.senseById[id]).filter(Boolean),forms:[...active,...secondaryForms],surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
   });
   if((snapshot.fixtureCapabilityId&&!(languageRegistry.version==='0.8.0'&&snapshot.fixtureCapabilityId==='cap.question'))||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
   if(languageRegistry.version==='0.8.0'&&snapshot.fixtureMultipleSentences)return {...result,status:'INVALID_CORE',messageKo:'한 문장씩 제출하세요.'};
-  const parsed=parseSupportedClause(tokens,languageRegistry);
+  const parsed=parseSupportedClause(tokens,languageRegistry,{historicalReceipt});
   result={...result,...parsed};
+  if(languageRegistry.version==='0.8.0'&&!historicalReceipt)result.grammarPatchVersion='0.8.1';
   if(result.relativeClauses)for(const r of result.relativeClauses)r.rootSentenceId=snapshot.sentenceId;
   result.hits=result.grammarHits;result.excludedCardIds=result.coverage.unlicensedCardIds;
   return result;

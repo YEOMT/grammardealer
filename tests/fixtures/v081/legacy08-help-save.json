@@ -1,0 +1,1384 @@
+{
+  "state": {
+    "version": "0.8.0",
+    "contentVersions": {
+      "game": "0.8.0",
+      "save": "0.8.0",
+      "language": "0.8.0",
+      "grammar": "0.8.0",
+      "balance": "0.8.0",
+      "comboEligibility": "0.8.0",
+      "learningRecord": "0.8.0",
+      "generator": "0.4.0",
+      "reward": "0.6.1",
+      "shop": "0.6.1",
+      "entry": "0.8.0",
+      "operation": "0.7.0",
+      "meaning": "0.2.0",
+      "tutorial": "0.2.1",
+      "runes": "0.6.1",
+      "presentation": "0.8.0"
+    },
+    "contentManifest": {
+      "id": "campaign.0.8",
+      "stageIds": [
+        "stage.01",
+        "stage.02",
+        "stage.03",
+        "stage.04",
+        "stage.05",
+        "stage.06",
+        "stage.07",
+        "stage.08"
+      ],
+      "cardDefIds": [
+        "card.be",
+        "card.have",
+        "card.do",
+        "card.go",
+        "card.come",
+        "card.run",
+        "card.live",
+        "card.work",
+        "card.play",
+        "card.eat",
+        "card.read",
+        "card.like",
+        "card.want",
+        "card.need",
+        "card.make",
+        "card.give",
+        "card.see",
+        "card.help",
+        "card.feel",
+        "card.become",
+        "card.look",
+        "card.take",
+        "card.keep",
+        "card.find",
+        "card.show",
+        "card.create",
+        "card.improve",
+        "card.develop",
+        "card.change",
+        "card.friend",
+        "card.teacher",
+        "card.student",
+        "card.child",
+        "card.dog",
+        "card.cat",
+        "card.book",
+        "card.school",
+        "card.home",
+        "card.room",
+        "card.park",
+        "card.game",
+        "card.music",
+        "card.food",
+        "card.water",
+        "card.day",
+        "card.person",
+        "card.question",
+        "card.answer",
+        "card.problem",
+        "card.idea",
+        "card.plan",
+        "card.story",
+        "card.time",
+        "card.homework",
+        "card.information",
+        "card.knowledge",
+        "card.decision",
+        "card.culture",
+        "card.technology",
+        "card.environment",
+        "card.good",
+        "card.bad",
+        "card.big",
+        "card.small",
+        "card.happy",
+        "card.sad",
+        "card.kind",
+        "card.young",
+        "card.old",
+        "card.new",
+        "card.easy",
+        "card.hard",
+        "card.tired",
+        "card.interesting",
+        "card.difficult",
+        "card.beautiful",
+        "card.ready",
+        "card.useful",
+        "card.safe",
+        "card.strong",
+        "card.important",
+        "card.necessary",
+        "card.possible",
+        "card.different",
+        "card.clear",
+        "card.serious",
+        "card.very",
+        "card.really",
+        "card.often",
+        "card.always",
+        "card.sometimes",
+        "card.well",
+        "card.today",
+        "card.usually",
+        "card.quickly",
+        "card.slowly",
+        "card.carefully",
+        "card.now",
+        "card.clearly",
+        "card.i",
+        "card.you",
+        "card.he",
+        "card.she",
+        "card.it",
+        "card.we",
+        "card.they",
+        "card.a",
+        "card.the",
+        "card.this",
+        "card.in",
+        "card.on",
+        "card.at",
+        "card.with",
+        "card.to",
+        "card.that",
+        "card.fast",
+        "card.send",
+        "card.for",
+        "card.picture",
+        "card.will",
+        "card.and",
+        "card.but",
+        "card.or",
+        "card.because",
+        "card.when",
+        "card.if",
+        "card.think",
+        "card.know",
+        "card.say",
+        "card.enjoy",
+        "card.finish",
+        "card.hobby",
+        "card.than",
+        "card.as",
+        "card.more",
+        "card.most",
+        "card.too",
+        "card.enough",
+        "card.twice",
+        "card.who",
+        "card.which",
+        "card.where",
+        "card.operation.supply",
+        "card.operation.search",
+        "card.operation.nounSearch",
+        "card.operation.verbSearch",
+        "card.operation.adjectiveSearch",
+        "card.operation.connectorSearch",
+        "card.operation.recycle"
+      ],
+      "runeIds": [
+        "rune.short",
+        "rune.sv",
+        "rune.svc",
+        "rune.svo",
+        "rune.perfectSentence",
+        "rune.adverbs",
+        "rune.polished",
+        "rune.openingHand",
+        "rune.handSize",
+        "rune.discards",
+        "rune.svoo",
+        "rune.longSentence"
+      ]
+    },
+    "revision": 3,
+    "runId": "qa.waterways.v081.legacy.0",
+    "status": "BATTLE",
+    "config": {
+      "character": "traveler",
+      "vocabularyMode": "BEGINNER",
+      "difficulty": 1,
+      "seed": "v081.legacy.0",
+      "contentProfile": "STAGE1_STAGE2_STAGE3_STAGE4_STAGE5_STAGE6_STAGE7_STAGE8"
+    },
+    "progress": {
+      "stageId": "stage.08",
+      "roundIndex": 0,
+      "battleNumber": 33,
+      "contentBoundary": null
+    },
+    "activeCardIds": [
+      "starter.01",
+      "starter.02",
+      "starter.03",
+      "starter.04",
+      "starter.05",
+      "starter.06",
+      "starter.07",
+      "starter.08",
+      "starter.09",
+      "starter.10",
+      "starter.11",
+      "starter.12",
+      "starter.13",
+      "starter.14",
+      "starter.15",
+      "starter.16",
+      "starter.17",
+      "starter.18",
+      "starter.19",
+      "starter.20",
+      "starter.21",
+      "starter.22",
+      "starter.23",
+      "starter.24",
+      "starter.25",
+      "starter.26",
+      "starter.27",
+      "starter.28",
+      "entry.qa.waterways.v081.legacy.0.stage.02.card.0",
+      "entry.qa.waterways.v081.legacy.0.stage.02.card.1",
+      "entry.qa.waterways.v081.legacy.0.stage.03.card.0",
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.0",
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.1",
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.2",
+      "entry.qa.waterways.v081.legacy.0.stage.05.card.0",
+      "entry.qa.waterways.v081.legacy.0.stage.08.card.0",
+      "assigned.word.36.0",
+      "assigned.word.36.1",
+      "assigned.word.36.2"
+    ],
+    "cardInstances": {
+      "starter.01": {
+        "instanceId": "starter.01",
+        "cardDefId": "card.water",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.02": {
+        "instanceId": "starter.02",
+        "cardDefId": "card.music",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.03": {
+        "instanceId": "starter.03",
+        "cardDefId": "card.teacher",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.04": {
+        "instanceId": "starter.04",
+        "cardDefId": "card.school",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.05": {
+        "instanceId": "starter.05",
+        "cardDefId": "card.book",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.06": {
+        "instanceId": "starter.06",
+        "cardDefId": "card.game",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.07": {
+        "instanceId": "starter.07",
+        "cardDefId": "card.i",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.08": {
+        "instanceId": "starter.08",
+        "cardDefId": "card.you",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.09": {
+        "instanceId": "starter.09",
+        "cardDefId": "card.they",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.10": {
+        "instanceId": "starter.10",
+        "cardDefId": "card.he",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.11": {
+        "instanceId": "starter.11",
+        "cardDefId": "card.be",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.12": {
+        "instanceId": "starter.12",
+        "cardDefId": "card.be",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.13": {
+        "instanceId": "starter.13",
+        "cardDefId": "card.live",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.14": {
+        "instanceId": "starter.14",
+        "cardDefId": "card.go",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.15": {
+        "instanceId": "starter.15",
+        "cardDefId": "card.have",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.16": {
+        "instanceId": "starter.16",
+        "cardDefId": "card.need",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.17": {
+        "instanceId": "starter.17",
+        "cardDefId": "card.want",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.18": {
+        "instanceId": "starter.18",
+        "cardDefId": "card.play",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.19": {
+        "instanceId": "starter.19",
+        "cardDefId": "card.kind",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.20": {
+        "instanceId": "starter.20",
+        "cardDefId": "card.happy",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.21": {
+        "instanceId": "starter.21",
+        "cardDefId": "card.hard",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.22": {
+        "instanceId": "starter.22",
+        "cardDefId": "card.really",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.23": {
+        "instanceId": "starter.23",
+        "cardDefId": "card.today",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.24": {
+        "instanceId": "starter.24",
+        "cardDefId": "card.a",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.25": {
+        "instanceId": "starter.25",
+        "cardDefId": "card.a",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.26": {
+        "instanceId": "starter.26",
+        "cardDefId": "card.the",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.27": {
+        "instanceId": "starter.27",
+        "cardDefId": "card.with",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "starter.28": {
+        "instanceId": "starter.28",
+        "cardDefId": "card.on",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.02.card.0": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.02.card.0",
+        "cardDefId": "card.give",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.02.card.1": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.02.card.1",
+        "cardDefId": "card.to",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.03.card.0": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.03.card.0",
+        "cardDefId": "card.will",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.0": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.04.card.0",
+        "cardDefId": "card.and",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.1": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.04.card.1",
+        "cardDefId": "card.think",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.04.card.2": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.04.card.2",
+        "cardDefId": "card.that",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.05.card.0": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.05.card.0",
+        "cardDefId": "card.enjoy",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "entry.qa.waterways.v081.legacy.0.stage.08.card.0": {
+        "instanceId": "entry.qa.waterways.v081.legacy.0.stage.08.card.0",
+        "cardDefId": "card.who",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "assigned.word.36.0": {
+        "instanceId": "assigned.word.36.0",
+        "cardDefId": "card.i",
+        "polishLevel": 0,
+        "specialEffectId": null
+      },
+      "assigned.word.36.1": {
+        "instanceId": "assigned.word.36.1",
+        "cardDefId": "card.help",
+        "polishLevel": 3,
+        "specialEffectId": null
+      },
+      "assigned.word.36.2": {
+        "instanceId": "assigned.word.36.2",
+        "cardDefId": "card.you",
+        "polishLevel": 0,
+        "specialEffectId": null
+      }
+    },
+    "vocabulary": {
+      "encounteredLexemeIds": [
+        "lex.water.noun",
+        "lex.music.noun",
+        "lex.teacher.noun",
+        "lex.school.noun",
+        "lex.book.noun",
+        "lex.game.noun",
+        "lex.i.pronoun",
+        "lex.you.pronoun",
+        "lex.they.pronoun",
+        "lex.he.pronoun",
+        "lex.be.verb",
+        "lex.live.verb",
+        "lex.go.verb",
+        "lex.have.verb",
+        "lex.need.verb",
+        "lex.want.verb",
+        "lex.play.verb",
+        "lex.kind.adjective",
+        "lex.happy.adjective",
+        "lex.hard.adjective",
+        "lex.really.adverb",
+        "lex.today.adverb",
+        "lex.a.determiner",
+        "lex.the.determiner",
+        "lex.with.preposition",
+        "lex.on.preposition",
+        "lex.give.verb",
+        "lex.to.function",
+        "lex.she.pronoun",
+        "lex.will.verb",
+        "lex.and.function",
+        "lex.think.verb",
+        "lex.that.function",
+        "lex.when.function",
+        "lex.difficult.adjective",
+        "lex.enjoy.verb",
+        "lex.big.adjective",
+        "lex.change.verb",
+        "lex.who.function",
+        "lex.park.noun"
+      ]
+    },
+    "generationTrace": {
+      "generatorVersion": "0.4.0",
+      "policy": "ROLE_SLOTS_THEN_BAND_V2",
+      "vocabularyMode": "BEGINNER",
+      "bandFallbacks": [],
+      "repairs": [],
+      "fallbackUsed": false,
+      "attemptLimit": 32,
+      "startCursor": 0,
+      "slotRoles": [
+        {
+          "cardDefId": "card.water",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.music",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.teacher",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.school",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.book",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.game",
+          "role": "NOUN"
+        },
+        {
+          "cardDefId": "card.i",
+          "role": "PRONOUN"
+        },
+        {
+          "cardDefId": "card.you",
+          "role": "PRONOUN"
+        },
+        {
+          "cardDefId": "card.they",
+          "role": "PRONOUN"
+        },
+        {
+          "cardDefId": "card.he",
+          "role": "PRONOUN"
+        },
+        {
+          "cardDefId": "card.be",
+          "role": "BE"
+        },
+        {
+          "cardDefId": "card.be",
+          "role": "BE"
+        },
+        {
+          "cardDefId": "card.live",
+          "role": "SV"
+        },
+        {
+          "cardDefId": "card.go",
+          "role": "SV"
+        },
+        {
+          "cardDefId": "card.have",
+          "role": "HAVE"
+        },
+        {
+          "cardDefId": "card.need",
+          "role": "SVO"
+        },
+        {
+          "cardDefId": "card.want",
+          "role": "SVO"
+        },
+        {
+          "cardDefId": "card.play",
+          "role": "MULTI"
+        },
+        {
+          "cardDefId": "card.kind",
+          "role": "ADJECTIVE"
+        },
+        {
+          "cardDefId": "card.happy",
+          "role": "ADJECTIVE"
+        },
+        {
+          "cardDefId": "card.hard",
+          "role": "ADJECTIVE"
+        },
+        {
+          "cardDefId": "card.really",
+          "role": "DEGREE_ADVERB"
+        },
+        {
+          "cardDefId": "card.today",
+          "role": "CLAUSE_ADVERB"
+        },
+        {
+          "cardDefId": "card.a",
+          "role": "DETERMINER"
+        },
+        {
+          "cardDefId": "card.a",
+          "role": "DETERMINER"
+        },
+        {
+          "cardDefId": "card.the",
+          "role": "DETERMINER"
+        },
+        {
+          "cardDefId": "card.with",
+          "role": "PREPOSITION"
+        },
+        {
+          "cardDefId": "card.on",
+          "role": "PREPOSITION"
+        }
+      ],
+      "endCursor": 36
+    },
+    "openingFrames": [
+      "frame.svc.np",
+      "frame.svo"
+    ],
+    "runes": {
+      "orderedInstanceIds": [],
+      "instances": {},
+      "slotLimit": 4
+    },
+    "economy": {
+      "gold": 100,
+      "paidRemovalCount": 0
+    },
+    "combat": {
+      "drawIds": [
+        "starter.01",
+        "starter.02",
+        "starter.03",
+        "starter.04",
+        "starter.05",
+        "starter.06",
+        "starter.07",
+        "starter.08",
+        "starter.09",
+        "starter.10",
+        "starter.11",
+        "starter.12",
+        "starter.13",
+        "starter.14",
+        "starter.15",
+        "starter.16",
+        "starter.17",
+        "starter.18",
+        "starter.19",
+        "starter.20",
+        "starter.21",
+        "starter.22",
+        "starter.23",
+        "starter.24",
+        "starter.25",
+        "starter.26",
+        "starter.27",
+        "starter.28",
+        "entry.qa.waterways.v081.legacy.0.stage.02.card.0",
+        "entry.qa.waterways.v081.legacy.0.stage.02.card.1",
+        "entry.qa.waterways.v081.legacy.0.stage.03.card.0",
+        "entry.qa.waterways.v081.legacy.0.stage.04.card.0",
+        "entry.qa.waterways.v081.legacy.0.stage.04.card.1",
+        "entry.qa.waterways.v081.legacy.0.stage.04.card.2",
+        "entry.qa.waterways.v081.legacy.0.stage.05.card.0",
+        "entry.qa.waterways.v081.legacy.0.stage.08.card.0"
+      ],
+      "handIds": [],
+      "sentenceSlots": [
+        {
+          "cardInstanceId": "assigned.word.36.0",
+          "selection": "form.i.subject"
+        },
+        {
+          "cardInstanceId": "assigned.word.36.1",
+          "selection": "form.help.present"
+        },
+        {
+          "cardInstanceId": "assigned.word.36.2",
+          "selection": "form.you.subject"
+        }
+      ],
+      "discardIds": [],
+      "openingTrace": {
+        "policy": "SEEDED_WITNESS_SUBSET_THEN_RANDOM_FILL",
+        "generatorVersion": "0.1.1",
+        "startCursor": 78,
+        "endCursor": 120,
+        "guaranteed": true,
+        "frameId": "frame.svo",
+        "witnessSlots": [
+          {
+            "cardInstanceId": "starter.01",
+            "selection": {
+              "formId": "form.water.singular"
+            }
+          },
+          {
+            "cardInstanceId": "starter.16",
+            "selection": {
+              "formId": "form.need.third"
+            }
+          },
+          {
+            "cardInstanceId": "starter.25",
+            "selection": {
+              "formId": "form.a.a"
+            }
+          },
+          {
+            "cardInstanceId": "starter.04",
+            "selection": {
+              "formId": "form.school.singular"
+            }
+          }
+        ],
+        "beWitnessSlots": [],
+        "focusFrame": null,
+        "reason": null
+      },
+      "rulesSnapshot": {
+        "startingDeckSize": 28,
+        "initialHand": 6,
+        "handLimit": 10,
+        "turnDraw": 3,
+        "discardActions": 4,
+        "turnLimit": 6,
+        "sentenceLimit": 16,
+        "drawOnFirstTurnBeyondOpening": false,
+        "discardConsumesTurn": false,
+        "exchangeScope": "HAND_ONLY",
+        "drawClipping": "NO_DEFERRED_DRAW_CREDIT",
+        "discardRecycle": "MAY_INCLUDE_JUST_DISCARDED",
+        "winBeforeTurnExhaustion": true
+      },
+      "phase": "EDIT",
+      "battleDirty": true,
+      "turnIndex": 1,
+      "turnsRemaining": 6,
+      "exchangesRemaining": 4,
+      "enemyState": {
+        "id": "battle.08.01",
+        "battleNumber": 33,
+        "enemyId": "enemy.stage8.01",
+        "nameKo": "청동 교각병",
+        "emoji": "🛡️",
+        "hp": 1280,
+        "focusKo": "주격 관계절",
+        "kind": "NORMAL",
+        "hpMax": 1280,
+        "stageId": "stage.08",
+        "maxHp": 1280
+      },
+      "actionSequence": 0,
+      "settled": false,
+      "pendingAttackId": null,
+      "exhaustedIds": [],
+      "operationSequence": 0,
+      "operationHistory": [],
+      "pendingOperationId": null
+    },
+    "reward": null,
+    "shop": {
+      "shopId": "shop.qa.waterways.v081.legacy.0.stage.08",
+      "stageId": "stage.08",
+      "shopVersion": "0.6.1",
+      "paidRemovalCountAtEntry": 0,
+      "closed": true,
+      "inventory": [
+        {
+          "itemId": "shop.qa.waterways.v081.legacy.0.stage.08.rune.0",
+          "kind": "RUNE",
+          "runeId": "rune.perfectSentence",
+          "rarity": "COMMON",
+          "price": 18,
+          "purchased": false,
+          "ownedLevel": 0,
+          "offeredLevel": 1
+        },
+        {
+          "itemId": "shop.qa.waterways.v081.legacy.0.stage.08.rune.1",
+          "kind": "RUNE",
+          "runeId": "rune.svc",
+          "rarity": "COMMON",
+          "price": 18,
+          "purchased": false,
+          "ownedLevel": 0,
+          "offeredLevel": 1
+        },
+        {
+          "itemId": "shop.qa.waterways.v081.legacy.0.stage.08.card.0",
+          "kind": "CARD",
+          "cardDefId": "card.that",
+          "rarity": "RARE",
+          "price": 14,
+          "purchased": false,
+          "role": "LOCAL_SYNTAX_RELEVANT"
+        },
+        {
+          "itemId": "shop.qa.waterways.v081.legacy.0.stage.08.card.1",
+          "kind": "CARD",
+          "cardDefId": "card.park",
+          "rarity": "COMMON",
+          "price": 6,
+          "purchased": false,
+          "role": "IMPLEMENTED_POOL_WILDCARD"
+        },
+        {
+          "itemId": "shop.qa.waterways.v081.legacy.0.stage.08.card.2",
+          "kind": "CARD",
+          "cardDefId": "card.operation.nounSearch",
+          "rarity": "UNCOMMON",
+          "price": 10,
+          "purchased": false,
+          "role": "DEDICATED_OPERATION"
+        }
+      ],
+      "services": {
+        "POLISH": {
+          "price": 8,
+          "used": false
+        },
+        "REMOVE": {
+          "price": 6,
+          "used": false
+        }
+      },
+      "trace": [
+        {
+          "kind": "DEDICATED_OPERATION_DRAW",
+          "policy": "UNIFORM_PERMANENT_DEFINITION",
+          "candidateIds": [
+            "card.operation.supply",
+            "card.operation.search",
+            "card.operation.nounSearch",
+            "card.operation.verbSearch",
+            "card.operation.adjectiveSearch",
+            "card.operation.connectorSearch",
+            "card.operation.recycle"
+          ],
+          "cardDefId": "card.operation.nounSearch"
+        }
+      ]
+    },
+    "shopHistory": [
+      {
+        "shopId": "shop.qa.waterways.v081.legacy.0.stage.02",
+        "stageId": "stage.02",
+        "shopVersion": "0.6.1",
+        "paidRemovalCountAtEntry": 0,
+        "closed": true,
+        "inventory": [
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.02.rune.0",
+            "kind": "RUNE",
+            "runeId": "rune.longSentence",
+            "rarity": "UNCOMMON",
+            "price": 24,
+            "purchased": false,
+            "ownedLevel": 0,
+            "offeredLevel": 1
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.02.card.0",
+            "kind": "CARD",
+            "cardDefId": "card.she",
+            "rarity": "COMMON",
+            "price": 6,
+            "purchased": false,
+            "role": "LOCAL_SYNTAX_RELEVANT"
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.02.card.1",
+            "kind": "CARD",
+            "cardDefId": "card.operation.verbSearch",
+            "rarity": "UNCOMMON",
+            "price": 10,
+            "purchased": false,
+            "role": "DEDICATED_OPERATION"
+          }
+        ],
+        "services": {
+          "POLISH": {
+            "price": 8,
+            "used": false
+          },
+          "REMOVE": {
+            "price": 6,
+            "used": false
+          }
+        },
+        "trace": [
+          {
+            "kind": "DEDICATED_OPERATION_DRAW",
+            "policy": "UNIFORM_PERMANENT_DEFINITION",
+            "candidateIds": [
+              "card.operation.supply",
+              "card.operation.search",
+              "card.operation.nounSearch",
+              "card.operation.verbSearch",
+              "card.operation.adjectiveSearch",
+              "card.operation.connectorSearch",
+              "card.operation.recycle"
+            ],
+            "cardDefId": "card.operation.verbSearch"
+          }
+        ]
+      },
+      {
+        "shopId": "shop.qa.waterways.v081.legacy.0.stage.04",
+        "stageId": "stage.04",
+        "shopVersion": "0.6.1",
+        "paidRemovalCountAtEntry": 0,
+        "closed": true,
+        "inventory": [
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.04.rune.0",
+            "kind": "RUNE",
+            "runeId": "rune.perfectSentence",
+            "rarity": "COMMON",
+            "price": 18,
+            "purchased": false,
+            "ownedLevel": 0,
+            "offeredLevel": 1
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.04.rune.1",
+            "kind": "RUNE",
+            "runeId": "rune.handSize",
+            "rarity": "COMMON",
+            "price": 18,
+            "purchased": false,
+            "ownedLevel": 0,
+            "offeredLevel": 1
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.04.card.0",
+            "kind": "CARD",
+            "cardDefId": "card.when",
+            "rarity": "UNCOMMON",
+            "price": 10,
+            "purchased": false,
+            "role": "LOCAL_SYNTAX_RELEVANT"
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.04.card.1",
+            "kind": "CARD",
+            "cardDefId": "card.difficult",
+            "rarity": "COMMON",
+            "price": 6,
+            "purchased": false,
+            "role": "IMPLEMENTED_POOL_WILDCARD"
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.04.card.2",
+            "kind": "CARD",
+            "cardDefId": "card.operation.connectorSearch",
+            "rarity": "UNCOMMON",
+            "price": 10,
+            "purchased": false,
+            "role": "DEDICATED_OPERATION"
+          }
+        ],
+        "services": {
+          "POLISH": {
+            "price": 8,
+            "used": false
+          },
+          "REMOVE": {
+            "price": 6,
+            "used": false
+          }
+        },
+        "trace": [
+          {
+            "kind": "DEDICATED_OPERATION_DRAW",
+            "policy": "UNIFORM_PERMANENT_DEFINITION",
+            "candidateIds": [
+              "card.operation.supply",
+              "card.operation.search",
+              "card.operation.nounSearch",
+              "card.operation.verbSearch",
+              "card.operation.adjectiveSearch",
+              "card.operation.connectorSearch",
+              "card.operation.recycle"
+            ],
+            "cardDefId": "card.operation.connectorSearch"
+          }
+        ]
+      },
+      {
+        "shopId": "shop.qa.waterways.v081.legacy.0.stage.06",
+        "stageId": "stage.06",
+        "shopVersion": "0.6.1",
+        "paidRemovalCountAtEntry": 0,
+        "closed": true,
+        "inventory": [
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.06.rune.0",
+            "kind": "RUNE",
+            "runeId": "rune.openingHand",
+            "rarity": "COMMON",
+            "price": 18,
+            "purchased": false,
+            "ownedLevel": 0,
+            "offeredLevel": 1
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.06.rune.1",
+            "kind": "RUNE",
+            "runeId": "rune.handSize",
+            "rarity": "COMMON",
+            "price": 18,
+            "purchased": false,
+            "ownedLevel": 0,
+            "offeredLevel": 1
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.06.card.0",
+            "kind": "CARD",
+            "cardDefId": "card.big",
+            "rarity": "COMMON",
+            "price": 6,
+            "purchased": false,
+            "role": "LOCAL_SYNTAX_RELEVANT"
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.06.card.1",
+            "kind": "CARD",
+            "cardDefId": "card.change",
+            "rarity": "COMMON",
+            "price": 6,
+            "purchased": false,
+            "role": "IMPLEMENTED_POOL_WILDCARD"
+          },
+          {
+            "itemId": "shop.qa.waterways.v081.legacy.0.stage.06.card.2",
+            "kind": "CARD",
+            "cardDefId": "card.operation.adjectiveSearch",
+            "rarity": "UNCOMMON",
+            "price": 10,
+            "purchased": false,
+            "role": "DEDICATED_OPERATION"
+          }
+        ],
+        "services": {
+          "POLISH": {
+            "price": 8,
+            "used": false
+          },
+          "REMOVE": {
+            "price": 6,
+            "used": false
+          }
+        },
+        "trace": [
+          {
+            "kind": "DEDICATED_OPERATION_DRAW",
+            "policy": "UNIFORM_PERMANENT_DEFINITION",
+            "candidateIds": [
+              "card.operation.supply",
+              "card.operation.search",
+              "card.operation.nounSearch",
+              "card.operation.verbSearch",
+              "card.operation.adjectiveSearch",
+              "card.operation.connectorSearch",
+              "card.operation.recycle"
+            ],
+            "cardDefId": "card.operation.adjectiveSearch"
+          }
+        ]
+      }
+    ],
+    "entryGrants": {
+      "stage.02": {
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.02.entryGrant",
+        "applied": true,
+        "cardInstanceIds": [
+          "entry.qa.waterways.v081.legacy.0.stage.02.card.0",
+          "entry.qa.waterways.v081.legacy.0.stage.02.card.1"
+        ],
+        "representativeVerbCardDefId": "card.give",
+        "connectorCardDefId": "card.to",
+        "witness": {
+          "found": true,
+          "frameId": "frame.svoo",
+          "cardIds": [
+            "starter.01",
+            "entry.qa.waterways.v081.legacy.0.stage.02.card.0",
+            "starter.02",
+            "starter.03"
+          ]
+        },
+        "warningKo": "",
+        "trace": [
+          {
+            "kind": "ENTRY_REPRESENTATIVE",
+            "cardDefId": "card.give",
+            "policy": "GIVE_FALLBACK"
+          },
+          {
+            "kind": "ENTRY_GRANT",
+            "cardDefIds": [
+              "card.give",
+              "card.to"
+            ]
+          }
+        ]
+      },
+      "stage.03": {
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.03.entryGrant",
+        "applied": true,
+        "cardInstanceIds": [
+          "entry.qa.waterways.v081.legacy.0.stage.03.card.0"
+        ],
+        "cardDefIds": [
+          "card.will"
+        ],
+        "trace": [
+          {
+            "kind": "MISSING_ACTIVE_DEFINITION_ONLY",
+            "cardDefIds": [
+              "card.will"
+            ]
+          }
+        ]
+      },
+      "stage.04": {
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.04.entryGrant",
+        "entryVersion": "0.6.1",
+        "applied": true,
+        "selectedConnectorCardDefId": "card.and",
+        "cardInstanceIds": [
+          "entry.qa.waterways.v081.legacy.0.stage.04.card.0",
+          "entry.qa.waterways.v081.legacy.0.stage.04.card.1",
+          "entry.qa.waterways.v081.legacy.0.stage.04.card.2"
+        ],
+        "cardDefIds": [
+          "card.and",
+          "card.think",
+          "card.that"
+        ],
+        "trace": [
+          {
+            "kind": "MISSING_ACTIVE_WORD_CAPABILITY_ONLY",
+            "policy": "ONE_DIRECT_CONNECTOR_CHOICE",
+            "alreadyOwnedDirectConnector": false,
+            "cardDefIds": [
+              "card.and",
+              "card.think",
+              "card.that"
+            ]
+          }
+        ]
+      },
+      "stage.05": {
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.05.entryGrant",
+        "applied": true,
+        "cardInstanceIds": [
+          "entry.qa.waterways.v081.legacy.0.stage.05.card.0"
+        ],
+        "cardDefIds": [
+          "card.enjoy"
+        ],
+        "trace": [
+          {
+            "kind": "MISSING_BASIC_GERUND_OBJECT_VERB",
+            "cardDefId": "card.enjoy",
+            "cardInstanceId": "entry.qa.waterways.v081.legacy.0.stage.05.card.0"
+          }
+        ]
+      },
+      "stage.06": {
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.06.entryGrant",
+        "applied": true,
+        "cardInstanceIds": [],
+        "cardDefIds": [],
+        "trace": [
+          {
+            "kind": "BATTLE_ONLY_FROST_SUPPLY",
+            "permanentCardsAdded": 0
+          }
+        ]
+      },
+      "stage.08": {
+        "entryVersion": "0.8.0",
+        "entryGrantId": "qa.waterways.v081.legacy.0:stage.08:entry-choice",
+        "applied": true,
+        "choice": "WHO",
+        "cardDefIds": [
+          "card.who"
+        ],
+        "cardInstanceIds": [
+          "entry.qa.waterways.v081.legacy.0.stage.08.card.0"
+        ]
+      }
+    },
+    "milestoneIds": [
+      "STAGE1_CLEAR",
+      "STAGE2_CLEAR",
+      "STAGE3_CLEAR",
+      "STAGE4_CLEAR",
+      "STAGE5_CLEAR",
+      "STAGE6_CLEAR",
+      "STAGE7_CLEAR"
+    ],
+    "rng": {
+      "algorithmVersion": "mulberry32-fnv1a-v1",
+      "deck": {
+        "state": 169659288,
+        "cursor": 120
+      },
+      "reward": {
+        "state": 314947970,
+        "cursor": 0
+      },
+      "shop": {
+        "state": 925487761,
+        "cursor": 32
+      },
+      "encounter": {
+        "state": 3726189250,
+        "cursor": 0
+      }
+    },
+    "eligibility": {
+      "runStartUnlockBaseline": [
+        "rune.short",
+        "rune.sv",
+        "rune.svc",
+        "rune.svo",
+        "rune.perfectSentence",
+        "rune.adverbs",
+        "rune.polished",
+        "rune.openingHand",
+        "rune.handSize",
+        "rune.discards",
+        "rune.longSentence"
+      ],
+      "runOwnUnlocks": [
+        "pack.svoo",
+        "rune.svoo",
+        "pack.clauseLink",
+        "pack.time.past",
+        "pack.time.progressive",
+        "pack.time.perfect",
+        "pack.time.futureWill",
+        "pack.infinitive",
+        "pack.gerund",
+        "pack.svoc.basic",
+        "pack.comparison",
+        "pack.degree",
+        "pack.snowWords.reward",
+        "pack.participles",
+        "pack.passive",
+        "pack.causativePerception",
+        "pack.relative",
+        "pack.relativeAdverb",
+        "pack.waterwaysWords.reward"
+      ]
+    },
+    "tutorial": {
+      "tutorialVersion": "0.1.1",
+      "isIntroRun": true,
+      "visible": false,
+      "completed": false,
+      "skipped": false,
+      "actions": {},
+      "step": 0
+    },
+    "stats": {
+      "attacks": 0,
+      "preparations": 0,
+      "exchanges": 0,
+      "bestAttack": 0,
+      "totalActualDamage": 0,
+      "grammarUseCounts": {},
+      "lastAttack": null,
+      "history": []
+    },
+    "settlementIds": [],
+    "appliedCommandIds": [
+      "assigned.entry"
+    ],
+    "entryChoice": {
+      "entryVersion": "0.6.1",
+      "entryId": "qa.waterways.v081.legacy.0:stage.04.entryGrant",
+      "choiceId": "qa.waterways.v081.legacy.0:stage.04.connectorChoice",
+      "stageId": "stage.04",
+      "pending": false,
+      "cardDefIds": [
+        "card.and",
+        "card.but",
+        "card.because"
+      ],
+      "selectedCardDefId": "card.and"
+    },
+    "waterwaysEntryChoice": {
+      "entryVersion": "0.8.0",
+      "offerId": "qa.waterways.v081.legacy.0:stage.08:entry-choice",
+      "stageId": "stage.08",
+      "pending": false,
+      "choices": [
+        "WHO",
+        "WHICH",
+        "NONE"
+      ],
+      "ownedCounts": {
+        "who": 0,
+        "which": 0,
+        "that": 1
+      },
+      "needsNoneConfirmation": false,
+      "choice": "WHO"
+    }
+  },
+  "profile": {
+    "version": "0.8.0",
+    "playerId": "player.62ab0184-f375-461f-a122-9790d49fb95b",
+    "displayName": "Waterways assigned QA",
+    "settings": {
+      "speed": 1,
+      "sfxVolume": 45,
+      "muted": false,
+      "effectsOff": false
+    },
+    "firstRuneIntroSeen": false,
+    "guideSeen": false,
+    "qualifiedRunIds": [],
+    "appliedAttackIds": [],
+    "grammarRecords": {},
+    "bestAttack": 0,
+    "totalActualDamage": 0,
+    "unlocks": [],
+    "storyClearCount": 0,
+    "guidedTutorialCompletedVersion": "0.2.1"
+  }
+}
