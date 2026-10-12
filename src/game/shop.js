@@ -5,7 +5,7 @@ import {operationSpec} from '../data/operationSpec.js';
 import {isCurrentCampaign} from '../data/stages.js';
 import { registryForVersion } from '../data/language/index.js';
 import { RUNE_MAX_LEVEL } from '../data/runes.js';
-import { REWARD_BALANCE } from '../data/balance.js';
+import { REWARD_BALANCE,runeRarityWeightsForVersion } from '../data/balance.js';
 import { weightedPick, pick } from './rng.js';
 import { eligibleRunes, eligibleRewardCards, isStageRelevantCard, getRemovalWarning } from './rewards.js';
 import { findPlayableSentences } from './deck.js';
@@ -90,7 +90,9 @@ export function createShop(run) {
   for (let slot = 0; slot < (second?2:SHOP_BALANCE.runeSlots); slot++) {
     const pool = runePool.filter(rune => !inventory.some(item => item.runeId === rune.id));
     if (!pool.length) { trace.push({ kind: 'NO_ELIGIBLE_RUNE', slot }); break; }
-    const rarity = weightedPick(stream, Object.fromEntries(Object.entries(REWARD_BALANCE.runeWeights).filter(([key]) => pool.some(rune => rune.rarity === key))));
+    const weights=Object.fromEntries(Object.entries(runeRarityWeightsForVersion(run.version)).filter(([key])=>pool.some(rune=>rune.rarity===key)));
+    const rarity=weightedPick(stream,weights);
+    if(run.version==='0.9.0')trace.push({kind:'RUNE_RARITY_DRAW',slot,weights:{...weights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
     const definition = pick(stream, pool.filter(rune => rune.rarity === rarity));
     const ownedLevel = equipped(run).find(rune => rune.runeId === definition.id)?.level ?? 0;
     inventory.push({ itemId: `${shopId}.rune.${slot}`, kind: 'RUNE', runeId: definition.id, rarity,

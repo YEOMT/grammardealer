@@ -1,3 +1,15 @@
+# 0.9 현재 인계
+
+기준은 작업 시작에 fetch한 origin/main `0915161fecd6466c7b95f9f1195f661ef086a9d3`(0.8.1 병합), 시작 checkout clean이다. 브랜치 `codex/v0.9-dream-library`. 계약은 `spec/Syntax_Atlas_0.9_Stage9_Spec.md`와 동반 확정 밸런스/UI 명세다. [실제 검증](TEST_REPORT_0.9.md), [90개 인수 조건](ACCEPTANCE_0.9.md), [언어 검토](LANGUAGE_REVIEW_0.9.md)를 먼저 읽는다.
+
+새 원정은42전투/STAGE9_END, generator는081을 재사용한다. 새0.9 언어·수치·룬·보상 정책과 기존 저장을 분리한다. libraryPolicy의 CONFIRMED와 INITIAL을 섞거나 난이도 조사를 이유로 확정HP/확률을 낮추지 않는다. 도서관장은 새 보호막이나 HP1 잠금이 없고 HP0 승리가 회복·마지막턴 패배보다 우선한다.
+
+파서는 nominalStructures를 만들고 libraryTargetEvidence를 지역/보스/도감이 공유한다. 정상what 주어의 바깥 일치 오류를 내부절 오류로 섞지 않는다. turnEnd receipt는 SUBMIT/PREPARE에서 한 번 커밋하며 FINISH_PRESENTATION이나 VFX에서 다시 회복하지 않는다. 공격 actualHpLoss와 turn-end 최종HP를 구분한다.
+
+Stage9 입장에는 보상 후보팩만 해금한다. 일반 빙정은 영구 소유가 아니며 보스지원은0이다. 새상점·자동영구지급·구제추첨을 만들면 안 된다. 구버전 원정을42전투로 자동 업그레이드하지 않는다.
+
+현재 단위/데이터/빌드/집중UI/지정 production의 근거는 있으나 자연42전투·Stage9 자연 보상 준비는 미확보다. 이 때문에 PR은 Draft다. 자동 정책의 정상 패배를 게임 엔진 오류나 사람 승률로 해석하지 않는다. Stage9 원화/BGM은 미제공 fallback이다. 다음 작업은 해당 시점 최신main 기반 별도 브랜치에서 이 미검증을 이어간다. 이하 과거 인계는 보존한다.
+
 # 0.8.1 현재 인계
 
 기준 main은 `587fa1b681c5fcd0ac8090111e7e9850dac95f08`(0.8 병합)이며 시작 checkout clean을 확인했다. 브랜치는 `codex/v0.8.1-grammar-help-ui-polish`. 계약은 `spec/Syntax_Atlas_0.8.1_Patch_Spec.md`다. 현재0.8.1은 새37전투를 유지하는 문법/UI 패치이며 [실제 검증](TEST_REPORT_0.8.1.md), [인수 조건](ACCEPTANCE_0.8.1.md), [문법 감사](GRAMMAR_REVIEW_0.8.1.md)가 최신 기준이다.

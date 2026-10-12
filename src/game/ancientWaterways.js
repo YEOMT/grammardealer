@@ -1,7 +1,7 @@
 import {registryForVersion} from '../data/language/index.js';
 export const WATERWAYS_CHOICES=Object.freeze(['WHO','WHICH','NONE']);
 export function waterwaysEntryOffer(run){
- if(!['0.8.0','0.8.1'].includes(run.version)||run.progress.stageId!=='stage.08'||run.combat!==null||run.entryGrants['stage.08']?.applied)return null;
+ if(!['0.8.0','0.8.1','0.9.0'].includes(run.version)||run.progress.stageId!=='stage.08'||run.combat!==null||run.entryGrants['stage.08']?.applied)return null;
  const ownedCounts=Object.fromEntries(['who','which','that'].map(w=>[w,run.activeCardIds.filter(id=>run.cardInstances[id].cardDefId===`card.${w}`).length]));
  return {entryVersion:'0.8.0',offerId:`${run.runId}:stage.08:entry-choice`,stageId:'stage.08',pending:true,choices:[...WATERWAYS_CHOICES],ownedCounts,needsNoneConfirmation:Object.values(ownedCounts).every(n=>n===0)};
 }
@@ -19,9 +19,9 @@ export function grantWaterwaysEntry(run,choice){
 }
 export function validateWaterwaysEntry(run){
  const choice=run.waterwaysEntryChoice,grant=run.entryGrants?.['stage.08'],fail=()=>{throw Error('Invalid waterways entry receipt');};
- if(!['0.8.0','0.8.1'].includes(run.version)){if(choice!==undefined||grant!==undefined)fail();return true;}
+ if(!['0.8.0','0.8.1','0.9.0'].includes(run.version)){if(choice!==undefined||grant!==undefined)fail();return true;}
  if(!choice){if(grant||run.progress.stageId==='stage.08'&&run.status!=='STAGE_INTRO')fail();return true;}
- if(run.progress.stageId!=='stage.08')fail();
+ if(run.progress.stageId!=='stage.08'&&!(run.version==='0.9.0'&&run.progress.stageId==='stage.09'&&choice.pending===false&&run.milestoneIds.includes('STAGE8_CLEAR')))fail();
  if(choice.entryVersion!=='0.8.0'||choice.offerId!==`${run.runId}:stage.08:entry-choice`||choice.stageId!=='stage.08'||JSON.stringify(choice.choices)!==JSON.stringify(WATERWAYS_CHOICES)||!choice.ownedCounts||Object.keys(choice.ownedCounts).join('|')!=='who|which|that'||Object.values(choice.ownedCounts).some(n=>!Number.isSafeInteger(n)||n<0)||choice.needsNoneConfirmation!==Object.values(choice.ownedCounts).every(n=>n===0))fail();
  if(choice.pending===true){if(run.status!=='STAGE_INTRO'||run.progress.stageId!=='stage.08'||run.combat!==null||grant||run.shop?.stageId==='stage.08'||JSON.stringify(choice)!==JSON.stringify(waterwaysEntryOffer(run)))fail();}
  else {

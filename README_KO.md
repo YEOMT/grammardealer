@@ -1,3 +1,13 @@
+## Syntax Atlas 0.9.0 · 몽환의 대서고
+
+새0.9 원정은9지역/42전투이며 what·whether·가주어/진주어, 일반전 전용 빙정, 도서관장의 턴 종료 회복을 추가합니다. 확정 보스HP·희귀 다이아몬드·WORD등급·카드 외형도 새 버전에 적용합니다. 구버전 원정은 원래 정책과 완료 경계를 유지합니다.
+
+[변경 내역](docs/PATCH_NOTES_0.9_KO.md) · [이번 실제 검증](docs/TEST_REPORT_0.9.md) · [90개 인수 조건](docs/ACCEPTANCE_0.9.md) · [언어·교육 검토](docs/LANGUAGE_REVIEW_0.9.md).
+
+`npm run test:browser:library`는 개발 서버의 지정 상태 집중 검사, `node tests/library-production-assigned.mjs`는 build 후 지정 저장의 production5전투 검사입니다. `npm run test:e2e:library`는 새 원정의 자연 보상 production UI, `npm run test:runs:library`는 실제 Controller 명령 원정입니다. `test:e2e:waterways`는 이제 명시적0.8.1 초기 저장을 불러오는37전투 호환 경로입니다. `SB_LIBRARY_COURSE=1`은 별도 Stage9 목표문법 QA 정책입니다.
+
+**자연 보상42전투 완주와 Stage9 자연 준비·학습 경로는 아직 NOT RUN입니다.** 지정 상태 검사와 구버전 완주를 대체 증거로 사용하지 않습니다. PR은 이 한계를 명시한 Draft이며 공개 배포를 수행하지 않습니다. 아래는 이전 버전의 기록입니다.
+
 ## Syntax Atlas 0.8.1 · 문법·카드 정보 정돈
 
 기존8지역/37전투와 수치를 유지하며 관계절 오인정 교정, help 동사·불가산명사 겸용, 손패 상세·희귀도·연마 표시, 고정 문법 안내와 보스 설명을 정돈했습니다. 새 시작/상점에서help를 제외하고 고급 전투 보상에서 획득합니다. 기존 보유 카드와 저장은 보존합니다.

@@ -1,5 +1,5 @@
 import {presentationClock} from './presentationClock.js';
-import {RUNE_BY_ID} from '../data/runes.js';
+import {runeForVersion} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
 export const PRESENTATION_VERSION = '0.6.0';
 /** Read-only feel classification. No damage, reward or RNG is calculated here. */
@@ -34,7 +34,8 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
   validateResolution(resolution);
   if (!ALLOWED_SPEEDS.includes(speed)) throw new RangeError('Presentation speed must be 1, 1.5, or 2');
   const duration=value=>Math.round(value/speed);const feel=impactFeel(resolution);
-  if(resolution.zeroReason==='INCOMPLETE_SENTENCE')return [{kind:'LOCK',duration:50},{kind:'POWER',duration:180},{kind:'IMPACT',duration:1200}];
+  const turnEnd=resolution.turnEndReceipt&&!resolution.turnEndReceipt.killed?[{kind:'TURN_END',receipt:resolution.turnEndReceipt,duration:duration(850)}]:[];
+  if(resolution.zeroReason==='INCOMPLETE_SENTENCE')return [{kind:'LOCK',duration:50},{kind:'POWER',duration:180},{kind:'IMPACT',duration:1200},...turnEnd];
   let combo=0;
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
@@ -44,7 +45,7 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
   });
   return [{kind:'LOCK',duration:duration(50)},...scores,{kind:'POWER',duration:duration(420)},{kind:'CHARGE',duration:duration(400)},
-    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)},...(resolution.phaseBreak?[{kind:'PHASE_BREAK_READ',duration:duration(1000)}]:[])];
+    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)},...(resolution.phaseBreak?[{kind:'PHASE_BREAK_READ',duration:duration(1000)}]:[]),...turnEnd];
 }
 
 /**
@@ -97,6 +98,7 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
       else if (step.kind === 'CHARGE') safeCall(viewContext, 'charge', { duration: step.duration, intensity });
       else if (step.kind === 'LUNGE') safeCall(viewContext, 'lunge', { duration: step.duration, intensity });
       else if (step.kind === 'IMPACT') { impacted = true; safeCall(viewContext, 'impact', impact); }
+      if(step.kind==='TURN_END')safeCall(viewContext,'turnEnd',step.receipt);
       if(step.kind==='RECOIL')safeCall(viewContext,'recoil',{...impact,duration:step.duration});
       if(options.guided){
         if(options.wait)await Promise.race([Promise.resolve().then(()=>options.wait(step.duration)),clock.wait(step.duration+2000).then(()=>{if(!reason)interrupt('timeout');})]);
@@ -283,17 +285,19 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     pulseRune(sourceId) {
       const rune = [...root.querySelectorAll('[data-rune-id]')].find(node => node.dataset.runeId === sourceId);
       if (rune) { rune.classList.add('presentation-rune-pulse'); animate(rune, [{ transform: 'scale(1)' }, { transform: 'scale(1.07)', filter: 'brightness(1.6)' }, { transform: 'scale(1)' }], 260); }
+      const gem=rune?.querySelector('.diamond-gem');if(gem)animate(gem,[{filter:'brightness(1)',backgroundPosition:'0% 50%'},{filter:'brightness(1.8)',backgroundPosition:'100% 50%'},{filter:'brightness(1)',backgroundPosition:'0% 50%'}],220);
       audio?.play?.('rune', { intensity: settings.intensity });
     },
     flyRune(event,{duration}){
       const rune=[...root.querySelectorAll('[data-rune-id]')].find(n=>n.dataset.runeId===event.sourceId),target=find(root,'score');
       if(!rune||!target||settings.effectsOff||settings.reducedMotion)return;
-      const a=rune.getBoundingClientRect(),b=target.getBoundingClientRect(),color=RUNE_BY_ID[event.sourceId]?.color??'#ddd';
+      const a=rune.getBoundingClientRect(),b=target.getBoundingClientRect(),color=runeForVersion(event.sourceId,current?.versions?.language)?.color??'#ddd';
       const node=root.ownerDocument.createElement('i');node.className='rune-flight';node.dataset.runeId=event.sourceId;node.style.background=color;node.style.boxShadow=`0 0 18px 5px ${color}`;
       const x=a.left+a.width/2,y=a.top+a.height/2,dx=b.left+b.width/2-x,dy=b.top+b.height/2-y;
       Object.assign(node.style,{position:'fixed',left:`${x}px`,top:`${y}px`});root.append(node);effectNodes.push(node);
       animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(1.2)`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
+    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`도서관장 회복 +${receipt.actualHeal}`:'도서관장 회복 0 · 최대 체력';text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';
@@ -357,7 +361,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       effectNodes.forEach(n=>n.remove());effectNodes=[];
       const score=find(root,'score');if(score){score.style.textShadow='';score.style.fontWeight='';}
       audio?.stopAll?.();
-      showHp(resolution.enemyHpAfter);showBossState(resolution.bossStateAfter);
+      showHp(resolution.turnEndReceipt?.hpAfterTurnEnd??resolution.enemyHpAfter);showBossState(resolution.bossStateAfter);
       const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = resolution.killed ? '0' : '1'; enemy.dataset.defeated = String(Boolean(resolution.killed)); }
       clearHighlights(); adapter.clearConnections();
     },

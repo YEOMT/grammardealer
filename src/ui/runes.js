@@ -3,9 +3,9 @@ import {runeForVersion} from '../data/runes.js';
 import {describeRune} from '../engine/runes.js';
 export function runeView(instance,{index=0,total=1,onOrder,readonly=false,entry=false,version='0.3.0'}={}){
  const rune=runeForVersion(instance.runeId,version);
- const node=el('div',{class:`rune-slot ${entry&&rune.scope==='AT_BATTLE_RULES_SNAPSHOT'?'utility-entry':''}`,dataset:{runeId:rune.id,runeInstanceId:instance.instanceId,runeIndex:String(index)},style:`--rune-color:${rune.color}`});
+ const node=el('div',{class:`rune-slot ${entry&&rune.scope==='AT_BATTLE_RULES_SNAPSHOT'?'utility-entry':''}`,dataset:{runeId:rune.id,runeInstanceId:instance.instanceId,runeIndex:String(index),rarity:rune.rarity},style:`--rune-color:${rune.color}`});
  const info=()=>modal(`${rune.nameKo} · Lv.${instance.level}`,[el('p',{text:rune.conditionDescriptionKo}),el('p',{text:describeRune(rune.id,instance.level,version)})]);
- node.append(el('div',{class:'rune-slot-head'},el('span',{class:'rune-order-number',text:index+1}),el('span',{class:'rune-gem',text:'◆'}),button(`${rune.nameKo} · Lv.${instance.level}`,info,'rune-info',{disabled:readonly})),el('div',{class:'rune-effect',text:describeRune(rune.id,instance.level,version)}));
+ node.append(el('div',{class:'rune-slot-head'},el('span',{class:'rune-order-number',text:index+1}),el('span',{class:'rune-gem'+(rune.id==='rune.longSentence'&&rune.rarity==='RARE'?' diamond-gem':''),text:'◆'}),button(`${rune.nameKo} · Lv.${instance.level}`,info,'rune-info',{disabled:readonly})),el('div',{class:'rune-effect',text:describeRune(rune.id,instance.level,version)}));
  const move=to=>{if(!readonly&&!document.querySelector('dialog[open]'))onOrder?.(index,to);};
  node.append(el('div',{class:'rune-order-controls'},button('▲',()=>move(index-1),'rune-up',{'aria-label':`${rune.nameKo} 위로`,disabled:readonly||index===0}),button('▼',()=>move(index+1),'rune-down',{'aria-label':`${rune.nameKo} 아래로`,disabled:readonly||index===total-1}),button('⠿',()=>{},'rune-drag-handle',{'aria-label':`${rune.nameKo} 끌어서 순서 변경 · 방향키도 사용 가능`,disabled:readonly,onkeydown:e=>{if(['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();const to=index+(e.key==='ArrowUp'?-1:1);if(to>=0&&to<total)move(to);}}})));
  return node;

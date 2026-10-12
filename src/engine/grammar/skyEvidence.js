@@ -1,7 +1,7 @@
 import {emberEvidence} from './emberEvidence.js';
 /** Serialize the parser's constituent tree. No token insertion, state, unlocks or arithmetic. */
 export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limits}){
- const waterways=registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0',polish061=ember||registry.version==='0.6.1';
+ const library=registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0',polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6',desert=snow||registry.validationScope==='desert.0.5';
  const ids=(start,end)=>tokens.slice(start,end).map(t=>t.cardInstanceId),at=i=>tokens[i]?.cardInstanceId??null;
  const issues=[...new Map(best.issues.map(i=>[i.causeId,i])).values()].map((i,n)=>({...i,id:`issue.${n}`}));
@@ -50,6 +50,20 @@ export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limit
  }
  const questionClauses=[],embeddedQuestions=[];
  if(waterways)for(const [source,nodeId]of sourceNodes)if(source.question){const q=source.question,c=clauses.find(c=>c.nodeId===nodeId);const row={id:'question.'+(questionClauses.length+embeddedQuestions.length),nodeId,clauseId:c?.id??null,parentClauseId:c?.parentClauseId??null,kind:q.kind,whRole:q.whRole,markerCardId:q.markerIndex===null?null:at(q.markerIndex),whCardIds:q.whIndices.map(at),subjectNodeId:c?.subjectNodeId??null,predicateHeadCardId:at(source.head),cardIds:ids(source.start,source.end),range:[source.start,source.end],inverted:q.inverted,finite:!q.nonfinite};(q.kind.startsWith('EMBEDDED')?embeddedQuestions:questionClauses).push(row);}
+ const nominalStructures=[];
+ if(library)for(const [source,nodeId]of sourceNodes){
+  const nominal=source.nominal??(source.linkRole==='CONTENT_CLAUSE'?{kind:'NOMINAL_THAT',externalRole:'OBJECT',markerIndex:source.connectorIndex??null}:source.question?.kind==='EMBEDDED_WH'?{kind:'NOMINAL_QUESTION',externalRole:'OBJECT',markerIndex:source.question.markerIndex}:null);
+  if(!nominal)continue;
+  const node=nodes.find(n=>n.id===nodeId),cardIds=[...new Set([...node.cardIds,...[nominal.dummyIndex,nominal.finiteIndex].filter(x=>x!==undefined).map(at)])];
+  // The nominal head may also be the outer subject's agreement anchor. Only
+  // errors owned by this constituent invalidate it; extraposition additionally
+  // owns its dummy subject and finite be, which are outside the AP node.
+  const localCauses=new Set((source.issues??[]).map(i=>i.causeId));
+  const extrapositionAnchors=[nominal.dummyIndex,nominal.finiteIndex].filter(x=>x!==undefined).map(at);
+  const ownIssueIds=issues.filter(i=>localCauses.has(i.causeId)||i.cardIds.some(id=>extrapositionAnchors.includes(id))).map(i=>i.id);
+  const childClauses=clauses.filter(c=>node.cardIds.includes(c.verbCardId));
+  nominalStructures.push({id:'nominal.'+nominalStructures.length,nodeId,kind:nominal.kind,externalRole:nominal.externalRole,cardIds,range:[source.start,source.end],markerCardId:nominal.markerIndex==null?null:at(nominal.markerIndex),dummySubjectCardId:nominal.dummyIndex===undefined?null:at(nominal.dummyIndex),contentCardIds:nominal.contentStart===undefined?node.cardIds:ids(nominal.contentStart,source.end),gapRole:nominal.gapRole??null,clauseIds:childClauses.map(c=>c.id),ownIssueIds,validity:ownIssueIds.length?'RECOVERED':'VALID'});
+ }
  const formUses=ember?emberEvidence({tokens,nodes,clauses,clauseSources,vpRows,nonfiniteSources,grammarHits,issues,sourceNodes}):null;
- return {...(waterways?{relativeClauses,questionClauses,embeddedQuestions}:{}),...(ember?{formUses}:{}),status:recovered?'VALID_WITH_ISSUES':'VALID',rootNodeId,mainClauseId:'clause.main',mainScoreClauseId:'clause.main',primaryScoringClauseId:'clause.main',mainFrameId:best.frameId,nodes,clauses,structures,...(desert?{nonfinitePhrases}:{}),resolvedTokenRoles:roles,grammarHits,issues,verbPhrases,evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),ambiguities:candidateCount>1?[{type:'EQUIVALENT_FULL_COVERAGE_ANALYSES',candidateCount,normalizedTo:best.frameId,selectionPolicy:'fewest-issues/outer-coordination/registered-content/fixed-school-frame',noteKo:'같은 카드를 모두 설명하는 문법 분석 중 고정된 구조 우선순위를 사용합니다.'}]:[],coverage:{consumedCardIds:tokens.map(t=>t.cardInstanceId),issueAffectedCardIds:[...new Set(issues.flatMap(i=>i.cardIds))],unlicensedCardIds:unlicensed},diagnostics:{workUnits,candidateCount,limits},messageKo:recovered?'문장 구조 확인':'완전한 문장!'};
+ return {...(library?{nominalStructures}:{}),...(waterways?{relativeClauses,questionClauses,embeddedQuestions}:{}),...(ember?{formUses}:{}),status:recovered?'VALID_WITH_ISSUES':'VALID',rootNodeId,mainClauseId:'clause.main',mainScoreClauseId:'clause.main',primaryScoringClauseId:'clause.main',mainFrameId:best.frameId,nodes,clauses,structures,...(desert?{nonfinitePhrases}:{}),resolvedTokenRoles:roles,grammarHits,issues,verbPhrases,evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),ambiguities:candidateCount>1?[{type:'EQUIVALENT_FULL_COVERAGE_ANALYSES',candidateCount,normalizedTo:best.frameId,selectionPolicy:'fewest-issues/outer-coordination/registered-content/fixed-school-frame',noteKo:'같은 카드를 모두 설명하는 문법 분석 중 고정된 구조 우선순위를 사용합니다.'}]:[],coverage:{consumedCardIds:tokens.map(t=>t.cardInstanceId),issueAffectedCardIds:[...new Set(issues.flatMap(i=>i.cardIds))],unlicensedCardIds:unlicensed},diagnostics:{workUnits,candidateCount,limits},messageKo:recovered?'문장 구조 확인':'완전한 문장!'};
 }

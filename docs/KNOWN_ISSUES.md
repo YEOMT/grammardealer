@@ -1,3 +1,13 @@
+# 0.9 현재 미완료/검증 한계
+
+- 새 자연 보상42전투 완주 및 Stage9의 영구카드 준비→목표문법 제출→보스 회복/저지 자료 미확보(AC-085/088 NOT RUN). 최종 자동60원정은 실제 정상패배, 엔진오류0. 정책 한계/사람 난이도를 구분하며 확정수치를 임의로 완화하지 않는다.
+- Stage9 전용 원화/BGM 미제공. 기존 emoji/테마 fallback이며 제작완료가 아니다.
+- 실제 휴대기기 Safari/Android, 스피커 청취, 교사/학생 사용성 검수 NOT RUN. Playwright3엔진과 AudioManager mute 검사와 구분한다.
+- build의 단일JS청크500kB 경고. 빌드는 성공; 범위 밖 구조 분할은 보류.
+- 미래 로드맵에 예약된 다이아몬드라는 이름과 현재 longSentence 표시명의 문서 충돌 정리 대기. 미래룬 구현을 의미하지 않는다.
+
+[실행 결과](TEST_REPORT_0.9.md). 이 PR은 Draft이며 main 병합/공개배포는 수행하지 않는다. 아래는 과거 이슈 기록이다.
+
 ## 0.8 검수 범위와 남은 한계
 
 - Windows Playwright WebKit의 기존 native core 연출 검사가 watchdog timeout(FAST_FORWARDED)으로 실패했다. 현재 코드 두 실행과 시작 main의 별도 재실행에서 관측했으며 정확한 원인은 미확정이다. Stage8 집중 UI/37전투 완주와 별개인 교차 브라우저 차단 사항이다. assertion/시간 예산은 변경하지 않았다. 상세는 [비교 진단](validation/v0.8/webkit-timing-investigation.json)을 따른다.

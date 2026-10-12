@@ -7,7 +7,7 @@ import {runeView,bindRuneDrag} from './runes.js';
 import { el, button, modal, confirmDialog } from './dom.js';
 import { wordCard } from './cards.js';
 import { cardModel, operationPolishPreview, runeDescription as describeRuneForUI } from './models.js';
-import { RUNE_BY_ID } from '../data/runes.js';
+import { runeForVersion } from '../data/runes.js';
 import { HARBOR_BOSS_HINT } from './progression.js';
 
 // This set controls only an entrance animation; the controller owns the persisted grant.
@@ -36,7 +36,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
     view=modal('교체할 룬을 선택하세요',[
       el('p',{text:'구매는 교체 대상을 확정한 뒤 한 번만 처리합니다. 취소하면 룬·재화·상품이 그대로 유지됩니다.'}),
       el('div',{class:'reward-choices'},state.runes.orderedInstanceIds.map(id=>{
-        const rune=state.runes.instances[id],def=RUNE_BY_ID[rune.runeId];
+        const rune=state.runes.instances[id],def=runeForVersion(rune.runeId,state.version);
         return el('section',{class:'reward-choice',style:`--rune-color:${def.color}`},el('h3',{text:`${def.nameKo} Lv.${rune.level}`}),
           el('p',{text:runeDescription(def,rune.level)}),button('이 룬과 교체',()=>buy(item,{replaceRuneInstanceId:id}),'primary',{'aria-label':`${def.nameKo}와 교체`}));
       })),button('교체 취소',()=>view.close(),'secondary',{id:'cancel-shop-replacement'})],{wide:true});
@@ -54,7 +54,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
     const polish=kind==='POLISH',ids=state.activeCardIds.filter(id=>!polish||canPolish(state.cardInstances[id],state.version));
     let view;
     view=modal(polish?'상점 · 연마할 카드 한 장 선택':'상점 · 제거할 카드 한 장 선택',[
-      el('p',{text:polish?(['0.6.1','0.7.0','0.8.0','0.8.1'].includes(state.version)?'8 재화 · 단어 최대 +3, 영구 운영 최대 +1. 이 상점에서 한 번 사용할 수 있습니다.':'8 재화 · 한 카드 +1, 최대 +3. 이 상점에서 한 번 사용할 수 있습니다.'):'선택한 실제 카드 한 장을 제거합니다. 확정 전에는 재화와 서비스 횟수를 사용하지 않습니다.'}),
+      el('p',{text:polish?(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0'].includes(state.version)?'8 재화 · 단어 최대 +3, 영구 운영 최대 +1. 이 상점에서 한 번 사용할 수 있습니다.':'8 재화 · 한 카드 +1, 최대 +3. 이 상점에서 한 번 사용할 수 있습니다.'):'선택한 실제 카드 한 장을 제거합니다. 확정 전에는 재화와 서비스 횟수를 사용하지 않습니다.'}),
       el('div',{class:'reward-target-grid'},ids.map(id=>{
         const model=cardModel(state.cardInstances[id],null,state.version);
         return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&model.cardKind==='OPERATION'&&el('p',{class:'operation-polish-preview',text:operationPolishPreview(model)}),
@@ -65,9 +65,9 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
   const inventory=shop.inventory.map(item=>{
     let detail;
     if(item.kind==='RUNE'){
-      const def=RUNE_BY_ID[item.runeId],owned=state.runes.orderedInstanceIds.map(id=>state.runes.instances[id]).find(r=>r.runeId===item.runeId);
+      const def=runeForVersion(item.runeId,state.version),owned=state.runes.orderedInstanceIds.map(id=>state.runes.instances[id]).find(r=>r.runeId===item.runeId);
       const level=owned?.level??0,nextLevel=Math.min(3,level+1);
-      detail=[el('div',{class:'reward-gem',text:'◆',style:`color:${def.color}`}),el('h2',{text:def.nameKo}),
+      detail=[el('div',{class:'reward-gem'+(state.version==='0.9.0'&&def.id==='rune.longSentence'?' diamond-gem':''),text:'◆',style:`color:${def.color}`}),el('h2',{text:def.nameKo}),
         el('strong',{text:item.purchased?`구매한 룬 · Lv.${item.offeredLevel}`:level?`Lv.${level} → Lv.${nextLevel}`:'새 룬 · Lv.1'}),
         !item.purchased&&level>0&&el('small',{text:`현재: ${runeDescription(def,level)}`}),el('p',{text:`${item.purchased?'구매 효과':'획득 후'}: ${runeDescription(def,item.purchased?item.offeredLevel:nextLevel)}`})];
     }else{
@@ -76,10 +76,10 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
     }
     return el('article',{class:'shop-item panel',dataset:{itemId:item.itemId,itemKind:item.kind,purchased:String(item.purchased)}},...detail,
       el('strong',{class:'shop-price',text:item.purchased?'구매 완료':`${item.price} 재화`}),
-      button(item.purchased?'구매 완료':gold<item.price?'재화 부족':'구매',()=>buy(item),'primary',{disabled:item.purchased||gold<item.price,'aria-label':`${item.kind==='RUNE'?RUNE_BY_ID[item.runeId].nameKo:cardModel({instanceId:'preview',cardDefId:item.cardDefId},null,state.version).surface} 구매`}));
+      button(item.purchased?'구매 완료':gold<item.price?'재화 부족':'구매',()=>buy(item),'primary',{disabled:item.purchased||gold<item.price,'aria-label':`${item.kind==='RUNE'?runeForVersion(item.runeId,state.version).nameKo:cardModel({instanceId:'preview',cardDefId:item.cardDefId},null,state.version).surface} 구매`}));
   });
   const services=Object.entries(shop.services).map(([kind,entry])=>el('article',{class:'shop-service panel',dataset:{serviceKind:kind}},
-    el('div',{},el('h2',{text:kind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:kind==='POLISH'?(['0.6.1','0.7.0','0.8.0','0.8.1'].includes(state.version)?'단어 최대 +3 · 영구 운영 최대 +1':'카드 한 장 +1 · 단계마다 +5점 · 최대 +3'):'실제 카드 한 장을 덱에서 제거'}),
+    el('div',{},el('h2',{text:kind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:kind==='POLISH'?(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0'].includes(state.version)?'단어 최대 +3 · 영구 운영 최대 +1':'카드 한 장 +1 · 단계마다 +5점 · 최대 +3'):'실제 카드 한 장을 덱에서 제거'}),
       el('strong',{text:entry.used?'사용 완료 · 상점당 1회':`${entry.price} 재화 · 상점당 1회`})),
     button(entry.used?'사용 완료':gold<entry.price?'재화 부족':'대상 선택',()=>targets(kind),'secondary',{disabled:entry.used||gold<entry.price,'aria-label':`${kind==='POLISH'?'연마':'제거'} 대상 선택`})));
   const animateGrant=grant&&!displayedGrants.has(grant.entryGrantId);

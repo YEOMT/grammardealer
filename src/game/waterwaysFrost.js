@@ -3,7 +3,7 @@ const SOURCE='ANCIENT_WATERWAYS',BATTLE='battle.08.03',DEFS=['card.where','card.
 const idFor=(run,i)=>`frost.${run.runId}.waterways.${i}`;
 const fail=reason=>{throw Error('Waterways frost: '+reason);};
 export function createWaterwaysFrost(run){
- if(!['0.8.0','0.8.1'].includes(run.version)||run.progress.stageId!=='stage.08'||run.progress.roundIndex!==2)return null;
+ if(!['0.8.0','0.8.1','0.9.0'].includes(run.version)||run.progress.stageId!=='stage.08'||run.progress.roundIndex!==2)return null;
  const ids=DEFS.map((_,i)=>idFor(run,i)),meta={};if(ids.some(id=>run.cardInstances[id]))fail('duplicate supply');
  ids.forEach((instanceId,i)=>{const cardDefId=DEFS[i];meta[instanceId]={source:SOURCE,stageId:'stage.08',battleId:BATTLE,cardDefId,cardKind:'WORD',lifetime:'BATTLE',crystalBearing:false,supportOnly:true,supplyIndex:i};run.cardInstances[instanceId]={instanceId,cardDefId,polishLevel:0,specialEffectId:null,temporary:{source:SOURCE,battleId:BATTLE}};});
  const language=registryForVersion(run.version);run.vocabulary.encounteredLexemeIds=[...new Set([...run.vocabulary.encounteredLexemeIds,...DEFS.map(id=>language.cardById[id].lexemeId)])];
@@ -20,7 +20,7 @@ export function ensureWaterwaysFrostVisibility(piles,supply){
  supply.waterwaysFrostTrace.push({kind:'WATERWAYS_VISIBILITY_SWAP',incoming,outgoing,handIndex:target,drawIndex:source});
 }
 export function validateWaterwaysFrost(run){
- const c=run.combat,expected=['0.8.0','0.8.1'].includes(run.version)&&run.progress.stageId==='stage.08'&&run.progress.roundIndex===2&&c;
+ const c=run.combat,expected=['0.8.0','0.8.1','0.9.0'].includes(run.version)&&run.progress.stageId==='stage.08'&&run.progress.roundIndex===2&&c;
  if(!expected){if(c?.waterwaysFrostTrace!==undefined||Object.values(run.cardInstances).some(x=>x.temporary?.source===SOURCE))fail('outside battle35');return true;}
  if(c.frostSupplyTrace!==undefined||c.dustSupplyTrace!==undefined||c.enemyState.id!==BATTLE)fail('mixed source');
  const ids=c.temporaryCardIds,broken=c.shatteredTemporaryIds,meta=c.temporaryCardMeta,trace=c.waterwaysFrostTrace;

@@ -1,0 +1,16 @@
+{
+  "url": "https://github.com/YEOMT/grammardealer/pull/14",
+  "number": 14,
+  "draft": true,
+  "state": "open",
+  "headSha": "5855a5494e27d480e105be55595c4e0623d17044",
+  "head": "codex/v0.9-dream-library",
+  "base": "main",
+  "autoMerge": null,
+  "merged": false,
+  "createdAt": "2026-10-12T11:37:30Z",
+  "verifiedAt": "2026-10-12T11:37:31.118346+00:00",
+  "remoteMainSha": "0915161fecd6466c7b95f9f1195f661ef086a9d3",
+  "startMainUnchanged": true,
+  "headShaMeaning": "Implementation and local-test commit; following report-only commit records this verified PR creation."
+}

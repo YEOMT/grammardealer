@@ -271,6 +271,17 @@ body[data-stage-theme="stage.08"]{--stage-gradient:repeating-linear-gradient(0de
 .card-body{position:relative}.card-info{position:absolute;right:2px;top:22px;width:26px;min-height:26px;padding:0;border:0;background:transparent;color:#40534d;font-size:16px;line-height:26px;z-index:1}
 .dual-usage-badge{border:1px solid var(--pos);color:var(--pos);border-radius:3px;font-weight:750;padding:0 2px;white-space:nowrap}
 .dual-usage-card .pos-label{display:flex;gap:4px;align-items:center}
+.word-card.rarity-UNCOMMON{border-inline-color:#8b9ba9;box-shadow:inset 2px 0 #fbfdff,inset -2px 0 #718395,0 4px 0 #7c8b99,0 7px 14px #0003}
+.word-card.rarity-UNCOMMON:not(.drop-before):not(.drop-after):not(.drop-replace)::before{content:"";position:absolute;inset:3px 1px;pointer-events:none;border-inline:2px dotted #8092a4;border-radius:5px;background:linear-gradient(130deg,#fff9,transparent 16%,transparent 83%,#78899933);z-index:0}
+.word-card.rarity-UNCOMMON .card-body{z-index:1}
+.dual-usage-card .card-topline>.card-value{margin-left:auto}
+.diamond-gem{display:inline-block;position:relative;color:transparent!important;background:conic-gradient(from 30deg,#fff,#9cb8d0,#f9feff,#a4d6ed,#fff,#8aafcb,#eaf9ff);background-size:150% 150%;clip-path:polygon(24% 5%,76% 5%,100% 35%,50% 100%,0 35%);min-width:19px;height:21px;filter:drop-shadow(0 0 2px #d9f3ff)}
+.rune-slot[data-rarity="RARE"]{border-color:#b79956;box-shadow:inset 0 0 0 1px #d7b77440}
+body[data-stage-theme="stage.09"]{background:radial-gradient(ellipse at 60% 24%,#49396540,transparent 65%),linear-gradient(135deg,#191c30,#111825 70%)}
+body[data-stage-theme="stage.09"] .panel,body[data-stage-theme="stage.09"] .game-shell{--gold:#dfc58a;--muted:#b4b9cb}
+.library-preview p{margin-top:8px}.library-turn-status{color:#c7d5ef;font-size:11px;line-height:1.4;max-width:200px}
+body[data-stage-theme="stage.09"] .combat-actions button{min-height:44px}
+.nominal-evidence{border-left:2px solid #b7a1dc;padding-left:9px}
 .obstacle-card .obstacle-name{margin-block:auto}.operation-card .operation-limit{margin-block:auto}
 .battle-learning-guide{font-size:12px;line-height:1.35;text-align:left;width:100%;color:var(--cream)}
 .learning-topic{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.learning-topic strong{color:var(--gold)}.learning-topic>span,.learning-bonus{color:var(--muted)}
