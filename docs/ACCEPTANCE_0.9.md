@@ -95,4 +95,4 @@ U: `tests/v09-library-grammar.test.js`, `tests/v09-library-state.test.js`와 전
 | AC-087 | HP/카드/턴/룬을 주입한 합성 검증을 자연 원정 완주·승률로 보고하지 않는다. | PASS | 모든 지정 상태/연마3/Lv3 주입을 명시, 자연 정책 결과와 분리 |
 | AC-088 | 보스 무지급 상태의 자연 보상 준비·총 소모 턴·실제 회복/저지·정상 패배를 구분해 보고한다. | NOT RUN | 자연 보상 자동원정은 Stage9 도달 전 정상패배. 보스준비·회복/저지 자연경로 미실행 |
 | AC-089 | 새로 채택한 초기 수치와 사용자 확정값, 미완료 자산을 최종 보고에서 구분한다. | PASS | 패치노트/검증보고서 확정·초기·자산대기 표 |
-| AC-090 | 브랜치 커밋·push·PR까지만 수행하고 main 병합·공개 배포를 자동 실행하지 않는다. | NOT RUN | 로컬 검증 완료 후 원격 commit/push/PR 기록으로 갱신 예정 |
+| AC-090 | 브랜치 커밋·push·PR까지만 수행하고 main 병합·공개 배포를 자동 실행하지 않는다. | PASS | 구현5855a54 push 및 [Draft PR #14](https://github.com/YEOMT/grammardealer/pull/14) 생성 확인. main SHA 불변/autoMerge 없음; [원격 근거](validation/v0.9/remote.json) |

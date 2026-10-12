@@ -95,3 +95,7 @@ Stage9 전용 원화/배경 원본/BGM은 패키지에 없으므로 emoji와 기
 기존 workflow의 Pages 업로드/배포는 main이며 PR이 아닌 이벤트로 한정되어 있다. 설정은 변경하지 않았다. main 직접push/merge/auto-merge/Pages 설정 변경/공개 배포를 수행하지 않는다. 브랜치 commit/push 및 Draft PR 결과는 별도 remote 기록에 연결한다.
 
 다음 검토는 자연0.9 원정의 장기 덱 운영과 Stage9 목표카드 보상 준비를 확보하는 것이다. QA 정책을 개선해도 게임 확정값이나 검사를 완화하지 않는다. AC-085/088의 자연 흐름 증거가 확보되기 전에는42전투 완주 검증 완료로 승격하지 않는다.
+
+## 원격 반영 확인
+
+구현 커밋 `5855a5494e27d480e105be55595c4e0623d17044`를 `codex/v0.9-dream-library`에 push하고 [Draft PR #14](https://github.com/YEOMT/grammardealer/pull/14)를 생성했다. main은 시작SHA와 동일하고 merge/auto-merge는 없다. [원격 확인](validation/v0.9/remote.json). 이 후속 문서 커밋은 게임/검사/빌드 내용을 바꾸지 않는다. 인수 조건90개 중 명시한 근거 범위의 PASS88, 자연원정 관련 NOT RUN2(AC-085/088)다.

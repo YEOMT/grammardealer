@@ -1956,6 +1956,7 @@
     "docs/validation/v0.9/assigned-card-gallery.png",
     "docs/validation/v0.9/assigned-layout-1366.png",
     "docs/validation/v0.9/assigned-production-stage9-end.png",
+    "docs/validation/v0.9/remote.json",
     "docs/validation/v0.9/summary.json",
     "package-lock.json",
     "package.json",
@@ -2190,5 +2191,31 @@
         }
       ]
     }
-  ]
+  ],
+  "remote": {
+    "url": "https://github.com/YEOMT/grammardealer/pull/14",
+    "number": 14,
+    "draft": true,
+    "state": "open",
+    "headSha": "5855a5494e27d480e105be55595c4e0623d17044",
+    "head": "codex/v0.9-dream-library",
+    "base": "main",
+    "autoMerge": null,
+    "merged": false,
+    "createdAt": "2026-10-12T11:37:30Z",
+    "verifiedAt": "2026-10-12T11:37:31.118346+00:00",
+    "remoteMainSha": "0915161fecd6466c7b95f9f1195f661ef086a9d3",
+    "startMainUnchanged": true,
+    "headShaMeaning": "Implementation and local-test commit; following report-only commit records this verified PR creation."
+  },
+  "acceptance": {
+    "PASS": 88,
+    "FAIL": 0,
+    "NOT RUN": 2,
+    "notRun": [
+      "AC-085",
+      "AC-088"
+    ],
+    "note": "Individual source/test scopes; production natural E2E command fails on normal policy defeat."
+  }
 }
