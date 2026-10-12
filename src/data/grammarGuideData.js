@@ -89,3 +89,14 @@ export function nonfiniteUsageNotes(word){return [word.lemma==='enjoy'?'enjoy �
 export const CLAUSE_ROLES={NONFINITE:'준동사구',MAIN:'주절',COORDINATE:'대등한 절',ADVERBIAL:'부사절',CONTENT_OBJECT:'목적어 명사절',RELATIVE:'관계절',EMBEDDED_QUESTION:'간접의문절'};
 export const LINK_ROLES={COORDINATED_CLAUSES:'등위절 연결',ADVERBIAL_CLAUSE:'부사절 연결',CONTENT_CLAUSE:'내용 목적어절',SHARED_SUBJECT_VP:'주어를 공유하는 동사구',NP_COORDINATION:'명사구 연결',AP_COORDINATION:'형용사구 연결',PP_COORDINATION:'전치사구 연결',ADVP_COORDINATION:'부사구 연결'};
 export const CLAUSE_GUIDE={clause:'절은 주어와 동사를 중심으로 이루어진 덩어리입니다.',coordinate:'등위절은 대등한 두 절입니다. 왼쪽 절이 계산 기준이어도 오른쪽 절이 종속절이 되지는 않습니다.',adverbial:'부사절은 이유·시간·조건 등의 정보를 주절에 덧붙입니다.',content:'명사절은 절 전체가 명사처럼 목적어 등의 자리를 맡습니다.',that:'that은 지시 한정사·대명사·관계절 연결·내용절 연결 역할을 문장 구조에 따라 맡습니다.'};
+
+/** Reviewed names for selected nominal/extraposition nodes; never generated from card text. */
+export const NOMINAL_GUIDE={NOMINAL_WHAT:'what 명사절',NOMINAL_QUESTION:'간접의문 명사절',NOMINAL_WHETHER:'whether 명사절',NOMINAL_THAT:'that 내용절',EXTRAPOSED_SUBJECT_TO:'가주어 · to부정사 진주어',EXTRAPOSED_SUBJECT_THAT:'가주어 · that절 진주어'};
+export const NOMINAL_CATALOG=[
+ {kind:'NOMINAL_WHAT',pattern:'what + 빈자리가 있는 절',description:'what절 전체가 주어·목적어·보어의 명사 자리를 맡습니다. 앞 명사를 꾸미는 수식 관계절과 구별합니다.'},
+ {kind:'NOMINAL_QUESTION',pattern:'의문사 + 주어 + 동사',description:'검수된 동사 뒤에서 질문 내용을 명사절로 전달합니다. 직접의문문의 도치 어순을 사용하지 않습니다.'},
+ {kind:'NOMINAL_WHETHER',pattern:'whether + 주어 + 동사',description:'whether 뒤에는 완전한 유한절을 씁니다. or not은 필수가 아닙니다.'},
+ {kind:'NOMINAL_THAT',pattern:'동사 + (that) + 주어 + 동사',description:'내용절이 동사의 목적어가 됩니다. 검수된 that 생략형도 같은 구조로 기록합니다.'},
+ {kind:'EXTRAPOSED_SUBJECT_TO',pattern:'It + be + 형용사 + to부정사',description:'it은 가주어이고 뒤의 to부정사가 진주어입니다. 허용된 평가 형용사와 실제 내용을 함께 확인합니다.'},
+ {kind:'EXTRAPOSED_SUBJECT_THAT',pattern:'It + be + 형용사 + that절',description:'it은 가주어이고 뒤의 that절이 진주어입니다. 지시적 it이나 명사를 꾸미는 관계절과 구별합니다.'},
+];

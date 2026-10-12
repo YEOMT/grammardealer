@@ -1,0 +1,5 @@
+import {deepFreeze} from '../contracts.js';
+import {LIBRARY_CONFIRMED,LIBRARY_INITIAL,LIBRARY_ENTRY_NOTICE} from './libraryPolicy.js';
+export const LIBRARY_HINT='턴 종료 시 체력을 최대 1000 회복합니다. 그 턴에 정상적인 명사절 또는 가주어·진주어 구문으로 피해를 주면 회복을 저지합니다. 체력이 0이면 즉시 격파합니다.';
+export const STAGE9=deepFreeze({id:'stage.09',nameKo:'몽환의 대서고',theme:'library',focusFrames:[],regionLabelKo:'몽환의 대서고 · 명사절·가주어 ×1.25',regionMultiplier:LIBRARY_INITIAL.regionMultiplier,bossHintKo:LIBRARY_HINT,entryNoticeKo:LIBRARY_ENTRY_NOTICE,
+ rounds:[['잉크 나비','🦋','what 명사절'],['올빼미 사서','🦉','where · when 간접의문문'],['호기심 많은 요정','🧚','whether 명사절'],['속이 빈 인형','🪆','가주어 · 진주어'],['도서관장','📚','명사절 · 가주어로 회복 저지']].map(([nameKo,emoji,focusKo],i)=>({id:`battle.09.0${i+1}`,battleNumber:38+i,enemyId:i===4?'boss.stage9':`enemy.stage9.0${i+1}`,nameKo,emoji,focusKo,hp:i===4?LIBRARY_CONFIRMED.bossHp:LIBRARY_INITIAL.normalHp[i],kind:i===4?'REGIONAL_BOSS':'NORMAL',...(i===4?{bossMechanic:{id:'LIBRARY_REGENERATION',healPerTurnEnd:LIBRARY_CONFIRMED.healPerTurnEnd}}:{})})),exitStatus:'CONTENT_COMPLETE',contentBoundary:'STAGE9_END',notStoryClear:true,nextStageImplemented:false});

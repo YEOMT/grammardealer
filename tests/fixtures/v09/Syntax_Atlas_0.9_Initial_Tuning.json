@@ -1,0 +1,125 @@
+{
+  "documentKind": "SPECIFICATION_NOT_EXECUTED_GAME_CONFIG",
+  "baselineCommit": "0915161fecd6466c7b95f9f1195f661ef086a9d3",
+  "confirmed": {
+    "regionName": "몽환의 대서고",
+    "roundNames": [
+      "잉크 나비",
+      "올빼미 사서",
+      "호기심 많은 요정",
+      "속이 빈 인형",
+      "도서관장"
+    ],
+    "campaignBattles": 42,
+    "boss": {
+      "maxHp": 3000,
+      "healPerTurnEnd": 1000,
+      "clampedToMax": true,
+      "killBeforeHealing": true,
+      "temporarySupplyCount": 0
+    },
+    "existingBossHp": [
+      400,
+      800,
+      840,
+      1200,
+      1300,
+      1600,
+      1900,
+      2200
+    ],
+    "golemPhaseHp": [
+      280,
+      280,
+      280
+    ],
+    "diamond": {
+      "internalId": "rune.longSentence",
+      "nameKo": "다이아몬드 룬",
+      "rarity": "RARE",
+      "levelValues": [
+        [
+          1.8,
+          2.4
+        ],
+        [
+          2.2,
+          2.8
+        ],
+        [
+          2.6,
+          3.2
+        ]
+      ],
+      "runeRarityWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      },
+      "rareRateScope": "one rune candidate; all rarity classes eligible; before candidate depletion"
+    },
+    "wordRarity": {
+      "have": "RARE",
+      "that": "RARE",
+      "to": "UNCOMMON",
+      "make": "UNCOMMON",
+      "help": "UNCOMMON",
+      "be": "UNCOMMON",
+      "want": "UNCOMMON"
+    },
+    "starterDeckSizeUnchanged": 28,
+    "helpBadgeCorner": "TOP_LEFT"
+  },
+  "proposedInitialValuesNotUserConfirmed": {
+    "normalHp": [
+      1700,
+      1800,
+      1900,
+      2000
+    ],
+    "normalFrost": [
+      {
+        "round": 1,
+        "always": {
+          "what": 1
+        }
+      },
+      {
+        "round": 2,
+        "always": {
+          "where": 1,
+          "when": 1
+        }
+      },
+      {
+        "round": 3,
+        "always": {
+          "whether": 1
+        }
+      },
+      {
+        "round": 4,
+        "ifNotPermanentlyOwned": {
+          "that": 1,
+          "it": 1,
+          "to": 1
+        }
+      }
+    ],
+    "newWordRarity": {
+      "what": "UNCOMMON",
+      "whether": "UNCOMMON"
+    },
+    "regionMultiplier": {
+      "num": 5,
+      "den": 4,
+      "limit": "ONCE_PER_ATTACK"
+    },
+    "visibility": "reuse stable non-witness swap where possible; normals only; no new draw credit"
+  },
+  "unagreedFeaturePolicy": {
+    "newIndependentGrammarMultipliers": "DO_NOT_ADD_WITHOUT_FURTHER_APPROVAL",
+    "bossRescueSupply": "PROHIBITED",
+    "newStage9Shop": "OUT_OF_SCOPE"
+  }
+}

@@ -1,3 +1,4 @@
+import {NOMINAL_GUIDE,NOMINAL_CATALOG} from '../data/grammarGuideData.js';
 import {SNOW_GRAMMAR_DISPLAY as GRAMMAR_DISPLAY,EMBER_GRAMMAR_DISPLAY,WATERWAYS_GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
 import {visibleForms,formLabel} from './formView.js';
 import {isIngForm} from '../data/language/desertLanguage.js';
@@ -101,6 +102,7 @@ function learningBlock(record){
   ...(record.links??[]).map(l=>el('p',{class:'record-metadata',text:(l.connectorCardIds.length?l.connectorCardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' / '):'that 생략')+' · '+(LINK_ROLES[l.role]??'구 연결')})),
   ...(record.verbPhrases??[]).map(v=>el('p',{class:'record-metadata',text:v.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+(!v.chainWellFormed?'형태 연결 확인':v.finiteCardId?[TIME_ROLE_LABELS[v.tenseFamily],...v.aspects.map(a=>TIME_ROLE_LABELS[a])].filter(Boolean).join(' · '):'비정형 동사구 · 독립된 시간 열쇠 없음')})),
   ...(record.nonfinitePhrases??[]).filter(p=>nonfiniteLabel(p)).map(p=>el('p',{class:'nonfinite-evidence',text:p.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+nonfiniteLabel(p)})),
+  ...(record.nominalStructures??[]).map(n=>el('p',{class:'nominal-evidence',text:n.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+NOMINAL_GUIDE[n.kind]+(n.validity!=='VALID'?' · 구문 형태 확인':'')})),
   ...(record.relativeClauses??[]).map(r=>el('p',{class:'relative-evidence',text:(record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===r.antecedentHeadCardId)?.surface??'')+' → '+r.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+(RELATIVE_ROLE_LABELS[r.relativeRole]??'관계절')+(r.markerOmitted?' · 목적격 관계사 생략':'')+(r.ownIssueIds.length?' · 관계절 형태 확인':'')})),
   ...[...(record.questionClauses??[]),...(record.embeddedQuestions??[])].map(q=>el('p',{class:'question-evidence',text:q.cardIds.map(id=>record.sentenceSnapshot.orderedTokens.find(t=>t.cardInstanceId===id)?.surface??'').join(' ')+' · '+(q.kind.startsWith('EMBEDDED')?'간접의문절':'의문문')+' · '+(QUESTION_ROLE_LABELS[q.whRole]??'질문 구조')})),
   // A failed core parse does not establish which particular constituent is missing.
@@ -137,6 +139,13 @@ export function openRecords(profile, state) {
     record?el('p',{text:'문법 누적 사용 '+number(record.count)+'회 · 당시 최고 위력 '+number(record.bestPower)}):small('아직 사용 기록이 없습니다.'),
     ...examples.map(({kind,value})=>el('section',{},el('small',{class:'record-metadata',text:kind==='first'?'처음 완성':'최고 완성 문장'}),el('p',{class:'player-sentence',text:value.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')}),el('details',{class:'learning-details'},el('summary',{text:'문법·위력 상세'}),learningBlock(value)))));
   }));
+  if(state?.version==='0.9.0'||profile.nominalRecords)for(const guide of NOMINAL_CATALOG){
+   const record=profile.nominalRecords?.[guide.kind];
+   catalog.append(el('article',{class:'dictionary-entry grammar-entry',dataset:{nominalKind:guide.kind}},
+    el('h3',{class:'grammar-heading'},el('span',{text:NOMINAL_GUIDE[guide.kind]}),el('span',{class:'grammar-pattern',text:'('+guide.pattern+')'})),el('p',{class:'grammar-description',text:guide.description}),
+    record?el('p',{text:'구조 사용 '+number(record.count)+'회 · 당시 최고 위력 '+number(record.bestPower)}):small('아직 사용 기록이 없습니다.'),
+    ...['firstComplete','bestComplete'].filter(key=>record?.[key]).map(key=>el('section',{},el('small',{text:key==='firstComplete'?'처음 완성':'최고 완성 문장'}),el('p',{class:'player-sentence',text:record[key].sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')}),el('details',{class:'learning-details'},el('summary',{text:'문법·위력 상세'}),learningBlock(record[key]))))));
+  }
   const previous=(profile.educationalReview?.entries??[]).filter(e=>e.sentence);
   const attacks=state?.stats?.history??(state?.stats?.lastAttack?[state.stats.lastAttack]:[]);
   const recent=attacks.length?attacks.map(attackRecord):(profile.recentSubmissions??[]).map(r=>el('details',{class:'dictionary-entry'},el('summary',{},el('span',{class:'player-sentence',text:r.sentenceSnapshot.orderedTokens.map(t=>t.surface).join(' ')}),el('small',{class:'record-metadata',text:'위력 '+number(r.finalPower)+' · 실제 피해 '+number(r.actualHpLoss)})),learningBlock(r)));
@@ -193,8 +202,8 @@ export function openSaves({ store, profile, state, onLoad }) {
       const savedRun = saved?.run;
       const date = exists && Number.isFinite(saved.savedAt) ? new Date(saved.savedAt).toLocaleString('ko-KR') : '';
       const info = el('div', {}, el('strong', { text: `슬롯 ${slot}${exists ? '' : slotsLoaded ? ' · 비어 있음' : ' · 확인 중'}` }),
-        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
-        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
+        exists && el('p', { text: `${!['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0'].includes(savedRun?.version)?'이전 버전 저장 · ':''}${phaseKo(savedRun)} · Stage ${Number(savedRun?.progress?.stageId?.slice(-2)??1)}-${(savedRun?.progress?.roundIndex??0)+1} · ${savedRun?.activeCardIds?.length ?? 0}장 · ${savedRun?.economy?.gold ?? 0}골드` }),
+        exists && !['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0'].includes(savedRun?.version) && el('small', {text:'이 저장은 이전 버전의 시작의 초원 구간입니다. 0.2의 새 지역은 새 원정에서 시작할 수 있습니다.'}),
         date && el('p', { text: date }));
       const save = button(exists ? '덮어 저장' : '저장', () => perform(async () => {
         await store.saveRun(profile.playerId, slot, state);
@@ -234,5 +243,5 @@ export function openSaves({ store, profile, state, onLoad }) {
 
 function operationSection(state){
  const models=(state?.activeCardIds??[]).map(id=>cardModel(state.cardInstances[id],null,state.version)).filter(m=>m.cardKind==='OPERATION');
- if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small(['0.6.1','0.7.0','0.8.0','0.8.1'].includes(state.version)?'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않습니다. 영구 운영은 최대 +1이며 카드에 표시한 획득 수와 사용 후 이동을 따릅니다.':'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
+ if(!models.length)return null;return el('section',{class:'operation-deck-section'},el('h3',{text:'운영 카드 · 단어 사전과 별도'}),small(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0'].includes(state.version)?'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않습니다. 영구 운영은 최대 +1이며 카드에 표시한 획득 수와 사용 후 이동을 따릅니다.':'손패의 사용 버튼으로 사용합니다. 턴·교환을 소모하지 않으며 다음 전투에 돌아옵니다. 운영 카드는 연마할 수 없습니다.'),el('div',{class:'deck-grid'},models.map(m=>el('div',{},wordCard(m,{readonly:true}),small(zoneOf(state,m.id))))));
 }

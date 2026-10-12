@@ -1,13 +1,13 @@
 import {TIME_GOLEM_PHASES,TIME_GOLEM_BREAKS} from '../data/stage3.js';
 /** Validate both saved and proposed boss states. Never repairs a corrupt boundary. */
 export function validateTimeGolem(enemy){
- const b=enemy.bossMechanic,fail=()=>{throw Error('Invalid TIME_GOLEM phase state');};
+ const b=enemy.bossMechanic,phaseHp=b?.policyVersion==='0.9.0'?280:240,fail=()=>{throw Error('Invalid TIME_GOLEM phase state');};
  if(b?.id!=='TIME_GOLEM'||!Number.isInteger(b.activePhase)||b.activePhase<0||b.activePhase>3||b.phaseOrder?.join('|')!==TIME_GOLEM_PHASES.join('|')||b.phases?.length!==3)fail();
  for(const[p,i]of b.phases.map((p,i)=>[p,i])){
-  if(p.id!==TIME_GOLEM_PHASES[i]||p.maxHp!==240||!Number.isSafeInteger(p.hp)||p.hp<0||p.hp>p.maxHp||p.broken!==(p.hp===0))fail();
+  if(p.id!==TIME_GOLEM_PHASES[i]||p.maxHp!==phaseHp||!Number.isSafeInteger(p.hp)||p.hp<0||p.hp>p.maxHp||p.broken!==(p.hp===0))fail();
   if(i<b.activePhase&&p.hp!==0||i>b.activePhase&&p.hp!==p.maxHp||i===b.activePhase&&p.hp===0)fail();
  }
- if(b.phases.reduce((n,p)=>n+p.hp,0)!==enemy.hp||(enemy.maxHp??enemy.hpMax??720)!==720)fail();return true;
+ if(b.phases.reduce((n,p)=>n+p.hp,0)!==enemy.hp||(enemy.maxHp??enemy.hpMax??phaseHp*3)!==phaseHp*3)fail();return true;
 }
 /** One attack freezes one active phase. No overflow loop, RNG, or state mutation. */
 export function resolveTimeGolem(analysis,power,enemy){

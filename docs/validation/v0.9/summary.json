@@ -1,0 +1,2194 @@
+{
+  "sourceMain": "0915161fecd6466c7b95f9f1195f661ef086a9d3",
+  "branch": "codex/v0.9-dream-library",
+  "version": "0.9.0",
+  "unitPass": 1449,
+  "dataPass": 3090,
+  "commands": [
+    {
+      "label": "baseline-build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-12T09:58:19.738285+00:00",
+      "finishedAt": "2026-10-12T09:58:25.005777+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/baseline-build/command.log",
+      "logSha256": "d910909323594ca661bc4a5de53190f2314f7b33f173011eec720e9ea55d7362"
+    },
+    {
+      "label": "baseline-data",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-10-12T09:58:17.146671+00:00",
+      "finishedAt": "2026-10-12T09:58:19.329888+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/baseline-data/command.log",
+      "logSha256": "8cc38660ad950388dcf62437090aed7403ccbc9bf28c1c4f4964921d7f8b1352"
+    },
+    {
+      "label": "baseline-unit",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T09:55:33.243393+00:00",
+      "finishedAt": "2026-10-12T09:57:53.653414+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/baseline-unit/command.log",
+      "logSha256": "bf4baeb8cdefabd0336de7554365be1524b2156fc95e68494ddfe3ee1d34c7ec"
+    },
+    {
+      "label": "browser-01",
+      "command": [
+        "node",
+        "tests/library-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T10:26:29.195539+00:00",
+      "finishedAt": "2026-10-12T10:26:47.851418+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/browser-01/command.log",
+      "logSha256": "860f059d0b303e6897f84a883b88c6a7816ebc941c762e0983c52babda1ea483"
+    },
+    {
+      "label": "browser-02",
+      "command": [
+        "node",
+        "tests/library-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T10:27:09.931711+00:00",
+      "finishedAt": "2026-10-12T10:27:35.212148+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/browser-02/command.log",
+      "logSha256": "e907b6d27056f3f1fbf125b82dfe6eb445ae20fce3a5912ab812766f46c3e26e"
+    },
+    {
+      "label": "browser-03",
+      "command": [
+        "node",
+        "tests/library-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T10:28:30.976464+00:00",
+      "finishedAt": "2026-10-12T10:29:49.904828+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/browser-03/command.log",
+      "logSha256": "eec7dd308991d2e484a2a988d2a8f63ff91a060a9440d6f76217451547c0573b"
+    },
+    {
+      "label": "browser-04",
+      "command": [
+        "node",
+        "tests/library-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T10:30:30.229391+00:00",
+      "finishedAt": "2026-10-12T10:31:10.176933+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/browser-04/command.log",
+      "logSha256": "5c0f47aa3d600bb421640de013e9280acbc82c713148332ca9be97b3bc38e33e"
+    },
+    {
+      "label": "browser-05",
+      "command": [
+        "node",
+        "tests/library-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T10:32:12.613968+00:00",
+      "finishedAt": "2026-10-12T10:35:19.987356+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/browser-05/command.log",
+      "logSha256": "15a4344be970135d2e319e47309497cd2d473cff62e53efc38d4fca9fc979a59"
+    },
+    {
+      "label": "browser-final-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:browser:library"
+      ],
+      "startedAt": "2026-10-12T10:43:01.179628+00:00",
+      "finishedAt": "2026-10-12T10:47:18.364226+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/browser-final-01/command.log",
+      "logSha256": "2abad115878bcf06585ab6e6c1e3798fda12f55b2c68ea2aa6f83bbc0acd55b0"
+    },
+    {
+      "label": "browser-final-02",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:browser:library"
+      ],
+      "startedAt": "2026-10-12T11:03:03.620378+00:00",
+      "finishedAt": "2026-10-12T11:06:48.504733+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/browser-final-02/command.log",
+      "logSha256": "9cc49b2f269b8bf4d23931adc0325a118b8b9fa1686ea3e2747ae9142cab2577"
+    },
+    {
+      "label": "current-grammar-regression-01",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-grammar.test.js"
+      ],
+      "startedAt": "2026-10-12T10:52:18.208009+00:00",
+      "finishedAt": "2026-10-12T10:52:18.801965+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/current-grammar-regression-01/command.log",
+      "logSha256": "4c6112a6d10be1c2d546a067b884400bf3ca4a11b50d20f19b172c025825a80e"
+    },
+    {
+      "label": "e2e-syntax-01",
+      "command": [
+        "node",
+        "--check",
+        "tests/e2e.mjs"
+      ],
+      "startedAt": "2026-10-12T11:29:38.880966+00:00",
+      "finishedAt": "2026-10-12T11:29:39.521922+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/e2e-syntax-01/command.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "final-build-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-12T10:38:41.593931+00:00",
+      "finishedAt": "2026-10-12T10:38:43.279831+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-build-01/command.log",
+      "logSha256": "fd20246a5ff4da34777cd3503a56046beb73d9c65501f547df2f96809b526825"
+    },
+    {
+      "label": "final-build-02",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-12T10:50:25.017596+00:00",
+      "finishedAt": "2026-10-12T10:50:26.217549+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-build-02/command.log",
+      "logSha256": "220ef65d42d8319350fae11e131e311b6daeefcdf50880f607520a7f9194b629"
+    },
+    {
+      "label": "final-build-03",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-12T11:34:06.089431+00:00",
+      "finishedAt": "2026-10-12T11:34:07.048975+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-build-03/command.log",
+      "logSha256": "2b8a539676a0c4fa44b49a3ed5c12aa73916defd6246af87ef7ef59cb432fe3f"
+    },
+    {
+      "label": "final-data-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-10-12T10:38:38.127193+00:00",
+      "finishedAt": "2026-10-12T10:38:41.110023+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-data-01/command.log",
+      "logSha256": "ed64d08a48db60b979895d35601c058823c0651ea91ac0df00c22261ac94abac"
+    },
+    {
+      "label": "final-data-02",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-10-12T10:50:23.946144+00:00",
+      "finishedAt": "2026-10-12T10:50:24.692398+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-data-02/command.log",
+      "logSha256": "ed64d08a48db60b979895d35601c058823c0651ea91ac0df00c22261ac94abac"
+    },
+    {
+      "label": "final-unit-01",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T10:36:20.586388+00:00",
+      "finishedAt": "2026-10-12T10:38:29.875810+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-unit-01/command.log",
+      "logSha256": "97dc36f4ad7400c37d8113bfa9f04a12c138d8221e80a17f57b07e1084deedd7"
+    },
+    {
+      "label": "final-unit-02",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T10:48:23.361076+00:00",
+      "finishedAt": "2026-10-12T10:50:23.506489+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-unit-02/command.log",
+      "logSha256": "215788149e93aebfd366f4ff62f71ce8c3dfb5a9cc9972436b516849c892211a"
+    },
+    {
+      "label": "final-unit-03",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T11:02:11.356690+00:00",
+      "finishedAt": "2026-10-12T11:03:03.302822+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-unit-03/command.log",
+      "logSha256": "248ec663d0618fb05c0bc49f0bc4ce34c0aff5e04fba244e50b3e91a7e356323"
+    },
+    {
+      "label": "final-unit-04",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T11:34:33.318692+00:00",
+      "finishedAt": "2026-10-12T11:35:25.351509+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/final-unit-04/command.log",
+      "logSha256": "5a4aae5ee982f4ec5a0fb77d0f0c1713f7eb4994996cf83ee7b1b9cba932f178"
+    },
+    {
+      "label": "grammar-01",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-grammar.test.js"
+      ],
+      "startedAt": "2026-10-12T09:59:32.752804+00:00",
+      "finishedAt": "2026-10-12T09:59:33.441744+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/grammar-01/command.log",
+      "logSha256": "e13242b198b3d92f59be65bf473ef2420ebe29ef232e29ae3f659b8a91a35625"
+    },
+    {
+      "label": "grammar-02",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-grammar.test.js",
+        "tests/v081-grammar-audit.test.js",
+        "tests/v081-help.test.js"
+      ],
+      "startedAt": "2026-10-12T10:00:14.770968+00:00",
+      "finishedAt": "2026-10-12T10:00:15.868551+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/grammar-02/command.log",
+      "logSha256": "562f6b595e3b9afb020b84c1ac2f0ac849463f477a4bfa8815317c8eff67baf1"
+    },
+    {
+      "label": "integrated-build-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-12T10:18:35.339151+00:00",
+      "finishedAt": "2026-10-12T10:18:43.011571+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/integrated-build-01/command.log",
+      "logSha256": "11270dc3395e67a81b464fd05c7708fa2317c7e1b954bfd8461baf7bb33b3e32"
+    },
+    {
+      "label": "integrated-unit-01",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-12T10:09:21.878793+00:00",
+      "finishedAt": "2026-10-12T10:12:27.249601+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/integrated-unit-01/command.log",
+      "logSha256": "feec26f5c8d942e1a03b388ba40845c4645d90e443af48b5dec3d607f7544f92"
+    },
+    {
+      "label": "legacy-help-browser-01",
+      "command": [
+        "node",
+        "tests/grammar-polish-browser.mjs"
+      ],
+      "startedAt": "2026-10-12T11:29:39.786559+00:00",
+      "finishedAt": "2026-10-12T11:30:58.050214+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/legacy-help-browser-01/command.log",
+      "logSha256": "b812ba47ab48cbae22eec390d12b8f91154184e936e294c6d27e571fa9ef9a0d"
+    },
+    {
+      "label": "library-state-01",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-state.test.js",
+        "tests/v09-library-grammar.test.js",
+        "tests/v08-boss.test.js",
+        "tests/v081-help.test.js",
+        "tests/v081-grammar-audit.test.js"
+      ],
+      "startedAt": "2026-10-12T10:15:19.389801+00:00",
+      "finishedAt": "2026-10-12T10:15:23.722757+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/library-state-01/command.log",
+      "logSha256": "0e4061f4d21abed4bfe44c486caf866b97e87014e68d4c293044f030a88c07b7"
+    },
+    {
+      "label": "library-state-02",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-state.test.js"
+      ],
+      "startedAt": "2026-10-12T10:16:03.576635+00:00",
+      "finishedAt": "2026-10-12T10:16:07.387034+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/library-state-02/command.log",
+      "logSha256": "8db5c8c2a5b0bfc92609e5f6a5bf97e3715013824f4eba3ab9c282b648fb94c6"
+    },
+    {
+      "label": "library-state-03",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-state.test.js"
+      ],
+      "startedAt": "2026-10-12T10:18:23.086217+00:00",
+      "finishedAt": "2026-10-12T10:18:34.302542+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/library-state-03/command.log",
+      "logSha256": "81baf4a8073609a9106eec74513ae9897a66d73c2cd5f23f628ada4fce2fd480"
+    },
+    {
+      "label": "locality-after-01",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-grammar.test.js",
+        "tests/v09-library-state.test.js"
+      ],
+      "startedAt": "2026-10-12T10:47:47.883486+00:00",
+      "finishedAt": "2026-10-12T10:47:51.644252+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/locality-after-01/command.log",
+      "logSha256": "6e09d4fa879780ad91e78713eb57e60851bd0cc8b2745e1a1bad2e0bb3769a92"
+    },
+    {
+      "label": "locality-before-01",
+      "command": [
+        "node",
+        "--test",
+        "tests/v09-library-grammar.test.js",
+        "tests/v09-library-state.test.js"
+      ],
+      "startedAt": "2026-10-12T10:47:28.719623+00:00",
+      "finishedAt": "2026-10-12T10:47:32.519179+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/locality-before-01/command.log",
+      "logSha256": "dedd09904aabccf77e186c8b6a198d8b24453bcedcec27f1c081bc4b9d032a98"
+    },
+    {
+      "label": "natural-controller-01",
+      "command": [
+        "node",
+        "tools/simulate-library-runs.js"
+      ],
+      "startedAt": "2026-10-12T10:20:13.981455+00:00",
+      "finishedAt": "2026-10-12T10:20:16.775162+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/natural-controller-01/command.log",
+      "logSha256": "68acfc3951de7054f8c77c9c39387f688975b53947c911ef6df2c0cf45a868d7"
+    },
+    {
+      "label": "natural-controller-02",
+      "command": [
+        "node",
+        "tools/simulate-library-runs.js"
+      ],
+      "startedAt": "2026-10-12T10:20:52.230173+00:00",
+      "finishedAt": "2026-10-12T10:23:38.174643+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/natural-controller-02/command.log",
+      "logSha256": "cded7bd619caa3735887ad2aa50a322f94d2773b2eb8570bc73d4c8523d0c4e0"
+    },
+    {
+      "label": "natural-controller-03",
+      "command": [
+        "node",
+        "tools/simulate-library-runs.js"
+      ],
+      "startedAt": "2026-10-12T10:31:54.719011+00:00",
+      "finishedAt": "2026-10-12T10:31:58.162239+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/natural-controller-03/command.log",
+      "logSha256": "80eef2ecaef5882c5bd905b685ee0a24f09a4ef26478bd0e9143d3c6ae98bc94"
+    },
+    {
+      "label": "natural-controller-04",
+      "command": [
+        "node",
+        "tools/simulate-library-runs.js"
+      ],
+      "startedAt": "2026-10-12T10:35:44.913191+00:00",
+      "finishedAt": "2026-10-12T10:35:56.270391+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/natural-controller-04/command.log",
+      "logSha256": "1e423ade637a11148937677718e330365d24855475b704fffad0775fe92f45be"
+    },
+    {
+      "label": "natural-controller-05",
+      "command": [
+        "node",
+        "tools/simulate-library-runs.js"
+      ],
+      "startedAt": "2026-10-12T10:38:59.922519+00:00",
+      "finishedAt": "2026-10-12T10:42:40.252901+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/natural-controller-05/command.log",
+      "logSha256": "2b1e5277dfd9214fb3c78f328059d405d8f5002e33c0d8ce3e73caca9c903b1c"
+    },
+    {
+      "label": "official-browser-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:browser"
+      ],
+      "startedAt": "2026-10-12T10:50:26.629960+00:00",
+      "finishedAt": "2026-10-12T10:51:26.445183+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/official-browser-01/command.log",
+      "logSha256": "d82dd7cf2516373f6bc7c59f860934f270bd94f749caf674273224ec0c9b7e9a"
+    },
+    {
+      "label": "official-browser-02",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:browser"
+      ],
+      "startedAt": "2026-10-12T10:52:19.126438+00:00",
+      "finishedAt": "2026-10-12T10:59:01.569475+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/official-browser-02/command.log",
+      "logSha256": "fa316b1bb44f70034364638756e27fc3fd50f40ebf600239a0183e4e3f6b1310"
+    },
+    {
+      "label": "production-assigned-01",
+      "command": [
+        "node",
+        "tests/library-production-assigned.mjs"
+      ],
+      "startedAt": "2026-10-12T10:59:02.484632+00:00",
+      "finishedAt": "2026-10-12T11:00:44.906128+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/production-assigned-01/command.log",
+      "logSha256": "a2070968e472a0b1ac46a9ffeb0f4ceb7f21a9a51f9eae44707eae69b7492618"
+    },
+    {
+      "label": "production-legacy081-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e:waterways"
+      ],
+      "startedAt": "2026-10-12T11:09:56.816271+00:00",
+      "finishedAt": "2026-10-12T11:28:29.348889+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v09/production-legacy081-01/command.log",
+      "logSha256": "c4a50a7524d72cc6851ca759ef755f646a901311b1e5800e682b377d1ec45f08"
+    },
+    {
+      "label": "production-natural-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e:library"
+      ],
+      "startedAt": "2026-10-12T11:06:48.815270+00:00",
+      "finishedAt": "2026-10-12T11:09:56.501634+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/production-natural-01/command.log",
+      "logSha256": "20d6646f4bd20650222ba486436c55032a346447c1acd61c9a15df850264d40d"
+    },
+    {
+      "label": "production-natural-course-01",
+      "command": [
+        "npm.cmd",
+        "run",
+        "test:e2e:library"
+      ],
+      "startedAt": "2026-10-12T11:30:58.355676+00:00",
+      "finishedAt": "2026-10-12T11:34:05.618890+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v09/production-natural-course-01/command.log",
+      "logSha256": "826d8c6b00430996bb4c1c8164549e44418136ec600e3a28dd70dba654c222b3"
+    }
+  ],
+  "browser": {
+    "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+    "status": "PASS",
+    "checks": [
+      {
+        "id": "ENTRY_REAL_UI_NO_PERMANENT_GRANT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHAT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_QUESTION",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHETHER",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_TO",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_THAT",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_true",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_false",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "BOSS_DAMAGE_THEN_SUPPRESSION",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "PREPARE_HEAL_AND_EXACT_INDEXEDDB_RESTORE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "INVALID_HEALS_ONCE_NO_DUPLICATE_FINISH",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_effectsOff",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_reducedMotion",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_cancel",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "CODEX_RECORDED_STRUCTURE",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_false",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_true",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_10",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_14",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_10",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_14",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_10",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_14",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_10",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_14",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_AND_HELP_CORNER",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "chromium",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_REAL_UI_NO_PERMANENT_GRANT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHAT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_QUESTION",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHETHER",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_TO",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_THAT",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_true",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_false",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "BOSS_DAMAGE_THEN_SUPPRESSION",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "PREPARE_HEAL_AND_EXACT_INDEXEDDB_RESTORE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "INVALID_HEALS_ONCE_NO_DUPLICATE_FINISH",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_effectsOff",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_reducedMotion",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_cancel",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "CODEX_RECORDED_STRUCTURE",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_false",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_true",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_10",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_14",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_10",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_14",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_10",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_14",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_10",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_14",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_AND_HELP_CORNER",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "firefox",
+        "status": "PASS"
+      },
+      {
+        "id": "ENTRY_REAL_UI_NO_PERMANENT_GRANT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHAT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_QUESTION",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_NOMINAL_WHETHER",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_TO",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_FORM_SUBMIT_EXTRAPOSED_SUBJECT_THAT",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_true",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "TARGET_OWN_ERROR_BOUNDARY_false",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "BOSS_DAMAGE_THEN_SUPPRESSION",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "PREPARE_HEAL_AND_EXACT_INDEXEDDB_RESTORE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "INVALID_HEALS_ONCE_NO_DUPLICATE_FINISH",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_effectsOff",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_reducedMotion",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RECOVERY_IDEMPOTENT_cancel",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "CODEX_RECORDED_STRUCTURE",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_false",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "DIAMOND_ACTUAL_SCORE_AND_MUTE_true",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_10",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1024_768_14",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_10",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1280_800_14",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_10",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1366_768_14",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_10",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "LAYOUT_1920_1080_14",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "RARITY_AND_HELP_CORNER",
+        "engine": "webkit",
+        "status": "PASS"
+      },
+      {
+        "id": "NO_BROWSER_ERRORS",
+        "engine": "webkit",
+        "status": "PASS"
+      }
+    ],
+    "captures": [
+      "ASSIGNED-chromium-entry-no-boss-support.png",
+      "ASSIGNED-chromium-before-NOMINAL_WHAT.png",
+      "ASSIGNED-chromium-before-NOMINAL_QUESTION.png",
+      "ASSIGNED-chromium-before-NOMINAL_WHETHER.png",
+      "ASSIGNED-chromium-before-EXTRAPOSED_SUBJECT_TO.png",
+      "ASSIGNED-chromium-before-EXTRAPOSED_SUBJECT_THAT.png",
+      "ASSIGNED-chromium-target-local-error-true.png",
+      "ASSIGNED-chromium-target-local-error-false.png",
+      "ASSIGNED-chromium-boss-suppressed.png",
+      "ASSIGNED-chromium-boss-healed.png",
+      "ASSIGNED-chromium-records-nominal-evidence.png",
+      "ASSIGNED-chromium-diamond-pulse-false.png",
+      "ASSIGNED-chromium-diamond-pulse-true.png",
+      "ASSIGNED-chromium-1024x768-16-10.png",
+      "ASSIGNED-chromium-1024x768-16-14.png",
+      "ASSIGNED-chromium-1280x800-16-10.png",
+      "ASSIGNED-chromium-1280x800-16-14.png",
+      "ASSIGNED-chromium-1366x768-16-10.png",
+      "ASSIGNED-chromium-1366x768-16-14.png",
+      "ASSIGNED-chromium-1920x1080-16-10.png",
+      "ASSIGNED-chromium-1920x1080-16-14.png",
+      "ASSIGNED-chromium-silver-gold-help-operation.png",
+      "ASSIGNED-firefox-entry-no-boss-support.png",
+      "ASSIGNED-firefox-before-NOMINAL_WHAT.png",
+      "ASSIGNED-firefox-before-NOMINAL_QUESTION.png",
+      "ASSIGNED-firefox-before-NOMINAL_WHETHER.png",
+      "ASSIGNED-firefox-before-EXTRAPOSED_SUBJECT_TO.png",
+      "ASSIGNED-firefox-before-EXTRAPOSED_SUBJECT_THAT.png",
+      "ASSIGNED-firefox-target-local-error-true.png",
+      "ASSIGNED-firefox-target-local-error-false.png",
+      "ASSIGNED-firefox-boss-suppressed.png",
+      "ASSIGNED-firefox-boss-healed.png",
+      "ASSIGNED-firefox-records-nominal-evidence.png",
+      "ASSIGNED-firefox-diamond-pulse-false.png",
+      "ASSIGNED-firefox-diamond-pulse-true.png",
+      "ASSIGNED-firefox-1024x768-16-10.png",
+      "ASSIGNED-firefox-1024x768-16-14.png",
+      "ASSIGNED-firefox-1280x800-16-10.png",
+      "ASSIGNED-firefox-1280x800-16-14.png",
+      "ASSIGNED-firefox-1366x768-16-10.png",
+      "ASSIGNED-firefox-1366x768-16-14.png",
+      "ASSIGNED-firefox-1920x1080-16-10.png",
+      "ASSIGNED-firefox-1920x1080-16-14.png",
+      "ASSIGNED-firefox-silver-gold-help-operation.png",
+      "ASSIGNED-webkit-entry-no-boss-support.png",
+      "ASSIGNED-webkit-before-NOMINAL_WHAT.png",
+      "ASSIGNED-webkit-before-NOMINAL_QUESTION.png",
+      "ASSIGNED-webkit-before-NOMINAL_WHETHER.png",
+      "ASSIGNED-webkit-before-EXTRAPOSED_SUBJECT_TO.png",
+      "ASSIGNED-webkit-before-EXTRAPOSED_SUBJECT_THAT.png",
+      "ASSIGNED-webkit-target-local-error-true.png",
+      "ASSIGNED-webkit-target-local-error-false.png",
+      "ASSIGNED-webkit-boss-suppressed.png",
+      "ASSIGNED-webkit-boss-healed.png",
+      "ASSIGNED-webkit-records-nominal-evidence.png",
+      "ASSIGNED-webkit-diamond-pulse-false.png",
+      "ASSIGNED-webkit-diamond-pulse-true.png",
+      "ASSIGNED-webkit-1024x768-16-10.png",
+      "ASSIGNED-webkit-1024x768-16-14.png",
+      "ASSIGNED-webkit-1280x800-16-10.png",
+      "ASSIGNED-webkit-1280x800-16-14.png",
+      "ASSIGNED-webkit-1366x768-16-10.png",
+      "ASSIGNED-webkit-1366x768-16-14.png",
+      "ASSIGNED-webkit-1920x1080-16-10.png",
+      "ASSIGNED-webkit-1920x1080-16-14.png",
+      "ASSIGNED-webkit-silver-gold-help-operation.png"
+    ],
+    "browsers": [
+      {
+        "engine": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "engine": "firefox",
+        "version": "135.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "18.4"
+      }
+    ]
+  },
+  "productionAssigned": {
+    "kind": "ASSIGNED_STATE_PRODUCTION_UI_NOT_NATURAL_REWARD_CAMPAIGN",
+    "path": "/grammardealer/",
+    "status": "PASS",
+    "checks": [
+      {
+        "id": "PRODUCTION_ASSIGNED_38",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_ASSIGNED_39",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_ASSIGNED_40",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_ASSIGNED_41",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_ASSIGNED_42",
+        "status": "PASS"
+      }
+    ],
+    "attacks": [
+      {
+        "battle": 38,
+        "sentence": "I really like what you really make today.",
+        "power": 4085,
+        "damage": 1700,
+        "nominal": [
+          "NOMINAL_WHAT"
+        ],
+        "nextStatus": "BATTLE",
+        "nextBattle": 39
+      },
+      {
+        "battle": 39,
+        "sentence": "I really know where you really work today.",
+        "power": 4085,
+        "damage": 1800,
+        "nominal": [
+          "NOMINAL_QUESTION"
+        ],
+        "nextStatus": "BATTLE",
+        "nextBattle": 40
+      },
+      {
+        "battle": 40,
+        "sentence": "I really know whether you really like good books.",
+        "power": 4508,
+        "damage": 1900,
+        "nominal": [
+          "NOMINAL_WHETHER"
+        ],
+        "nextStatus": "BATTLE",
+        "nextBattle": 41
+      },
+      {
+        "battle": 41,
+        "sentence": "It is really good to read good books today.",
+        "power": 2101,
+        "damage": 2000,
+        "nominal": [
+          "EXTRAPOSED_SUBJECT_TO"
+        ],
+        "nextStatus": "BATTLE",
+        "nextBattle": 42
+      },
+      {
+        "battle": 42,
+        "sentence": "I really like what you really make today.",
+        "power": 4085,
+        "damage": 3000,
+        "turnEnd": {
+          "turnEndId": "qa.waterways.library.assigned:battle.09.05:turn.1",
+          "battleId": "battle.09.05",
+          "turnIndex": 1,
+          "actionId": "qa.waterways.library.assigned:battle.42:attack.1",
+          "actionType": "ATTACK",
+          "hpBefore": 3000,
+          "hpAfterAttack": 0,
+          "hpAfterTurnEnd": 0,
+          "actualDamage": 3000,
+          "actualHeal": 0,
+          "evidenceIds": [
+            "nominal.0"
+          ],
+          "suppressed": false,
+          "killed": true
+        },
+        "nominal": [
+          "NOMINAL_WHAT"
+        ],
+        "nextStatus": "CONTENT_COMPLETE",
+        "nextBattle": 42
+      }
+    ],
+    "resources": [
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-Ct8BVd78.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-DlN4mYYJ.js",
+        "status": 200
+      }
+    ]
+  },
+  "naturalController": {
+    "kind": "ACTUAL_CONTROLLER_NATURAL_REWARDS_NOT_BROWSER",
+    "runs": 60,
+    "results": {
+      "DEFEAT": 60
+    },
+    "defeatBattles": {
+      "12": 37,
+      "7": 16,
+      "22": 1,
+      "17": 1,
+      "27": 4,
+      "21": 1
+    },
+    "diamondAcquired": 5,
+    "withoutDiamond": 55,
+    "engineErrors": 0,
+    "stage9NaturalPreparation": "NOT RUN",
+    "natural42Completion": "NOT RUN",
+    "seeds": [
+      {
+        "seed": "library.route.0",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 6,
+        "consumedTurns": 31,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.1",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 40,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 8,
+        "consumedTurns": 33,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.2",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 30,
+        "preparations": 12,
+        "consumedTurns": 42,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.3",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 54,
+        "turnsRemaining": 0,
+        "attacks": 18,
+        "preparations": 4,
+        "consumedTurns": 22,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.4",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 6,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.5",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 46,
+        "turnsRemaining": 0,
+        "attacks": 18,
+        "preparations": 4,
+        "consumedTurns": 22,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.6",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 20,
+        "preparations": 6,
+        "consumedTurns": 26,
+        "diamondAcquired": true
+      },
+      {
+        "seed": "library.route.7",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 561,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 4,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.8",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 10,
+        "consumedTurns": 39,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.9",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 8,
+        "consumedTurns": 33,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.10",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 13,
+        "turnsRemaining": 0,
+        "attacks": 20,
+        "preparations": 3,
+        "consumedTurns": 23,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.11",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 113,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 5,
+        "consumedTurns": 30,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.12",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 70,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 3,
+        "consumedTurns": 20,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.13",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 579,
+        "turnsRemaining": 0,
+        "attacks": 13,
+        "preparations": 3,
+        "consumedTurns": 16,
+        "diamondAcquired": true
+      },
+      {
+        "seed": "library.route.14",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 50,
+        "turnsRemaining": 0,
+        "attacks": 19,
+        "preparations": 2,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.15",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 59,
+        "turnsRemaining": 0,
+        "attacks": 28,
+        "preparations": 6,
+        "consumedTurns": 34,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.16",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 30,
+        "preparations": 11,
+        "consumedTurns": 41,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.17",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 34,
+        "turnsRemaining": 0,
+        "attacks": 23,
+        "preparations": 6,
+        "consumedTurns": 29,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.18",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 58,
+        "turnsRemaining": 0,
+        "attacks": 31,
+        "preparations": 5,
+        "consumedTurns": 36,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.19",
+        "result": "DEFEAT",
+        "finalBattle": 22,
+        "hp": 194,
+        "turnsRemaining": 0,
+        "attacks": 43,
+        "preparations": 21,
+        "consumedTurns": 64,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.20",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 91,
+        "turnsRemaining": 0,
+        "attacks": 18,
+        "preparations": 4,
+        "consumedTurns": 22,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.21",
+        "result": "DEFEAT",
+        "finalBattle": 17,
+        "hp": 566,
+        "turnsRemaining": 0,
+        "attacks": 35,
+        "preparations": 12,
+        "consumedTurns": 47,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.22",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 7,
+        "consumedTurns": 32,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.23",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 279,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 3,
+        "consumedTurns": 20,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.24",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 28,
+        "turnsRemaining": 0,
+        "attacks": 30,
+        "preparations": 10,
+        "consumedTurns": 40,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.25",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 63,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 4,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.26",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 40,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 11,
+        "consumedTurns": 40,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.27",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 119,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 6,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.28",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 15,
+        "turnsRemaining": 0,
+        "attacks": 31,
+        "preparations": 7,
+        "consumedTurns": 38,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.29",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 38,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 3,
+        "consumedTurns": 20,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.30",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 110,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 4,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.31",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 3,
+        "turnsRemaining": 0,
+        "attacks": 24,
+        "preparations": 7,
+        "consumedTurns": 31,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.32",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 26,
+        "preparations": 6,
+        "consumedTurns": 32,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.33",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 6,
+        "consumedTurns": 31,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.34",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 8,
+        "consumedTurns": 37,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.35",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 8,
+        "consumedTurns": 37,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.36",
+        "result": "DEFEAT",
+        "finalBattle": 27,
+        "hp": 1,
+        "turnsRemaining": 0,
+        "attacks": 73,
+        "preparations": 23,
+        "consumedTurns": 96,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.37",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 182,
+        "turnsRemaining": 0,
+        "attacks": 15,
+        "preparations": 4,
+        "consumedTurns": 19,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.38",
+        "result": "DEFEAT",
+        "finalBattle": 27,
+        "hp": 1,
+        "turnsRemaining": 0,
+        "attacks": 59,
+        "preparations": 23,
+        "consumedTurns": 82,
+        "diamondAcquired": true
+      },
+      {
+        "seed": "library.route.39",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 120,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 6,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.40",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 26,
+        "preparations": 7,
+        "consumedTurns": 33,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.41",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 27,
+        "preparations": 8,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.42",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 31,
+        "preparations": 9,
+        "consumedTurns": 40,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.43",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 680,
+        "turnsRemaining": 0,
+        "attacks": 17,
+        "preparations": 4,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.44",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 24,
+        "preparations": 6,
+        "consumedTurns": 30,
+        "diamondAcquired": true
+      },
+      {
+        "seed": "library.route.45",
+        "result": "DEFEAT",
+        "finalBattle": 21,
+        "hp": 39,
+        "turnsRemaining": 0,
+        "attacks": 47,
+        "preparations": 15,
+        "consumedTurns": 62,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.46",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 28,
+        "preparations": 7,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.47",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 29,
+        "preparations": 9,
+        "consumedTurns": 38,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.48",
+        "result": "DEFEAT",
+        "finalBattle": 27,
+        "hp": 1,
+        "turnsRemaining": 0,
+        "attacks": 53,
+        "preparations": 18,
+        "consumedTurns": 71,
+        "diamondAcquired": true
+      },
+      {
+        "seed": "library.route.49",
+        "result": "DEFEAT",
+        "finalBattle": 27,
+        "hp": 57,
+        "turnsRemaining": 0,
+        "attacks": 56,
+        "preparations": 14,
+        "consumedTurns": 70,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.50",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 24,
+        "preparations": 5,
+        "consumedTurns": 29,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.51",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 21,
+        "preparations": 7,
+        "consumedTurns": 28,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.52",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 27,
+        "preparations": 9,
+        "consumedTurns": 36,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.53",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 28,
+        "preparations": 7,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.54",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 25,
+        "preparations": 10,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.55",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 88,
+        "turnsRemaining": 0,
+        "attacks": 30,
+        "preparations": 11,
+        "consumedTurns": 41,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.56",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 94,
+        "turnsRemaining": 0,
+        "attacks": 26,
+        "preparations": 6,
+        "consumedTurns": 32,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.57",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 638,
+        "turnsRemaining": 0,
+        "attacks": 16,
+        "preparations": 5,
+        "consumedTurns": 21,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.58",
+        "result": "DEFEAT",
+        "finalBattle": 12,
+        "hp": 280,
+        "turnsRemaining": 0,
+        "attacks": 27,
+        "preparations": 8,
+        "consumedTurns": 35,
+        "diamondAcquired": false
+      },
+      {
+        "seed": "library.route.59",
+        "result": "DEFEAT",
+        "finalBattle": 7,
+        "hp": 103,
+        "turnsRemaining": 0,
+        "attacks": 18,
+        "preparations": 4,
+        "consumedTurns": 22,
+        "diamondAcquired": false
+      }
+    ]
+  },
+  "raritySampling": {
+    "kind": "GENERATED_OFFERS_ASSIGNED_STATE_NOT_NATURAL_DROP_RATE",
+    "reward": {
+      "sampled": 675,
+      "COMMON": 454,
+      "UNCOMMON": 205,
+      "RARE": 16
+    },
+    "shop": {
+      "sampled": 2400,
+      "COMMON": 1551,
+      "UNCOMMON": 788,
+      "RARE": 61
+    }
+  },
+  "build": {
+    ".nojekyll": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "index.html": "040b3bda6b1b9eb9e327b35d4a72cad177f3da0e025ba20eb6ec7d0072bd57af",
+    "assets/index-Ct8BVd78.css": "18776bf44de6e3387dd4be35fc86572115b5831512bad2a6e8192282c9031dfa",
+    "assets/index-DlN4mYYJ.js": "09712f2c08acde97ab2f0acea9b75e563b844575d1789a4ecbd8d7117524c314"
+  },
+  "limitations": [
+    "AC-085: natural42 completion not established",
+    "AC-088: natural Stage9 preparation/learning/boss route not reached",
+    "Stage9 art/BGM not supplied; fallback",
+    "No physical mobile browser or speaker listening test"
+  ],
+  "oldTrackedEvidenceVerifiedUnchanged": 416,
+  "oldDocsAndEvidenceVerifiedBeforeReportUpdates": 605,
+  "lockfileChanges": "Root package version only; dependency records identical",
+  "changedFiles": [
+    "CHANGELOG.md",
+    "README.md",
+    "README_KO.md",
+    "docs/ACCEPTANCE_0.9.md",
+    "docs/ARCHITECTURE.md",
+    "docs/IMPLEMENTATION_PROGRESS_0.9.md",
+    "docs/KNOWN_ISSUES.md",
+    "docs/LANGUAGE_REVIEW_0.9.md",
+    "docs/PATCH_NOTES_0.9_KO.md",
+    "docs/PROJECT_HANDOFF.md",
+    "docs/TEST_REPORT_0.9.md",
+    "docs/validation/v0.9/assigned-boss-healed.png",
+    "docs/validation/v0.9/assigned-card-gallery.png",
+    "docs/validation/v0.9/assigned-layout-1366.png",
+    "docs/validation/v0.9/assigned-production-stage9-end.png",
+    "docs/validation/v0.9/summary.json",
+    "package-lock.json",
+    "package.json",
+    "spec/Syntax_Atlas_0.9_Acceptance.md",
+    "spec/Syntax_Atlas_0.9_Confirmed_Balance_UI.md",
+    "spec/Syntax_Atlas_0.9_Stage9_Spec.md",
+    "src/contracts.js",
+    "src/data/balance.js",
+    "src/data/battleLearningGuide.js",
+    "src/data/campaignFeatures.js",
+    "src/data/grammarGuideData.js",
+    "src/data/language/index.js",
+    "src/data/language/libraryLanguage.js",
+    "src/data/libraryPolicy.js",
+    "src/data/runes.js",
+    "src/data/stage1.js",
+    "src/data/stage9.js",
+    "src/data/stages.js",
+    "src/engine/comboEligibility.js",
+    "src/engine/dualRelativeSeal.js",
+    "src/engine/emberScaleShield.js",
+    "src/engine/grammar/index.js",
+    "src/engine/grammar/parser.js",
+    "src/engine/grammar/skyEvidence.js",
+    "src/engine/learningRecords.js",
+    "src/engine/libraryEvidence.js",
+    "src/engine/libraryTurnEnd.js",
+    "src/engine/presentation.js",
+    "src/engine/runes.js",
+    "src/engine/stage.js",
+    "src/engine/timeGolem.js",
+    "src/game/ancientWaterways.js",
+    "src/game/deck.js",
+    "src/game/guidedTutorial.js",
+    "src/game/invariants.js",
+    "src/game/libraryFrost.js",
+    "src/game/operationHistory.js",
+    "src/game/rewards.js",
+    "src/game/runController.js",
+    "src/game/shop.js",
+    "src/game/temporaryCards.js",
+    "src/game/timeCanyon.js",
+    "src/game/turnHandSeal.js",
+    "src/game/waterwaysFrost.js",
+    "src/game/wishDesert.js",
+    "src/main.js",
+    "src/services/localStore.js",
+    "src/ui/cards.js",
+    "src/ui/combat.js",
+    "src/ui/lobby.js",
+    "src/ui/overlays.js",
+    "src/ui/progression.js",
+    "src/ui/runes.js",
+    "src/ui/shop.js",
+    "src/ui/styles.css",
+    "src/ui/theme.js",
+    "tests/e2e.mjs",
+    "tests/fixtures/v09/Syntax_Atlas_0.9_Initial_Tuning.json",
+    "tests/fixtures/v09/Syntax_Atlas_0.9_Test_Fixtures.json",
+    "tests/grammar-polish-browser.mjs",
+    "tests/helpers/legacy-081-controller.js",
+    "tests/helpers/library-state.js",
+    "tests/helpers/waterways-state.js",
+    "tests/library-browser.mjs",
+    "tests/library-e2e.mjs",
+    "tests/library-production-assigned.mjs",
+    "tests/v02-ui-browser.mjs",
+    "tests/v081-help.test.js",
+    "tests/v09-library-grammar.test.js",
+    "tests/v09-library-state.test.js",
+    "tools/library-candidates.js",
+    "tools/simulate-library-runs.js",
+    "tools/simulate-runs.js",
+    "tools/sky-candidates.js"
+  ],
+  "specIntegrity": {
+    "zipSha256": "62290816bebdd427b498a667db8aedb5cac0354d91a95dda287108ab61dfcc1a",
+    "entries": [
+      {
+        "name": "Syntax_Atlas_0.9_Stage9_Spec.md",
+        "zipSha256": "4582b2a2c52b934b22091d8247d242631af36379ef7f80f277f7cb2544ad687b",
+        "workingSha256": "4582b2a2c52b934b22091d8247d242631af36379ef7f80f277f7cb2544ad687b",
+        "equal": true
+      },
+      {
+        "name": "Syntax_Atlas_0.9_Confirmed_Balance_UI.md",
+        "zipSha256": "14206c63158da6de0277035e2513161d8e2209d54bd87d71ff2d71c469bfb79d",
+        "workingSha256": "14206c63158da6de0277035e2513161d8e2209d54bd87d71ff2d71c469bfb79d",
+        "equal": true
+      },
+      {
+        "name": "Syntax_Atlas_0.9_Acceptance.md",
+        "zipSha256": "8cafa4d3ce7573bd7e34a2d3cb507203166280f989c58fd91a9fc97ec2e542fb",
+        "workingSha256": "8cafa4d3ce7573bd7e34a2d3cb507203166280f989c58fd91a9fc97ec2e542fb",
+        "equal": true
+      }
+    ]
+  },
+  "finalBuildMatchesProductionTestedBuild": true,
+  "legacyHelpBrowser": {
+    "checks": 87,
+    "captures": 93,
+    "errors": [],
+    "browsers": [
+      {
+        "engine": "chromium",
+        "version": "134.0.6998.35"
+      },
+      {
+        "engine": "firefox",
+        "version": "135.0"
+      },
+      {
+        "engine": "webkit",
+        "version": "18.4"
+      }
+    ]
+  },
+  "productionLegacy081": {
+    "status": "PASS",
+    "campaignVersion": "0.8.1",
+    "playedBattles": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37
+    ],
+    "totalActualAttacks": 79,
+    "operationUses": 19,
+    "frostOpening": true,
+    "frostMultiple": true,
+    "frostNoncomparison": true,
+    "frostLock": true,
+    "frostLastKill": true,
+    "errors": [],
+    "consoleErrors": [],
+    "failedRequests": [],
+    "badResponses": [],
+    "checks": 62
+  },
+  "productionNaturalAttempts": [
+    {
+      "label": "production-natural-01",
+      "status": "FAIL",
+      "failureKind": "QA_POLICY_DEFEAT",
+      "seed": "run-sequence.57",
+      "stage9CourseRequested": false,
+      "finalBattle": 7,
+      "enemyHp": 74,
+      "turnsRemaining": 0,
+      "attacks": 17,
+      "preparations": 3,
+      "checks": 15,
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "stage9Course": []
+    },
+    {
+      "label": "production-natural-course-01",
+      "status": "FAIL",
+      "failureKind": "QA_POLICY_DEFEAT",
+      "seed": "run-sequence.57",
+      "stage9CourseRequested": true,
+      "finalBattle": 7,
+      "enemyHp": 74,
+      "turnsRemaining": 0,
+      "attacks": 17,
+      "preparations": 3,
+      "checks": 15,
+      "pageErrors": [],
+      "failedRequests": [],
+      "badResponses": [],
+      "stage9Course": [
+        {
+          "battle": 38,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 39,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 40,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 41,
+          "status": "NOT_RUN",
+          "evidence": []
+        },
+        {
+          "battle": 42,
+          "status": "NOT_RUN",
+          "evidence": []
+        }
+      ]
+    }
+  ]
+}

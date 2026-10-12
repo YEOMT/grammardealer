@@ -1,3 +1,4 @@
+import {EXTRAPOSITION_PREDICATES} from '../../data/language/libraryLanguage.js';
 import {skyEvidence} from './skyEvidence.js';
 import {verbPhrases} from './verbPhrase.js';
 import {isIngForm} from '../../data/language/desertLanguage.js';
@@ -7,7 +8,7 @@ const LABELS={RELATIVE_MARKER_ANTECEDENT:'선행사에 맞는 관계사를 확�
 const LIMITS={work:12000,depth:4,candidates:128};
 
 export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={}) {
- const waterways=registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
+ const library=registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
  const polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6';
  const desert=snow||registry.validationScope==='desert.0.5';
@@ -124,6 +125,13 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  function parseNPAtom(start,npRole,{depth=0,prep=null,allowPostPP=true,allowRelative=true}={}) {
   tick();if(depth>limits.depth||!tok(start))return [];
   const out=[];const t=tok(start);
+  if(library&&word(start)==='what'&&['SUBJECT','OBJECT','COMPLEMENT','DIRECT_OBJECT'].includes(npRole)&&depth<limits.depth-1){
+   const antecedent=phrase('NP',start,start+1,start,{features:{person:3,number:'SINGULAR'}});
+   for(let end=start+2;end<=tokens.length;end++)for(const gapRole of ['SUBJECT','OBJECT'])for(const child of parseRange(start+1,end,{depth:depth+1,...(gapRole==='SUBJECT'?{subjectGap:antecedent}:{objectGap:antecedent})})){
+    const tree=child.tree??asClause(child,start+1,end,'NOMINAL');
+    out.push(phrase('NP',start,end,start,{npRole,features:antecedent.features,issues:child.issues,hits:tree.hits,roles:[role(start,'NOMINAL_MARKER'),...tree.roles],children:[tree],childClauseRole:'NOMINAL',nominal:{kind:'NOMINAL_WHAT',externalRole:npRole,gapRole,markerIndex:start},interpretationPriority:-1}));
+   }
+  }
   if(desert&&['SUBJECT','COMPLEMENT','PP_OBJECT'].includes(npRole)&&depth<limits.depth){
    const kind=word(start)==='to'&&npRole!=='PP_OBJECT'?'TO':ingAt(start)?'ING':null;
    if(kind)for(const n of nonfiniteOptions(start,tokens.length,depth,{kind,function:({SUBJECT:'SUBJECT',COMPLEMENT:'SUBJECT_COMPLEMENT',PP_OBJECT:'PREPOSITION_OBJECT'})[npRole]}))out.push(phrase('NP',start,n.end,n.head,{npRole,features:{person:3,number:'SINGULAR'},issues:n.issues,hits:n.hits,roles:n.roles,children:[n],interpretationPriority:n.interpretationPriority??0}));
@@ -202,6 +210,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   // A clause used in an NP slot is still a clause, not a registered noun
   // antecedent. Keep relatives inside its real noun arguments available.
   if(!historicalReceipt&&base.children.some(child=>child.nonfinite&&child.head===base.head))return out;
+  if(library&&base.nominal)return out;
   const cls=tok(base.head)?.lex.relativeAntecedentClass;
   if(adverb&&(marker==='where'?cls!=='PLACE':cls!=='TIME'))return out;
   const mismatch=marker==='who'&&!['PERSON','ANIMAL'].includes(cls)||marker==='which'&&cls==='PERSON';
@@ -343,6 +352,17 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    const np=(position,role)=>parseNP(position,role,{depth}).filter(n=>n.end<=end);
    if(internalFrame==='frame.sv'||internalFrame==='frame.beLocative')complements=[phrase('EMPTY',pos,pos,vi)];
    if(internalFrame==='frame.svc.adj')complements=parseAP(pos,{depth,...(polish061?{subject}:{})}).map(ap=>({...ap,npRole:'COMPLEMENT',roles:ap.roles.map(r=>r.cardInstanceId===tok(ap.head).cardInstanceId?role(ap.head,'COMPLEMENT'):r)}));
+   if(library&&finite&&verb.lex.lemma==='be'&&internalFrame==='frame.svc.adj'&&subject?.end===subject?.start+1&&word(subject.head)==='it'){
+    for(const ap of [...complements]){
+     const allowed=EXTRAPOSITION_PREDICATES[tok(ap.head)?.lex.lemma]??[];
+     if(ap.children.some(n=>n.nonfinite))continue;
+     if(allowed.includes('TO')&&word(ap.end)==='to')for(const n of nonfiniteOptions(ap.end,end,depth,{kind:'TO',function:'SUBJECT'}))complements.push({...merge(ap,n,{end:n.end}),nominal:{kind:'EXTRAPOSED_SUBJECT_TO',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end}});
+     if(allowed.includes('THAT')&&word(ap.end)==='that')for(let ce=ap.end+3;ce<=end;ce++)for(const child of parseRange(ap.end+1,ce,{depth:depth+1})){
+      const n=phrase('EXTRAPOSED_CONTENT',ap.end,ce,child.verbIndex,{issues:child.issues,hits:child.tree.hits,roles:[linkRole(ap.end,'CLAUSE'),...child.tree.roles],children:[child.tree],childClauseRole:'EXTRAPOSED_SUBJECT'});
+      complements.push({...merge(ap,n,{end:ce}),nominal:{kind:'EXTRAPOSED_SUBJECT_THAT',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end}});
+     }
+    }
+   }
    if(internalFrame==='frame.svc.np'||internalFrame==='frame.svo')complements=np(pos,internalFrame==='frame.svo'?'OBJECT':'COMPLEMENT');
    if(sky&&!objectGap&&internalFrame==='frame.svo.content'){
     const marker=word(pos)==='that',contentStart=pos+(marker?1:0);complements=[];
@@ -357,7 +377,16 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
      const q=child.tree;complements.push(phrase(io?'OBJECTS':'QUESTION_CONTENT',pos,ce,child.verbIndex,{npRole:'OBJECT',issues:[...(io?.issues??[]),...child.issues],hits:[...(io?.hits??[]),...q.hits],roles:[...(io?.roles??[]),...q.roles],children:[...(io?[io]:[]),q],...(io?{indirectObject:io,directObject:q}:{}),childClauseRole:'EMBEDDED_QUESTION',interpretationPriority:child.interpretationPriority??0}));
     }
    }
-   if(objectGap)complements=internalFrame==='frame.svo'?[phrase('GAP',pos,pos,vi,{gapRole:'OBJECT',antecedentHead:objectGap.head})]:[];
+   if(library&&!objectGap&&['frame.svo.wh','frame.svoo.wh'].includes(internalFrame)){
+    const ios=internalFrame==='frame.svoo.wh'?np(pos,'INDIRECT_OBJECT'):[null];
+    for(const io of ios){const start=io?.end??pos;if(word(start)!=='whether')continue;
+     for(let ce=start+3;ce<=end;ce++)for(const child of parseRange(start+1,ce,{depth:depth+1})){
+      const n=phrase('NOMINAL_CLAUSE',start,ce,child.verbIndex,{npRole:'OBJECT',issues:child.issues,hits:child.tree.hits,roles:[role(start,'NOMINAL_MARKER'),...child.tree.roles],children:[child.tree],childClauseRole:'NOMINAL',nominal:{kind:'NOMINAL_WHETHER',externalRole:io?'DIRECT_OBJECT':'OBJECT',markerIndex:start}});
+      complements.push(io?phrase('OBJECTS',pos,ce,n.head,{issues:[...io.issues,...n.issues],hits:[...io.hits,...n.hits],roles:[...io.roles,...n.roles],children:[io,n],indirectObject:io,directObject:n}):n);
+     }
+    }
+   }
+   if(objectGap)complements=internalFrame==='frame.svo' ?[phrase('GAP',pos,pos,vi,{gapRole:'OBJECT',antecedentHead:objectGap.head})]:[];
    if(desert&&objectGap&&internalFrame==='frame.svoo')complements=np(pos,'INDIRECT_OBJECT').filter(io=>!waterways||!['it','this','that'].includes(word(io.head))).map(io=>phrase('OBJECTS',io.start,io.end,io.head,{issues:io.issues,hits:io.hits,roles:io.roles,children:[io],indirectObject:io,gapRole:'DIRECT_OBJECT',antecedentHead:objectGap.head}));
    if(!objectGap&&internalFrame==='frame.svoo')complements=np(pos,'INDIRECT_OBJECT').flatMap(io=>np(io.end,'DIRECT_OBJECT').map(object=>phrase('OBJECTS',io.start,object.end,io.head,{issues:[...io.issues,...object.issues],hits:[...io.hits,...object.hits],roles:[...io.roles,...object.roles],children:[io,object],indirectObject:io,directObject:object,...(desert?{interpretationPriority:(io.interpretationPriority??0)+(object.interpretationPriority??0)}:{})})));
    if(learning&&!objectGap&&internalFrame.startsWith('frame.svoc.'))complements=np(pos,'OBJECT').flatMap(object=>{

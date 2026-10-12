@@ -1,0 +1,666 @@
+{
+  "kind": "DESIGN_EXPECTATIONS_NOT_EXECUTED_TEST_RESULTS",
+  "warningKo": "문장과 보스 기대값은 명세용이다. 실제 문법 엔진·게임·브라우저 실행 결과가 아니다. 각 문장을 실제 card instance/form으로 구성해 검증해야 한다.",
+  "grammar": [
+    {
+      "id": "G01",
+      "sentence": "What I need is water.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_WHAT",
+      "noteKo": "what절 주어"
+    },
+    {
+      "id": "G02",
+      "sentence": "I like what you make.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_WHAT",
+      "noteKo": "what절 목적어"
+    },
+    {
+      "id": "G03",
+      "sentence": "The book is what I need.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_WHAT",
+      "noteKo": "what절 보어"
+    },
+    {
+      "id": "G04",
+      "sentence": "I know what you need.",
+      "expectation": "TARGET_VALID_ONCE",
+      "classification": "NOMINAL_WHAT_OR_QUESTION",
+      "noteKo": "해석 중첩으로 같은 절 이중 계산 금지"
+    },
+    {
+      "id": "G05",
+      "sentence": "I know where you live.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_QUESTION",
+      "noteKo": "where 간접의문문"
+    },
+    {
+      "id": "G06",
+      "sentence": "I know when she works.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_QUESTION",
+      "noteKo": "when 간접의문문"
+    },
+    {
+      "id": "G07",
+      "sentence": "I know where she is.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_QUESTION",
+      "noteKo": "내부 평서문 어순"
+    },
+    {
+      "id": "G08",
+      "sentence": "I know whether she likes music.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_WHETHER",
+      "noteKo": "or not 없이 정상"
+    },
+    {
+      "id": "G09",
+      "sentence": "I know whether you are happy.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_WHETHER",
+      "noteKo": "whether절 be 술어"
+    },
+    {
+      "id": "G10",
+      "sentence": "It is good to read books.",
+      "expectation": "TARGET_VALID",
+      "classification": "EXTRAPOSED_SUBJECT_TO",
+      "noteKo": "가주어·to 진주어"
+    },
+    {
+      "id": "G11",
+      "sentence": "It is good that you are happy.",
+      "expectation": "TARGET_VALID",
+      "classification": "EXTRAPOSED_SUBJECT_THAT",
+      "noteKo": "가주어·that 진주어"
+    },
+    {
+      "id": "G12",
+      "sentence": "I think that you are happy.",
+      "expectation": "TARGET_VALID",
+      "classification": "NOMINAL_THAT",
+      "noteKo": "기존 that 내용절도 공략 대상"
+    },
+    {
+      "id": "G13",
+      "sentence": "I think you are happy.",
+      "expectation": "PRESERVE_AND_QUALIFY_IF_ALREADY_SUPPORTED",
+      "classification": "NOMINAL_THAT_OMITTED",
+      "noteKo": "기존 생략형 지원 확인. 카드 철자만으로 누락 금지"
+    },
+    {
+      "id": "G14",
+      "sentence": "What I need it is water.",
+      "expectation": "NO_TARGET_EVIDENCE",
+      "classification": "MALFORMED_WHAT",
+      "noteKo": "빈자리를 목적어 it으로 중복 채운 오류"
+    },
+    {
+      "id": "G15",
+      "sentence": "I know where is she.",
+      "expectation": "NO_TARGET_EVIDENCE",
+      "classification": "INVERTED_INDIRECT_QUESTION",
+      "noteKo": "간접의문문 도치 오류"
+    },
+    {
+      "id": "G16",
+      "sentence": "I know whether.",
+      "expectation": "NO_TARGET_EVIDENCE",
+      "classification": "INCOMPLETE_WHETHER",
+      "noteKo": "유한절 부재"
+    },
+    {
+      "id": "G17",
+      "sentence": "I know whether she like music.",
+      "expectation": "NO_VALID_TARGET_EVIDENCE",
+      "classification": "WHETHER_AGREEMENT_ISSUE",
+      "noteKo": "목표절 안 일치 오류. 전체 오류 처리는 기존 정책"
+    },
+    {
+      "id": "G18",
+      "sentence": "It is good to reads books.",
+      "expectation": "NO_VALID_TARGET_EVIDENCE",
+      "classification": "EXTRAPOSITION_FORM_ISSUE",
+      "noteKo": "진주어 내부 원형 오류"
+    },
+    {
+      "id": "G19",
+      "sentence": "It is good that happy you.",
+      "expectation": "NO_TARGET_EVIDENCE",
+      "classification": "INCOMPLETE_EXTRAPOSITION",
+      "noteKo": "that절 필수 구조 오류"
+    },
+    {
+      "id": "G20",
+      "sentence": "This is the park where you live.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "ADVERBIAL_RELATIVE",
+      "noteKo": "관계부사절 보존, 그 자체로 저지하지 않음"
+    },
+    {
+      "id": "G21",
+      "sentence": "I read books when you work.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "TEMPORAL_ADVERBIAL",
+      "noteKo": "시간 부사절 보존, 그 자체로 저지하지 않음"
+    },
+    {
+      "id": "G22",
+      "sentence": "I like the book that you read.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "ADNOMINAL_RELATIVE",
+      "noteKo": "수식 관계절은 명사절과 다름"
+    },
+    {
+      "id": "G23",
+      "sentence": "It is a book that I like.",
+      "expectation": "NO_EXTRAPOSITION_EVIDENCE",
+      "classification": "REFERENTIAL_IT_OR_OTHER_EXISTING_ANALYSIS",
+      "noteKo": "겉모양만으로 가주어 처리 금지"
+    },
+    {
+      "id": "G24",
+      "sentence": "It is good.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "REFERENTIAL_IT",
+      "noteKo": "진주어가 없으므로 가주어·진주어 공략 아님"
+    },
+    {
+      "id": "G25",
+      "sentence": "I like to read books.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "SIMPLE_INFINITIVE",
+      "noteKo": "단순 to부정사만으로 저지하지 않음"
+    },
+    {
+      "id": "G26",
+      "sentence": "I like reading books.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "SIMPLE_GERUND",
+      "noteKo": "단순 동명사만으로 저지하지 않음"
+    },
+    {
+      "id": "G27",
+      "sentence": "I help you.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "HELP_VERB",
+      "noteKo": "0.8.1 동사 용법 회귀"
+    },
+    {
+      "id": "G28",
+      "sentence": "I need more help.",
+      "expectation": "VALID_NON_TARGET",
+      "classification": "HELP_MASS_NOUN",
+      "noteKo": "help 명사 유지, more만으로 비교급 금지"
+    }
+  ],
+  "boss": [
+    {
+      "id": "B01",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 900,
+        "validTargetStructure": false,
+        "turnsBefore": 6,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2100,
+        "actualDamage": 900,
+        "actualHeal": 900,
+        "hpAfterTurnEnd": 3000,
+        "turnsRemaining": 5,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B02",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 1600,
+        "validTargetStructure": false,
+        "turnsBefore": 6,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1400,
+        "actualDamage": 1600,
+        "actualHeal": 1000,
+        "hpAfterTurnEnd": 2400,
+        "turnsRemaining": 5,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B03",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 900,
+        "validTargetStructure": true,
+        "turnsBefore": 6,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2100,
+        "actualDamage": 900,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 2100,
+        "turnsRemaining": 5,
+        "outcome": "CONTINUE",
+        "healSuppressed": true
+      }
+    },
+    {
+      "id": "B04",
+      "input": {
+        "hpBefore": 700,
+        "action": "ATTACK",
+        "damage": 800,
+        "validTargetStructure": false,
+        "turnsBefore": 2,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 0,
+        "actualDamage": 700,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsRemaining": 1,
+        "outcome": "VICTORY",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B05",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 3000,
+        "validTargetStructure": false,
+        "turnsBefore": 6,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 0,
+        "actualDamage": 3000,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsRemaining": 5,
+        "outcome": "VICTORY",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B06",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 4000,
+        "validTargetStructure": false,
+        "turnsBefore": 1,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 0,
+        "actualDamage": 3000,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsRemaining": 0,
+        "outcome": "VICTORY",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B07",
+      "input": {
+        "hpBefore": 2100,
+        "action": "PREPARE",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2100,
+        "actualDamage": 0,
+        "actualHeal": 900,
+        "hpAfterTurnEnd": 3000,
+        "turnsRemaining": 3,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B08",
+      "input": {
+        "hpBefore": 3000,
+        "action": "PREPARE",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 3000,
+        "actualDamage": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 3000,
+        "turnsRemaining": 3,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B09",
+      "input": {
+        "hpBefore": 2900,
+        "action": "ATTACK",
+        "damage": 200,
+        "validTargetStructure": false,
+        "turnsBefore": 3,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2700,
+        "actualDamage": 200,
+        "actualHeal": 300,
+        "hpAfterTurnEnd": 3000,
+        "turnsRemaining": 2,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B10",
+      "input": {
+        "hpBefore": 700,
+        "action": "ATTACK",
+        "damage": 800,
+        "validTargetStructure": true,
+        "turnsBefore": 1,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 0,
+        "actualDamage": 700,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsRemaining": 0,
+        "outcome": "VICTORY",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B11",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 900,
+        "validTargetStructure": true,
+        "turnsBefore": 1,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2100,
+        "actualDamage": 900,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 2100,
+        "turnsRemaining": 0,
+        "outcome": "DEFEAT",
+        "healSuppressed": true
+      }
+    },
+    {
+      "id": "B12",
+      "input": {
+        "hpBefore": 3000,
+        "action": "ATTACK",
+        "damage": 900,
+        "validTargetStructure": false,
+        "turnsBefore": 1,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 2100,
+        "actualDamage": 900,
+        "actualHeal": 900,
+        "hpAfterTurnEnd": 3000,
+        "turnsRemaining": 0,
+        "outcome": "DEFEAT",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B13",
+      "input": {
+        "hpBefore": 1500,
+        "action": "INVALID_CORE",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 1000,
+        "hpAfterTurnEnd": 2500,
+        "turnsRemaining": 3,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B14",
+      "input": {
+        "hpBefore": 2000,
+        "action": "ATTACK",
+        "damage": 300,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1700,
+        "actualDamage": 300,
+        "actualHeal": 1000,
+        "hpAfterTurnEnd": 2700,
+        "turnsRemaining": 3,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B15",
+      "input": {
+        "hpBefore": 1500,
+        "action": "ENGINE_ERROR",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": false
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1500,
+        "turnsRemaining": 4,
+        "outcome": "UNCHANGED",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B16",
+      "input": {
+        "hpBefore": 1500,
+        "action": "EXCHANGE",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1500,
+        "turnsRemaining": 4,
+        "outcome": "UNCHANGED",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B17",
+      "input": {
+        "hpBefore": 1500,
+        "action": "ATTACK",
+        "damage": 0,
+        "validTargetStructure": true,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 1000,
+        "hpAfterTurnEnd": 2500,
+        "turnsRemaining": 3,
+        "outcome": "CONTINUE",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B18",
+      "input": {
+        "hpBefore": 1500,
+        "action": "OPERATION",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 4,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1500,
+        "turnsRemaining": 4,
+        "outcome": "UNCHANGED",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B19",
+      "input": {
+        "hpBefore": 1500,
+        "action": "ATTACK",
+        "damage": 600,
+        "validTargetStructure": true,
+        "turnsBefore": 4,
+        "accepted": false
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1500,
+        "turnsRemaining": 4,
+        "outcome": "UNCHANGED",
+        "healSuppressed": false
+      }
+    },
+    {
+      "id": "B20",
+      "input": {
+        "hpBefore": 1500,
+        "action": "PREPARE",
+        "damage": 0,
+        "validTargetStructure": false,
+        "turnsBefore": 1,
+        "accepted": true
+      },
+      "expected": {
+        "hpAfterAttack": 1500,
+        "actualDamage": 0,
+        "actualHeal": 1000,
+        "hpAfterTurnEnd": 2500,
+        "turnsRemaining": 0,
+        "outcome": "DEFEAT",
+        "healSuppressed": false
+      }
+    }
+  ],
+  "integrationScenarios": [
+    {
+      "id": "I01",
+      "case": "Double FINISH_PRESENTATION / watchdog / same turnEndId",
+      "expectation": "Only one heal and one turn consumption"
+    },
+    {
+      "id": "I02",
+      "case": "Qualified attack on turn N, PREPARE on N+1",
+      "expectation": "Suppression does not carry; the preparation turn heals"
+    },
+    {
+      "id": "I03",
+      "case": "Stage9-4 temporary that remaining, NEXT_BATTLE to9-5",
+      "expectation": "Temporary cards removed; Stage9-5 creates zero support instances"
+    },
+    {
+      "id": "I04",
+      "case": "No that in hand but a permanent that exists",
+      "expectation": "No conditional frost that supply"
+    },
+    {
+      "id": "I05",
+      "case": "Normal frost consumed by accepted INVALID_CORE submission",
+      "expectation": "Frost remains shattered; no recovery via recycle or load"
+    },
+    {
+      "id": "I06",
+      "case": "No Stage9 target permanent cards obtained",
+      "expectation": "No rescue; boss entry allowed; a real defeat is permitted"
+    },
+    {
+      "id": "I07",
+      "case": "9-1 reward eligibility",
+      "expectation": "New permanent what/whether eligible before boss, preserving rarity and no guaranteed offers"
+    },
+    {
+      "id": "I08",
+      "case": "Load old0.8.1 completed run",
+      "expectation": "STAGE8_END and old version balance retained"
+    },
+    {
+      "id": "I09",
+      "case": "Load or cancel published new0.9 reward",
+      "expectation": "Same offer candidates, prices and RNG state; no duplicate gain"
+    },
+    {
+      "id": "I10",
+      "case": "0.9 golem phase definitions",
+      "expectation": "Three 280HP phases, total840; no carry-over excess"
+    },
+    {
+      "id": "I11",
+      "case": "All rarity classes eligible, first unrestricted rune candidate",
+      "expectation": "RARE mass9/300, not an unconditional combat acquisition probability"
+    },
+    {
+      "id": "I12",
+      "case": "VALID_WITH_ISSUES outside valid target vs issue invalidating target",
+      "expectation": "Use target evidence validity; do not conflate all partial-valid attacks"
+    }
+  ]
+}

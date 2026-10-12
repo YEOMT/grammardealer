@@ -23,7 +23,7 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
   node.append(body);
   const dual=model.secondaryLexemes?.length>0;
-  if(dual){node.classList.add('dual-usage-card');const top=body.querySelector('.card-topline'),value=top.querySelector('.card-value');top.querySelector('.pos-label').append(' ',value);top.append(el('span',{class:'dual-usage-badge',text:'동·명'}));}
+  if(dual){node.classList.add('dual-usage-card');const label=body.querySelector('.pos-label');label.replaceChildren(el('span',{class:'dual-usage-badge',text:'동·명'}));}
   if((dual||model.temporary)&&['hand','sentence'].includes(zone)){
     const details=()=>modal(model.surface+' · 카드 상세',[
       ...(dual?[el('p',{text:'동사: 돕다 / 명사: 도움(셀 수 없는 명사)'}),el('p',{text:'I help you.'}),el('p',{text:'I need more help.'}),el('p',{text:'명사 도움은 기본형 help로 씁니다. 실제 용법은 문장 제출 후 판정합니다.'})]:[]),
@@ -120,7 +120,7 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
 /** Hand operations share physical dimensions and discard controls with words. */
 function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled}){
  const copy=operationText(model);
- const node=el('article',{class:'word-card operation-card '+(selected?'selected ':'')+(compact?'compact ':'')+(model.temporary?'frost-card':''),dataset:{cardId:model.id,cardKind:'OPERATION',zone:zone??'readonly',temporary:String(!!model.temporary)}});
+ const node=el('article',{class:'word-card operation-card rarity-'+model.rarity+' polish-'+model.polish+' '+(selected?'selected ':'')+(compact?'compact ':'')+(model.temporary?'frost-card':''),dataset:{cardId:model.id,cardKind:'OPERATION',zone:zone??'readonly',temporary:String(!!model.temporary)}});
  const body=el('div',{class:'card-body',role:'button',tabIndex:0,'aria-label':model.surface+' · 운영 · '+copy.effect+' · '+copy.limit,title:copy.effect+' · '+copy.limit},
    el('div',{class:'card-topline'},el('span',{text:'운영 · '+RARITY_LABELS[model.rarity]}),el('span',{class:model.polish?'polish-badge':'',text:model.polish?`+${model.polish}`:''})),
    el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-limit',text:model.temporary?'전투당 1회':model.operation.afterUseDestination==='DISCARD'?'다시 뽑아 재사용':'전투당 1회'}));

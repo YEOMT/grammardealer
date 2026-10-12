@@ -1,3 +1,16 @@
+# 0.9 추가 구조
+
+기존 Grammar → Scoring → Rune → Stage → Presentation과 RunController 단독 상태 커밋을 유지한다.
+
+- `data/libraryPolicy.js`는 사용자 확정값/검증용 초기값을 분리한다. `libraryLanguage.js`는081의help 포함 registry를 복제한09 view이며 기존파서를 확장한다. legacy registry는 바뀌지 않는다.
+- parser의 what NP gap, whether finite child, 검수된 extraposition AP를 `skyEvidence`가 nominalStructures로 직렬화한다. constituent 고유 오류 범위를 쓰며 실제 selected card/node 근거만 libraryTargetEvidence로 전달한다. 지역×1.25는 한 번, 새 독립문법 배수는 없다.
+- `game/libraryFrost.js`는09 일반전 manifest·물리사본·가시성·검증을 담당하고 기존 temporaryCards/cleanup을 재사용한다. 영구덱 기준 조건부 공급, 기존witness 밖 교환, 보스공급0을 유지한다.
+- `engine/libraryTurnEnd.js`는 순수 receipt를 계산한다. RunController가 공격 피해 뒤/PREPARE에서 최종HP와 receipt를 한 번 커밋한다. Presentation은 damage→turn-end 숫자만 재생한다. restore validator는 actual history/snapshot을 재분석하며 forged/duplicate receipt를 거부한다.
+- stage registry/campaign feature는09만9지역을 연다. Stage8완료→Stage9소개→보상후STAGE9_END, profile milestone 및 saved content boundary가 연결된다. 구081은37에서 끝난다.
+- versioned rune/rarity policy는 새후보에만194:97:9를 적용한다. 동일longSentence ID, 기존061배율/레벨, 초회예외/고갈 정규화는 유지한다. 카드/운영은 공유희귀도스타일, guide와도감은 고정설명/실제제출기록이다.
+
+실제 근거/미검증은 [0.9 보고서](TEST_REPORT_0.9.md)를 따른다. QA 자연원정 후보기는 tools/에만 있으며 production 정답표나 미리보기 기능이 아니다. 이하 이전 구조 기록은 당시 버전의 설명이다.
+
 ## 0.8.1 문법·표시 경계
 
 - `helpUsage`는 frozen0.8 언어 view에 한 카드의 보조 MASS명사 lexeme만 연결한다. 후보는 실제선택surface가help일 때만 추가하고 NP에서 확정된 selectedPos/selectedLexemeId를 피드백·기록에 전달한다. 기존 동사 Form ID와 전투 밖 주품사 탐색은 유지한다.
