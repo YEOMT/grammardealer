@@ -77,4 +77,4 @@ QA 정책의 정상 패배를 게임 엔진 예외나 사람 승률로 해석하
 
 [변경 목록](validation/v0.10/changed-files.txt), [110조건](ACCEPTANCE_0.10.md), [패치 내역](PATCH_NOTES_0.10_KO.md), [진행 기록](IMPLEMENTATION_PROGRESS_0.10.md), [빌드 해시](validation/v0.10/build-manifest.json)를 함께 확인한다. 원본 누적 로그·중복 캡처·영상·node_modules·dist·로컬 런타임은 commit하지 않는다. 공개 증거는 경로·ANSI 색상·행 끝 공백을 정리한 선별 실행 로그·JSON 및 대표 캡처를 사용한다. 원본 로그 해시는 commands.json에 남기고 로컬 원본 바이트는 보존한다.
 
-브랜치 `codex/v0.10-star-corridor-foresight`. 자연47전투/후반 자연 준비 및 물리 기기 검수가 미확보이므로 **Draft PR**로 인계한다. 커밋·push·PR 주소는 원격 성공을 확인한 후 이 절에 기록한다. main 직접 push/병합/auto-merge/Pages 설정 변경/공개 배포는 하지 않는다.
+브랜치 `codex/v0.10-star-corridor-foresight`의 구현 커밋은 `e1b07354143185d45f01fc2d1e839254d27fd2e6`이다. 원격 push 및 [Draft PR #15](https://github.com/YEOMT/grammardealer/pull/15) 생성에 성공했다. 자연 47전투/후반 자연 준비 및 물리 기기 검수가 미확보이므로 Draft를 유지한다. 110조건 추적은 **108 PASS / 2 NOT RUN**이며 개별 PASS의 지정 상태·합성 범위를 각 행에 명시했다. 원문 그대로의 미등록 어휘 2사례는 별도 NOT RUN이다. PR 생성 후 원격 main은 시작 SHA 그대로이며 auto-merge는 꺼져 있다. main 직접 push/병합/Pages 설정 변경/공개 배포는 수행하지 않았다.

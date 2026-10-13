@@ -117,6 +117,6 @@
 | K07 | 브라우저 | PASS | focused three-engine UI and production resource tests separate from Controller |
 | K08 | 추적 문서 | PASS | progress/report/language review and110 rows |
 | K09 | 범위보고 | PASS | placeholder art/BGM, physical device and natural completion limits disclosed |
-| K10 | 인계종료 | NOT RUN | pending final commit/push/PR; no main/Pages/deployment mutation |
+| K10 | 인계종료 | PASS | 구현 e1b0735 push + [Draft PR #15](https://github.com/YEOMT/grammardealer/pull/15); main SHA 불변, auto-merge 없음 |
 
-K04: 정상 새 원정에서 목표 경계를 시도했으나 완주 증거는 미확보다. 실제 시도 결과를 보고서에 기록하며 지정 상태 승리로 대체하지 않는다. I10: 실제 PC 브라우저/터치 에뮬레이션까지이며 물리 모바일 기기 검수는 미실행. K10은 PR 생성 확인 뒤 갱신한다.
+K04: 정상 새 원정에서 목표 경계를 시도했으나 완주 증거는 미확보다. 실제 시도 결과를 보고서에 기록하며 지정 상태 승리로 대체하지 않는다. I10: 실제 PC 브라우저/터치 에뮬레이션까지이며 물리 모바일 기기 검수는 미실행. K10: push 및 Draft PR 생성 확인. 최종 추적 합계는 108 PASS / 2 NOT RUN이며 자연 완주나 물리 기기 검사를 대신하지 않는다.

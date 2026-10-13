@@ -33,6 +33,7 @@ docs/validation/v0.10/production-assigned.txt
 docs/validation/v0.10/production-natural.json
 docs/validation/v0.10/production-natural.txt
 docs/validation/v0.10/published-captures.json
+docs/validation/v0.10/pull-request.json
 docs/validation/v0.10/sky-diagnostic.txt
 docs/validation/v0.10/stage10-entry.png
 docs/validation/v0.10/unit.txt
