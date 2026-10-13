@@ -141,3 +141,11 @@ export const WATERWAYS_GRAMMAR_DISPLAY=Object.freeze([...EMBER_GRAMMAR_DISPLAY,
  {order:270,tag:'CLAUSE.RELATIVE.OBJECT',titleKo:'목적격 관계절',pattern:'명사 + (who / which / that) + 주어 + 동사',shortDescriptionKo:'앞의 명사가 관계절 안에서 동사나 전치사의 목적어에 해당합니다. 목적격 관계사는 생략할 수 있습니다.'},
  {order:280,tag:'CLAUSE.RELATIVE.ADVERBIAL',titleKo:'관계부사절',pattern:'장소 명사 + where / 시간 명사 + when + 절',shortDescriptionKo:'앞의 장소·시간 명사를 설명합니다. 절 안에는 필요한 주어와 목적어가 따로 있어야 합니다.'}
 ]);
+
+export const CORRIDOR_GRAMMAR_DISPLAY=Object.freeze([...WATERWAYS_GRAMMAR_DISPLAY,
+ {order:290,tag:'CORRIDOR.CONDITIONAL_REAL',titleKo:'현실 조건절',pattern:'if + 현재형, will / can + 원형',shortDescriptionKo:'실현 가능한 조건과 결과를 연결합니다. 결과절이 주절입니다. 같은 조건 연결을 절 연결 보너스와 중복 계산하지 않습니다.'},
+ {order:300,tag:'CORRIDOR.UNREAL_PRESENT',titleKo:'가정법 과거',pattern:'if + 과거형, would / could + 원형',shortDescriptionKo:'현재 사실과 거리를 둔 가정입니다. 과거형이 실제 과거 시간을 뜻하지 않으며, would만으로 가정법이 되지는 않습니다.'},
+ {order:310,tag:'CORRIDOR.PAST_PERFECT',titleKo:'과거완료',pattern:'had + p.p.',shortDescriptionKo:'p.p.는 과거분사입니다. 과거의 기준 시점보다 앞선 일을 나타냅니다. 같은 동사구의 과거·완료 보너스를 대신합니다.'},
+ {order:320,tag:'CORRIDOR.UNREAL_PAST',titleKo:'가정법 과거완료',pattern:'if + had + p.p., would / could + have + p.p.',shortDescriptionKo:'p.p.는 과거분사입니다. 실현되지 않은 과거의 조건과 결과를 가정합니다. 같은 조건 구문의 과거·완료·절 연결 보너스를 대신합니다.'},
+ {order:330,tag:'CORRIDOR.PRESENT_PERFECT_PROGRESSIVE',titleKo:'현재완료진행',pattern:'have / has + been + -ing',shortDescriptionKo:'과거부터 현재까지 이어진 행동을 나타냅니다. 같은 동사구의 완료·진행 보너스를 대신합니다. 별의 회랑 지역 보너스 대상은 아닙니다.'}
+]);

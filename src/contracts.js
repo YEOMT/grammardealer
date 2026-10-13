@@ -14,7 +14,8 @@ export const EMBER_VERSIONS=Object.freeze({...POLISH_VERSIONS,game:'0.7.0',save:
 export const WATERWAYS_VERSIONS=Object.freeze({...EMBER_VERSIONS,game:'0.8.0',save:'0.8.0',language:'0.8.0',grammar:'0.8.0',balance:'0.8.0',comboEligibility:'0.8.0',learningRecord:'0.8.0',entry:'0.8.0',presentation:'0.8.0'});
 export const PATCH081_VERSIONS=Object.freeze({...WATERWAYS_VERSIONS,game:'0.8.1',save:'0.8.1',generator:'0.8.1'});
 export const LIBRARY_VERSIONS=Object.freeze({...PATCH081_VERSIONS,game:'0.9.0',save:'0.9.0',language:'0.9.0',grammar:'0.9.0',balance:'0.9.0',comboEligibility:'0.9.0',learningRecord:'0.9.0',entry:'0.9.0',reward:'0.9.0',shop:'0.9.0',runes:'0.9.0',presentation:'0.9.0'});
-export const VERSIONS = LIBRARY_VERSIONS;
+export const CORRIDOR_VERSIONS=Object.freeze({...LIBRARY_VERSIONS,game:'0.10.0',save:'0.10.0',language:'0.10.0',grammar:'0.10.0',balance:'0.10.0',comboEligibility:'0.10.0',learningRecord:'0.10.0',entry:'0.10.0',presentation:'0.10.0'});
+export const VERSIONS = CORRIDOR_VERSIONS;
 export const clone = value => structuredClone(value);
 export function deepFreeze(value) {if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.freeze(value);Object.values(value).forEach(deepFreeze);}return value;}
 export function requireInteger(value,name,min=0,max=Number.MAX_SAFE_INTEGER) {if(!Number.isSafeInteger(value)||value<min||value>max)throw new TypeError(`${name}: invalid integer`);return value;}

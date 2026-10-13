@@ -1,3 +1,14 @@
+# 0.10 추가 구조
+
+- `data/corridorPolicy.js`가 확정 HP/빙정 최소량과 검증용 배율/저항을 분리한다. `corridorLanguage`는 frozen0.9를 복제하고 will의 would, can/could만 확장한다. 과거 registry는 그대로다.
+- 기존 parser/verbPhrase에 modal·국소 irrealis와 조건절 쌍을 추가한다. `corridorEvidence`는 실제 clause/VP/card/node ID로 `corridorStructures`를 만들고 결과절을 주절로 유지한다. 원시 근거는 보존하고 `scoreableAnalysis`가 같은 근거의 하위 배율만 대체하여 `suppressedScoreEvidence`를 기록한다.
+- `starCorridor`는 팩/상점 입장 영수증, `corridorFrost`는 영구 활성 사본 부족량·임시 WORD·기존 witness를 보존한 가시성 교환·공급/소멸 검증을 담당한다. `temporaryCards`가 기존 전투 종료 정리를 재사용한다.
+- `normalResistance`는 Grammar→Scoring→Rune→Region 다음의 새 NORMAL 최종 분수 연산이다. pre/post/final/actualHpLoss/overkill을 분리한다. `foresight`는 구조로 증명한 주절 키와 유효 가정법 쌍만 읽어 차단/기억 제안을 반환한다. RunController가 HP/턴/기억을 한 번 커밋하고 Presentation은 표시만 한다.
+- 저장 validator는 원정 version/manifest를 고정하고 예견 history의 실제 snapshot을 재분석하여 HP/기억 영수증을 검증한다. 0.9는42경계·저항없음·기존 수치를 유지한다. 명시적 version 집합을 사용하며 문자열 대소 비교로0.10을 판단하지 않는다.
+- `tests/helpers/corridor-state`의 지정 상태와 `tools/corridor-candidates`의 자동 플레이는 QA 전용이다. 부속 기대JSON과 QA 문장 생성기를 production에서 import하지 않는다. 새 안내는 고정 검수 데이터이고 편집 중 점수·주절·차단 예측을 노출하지 않는다.
+
+근거와 미검증 범위는 [0.10 실제 보고서](TEST_REPORT_0.10.md)에 기록한다. 아래는 이전 버전 구조다.
+
 # 0.9 추가 구조
 
 기존 Grammar → Scoring → Rune → Stage → Presentation과 RunController 단독 상태 커밋을 유지한다.

@@ -8,7 +8,7 @@ const LABELS={RELATIVE_MARKER_ANTECEDENT:'선행사에 맞는 관계사를 확�
 const LIMITS={work:12000,depth:4,candidates:128};
 
 export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={}) {
- const library=registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
+ const corridor=registry.version==='0.10.0',library=corridor||registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
  const polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6';
  const desert=snow||registry.validationScope==='desert.0.5';
@@ -276,9 +276,10 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   visit(start,phrase('ADJUNCTS',start,start,start),false);return out;
  }
  const issueUnique=(issues)=>[...new Map(issues.map(i=>[i.causeId,i])).values()];
- const agreement=(np,verbIndex)=>{
+ const agreement=(np,verbIndex,irrealis=false)=>{
   const v=tok(verbIndex);const third=np.features.person===3&&np.features.number==='SINGULAR';
-  if(time&&v.lex.lemma==='will')return [];
+  if(time&&v.lex.lemma==='will'||corridor&&v.lex.lemma==='can')return [];
+  if(corridor&&irrealis&&v.lex.lemma==='be'&&word(verbIndex)==='were')return [];
   if(time&&v.forms.some(f=>f.grammaticalFeatures.tense==='PAST')&&(v.lex.lemma!=='read'||registry.formById[v.selectionId].grammaticalFeatures.tense==='PAST')){
    if(v.lex.lemma!=='be')return [];
    return word(verbIndex)===(np.features.number==='SINGULAR'&&np.features.person!==2?'was':'were')?[]:[issue('SUBJECT_VERB_AGREEMENT',[np.head,verbIndex])];
@@ -333,10 +334,10 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   const base=word(vi)===tok(vi).lex.lemma.toLowerCase();
   return predicate(vi,null,end,depth+1,{finite:false}).map(result=>phrase('NONFINITE_CLAUSE',start,end,vi,{issues:[...result.issues,...(base?[]:[issue('INFINITIVE_BASE_REQUIRED',[vi])])],hits:[...result.chunks.flatMap(c=>c.hits),{...hit('CLAUSE.INFINITIVE',start,end,vi),comboImplemented:false}],roles:[...(withTo?[role(start,'INFINITIVE_CONNECTOR')]:[]),...result.chunks.flatMap(c=>c.roles)],children:result.chunks,npRole:'COMPLEMENT'}));
  }
- function predicateSingle(vi,subject,end,depth,{finite=true,objectGap=null,nonfiniteKind=null,locationGap=false,inversionSubject=null,complementGap=null}={}) {
+ function predicateSingle(vi,subject,end,depth,{finite=true,objectGap=null,nonfiniteKind=null,locationGap=false,inversionSubject=null,complementGap=null,irrealis=false}={}) {
   tick();if(depth>limits.depth||vi>=end)return [];
   const out=[];
-  const chains=time?verbPhrases(tokens,vi,end,{finite,tick,polish061,ember,inversionSubject,waterways}):[{start:vi,end:vi+1,lexicalIndex:vi}];
+  const chains=time?verbPhrases(tokens,vi,end,{finite,tick,polish061,ember,inversionSubject,waterways,corridor}):[{start:vi,end:vi+1,lexicalIndex:vi}];
   for(const chain of chains){
   const lexicalIndex=chain.lexicalIndex,verb=tok(lexicalIndex);
   const intervening=chain.interveningAdverbIndices??[];
@@ -379,9 +380,9 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    }
    if(library&&!objectGap&&['frame.svo.wh','frame.svoo.wh'].includes(internalFrame)){
     const ios=internalFrame==='frame.svoo.wh'?np(pos,'INDIRECT_OBJECT'):[null];
-    for(const io of ios){const start=io?.end??pos;if(word(start)!=='whether')continue;
+    for(const io of ios){const start=io?.end??pos;if(word(start)!=='whether'&&!(corridor&&word(start)==='if'))continue;
      for(let ce=start+3;ce<=end;ce++)for(const child of parseRange(start+1,ce,{depth:depth+1})){
-      const n=phrase('NOMINAL_CLAUSE',start,ce,child.verbIndex,{npRole:'OBJECT',issues:child.issues,hits:child.tree.hits,roles:[role(start,'NOMINAL_MARKER'),...child.tree.roles],children:[child.tree],childClauseRole:'NOMINAL',nominal:{kind:'NOMINAL_WHETHER',externalRole:io?'DIRECT_OBJECT':'OBJECT',markerIndex:start}});
+      const n=phrase('NOMINAL_CLAUSE',start,ce,child.verbIndex,{npRole:'OBJECT',issues:child.issues,hits:child.tree.hits,roles:[role(start,'NOMINAL_MARKER'),...child.tree.roles],children:[child.tree],childClauseRole:'NOMINAL',nominal:{kind:word(start)==='if'?'NOMINAL_IF':'NOMINAL_WHETHER',externalRole:io?'DIRECT_OBJECT':'OBJECT',markerIndex:start}});
       complements.push(io?phrase('OBJECTS',pos,ce,n.head,{issues:[...io.issues,...n.issues],hits:[...io.hits,...n.hits],roles:[...io.roles,...n.roles],children:[io,n],indirectObject:io,directObject:n}):n);
      }
     }
@@ -410,9 +411,9 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
      if(ember&&verb.lex.lemma==='be'&&internalFrame==='frame.svc.np'&&ingAt(complement.start)&&complement.kind==='NP'&&complement.children.some(p=>p.kind==='AP'))continue;
      if(binding.requiredPreposition&&!suffix.children.some(p=>p.kind==='PP'&&p.preposition===binding.requiredPreposition))continue;
      const boundVerb=ember?{...verbNode,verbPhrase:{...chain,sourceSenseId:binding.senseId,sourceFrameId:binding.sourceFrameId??binding.frameId,voice:passive?'PASSIVE':'ACTIVE'}}:verbNode;
-     const committedVerb=polish061&&finite&&agreement(subject,vi).length?{...boundVerb,verbPhrase:{...boundVerb.verbPhrase,chainWellFormed:false}}:boundVerb;
+     const committedVerb=polish061&&finite&&agreement(subject,vi,irrealis).length?{...boundVerb,verbPhrase:{...boundVerb.verbPhrase,chainWellFormed:false}}:boundVerb;
      const chunks=[committedVerb,post,complement,suffix].filter(x=>x.end>x.start);
-     const issues=issueUnique([...chunks.flatMap(x=>x.issues),...aspectIssues,...(finite?agreement(subject,vi):[])]);
+     const issues=issueUnique([...chunks.flatMap(x=>x.issues),...aspectIssues,...(finite?agreement(subject,vi,irrealis):[])]);
      const activity=subject&&tok(subject.head)?.senses.some(s=>s.semanticTags?.includes('ACTIVITY_NAME'));
      const beNominalIng=desert&&internalFrame==='frame.svc.np'&&ingAt(complement.start);
      const interpretationPriority=desert?chunks.reduce((sum,n)=>sum+(n.interpretationPriority??0),0)+(beNominalIng?(activity?-2:2):0)+(ember&&binding.requiredPreposition?-1:0)+(ember&&passive&&complement.nonfinite?-1:0):0;
@@ -429,7 +430,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   for(let k=vi+1;k<end-1;k++)if(coord(k))for(const left of predicateSingle(vi,subject,k,depth,options)){
    const vp=left.chunks.find(c=>c.verbPhrase)?.verbPhrase,shared=vp?.auxiliaries.length>0;
    for(const right of predicate(k+1,subject,end,depth+1,{...options,finite:shared?false:options.finite??true})){
-    const required=shared?({'WILL':'BASE','PERFECT':'PAST_PARTICIPLE','PROGRESSIVE':'PRESENT_PARTICIPLE','PASSIVE':'PAST_PARTICIPLE'})[vp.auxiliaries.at(-1).role]:null;
+    const required=shared?({'WILL':'BASE','MODAL':'BASE','PERFECT':'PAST_PARTICIPLE','PROGRESSIVE':'PRESENT_PARTICIPLE','PASSIVE':'PAST_PARTICIPLE'})[vp.auxiliaries.at(-1).role]:null;
     const effectiveRequired=required??(desert&&options.finite===false?(options.nonfiniteKind==='ING'?'PRESENT_PARTICIPLE':ember&&options.nonfiniteKind==='PP'?'PAST_PARTICIPLE':'BASE'):null);
     const correct=!effectiveRequired||tok(k+1)?.forms.some(f=>effectiveRequired==='BASE'?f.surface.toLowerCase()===tok(k+1).lex.lemma.toLowerCase():f.grammaticalFeatures.tense===effectiveRequired);
     const issues=issueUnique([...left.issues,...right.issues,...(correct?[]:[issue('AUXILIARY_FORM_REQUIRED',[k+1])])]);
@@ -439,7 +440,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    }
   }return out;
  }
- function parseSimpleRange(start,end,{depth=0,subjectGap=null,objectGap=null,locationGap=false,complementGap=null}={}) {
+ function parseSimpleRange(start,end,{depth=0,subjectGap=null,objectGap=null,locationGap=false,complementGap=null,irrealis=false}={}) {
   if(depth>limits.depth)return [];
   const out=[];
   for(const front of parseAdverbRun(start,'FRONT')) {
@@ -447,7 +448,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    for(const subject of subjects)for(const pre of parseAdverbRun(subject.end,'PRE_VERB',{recoverVery:true})) {
     const vi=pre.end;if(vi>=end||!finiteCandidate(vi))continue;
     if(depth===0)subjectBeforeVerb=true;
-    for(const result of predicate(vi,subject,end,depth,{objectGap,locationGap,complementGap})) {
+    for(const result of predicate(vi,subject,end,depth,{objectGap,locationGap,complementGap,irrealis})) {
      const chunks=[front,subject,pre,...result.chunks].filter(x=>x.end>x.start);
      out.push({...result,chunks,issues:issueUnique([...front.issues,...subject.issues,...pre.issues,...result.issues]),...(desert?{interpretationPriority:(result.interpretationPriority??0)+(subject.interpretationPriority??0)}:{})});
      if(out.length>limits.candidates){const e=new Error('CLAUSE_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
@@ -495,7 +496,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  function parseRange(start,end,options={}){
   if(!sky)return parseSimpleRange(start,end,options);
   const depth=options.depth??0;if(depth>limits.depth||start>=end)return [];
-  const key=JSON.stringify([start,end,depth,options.subjectGap?.head,options.objectGap?.head,options.locationGap,options.complementGap?.head]);if(rangeMemo.has(key))return rangeMemo.get(key);rangeMemo.set(key,[]);
+  const key=JSON.stringify([start,end,depth,options.subjectGap?.head,options.objectGap?.head,options.locationGap,options.complementGap?.head,...(corridor?[options.irrealis]:[])]);if(rangeMemo.has(key))return rangeMemo.get(key);rangeMemo.set(key,[]);
   const out=parseSimpleRange(start,end,options).map(r=>({...r,tree:asClause(r,start,end)}));
   if(desert&&word(start)==='to'&&depth<limits.depth&&!options.subjectGap&&!options.objectGap)for(const prefix of nonfiniteOptions(start,end-2,depth,{kind:'TO',function:'PURPOSE'}))for(const main of parseRange(prefix.end,end,{depth:depth+1})){
    const chunks=[prefix,...main.chunks],issues=issueUnique([...prefix.issues,...main.issues]),interpretationPriority=(prefix.interpretationPriority??0)+(main.interpretationPriority??0);out.push({...main,chunks,issues,interpretationPriority,tree:asClause({...main,chunks,issues,interpretationPriority},start,end),compositionPriority:1});
@@ -510,8 +511,12 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    return {...primary,chunks:children,tree,issues:tree.issues,compositionPriority:kind==='COORDINATED_CLAUSES'?0:1,...priorities};
   };
   if(!options.subjectGap&&!options.objectGap&&depth<limits.depth){
-   for(let k=start+1;k<end-1;k++)if(coord(k)||subordinate(k))for(const left of parseRange(start,k,{depth:depth+1}))for(const right of parseRange(k+1,end,{depth:depth+1})){out.push(combine(left,right,k,coord(k)?'COORDINATED_CLAUSES':'ADVERBIAL_CLAUSE'));tick();}
-   if(subordinate(start))for(let split=start+3;split<end-1;split++)for(const child of parseRange(start+1,split,{depth:depth+1}))for(const main of parseRange(split,end,{depth:depth+1})){out.push(combine(main,child,start,'ADVERBIAL_CLAUSE',true));tick();}
+   const permitsIrrealis=c=>corridor&&c.chunks.some(function scan(n){return n.verbPhrase?.lexicalIndex===c.verbIndex&&['would','could'].includes(n.verbPhrase.modal)&&!n.verbPhrase.aspects.length||n.children?.some(scan);});
+   for(let k=start+1;k<end-1;k++)if(coord(k)||subordinate(k))for(const left of parseRange(start,k,{depth:depth+1}))for(const right of parseRange(k+1,end,{depth:depth+1,irrealis:word(k)==='if'&&permitsIrrealis(left)})){out.push(combine(left,right,k,coord(k)?'COORDINATED_CLAUSES':'ADVERBIAL_CLAUSE'));tick();}
+   if(subordinate(start))for(let split=start+3;split<end-1;split++){
+    if(corridor){for(const main of parseRange(split,end,{depth:depth+1}))for(const child of parseRange(start+1,split,{depth:depth+1,irrealis:word(start)==='if'&&permitsIrrealis(main)})){out.push(combine(main,child,start,'ADVERBIAL_CLAUSE',true));tick();}}
+    else for(const child of parseRange(start+1,split,{depth:depth+1}))for(const main of parseRange(split,end,{depth:depth+1})){out.push(combine(main,child,start,'ADVERBIAL_CLAUSE',true));tick();}
+   }
   }
   if(out.length>limits.candidates){const e=new Error('CLAUSE_LINK_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
   rangeMemo.set(key,out);return out;
@@ -525,7 +530,9 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  const priority=['frame.sv','frame.svc.adj','frame.svc.np','frame.svo','frame.svo.content','frame.svoo','frame.beLocative','frame.svoc.adj','frame.svoc.np','frame.svo.to','frame.svo.bare','frame.svoc.to','frame.svoc.bare'];
  const desertAttachmentPriority=c=>desert?(c.suffix?.hits.filter(h=>h.function==='PURPOSE').length??0):0;
  const whObjects=c=>{let n=0;const walk=x=>{if(x.question?.kind.startsWith('EMBEDDED'))n++;for(const ch of x.children??[])walk(ch);};walk(c.tree);return n;};
- candidates.sort((a,b)=>(waterways?whObjects(b)-whObjects(a):0)||(desert?(a.interpretationPriority??0)-(b.interpretationPriority??0):0)||a.issues.length-b.issues.length||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||desertAttachmentPriority(a)-desertAttachmentPriority(b)||(learning?((priority.indexOf(a.internalFrame)<0?priority.length:priority.indexOf(a.internalFrame))-(priority.indexOf(b.internalFrame)<0?priority.length:priority.indexOf(b.internalFrame))||a.senseId.localeCompare(b.senseId)):0));
+ const implicitRelatives=c=>{let count=0;const walk=n=>{if(n.relative?.markerOmitted)count++;for(const child of n.children??[])walk(child);};walk(c.tree);return count;};
+ const nominalIfs=c=>{let count=0;const walk=n=>{if(n.nominal?.kind==="NOMINAL_IF")count++;for(const child of n.children??[])walk(child);};walk(c.tree);return count;};
+ candidates.sort((a,b)=>(corridor?nominalIfs(b)-nominalIfs(a):0)||(waterways?whObjects(b)-whObjects(a):0)||(desert?(a.interpretationPriority??0)-(b.interpretationPriority??0):0)||a.issues.length-b.issues.length||(corridor?implicitRelatives(a)-implicitRelatives(b):0)||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||desertAttachmentPriority(a)-desertAttachmentPriority(b)||(learning?((priority.indexOf(a.internalFrame)<0?priority.length:priority.indexOf(a.internalFrame))-(priority.indexOf(b.internalFrame)<0?priority.length:priority.indexOf(b.internalFrame))||a.senseId.localeCompare(b.senseId)):0));
  const best=candidates[0];if(sky)return skyEvidence(best,{tokens,registry,candidateCount:candidates.length,workUnits:work,limits});const recovered=best.issues.length>0;
  const issues=best.issues.map((i,n)=>({...i,id:`issue.${n}`}));
  const unlicensed=[...new Set(issues.filter(i=>i.code==='INVALID_ADVERB_TARGET').flatMap(i=>i.cardIds))];

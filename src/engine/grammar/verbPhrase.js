@@ -2,13 +2,13 @@
  * Surface-compatible forms win inside a chain. Only an independent finite `read`
  * uses the explicit past/present choice to disambiguate its temporal family.
  */
-export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=false,ember=false,inversionSubject=null,waterways=false}={}) {
+export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=false,ember=false,inversionSubject=null,waterways=false,corridor=false}={}) {
  const out=[],token=i=>tokens[i],forms=i=>token(i)?.forms??[];
  const matches=(i,required)=>forms(i).some(f=>required==='BASE'?f.surface.toLowerCase()===token(i).lex.lemma.toLowerCase():f.grammaticalFeatures.tense===required);
  const finiteForm=i=>{
   const t=token(i),selected=forms(i).find(f=>f.id===t.selectionId);
   if(t.lex.lemma==='read'&&selected?.grammaticalFeatures.tense==='PAST')return selected;
-  return forms(i).find(f=>['PRESENT','FUTURE','BASE'].includes(f.grammaticalFeatures.tense))??forms(i).find(f=>f.grammaticalFeatures.tense==='PAST');
+  return forms(i).find(f=>['PRESENT','FUTURE','BASE',...(corridor?['MODAL']:[])].includes(f.grammaticalFeatures.tense))??forms(i).find(f=>f.grammaticalFeatures.tense==='PAST');
  };
  function visit(i,rank,required,auxiliaries,aspects,issues,verbIndices=[],adverbIndices=[]){
   tick();if(i>=end||(polish061?verbIndices.length>=4:i-start>=4)||token(i)?.lex.pos!=='VERB')return;
@@ -18,12 +18,13 @@ export function verbPhrases(tokens,start,end,{finite=true,tick=()=>{},polish061=
   const previous=polish061?verbIndices.at(-1):i-1;
   const nextIssues=linkOk||first?issues:[...issues,{code:'AUXILIARY_FORM_REQUIRED',indices:[previous,i],causeId:`AUXILIARY_FORM_REQUIRED:${token(previous)?.cardInstanceId}:${t.cardInstanceId}`}];
   // A lexical -ing / p.p. without its finite head cannot stand alone.
-  if(t.lex.lemma!=='will'&&!(inversionSubject&&first&&t.lex.lemma==='do'))out.push({start,end:inversionSubject&&first?inversionSubject.end:i+1,lexicalIndex:i,finiteIndex:finite?start:null,auxiliaries,aspects,issues:nextIssues,...(polish061?{verbIndices:[...verbIndices,i],interveningAdverbIndices:[...adverbIndices]}:{}),
-   tenseFamily:finite?(token(start).lex.lemma==='will'?'FUTURE':finiteForm(start)?.grammaticalFeatures.tense==='PAST'?'PAST':'PRESENT'):null,
+  if(t.lex.lemma!=='will'&&!(corridor&&t.lex.lemma==='can')&&!(inversionSubject&&first&&t.lex.lemma==='do'))out.push({start,end:inversionSubject&&first?inversionSubject.end:i+1,lexicalIndex:i,finiteIndex:finite?start:null,auxiliaries,aspects,issues:nextIssues,...(polish061?{verbIndices:[...verbIndices,i],interveningAdverbIndices:[...adverbIndices]}:{}),
+   tenseFamily:finite?(token(start).lex.lemma==='will'&&(!corridor||token(start).surface==='will')?'FUTURE':corridor&&['would','can','could'].includes(token(start).surface)?null:finiteForm(start)?.grammaticalFeatures.tense==='PAST'?'PAST':'PRESENT'):null,
    ...(ember?{voice:auxiliaries.some(a=>a.role==='PASSIVE')?'PASSIVE':'ACTIVE'}:{}),
    futureMarker:auxiliaries.some(a=>a.role==='WILL')?'WILL':null,
+   ...(corridor?{modal:['will','would','can','could'].includes(token(start).surface)?token(start).surface:null}:{}),
    chainWellFormed:!nextIssues.length&&!(finite&&token(start).lex.lemma==='be'&&token(start).surface==='be')});
-  const aux=waterways&&inversionSubject&&first&&t.lex.lemma==='do'?['DO',1,'BASE',null]:t.lex.lemma==='will'&&first&&finite&&rank<1?['WILL',1,'BASE',null]
+  const aux=waterways&&inversionSubject&&first&&t.lex.lemma==='do'?['DO',1,'BASE',null]:(t.lex.lemma==='will'||corridor&&t.lex.lemma==='can')&&first&&finite&&rank<1?[!corridor||t.surface==='will'?'WILL':'MODAL',1,'BASE',null]
    :t.lex.lemma==='have'&&rank<2?['PERFECT',2,'PAST_PARTICIPLE','PERFECT']
    :t.lex.lemma==='be'&&rank<3?['PROGRESSIVE',3,'PRESENT_PARTICIPLE','PROGRESSIVE']:null;
   for(const choice of [aux,...(ember&&t.lex.lemma==='be'&&rank<4?[['PASSIVE',4,'PAST_PARTICIPLE',null]]:[])].filter(Boolean)){

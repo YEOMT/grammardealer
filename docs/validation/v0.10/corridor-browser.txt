@@ -1,0 +1,98 @@
+
+> sentence-balatro@0.10.0 test:browser:corridor
+> node tests/corridor-browser.mjs
+
+PASS chromium ENTRY_FIFTH_SHOP_AND_NORMAL
+PASS chromium ACTUAL_FORMS_If I work I will like books.
+PASS chromium ACTUAL_FORMS_If I work I can like books.
+PASS chromium ACTUAL_FORMS_If I worked I would like books.
+PASS chromium ACTUAL_FORMS_If I worked I could like books.
+PASS chromium ACTUAL_FORMS_I had liked books.
+PASS chromium ACTUAL_FORMS_If I had worked I would have liked books.
+PASS chromium ACTUAL_FORMS_I have been reading books.
+PASS chromium MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE
+PASS chromium REPEAT_FRAME_ZERO
+PASS chromium COUNTERFACTUAL_BYPASS
+PASS chromium INVALID_PRESERVES_MEMORY
+PASS chromium RECOVERY_effectsOff
+PASS chromium RECOVERY_reducedMotion
+PASS chromium RECOVERY_cancel
+PASS chromium CODEX_CORRIDOR
+PASS chromium LAYOUT_1024_768_10
+PASS chromium LAYOUT_1024_768_14
+PASS chromium LAYOUT_1280_800_10
+PASS chromium LAYOUT_1280_800_14
+PASS chromium LAYOUT_1366_768_10
+PASS chromium LAYOUT_1366_768_14
+PASS chromium LAYOUT_1920_1080_10
+PASS chromium LAYOUT_1920_1080_14
+PASS chromium DESKTOP_DRAG_FORM_would
+PASS chromium TOUCH_SUBMITTED_SNAPSHOT_would
+PASS chromium DESKTOP_DRAG_FORM_could
+PASS chromium TOUCH_SUBMITTED_SNAPSHOT_could
+PASS chromium MODAL_DICTIONARY_MEANING
+PASS chromium RARITY_AND_HELP_CORNER
+PASS chromium NO_BROWSER_ERRORS
+PASS firefox ENTRY_FIFTH_SHOP_AND_NORMAL
+PASS firefox ACTUAL_FORMS_If I work I will like books.
+PASS firefox ACTUAL_FORMS_If I work I can like books.
+PASS firefox ACTUAL_FORMS_If I worked I would like books.
+PASS firefox ACTUAL_FORMS_If I worked I could like books.
+PASS firefox ACTUAL_FORMS_I had liked books.
+PASS firefox ACTUAL_FORMS_If I had worked I would have liked books.
+PASS firefox ACTUAL_FORMS_I have been reading books.
+PASS firefox MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE
+PASS firefox REPEAT_FRAME_ZERO
+PASS firefox COUNTERFACTUAL_BYPASS
+PASS firefox INVALID_PRESERVES_MEMORY
+PASS firefox RECOVERY_effectsOff
+PASS firefox RECOVERY_reducedMotion
+PASS firefox RECOVERY_cancel
+PASS firefox CODEX_CORRIDOR
+PASS firefox LAYOUT_1024_768_10
+PASS firefox LAYOUT_1024_768_14
+PASS firefox LAYOUT_1280_800_10
+PASS firefox LAYOUT_1280_800_14
+PASS firefox LAYOUT_1366_768_10
+PASS firefox LAYOUT_1366_768_14
+PASS firefox LAYOUT_1920_1080_10
+PASS firefox LAYOUT_1920_1080_14
+PASS firefox DESKTOP_DRAG_FORM_would
+PASS firefox TOUCH_SUBMITTED_SNAPSHOT_would
+PASS firefox DESKTOP_DRAG_FORM_could
+PASS firefox TOUCH_SUBMITTED_SNAPSHOT_could
+PASS firefox MODAL_DICTIONARY_MEANING
+PASS firefox RARITY_AND_HELP_CORNER
+PASS firefox NO_BROWSER_ERRORS
+PASS webkit ENTRY_FIFTH_SHOP_AND_NORMAL
+PASS webkit ACTUAL_FORMS_If I work I will like books.
+PASS webkit ACTUAL_FORMS_If I work I can like books.
+PASS webkit ACTUAL_FORMS_If I worked I would like books.
+PASS webkit ACTUAL_FORMS_If I worked I could like books.
+PASS webkit ACTUAL_FORMS_I had liked books.
+PASS webkit ACTUAL_FORMS_If I had worked I would have liked books.
+PASS webkit ACTUAL_FORMS_I have been reading books.
+PASS webkit MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE
+PASS webkit REPEAT_FRAME_ZERO
+PASS webkit COUNTERFACTUAL_BYPASS
+PASS webkit INVALID_PRESERVES_MEMORY
+PASS webkit RECOVERY_effectsOff
+PASS webkit RECOVERY_reducedMotion
+PASS webkit RECOVERY_cancel
+PASS webkit CODEX_CORRIDOR
+PASS webkit LAYOUT_1024_768_10
+PASS webkit LAYOUT_1024_768_14
+PASS webkit LAYOUT_1280_800_10
+PASS webkit LAYOUT_1280_800_14
+PASS webkit LAYOUT_1366_768_10
+PASS webkit LAYOUT_1366_768_14
+PASS webkit LAYOUT_1920_1080_10
+PASS webkit LAYOUT_1920_1080_14
+PASS webkit DESKTOP_DRAG_FORM_would
+PASS webkit TOUCH_SUBMITTED_SNAPSHOT_would
+PASS webkit DESKTOP_DRAG_FORM_could
+PASS webkit TOUCH_SUBMITTED_SNAPSHOT_could
+PASS webkit MODAL_DICTIONARY_MEANING
+PASS webkit RARITY_AND_HELP_CORNER
+PASS webkit NO_BROWSER_ERRORS
+PASS 93 checks 66 captures

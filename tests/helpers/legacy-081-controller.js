@@ -3,5 +3,5 @@ import {PATCH081_VERSIONS} from '../../src/contracts.js';
 import {campaignCards} from '../../src/data/cardCatalog.js';
 /** Historical campaign fixture: keep 37 battles, old balance and generator, with unchanged assertions. */
 export class RunController extends Current {
- dispatch(command){const result=super.dispatch(command);if(command.type==='NEW_RUN'&&result.ok){const s=this.getState();s.version='0.8.1';s.contentVersions=structuredClone(PATCH081_VERSIONS);s.contentManifest={...s.contentManifest,id:'campaign.0.8',stageIds:s.contentManifest.stageIds.filter(id=>id!=='stage.09'),cardDefIds:campaignCards(s.version).filter(c=>c.runtimeReady).map(c=>c.id)};s.config.contentProfile='STAGE1_STAGE2_STAGE3_STAGE4_STAGE5_STAGE6_STAGE7_STAGE8';this._state=s;}return result;}
+ dispatch(command){const result=super.dispatch(command);if(command.type==='NEW_RUN'&&result.ok){const s=this.getState();s.version='0.8.1';s.contentVersions=structuredClone(PATCH081_VERSIONS);s.contentManifest={...s.contentManifest,id:'campaign.0.8',stageIds:s.contentManifest.stageIds.filter(id=>!['stage.09','stage.10'].includes(id)),cardDefIds:campaignCards(s.version).filter(c=>c.runtimeReady).map(c=>c.id)};s.config.contentProfile='STAGE1_STAGE2_STAGE3_STAGE4_STAGE5_STAGE6_STAGE7_STAGE8';this._state=s;}return result;}
 }

@@ -1,0 +1,55 @@
+
+> sentence-balatro@0.10.0 test:runs:corridor
+> node tools/simulate-corridor-runs.js
+
+run-sequence.57 DEFEAT {
+  battle: 7,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 74,
+  hand: 5,
+  draw: 3,
+  discard: 25,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 20,
+  status: 'DEFEAT',
+  phase: null,
+  willInHand: false,
+  willInSentence: false,
+  willOwned: false
+}
+run-sequence.17 DEFEAT {
+  battle: 12,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 280,
+  hand: 9,
+  draw: 23,
+  discard: 0,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 55,
+  status: 'DEFEAT',
+  phase: 'FUTURE',
+  willInHand: false,
+  willInSentence: false,
+  willOwned: true
+}
+run-sequence.32 DEFEAT {
+  battle: 12,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 280,
+  hand: 10,
+  draw: 1,
+  discard: 26,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 48,
+  status: 'DEFEAT',
+  phase: 'FUTURE',
+  willInHand: false,
+  willInSentence: false,
+  willOwned: true
+}

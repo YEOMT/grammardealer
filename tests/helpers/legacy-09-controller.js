@@ -1,0 +1,7 @@
+import {RunController as Current} from '../../src/game/runController.js';
+import {LIBRARY_VERSIONS} from '../../src/contracts.js';
+import {campaignCards} from '../../src/data/cardCatalog.js';
+/** Explicit pre-corridor campaign fixture, never auto-upgraded to 47 battles. */
+export class RunController extends Current {
+ dispatch(command){const result=super.dispatch(command);if(command.type==='NEW_RUN'&&result.ok){const s=this.getState();s.version='0.9.0';s.contentVersions=structuredClone(LIBRARY_VERSIONS);s.contentManifest={...s.contentManifest,id:'campaign.0.9',stageIds:s.contentManifest.stageIds.filter(id=>id!=='stage.10'),cardDefIds:campaignCards(s.version).filter(c=>c.runtimeReady).map(c=>c.id)};s.config.contentProfile='STAGE1_STAGE2_STAGE3_STAGE4_STAGE5_STAGE6_STAGE7_STAGE8_STAGE9';this._state=s;}return result;}
+}

@@ -1,0 +1,5 @@
+import {deepFreeze} from '../contracts.js';
+import {CORRIDOR_CONFIRMED,CORRIDOR_INITIAL,CORRIDOR_ENTRY_NOTICE} from './corridorPolicy.js';
+export const FORESIGHT_HINT='직조자는 직전 공격의 주절 문형을 기억합니다. 같은 문형으로 다시 공격하면 피해를 줄 수 없습니다. 가정법 공격은 예견을 무시합니다.';
+export const STAGE10=deepFreeze({id:'stage.10',nameKo:'별의 회랑',theme:'star-corridor',focusFrames:[],regionLabelKo:'별의 회랑 · 조건·가정·과거완료 ×1.25',regionMultiplier:CORRIDOR_INITIAL.regionMultiplier,bossHintKo:FORESIGHT_HINT,entryNoticeKo:CORRIDOR_ENTRY_NOTICE,
+ rounds:[['갈림길의 광대','🃏','현실적인 조건절'],['평행세계의 여행자','🧳','가정법 과거'],['과거의 순례자','🕯️','과거완료'],['후회의 기사','⚔️','가정법 과거완료'],['운명의 직조자','🕸️','문형 전환 · 가정법']].map(([nameKo,emoji,focusKo],i)=>({id:`battle.10.0${i+1}`,battleNumber:43+i,enemyId:i===4?'boss.stage10':`enemy.stage10.0${i+1}`,nameKo,emoji,focusKo,hp:CORRIDOR_CONFIRMED.hp[i],kind:i===4?'REGIONAL_BOSS':'NORMAL',...(i===4?{bossMechanic:{id:'FATE_FORESIGHT',rememberedFrame:null,lastAttackId:null}}:{})})),exitStatus:'CONTENT_COMPLETE',contentBoundary:'STAGE10_END',notStoryClear:true,nextStageImplemented:false});

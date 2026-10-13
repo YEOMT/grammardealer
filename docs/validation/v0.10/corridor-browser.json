@@ -1,0 +1,492 @@
+{
+  "kind": "ASSIGNED_STATE_REAL_UI_NOT_NATURAL_CAMPAIGN",
+  "startedAt": "2026-10-13T12:09:18.978Z",
+  "checks": [
+    {
+      "id": "ENTRY_FIFTH_SHOP_AND_NORMAL",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I will like books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I can like books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I would like books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I could like books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I had liked books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I had worked I would have liked books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I have been reading books.",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "REPEAT_FRAME_ZERO",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "COUNTERFACTUAL_BYPASS",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "INVALID_PRESERVES_MEMORY",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_effectsOff",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_reducedMotion",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_cancel",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "CODEX_CORRIDOR",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_10",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_14",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_10",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_14",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_10",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_14",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_10",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_14",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_would",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_would",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_could",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_could",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "MODAL_DICTIONARY_MEANING",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RARITY_AND_HELP_CORNER",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_FIFTH_SHOP_AND_NORMAL",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I will like books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I can like books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I would like books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I could like books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I had liked books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I had worked I would have liked books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I have been reading books.",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "REPEAT_FRAME_ZERO",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "COUNTERFACTUAL_BYPASS",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "INVALID_PRESERVES_MEMORY",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_effectsOff",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_reducedMotion",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_cancel",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "CODEX_CORRIDOR",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_10",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_14",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_10",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_14",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_10",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_14",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_10",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_14",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_would",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_would",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_could",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_could",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "MODAL_DICTIONARY_MEANING",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "RARITY_AND_HELP_CORNER",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "firefox",
+      "status": "PASS"
+    },
+    {
+      "id": "ENTRY_FIFTH_SHOP_AND_NORMAL",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I will like books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I work I can like books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I would like books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I worked I could like books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I had liked books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_If I had worked I would have liked books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FORMS_I have been reading books.",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "MEMORY_PREPARE_EXACT_INDEXEDDB_RESTORE",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "REPEAT_FRAME_ZERO",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "COUNTERFACTUAL_BYPASS",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "INVALID_PRESERVES_MEMORY",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_effectsOff",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_reducedMotion",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "RECOVERY_cancel",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "CODEX_CORRIDOR",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_10",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1024_768_14",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_10",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1280_800_14",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_10",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366_768_14",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_10",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920_1080_14",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_would",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_would",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "DESKTOP_DRAG_FORM_could",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "TOUCH_SUBMITTED_SNAPSHOT_could",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "MODAL_DICTIONARY_MEANING",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "RARITY_AND_HELP_CORNER",
+      "engine": "webkit",
+      "status": "PASS"
+    },
+    {
+      "id": "NO_BROWSER_ERRORS",
+      "engine": "webkit",
+      "status": "PASS"
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    },
+    {
+      "engine": "firefox",
+      "version": "135.0"
+    },
+    {
+      "engine": "webkit",
+      "version": "18.4"
+    }
+  ],
+  "errors": [],
+  "status": "PASS",
+  "finishedAt": "2026-10-13T12:17:08.879Z",
+  "captureAttempts": 66,
+  "localCaptureCount": 66,
+  "captureNote": "Each final capture has a unique physical PNG name; earlier overlapping capture names are retained only in earlier local evidence.",
+  "evidenceScope": "Assigned-state UI, separate desktop pointer and emulated touch contexts. No physical mobile-device claim."
+}

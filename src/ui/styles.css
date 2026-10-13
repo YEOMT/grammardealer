@@ -281,6 +281,12 @@ body[data-stage-theme="stage.09"]{background:radial-gradient(ellipse at 60% 24%,
 body[data-stage-theme="stage.09"] .panel,body[data-stage-theme="stage.09"] .game-shell{--gold:#dfc58a;--muted:#b4b9cb}
 .library-preview p{margin-top:8px}.library-turn-status{color:#c7d5ef;font-size:11px;line-height:1.4;max-width:200px}
 body[data-stage-theme="stage.09"] .combat-actions button{min-height:44px}
+/* Open night sky and distant columns: no observatory interior or extra image asset. */
+body[data-stage-theme="stage.10"]{background:radial-gradient(ellipse at 50% 10%,#59468044,transparent 62%),repeating-linear-gradient(90deg,transparent 0 13%,#bec6de08 13% 15%,transparent 15% 20%),linear-gradient(165deg,#14172b,#151e30 65%,#1b2231)}
+body[data-stage-theme="stage.10"] .panel,body[data-stage-theme="stage.10"] .game-shell{--gold:#d9c8f0;--muted:#b6c0d7}
+body[data-stage-theme="stage.10"] .combat-actions button{min-height:44px}
+.normal-resistance,.foresight-memory{display:block;font-size:12px;line-height:1.5;color:var(--muted)}
+.corridor-preview .boss-silhouette{color:#dcc8fa}
 .nominal-evidence{border-left:2px solid #b7a1dc;padding-left:9px}
 .obstacle-card .obstacle-name{margin-block:auto}.operation-card .operation-limit{margin-block:auto}
 .battle-learning-guide{font-size:12px;line-height:1.35;text-align:left;width:100%;color:var(--cream)}

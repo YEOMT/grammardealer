@@ -1,0 +1,142 @@
+{
+  "kind": "SPEC_SUPPLY_EXPECTATIONS",
+  "cases": [
+    {
+      "id": "F001",
+      "round": 1,
+      "permanent_active_counts": {},
+      "expected_temporary_grant": {
+        "if": 1,
+        "will": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F002",
+      "round": 1,
+      "permanent_active_counts": {
+        "if": 1
+      },
+      "expected_temporary_grant": {
+        "will": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F003",
+      "round": 1,
+      "permanent_active_counts": {
+        "if": 1,
+        "will": 1
+      },
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F004",
+      "round": 2,
+      "permanent_active_counts": {},
+      "expected_temporary_grant": {
+        "if": 1,
+        "will": 1,
+        "can": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F005",
+      "round": 2,
+      "permanent_active_counts": {
+        "if": 1,
+        "will": 1,
+        "can": 1
+      },
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F006",
+      "round": 3,
+      "permanent_active_counts": {},
+      "expected_temporary_grant": {
+        "have": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F007",
+      "round": 3,
+      "permanent_active_counts": {
+        "have": 1
+      },
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F008",
+      "round": 4,
+      "permanent_active_counts": {},
+      "expected_temporary_grant": {
+        "if": 1,
+        "will": 1,
+        "have": 2
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F009",
+      "round": 4,
+      "permanent_active_counts": {
+        "have": 1
+      },
+      "expected_temporary_grant": {
+        "if": 1,
+        "will": 1,
+        "have": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F010",
+      "round": 4,
+      "permanent_active_counts": {
+        "have": 2
+      },
+      "expected_temporary_grant": {
+        "if": 1,
+        "will": 1
+      },
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F011",
+      "round": 4,
+      "permanent_active_counts": {
+        "have": 3,
+        "if": 1,
+        "will": 1
+      },
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F012",
+      "round": 5,
+      "permanent_active_counts": {},
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    },
+    {
+      "id": "F013",
+      "round": 5,
+      "permanent_active_counts": {
+        "have": 2,
+        "if": 1,
+        "will": 1,
+        "can": 1
+      },
+      "expected_temporary_grant": {},
+      "execution_status": "NOT RUN"
+    }
+  ]
+}

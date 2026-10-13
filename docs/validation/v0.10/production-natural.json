@@ -1,0 +1,182 @@
+{
+  "status": "FAIL",
+  "failureKind": "QA_POLICY_DEFEAT",
+  "seed": "run-sequence.57",
+  "campaignVersion": "0.10.0",
+  "checks": [
+    {
+      "ids": [
+        "P01",
+        "P02",
+        "U12",
+        "U13"
+      ],
+      "description": "production subpath, profile and initial six-card save/load exact (including RNG)",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V051-P035",
+        "V051-P038"
+      ],
+      "description": "actual tutorial skip restores normal S1-1 without reward",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P11"
+      ],
+      "description": "network disabled after all initial static resources loaded",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "U01",
+        "U07",
+        "U08",
+        "C13"
+      ],
+      "description": "no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P03",
+        "P04"
+      ],
+      "description": "frozen reward and unlock baseline survive real IndexedDB restore",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P10"
+      ],
+      "description": "dictionary remains resource and RNG neutral after tutorial",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V022-P04",
+        "V022-P05",
+        "V022-P62"
+      ],
+      "description": "actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "D10",
+        "D15",
+        "U03"
+      ],
+      "description": "invalid submission then real card exchange via UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "R02"
+      ],
+      "description": "first rune choices rendered crystal/amber/copper",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P07",
+        "V02-P08"
+      ],
+      "description": "actual stage.02 preview and once-only entry; first shop",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P27"
+      ],
+      "description": "shop manual save restores from lobby with the same run, grants, inventory and RNG",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V061-NATURAL-OPERATION-POLISH"
+      ],
+      "description": "naturally purchased reusable operation polished through shop UI",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "V02-P11",
+        "V02-P18",
+        "V02-P22"
+      ],
+      "description": "real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    },
+    {
+      "ids": [
+        "P035",
+        "P044",
+        "P046"
+      ],
+      "description": "actual acquired operation used and exact pile/receipt/RNG save restored",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "failedRequests": [],
+  "badResponses": [],
+  "scope": "ACTUAL_PRODUCTION_UI_NATURAL_REWARD_ATTEMPT",
+  "error": "Error: QA run unexpectedly defeated\n    at <repo>/tests/e2e.mjs:79:36",
+  "progress": {
+    "stageId": "stage.02",
+    "roundIndex": 3,
+    "battleNumber": 7,
+    "contentBoundary": null
+  },
+  "stateStatus": "DEFEAT",
+  "enemy": {
+    "battleNumber": 7,
+    "id": "battle.02.04",
+    "enemyId": "boss.stage2",
+    "nameKo": "항구 수문장",
+    "emoji": "🦑",
+    "hp": 74,
+    "kind": "REGIONAL_BOSS",
+    "bossMechanic": {
+      "id": "SVOO_VEIL",
+      "active": false,
+      "multiplier": {
+        "num": 1,
+        "den": 4
+      }
+    },
+    "hpMax": 800,
+    "stageId": "stage.02",
+    "maxHp": 800
+  },
+  "turnsRemaining": 0,
+  "exchangesRemaining": 0,
+  "stats": {
+    "attacks": 17,
+    "preparations": 3,
+    "exchanges": 7,
+    "bestAttack": 303,
+    "totalActualDamage": 2235,
+    "grammarUseCounts": {
+      "FRAME.SVO": 8,
+      "FRAME.SVC": 3,
+      "PHRASE.PP": 3,
+      "FRAME.SV": 3,
+      "FRAME.SVOO": 2
+    }
+  },
+  "commandCount": 181
+}
