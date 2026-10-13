@@ -1,0 +1,972 @@
+{
+  "kind": "SPEC_EXPECTATIONS_NOT_EXECUTED",
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "If I have time, I will help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "if절이 앞이어도 결과절이 주절. will 미래는 별도 근거.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G002",
+      "sentence": "I will help you if I have time.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G003",
+      "sentence": "If I have time, I can help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G004",
+      "sentence": "If she comes, I will be happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "조건절 SV와 결과절 SVC를 구별.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.come": 1,
+        "card.happy": 1,
+        "card.i": 1,
+        "card.if": 1,
+        "card.she": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G005",
+      "sentence": "If I am happy, I will read books.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.happy": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.read": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G006",
+      "sentence": "If I have time, I can read books.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "CONDITIONAL_REAL"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.book": 1,
+        "card.can": 1,
+        "card.have": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.read": 1,
+        "card.time": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G007",
+      "sentence": "If I had time, I would help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G008",
+      "sentence": "I would help you if I had time.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G009",
+      "sentence": "If I had time, I could help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G010",
+      "sentence": "If I were happy, I would help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "irrealis were. 일반 I were는 별도 오류 검사.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.happy": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G011",
+      "sentence": "If she were here, I would be happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "here 등록 여부는 실제 DB 확인. 없으면 동일 be가정 구문을 등록된 어휘로 바꾸고 기록.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 2,
+        "card.happy": 1,
+        "card.here": 1,
+        "card.i": 1,
+        "card.if": 1,
+        "card.she": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G012",
+      "sentence": "If I could run, I would be happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "조건절의 could도 지원.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.can": 1,
+        "card.happy": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.run": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G013",
+      "sentence": "If I could run, I could help you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "서로 다른 can 사본 2장이 필요. 테스트가 하나를 재사용하면 실패.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 2,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.run": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G014",
+      "sentence": "If I were you, I would read books.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PRESENT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.read": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G015",
+      "sentence": "I had read books when she came.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PAST_PERFECT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "came의 실제과거/when연결은 별도 유지 가능.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.book": 1,
+        "card.come": 1,
+        "card.have": 1,
+        "card.i": 1,
+        "card.read": 1,
+        "card.she": 1,
+        "card.when": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G016",
+      "sentence": "When she came, I had read books.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PAST_PERFECT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.book": 1,
+        "card.come": 1,
+        "card.have": 1,
+        "card.i": 1,
+        "card.read": 1,
+        "card.she": 1,
+        "card.when": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G017",
+      "sentence": "I had helped you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PAST_PERFECT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "별도 시간접속사 강제 금지.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G018",
+      "sentence": "She had been happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PAST_PERFECT"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "been 뒤 형용사, 완료진행 아님.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.happy": 1,
+        "card.have": 1,
+        "card.she": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G019",
+      "sentence": "I had had time.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PAST_PERFECT"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "have 2장: 조동사 had + 소유동사의 pp had.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 2,
+        "card.i": 1,
+        "card.time": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G020",
+      "sentence": "If she had come, I would have been happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PAST"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "have 사본 2장. 조건부 빙정 have 목표2.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.come": 1,
+        "card.happy": 1,
+        "card.have": 2,
+        "card.i": 1,
+        "card.if": 1,
+        "card.she": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 9,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G021",
+      "sentence": "I would have been happy if she had come.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PAST"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.come": 1,
+        "card.happy": 1,
+        "card.have": 2,
+        "card.i": 1,
+        "card.if": 1,
+        "card.she": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 9,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G022",
+      "sentence": "If I had known, I could have helped you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PAST"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.have": 2,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.know": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 9,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G023",
+      "sentence": "If I had read the book, I would have helped you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PAST"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.book": 1,
+        "card.have": 2,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.read": 1,
+        "card.the": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 11,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G024",
+      "sentence": "If I had known, I would have been happy.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "UNREAL_PAST"
+      ],
+      "expected_main_frame": "SVC",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.happy": 1,
+        "card.have": 2,
+        "card.i": 2,
+        "card.if": 1,
+        "card.know": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 9,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G025",
+      "sentence": "I have been reading books.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PRESENT_PERFECT_PROGRESSIVE"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.have": 1,
+        "card.i": 1,
+        "card.read": 1
+      },
+      "physical_token_count": 5,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G026",
+      "sentence": "She has been working.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PRESENT_PERFECT_PROGRESSIVE"
+      ],
+      "expected_main_frame": "SV",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.have": 1,
+        "card.she": 1,
+        "card.work": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G027",
+      "sentence": "They have been playing the game.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PRESENT_PERFECT_PROGRESSIVE"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.game": 1,
+        "card.have": 1,
+        "card.play": 1,
+        "card.the": 1,
+        "card.they": 1
+      },
+      "physical_token_count": 6,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G028",
+      "sentence": "I have been reading books and she has helped you.",
+      "kind": "SUPPORTED_TARGET",
+      "expected_target_combos": [
+        "PRESENT_PERFECT_PROGRESSIVE"
+      ],
+      "expected_main_frame": "SVO",
+      "note": "별개 절 has-helped 완료와 and연결을 지우지 않음.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.and": 1,
+        "card.be": 1,
+        "card.book": 1,
+        "card.have": 2,
+        "card.help": 1,
+        "card.i": 1,
+        "card.read": 1,
+        "card.she": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 10,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G029",
+      "sentence": "I can read books.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "기본 능력은 새 가정법 아님.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.book": 1,
+        "card.can": 1,
+        "card.i": 1,
+        "card.read": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G030",
+      "sentence": "She can help you.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.help": 1,
+        "card.she": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G031",
+      "sentence": "I could read when I was young.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SV",
+      "note": "과거 능력 경로, 예견 우회 없음. 여기의 read에는 목적어가 없으며 주절은 SV.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.can": 1,
+        "card.i": 2,
+        "card.read": 1,
+        "card.when": 1,
+        "card.young": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G032",
+      "sentence": "I could help you.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "맥락적 가능성: could 하나로 실제과거/가정법을 단정하지 않는다.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.help": 1,
+        "card.i": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G033",
+      "sentence": "I would help you.",
+      "kind": "NO_COUNTERFACTUAL_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "독립 would 대표 유효 구조를 분석할 수 있어도 if가정법 콤보/예견우회 없음.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.help": 1,
+        "card.i": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G034",
+      "sentence": "I had a book.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "일반과거 소유동사. 과거완료 아님.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.a": 1,
+        "card.book": 1,
+        "card.have": 1,
+        "card.i": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G035",
+      "sentence": "I have been happy.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVC",
+      "note": "현재완료 경로 보존. 완료진행 아님.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.happy": 1,
+        "card.have": 1,
+        "card.i": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G036",
+      "sentence": "The book has been read.",
+      "kind": "SUPPORTED_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "완료·수동 기존 경로 보존. 현재완료진행으로 오인정 금지.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.have": 1,
+        "card.read": 1,
+        "card.the": 1
+      },
+      "physical_token_count": 5,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G037",
+      "sentence": "I know if she can help you.",
+      "kind": "SCOPE_REVIEW_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "명사절 if 지원 여부는 기존범위 확인. 조건절/가정법으로 오분류하지 않는다.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.help": 1,
+        "card.i": 1,
+        "card.if": 1,
+        "card.know": 1,
+        "card.she": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G038",
+      "sentence": "I can helps you.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "조동사 뒤 원형 오류. 실제 오류 코드는 엔진 정책으로 기록.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.can": 1,
+        "card.help": 1,
+        "card.i": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G039",
+      "sentence": "I would has helped you.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "would 뒤 has 오류. 가정완료 아님.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 5,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G040",
+      "sentence": "If she had came, I would have been happy.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "had 뒤 come의 pp 필요. 가정법 우회 금지.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.come": 1,
+        "card.happy": 1,
+        "card.have": 2,
+        "card.i": 1,
+        "card.if": 1,
+        "card.she": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 9,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G041",
+      "sentence": "If I had time, I would helped you.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "would 뒤 원형 필요.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.have": 1,
+        "card.help": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.time": 1,
+        "card.will": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G042",
+      "sentence": "She have been working.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "유한 have의 주어 일치 오류, 현재완료진행 보너스 정상 처리 금지.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.have": 1,
+        "card.she": 1,
+        "card.work": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G043",
+      "sentence": "I have been work.",
+      "kind": "FORM_ERROR_NO_TARGET",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "been 뒤 원형을 완료진행으로 인정하지 않는다.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.have": 1,
+        "card.i": 1,
+        "card.work": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G044",
+      "sentence": "If I had known, I would be happy.",
+      "kind": "OUT_OF_NEW_TARGET_SCOPE",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "혼합 가정법 가능. 비문으로 단정하지 않으며 이번 두 가정법 콤보로 강제 흡수하지 않음.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.happy": 1,
+        "card.have": 1,
+        "card.i": 2,
+        "card.if": 1,
+        "card.know": 1,
+        "card.will": 1
+      },
+      "physical_token_count": 8,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G045",
+      "sentence": "I had been reading books.",
+      "kind": "OUT_OF_NEW_PPC_SCOPE",
+      "expected_target_combos": [],
+      "expected_main_frame": null,
+      "note": "과거완료진행. 기존지원 여부 보존, 현재완료진행으로 라벨링 금지.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.have": 1,
+        "card.i": 1,
+        "card.read": 1
+      },
+      "physical_token_count": 5,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G046",
+      "sentence": "What I need is water.",
+      "kind": "REGRESSION",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVC",
+      "note": "Stage9 what명사절·도서관장 저지 근거를 보존.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.i": 1,
+        "card.need": 1,
+        "card.water": 1,
+        "card.what": 1
+      },
+      "physical_token_count": 5,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G047",
+      "sentence": "I need more help.",
+      "kind": "REGRESSION",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVO",
+      "note": "help명사 및 more를 비교급으로 과인정하지 않는 기존 정책.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.help": 1,
+        "card.i": 1,
+        "card.more": 1,
+        "card.need": 1
+      },
+      "physical_token_count": 4,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    },
+    {
+      "id": "G048",
+      "sentence": "The book that you read is good.",
+      "kind": "REGRESSION",
+      "expected_target_combos": [],
+      "expected_main_frame": "SVC",
+      "note": "기존 목적격 관계절. 새 조건문 분석으로 주절을 바꾸지 않는다.",
+      "execution_status": "NOT RUN",
+      "required_physical_card_counts_advisory": {
+        "card.be": 1,
+        "card.book": 1,
+        "card.good": 1,
+        "card.read": 1,
+        "card.that": 1,
+        "card.the": 1,
+        "card.you": 1
+      },
+      "physical_token_count": 7,
+      "form_binding_note": "실제 registry의 form ID로 바인딩하라. 이 추정 카드맵은 실물 사본 수 확인용이며 DB 등록/자연 획득을 증명하지 않는다. 같은 철자 read의 형태는 구조에 맞는 선택을 사용한다."
+    }
+  ]
+}

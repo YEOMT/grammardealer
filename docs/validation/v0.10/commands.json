@@ -1,0 +1,787 @@
+[
+  {
+    "label": "baseline-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T10:04:23.042640+00:00",
+    "finishedAt": "2026-10-13T10:06:41.670995+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/baseline-unit/command.log",
+    "logSha256": "e7a67a651da2655b7f0bf6cdf8b092746ee6e057c08641aaecd729db96dedd30",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "grammar-first",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/v010-corridor-grammar.test.js"
+    ],
+    "startedAt": "2026-10-13T10:10:06.527465+00:00",
+    "finishedAt": "2026-10-13T10:10:07.399264+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/grammar-first/command.log",
+    "logSha256": "f4be2fab93cb44422bc36cd53af59ba3ccefaf60cda031724d39ed20a351d934",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "grammar-second",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/v010-corridor-grammar.test.js",
+      "tests/v09-library-grammar.test.js"
+    ],
+    "startedAt": "2026-10-13T10:11:21.347507+00:00",
+    "finishedAt": "2026-10-13T10:11:21.991513+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/grammar-second/command.log",
+    "logSha256": "b1075e62d81cfcde17aaddd8489a9bc9a4d749cdb4f40db709ad552a1f0abe51",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "integration-first",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T10:24:03.527698+00:00",
+    "finishedAt": "2026-10-13T10:26:09.683157+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/integration-first/command.log",
+    "logSha256": "04c516c7878b292c722fd84be2c50291eadb69473c6a3c67be64e9a44a7bf89c",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "corridor-state-first",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/v010-corridor-state.test.js",
+      "tests/v061-grammar.test.js",
+      "tests/v081-help.test.js"
+    ],
+    "startedAt": "2026-10-13T10:30:04.550870+00:00",
+    "finishedAt": "2026-10-13T10:30:06.033891+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/corridor-state-first/command.log",
+    "logSha256": "03bbc52e481624005d69cf97a5f77dc30cff9ef959497056ff73d4cb1e018d5b",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "corridor-state-second",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/v010-corridor-state.test.js",
+      "tests/v010-corridor-grammar.test.js",
+      "tests/v061-grammar.test.js",
+      "tests/v081-help.test.js"
+    ],
+    "startedAt": "2026-10-13T10:30:59.774132+00:00",
+    "finishedAt": "2026-10-13T10:31:01.485778+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/corridor-state-second/command.log",
+    "logSha256": "5f1825630fdbdbd4977f4c28b979c4477f8135c799790987ef49eaab881f433a",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "data-first",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-13T10:31:21.859313+00:00",
+    "finishedAt": "2026-10-13T10:31:25.149844+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/data-first/command.log",
+    "logSha256": "a0d3bda3fdb864f62166ecfcadc7c5568c40ec8c0823fa27908a1d4772d322e4",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "build-first",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-13T10:31:45.813839+00:00",
+    "finishedAt": "2026-10-13T10:31:55.688669+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/build-first/command.log",
+    "logSha256": "c70679d9514abaea233c1e3cc1ba79a4292964ca76808cc5e408842e6bca9292",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "browser-corridor-first",
+    "command": [
+      "node",
+      "tests/corridor-browser.mjs"
+    ],
+    "startedAt": "2026-10-13T10:36:07.187639+00:00",
+    "finishedAt": "2026-10-13T10:39:16.021932+00:00",
+    "exitCode": 4294967295,
+    "status": "FAIL",
+    "log": ".local-validation/v010/browser-corridor-first/command.log",
+    "logSha256": "3c71b5517d52a296ed6b262abe4580edffc2f02ff40ca0e0ba8a28625108cb7e",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "corridor-edges-first",
+    "command": [
+      "node",
+      "--test",
+      "--test-reporter=tap",
+      "tests/v010-corridor-edges.test.js"
+    ],
+    "startedAt": "2026-10-13T10:44:48.438693+00:00",
+    "finishedAt": "2026-10-13T10:44:51.808033+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/corridor-edges-first/command.log",
+    "logSha256": "9fc18e800d03a2b2ac842eb0ce9a8b72535acb032386272b0e61afb5dc48699f",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "browser-corridor-second",
+    "command": [
+      "node",
+      "tests/corridor-browser.mjs"
+    ],
+    "startedAt": "2026-10-13T10:45:10.328153+00:00",
+    "finishedAt": "2026-10-13T10:46:07.807511+00:00",
+    "exitCode": 4294967295,
+    "status": "FAIL",
+    "log": ".local-validation/v010/browser-corridor-second/command.log",
+    "logSha256": "76178c1b3b21ebd74f642aa939eaa6f8f7035e902260a00877f30af2038296ea",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "browser-corridor-third",
+    "command": [
+      "node",
+      "tests/corridor-browser.mjs"
+    ],
+    "startedAt": "2026-10-13T10:46:30.318231+00:00",
+    "finishedAt": "2026-10-13T10:52:55.812584+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/browser-corridor-third/command.log",
+    "logSha256": "12c6b5e85d99a83ec8bb483ace0b9f10d9f2931d1ed4ee1cecf966864ba5150e",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "grammar-legacy-current",
+    "command": [
+      "node",
+      "--test",
+      "tests/v010-corridor-grammar.test.js"
+    ],
+    "startedAt": "2026-10-13T10:56:41.079405+00:00",
+    "finishedAt": "2026-10-13T10:56:41.880408+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/grammar-legacy-current/command.log",
+    "logSha256": "5601c071afb60cfd0d93df232b9097b22ae90610ee7c9ce28c14c15e38222d9a",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "grammar-legacy-current-fixed",
+    "command": [
+      "node",
+      "--test",
+      "tests/v010-corridor-grammar.test.js"
+    ],
+    "startedAt": "2026-10-13T10:57:07.919577+00:00",
+    "finishedAt": "2026-10-13T10:57:08.640628+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/grammar-legacy-current-fixed/command.log",
+    "logSha256": "7fc3b551626d6af5050e542f68d6047ad561639324e7191c59994b21fa02fdb7",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T10:58:32.061509+00:00",
+    "finishedAt": "2026-10-13T11:01:02.496257+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-unit/command.log",
+    "logSha256": "bd72a0c7f4c6cc3bde1af17e1352299266efc81f3504634b47b2c40710e71f70",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "final-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-13T11:01:41.163675+00:00",
+    "finishedAt": "2026-10-13T11:01:42.702612+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-data/command.log",
+    "logSha256": "a0d3bda3fdb864f62166ecfcadc7c5568c40ec8c0823fa27908a1d4772d322e4",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-13T11:01:42.973682+00:00",
+    "finishedAt": "2026-10-13T11:01:44.922715+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-build/command.log",
+    "logSha256": "2b4840ab95414d97b8ee611ee6dc4703c42aabc89d941c719116e52f0dd8c2f9",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-corridor-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:corridor"
+    ],
+    "startedAt": "2026-10-13T11:01:59.335447+00:00",
+    "finishedAt": "2026-10-13T11:08:15.583015+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/final-corridor-browser/command.log",
+    "logSha256": "ae5ad89cbbe1c1eae3b207182643abdf50a049523297bf5d384b12c9a987b234",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-corridor-browser-fixed",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:corridor"
+    ],
+    "startedAt": "2026-10-13T11:09:08.255194+00:00",
+    "finishedAt": "2026-10-13T11:16:03.958994+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/final-corridor-browser-fixed/command.log",
+    "logSha256": "6c9733d93f2a1b470223b58e28c36373fd48a497ed39fbe8fb643285c7c0a7f0",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "firefox-drag-diagnostic",
+    "command": [
+      "node",
+      ".local-validation/v010/drag-diagnostic.mjs"
+    ],
+    "startedAt": "2026-10-13T11:16:33.767332+00:00",
+    "finishedAt": "2026-10-13T11:16:52.429163+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/firefox-drag-diagnostic/command.log",
+    "logSha256": "430305817ac773d0ae11771fc629da7672b5b4d6a51598e75371ceb4b29f9e1f",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "firefox-drag-desktop",
+    "command": [
+      "node",
+      ".local-validation/v010/drag-diagnostic-desktop.mjs"
+    ],
+    "startedAt": "2026-10-13T11:17:15.542724+00:00",
+    "finishedAt": "2026-10-13T11:17:30.423915+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/firefox-drag-desktop/command.log",
+    "logSha256": "c3ffd50cfd5f927c9e56041ce2513e4195410a7c6813609e787a440810ff51a3",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-extra-edges",
+    "command": [
+      "node",
+      "--test",
+      "tests/v010-corridor-edges.test.js"
+    ],
+    "startedAt": "2026-10-13T11:18:36.412617+00:00",
+    "finishedAt": "2026-10-13T11:18:40.541223+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-extra-edges/command.log",
+    "logSha256": "15969f9cd278e88d9ad1b2ff82334d2d82a31d8d64d563e97e5a266f1314b4c4",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-corridor-browser-separated",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:corridor"
+    ],
+    "startedAt": "2026-10-13T11:19:27.018031+00:00",
+    "finishedAt": "2026-10-13T11:26:58.016526+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-corridor-browser-separated/command.log",
+    "logSha256": "a6e5b19677d78b80a04477cda811d634738a4d2b37b69819eb8a8708b0d0931b",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "production-assigned",
+    "command": [
+      "node",
+      "tests/corridor-production-assigned.mjs"
+    ],
+    "startedAt": "2026-10-13T11:26:58.634784+00:00",
+    "finishedAt": "2026-10-13T11:28:58.671789+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/production-assigned/command.log",
+    "logSha256": "a2070968e472a0b1ac46a9ffeb0f4ceb7f21a9a51f9eae44707eae69b7492618",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "official-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-13T11:28:59.513809+00:00",
+    "finishedAt": "2026-10-13T11:33:51.430598+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/official-browser/command.log",
+    "logSha256": "68db9f5d9d31a9745c2bf2db27f4b714fed21a76cb074e38e7303294dab36798",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ]
+  },
+  {
+    "label": "natural-controller",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:runs:corridor"
+    ],
+    "startedAt": "2026-10-13T11:33:53.665624+00:00",
+    "finishedAt": "2026-10-13T11:34:05.933153+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/natural-controller/command.log",
+    "logSha256": "037ea6555754d6903ad53b2abed01c5e0680d6e2093a3600995721cb2a088b7b",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "production-natural",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e:corridor"
+    ],
+    "startedAt": "2026-10-13T11:34:06.760518+00:00",
+    "finishedAt": "2026-10-13T11:38:03.250595+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/production-natural/command.log",
+    "logSha256": "c26c4d278abff3aaa3719bb7052d128d7f1f4a99a587436b32587600de727383",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "final-unit-complete",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T11:39:30.863507+00:00",
+    "finishedAt": "2026-10-13T11:42:54.542622+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/final-unit-complete/command.log",
+    "logSha256": "c362f5911864014891c2fd6f049652ed627c17140f5193c3593e26c10aff3ecb",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "official-browser-fixed",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-13T11:42:55.353261+00:00",
+    "finishedAt": "2026-10-13T11:50:14.902706+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/official-browser-fixed/command.log",
+    "logSha256": "46e3a2852b8ea5cbbf16d36d8f95dc11bbbb9b16abfcf72d3671c0abc8fa86f8",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ]
+  },
+  {
+    "label": "legacy-production-e2e",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e"
+    ],
+    "startedAt": "2026-10-13T11:50:15.808628+00:00",
+    "finishedAt": "2026-10-13T12:03:45.169364+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/legacy-production-e2e/command.log",
+    "logSha256": "d3d440005abe5809ba1e105c5252fbc0a31a5ea2619d3ccb13fd23d388cb93a4",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T12:07:07.209787+00:00",
+    "finishedAt": "2026-10-13T12:09:03.484730+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-unit/command.log",
+    "logSha256": "5c01e0281768e350b3e6668f4610d8e0512e581e49ef5bad79596dbcd1473758",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "release-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-13T12:09:04.099005+00:00",
+    "finishedAt": "2026-10-13T12:09:07.555172+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-data/command.log",
+    "logSha256": "a0d3bda3fdb864f62166ecfcadc7c5568c40ec8c0823fa27908a1d4772d322e4",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-13T12:09:08.116018+00:00",
+    "finishedAt": "2026-10-13T12:09:15.075829+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-build/command.log",
+    "logSha256": "7a42fd867c6d3928fbbda83d74b0b58c679dc93545e3a66da80fe0c111a156d7",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-corridor-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:corridor"
+    ],
+    "startedAt": "2026-10-13T12:09:15.678648+00:00",
+    "finishedAt": "2026-10-13T12:17:11.092044+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-corridor-browser/command.log",
+    "logSha256": "a6e5b19677d78b80a04477cda811d634738a4d2b37b69819eb8a8708b0d0931b",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-production-assigned",
+    "command": [
+      "node",
+      "tests/corridor-production-assigned.mjs"
+    ],
+    "startedAt": "2026-10-13T12:17:12.099903+00:00",
+    "finishedAt": "2026-10-13T12:19:12.135540+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-production-assigned/command.log",
+    "logSha256": "a2070968e472a0b1ac46a9ffeb0f4ceb7f21a9a51f9eae44707eae69b7492618",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-official-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-13T12:19:12.976777+00:00",
+    "finishedAt": "2026-10-13T12:25:53.035986+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v010/release-official-browser/command.log",
+    "logSha256": "ddd8dd49d8f7df19c1c0438b5f171a7d72bb7fde026e768240afae905ea534d5",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ]
+  },
+  {
+    "label": "natural-clean",
+    "command": [
+      "node",
+      ".local-validation/v010/natural-clean.mjs"
+    ],
+    "startedAt": "2026-10-13T12:25:54.404176+00:00",
+    "finishedAt": "2026-10-13T12:27:21.090332+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/natural-clean/command.log",
+    "logSha256": "1e95aae1f267790c1026cf8d7631eefa425d4acb1189f18f548dacd8da485d62",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "sky-diagnostic",
+    "command": [
+      "node",
+      ".local-validation/v010/sky-diagnostic.mjs"
+    ],
+    "startedAt": "2026-10-13T12:29:27.727620+00:00",
+    "finishedAt": "2026-10-13T12:29:49.627193+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/sky-diagnostic/command.log",
+    "logSha256": "2b15c767cc69c4fad40793d6d54806ba0b1da6123bd4924b74781962a7c52393",
+    "fixedOutputsArchivedAndRestored": []
+  },
+  {
+    "label": "release-official-browser-recheck",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-13T12:29:50.403395+00:00",
+    "finishedAt": "2026-10-13T12:38:49.321706+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/release-official-browser-recheck/command.log",
+    "logSha256": "46e3a2852b8ea5cbbf16d36d8f95dc11bbbb9b16abfcf72d3671c0abc8fa86f8",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/after-be-form-menu.png",
+      "docs/evidence-0.1.1/after-select-first.png",
+      "docs/evidence-0.1.1/capacity-14-1024.png",
+      "docs/evidence-0.1.1/capacity-14-1180.png",
+      "docs/evidence-0.1.1/capacity-14-1366.png",
+      "docs/evidence-0.1.1/capacity-14-1920.png",
+      "docs/evidence-0.1.1/high-combo-rune-flight.png",
+      "docs/evidence-0.1.1/mixed-reward-turn-bonus.png",
+      "docs/evidence-0.1.1/phase-d-browser.json",
+      "docs/evidence-0.1.1/phase-e-browser.json",
+      "docs/evidence-0.1.1/polish-confirmed-result.png",
+      "docs/evidence-0.1.1/polish-target.png",
+      "docs/evidence-0.1.1/records-meaning.png",
+      "docs/evidence-0.1.1/ruby-rune-flight.png",
+      "docs/evidence-0.1.1/sapphire-rune-flight.png",
+      "docs/evidence-0.1.1/tutorial-before-submit.png",
+      "docs/evidence-0.1.1/ui-1024-edit.png",
+      "docs/evidence-0.1.1/ui-1024-exchange.png",
+      "docs/evidence-0.1.1/ui-1024-form.png",
+      "docs/evidence-0.1.1/ui-1024-lobby.png",
+      "docs/evidence-0.1.1/ui-1180-edit.png",
+      "docs/evidence-0.1.1/ui-1180-exchange.png",
+      "docs/evidence-0.1.1/ui-1180-form.png",
+      "docs/evidence-0.1.1/ui-1180-lobby.png",
+      "docs/evidence-0.1.1/ui-1366-edit.png",
+      "docs/evidence-0.1.1/ui-1366-exchange.png",
+      "docs/evidence-0.1.1/ui-1366-form.png",
+      "docs/evidence-0.1.1/ui-1366-lobby.png",
+      "docs/evidence-0.1.1/ui-1920-edit.png",
+      "docs/evidence-0.1.1/ui-1920-exchange.png",
+      "docs/evidence-0.1.1/ui-1920-form.png",
+      "docs/evidence-0.1.1/ui-1920-lobby.png",
+      "docs/evidence-0.1.1/ui-browser.json",
+      "docs/evidence-0.1.1/ui-capacity-1024-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1180-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1366-synthetic.png",
+      "docs/evidence-0.1.1/ui-capacity-1920-synthetic.png",
+      "docs/evidence-0.1.1/ui-touch-1024.png"
+    ]
+  },
+  {
+    "label": "signoff-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-13T12:42:40.404117+00:00",
+    "finishedAt": "2026-10-13T12:44:57.986828+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/signoff-unit/command.log",
+    "logSha256": "32779909e358cef3be908c13edb872ba38cac45a3b3be743bdc1443ede6088ef",
+    "fixedOutputsArchivedAndRestored": [
+      "docs/evidence-0.1.1/reward-distribution.json",
+      "docs/evidence-0.1.1/timing.json"
+    ]
+  },
+  {
+    "label": "signoff-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-13T12:44:58.379776+00:00",
+    "finishedAt": "2026-10-13T12:44:59.504169+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v010/signoff-build/command.log",
+    "logSha256": "e1d8aa840c06ced6d6d83534c4ee7caaab5bb91ab614cc419c15fa91980f1b58",
+    "fixedOutputsArchivedAndRestored": []
+  }
+]

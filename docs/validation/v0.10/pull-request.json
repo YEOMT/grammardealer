@@ -1,0 +1,17 @@
+{
+  "status": "DRAFT_PR_CREATED",
+  "url": "https://github.com/YEOMT/grammardealer/pull/15",
+  "number": 15,
+  "draft": true,
+  "state": "open",
+  "headSha": "e1b07354143185d45f01fc2d1e839254d27fd2e6",
+  "head": "codex/v0.10-star-corridor-foresight",
+  "base": "main",
+  "autoMerge": null,
+  "merged": false,
+  "createdAt": "2026-10-13T12:47:50Z",
+  "verifiedAt": "2026-10-13T12:47:51.867544+00:00",
+  "remoteMainSha": "db73c606784e1ba50e664224b404ccede7447591",
+  "startMainUnchanged": true,
+  "method": "GitHub REST with existing Git Credential Manager authentication ; queried existing head PR before creation"
+}

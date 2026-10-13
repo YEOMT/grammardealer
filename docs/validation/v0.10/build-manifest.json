@@ -1,0 +1,22 @@
+[
+  {
+    "file": ".nojekyll",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "index.html",
+    "bytes": 707,
+    "sha256": "9435c9086a8902e4747beb896e9bef7d7239d578ad5dafd666be56e46a61da9b"
+  },
+  {
+    "file": "assets/index-BP5YVvn-.js",
+    "bytes": 553212,
+    "sha256": "60cb304a2be5dfc69955239d696bb200b9420345d74229c64440647fd7615149"
+  },
+  {
+    "file": "assets/index-CFik73Rs.css",
+    "bytes": 66549,
+    "sha256": "583c226428481d4bd5a46ced9e7a224b51a1bc7c51a086a5f6d5a4bf369cbab7"
+  }
+]

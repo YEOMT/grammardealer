@@ -1,3 +1,13 @@
+# 0.10 현재 인계
+
+기준 main은 `db73c606784e1ba50e664224b404ccede7447591`, 브랜치는 `codex/v0.10-star-corridor-foresight`다. 시작 clean과 이전 브랜치 보존을 확인했다. `spec/v0.10/`이 계약이며 [실제 보고서](TEST_REPORT_0.10.md), [110조건](ACCEPTANCE_0.10.md), [언어 검토](LANGUAGE_REVIEW_0.10.md), [진행 기록](IMPLEMENTATION_PROGRESS_0.10.md)를 먼저 읽는다.
+
+새0.10만47전투/STAGE10_END다. Stage10 입장에서 회랑 콤보와 can 후보를 열고 상점5를 생성한다. 공짜 영구 카드나 보스 재료는 없다. 일반 빙정 공급은 손패가 아닌 영구 활성 덱의 부족량 기준이며 제출과 전투 종료에 정리한다. 예견·저항은 순수 결과, RunController만 상태를 커밋한다.
+
+확정 HP와 검증 초깃값(새5배율·지역1.25·S7~10 일반 저항)을 구분한다. 기존9지역 보스·룬·28장 생성기와 구버전 저장을 유지한다. 과거 저장을 새 버전으로 강제 업그레이드하지 않는다. 새 문법의 정답과 팩 해금은 별개이며 같은 근거의 배율만 대체한다.
+
+자연 보상47전투/직조자 준비·학습 경로는 미확보이고 지정 상태 UI와 다르다. 최소3개 Controller seed와 production 새원정의 정상 패배를 보고서에 남겼다. 숫자를 조정해 QA 정책을 성공시키지 않았다. 원본 로그와 영상은 로컬 `.local-validation/v010/`, 선별 공개 증거는 `docs/validation/v0.10/`에 있다. 다음 개발도 그 시점 최신 main에서 별도 브랜치로 시작한다. 이하 역사적 인계는 보존한다.
+
 # 0.9 현재 인계
 
 기준은 작업 시작에 fetch한 origin/main `0915161fecd6466c7b95f9f1195f661ef086a9d3`(0.8.1 병합), 시작 checkout clean이다. 브랜치 `codex/v0.9-dream-library`. 계약은 `spec/Syntax_Atlas_0.9_Stage9_Spec.md`와 동반 확정 밸런스/UI 명세다. [실제 검증](TEST_REPORT_0.9.md), [90개 인수 조건](ACCEPTANCE_0.9.md), [언어 검토](LANGUAGE_REVIEW_0.9.md)를 먼저 읽는다.

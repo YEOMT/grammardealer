@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -38,7 +38,10 @@
     "test:decks:waterways": "node tools/simulate-waterways-decks.js",
     "test:browser:library": "node tests/library-browser.mjs",
     "test:e2e:library": "node tests/library-e2e.mjs",
-    "test:runs:library": "node tools/simulate-library-runs.js"
+    "test:runs:library": "node tools/simulate-library-runs.js",
+    "test:browser:corridor": "node tests/corridor-browser.mjs",
+    "test:e2e:corridor": "node tests/corridor-e2e.mjs",
+    "test:runs:corridor": "node tools/simulate-corridor-runs.js"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

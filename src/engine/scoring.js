@@ -1,3 +1,5 @@
+import {corridorScoreEvidence} from './grammar/corridorEvidence.js';
+import {CORRIDOR_LABELS} from '../data/corridorPolicy.js';
 import { SCORE_BALANCE, scoreBalanceForVersion } from '../data/balance.js';
 import { safeInteger, scoreEvent } from './numeric.js';
 
@@ -54,6 +56,7 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
   const eligibleFrame=mainFrameHit(eligibleAnalysis);
   const frameMultiplier = eligibleFrame?balance.mainFrameMultipliers[frameId === 'frame.beLocative' ? 'frame.sv' : frameId]:null;
   if (!frameHit) throw new TypeError('An evidenced main frame is required');
+  if(analysis.grammarVersion==='0.10.0')eligibleAnalysis=corridorScoreEvidence(eligibleAnalysis);
   const hits = normalizedHits(eligibleAnalysis);
   const excluded = new Set(analysis.coverage?.unlicensedCardIds ?? analysis.excludedCardIds ?? []);
   for (const id of excluded) if (!byId.has(id)) throw new TypeError(`Unknown excluded card ${id}`);
@@ -94,6 +97,7 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     const evidence=hits.filter(h=>h.tag===tag);if(!evidence.length)continue;
     emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:({'TIME.PAST':'과거','TIME.PROGRESSIVE':'진행','TIME.PERFECT':'완료','TIME.FUTURE_WILL':'will 미래'})[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});
   }
+  for(const [tag,operand]of Object.entries(balance.corridorMultipliers??{})){const evidence=hits.filter(h=>h.tag===tag);if(evidence.length)emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:CORRIDOR_LABELS[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});}
   const passiveHits=hits.filter(h=>h.tag==='VOICE.PASSIVE'&&h.validity==='VALID'&&h.bonusEligible!==false);
   if(balance.passiveMultiplier&&passiveHits.length)emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:'VOICE.PASSIVE',labelKo:'수동태 ×1.8',operation:'MULTIPLY',operand:balance.passiveMultiplier,evidenceRefs:passiveHits.map(h=>h.id),highlightCardIds:[...new Set(passiveHits.flatMap(h=>h.cardIds))]});
   // Only grammar-proven nominal/infinitival roles qualify; never count surface suffixes.
@@ -130,6 +134,6 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({ phase: 'SIMPLE_MODIFIERS', sourceType: 'GRAMMAR', sourceId: hit.tag, labelKo: '전치사구!', operation: 'ADD', operand: balance.modifierAdds.PP,
       evidenceRefs: [hit.id], highlightCardIds: hit.cardIds ?? [] });
   }
-  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.8.0'?'balance.0.8.0':analysis.grammarVersion==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
+  return { schemaVersion: 1, balanceVersion: analysis.grammarVersion==='0.10.0'?'balance.0.10.0':analysis.grammarVersion==='0.8.0'?'balance.0.8.0':analysis.grammarVersion==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)?'balance.0.6.0':analysis.grammarVersion==='0.5.0'?'balance.0.5.0':analysis.grammarVersion==='0.4.0'?'balance.0.4.0':analysis.grammarVersion==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, preRuneScore: score, events, scoreTimeline: events,
     contributingCardIds: scoringCards.map((card) => card.instanceId).filter((id) => !excluded.has(id)), excludedCardIds: [...excluded] };
 }

@@ -1,3 +1,4 @@
+import {frameLabel} from './foresight.js';
 import {presentationClock} from './presentationClock.js';
 import {runeForVersion} from '../data/runes.js';
 /** Presentation consumes a committed AttackResolution and never calculates score or mutates run state. */
@@ -203,6 +204,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='FATE_FORESIGHT')text('foresight-memory','예견 · 직전 문형 '+frameLabel(state.rememberedFrame));
     if(state?.id==='DUAL_RELATIVE_SEAL'){const n=find(root,'relative-seal');if(n){n.dataset.unlocked=String(state.unlocked);n.textContent=state.unlocked?'청동 인장 해제 · 처치 가능':'청동 인장 · HP 1 보호';}}
     if(state?.id==='EMBER_SCALE_SHIELD'){const n=find(root,'ember-scale');if(n){n.dataset.active=String(state.active);n.textContent=state.active?'검댕 비늘 · 피해 75% 감소':'검댕 비늘 해제';}}
     if(state?.id==='FROST_CRYSTAL_LOCK'){const n=find(root,'frost-crystals');if(n){const changed=n.dataset.remaining!==undefined&&Number(n.dataset.remaining)>state.crystalsRemaining;n.dataset.remaining=String(state.crystalsRemaining);n.textContent='◆'.repeat(state.crystalsRemaining)+'◇'.repeat(5-state.crystalsRemaining)+' · 빙결핵 '+state.crystalsRemaining+' / 5 · '+(state.crystalsRemaining?'HP 1 잠금':'잠금 해제');if(changed)animateCore(n,[{filter:'brightness(2)'},{filter:'brightness(1)'}],300);}}
@@ -336,6 +338,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
         if(effect)text('label',effect.labelKo+(actualHpLoss?` · 위력 ${finalPower} / 적용 피해 ${actualHpLoss}`:''));
         if(current.phaseBreak){const layer=root.querySelector(`[data-phase-id="${current.phaseId}"]`);animate(layer,[{filter:'brightness(2)',transform:'scale(1.03)'},{filter:'brightness(.6)',transform:'scale(1)'}],800);}
       }
+      if(current?.foresightResult?.blocked)text('label',current.foresightResult.labelKo);
       if(killed&&overkill>0&&actualHpLoss>0){text('label',`격파! · 초과 피해 +${overkill}`);find(root,'label')?.setAttribute('data-overkill-tier',feel.tier);}
       audio?.play?.(actualHpLoss === 0 ? 'blocked' : 'impact', { intensity });
       root.dataset.impactTier=feel.tier;

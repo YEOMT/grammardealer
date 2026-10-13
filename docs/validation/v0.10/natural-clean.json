@@ -1,0 +1,1104 @@
+{
+  "kind": "ACTUAL_CONTROLLER_NATURAL_REWARD_NO_FORCED_RESOURCE_EXERCISES",
+  "policy": "LEARNING / STANDARD / skip tutorial / no mandatory invalid attack or prepare exercise",
+  "completed": 0,
+  "errors": 0,
+  "runs": [
+    {
+      "seed": "run-sequence.57",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 74,
+        "hand": 5,
+        "draw": 3,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 6,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 303
+      },
+      "contentBoundary": null,
+      "commands": 180,
+      "durationMs": 1706,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.2.rune",
+          "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.2.rune": {
+            "instanceId": "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 2
+          },
+          "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.4.rune": {
+            "instanceId": "reward.offer.run.ab3c1627-49a5-45aa-9b16-03bb2dc01c39.4.rune",
+            "runeId": "rune.adverbs",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.17",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 9,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 56,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 22,
+        "exchanges": 11,
+        "runeAppearances": 11,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 3387
+      },
+      "contentBoundary": null,
+      "commands": 264,
+      "durationMs": 5933,
+      "deckCount": 32,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.2.rune",
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.3.rune",
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.2.rune": {
+            "instanceId": "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.3.rune": {
+            "instanceId": "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.3.rune",
+            "runeId": "rune.longSentence",
+            "level": 2
+          },
+          "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.4.rune": {
+            "instanceId": "reward.offer.run.6cad9750-e19f-4691-ba3c-f0ae168d3b76.4.rune",
+            "runeId": "rune.svoo",
+            "level": 3
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.32",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 10,
+        "draw": 1,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 49,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 27,
+        "exchanges": 7,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 10,
+        "bestAttack": 531
+      },
+      "contentBoundary": null,
+      "commands": 305,
+      "durationMs": 6326,
+      "deckCount": 38,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.2.rune",
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.3.rune",
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.6.rune"
+        ],
+        "instances": {
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.2.rune": {
+            "instanceId": "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.3.rune": {
+            "instanceId": "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.3.rune",
+            "runeId": "rune.svc",
+            "level": 1
+          },
+          "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.6.rune": {
+            "instanceId": "reward.offer.run.e4241e88-85b5-4520-9d56-8c481c662ceb.6.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.0",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 141,
+        "hand": 5,
+        "draw": 20,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 19,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 11,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 278
+      },
+      "contentBoundary": null,
+      "commands": 187,
+      "durationMs": 3554,
+      "deckCount": 32,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.2.rune",
+          "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.3.rune",
+          "shop.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.stage.02.rune.0.owned"
+        ],
+        "instances": {
+          "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.2.rune": {
+            "instanceId": "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.3.rune": {
+            "instanceId": "reward.offer.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.3.rune",
+            "runeId": "rune.discards",
+            "level": 1
+          },
+          "shop.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.9f13d7bf-fa92-4bc7-94cb-ff25a73e0265.stage.02.rune.0.owned",
+            "runeId": "rune.polished",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.1",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 689,
+        "hand": 8,
+        "draw": 27,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 24,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 14,
+        "exchanges": 4,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 368
+      },
+      "contentBoundary": null,
+      "commands": 161,
+      "durationMs": 3345,
+      "deckCount": 35,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.2.rune",
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.3.rune",
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.2.rune": {
+            "instanceId": "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.3.rune": {
+            "instanceId": "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.3.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          },
+          "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.4.rune": {
+            "instanceId": "reward.offer.run.41728e61-2fb7-4d9e-a480-05d18669f5a0.4.rune",
+            "runeId": "rune.openingHand",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.2",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 27,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 1,
+        "hand": 8,
+        "draw": 31,
+        "discard": 13,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 66,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 46,
+        "exchanges": 8,
+        "runeAppearances": 22,
+        "polishedCards": 4,
+        "preparations": 18,
+        "bestAttack": 4221
+      },
+      "contentBoundary": null,
+      "commands": 551,
+      "durationMs": 12152,
+      "deckCount": 52,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.2.rune",
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.4.rune",
+          "shop.run.2e4952e8-e363-4d14-89b6-421fa69946ae.stage.02.rune.0.owned",
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.16.rune"
+        ],
+        "instances": {
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.2.rune": {
+            "instanceId": "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 3
+          },
+          "shop.run.2e4952e8-e363-4d14-89b6-421fa69946ae.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.2e4952e8-e363-4d14-89b6-421fa69946ae.stage.02.rune.0.owned",
+            "runeId": "rune.svo",
+            "level": 2
+          },
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.4.rune": {
+            "instanceId": "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.4.rune",
+            "runeId": "rune.longSentence",
+            "level": 2
+          },
+          "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.16.rune": {
+            "instanceId": "reward.offer.run.2e4952e8-e363-4d14-89b6-421fa69946ae.16.rune",
+            "runeId": "rune.svoo",
+            "level": 3
+          }
+        },
+        "slotLimit": 4
+      }
+    },
+    {
+      "seed": "run-sequence.3",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 154,
+        "hand": 5,
+        "draw": 24,
+        "discard": 3,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 20,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 5,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 251
+      },
+      "contentBoundary": null,
+      "commands": 185,
+      "durationMs": 1876,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.2.rune",
+          "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.3.rune",
+          "shop.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.stage.02.rune.0.owned"
+        ],
+        "instances": {
+          "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.2.rune": {
+            "instanceId": "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.3.rune": {
+            "instanceId": "reward.offer.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.3.rune",
+            "runeId": "rune.svo",
+            "level": 1
+          },
+          "shop.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.fe96d5c6-89fc-4d12-aac8-8e6a6521c0ba.stage.02.rune.0.owned",
+            "runeId": "rune.polished",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.4",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 9,
+        "draw": 2,
+        "discard": 22,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 51,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 28,
+        "exchanges": 9,
+        "runeAppearances": 8,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 386
+      },
+      "contentBoundary": null,
+      "commands": 317,
+      "durationMs": 3832,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.2.rune",
+          "shop.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.stage.02.rune.0.owned",
+          "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.8.rune"
+        ],
+        "instances": {
+          "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.2.rune": {
+            "instanceId": "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 3
+          },
+          "shop.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.stage.02.rune.0.owned",
+            "runeId": "rune.openingHand",
+            "level": 2
+          },
+          "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.8.rune": {
+            "instanceId": "reward.offer.run.eec28417-90af-44ec-8f8e-52e47c35cf3b.8.rune",
+            "runeId": "rune.adverbs",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.5",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 42,
+        "hand": 4,
+        "draw": 25,
+        "discard": 4,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 5,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 317
+      },
+      "contentBoundary": null,
+      "commands": 172,
+      "durationMs": 1684,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.2.rune",
+          "shop.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.stage.02.rune.0.owned"
+        ],
+        "instances": {
+          "reward.offer.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.2.rune": {
+            "instanceId": "reward.offer.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 2
+          },
+          "shop.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.805e0fb8-aa09-4571-a33a-911aa3fb54b0.stage.02.rune.0.owned",
+            "runeId": "rune.adverbs",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.6",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 6,
+        "draw": 10,
+        "discard": 19,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 51,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 24,
+        "exchanges": 9,
+        "runeAppearances": 11,
+        "polishedCards": 1,
+        "preparations": 9,
+        "bestAttack": 475
+      },
+      "contentBoundary": null,
+      "commands": 255,
+      "durationMs": 3662,
+      "deckCount": 35,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.2.rune",
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.10.rune",
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.11.rune"
+        ],
+        "instances": {
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.2.rune": {
+            "instanceId": "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 3
+          },
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.10.rune": {
+            "instanceId": "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.10.rune",
+            "runeId": "rune.handSize",
+            "level": 1
+          },
+          "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.11.rune": {
+            "instanceId": "reward.offer.run.a5446d90-6559-48b4-b4e3-de4daf0449cf.11.rune",
+            "runeId": "rune.polished",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.7",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 27,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 667,
+        "hand": 7,
+        "draw": 31,
+        "discard": 15,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 58,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 65,
+        "exchanges": 33,
+        "runeAppearances": 16,
+        "polishedCards": 2,
+        "preparations": 27,
+        "bestAttack": 868
+      },
+      "contentBoundary": null,
+      "commands": 779,
+      "durationMs": 14437,
+      "deckCount": 54,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.2.rune",
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.3.rune",
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.23.rune",
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.12.rune"
+        ],
+        "instances": {
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.2.rune": {
+            "instanceId": "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 3
+          },
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.3.rune": {
+            "instanceId": "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.3.rune",
+            "runeId": "rune.polished",
+            "level": 3
+          },
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.12.rune": {
+            "instanceId": "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.12.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          },
+          "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.23.rune": {
+            "instanceId": "reward.offer.run.38b9fdcf-ae46-4816-a9d7-ffa6cfb9f37f.23.rune",
+            "runeId": "rune.adverbs",
+            "level": 1
+          }
+        },
+        "slotLimit": 4
+      }
+    },
+    {
+      "seed": "run-sequence.8",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 58,
+        "hand": 4,
+        "draw": 21,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 15,
+        "exchanges": 8,
+        "runeAppearances": 7,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 245
+      },
+      "contentBoundary": null,
+      "commands": 170,
+      "durationMs": 1993,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.2.rune",
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.3.rune",
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.5.rune"
+        ],
+        "instances": {
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.2.rune": {
+            "instanceId": "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.3.rune": {
+            "instanceId": "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.3.rune",
+            "runeId": "rune.svo",
+            "level": 1
+          },
+          "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.5.rune": {
+            "instanceId": "reward.offer.run.b33169c2-8b10-40d9-92ea-a46841ddc203.5.rune",
+            "runeId": "rune.polished",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.9",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 107,
+        "hand": 3,
+        "draw": 21,
+        "discard": 10,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 17,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 10,
+        "runeAppearances": 5,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 252
+      },
+      "contentBoundary": null,
+      "commands": 197,
+      "durationMs": 1906,
+      "deckCount": 34,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.2.rune",
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.3.rune",
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.5.rune"
+        ],
+        "instances": {
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.2.rune": {
+            "instanceId": "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.3.rune": {
+            "instanceId": "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.3.rune",
+            "runeId": "rune.svc",
+            "level": 1
+          },
+          "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.5.rune": {
+            "instanceId": "reward.offer.run.cc728217-9baf-4580-8ac4-c79a273afd0c.5.rune",
+            "runeId": "rune.openingHand",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.10",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 119,
+        "hand": 6,
+        "draw": 29,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 54,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 10,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 7,
+        "bestAttack": 627
+      },
+      "contentBoundary": null,
+      "commands": 270,
+      "durationMs": 3472,
+      "deckCount": 35,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.2.rune",
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.5.rune",
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.7.rune"
+        ],
+        "instances": {
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.2.rune": {
+            "instanceId": "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.5.rune": {
+            "instanceId": "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.5.rune",
+            "runeId": "rune.longSentence",
+            "level": 1
+          },
+          "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.7.rune": {
+            "instanceId": "reward.offer.run.853cdef6-4ae6-4890-aff2-a5e0f5896332.7.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.11",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 373,
+        "hand": 6,
+        "draw": 25,
+        "discard": 2,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 10,
+        "runeAppearances": 4,
+        "polishedCards": 1,
+        "preparations": 4,
+        "bestAttack": 245
+      },
+      "contentBoundary": null,
+      "commands": 199,
+      "durationMs": 2063,
+      "deckCount": 34,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.2.rune",
+          "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.5.rune"
+        ],
+        "instances": {
+          "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.2.rune": {
+            "instanceId": "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.5.rune": {
+            "instanceId": "reward.offer.run.78845bd6-4e46-490a-a768-7795de24157e.5.rune",
+            "runeId": "rune.svc",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.12",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 17,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 401,
+        "hand": 6,
+        "draw": 6,
+        "discard": 31,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 25,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 36,
+        "exchanges": 14,
+        "runeAppearances": 8,
+        "polishedCards": 4,
+        "preparations": 13,
+        "bestAttack": 905
+      },
+      "contentBoundary": null,
+      "commands": 452,
+      "durationMs": 7958,
+      "deckCount": 44,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.2.rune",
+          "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.7.rune",
+          "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.02.rune.0.owned",
+          "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.04.rune.1.owned"
+        ],
+        "instances": {
+          "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.2.rune": {
+            "instanceId": "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.02.rune.0.owned",
+            "runeId": "rune.handSize",
+            "level": 2
+          },
+          "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.7.rune": {
+            "instanceId": "reward.offer.run.4c7415d2-eb77-47f5-97db-0c24768754e7.7.rune",
+            "runeId": "rune.svo",
+            "level": 1
+          },
+          "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.04.rune.1.owned": {
+            "instanceId": "shop.run.4c7415d2-eb77-47f5-97db-0c24768754e7.stage.04.rune.1.owned",
+            "runeId": "rune.svoo",
+            "level": 1
+          }
+        },
+        "slotLimit": 4
+      }
+    },
+    {
+      "seed": "run-sequence.13",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 34,
+        "hand": 6,
+        "draw": 21,
+        "discard": 6,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 16,
+        "exchanges": 8,
+        "runeAppearances": 6,
+        "polishedCards": 1,
+        "preparations": 5,
+        "bestAttack": 483
+      },
+      "contentBoundary": null,
+      "commands": 174,
+      "durationMs": 2072,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.2.rune",
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.3.rune",
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.2.rune": {
+            "instanceId": "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.3.rune": {
+            "instanceId": "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.3.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          },
+          "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.4.rune": {
+            "instanceId": "reward.offer.run.4070435a-996a-4437-ba1f-016aad974254.4.rune",
+            "runeId": "rune.handSize",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.14",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 591,
+        "hand": 5,
+        "draw": 21,
+        "discard": 7,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 21,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "stats": {
+        "attacks": 15,
+        "exchanges": 9,
+        "runeAppearances": 5,
+        "polishedCards": 0,
+        "preparations": 4,
+        "bestAttack": 286
+      },
+      "contentBoundary": null,
+      "commands": 167,
+      "durationMs": 2334,
+      "deckCount": 33,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.2.rune",
+          "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.3.rune",
+          "shop.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.stage.02.rune.0.owned"
+        ],
+        "instances": {
+          "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.2.rune": {
+            "instanceId": "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 2
+          },
+          "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.3.rune": {
+            "instanceId": "reward.offer.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.3.rune",
+            "runeId": "rune.svo",
+            "level": 1
+          },
+          "shop.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.stage.02.rune.0.owned": {
+            "instanceId": "shop.run.24fca3da-bab6-4181-9d29-ebefd8bc6bad.stage.02.rune.0.owned",
+            "runeId": "rune.polished",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    },
+    {
+      "seed": "run-sequence.15",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 9,
+        "draw": 4,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 52,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "stats": {
+        "attacks": 26,
+        "exchanges": 11,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 8,
+        "bestAttack": 411
+      },
+      "contentBoundary": null,
+      "commands": 291,
+      "durationMs": 3426,
+      "deckCount": 38,
+      "runes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.2.rune",
+          "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.7.rune"
+        ],
+        "instances": {
+          "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.2.rune": {
+            "instanceId": "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 2
+          },
+          "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.7.rune": {
+            "instanceId": "reward.offer.run.a501edba-271c-44ca-b8df-f192b154f47e.7.rune",
+            "runeId": "rune.sv",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      }
+    }
+  ]
+}

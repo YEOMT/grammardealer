@@ -1,3 +1,4 @@
+import {validateForesightRun} from '../engine/foresight.js';
 import {validateLibraryTurnEnds} from '../engine/libraryTurnEnd.js';
 import {validateDualRelativeSeal} from '../engine/dualRelativeSeal.js';
 import {validateEmberScale} from '../engine/emberScaleShield.js';
@@ -65,7 +66,7 @@ export function assertRunInvariants(run, registry) {
     assert(card.specialEffectId === null || card.specialEffectId === undefined, 'unsupported special card effect');
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
-  validateTemporaryCards(run);validateLibraryTurnEnds(run);
+  validateTemporaryCards(run);validateLibraryTurnEnds(run);validateForesightRun(run);
   if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);validateTurnHandSeal(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);

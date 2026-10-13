@@ -1,3 +1,11 @@
+## Syntax Atlas 0.10.0 · 별의 회랑
+
+새0.10 원정에 43~47 전투, will/would·can/could, 조건·가정·과거완료·현재완료진행, 부족 사본 빙정과 5번째 상점, 운명의 직조자 예견을 추가합니다. 새 원정의 Stage7~10 일반전 저항을 적용하고 구0.9 원정의 기존 정책과 42전투 종료를 보존합니다.
+
+[패치 내역](docs/PATCH_NOTES_0.10_KO.md) · [이번 실제 검증](docs/TEST_REPORT_0.10.md) · [110개 인수 조건](docs/ACCEPTANCE_0.10.md) · [언어 검토](docs/LANGUAGE_REVIEW_0.10.md) · [진행 기록](docs/IMPLEMENTATION_PROGRESS_0.10.md).
+
+`test:browser:corridor`는 지정 상태 3엔진 UI, `node tests/corridor-production-assigned.mjs`는 production 지정5전투, `test:runs:corridor`와 `test:e2e:corridor`는 자연 보상 Controller/production UI 시도입니다. **자연47전투 완주와 자연 Stage10 덱 준비는 미확보**입니다. 정상 패배를 기록했으며 지정 상태 PASS로 대체하지 않습니다. 병합 검토 전 이 미검증을 해소할 수 있도록 Draft PR로 인계합니다. 아래는 이전 버전 기록입니다.
+
 ## Syntax Atlas 0.9.0 · 몽환의 대서고
 
 새0.9 원정은9지역/42전투이며 what·whether·가주어/진주어, 일반전 전용 빙정, 도서관장의 턴 종료 회복을 추가합니다. 확정 보스HP·희귀 다이아몬드·WORD등급·카드 외형도 새 버전에 적용합니다. 구버전 원정은 원래 정책과 완료 경계를 유지합니다.

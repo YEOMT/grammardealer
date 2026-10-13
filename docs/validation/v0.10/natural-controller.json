@@ -1,0 +1,1257 @@
+{
+  "kind": "ACTUAL_CONTROLLER_NATURAL_REWARD_CAMPAIGN_NOT_BROWSER",
+  "status": "PASS",
+  "completion": "NOT_RUN",
+  "runs": [
+    {
+      "seed": "run-sequence.57",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 7,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 74,
+        "hand": 5,
+        "draw": 3,
+        "discard": 25,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 20,
+        "status": "DEFEAT",
+        "phase": null,
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": false
+      },
+      "campaignVersion": "0.10.0",
+      "finalDeck": [
+        {
+          "instanceId": "starter.01",
+          "cardDefId": "card.day",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.02",
+          "cardDefId": "card.school",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.03",
+          "cardDefId": "card.book",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.04",
+          "cardDefId": "card.cat",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.05",
+          "cardDefId": "card.person",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.06",
+          "cardDefId": "card.time",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.07",
+          "cardDefId": "card.i",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.08",
+          "cardDefId": "card.you",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.09",
+          "cardDefId": "card.they",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.10",
+          "cardDefId": "card.she",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.11",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.12",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.13",
+          "cardDefId": "card.run",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.14",
+          "cardDefId": "card.live",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.15",
+          "cardDefId": "card.have",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.16",
+          "cardDefId": "card.take",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.17",
+          "cardDefId": "card.show",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.18",
+          "cardDefId": "card.become",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.19",
+          "cardDefId": "card.interesting",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.20",
+          "cardDefId": "card.hard",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.21",
+          "cardDefId": "card.tired",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.22",
+          "cardDefId": "card.really",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.23",
+          "cardDefId": "card.quickly",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.24",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.25",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.26",
+          "cardDefId": "card.the",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.27",
+          "cardDefId": "card.at",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.28",
+          "cardDefId": "card.with",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.1.card",
+          "cardDefId": "card.park",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.stage.02.card.0",
+          "cardDefId": "card.to",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "shop.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.stage.02.card.1.owned",
+          "cardDefId": "card.operation.supply",
+          "polishLevel": 1,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.5.card",
+          "cardDefId": "card.he",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.6.card",
+          "cardDefId": "card.hobby",
+          "polishLevel": 0,
+          "specialEffectId": null
+        }
+      ],
+      "finalRunes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.2.rune",
+          "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.2.rune": {
+            "instanceId": "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 2
+          },
+          "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.4.rune": {
+            "instanceId": "reward.offer.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.4.rune",
+            "runeId": "rune.adverbs",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      },
+      "stats": {
+        "attacks": 17,
+        "exchanges": 7,
+        "runeAppearances": 7,
+        "polishedCards": 1,
+        "preparations": 3,
+        "bestAttack": 303
+      },
+      "contentBoundary": null,
+      "shops": [
+        {
+          "gold": 21,
+          "entryGrant": {
+            "entryGrantId": "run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67:stage.02.entryGrant",
+            "applied": true,
+            "cardInstanceIds": [
+              "entry.run.df136f96-bf63-4e94-b4f4-af7c9d7f5c67.stage.02.card.0"
+            ],
+            "representativeVerbCardDefId": "card.show",
+            "connectorCardDefId": "card.to",
+            "witness": {
+              "found": true,
+              "frameId": "frame.svoo",
+              "cardIds": [
+                "starter.01",
+                "starter.17",
+                "starter.02",
+                "starter.03"
+              ]
+            },
+            "warningKo": "",
+            "trace": [
+              {
+                "kind": "ENTRY_REPRESENTATIVE",
+                "cardDefId": "card.show",
+                "policy": "SORTED_OWNED_RUNTIME_BINDING"
+              },
+              {
+                "kind": "ENTRY_GRANT",
+                "cardDefIds": [
+                  "card.to"
+                ]
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "card.operation.supply",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "battle": 1,
+          "type": "MIXED",
+          "choices": [
+            "card.park",
+            "card.happy",
+            "card.or"
+          ],
+          "chosen": "card.park",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 2,
+          "type": "RUNE_INTRO",
+          "choices": [
+            "rune.perfectSentence",
+            "rune.short",
+            "rune.discards"
+          ],
+          "chosen": "rune.perfectSentence",
+          "firstRuneIntro": true
+        },
+        {
+          "battle": 3,
+          "type": "MIXED",
+          "choices": [
+            "rune.longSentence",
+            "rune.perfectSentence",
+            "rune.handSize"
+          ],
+          "chosen": "rune.perfectSentence",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 4,
+          "type": "MIXED",
+          "choices": [
+            "rune.adverbs",
+            "card.a",
+            "card.finish"
+          ],
+          "chosen": "rune.adverbs",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 5,
+          "type": "MIXED",
+          "choices": [
+            "card.he",
+            "card.need",
+            "REMOVE"
+          ],
+          "chosen": "card.he",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 6,
+          "type": "MIXED",
+          "choices": [
+            "card.hobby",
+            "card.person",
+            "card.but"
+          ],
+          "chosen": "card.hobby",
+          "firstRuneIntro": false
+        }
+      ],
+      "commands": 184,
+      "durationMs": 1663
+    },
+    {
+      "seed": "run-sequence.17",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 9,
+        "draw": 23,
+        "discard": 0,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 55,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "campaignVersion": "0.10.0",
+      "finalDeck": [
+        {
+          "instanceId": "starter.01",
+          "cardDefId": "card.music",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.02",
+          "cardDefId": "card.idea",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.03",
+          "cardDefId": "card.problem",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.04",
+          "cardDefId": "card.dog",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.05",
+          "cardDefId": "card.time",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.06",
+          "cardDefId": "card.book",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.07",
+          "cardDefId": "card.i",
+          "polishLevel": 3,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.08",
+          "cardDefId": "card.you",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.09",
+          "cardDefId": "card.they",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.10",
+          "cardDefId": "card.he",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.11",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.12",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.13",
+          "cardDefId": "card.run",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.14",
+          "cardDefId": "card.go",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.15",
+          "cardDefId": "card.have",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.16",
+          "cardDefId": "card.eat",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.17",
+          "cardDefId": "card.show",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.18",
+          "cardDefId": "card.become",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.19",
+          "cardDefId": "card.small",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.20",
+          "cardDefId": "card.strong",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.21",
+          "cardDefId": "card.ready",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.22",
+          "cardDefId": "card.really",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.23",
+          "cardDefId": "card.carefully",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.24",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.25",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.26",
+          "cardDefId": "card.the",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.27",
+          "cardDefId": "card.with",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.28",
+          "cardDefId": "card.at",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.1.card",
+          "cardDefId": "card.food",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.84e21b50-a792-446c-ac45-2c71a542ac97.stage.02.card.0",
+          "cardDefId": "card.to",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.84e21b50-a792-446c-ac45-2c71a542ac97.stage.03.card.0",
+          "cardDefId": "card.will",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.8.card",
+          "cardDefId": "card.find",
+          "polishLevel": 0,
+          "specialEffectId": null
+        }
+      ],
+      "finalRunes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.2.rune",
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.3.rune",
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.4.rune"
+        ],
+        "instances": {
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.2.rune": {
+            "instanceId": "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.3.rune": {
+            "instanceId": "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.3.rune",
+            "runeId": "rune.longSentence",
+            "level": 2
+          },
+          "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.4.rune": {
+            "instanceId": "reward.offer.run.84e21b50-a792-446c-ac45-2c71a542ac97.4.rune",
+            "runeId": "rune.svoo",
+            "level": 3
+          }
+        },
+        "slotLimit": 3
+      },
+      "stats": {
+        "attacks": 23,
+        "exchanges": 12,
+        "runeAppearances": 11,
+        "polishedCards": 1,
+        "preparations": 6,
+        "bestAttack": 3387
+      },
+      "contentBoundary": null,
+      "shops": [
+        {
+          "gold": 21,
+          "entryGrant": {
+            "entryGrantId": "run.84e21b50-a792-446c-ac45-2c71a542ac97:stage.02.entryGrant",
+            "applied": true,
+            "cardInstanceIds": [
+              "entry.run.84e21b50-a792-446c-ac45-2c71a542ac97.stage.02.card.0"
+            ],
+            "representativeVerbCardDefId": "card.show",
+            "connectorCardDefId": "card.to",
+            "witness": {
+              "found": true,
+              "frameId": "frame.svoo",
+              "cardIds": [
+                "starter.01",
+                "starter.17",
+                "starter.02",
+                "starter.03"
+              ]
+            },
+            "warningKo": "",
+            "trace": [
+              {
+                "kind": "ENTRY_REPRESENTATIVE",
+                "cardDefId": "card.show",
+                "policy": "SORTED_OWNED_RUNTIME_BINDING"
+              },
+              {
+                "kind": "ENTRY_GRANT",
+                "cardDefIds": [
+                  "card.to"
+                ]
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "rune.sv",
+              "price": 18
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "battle": 1,
+          "type": "MIXED",
+          "choices": [
+            "card.food",
+            "card.go",
+            "card.say"
+          ],
+          "chosen": "card.food",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 2,
+          "type": "RUNE_INTRO",
+          "choices": [
+            "rune.perfectSentence",
+            "rune.short",
+            "rune.discards"
+          ],
+          "chosen": "rune.perfectSentence",
+          "firstRuneIntro": true
+        },
+        {
+          "battle": 3,
+          "type": "MIXED",
+          "choices": [
+            "rune.longSentence",
+            "rune.svoo",
+            "card.that"
+          ],
+          "chosen": "rune.longSentence",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 4,
+          "type": "MIXED",
+          "choices": [
+            "card.technology",
+            "rune.svoo",
+            "card.improve"
+          ],
+          "chosen": "rune.svoo",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 5,
+          "type": "MIXED",
+          "choices": [
+            "card.music",
+            "card.quickly",
+            "POLISH"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 6,
+          "type": "MIXED",
+          "choices": [
+            "card.have",
+            "rune.svoo",
+            "rune.discards"
+          ],
+          "chosen": "rune.svoo",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 7,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "rune.discards",
+            "rune.svoo"
+          ],
+          "chosen": "rune.svoo",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 8,
+          "type": "MIXED",
+          "choices": [
+            "card.find",
+            "card.operation.connectorSearch",
+            "card.with"
+          ],
+          "chosen": "card.find",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 9,
+          "type": "MIXED",
+          "choices": [
+            "card.see",
+            "POLISH",
+            "card.or"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 10,
+          "type": "MIXED",
+          "choices": [
+            "card.they",
+            "POLISH",
+            "REMOVE"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 11,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "card.operation.recycle",
+            "rune.longSentence"
+          ],
+          "chosen": "rune.longSentence",
+          "firstRuneIntro": false
+        }
+      ],
+      "commands": 266,
+      "durationMs": 3304
+    },
+    {
+      "seed": "run-sequence.32",
+      "vocabularyMode": "STANDARD",
+      "policy": "LEARNING",
+      "result": "DEFEAT",
+      "final": {
+        "battle": 12,
+        "turn": 6,
+        "turnsRemaining": 0,
+        "hp": 280,
+        "hand": 10,
+        "draw": 1,
+        "discard": 26,
+        "exchangesRemaining": 0,
+        "seal": null,
+        "gold": 48,
+        "status": "DEFEAT",
+        "phase": "FUTURE",
+        "willInHand": false,
+        "willInSentence": false,
+        "willOwned": true
+      },
+      "campaignVersion": "0.10.0",
+      "finalDeck": [
+        {
+          "instanceId": "starter.01",
+          "cardDefId": "card.homework",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.02",
+          "cardDefId": "card.day",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.03",
+          "cardDefId": "card.idea",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.04",
+          "cardDefId": "card.person",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.05",
+          "cardDefId": "card.park",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.06",
+          "cardDefId": "card.room",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.07",
+          "cardDefId": "card.i",
+          "polishLevel": 1,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.08",
+          "cardDefId": "card.you",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.09",
+          "cardDefId": "card.they",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.10",
+          "cardDefId": "card.she",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.11",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.12",
+          "cardDefId": "card.be",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.13",
+          "cardDefId": "card.run",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.14",
+          "cardDefId": "card.live",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.15",
+          "cardDefId": "card.have",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.16",
+          "cardDefId": "card.keep",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.17",
+          "cardDefId": "card.find",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.18",
+          "cardDefId": "card.become",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.19",
+          "cardDefId": "card.bad",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.20",
+          "cardDefId": "card.tired",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.21",
+          "cardDefId": "card.good",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.22",
+          "cardDefId": "card.really",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.23",
+          "cardDefId": "card.always",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.24",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.25",
+          "cardDefId": "card.a",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.26",
+          "cardDefId": "card.the",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.27",
+          "cardDefId": "card.in",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "starter.28",
+          "cardDefId": "card.with",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.1.card",
+          "cardDefId": "card.book",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.0",
+          "cardDefId": "card.give",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.1",
+          "cardDefId": "card.to",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "shop.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.0.owned",
+          "cardDefId": "card.they",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "shop.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.1.owned",
+          "cardDefId": "card.operation.adjectiveSearch",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.7.card",
+          "cardDefId": "card.that",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.03.card.0",
+          "cardDefId": "card.will",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.8.card",
+          "cardDefId": "card.environment",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.9.card",
+          "cardDefId": "card.operation.adjectiveSearch",
+          "polishLevel": 0,
+          "specialEffectId": null
+        },
+        {
+          "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.11.card",
+          "cardDefId": "card.environment",
+          "polishLevel": 0,
+          "specialEffectId": null
+        }
+      ],
+      "finalRunes": {
+        "orderedInstanceIds": [
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.2.rune",
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.3.rune",
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.6.rune"
+        ],
+        "instances": {
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.2.rune": {
+            "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.2.rune",
+            "runeId": "rune.perfectSentence",
+            "level": 1
+          },
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.3.rune": {
+            "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.3.rune",
+            "runeId": "rune.svc",
+            "level": 1
+          },
+          "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.6.rune": {
+            "instanceId": "reward.offer.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.6.rune",
+            "runeId": "rune.svoo",
+            "level": 1
+          }
+        },
+        "slotLimit": 3
+      },
+      "stats": {
+        "attacks": 28,
+        "exchanges": 8,
+        "runeAppearances": 9,
+        "polishedCards": 1,
+        "preparations": 10,
+        "bestAttack": 531
+      },
+      "contentBoundary": null,
+      "shops": [
+        {
+          "gold": 21,
+          "entryGrant": {
+            "entryGrantId": "run.596afc09-f785-4e9b-b1c8-2ba259f89d5f:stage.02.entryGrant",
+            "applied": true,
+            "cardInstanceIds": [
+              "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.0",
+              "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.1"
+            ],
+            "representativeVerbCardDefId": "card.give",
+            "connectorCardDefId": "card.to",
+            "witness": {
+              "found": true,
+              "frameId": "frame.svoo",
+              "cardIds": [
+                "starter.01",
+                "entry.run.596afc09-f785-4e9b-b1c8-2ba259f89d5f.stage.02.card.0",
+                "starter.02",
+                "starter.03"
+              ]
+            },
+            "warningKo": "",
+            "trace": [
+              {
+                "kind": "ENTRY_REPRESENTATIVE",
+                "cardDefId": "card.give",
+                "policy": "GIVE_FALLBACK"
+              },
+              {
+                "kind": "ENTRY_GRANT",
+                "cardDefIds": [
+                  "card.give",
+                  "card.to"
+                ]
+              }
+            ]
+          },
+          "purchases": [
+            {
+              "id": "card.they",
+              "price": 6
+            },
+            {
+              "id": "card.operation.adjectiveSearch",
+              "price": 10
+            }
+          ]
+        }
+      ],
+      "rewards": [
+        {
+          "battle": 1,
+          "type": "MIXED",
+          "choices": [
+            "card.book",
+            "card.difficult",
+            "card.often"
+          ],
+          "chosen": "card.book",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 2,
+          "type": "RUNE_INTRO",
+          "choices": [
+            "rune.perfectSentence",
+            "rune.short",
+            "rune.discards"
+          ],
+          "chosen": "rune.perfectSentence",
+          "firstRuneIntro": true
+        },
+        {
+          "battle": 3,
+          "type": "MIXED",
+          "choices": [
+            "card.have",
+            "rune.svc",
+            "POLISH"
+          ],
+          "chosen": "rune.svc",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 4,
+          "type": "MIXED",
+          "choices": [
+            "card.day",
+            "card.difficult",
+            "rune.discards"
+          ],
+          "chosen": "rune.discards",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 5,
+          "type": "MIXED",
+          "choices": [
+            "card.game",
+            "card.play",
+            "rune.openingHand"
+          ],
+          "chosen": "rune.openingHand",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 6,
+          "type": "MIXED",
+          "choices": [
+            "POLISH",
+            "rune.svoo",
+            "card.today"
+          ],
+          "chosen": "rune.svoo",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 7,
+          "type": "MIXED",
+          "choices": [
+            "rune.discards",
+            "card.that",
+            "rune.openingHand"
+          ],
+          "chosen": "card.that",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 8,
+          "type": "MIXED",
+          "choices": [
+            "card.environment",
+            "card.that",
+            "card.improve"
+          ],
+          "chosen": "card.environment",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 9,
+          "type": "MIXED",
+          "choices": [
+            "REMOVE",
+            "card.operation.adjectiveSearch",
+            "card.or"
+          ],
+          "chosen": "card.operation.adjectiveSearch",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 10,
+          "type": "MIXED",
+          "choices": [
+            "card.child",
+            "card.interesting",
+            "POLISH"
+          ],
+          "chosen": "POLISH",
+          "firstRuneIntro": false
+        },
+        {
+          "battle": 11,
+          "type": "MIXED",
+          "choices": [
+            "card.environment",
+            "card.quickly",
+            "card.carefully"
+          ],
+          "chosen": "card.environment",
+          "firstRuneIntro": false
+        }
+      ],
+      "commands": 309,
+      "durationMs": 4846
+    }
+  ]
+}
