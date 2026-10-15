@@ -27,14 +27,14 @@
     {
       "path": "docs/ACCEPTANCE_0.10.1.md",
       "kind": "ADDED",
-      "bytes": 32698,
-      "sha256": "ecc73db1b91f377f3be71bd82770653c2bda77dd00a83d2b2448a11f9155d84f"
+      "bytes": 32746,
+      "sha256": "3e54d4577d6ca282f761cc99848415462b0b6f93a3d95db23528050a0cf610d8"
     },
     {
       "path": "docs/ACCEPTANCE_0.10.1_UI_FOLLOWUP.md",
       "kind": "ADDED",
-      "bytes": 16103,
-      "sha256": "64aca1121a011bf6ffdedb224cc97282f465311e98f030dfe28c09388c7807f3"
+      "bytes": 16208,
+      "sha256": "ce46e850e0d8ac2e25a1f233300849784a371855341c04d187df831906b9d142"
     },
     {
       "path": "docs/ARCHITECTURE.md",
@@ -45,8 +45,8 @@
     {
       "path": "docs/IMPLEMENTATION_PROGRESS_0.10.1.md",
       "kind": "ADDED",
-      "bytes": 3176,
-      "sha256": "f5d8b1e14a1e13ed2b32a5dce63f480327150c0525739c0e5c068426f4f7df98"
+      "bytes": 3637,
+      "sha256": "36309c9a30fe9d1c7ff53f3d4e8ea650cede3968ad8c7b1910ac38948bd7b985"
     },
     {
       "path": "docs/PROJECT_HANDOFF.md",
@@ -63,8 +63,8 @@
     {
       "path": "docs/TEST_REPORT_0.10.1.md",
       "kind": "ADDED",
-      "bytes": 7360,
-      "sha256": "2e7f5e359089ed260c38007c15f13419298021a9eb2a5cc23da0ffe187ebb480"
+      "bytes": 7821,
+      "sha256": "4c8319560841f445110d168d579cc728eee7263920ccb392c77d33a243df7f07"
     },
     {
       "path": "docs/TEST_REPORT_0.10.1_PRE_FOLLOWUP.md",
@@ -93,8 +93,8 @@
     {
       "path": "docs/validation/v0.10.1/acceptance.json",
       "kind": "ADDED",
-      "bytes": 59405,
-      "sha256": "d9893c74daf2575ef157ee52073c3fc3f267725497898ed733472d6bf55fb023"
+      "bytes": 59513,
+      "sha256": "f46d6f1d00733f37d03b2af9db94c57254ad9b56985cedc3bd4b51d05df51f43"
     },
     {
       "path": "docs/validation/v0.10.1/actual-high-combo-8.png",
@@ -279,8 +279,8 @@
     {
       "path": "docs/validation/v0.10.1/followup-acceptance.json",
       "kind": "ADDED",
-      "bytes": 37417,
-      "sha256": "571facf4a4c4fe043c25e9499d2313f9c63a0a19f029147f98afa7d6fceb7bf4"
+      "bytes": 37522,
+      "sha256": "f25658353ad9d7a20a4fc693af16885c86eb364c0a3f4747b4fb8e3910459d84"
     },
     {
       "path": "docs/validation/v0.10.1/followup-browser.json",
@@ -329,6 +329,12 @@
       "kind": "ADDED",
       "bytes": 10396,
       "sha256": "4d8cd658ed5de2d35034359d2a9e8e60ea1c0613d73fd201430b1832d803eabc"
+    },
+    {
+      "path": "docs/validation/v0.10.1/media-manifest.json",
+      "kind": "ADDED",
+      "bytes": 3409,
+      "sha256": "bef7e861d54497641a081348c2c7751e69f089789dd7433c4fef9c88f0520db3"
     },
     {
       "path": "docs/validation/v0.10.1/mixed-reward-distribution.json",
@@ -383,6 +389,12 @@
       "kind": "ADDED",
       "bytes": 352716,
       "sha256": "eb6c904e5fcccdad46d3427f3548c3532c3d485bfcc4f9eca4e85f6ba064aeca"
+    },
+    {
+      "path": "docs/validation/v0.10.1/pull-request.json",
+      "kind": "ADDED",
+      "bytes": 619,
+      "sha256": "b9274d2caac100d95ea9aa2dad9e111d8d438d0bb3708c7da0168a8fe5e9a01c"
     },
     {
       "path": "docs/validation/v0.10.1/real-30-attacks.json",

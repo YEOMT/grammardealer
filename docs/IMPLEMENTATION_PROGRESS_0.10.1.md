@@ -21,3 +21,8 @@
 ## UI Followup 완료 지점
 
 기존기능보존→공통카드/행계산→헤더/직접패널→가로gate→집중UI→전체단위/데이터/빌드→production43–47 실행완료. stress2해상도FAIL은별도기록; 미세디자인은사용자피드백후진행. [최종실제결과](TEST_REPORT_0.10.1.md). Git인계상태는아래후속기록을따른다.
+
+
+## 원격 인계 완료
+
+검증한 구현 commit: `ca1391b5148a23cfcd37ef685230305643d1093c`. 브랜치 push 및 [Draft PR #16](https://github.com/YEOMT/grammardealer/pull/16) 생성 완료. 이후 문서 인계 커밋은 소스/테스트/build를 변경하지 않는다. 원격 main은 기준 f09d4537 그대로이며 merge/auto-merge/Pages설정/공개배포는 수행하지 않았다. CI는 GitHub에서 별도로 실행되며 로컬 PASS와 구분한다.

@@ -1,9 +1,9 @@
 {
   "count": 130,
   "counts": {
-    "PASS": 117,
+    "PASS": 118,
     "FAIL": 4,
-    "NOT RUN": 6,
+    "NOT RUN": 5,
     "SUPERSEDED": 3
   },
   "conditions": [
@@ -1172,10 +1172,10 @@
       "id": "M10",
       "group": "통합·성능·인계",
       "requirementKo": "별도브랜치/PR까지만인계하며권한실패시로컬산출물을제공하고병합/배포성공을꾸미지않는다.",
-      "status": "NOT RUN",
+      "status": "PASS",
       "verificationType": "명령 + 통합/브라우저 + 보고",
-      "evidence": "commit/push/PR 후 갱신. main 병합/배포는 금지.",
-      "limitations": "원격 작업 완료 전"
+      "evidence": "구현 commit ca1391b를 별도 브랜치 push하고 Draft PR #16 생성·연결. main f09d4537 동일, autoMerge없음/mergedfalse.",
+      "limitations": "작은화면FAIL/실물·자연47NOT RUN은그대로남김."
     }
   ]
 }

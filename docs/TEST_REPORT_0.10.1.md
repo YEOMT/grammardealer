@@ -55,3 +55,8 @@ UI후속전3엔진집중118checks/69captures PASS,실제30공격 PASS(속도1/1.
 실행원본은 `.local-validation/v0101/` 및 `.local-validation/v0101-followup/`; 공개선별증거는 `docs/validation/v0.10.1/`. 개인절대경로를제거했다. package/lockfile은root0.10.1버전만변경,의존성동일. workflow와Pages설정/공개사이트는변경하지않았다. [변경목록/보존감사](validation/v0.10.1/change-audit.json).
 
 Draft PR로인계하며main병합/자동병합/배포는수행하지않는다. 사용자검토순서: 새원정실습/스킵→초원/항구룬획득→같은카드손패/조합대비교→긴문장줄바꿈/형태/드래그→사전/도감/저장→전체화면/기기가로회전→콤보연출/효과감소. 후반보스는지정상태증거와자연준비경로를분리하여검토한다.
+
+
+## 원격 인계 완료
+
+검증한 구현 commit: `ca1391b5148a23cfcd37ef685230305643d1093c`. 브랜치 push 및 [Draft PR #16](https://github.com/YEOMT/grammardealer/pull/16) 생성 완료. 이후 문서 인계 커밋은 소스/테스트/build를 변경하지 않는다. 원격 main은 기준 f09d4537 그대로이며 merge/auto-merge/Pages설정/공개배포는 수행하지 않았다. CI는 GitHub에서 별도로 실행되며 로컬 PASS와 구분한다.

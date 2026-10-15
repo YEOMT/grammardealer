@@ -1,9 +1,9 @@
 {
   "count": 84,
   "counts": {
-    "PASS": 61,
+    "PASS": 62,
     "FAIL": 6,
-    "NOT RUN": 17
+    "NOT RUN": 16
   },
   "conditions": [
     {
@@ -674,8 +674,8 @@
       "id": "H10",
       "category": "H. 검증·인계",
       "requirement_ko": "수정 내역·구 조건 대체·검증 결과·미완료·브랜치·PR을 인계하며 자동 병합·배포하지 않는다.",
-      "status": "NOT RUN",
-      "evidence": "commit/push/PR 뒤갱신",
+      "status": "PASS",
+      "evidence": "구현 commit ca1391b를 별도 브랜치 push하고 Draft PR #16 생성·연결. main f09d4537 동일, autoMerge없음/mergedfalse.",
       "verification_level": "브라우저 지정 상태/실제 입력 또는 명시된 단위·정적검사; 실물 아님"
     }
   ]
