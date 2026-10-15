@@ -1,0 +1,21 @@
+{
+  "buildId": "followup-final-build",
+  "files": {
+    ".nojekyll": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "index.html": {
+      "bytes": 707,
+      "sha256": "fed1c71b95cd1b214a083c87bbaddf1a9d49795b4d6d7d33386bdf8ca0adebdc"
+    },
+    "assets/index-D-ucSH84.css": {
+      "bytes": 93786,
+      "sha256": "6185b0df120a967987c871c52da5d34fb1b031f321fbc9f43eb3ffa139323696"
+    },
+    "assets/index-DBPAADrZ.js": {
+      "bytes": 574330,
+      "sha256": "d4c9539e05ffcda3ae7bbb15cafbc90a1606aee0989303a46151459612835762"
+    }
+  }
+}

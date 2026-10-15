@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "0.10.1",
+  "appliesTo": "NEW_0.10.1_RUNS_ONLY",
+  "targets": [
+    {
+      "stageId": "stage.02",
+      "stageNameKo": "전달의 항구",
+      "round": 1,
+      "battleId": "battle.02.01",
+      "enemyNameKo": "부두 갈매기",
+      "hp": 200,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.02",
+      "stageNameKo": "전달의 항구",
+      "round": 2,
+      "battleId": "battle.02.02",
+      "enemyNameKo": "짐꾼 게",
+      "hp": 270,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.02",
+      "stageNameKo": "전달의 항구",
+      "round": 3,
+      "battleId": "battle.02.03",
+      "enemyNameKo": "파도 문어",
+      "hp": 360,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.02",
+      "stageNameKo": "전달의 항구",
+      "round": 4,
+      "battleId": "battle.02.04",
+      "enemyNameKo": "항구 수문장",
+      "hp": 750,
+      "kind": "REGIONAL_BOSS",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.03",
+      "stageNameKo": "시간의 협곡",
+      "round": 1,
+      "battleId": "battle.03.01",
+      "enemyNameKo": "고대의 거북이",
+      "hp": 300,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.03",
+      "stageNameKo": "시간의 협곡",
+      "round": 2,
+      "battleId": "battle.03.02",
+      "enemyNameKo": "질주하는 토끼",
+      "hp": 320,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.03",
+      "stageNameKo": "시간의 협곡",
+      "round": 3,
+      "battleId": "battle.03.03",
+      "enemyNameKo": "사냥을 완료한 늑대",
+      "hp": 360,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.03",
+      "stageNameKo": "시간의 협곡",
+      "round": 4,
+      "battleId": "battle.03.04",
+      "enemyNameKo": "미래를 보는 독수리",
+      "hp": 400,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.03",
+      "stageNameKo": "시간의 협곡",
+      "round": 5,
+      "battleId": "battle.03.05",
+      "enemyNameKo": "시간의 골렘",
+      "hp": 780,
+      "kind": "REGIONAL_BOSS",
+      "decisionStatus": "USER_CONFIRMED",
+      "phaseHp": [
+        260,
+        260,
+        260
+      ]
+    },
+    {
+      "stageId": "stage.04",
+      "stageNameKo": "이음의 하늘섬",
+      "round": 1,
+      "battleId": "battle.04.01",
+      "enemyNameKo": "구름양",
+      "hp": 500,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.04",
+      "stageNameKo": "이음의 하늘섬",
+      "round": 2,
+      "battleId": "battle.04.02",
+      "enemyNameKo": "갈래바람 정령",
+      "hp": 530,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.04",
+      "stageNameKo": "이음의 하늘섬",
+      "round": 3,
+      "battleId": "battle.04.03",
+      "enemyNameKo": "매듭뱀",
+      "hp": 570,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.04",
+      "stageNameKo": "이음의 하늘섬",
+      "round": 4,
+      "battleId": "battle.04.04",
+      "enemyNameKo": "메아리 새",
+      "hp": 600,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.04",
+      "stageNameKo": "이음의 하늘섬",
+      "round": 5,
+      "battleId": "battle.04.05",
+      "enemyNameKo": "하늘길의 문지기",
+      "hp": 1000,
+      "kind": "REGIONAL_BOSS",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.05",
+      "stageNameKo": "소원의 사막",
+      "round": 1,
+      "battleId": "battle.05.01",
+      "enemyNameKo": "별길 낙타",
+      "hp": 640,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.05",
+      "stageNameKo": "소원의 사막",
+      "round": 2,
+      "battleId": "battle.05.02",
+      "enemyNameKo": "금빛 전갈",
+      "hp": 680,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.05",
+      "stageNameKo": "소원의 사막",
+      "round": 3,
+      "battleId": "battle.05.03",
+      "enemyNameKo": "별꽃 선인장",
+      "hp": 740,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.05",
+      "stageNameKo": "소원의 사막",
+      "round": 4,
+      "battleId": "battle.05.04",
+      "enemyNameKo": "신기루 여우",
+      "hp": 800,
+      "kind": "NORMAL",
+      "decisionStatus": "USER_CONFIRMED"
+    },
+    {
+      "stageId": "stage.05",
+      "stageNameKo": "소원의 사막",
+      "round": 5,
+      "battleId": "battle.05.05",
+      "enemyNameKo": "소원의 스핑크스",
+      "hp": 1300,
+      "kind": "REGIONAL_BOSS",
+      "decisionStatus": "USER_CONFIRMED"
+    }
+  ],
+  "unchangedBossHp": {
+    "stage.01": 400,
+    "stage.06": 1600,
+    "stage.07": 1900,
+    "stage.08": 2200,
+    "stage.09": 3000,
+    "stage.10": 5000
+  }
+}

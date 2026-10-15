@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "noteKo": "모두CSS가시viewport예시이며기기하드웨어해상도아님.실물브라우저주소창/키보드는에뮬레이션으로대체증명하지않음.",
+  "matrix": [
+    {
+      "id": "V001",
+      "class": "PC",
+      "viewportCssPx": {
+        "width": 1920,
+        "height": 1080
+      },
+      "labelKo": "PC full",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V002",
+      "class": "PC",
+      "viewportCssPx": {
+        "width": 1366,
+        "height": 768
+      },
+      "labelKo": "노트북",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V003",
+      "class": "PC",
+      "viewportCssPx": {
+        "width": 1280,
+        "height": 600
+      },
+      "labelKo": "낮은PC창",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V004",
+      "class": "TABLET",
+      "viewportCssPx": {
+        "width": 1180,
+        "height": 700
+      },
+      "labelKo": "태블릿가로가시높이예시",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V005",
+      "class": "TABLET",
+      "viewportCssPx": {
+        "width": 1024,
+        "height": 620
+      },
+      "labelKo": "태블릿주소창표시예시",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V006",
+      "class": "TABLET",
+      "viewportCssPx": {
+        "width": 820,
+        "height": 1000
+      },
+      "labelKo": "태블릿세로",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V007",
+      "class": "TABLET",
+      "viewportCssPx": {
+        "width": 768,
+        "height": 900
+      },
+      "labelKo": "작은태블릿세로",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": false,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V008",
+      "class": "PHONE",
+      "viewportCssPx": {
+        "width": 390,
+        "height": 664
+      },
+      "labelKo": "휴대전화세로",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": true,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V009",
+      "class": "PHONE",
+      "viewportCssPx": {
+        "width": 360,
+        "height": 640
+      },
+      "labelKo": "작은휴대전화세로",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": true,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V010",
+      "class": "PHONE",
+      "viewportCssPx": {
+        "width": 412,
+        "height": 760
+      },
+      "labelKo": "큰휴대전화세로",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": true,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V011",
+      "class": "PHONE",
+      "viewportCssPx": {
+        "width": 844,
+        "height": 320
+      },
+      "labelKo": "휴대전화가로낮은가시높이",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": true,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    },
+    {
+      "id": "V012",
+      "class": "SPLIT",
+      "viewportCssPx": {
+        "width": 600,
+        "height": 700
+      },
+      "labelKo": "분할화면",
+      "scenarios": [
+        "BROWSER_CHROME_VISIBLE",
+        "FULLSCREEN_IF_SUPPORTED",
+        "HAND14_SENTENCE16_RUNES4",
+        "LONG_LABEL_AND_LARGE_SCORE",
+        "DICTIONARY_AND_SAVES",
+        "ROTATION_OR_RESIZE"
+      ],
+      "expectedPageScroll": false,
+      "compactCardPagingExceptionAllowed": true,
+      "actualDeviceAndBrowser": null,
+      "status": "NOT_RUN"
+    }
+  ]
+}

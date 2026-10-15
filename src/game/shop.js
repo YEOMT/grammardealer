@@ -1,3 +1,4 @@
+import {runeDropContext} from '../data/polish0101Runes.js';
 import {hasCorridorCampaign,hasWaterwaysCampaign,hasSkyCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {selectOperation,selectDedicatedOperation} from './operationPool.js';
 import {cardDefinition,isOperation,canPolish} from '../data/cardCatalog.js';
@@ -86,13 +87,13 @@ export function createShop(run) {
   if (run.shop?.shopId === shopId) return run.shop;
   if (run.shop) {if(!second||run.shop.stageId!==(stageId==='stage.10'?'stage.08':stageId==='stage.08'?'stage.06':stageId==='stage.06'?'stage.04':'stage.02')||!run.shop.closed||(run.shopHistory??[]).some(s=>s.shopId===run.shop.shopId))throw new TypeError('Another shop already exists');run.shopHistory=[...(run.shopHistory??[]),structuredClone(run.shop)];}
   const inventory = [], trace = [], stream = run.rng.shop;
-  const runePool = eligibleRunes(run);
+  const runePool = eligibleRunes(run,{source:'SHOP'});
   for (let slot = 0; slot < (second?2:SHOP_BALANCE.runeSlots); slot++) {
     const pool = runePool.filter(rune => !inventory.some(item => item.runeId === rune.id));
     if (!pool.length) { trace.push({ kind: 'NO_ELIGIBLE_RUNE', slot }); break; }
     const weights=Object.fromEntries(Object.entries(runeRarityWeightsForVersion(run.version)).filter(([key])=>pool.some(rune=>rune.rarity===key)));
     const rarity=weightedPick(stream,weights);
-    if(['0.9.0','0.10.0'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',slot,weights:{...weights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
+    if(['0.9.0','0.10.0','0.10.1'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',slot,...(run.version==='0.10.1'?{context:runeDropContext(run,{source:'SHOP'})}:{}),weights:{...weights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
     const definition = pick(stream, pool.filter(rune => rune.rarity === rarity));
     const ownedLevel = equipped(run).find(rune => rune.runeId === definition.id)?.level ?? 0;
     inventory.push({ itemId: `${shopId}.rune.${slot}`, kind: 'RUNE', runeId: definition.id, rarity,
@@ -154,7 +155,7 @@ export function buyShopItem(run, shopId, itemId, { replaceRuneInstanceId = null 
     return { ok: true, message: `${definition.cardKind==='OPERATION'?'운영':'단어'} 카드 한 장을 구매했습니다.` };
   }
   if (item.kind !== 'RUNE') return fail('알 수 없는 상품입니다.');
-  const definition = eligibleRunes(run).find(rune => rune.id === item.runeId);
+  const definition = eligibleRunes(run,{source:'SHOP'}).find(rune => rune.id === item.runeId);
   if (!definition) return fail('현재 구매할 수 없는 룬입니다.');
   const same = equipped(run).find(rune => rune.runeId === item.runeId);
   if ((same?.level ?? 0) !== item.ownedLevel || same?.level >= RUNE_MAX_LEVEL) return fail('공개된 룬 레벨과 현재 상태가 다릅니다.');

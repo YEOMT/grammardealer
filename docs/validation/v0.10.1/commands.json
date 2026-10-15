@@ -1,0 +1,413 @@
+[
+  {
+    "label": "ship-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-15T13:06:22.965953+00:00",
+    "finishedAt": "2026-10-15T13:08:41.922124+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-unit/command.log",
+    "logSha256": "239c80cb03c0b2fdfd08eccb7e1eb51f933a60a7f1f0e62c4cc294d5c2c71066"
+  },
+  {
+    "label": "ship-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-15T13:08:42.337290+00:00",
+    "finishedAt": "2026-10-15T13:08:43.079879+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-data/command.log",
+    "logSha256": "cd3ff03c3601c1ff68ff8a595e38b01df297b56b1dda8329011c2727edc026f1"
+  },
+  {
+    "label": "ship-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-15T13:08:43.382967+00:00",
+    "finishedAt": "2026-10-15T13:08:44.410640+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-build/command.log",
+    "logSha256": "03ad19ab1e3215a6dfa0b8675779b257adaf373468f75e45043b7c8714d8342f"
+  },
+  {
+    "label": "ship-official-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser"
+    ],
+    "startedAt": "2026-10-15T12:59:45.876730+00:00",
+    "finishedAt": "2026-10-15T13:06:21.563127+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-official-browser/command.log",
+    "logSha256": "6e9e4f3f38b6e58b631427f384903a7b8e0bce027c60fa156a35bf69f5ba2fa7"
+  },
+  {
+    "label": "ship-cross-2",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:0101"
+    ],
+    "startedAt": "2026-10-15T12:54:52.658585+00:00",
+    "finishedAt": "2026-10-15T12:59:45.513425+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-cross-2/command.log",
+    "logSha256": "aa2ee2c1f26b8970061c903011eff694b9a4508403a9774ced1240675ff1fa07"
+  },
+  {
+    "label": "ship-surfaces",
+    "command": [
+      "node",
+      "tests/v0101-surfaces-browser.mjs"
+    ],
+    "startedAt": "2026-10-15T12:48:39.622844+00:00",
+    "finishedAt": "2026-10-15T12:48:44.075476+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-surfaces/command.log",
+    "logSha256": "2bafc8812e885affa058878f96690cc748d6b95ac0e4d93abcabe19cb9aa6105"
+  },
+  {
+    "label": "release-feel-3",
+    "command": [
+      "node",
+      "tests/v0101-feel-browser.mjs"
+    ],
+    "startedAt": "2026-10-15T12:34:37.407776+00:00",
+    "finishedAt": "2026-10-15T12:38:25.648293+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/release-feel-3/command.log",
+    "logSha256": "6e4ee4692e18f5d6e43aaa82422b59f648799e6da1cf91d870f6c158db554f6e"
+  },
+  {
+    "label": "ship-production-assigned",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:production:0101"
+    ],
+    "startedAt": "2026-10-15T13:08:44.905440+00:00",
+    "finishedAt": "2026-10-15T13:10:37.028917+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-production-assigned/command.log",
+    "logSha256": "492a7ede20013e2f0908c8507f47559a57aa30c5a82f990d1d897a2c6c4cefd9"
+  },
+  {
+    "label": "ship-natural-ui",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e:0101"
+    ],
+    "startedAt": "2026-10-15T13:10:37.410725+00:00",
+    "finishedAt": "2026-10-15T13:13:18.643777+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v0101/ship-natural-ui/command.log",
+    "logSha256": "282b8961eb487a10272d895fbac48a9116029d1c4a2ba09a23719bf3619cbf7d"
+  },
+  {
+    "label": "ship-legacy-e2e",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e"
+    ],
+    "startedAt": "2026-10-15T13:13:19.083528+00:00",
+    "finishedAt": "2026-10-15T13:27:00.353799+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-legacy-e2e/command.log",
+    "logSha256": "3d20e53e63fc853a74453878dc98a5f5ee11b808c727d6853f6987efd8966fc9"
+  },
+  {
+    "label": "natural-controller",
+    "command": [
+      "node",
+      "tools/simulate-polish0101-runs.js"
+    ],
+    "startedAt": "2026-10-15T11:52:59.743271+00:00",
+    "finishedAt": "2026-10-15T11:53:03.377593+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/natural-controller/command.log",
+    "logSha256": "2c222be6a521694c0a8a03f0475545b13e4eb00a37c243a7aa3cb1290cfa5d86"
+  },
+  {
+    "label": "ship-natural-clean",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:runs:0101"
+    ],
+    "startedAt": "2026-10-15T13:27:00.710482+00:00",
+    "finishedAt": "2026-10-15T13:27:06.313781+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-natural-clean/command.log",
+    "logSha256": "e0d4e82c27bd78761b4ae6101b90c156ac927414263c57149e9b6dbaf102b95e"
+  },
+  {
+    "label": "ship-ember",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:ember"
+    ],
+    "startedAt": "2026-10-15T13:27:09.241237+00:00",
+    "finishedAt": "2026-10-15T13:32:23.704749+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-ember/command.log",
+    "logSha256": "501d515ce360110587945abdf968c5f4854b33804fc25a867432c132724f3bf1"
+  },
+  {
+    "label": "ship-waterways",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:waterways"
+    ],
+    "startedAt": "2026-10-15T13:32:24.122597+00:00",
+    "finishedAt": "2026-10-15T13:41:16.398452+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v0101/ship-waterways/command.log",
+    "logSha256": "135b54f6089e9c3251386d493164cf64f630eae69b936ca6f2c366350bc459e2"
+  },
+  {
+    "label": "ship-library",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:library"
+    ],
+    "startedAt": "2026-10-15T13:41:23.042190+00:00",
+    "finishedAt": "2026-10-15T13:46:53.097185+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-library/command.log",
+    "logSha256": "ea3cc7cc0a0d258e2c9233d82bcf4ab5083ccdf0abbc17432a106fabf17bf743"
+  },
+  {
+    "label": "ship-corridor",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:corridor"
+    ],
+    "startedAt": "2026-10-15T13:46:54.336617+00:00",
+    "finishedAt": "2026-10-15T13:54:29.412259+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/ship-corridor/command.log",
+    "logSha256": "f7407552fb234d5295d9c3fcbdeee17a5dbe4559180d94a2610dfe133a5c9ca4"
+  },
+  {
+    "label": "final-text-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-15T13:54:31.405881+00:00",
+    "finishedAt": "2026-10-15T13:57:55.059712+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-text-unit/command.log",
+    "logSha256": "813a7d5f4c0d80a4797c93fc67bc8f3a170734b5686f0bbed6c0ddcdec4a961e"
+  },
+  {
+    "label": "final-text-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-15T13:57:56.150862+00:00",
+    "finishedAt": "2026-10-15T13:57:58.122883+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-text-data/command.log",
+    "logSha256": "cd3ff03c3601c1ff68ff8a595e38b01df297b56b1dda8329011c2727edc026f1"
+  },
+  {
+    "label": "final-text-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-15T13:57:58.985066+00:00",
+    "finishedAt": "2026-10-15T13:58:08.286769+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-text-build/command.log",
+    "logSha256": "06721719088066e784ccb7c6b03be0f0717c39e598946d3bc6f595148f826664"
+  },
+  {
+    "label": "final-text-browser",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:0101"
+    ],
+    "startedAt": "2026-10-15T13:58:09.384556+00:00",
+    "finishedAt": "2026-10-15T14:00:11.537317+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-text-browser/command.log",
+    "logSha256": "ec5196555a1bb9c950cd4044249407b3e070f7305f3e67691978ca3c57f23e33"
+  },
+  {
+    "label": "final-natural-ui",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:e2e:0101"
+    ],
+    "startedAt": "2026-10-15T14:00:14.842652+00:00",
+    "finishedAt": "2026-10-15T14:04:26.827565+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v0101/final-natural-ui/command.log",
+    "logSha256": "5a9bb01437969b673d449e75fcecf5dde372cb9c69e251dd424a28829b4e6702"
+  },
+  {
+    "label": "final-feel-clean",
+    "command": [
+      "node",
+      "tests/v0101-feel-browser.mjs"
+    ],
+    "startedAt": "2026-10-15T14:30:24.618047+00:00",
+    "finishedAt": "2026-10-15T14:34:18.294899+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-feel-clean/command.log",
+    "logSha256": "6e4ee4692e18f5d6e43aaa82422b59f648799e6da1cf91d870f6c158db554f6e"
+  },
+  {
+    "label": "final-waterways",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:waterways"
+    ],
+    "startedAt": "2026-10-15T14:04:45.180757+00:00",
+    "finishedAt": "2026-10-15T14:18:26.457903+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-waterways/command.log",
+    "logSha256": "e72e188369fd9f012f2244452d88787ff9bc2fb168209222b2ec1e92575b4642"
+  },
+  {
+    "label": "final-poststyle-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-15T14:18:29.193091+00:00",
+    "finishedAt": "2026-10-15T14:21:27.160195+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-poststyle-unit/command.log",
+    "logSha256": "373f7d7d7916cab149ed952ad4a11b560f56b0b342752605b17a2f660da0053a"
+  },
+  {
+    "label": "followup-final-unit",
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-10-15T14:44:29.612829+00:00",
+    "finishedAt": "2026-10-15T14:47:11.535182+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/followup-final-unit/command.log",
+    "logSha256": "32e1a2ba298649678460e79d5e98dc637d69b4c4fc0355caecc7840d973b888b"
+  },
+  {
+    "label": "followup-final-data",
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-10-15T14:47:12.656520+00:00",
+    "finishedAt": "2026-10-15T14:47:14.532816+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/followup-final-data/command.log",
+    "logSha256": "cd3ff03c3601c1ff68ff8a595e38b01df297b56b1dda8329011c2727edc026f1"
+  },
+  {
+    "label": "followup-final-build",
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-10-15T14:47:15.584759+00:00",
+    "finishedAt": "2026-10-15T14:47:18.687421+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/followup-final-build/command.log",
+    "logSha256": "b7bd11704e3ab3ff0534b635b1077f2565d9b71c875cc89c4008372d7e751e12"
+  },
+  {
+    "label": "followup-final-browser",
+    "command": [
+      "node",
+      "tests/v0101-followup-browser.mjs"
+    ],
+    "startedAt": "2026-10-15T14:47:19.504254+00:00",
+    "finishedAt": "2026-10-15T14:47:33.653002+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v0101/followup-final-browser/command.log",
+    "logSha256": "e921ff3e41eeb8fda8741c5ba669e79bc994363b4bd891c5d5fcd2ed7eef7a1f"
+  },
+  {
+    "label": "followup-final-production",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:production:0101"
+    ],
+    "startedAt": "2026-10-15T14:47:34.509556+00:00",
+    "finishedAt": "2026-10-15T14:49:27.442855+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/followup-final-production/command.log",
+    "logSha256": "492a7ede20013e2f0908c8507f47559a57aa30c5a82f990d1d897a2c6c4cefd9"
+  },
+  {
+    "label": "final-panels-cross-2",
+    "command": [
+      "npm.cmd",
+      "run",
+      "test:browser:0101"
+    ],
+    "startedAt": "2026-10-15T14:25:21.917518+00:00",
+    "finishedAt": "2026-10-15T14:30:23.174401+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0101/final-panels-cross-2/command.log",
+    "logSha256": "097d3b82fc9d02653adcdeea27b2d681343c1adb0fa72898681b98697adfe1c2"
+  }
+]

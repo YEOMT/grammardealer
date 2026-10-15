@@ -1,7 +1,7 @@
 import {snapshotFromText as currentSnapshot,analyzeSentence as currentAnalyze} from '../src/engine/grammar/index.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-022-controller.js';
 import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
 import {registry} from './helpers/legacy-language.js';
 import {snapshotFromText,analyzeSentence} from './helpers/legacy-language.js';

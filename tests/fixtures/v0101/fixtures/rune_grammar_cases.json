@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "testType": "PLANNED_REAL_PARSER_CASES_NOT_ALREADY_RUN",
+  "instructionsKo": "현재0.10.1레지스트리로물리사본/형태를구성해실행한다. 문장별동사형태선택을기록하며없는어휘/미지원일경우NOT RUN/불일치로보고한다. 예상룬은must/must_not의지정대상만검사하며다른룬을자동실패로보지않는다.",
+  "cases": [
+    {
+      "id": "G001",
+      "sentence": "I worked.",
+      "runeMustTrigger": [
+        "rune.past"
+      ],
+      "runeMustNotTrigger": [
+        "rune.progressive",
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G002",
+      "sentence": "I work.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G003",
+      "sentence": "She was reading books.",
+      "runeMustTrigger": [
+        "rune.past",
+        "rune.progressive"
+      ],
+      "runeMustNotTrigger": [
+        "rune.gerund"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G004",
+      "sentence": "I had read books.",
+      "runeMustTrigger": [
+        "rune.past"
+      ],
+      "runeMustNotTrigger": [
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G005",
+      "sentence": "If I had time, I would help you.",
+      "runeMustTrigger": [
+        "rune.unrealPresent",
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.past",
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G006",
+      "sentence": "If she were happy, I would work.",
+      "runeMustTrigger": [
+        "rune.unrealPresent",
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G007",
+      "sentence": "She is reading books.",
+      "runeMustTrigger": [
+        "rune.progressive"
+      ],
+      "runeMustNotTrigger": [
+        "rune.gerund"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G008",
+      "sentence": "She is happy.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.progressive",
+        "rune.passive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G009",
+      "sentence": "I like reading books.",
+      "runeMustTrigger": [
+        "rune.gerund"
+      ],
+      "runeMustNotTrigger": [
+        "rune.progressive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G010",
+      "sentence": "I have been reading books.",
+      "runeMustTrigger": [
+        "rune.progressive",
+        "rune.presentPerfect"
+      ],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "기본 현재완료진행 배율의하위중복은부활시키지않는다.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G011",
+      "sentence": "I make you happy.",
+      "runeMustTrigger": [
+        "rune.svoc"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G012",
+      "sentence": "I give you books.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.svoc"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "기존4형식룬은별도확인한다.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G013",
+      "sentence": "I know that she makes you happy.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.svoc"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "주절은3형식,종속5형식을주절로쓰지않는다.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G014",
+      "sentence": "I have read books.",
+      "runeMustTrigger": [
+        "rune.presentPerfect"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G015",
+      "sentence": "She has helped you.",
+      "runeMustTrigger": [
+        "rune.presentPerfect"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G016",
+      "sentence": "I have a book.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G017",
+      "sentence": "If I had worked, I would have helped you.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.unrealPresent",
+        "rune.past",
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "가정법과거완료전용룬은보류,같은쌍의시제중복금지.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G018",
+      "sentence": "I read books and she works.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G019",
+      "sentence": "I read difficult and different books.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.clauseLink"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G020",
+      "sentence": "If I have time, I will work.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.unrealPresent"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "실제조건연결은라피스,기본LINK배율은조건배율에대체.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G021",
+      "sentence": "I work because she reads books.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G022",
+      "sentence": "I want to read books.",
+      "runeMustTrigger": [
+        "rune.infinitive"
+      ],
+      "runeMustNotTrigger": [
+        "rune.gerund"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G023",
+      "sentence": "I give books to the teacher.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.infinitive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G024",
+      "sentence": "I can read books.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.infinitive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G025",
+      "sentence": "It is good to read books.",
+      "runeMustTrigger": [
+        "rune.infinitive"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G026",
+      "sentence": "Reading books is good.",
+      "runeMustTrigger": [
+        "rune.gerund"
+      ],
+      "runeMustNotTrigger": [
+        "rune.progressive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G027",
+      "sentence": "The book was read.",
+      "runeMustTrigger": [
+        "rune.passive",
+        "rune.past"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G028",
+      "sentence": "I read the book.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.passive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "read현재형선택으로고정.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G029",
+      "sentence": "The book that she likes was read.",
+      "runeMustTrigger": [
+        "rune.relative",
+        "rune.passive",
+        "rune.past"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G030",
+      "sentence": "I know the boy who helped me.",
+      "runeMustTrigger": [
+        "rune.relative",
+        "rune.past"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G031",
+      "sentence": "I like the book that you read.",
+      "runeMustTrigger": [
+        "rune.relative"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G032",
+      "sentence": "I like the book you read.",
+      "runeMustTrigger": [
+        "rune.relative"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "정상목적격관계사생략.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G033",
+      "sentence": "I like what you make.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.relative"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G034",
+      "sentence": "I know where you live.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.relative"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G035",
+      "sentence": "I know that you work.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.relative"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G036",
+      "sentence": "If I worked, I could help you.",
+      "runeMustTrigger": [
+        "rune.unrealPresent",
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G037",
+      "sentence": "I could help you.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.unrealPresent"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G038",
+      "sentence": "If I had time, I could read books.",
+      "runeMustTrigger": [
+        "rune.unrealPresent",
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G039",
+      "sentence": "I read books and I read books.",
+      "runeMustTrigger": [
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "라피스1회;동일철자다른사본의ID를보존.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G040",
+      "sentence": "I have been reading books and she has helped you.",
+      "runeMustTrigger": [
+        "rune.progressive",
+        "rune.presentPerfect",
+        "rune.clauseLink"
+      ],
+      "runeMustNotTrigger": [],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "백금은2개의현재완료근거가있어도1회.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G041",
+      "sentence": "She have helped you.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.presentPerfect"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "관련주어동사일치오류가있는현재완료근거는신규룬정상발동금지.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G042",
+      "sentence": "I to books.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.infinitive",
+        "rune.past",
+        "rune.progressive"
+      ],
+      "setup": "GRAMMAR_UNLOCKS_GRANTED_FOR_ASSERTED_TARGETS",
+      "noteKo": "전체미완성공격에가산으로피해를만들지않음.",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G043",
+      "sentence": "I worked.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.past"
+      ],
+      "setup": "PAST_GRAMMAR_LOCKED",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    },
+    {
+      "id": "G044",
+      "sentence": "I make you happy.",
+      "runeMustTrigger": [],
+      "runeMustNotTrigger": [
+        "rune.svoc"
+      ],
+      "setup": "SVOC_GRAMMAR_LOCKED",
+      "noteKo": "",
+      "status": "NOT_EXECUTED_DESIGN_EXPECTATION"
+    }
+  ]
+}

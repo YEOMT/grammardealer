@@ -1,0 +1,298 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "0.10.1",
+  "newRuneCount": 10,
+  "newRunes": [
+    {
+      "id": "rune.past",
+      "nameKo": "화석 룬",
+      "rarity": "COMMON",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        30,
+        50,
+        70
+      ],
+      "conditionKo": "실제 과거 계열의 정상 유한 동사구",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "TUNING_INITIAL",
+      "formerProposalName": "주석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.progressive",
+      "nameKo": "석영 룬",
+      "rarity": "COMMON",
+      "operation": "ADD_SCORE",
+      "levelValues": [
+        30,
+        50,
+        70
+      ],
+      "conditionKo": "정상적인 진행 동사구",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "TUNING_INITIAL",
+      "formerProposalName": "월장석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.svoc",
+      "nameKo": "가넷 룬",
+      "rarity": "UNCOMMON",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 17,
+          "den": 10
+        },
+        {
+          "num": 12,
+          "den": 5
+        },
+        {
+          "num": 16,
+          "den": 5
+        }
+      ],
+      "conditionKo": "주절 5형식",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "석류석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.presentPerfect",
+      "nameKo": "백금 룬",
+      "rarity": "UNCOMMON",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 17,
+          "den": 10
+        },
+        {
+          "num": 2,
+          "den": 1
+        }
+      ],
+      "conditionKo": "현재완료 동사구",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "백금 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.clauseLink",
+      "nameKo": "라피스 룬",
+      "rarity": "UNCOMMON",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 7,
+          "den": 5
+        },
+        {
+          "num": 17,
+          "den": 10
+        },
+        {
+          "num": 2,
+          "den": 1
+        }
+      ],
+      "conditionKo": "실제 절 연결",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "청금석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.infinitive",
+      "nameKo": "아쿠아마린 룬",
+      "rarity": "UNCOMMON",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 27,
+          "den": 20
+        },
+        {
+          "num": 33,
+          "den": 20
+        },
+        {
+          "num": 2,
+          "den": 1
+        }
+      ],
+      "conditionKo": "정상적인 to부정사",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "형석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.gerund",
+      "nameKo": "토파즈 룬",
+      "rarity": "UNCOMMON",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 27,
+          "den": 20
+        },
+        {
+          "num": 33,
+          "den": 20
+        },
+        {
+          "num": 2,
+          "den": 1
+        }
+      ],
+      "conditionKo": "정상적인 동명사",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "호안석 룬",
+      "displayQualifierKo": "동명사"
+    },
+    {
+      "id": "rune.passive",
+      "nameKo": "흑요석 룬",
+      "rarity": "RARE",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 19,
+          "den": 10
+        },
+        {
+          "num": 51,
+          "den": 20
+        },
+        {
+          "num": 16,
+          "den": 5
+        }
+      ],
+      "conditionKo": "정상적인 수동태",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "흑진주 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.relative",
+      "nameKo": "아다만티움 룬",
+      "rarity": "RARE",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 21,
+          "den": 10
+        },
+        {
+          "num": 14,
+          "den": 5
+        },
+        {
+          "num": 18,
+          "den": 5
+        }
+      ],
+      "conditionKo": "선행사를 수식하는 주격·목적격 관계절",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "성운석 룬",
+      "displayQualifierKo": null
+    },
+    {
+      "id": "rune.unrealPresent",
+      "nameKo": "미스릴 룬",
+      "rarity": "RARE",
+      "operation": "MULTIPLY_SCORE",
+      "levelValues": [
+        {
+          "num": 2,
+          "den": 1
+        },
+        {
+          "num": 27,
+          "den": 10
+        },
+        {
+          "num": 7,
+          "den": 2
+        }
+      ],
+      "conditionKo": "정상적인 가정법 과거 조건·결과쌍",
+      "scope": "ONCE_PER_ATTACK",
+      "maxTriggersPerAttack": 1,
+      "identityStatus": "SEMANTIC_ID_PROPOSAL_VERIFY_COLLISION",
+      "nameRarityOperationStatus": "USER_CONFIRMED",
+      "numericStatus": "ACCEPTED_PRIOR_PROPOSAL",
+      "formerProposalName": "예언석 룬",
+      "displayQualifierKo": null
+    }
+  ],
+  "retainExistingRunes": true,
+  "keepMaxLevel": 3,
+  "keepSlotProgression": [
+    {
+      "start": 3
+    },
+    {
+      "afterStage3": 4
+    }
+  ],
+  "nameCollision": {
+    "oldRuneId": "rune.svoo",
+    "newRuneId": "rune.gerund",
+    "sharedNameKo": "토파즈 룬",
+    "temporaryDisplayLabels": [
+      "토파즈 룬 · 4형식",
+      "토파즈 룬 · 동명사"
+    ],
+    "decisionStatus": "IMPLEMENTATION_DEFAULT_NOT_FINAL_RENAME"
+  },
+  "deferred": [
+    "진주 룬(신규 미래 룬 제안)",
+    "마노 룬",
+    "오팔 룬(신규 비교 룬 제안)",
+    "몽환석 룬",
+    "태엽석 룬",
+    "오로라 룬",
+    "운명석 룬"
+  ]
+}

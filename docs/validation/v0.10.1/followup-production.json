@@ -1,0 +1,264 @@
+{
+  "kind": "ASSIGNED_STATE_PRODUCTION_UI_NOT_NATURAL_REWARD_CAMPAIGN",
+  "path": "/grammardealer/",
+  "checks": [
+    {
+      "id": "PRODUCTION_ASSIGNED_43",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_ASSIGNED_44",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_ASSIGNED_45",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_ASSIGNED_46",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_ASSIGNED_47",
+      "status": "PASS"
+    }
+  ],
+  "attacks": [
+    {
+      "battle": 43,
+      "sentence": "If I work I will like good books today.",
+      "power": 5807,
+      "damage": 2500,
+      "resistance": {
+        "applied": true,
+        "ratio": {
+          "num": 7,
+          "den": 10
+        },
+        "percent": 30,
+        "preResistancePower": 8296,
+        "postResistancePower": 5807,
+        "preventedByResistance": 2489,
+        "finalPower": 5807,
+        "actualHpLoss": 2500,
+        "enemyHpAfter": 0,
+        "overkill": 3307
+      },
+      "corridor": [
+        "CONDITIONAL_REAL"
+      ],
+      "nextStatus": "BATTLE",
+      "nextBattle": 44
+    },
+    {
+      "battle": 44,
+      "sentence": "If I worked I would like good books today.",
+      "power": 5461,
+      "damage": 2900,
+      "resistance": {
+        "applied": true,
+        "ratio": {
+          "num": 7,
+          "den": 10
+        },
+        "percent": 30,
+        "preResistancePower": 7802,
+        "postResistancePower": 5461,
+        "preventedByResistance": 2341,
+        "finalPower": 5461,
+        "actualHpLoss": 2900,
+        "enemyHpAfter": 0,
+        "overkill": 2561
+      },
+      "corridor": [
+        "UNREAL_PRESENT"
+      ],
+      "nextStatus": "BATTLE",
+      "nextBattle": 45
+    },
+    {
+      "battle": 45,
+      "sentence": "I had liked good books and you liked books.",
+      "power": 8016,
+      "damage": 3300,
+      "resistance": {
+        "applied": true,
+        "ratio": {
+          "num": 7,
+          "den": 10
+        },
+        "percent": 30,
+        "preResistancePower": 11452,
+        "postResistancePower": 8016,
+        "preventedByResistance": 3436,
+        "finalPower": 8016,
+        "actualHpLoss": 3300,
+        "enemyHpAfter": 0,
+        "overkill": 4716
+      },
+      "corridor": [
+        "PAST_PERFECT"
+      ],
+      "nextStatus": "BATTLE",
+      "nextBattle": 46
+    },
+    {
+      "battle": 46,
+      "sentence": "If I had worked I would have liked books.",
+      "power": 5982,
+      "damage": 3800,
+      "resistance": {
+        "applied": true,
+        "ratio": {
+          "num": 7,
+          "den": 10
+        },
+        "percent": 30,
+        "preResistancePower": 8547,
+        "postResistancePower": 5982,
+        "preventedByResistance": 2565,
+        "finalPower": 5982,
+        "actualHpLoss": 3800,
+        "enemyHpAfter": 0,
+        "overkill": 2182
+      },
+      "corridor": [
+        "UNREAL_PAST",
+        "PAST_PERFECT"
+      ],
+      "nextStatus": "BATTLE",
+      "nextBattle": 47
+    },
+    {
+      "battle": 47,
+      "sentence": "If I worked I would like good books today.",
+      "power": 7802,
+      "damage": 5000,
+      "resistance": {
+        "applied": false,
+        "ratio": null,
+        "percent": 0,
+        "preResistancePower": 7802,
+        "postResistancePower": 7802,
+        "preventedByResistance": 0,
+        "finalPower": 7802,
+        "actualHpLoss": 5000,
+        "enemyHpAfter": 0,
+        "overkill": 2802
+      },
+      "foresight": {
+        "attackId": "qa.waterways.corridor.assigned:battle.47:attack.1",
+        "rememberedFrameBefore": null,
+        "rememberedFrameAfter": "SVO",
+        "validMain": true,
+        "bypassed": true,
+        "blocked": false,
+        "preBossPower": 7802,
+        "finalPower": 7802,
+        "actualHpLoss": 5000,
+        "enemyHpAfter": 0,
+        "overkill": 2802,
+        "killed": true,
+        "evidenceRefs": [
+          "hit.corridor.0"
+        ],
+        "highlightCardIds": [
+          "qa.corridor.0",
+          "qa.corridor.1",
+          "qa.corridor.2",
+          "qa.corridor.3",
+          "qa.corridor.4",
+          "qa.corridor.5",
+          "qa.corridor.6",
+          "qa.corridor.7",
+          "qa.corridor.8"
+        ],
+        "bossStateBefore": {
+          "id": "FATE_FORESIGHT",
+          "rememberedFrame": null,
+          "lastAttackId": null
+        },
+        "bossStateAfter": {
+          "id": "FATE_FORESIGHT",
+          "rememberedFrame": "SVO",
+          "lastAttackId": "qa.waterways.corridor.assigned:battle.47:attack.1"
+        },
+        "labelKo": "가정법 · 예견 무시"
+      },
+      "corridor": [
+        "UNREAL_PRESENT"
+      ],
+      "nextStatus": "CONTENT_COMPLETE",
+      "nextBattle": 47
+    }
+  ],
+  "captures": [
+    "assigned-battle-43-start.png",
+    "assigned-battle-43-reward.png",
+    "assigned-battle-43-settled.png",
+    "assigned-battle-44-start.png",
+    "assigned-battle-44-reward.png",
+    "assigned-battle-44-settled.png",
+    "assigned-battle-45-start.png",
+    "assigned-battle-45-reward.png",
+    "assigned-battle-45-settled.png",
+    "assigned-battle-46-start.png",
+    "assigned-battle-46-reward.png",
+    "assigned-battle-46-settled.png",
+    "assigned-battle-47-start.png",
+    "assigned-battle-47-reward.png",
+    "assigned-battle-47-settled.png"
+  ],
+  "errors": [],
+  "resources": [
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-D-ucSH84.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-DBPAADrZ.js",
+      "status": 200
+    }
+  ],
+  "status": "PASS"
+}

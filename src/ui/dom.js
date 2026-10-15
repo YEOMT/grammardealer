@@ -28,6 +28,7 @@ export function downloadJson(filename, data) {
   const link = el('a', { href: url, download: filename }); link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 export function modal(title, content, { wide = false, onClose, closeable = true } = {}) {
+  document.dispatchEvent(new Event('atlas:cancel-drag'));
   document.querySelectorAll('dialog.app-dialog').forEach(d => d.close());
   const dialog = el('dialog', { class: `app-dialog ${wide ? 'wide' : ''}` });
   const close = () => dialog.close();

@@ -1,0 +1,77 @@
+{
+  "kind": "PLANNED_EXPECTATIONS_NOT_EXECUTION",
+  "cases": [
+    {
+      "id": "S01",
+      "scenario_ko": "편집중 휴대기기를 가로→세로→가로로 전환",
+      "expected_ko": "세로에서는 조작차단, 복귀시 확정문장/형태/HP/턴/RNG 보존.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S02",
+      "scenario_ko": "드래그중 세로회전",
+      "expected_ko": "gesture만 안전취소; ghost제거; 의도하지 않은 SUBMIT/EXCHANGE 없음.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S03",
+      "scenario_ko": "방향잠금 API가 없음",
+      "expected_ko": "명시적 회전안내 후 수동가로에서 정상플레이; 가짜90도rotation 없음.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S04",
+      "scenario_ko": "전체화면 요청이 거절됨",
+      "expected_ko": "실패표시와 실제 버튼상태; 가로창플레이 유지; 게임 재생성 없음.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S05",
+      "scenario_ko": "전체화면 성공 후 Esc/시스템종료",
+      "expected_ko": "버튼상태/좌표 재계산; 문장과게임상태 보존.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S06",
+      "scenario_ko": "검색키보드로 visualViewport 높이가 줄어듦",
+      "expected_ko": "회전오판 금지; 검색/닫기 접근; 닫은뒤 복구.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S07",
+      "scenario_ko": "HTML dialog 열린 상태에서 세로회전",
+      "expected_ko": "회전 gate가 모달 뒤에서 무효화되지 않고 입력누출 없음.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S08",
+      "scenario_ko": "공격연출중 회전 + watchdog",
+      "expected_ko": "기존확정공격과턴종료효과가 한 번만 완료되고 영구locked 없음.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S09",
+      "scenario_ko": "도서관장 회복 직전 전체화면 전환",
+      "expected_ko": "회복량과턴·RNG가 원래계약대로 한 번만 처리.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S10",
+      "scenario_ko": "직조자 차단/가정법 우회중 resize",
+      "expected_ko": "기억한문형과피해가 바뀌지 않고 정확한 근거카드 표시.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S11",
+      "scenario_ko": "브라우저 확대/핀치zoom",
+      "expected_ko": "강제100% 복귀 없음; 가로판정 오류 없음; 내용/취소 접근.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "S12",
+      "scenario_ko": "세이브 요청 비동기 중 회전",
+      "expected_ko": "중복저장/불러오기 없고 기존transaction 완료/오류를 그대로 보고.",
+      "status": "NOT RUN"
+    }
+  ]
+}

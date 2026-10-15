@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "noteKo": "고정보상예외·빈후보와모든후보유효한기본경우를구분.0가중치등급은선택에서제외.확률시뮬레이션은실제로돌려별도보고.",
+  "cases": [
+    {
+      "id": "D001",
+      "source": "NORMAL_REWARD",
+      "stage": 1,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D002",
+      "source": "NORMAL_REWARD",
+      "stage": 2,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D003",
+      "source": "NORMAL_REWARD",
+      "stage": 4,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D004",
+      "source": "NORMAL_REWARD",
+      "stage": 7,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D005",
+      "source": "NORMAL_REWARD",
+      "stage": 9,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D006",
+      "source": "NORMAL_REWARD",
+      "stage": 10,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D007",
+      "source": "REGIONAL_BOSS_REWARD",
+      "stage": 1,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D008",
+      "source": "REGIONAL_BOSS_REWARD",
+      "stage": 3,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D009",
+      "source": "REGIONAL_BOSS_REWARD",
+      "stage": 10,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D010",
+      "source": "SHOP",
+      "stage": 2,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D011",
+      "source": "SHOP",
+      "stage": 4,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D012",
+      "source": "SHOP",
+      "stage": 6,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D013",
+      "source": "SHOP",
+      "stage": 8,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D014",
+      "source": "SHOP",
+      "stage": 10,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": true,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 9
+      }
+    },
+    {
+      "id": "D015",
+      "source": "LATER_R2_GENERAL_SLOT",
+      "stage": 1,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      }
+    },
+    {
+      "id": "D016",
+      "source": "NORMAL_REWARD",
+      "stage": 9,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      },
+      "ownedRareLevel": 2,
+      "sameRareUpgradeAllowed": false
+    },
+    {
+      "id": "D017",
+      "source": "NORMAL_REWARD",
+      "stage": 10,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      },
+      "allAllowedRunesMaxLevel": true,
+      "expectedRuneTypeEligible": false
+    },
+    {
+      "id": "D018",
+      "source": "SHOP",
+      "stage": 2,
+      "allGradesHaveCandidates": true,
+      "rareAllowed": false,
+      "expectedWeights": {
+        "COMMON": 194,
+        "UNCOMMON": 97,
+        "RARE": 0
+      },
+      "allAllowedRunesMaxLevel": true,
+      "expectedRuneInventoryEmpty": true
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import { COMBAT_BALANCE } from '../data/balance.js';
-import { RUNE_BY_ID, runeForVersion, RUNE_MAX_LEVEL, RUNE_SLOT_LIMIT, RUNE_VERSION } from '../data/runes.js';
+import { runeForVersion, RUNE_MAX_LEVEL, RUNE_SLOT_LIMIT, RUNE_VERSION } from '../data/runes.js';
 import { safeInteger, addSafe, scoreEvent } from './numeric.js';
 import { attackableAnalysis, normalizedHits, mainFrameHit, validateCardScoringSnapshot } from './scoring.js';
 
 /** An ordered, validated copy: reading a rune never mutates its instance or grants a resource. */
-export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
+export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
   if (!Array.isArray(equippedRunes) || equippedRunes.length > slotLimit) throw new RangeError('Rune slot limit exceeded');
   const seen = new Set();
   return equippedRunes.map((rune, index) => {
@@ -37,7 +37,7 @@ export function deriveCombatRules(base = COMBAT_BALANCE, character = 'traveler',
 }
 
 /** Apply attack runes strictly in their stored slot order. Utility runes never fire here. */
-export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attackId = 'attack.sandbox',version=analysis.grammarVersion } = {}) {
+export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attackId = 'attack.sandbox',version=analysis.grammarVersion,runeEvidence={} } = {}) {
   if (!attackableAnalysis(analysis)) throw new TypeError('Unsupported analysis cannot trigger runes');
   const runeSnapshot = validateEquippedRunes(equippedRunes,{version});
   const scoringCards = validateCardScoringSnapshot(cards);
@@ -50,7 +50,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
     const operation = definition.operation === 'MULTIPLY_SCORE' ? 'MULTIPLY' : 'ADD';
     const amount = operation === 'MULTIPLY' ? `×${operand.num / operand.den}` : `+${operand}`;
     const event = scoreEvent({ attackId, index: scoreResult.events.length + runeEvents.length, phase: 'RUNES', sourceType: 'RUNE',
-      sourceId: rune.runeId, runeInstanceId: rune.instanceId, runeLevel: rune.level, labelKo: `${definition.nameKo} ${amount}`,
+      sourceId: rune.runeId, runeInstanceId: rune.instanceId, runeLevel: rune.level, ...(version==='0.10.1'?{runeRarity:definition.rarity}:{}), labelKo: `${definition.nameKo} ${amount}`,
       operation, operand, before: score, evidenceRefs, highlightCardIds: cardIds });
     runeEvents.push(event); score = event.after;
   };
@@ -58,6 +58,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
     const definition = runeForVersion(rune.runeId,version);
     const value = definition.levelValues[rune.level - 1];
     if (definition.group === 'UTILITY') continue;
+    if(definition.introducedVersion==='0.10.1'){const evidence=runeEvidence[rune.runeId];if(evidence?.eligible)emit(rune,definition,value,evidence.cardIds,evidence.evidenceRefs);continue;}
     const matchingFrame = { 'rune.sv': 'FRAME.SV', 'rune.svc': 'FRAME.SVC', 'rune.svo': 'FRAME.SVO', 'rune.svoo':'FRAME.SVOO' }[rune.runeId];
     if (matchingFrame && frameHit?.tag === matchingFrame) emit(rune, definition, value, frameHit.cardIds, [frameHit.id]);
     else if (rune.runeId === 'rune.short' && scoringCards.length <= 4) emit(rune, definition, value,
@@ -77,7 +78,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
       for (const card of scoringCards) if (card.polishLevel >= 1 && contributionIds.has(card.instanceId)) emit(rune, definition, value, [card.instanceId], [card.instanceId]);
     }
   }
-  return { schemaVersion: 1, runeVersion: ['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(version)?'runes.0.6.1':RUNE_VERSION, runeSnapshot, postRuneScore: score, runeEvents, events: runeEvents };
+  return { schemaVersion: 1, runeVersion: version==='0.10.1'?'runes.0.10.1':['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'runes.0.6.1':RUNE_VERSION, runeSnapshot, postRuneScore: score, runeEvents, events: runeEvents };
 }
 
 /** Shared tooltip formatter derived from the same values used in the engine. */

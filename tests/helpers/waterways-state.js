@@ -1,5 +1,6 @@
 import {snapshotFromText} from '../../src/engine/grammar/index.js';
 import {WATERWAYS_PACKS,WATERWAYS_REWARD_PACK} from '../../src/data/language/waterwaysLanguage.js';
+import {RunController as CorridorController} from './legacy-010-controller.js';
 import {RunController as CurrentController} from '../../src/game/runController.js';
 import {RunController as LibraryController} from './legacy-09-controller.js';
 import {RunController} from './legacy-081-controller.js';
@@ -14,7 +15,7 @@ import {EMBER_PACKS} from '../../src/data/stage7.js';
 export function checked(c,command){const r=c.dispatch(command);if(!r.ok)throw Error(command.type+': '+r.message);return r;}
 /** Explicit assigned-state fixture; never claimed as campaign play. Entry/shop routines are real. */
 export function assignedWaterways({round=0,seed='waterways.assigned',opening=0,entry=false,choice='WHO',earlierRemovals=false,ownedWords=[],version='0.8.1'}={}){
- const Controller=version==='0.10.0'?CurrentController:version==='0.9.0'?LibraryController:RunController;const c=new Controller({profile:{...newProfile('Waterways assigned QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed}});const s=c.getState();s.runId='qa.waterways.'+seed;s.economy.gold=100;s.runes.slotLimit=4;
+ const Controller=version==='0.10.1'?CurrentController:version==='0.10.0'?CorridorController:version==='0.9.0'?LibraryController:RunController;const c=new Controller({profile:{...newProfile('Waterways assigned QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed}});const s=c.getState();s.runId='qa.waterways.'+seed;s.economy.gold=100;s.runes.slotLimit=4;
  s.milestoneIds=['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR','STAGE6_CLEAR','STAGE7_CLEAR'];s.eligibility.runOwnUnlocks=['pack.svoo','rune.svoo','pack.clauseLink',...TIME_PACKS,...DESERT_PACKS,...SNOW_PACKS,SNOW_REWARD_PACK,...EMBER_PACKS,...WATERWAYS_PACKS,WATERWAYS_REWARD_PACK];
  for(const [stage,battle]of [[2,4],[3,8],[4,13],[5,18],[6,23]]){
   s.progress={stageId:`stage.0${stage}`,roundIndex:0,battleNumber:battle,contentBoundary:null};s.status='STAGE_INTRO';

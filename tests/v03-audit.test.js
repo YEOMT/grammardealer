@@ -5,7 +5,7 @@ import {getEncounter,STAGE3} from '../src/data/stages.js';
 import {resolveAttack} from '../src/engine/stage.js';
 import {reviewProfileLearning,displayLearningRecord} from '../src/engine/learningRecords.js';
 import {TIME_PACKS} from '../src/data/language/timeLanguage.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-03-controller.js';
 import {newProfile} from '../src/services/localStore.js';
 import {RUNES,LEGACY_RUNES} from '../src/data/runes.js';
 import {createRewardOffer} from '../src/game/rewards.js';

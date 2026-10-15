@@ -1,3 +1,5 @@
+import {meaningfulComboEvent,runeFeel} from './comboFeel.js';
+import {createScoreEffects} from '../ui/scoreEffects.js';
 import {frameLabel} from './foresight.js';
 import {presentationClock} from './presentationClock.js';
 import {runeForVersion} from '../data/runes.js';
@@ -37,11 +39,11 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
   const duration=value=>Math.round(value/speed);const feel=impactFeel(resolution);
   const turnEnd=resolution.turnEndReceipt&&!resolution.turnEndReceipt.killed?[{kind:'TURN_END',receipt:resolution.turnEndReceipt,duration:duration(850)}]:[];
   if(resolution.zeroReason==='INCOMPLETE_SENTENCE')return [{kind:'LOCK',duration:50},{kind:'POWER',duration:180},{kind:'IMPACT',duration:1200},...turnEnd];
-  let combo=0;
+  let combo=0;const seenEvents=new Set();
   const scores=resolution.scoreTimeline.flatMap(event=>{
     const rune=event.sourceType==='RUNE';
-    const meaningful=rune||['COMPLETE_BONUS','MAIN_FRAME','CONSTRUCTIONS','LINKS','SIMPLE_MODIFIERS'].includes(event.phase);
-    if(meaningful)combo++;
+    const meaningful=meaningfulComboEvent(event)&&!seenEvents.has(event.eventId);
+    seenEvents.add(event.eventId);if(meaningful)combo++;
     const score={kind:'SCORE',event,combo,duration:duration(event.phase==='CARD_BASE'?170:rune?520:550)};
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
   });
@@ -88,7 +90,7 @@ export async function playAttack(resolution, viewContext = {}, options = {}) {
     let scoreStep = 0;
     for (const [timelineIndex,step] of timeline.entries()) {
       if (reason) break;
-      if(step.kind==='RUNE_FLIGHT'){safeCall(viewContext,'pulseRune',step.runeEvent.sourceId);safeCall(viewContext,'flyRune',step.runeEvent,{duration:step.duration,combo:step.combo});}
+      if(step.kind==='RUNE_FLIGHT'){safeCall(viewContext,'pulseRune',step.runeEvent.sourceId,step.runeEvent);safeCall(viewContext,'flyRune',step.runeEvent,{duration:step.duration,combo:step.combo});}
       else if (step.kind === 'SCORE') {
         safeCall(viewContext, 'clearHighlights');
         const mainFrame=step.event.phase==='MAIN_FRAME';
@@ -164,9 +166,10 @@ export function connect(root, fromCardId, toCardIds) {
 /** Small optional DOM adapter. data-presentation: score,label,sentence,enemy,hp,hp-fill,log,power. */
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
+  const scoreEffects=createScoreEffects(root);
   let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null;
   const fallbacks=new Set();
-  const text = (name, value) => { const node = find(root, name); if (node) node.textContent = String(value); };
+  const text = (name, value) => { const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
     if (!node?.animate || settings.effectsOff || settings.reducedMotion) return;
     try { const animation=node.animate(frames, { duration, easing: 'ease-out', fill });animations.push(animation);if(root.ownerDocument.hidden&&settings.guided)animation.pause();return animation; } catch { /* final DOM is independent */ }
@@ -193,6 +196,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
   const clearHighlights = () => {
+    scoreEffects.clearEvidence();
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
     root.querySelectorAll('[data-clause-group],[data-content-object],.connector-bridge').forEach(n=>{delete n.dataset.clauseGroup;delete n.dataset.contentObject;n.classList.remove('connector-bridge');});
     root.querySelectorAll('[data-presentation-role]').forEach(node => node.remove());
@@ -225,11 +229,12 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       node.textContent=state.active?'보호 장막 · 피해 ×¼ · 4형식으로 해제':'보호 장막 해제';
     }
   };
+  const resizeEffects=()=>{scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];};
   const adapter = {
-    setPaused(paused){for(const a of animations){if(paused)a.pause();else a.play();}if(paused)audio?.stopAll?.();},
+    setPaused(paused){scoreEffects.pause(paused);for(const a of animations){if(paused)a.pause();else a.play();}if(paused)audio?.stopAll?.();},
     setLocked(locked) { root.dataset.presenting = String(locked); root.setAttribute('aria-busy', String(locked)); },
     begin(resolution, options) {
-      current = resolution; settings = options;
+      current = resolution; settings = options;scoreEffects.begin(options);root.ownerDocument.addEventListener('atlas:viewport',resizeEffects);
       clearHighlights(); adapter.clearConnections(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const log = find(root, 'log'); if (log) log.replaceChildren();
@@ -252,9 +257,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
       text('label', event.labelKo ?? event.phase); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
-      const tier=Math.min(4,Math.max(0,combo-2));
-      if(score){score.dataset.combo=String(combo);score.style.fontWeight=String(700+tier*50);score.style.textShadow=settings.effectsOff?'none':`0 0 ${8+tier*7}px #edbd${tier>1?'79aa':'7944'}`;}
-      animate(score,[{transform:'scale(1)'},{transform:`translateX(${tier>2?2:0}px) scale(${1.035+tier*.035})`},{transform:'scale(1)'}],240);
+      scoreEffects.score(event,combo);
       const log = find(root, 'log'); if (log) {
         const line = root.ownerDocument.createElement('div'); line.textContent = `${event.labelKo ?? event.phase}  ${event.before} → ${event.after}`;
         line.dataset.eventId = event.eventId ?? ''; log.append(line); while (log.children.length > 3) log.firstElementChild.remove();
@@ -284,20 +287,22 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       }
     },
     clearHighlights,
-    pulseRune(sourceId) {
+    pulseRune(sourceId,event={}) {
       const rune = [...root.querySelectorAll('[data-rune-id]')].find(node => node.dataset.runeId === sourceId);
-      if (rune) { rune.classList.add('presentation-rune-pulse'); animate(rune, [{ transform: 'scale(1)' }, { transform: 'scale(1.07)', filter: 'brightness(1.6)' }, { transform: 'scale(1)' }], 260); }
+      const weight=runeFeel(event.runeRarity??rune?.dataset.rarity,event.runeLevel??Number(rune?.dataset.level??1));
+      if (rune) { rune.classList.add('presentation-rune-pulse'); animate(rune, [{ transform: 'scale(1)' }, { transform: `scale(${Math.min(1.12,1+.06*weight)})`, filter: `brightness(${1+.45*weight})` }, { transform: 'scale(1)' }], 260); }
       const gem=rune?.querySelector('.diamond-gem');if(gem)animate(gem,[{filter:'brightness(1)',backgroundPosition:'0% 50%'},{filter:'brightness(1.8)',backgroundPosition:'100% 50%'},{filter:'brightness(1)',backgroundPosition:'0% 50%'}],220);
       audio?.play?.('rune', { intensity: settings.intensity });
     },
     flyRune(event,{duration}){
       const rune=[...root.querySelectorAll('[data-rune-id]')].find(n=>n.dataset.runeId===event.sourceId),target=find(root,'score');
       if(!rune||!target||settings.effectsOff||settings.reducedMotion)return;
-      const a=rune.getBoundingClientRect(),b=target.getBoundingClientRect(),color=runeForVersion(event.sourceId,current?.versions?.language)?.color??'#ddd';
-      const node=root.ownerDocument.createElement('i');node.className='rune-flight';node.dataset.runeId=event.sourceId;node.style.background=color;node.style.boxShadow=`0 0 18px 5px ${color}`;
+      const a=rune.getBoundingClientRect(),b=target.getBoundingClientRect(),color=runeForVersion(event.sourceId,current?.versions?.runes==='runes.0.10.1'?'0.10.1':current?.versions?.language)?.color??'#ddd';
+      const weight=runeFeel(event.runeRarity??rune.dataset.rarity,event.runeLevel??Number(rune.dataset.level??1));
+      const node=root.ownerDocument.createElement('i');node.className='rune-flight';node.dataset.runeId=event.sourceId;node.style.background=color;node.style.boxShadow=`0 0 ${12*weight}px ${3*weight}px ${color}`;
       const x=a.left+a.width/2,y=a.top+a.height/2,dx=b.left+b.width/2-x,dy=b.top+b.height/2-y;
       Object.assign(node.style,{position:'fixed',left:`${x}px`,top:`${y}px`});root.append(node);effectNodes.push(node);
-      animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(1.2)`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
+      animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(${Math.min(1.12,.7+.25*weight)})`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
     turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`도서관장 회복 +${receipt.actualHeal}`:'도서관장 회복 0 · 최대 체력';text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
@@ -357,8 +362,10 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(feel.shake&&!settings.reducedMotion)animateCore(root,[{transform:'translate(0,0)'},{transform:`translate(${feel.shake}px,2px)`},{transform:`translate(${-feel.shake}px,-2px)`},{transform:'translate(0,0)'}],Math.min(180,duration));
       animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
-    cancel(){for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
+    cancel(){root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
     finish(resolution) {
+      root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
+      scoreEffects.clear();
       clearCore();root.dataset.corePhase='FINISHED';
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];
       effectNodes.forEach(n=>n.remove());effectNodes=[];

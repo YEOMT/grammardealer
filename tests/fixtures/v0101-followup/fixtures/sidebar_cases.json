@@ -1,0 +1,65 @@
+{
+  "kind": "PLANNED_EXPECTATIONS_NOT_EXECUTION",
+  "cases": [
+    {
+      "id": "P01",
+      "scenario_ko": "가로태블릿 좌측 사전/도감 2열 버튼",
+      "expected_ko": "텍스트/버튼/탭영역이 패널 안이며 각각 한 번에 열린다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P02",
+      "scenario_ko": "우측 최대4룬 + Lv.3 + 자수정/아다만티움 긴이름",
+      "expected_ko": "설명/레벨/정렬이 겹치거나 패널 밖으로 나오지 않는다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P03",
+      "scenario_ko": "패널 하단의 저장/내덱 컨트롤",
+      "expected_ko": "부모 min-height와 자동margin 때문에 화면아래로 밀리지 않는다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P04",
+      "scenario_ko": "현재 보스 안내가 여러줄인 상태",
+      "expected_ko": "좌우 조작과 조합대가 서로 침범하지 않는다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P05",
+      "scenario_ko": "버튼 focus/hover/disabled",
+      "expected_ko": "포커스가 보이고 라벨이 잘리지 않으며 불가상태가 설명된다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P06",
+      "scenario_ko": "고콤보 파티클이 좌우패널 근처를 통과",
+      "expected_ko": "장식은 pointer-events를 가로채지 않고 클릭결과가 한 번이다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P07",
+      "scenario_ko": "형태 메뉴와 사전 dialog가 번갈아 열림",
+      "expected_ko": "z-index/최상위레이어가 복원되고 뒤 버튼으로 클릭이 새지 않는다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P08",
+      "scenario_ko": "가장 긴 스테이지명 + 전체화면 종료 라벨",
+      "expected_ko": "헤더중앙 유지와 우측 버튼 순서/containment가 보존된다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P09",
+      "scenario_ko": "테마 Stage1~10 반복",
+      "expected_ko": "같은 컨트롤의 대비·테두리·상태를 각 테마에서 읽을 수 있다.",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "P10",
+      "scenario_ko": "창 너비가 패널 2열 경계를 오감",
+      "expected_ko": "국소 reflow만 발생하고 조합대카드는 해당공통프로필로만 바뀐다.",
+      "status": "NOT RUN"
+    }
+  ]
+}

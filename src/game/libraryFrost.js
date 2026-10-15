@@ -4,7 +4,7 @@ import {LIBRARY_INITIAL} from '../data/libraryPolicy.js';
 const SOURCE='DREAM_LIBRARY';
 const idFor=(run,i)=>`frost.${run.runId}.library.${run.progress.roundIndex}.${i}`;
 const fail=why=>{throw Error('Library frost: '+why);};
-const eligible=run=>['0.9.0','0.10.0'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex<4;
+const eligible=run=>['0.9.0','0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex<4;
 const definitions=(round,owned)=>{const policy=LIBRARY_INITIAL.frost[round];return [...(policy.always??[]),...(policy.ifMissing??[]).filter(w=>!owned.includes(`card.${w}`))].map(w=>`card.${w}`);};
 export function createLibraryFrost(run){
  if(!eligible(run))return null;

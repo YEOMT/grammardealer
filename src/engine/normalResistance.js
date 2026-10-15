@@ -1,6 +1,6 @@
 import {CORRIDOR_INITIAL} from '../data/corridorPolicy.js';
 import {safeInteger,multiplyFloor} from './numeric.js';
-export function normalResistanceRatio(version,stageId,kind){return version==='0.10.0'&&kind==='NORMAL'?CORRIDOR_INITIAL.resistance[stageId]??null:null;}
+export function normalResistanceRatio(version,stageId,kind){return ['0.10.0','0.10.1'].includes(version)&&kind==='NORMAL'?CORRIDOR_INITIAL.resistance[stageId]??null:null;}
 /** Last normal-enemy multiplier, after grammar, runes and region; never mutates HP. */
 export function resolveNormalResistance({version,stageId,kind,power,hp}){
  safeInteger(power,'preResistancePower',{min:0});safeInteger(hp,'enemy hp',{min:0});

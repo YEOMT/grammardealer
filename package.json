@@ -1,6 +1,6 @@
 {
   "name": "sentence-balatro",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "private": true,
   "type": "module",
   "engines": {
@@ -41,7 +41,11 @@
     "test:runs:library": "node tools/simulate-library-runs.js",
     "test:browser:corridor": "node tests/corridor-browser.mjs",
     "test:e2e:corridor": "node tests/corridor-e2e.mjs",
-    "test:runs:corridor": "node tools/simulate-corridor-runs.js"
+    "test:runs:corridor": "node tools/simulate-corridor-runs.js",
+    "test:browser:0101": "node tests/v0101-browser.mjs",
+    "test:e2e:0101": "node tests/v0101-e2e.mjs",
+    "test:runs:0101": "node tools/simulate-polish0101-runs.js",
+    "test:production:0101": "node tests/v0101-production-assigned.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.51.1",

@@ -1,0 +1,106 @@
+{
+  "verifiedSourceCommit": "ca1391b5148a23cfcd37ef685230305643d1093c",
+  "scope": "followup-* final UI; before/old captures and video are explicitly pre-followup",
+  "media": [
+    {
+      "file": "390-shop.png",
+      "sha256": "e4749e43c3f0ab32ac8a31dee3b72fb6d55473a2c8a8bb52761b575d759e7581",
+      "bytes": 97826
+    },
+    {
+      "file": "844-shop.png",
+      "sha256": "229a76fae3c9cb20fc0b7f1c72bfd50ab337be3693c103665df881283d65cc9f",
+      "bytes": 88032
+    },
+    {
+      "file": "actual-high-combo-8.png",
+      "sha256": "fb560dedfaf7ae5e5fb0c7e853b46a70c24aa80cc52532d43ba571e5fb34131f",
+      "bytes": 507069
+    },
+    {
+      "file": "actual-high-combo-speed1.webm",
+      "sha256": "1fabbdff4154221521e71167ea16927a9f704838e6a34abec3a13bf45b651c0a",
+      "bytes": 1200353
+    },
+    {
+      "file": "assigned-golem-hp-0.10.0.png",
+      "sha256": "0b5e90b3e45c2139afc85bd66a693ef21fa53786006bbdf7097b3eee5c4acdd0",
+      "bytes": 387739
+    },
+    {
+      "file": "assigned-golem-hp-0.10.1.png",
+      "sha256": "438ca20e36d0371b1148df1bf04196dbb32f570a868caede0f3682e28c20cfdc",
+      "bytes": 387495
+    },
+    {
+      "file": "before-followup-PC.png",
+      "sha256": "19523cbd419ed19b3c37e1033b970043c3206fd4a57cfb4e17149e7b7e4bceb5",
+      "bytes": 732034
+    },
+    {
+      "file": "before-followup-phone.png",
+      "sha256": "980d147c7fa4f826bc1adc80983de2f5e64e6e7fe87064d5baa40ed4aafe00c9",
+      "bytes": 171461
+    },
+    {
+      "file": "before-mobile-shop-overflow.png",
+      "sha256": "c5e25cc5ccf268853f46ac5ec2527df25fbce0cc920303df09b8de7e423a2244",
+      "bytes": 225774
+    },
+    {
+      "file": "chromium-actual-attack-after-resize.png",
+      "sha256": "2c2ab72f4c5188f0411e0ca2f5bab02d136265b957db22943eba761030d2a975",
+      "bytes": 335118
+    },
+    {
+      "file": "chromium-followup-1024x650.png",
+      "sha256": "59d179c3add9098689cc155310e893b3ec661d6c7f9a7e04785fbfbe12ca123b",
+      "bytes": 324921
+    },
+    {
+      "file": "chromium-followup-1366x768.png",
+      "sha256": "914098a3d0c03a66b621297b1070bb94404f247e53aeef79bb4565ddd779dbb4",
+      "bytes": 466180
+    },
+    {
+      "file": "chromium-followup-667x320.png",
+      "sha256": "d21c9ec11f636be1ca3fd4d9b0677be71fffa6c02ba0efe93a8cfc9ac60f2f21",
+      "bytes": 122747
+    },
+    {
+      "file": "chromium-followup-740x360.png",
+      "sha256": "32571a53aa47afcb34e992557538b00a3ec4a9e106ac65426347454a904db385",
+      "bytes": 143376
+    },
+    {
+      "file": "chromium-followup-844x390.png",
+      "sha256": "1cb9fbbc50c294485328b2f1925da53547aec83d2cbcdd8ac0280b4820575be6",
+      "bytes": 181962
+    },
+    {
+      "file": "chromium-rune-catalog.png",
+      "sha256": "11d89e289d5be49edf2e90d4b55dc58347227cb04b8f27601bf5637b8e0de041",
+      "bytes": 95855
+    },
+    {
+      "file": "chromium-V001.png",
+      "sha256": "5b24f2ce288cc010ce32bc88f9fe2f35b77145aa8de9bb1d03fd7b055b35d799",
+      "bytes": 733715
+    },
+    {
+      "file": "chromium-V005.png",
+      "sha256": "2657510e73a77e219951bce181bef5b3b9a04e3dd7901a7f26675f4228dc1412",
+      "bytes": 322664
+    },
+    {
+      "file": "chromium-V009.png",
+      "sha256": "1b84fa856c7f85b36ff1706367fec764822d1cc4ae5ba99b6bacf494cfffe52e",
+      "bytes": 170251
+    },
+    {
+      "file": "chromium-V011.png",
+      "sha256": "980d147c7fa4f826bc1adc80983de2f5e64e6e7fe87064d5baa40ed4aafe00c9",
+      "bytes": 171461
+    }
+  ]
+}

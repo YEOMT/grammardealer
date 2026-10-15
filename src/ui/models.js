@@ -17,7 +17,10 @@ export function cardModel(instance, selection = null, version='0.3.0') {
   return { id: instance.instanceId, cardKind:'WORD', temporary:instance.temporary, lexemeId: lexeme.id, surface: form?.surface || lexeme.lemma, pos: lexeme.pos, baseScore: card.baseScore, polish: instance.polishLevel || 0, rarity: card.rarity, glossKo: lexeme.glossKo, formId: form?.id, forms, lexeme, definition: card, secondaryLexemes:(card.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id]) };
 }
 export function runeDescription(rune, level = 1, version='0.3.0') {
-  return describeRune(rune.id,level,version);
+  if(!Number.isInteger(level)||level<1||level>3)return '지원하지 않는 레벨';
+  const value=rune.levelValues[level-1];
+  if(rune.id==='rune.longSentence')return `유효 카드 5~9장 ×${value.short.num/value.short.den} / 10~16장 ×${value.long.num/value.long.den}`;
+  return `${rune.displayEffectSummaryKo} ${typeof value==='object'?`×${value.num/value.den}`:`+${value}`}`;
 }
 
 /** Display wording is derived from the same versioned effect as execution. */

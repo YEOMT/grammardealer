@@ -1,0 +1,79 @@
+
+> sentence-balatro@0.10.1 test:e2e
+> node tests/e2e.mjs
+
+PASS LEGACY_SAVE: Explicit 0.6.1 generated initial save loaded by current production UI; version-pinned legacy save, not a newly created 0.9 campaign
+PASS P01,P02,U12,U13: production subpath, profile and initial six-card save/load exact (including RNG)
+PASS V051-P035,V051-P038: actual tutorial skip restores normal S1-1 without reward
+PASS P11: network disabled after all initial static resources loaded
+PASS U01,U07,U08,C13: no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy
+PASS P03,P04: frozen reward and unlock baseline survive real IndexedDB restore
+BATTLE 2: 숲 달팽이
+PASS P10: dictionary remains resource and RNG neutral after tutorial
+PASS V022-P04,V022-P05,V022-P62: actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works
+PASS D10,D15,U03: invalid submission then real card exchange via UI
+PASS R02: first rune choices rendered crystal/amber/copper
+BATTLE 3: 초원 수호자
+PASS V02-P07,V02-P08: actual stage.02 preview and once-only entry; first shop
+PASS V02-P27: shop manual save restores from lobby with the same run, grants, inventory and RNG
+PASS V061-NATURAL-OPERATION-POLISH: naturally purchased reusable operation polished through shop UI
+PASS V02-P11,V02-P18,V02-P22: real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline
+BATTLE 4: 부두 갈매기
+BATTLE 5: 짐꾼 게
+BATTLE 6: 파도 문어
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 7: 항구 수문장
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS V02-P07,V02-P08: actual stage.03 preview and once-only entry; no shop
+BATTLE 8: 고대의 거북이
+BATTLE 9: 질주하는 토끼
+BATTLE 10: 사냥을 완료한 늑대
+BATTLE 11: 미래를 보는 독수리
+BATTLE 12: 시간의 골렘
+PASS P068,P087: real golem PAST break and offline phase save/load
+PASS P068,P087: real golem PRESENT break and offline phase save/load
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS V02-P07,V02-P08: actual stage.04 preview and once-only entry; second shop
+PASS V061-NATURAL-STAGE4-CHOICE: real Stage 4 connector choice and exact pending completion save
+PASS V02-P27: shop manual save restores from lobby with the same run, grants, inventory and RNG
+PASS V02-P11,V02-P18,V02-P22: real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline
+BATTLE 13: 구름양
+BATTLE 14: 갈래바람 정령
+BATTLE 15: 매듭뱀
+BATTLE 16: 메아리 새
+BATTLE 17: 하늘길의 문지기
+PASS V02-P07,V02-P08: actual stage.05 preview and once-only entry; no shop
+BATTLE 18: 별길 낙타
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 19: 금빛 전갈
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 20: 별꽃 선인장
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 21: 신기루 여우
+BATTLE 22: 소원의 스핑크스
+PASS V05-P056,V05-P071,V05-P073,V05-P083: natural sphinx first draw seal: actual UI illegal placement is free and safe save/load preserves seal and all RNG
+PASS V02-P07,V02-P08: actual stage.06 preview and once-only entry; third shop
+PASS V02-P27: shop manual save restores from lobby with the same run, grants, inventory and RNG
+PASS V02-P11,V02-P18,V02-P22: real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline
+BATTLE 23: 눈토끼
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 24: 설원 늑대
+BATTLE 25: 눈꽃 정령
+BATTLE 26: 북극곰
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+BATTLE 27: 거울뿔 사슴
+Snow reviewed QA route NO_REVIEWED_ROUTE_FOR_THIS_CONFIGURATION
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS V06-P054,V06-P056,V06-P127: natural boss save/load preserves shattered frost, crystals and exact RNG
+PASS V06-P054,V06-P056,V06-P127: natural boss save/load preserves shattered frost, crystals and exact RNG
+PASS P035,P044,P046: actual acquired operation used and exact pile/receipt/RNG save restored
+PASS C12,R17,P11,V02-P26: all expected production battles complete offline with real cards, SVOO and boss veil release
+PASS V02-P27: completed campaign save restores its exact completion screen without another milestone
+PASS P05: Stage 1, 2, 3, 4, 5 and 6 completion each persisted once, no story clear
+PASS P06,V022-P47,V022-P48: end-screen English grammar/power codex has no translations or internal labels and does not reapply profile records
+PASS R04: new expedition works offline and previously seen guide is not forced
+PASS V022-P49: production debug query/hash cannot expose developer grammar diagnostics or change records
+PASS U14: no page/console errors, failed resources or external runtime requests
+Production E2E PASS (60 real attacks with explicit tutorial mode)

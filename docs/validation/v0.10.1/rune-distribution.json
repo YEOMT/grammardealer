@@ -1,0 +1,162 @@
+[
+  {
+    "source": "NORMAL_REWARD",
+    "stage": 1,
+    "samples": 20000,
+    "scope": "RUNE_SELECTOR_CONDITIONAL_NOT_REWARD_SCREEN",
+    "grades": {
+      "COMMON": 13344,
+      "UNCOMMON": 6656
+    },
+    "counts": {
+      "rune.short": 1190,
+      "rune.sv": 1229,
+      "rune.clauseLink": 996,
+      "rune.progressive": 1250,
+      "rune.past": 1176,
+      "rune.svc": 1214,
+      "rune.presentPerfect": 941,
+      "rune.perfectSentence": 1198,
+      "rune.handSize": 1203,
+      "rune.infinitive": 966,
+      "rune.openingHand": 1207,
+      "rune.polished": 1278,
+      "rune.discards": 929,
+      "rune.svo": 1210,
+      "rune.gerund": 958,
+      "rune.svoc": 935,
+      "rune.adverbs": 1189,
+      "rune.svoo": 931
+    }
+  },
+  {
+    "source": "REGIONAL_BOSS_REWARD",
+    "stage": 1,
+    "samples": 20000,
+    "scope": "RUNE_SELECTOR_CONDITIONAL_NOT_REWARD_SCREEN",
+    "grades": {
+      "COMMON": 12939,
+      "UNCOMMON": 6471,
+      "RARE": 590
+    },
+    "counts": {
+      "rune.past": 1143,
+      "rune.adverbs": 1170,
+      "rune.short": 1201,
+      "rune.svoc": 937,
+      "rune.svc": 1204,
+      "rune.perfectSentence": 1144,
+      "rune.infinitive": 919,
+      "rune.discards": 914,
+      "rune.svo": 1196,
+      "rune.gerund": 913,
+      "rune.openingHand": 1182,
+      "rune.svoo": 938,
+      "rune.sv": 1173,
+      "rune.clauseLink": 905,
+      "rune.polished": 1227,
+      "rune.handSize": 1158,
+      "rune.longSentence": 152,
+      "rune.presentPerfect": 945,
+      "rune.progressive": 1141,
+      "rune.passive": 115,
+      "rune.unrealPresent": 151,
+      "rune.relative": 172
+    }
+  },
+  {
+    "source": "SHOP",
+    "stage": 2,
+    "samples": 20000,
+    "scope": "RUNE_SELECTOR_CONDITIONAL_NOT_REWARD_SCREEN",
+    "grades": {
+      "UNCOMMON": 6582,
+      "COMMON": 13418
+    },
+    "counts": {
+      "rune.clauseLink": 951,
+      "rune.adverbs": 1235,
+      "rune.progressive": 1283,
+      "rune.svc": 1266,
+      "rune.past": 1189,
+      "rune.perfectSentence": 1205,
+      "rune.discards": 905,
+      "rune.svoo": 986,
+      "rune.openingHand": 1269,
+      "rune.gerund": 956,
+      "rune.svo": 1231,
+      "rune.handSize": 1145,
+      "rune.polished": 1214,
+      "rune.sv": 1225,
+      "rune.svoc": 931,
+      "rune.short": 1156,
+      "rune.infinitive": 918,
+      "rune.presentPerfect": 935
+    }
+  },
+  {
+    "source": "SHOP",
+    "stage": 4,
+    "samples": 20000,
+    "scope": "RUNE_SELECTOR_CONDITIONAL_NOT_REWARD_SCREEN",
+    "grades": {
+      "COMMON": 12919,
+      "UNCOMMON": 6454,
+      "RARE": 627
+    },
+    "counts": {
+      "rune.openingHand": 1138,
+      "rune.gerund": 921,
+      "rune.presentPerfect": 926,
+      "rune.svoo": 915,
+      "rune.infinitive": 923,
+      "rune.polished": 1178,
+      "rune.sv": 1206,
+      "rune.short": 1185,
+      "rune.svo": 1126,
+      "rune.discards": 972,
+      "rune.past": 1148,
+      "rune.svoc": 858,
+      "rune.handSize": 1182,
+      "rune.adverbs": 1239,
+      "rune.clauseLink": 939,
+      "rune.svc": 1112,
+      "rune.perfectSentence": 1176,
+      "rune.progressive": 1229,
+      "rune.longSentence": 176,
+      "rune.unrealPresent": 154,
+      "rune.passive": 148,
+      "rune.relative": 149
+    }
+  },
+  {
+    "source": "LATER_R2_GENERAL_SLOT",
+    "stage": 1,
+    "samples": 20000,
+    "scope": "RUNE_SELECTOR_CONDITIONAL_NOT_REWARD_SCREEN",
+    "grades": {
+      "UNCOMMON": 6774,
+      "COMMON": 13226
+    },
+    "counts": {
+      "rune.gerund": 965,
+      "rune.perfectSentence": 1220,
+      "rune.short": 1186,
+      "rune.svoo": 1030,
+      "rune.adverbs": 1180,
+      "rune.openingHand": 1204,
+      "rune.sv": 1142,
+      "rune.clauseLink": 972,
+      "rune.past": 1236,
+      "rune.svc": 1175,
+      "rune.progressive": 1163,
+      "rune.svoc": 964,
+      "rune.polished": 1226,
+      "rune.handSize": 1229,
+      "rune.infinitive": 957,
+      "rune.discards": 959,
+      "rune.svo": 1265,
+      "rune.presentPerfect": 927
+    }
+  }
+]

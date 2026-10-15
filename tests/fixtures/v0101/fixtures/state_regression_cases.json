@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "R001",
+      "scenario": "SAVE_0.10_RUN_BEFORE_PATCH",
+      "expect": "모든게임수치/룬/상품/RNG/47완료경계동일;UI개선만가능"
+    },
+    {
+      "id": "R002",
+      "scenario": "NEW_0.10.1_RUN",
+      "expect": "신HP/신룬/드롭정책,47전투유지"
+    },
+    {
+      "id": "R003",
+      "scenario": "FULLSCREEN_DURING_SCORE",
+      "expect": "상태불변;표시좌표안전갱신/종료;정산1회"
+    },
+    {
+      "id": "R004",
+      "scenario": "ROTATE_DURING_DRAG",
+      "expect": "드래그취소/원위치,카드손실/턴소모0"
+    },
+    {
+      "id": "R005",
+      "scenario": "HIDDEN_DURING_RUNE_FLIGHT",
+      "expect": "기존안전종료,FX정리,피해/보상재적용0"
+    },
+    {
+      "id": "R006",
+      "scenario": "RESTORE_VISIBLE_OFFER",
+      "expect": "offer상품후보/가격/레벨/RNG동일"
+    },
+    {
+      "id": "R007",
+      "scenario": "OLD_TOPAZ_AND_NEW_TOPAZ_OWNED",
+      "expect": "서로다른ID/레벨/조건/부제;덮어쓰기없음"
+    },
+    {
+      "id": "R008",
+      "scenario": "GRAMMAR_LOCKED_RUNE_OWNED",
+      "expect": "소유/상세가능;게임문법자동해금없고부적격공격가짜발동없음"
+    }
+  ]
+}

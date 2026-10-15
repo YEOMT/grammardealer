@@ -1,0 +1,501 @@
+{
+  "schemaVersion": 1,
+  "status": "ARITHMETIC_EXPECTATIONS_ONLY",
+  "cases": [
+    {
+      "id": "S001",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.past",
+      "level": 1,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 30,
+      "expectedAfter": 131,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S002",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.past",
+      "level": 2,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 50,
+      "expectedAfter": 151,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S003",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.past",
+      "level": 3,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 70,
+      "expectedAfter": 171,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S004",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.progressive",
+      "level": 1,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 30,
+      "expectedAfter": 131,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S005",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.progressive",
+      "level": 2,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 50,
+      "expectedAfter": 151,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S006",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.progressive",
+      "level": 3,
+      "eligible": true,
+      "operation": "ADD_SCORE",
+      "operand": 70,
+      "expectedAfter": 171,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S007",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.svoc",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 17,
+        "den": 10
+      },
+      "expectedAfter": 171,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S008",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.svoc",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 12,
+        "den": 5
+      },
+      "expectedAfter": 242,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S009",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.svoc",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 16,
+        "den": 5
+      },
+      "expectedAfter": 323,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S010",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.presentPerfect",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 7,
+        "den": 5
+      },
+      "expectedAfter": 141,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S011",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.presentPerfect",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 17,
+        "den": 10
+      },
+      "expectedAfter": 171,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S012",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.presentPerfect",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expectedAfter": 202,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S013",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.clauseLink",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 7,
+        "den": 5
+      },
+      "expectedAfter": 141,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S014",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.clauseLink",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 17,
+        "den": 10
+      },
+      "expectedAfter": 171,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S015",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.clauseLink",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expectedAfter": 202,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S016",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.infinitive",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 27,
+        "den": 20
+      },
+      "expectedAfter": 136,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S017",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.infinitive",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 33,
+        "den": 20
+      },
+      "expectedAfter": 166,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S018",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.infinitive",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expectedAfter": 202,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S019",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.gerund",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 27,
+        "den": 20
+      },
+      "expectedAfter": 136,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S020",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.gerund",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 33,
+        "den": 20
+      },
+      "expectedAfter": 166,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S021",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.gerund",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expectedAfter": 202,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S022",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.passive",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 19,
+        "den": 10
+      },
+      "expectedAfter": 191,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S023",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.passive",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 51,
+        "den": 20
+      },
+      "expectedAfter": 257,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S024",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.passive",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 16,
+        "den": 5
+      },
+      "expectedAfter": 323,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S025",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.relative",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 21,
+        "den": 10
+      },
+      "expectedAfter": 212,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S026",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.relative",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 14,
+        "den": 5
+      },
+      "expectedAfter": 282,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S027",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.relative",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 18,
+        "den": 5
+      },
+      "expectedAfter": 363,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S028",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.unrealPresent",
+      "level": 1,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 2,
+        "den": 1
+      },
+      "expectedAfter": 202,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S029",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.unrealPresent",
+      "level": 2,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 27,
+        "den": 10
+      },
+      "expectedAfter": 272,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S030",
+      "kind": "SYNTHETIC_ARITHMETIC",
+      "before": 101,
+      "runeId": "rune.unrealPresent",
+      "level": 3,
+      "eligible": true,
+      "operation": "MULTIPLY_SCORE",
+      "operand": {
+        "num": 7,
+        "den": 2
+      },
+      "expectedAfter": 353,
+      "expectedEventCount": 1
+    },
+    {
+      "id": "S031",
+      "kind": "SYNTHETIC_ORDER",
+      "before": 100,
+      "operations": [
+        {
+          "operation": "ADD",
+          "value": 30
+        },
+        {
+          "operation": "MULTIPLY",
+          "num": 8,
+          "den": 5
+        }
+      ],
+      "expectedAfter": 208
+    },
+    {
+      "id": "S032",
+      "kind": "SYNTHETIC_ORDER",
+      "before": 100,
+      "operations": [
+        {
+          "operation": "MULTIPLY",
+          "num": 8,
+          "den": 5
+        },
+        {
+          "operation": "ADD",
+          "value": 30
+        }
+      ],
+      "expectedAfter": 190
+    },
+    {
+      "id": "S033",
+      "kind": "SYNTHETIC_ORDER",
+      "before": 100,
+      "operations": [
+        {
+          "operation": "ADD",
+          "value": 30
+        },
+        {
+          "operation": "ADD",
+          "value": 30
+        }
+      ],
+      "expectedAfter": 160
+    },
+    {
+      "id": "S034",
+      "kind": "SYNTHETIC_RESISTANCE",
+      "preResistancePower": 3000,
+      "ratio": {
+        "num": 13,
+        "den": 20
+      },
+      "hpBefore": 100,
+      "expectedFinalPower": 1950,
+      "expectedActualHpLoss": 100,
+      "expectedOverkill": 1850
+    }
+  ]
+}

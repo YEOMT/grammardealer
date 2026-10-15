@@ -1,0 +1,236 @@
+{
+  "kind": "SYNTHETIC_ARITHMETIC_NOT_GAME_TEST",
+  "max_cards": 16,
+  "cases": [
+    {
+      "id": "R01",
+      "board_inner_width": 1200,
+      "reference_hand_card_width": 96,
+      "gap": 6,
+      "expected_columns": 11,
+      "counts": [
+        {
+          "card_count": 0,
+          "expected_rows": 0,
+          "profile": "EMPTY"
+        },
+        {
+          "card_count": 1,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 8,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 11,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 12,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 16,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        }
+      ],
+      "note_ko": "순수 산술 예시다. W/C는 게임의 확정 크기가 아니며, 실제 화면의 손패 기준값으로 같은 경계 시험을 추가한다."
+    },
+    {
+      "id": "R02",
+      "board_inner_width": 960,
+      "reference_hand_card_width": 96,
+      "gap": 6,
+      "expected_columns": 9,
+      "counts": [
+        {
+          "card_count": 0,
+          "expected_rows": 0,
+          "profile": "EMPTY"
+        },
+        {
+          "card_count": 1,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 8,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 9,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 10,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 16,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        }
+      ],
+      "note_ko": "순수 산술 예시다. W/C는 게임의 확정 크기가 아니며, 실제 화면의 손패 기준값으로 같은 경계 시험을 추가한다."
+    },
+    {
+      "id": "R03",
+      "board_inner_width": 650,
+      "reference_hand_card_width": 82,
+      "gap": 6,
+      "expected_columns": 7,
+      "counts": [
+        {
+          "card_count": 0,
+          "expected_rows": 0,
+          "profile": "EMPTY"
+        },
+        {
+          "card_count": 1,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 7,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 8,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 14,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 15,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        },
+        {
+          "card_count": 16,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        }
+      ],
+      "note_ko": "순수 산술 예시다. W/C는 게임의 확정 크기가 아니며, 실제 화면의 손패 기준값으로 같은 경계 시험을 추가한다."
+    },
+    {
+      "id": "R04",
+      "board_inner_width": 500,
+      "reference_hand_card_width": 82,
+      "gap": 6,
+      "expected_columns": 5,
+      "counts": [
+        {
+          "card_count": 0,
+          "expected_rows": 0,
+          "profile": "EMPTY"
+        },
+        {
+          "card_count": 1,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 5,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 6,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 8,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 10,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 11,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        },
+        {
+          "card_count": 15,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        },
+        {
+          "card_count": 16,
+          "expected_rows": 4,
+          "profile": "THREE_PLUS_ROWS"
+        }
+      ],
+      "note_ko": "순수 산술 예시다. W/C는 게임의 확정 크기가 아니며, 실제 화면의 손패 기준값으로 같은 경계 시험을 추가한다."
+    },
+    {
+      "id": "R05",
+      "board_inner_width": 390,
+      "reference_hand_card_width": 82,
+      "gap": 6,
+      "expected_columns": 4,
+      "counts": [
+        {
+          "card_count": 0,
+          "expected_rows": 0,
+          "profile": "EMPTY"
+        },
+        {
+          "card_count": 1,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 4,
+          "expected_rows": 1,
+          "profile": "ONE_ROW"
+        },
+        {
+          "card_count": 5,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 8,
+          "expected_rows": 2,
+          "profile": "TWO_ROWS"
+        },
+        {
+          "card_count": 9,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        },
+        {
+          "card_count": 12,
+          "expected_rows": 3,
+          "profile": "THREE_PLUS_ROWS"
+        },
+        {
+          "card_count": 16,
+          "expected_rows": 4,
+          "profile": "THREE_PLUS_ROWS"
+        }
+      ],
+      "note_ko": "순수 산술 예시다. W/C는 게임의 확정 크기가 아니며, 실제 화면의 손패 기준값으로 같은 경계 시험을 추가한다."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "kind": "PLANNED_LAYOUT_CASES_NOT_EXECUTION",
+  "units": "CSS pixels / synthetic viewport dimensions, not claimed device screen dimensions",
+  "notes_ko": "실제 주소창/키보드/safe-area/DPR은 실기기에서 별도로 측정한다. stress 미충족을 지원제외 승인이나 PASS로 바꾸지 않는다.",
+  "cases": [
+    {
+      "id": "V01",
+      "label": "PC standard",
+      "width": 1920,
+      "height": 1080,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V02",
+      "label": "PC notebook",
+      "width": 1366,
+      "height": 768,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V03",
+      "label": "PC low-height",
+      "width": 1280,
+      "height": 640,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V04",
+      "label": "tablet landscape",
+      "width": 1180,
+      "height": 820,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V05",
+      "label": "tablet toolbar example",
+      "width": 1024,
+      "height": 650,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V06",
+      "label": "tablet landscape compact",
+      "width": 960,
+      "height": 600,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V07",
+      "label": "phone landscape tall",
+      "width": 932,
+      "height": 430,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V08",
+      "label": "phone landscape",
+      "width": 844,
+      "height": 390,
+      "orientation": "landscape",
+      "role": "primary",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V09",
+      "label": "phone landscape short",
+      "width": 740,
+      "height": 360,
+      "orientation": "landscape",
+      "role": "stress",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V10",
+      "label": "small landscape",
+      "width": 667,
+      "height": 320,
+      "orientation": "landscape",
+      "role": "stress",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V11",
+      "label": "phone portrait gate",
+      "width": 390,
+      "height": 844,
+      "orientation": "portrait",
+      "role": "gate",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V12",
+      "label": "tablet portrait gate",
+      "width": 820,
+      "height": 1180,
+      "orientation": "portrait",
+      "role": "gate",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V13",
+      "label": "PC narrow/tall not mobile",
+      "width": 720,
+      "height": 1000,
+      "orientation": "portrait",
+      "role": "desktop-narrow",
+      "status": "NOT RUN"
+    },
+    {
+      "id": "V14",
+      "label": "tablet addressbar-change endpoint",
+      "width": 1024,
+      "height": 730,
+      "orientation": "landscape",
+      "role": "transition",
+      "status": "NOT RUN"
+    }
+  ]
+}

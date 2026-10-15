@@ -1,3 +1,12 @@
+# 0.10.1 추가 구조
+
+- PATCH0101_VERSIONS는 새 HP/룬/획득/저장 정책만 고정한다. 언어/문법/카드/콤보 registry는 frozen0100을 재사용한다. 기존 RUNES12개는 역사적 계약이다.
+- polish0101Runes/runesForVersion, runeEvidence(오류·해금 적격의 실제VP/절/물리사본), filterRuneDropPool(맥락→등급→균등후보)이 계산/획득을 분리한다. 숫자dedup과룬적격근거는분리하고, 공개상품/RNG를저장한다.
+- boardLayout는 DOM 직접사본/clientWidth로 열·행만 계산한다. responsive.css는 공통가로규격과 행별세로압축; 조합대페이지없음. viewport는 HTML fullscreen/VisualViewport와 손패·상품페이지, orientation은 휴대기기 세로입력gate만 담당한다. 게임상태/RNG에쓰지않는다.
+- comboFeel/scoreEffects는 양수eventID누적과 내부card-motion만 움직인다. 입자48/24상한, effectsOff/reducedMotion정적피드백,cleanup을유지한다. RunController만 상태를커밋하고 기존presentation/watchdog타이밍은유지한다.
+
+[검증범위·한계](TEST_REPORT_0.10.1.md). 이하 기존구조기록은 보존한다.
+
 # 0.10 추가 구조
 
 - `data/corridorPolicy.js`가 확정 HP/빙정 최소량과 검증용 배율/저항을 분리한다. `corridorLanguage`는 frozen0.9를 복제하고 will의 would, can/could만 확장한다. 과거 registry는 그대로다.
