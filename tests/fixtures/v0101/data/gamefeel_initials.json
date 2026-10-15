@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "status": "IMPLEMENTATION_INITIALS_NOT_MEASURED_PERFORMANCE",
+  "cardSpring": {
+    "durationMs": 280,
+    "scaleKeyframes": [
+      1,
+      0.97,
+      1.045,
+      0.99,
+      1
+    ],
+    "translateYPeakPx": 4,
+    "rotatePeakDeg": 1.2,
+    "groupStaggerMs": 18,
+    "maxGroupStaggerMs": 90,
+    "trigger": "ONE_SPRING_GROUP_PER_COMMITTED_SCORE_EVENT",
+    "transformLayer": "INNER_VISUAL_WRAPPER_ONLY"
+  },
+  "chain": {
+    "countsPositiveEventsOnly": true,
+    "maxVisualCombo": 14,
+    "tiers": [
+      {
+        "from": 1,
+        "to": 2,
+        "glowPx": 5,
+        "particleBurst": 2,
+        "scoreScale": 1.02
+      },
+      {
+        "from": 3,
+        "to": 4,
+        "glowPx": 8,
+        "particleBurst": 4,
+        "scoreScale": 1.035
+      },
+      {
+        "from": 5,
+        "to": 7,
+        "glowPx": 12,
+        "particleBurst": 8,
+        "scoreScale": 1.05
+      },
+      {
+        "from": 8,
+        "to": 11,
+        "glowPx": 18,
+        "particleBurst": 12,
+        "scoreScale": 1.065
+      },
+      {
+        "from": 12,
+        "to": 999,
+        "glowPx": 24,
+        "particleBurst": 16,
+        "scoreScale": 1.08
+      }
+    ],
+    "interpolateWithinTiers": true,
+    "reset": "PER_ATTACK",
+    "extraDamageMultiplier": false
+  },
+  "runeBoost": {
+    "rarity": {
+      "COMMON": 1,
+      "UNCOMMON": 1.15,
+      "RARE": 1.35
+    },
+    "level": {
+      "1": 1,
+      "2": 1.1,
+      "3": 1.2
+    },
+    "doesNotChangeDuration": true,
+    "clampCombinedScale": 1.12
+  },
+  "particleLimits": {
+    "desktop": 48,
+    "tabletOrPhone": 24,
+    "reduced": 0,
+    "effectsOff": 0,
+    "poolRequired": true,
+    "noIdleContinuousSpawns": true
+  },
+  "reading": {
+    "existingGrammarScoreMs": 550,
+    "existingRuneFlightMs": 220,
+    "existingRuneScoreMs": 520,
+    "preserveExistingSpeedModes": [
+      1,
+      1.5,
+      2
+    ],
+    "doNotExtendEachComboSequentially": true,
+    "textMinDesktopPx": 20,
+    "textMinTabletPx": 18,
+    "textMinCompactPhonePx": 16,
+    "reservedMaxLabelLines": 2
+  }
+}

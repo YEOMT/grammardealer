@@ -182,8 +182,8 @@ function buildSlotPlan(mode, stream, trace, version) {
   for (const lemma of [...BALANCE.starter.pronouns,pick(stream,BALANCE.starter.thirdPersonPronounChoices)]) addFixed(lemma, 'PRONOUN', 'PRONOUN');
   addFixed('be', 'VERB', 'BE'); addFixed('be', 'VERB', 'BE');
   for (let i = 0; i < 2; i += 1) choose('SV', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.sv') && ['go','come','run','live'].includes(lex.lemma),true);
-  if(['0.4.0','0.8.1','0.9.0','0.10.0'].includes(version))addFixed('have','VERB','HAVE');
-  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
+  if(['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version))addFixed('have','VERB','HAVE');
+  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
   choose('MULTI', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.filter(frame => BASIC_FRAMES.includes(frame)).length > 1);
   for (let i = 0; i < STARTER_SLOT_COUNTS.ADJECTIVE; i += 1) choose('ADJECTIVE', lex => lex.pos === 'ADJECTIVE', i < 3);
   choose('DEGREE_ADVERB', lex => lex.pos === 'ADVERB' && ['very', 'really'].includes(lex.lemma));

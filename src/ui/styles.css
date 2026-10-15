@@ -75,14 +75,14 @@
 .shop-equipped{margin-top:10px;padding:8px 14px;border:1px solid #43635b;border-radius:8px}.shop-equipped-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:8px 0}.shop-equipped-grid p{font-size:13px;margin-top:6px}
 /* Crowded polished rows keep their badges; reclaim vertical space around the board instead. */
 @media(max-height:820px){
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)){grid-template-rows:40px minmax(min-content,90px) minmax(min-content,1fr) auto}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-avatar{font-size:60px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-label{margin-bottom:3px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-info h2{margin-bottom:4px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .enemy-hp{margin-top:3px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage{height:60px;min-height:60px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:8px}
-  .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)){grid-template-rows:40px minmax(min-content,90px) minmax(min-content,1fr) auto}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .enemy-avatar{font-size:60px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .enemy-label{margin-bottom:3px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .enemy-info h2{margin-bottom:4px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .enemy-hp{margin-top:3px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .score-stage{height:60px;min-height:60px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:8px}
+  .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
 }
 /* 0.2.1: the check is part of the card footer, with its own non-overlapping touch area. */
 .word-card.selected:after{content:none}
@@ -208,11 +208,11 @@ body[data-stage-theme] .hand-section{min-height:max-content}
 @media(max-height:820px){
  body[data-stage-theme] .game-shell{grid-template-rows:40px minmax(112px,16vh) minmax(0,1fr) max-content}
  body[data-stage-theme] .score-stage:has(.score-number[hidden]){height:48px;min-height:48px}
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)){padding-block:12px 9px;gap:6px}
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]){height:16px;min-height:16px}
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:4px}
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .status-panel{gap:4px;padding-block:6px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)){padding-block:12px 9px;gap:6px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]){height:16px;min-height:16px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .combat-sentence{padding-block:4px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .combat-actions{margin-top:8px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .status-panel{gap:4px;padding-block:6px}
 }
 
 /* Ember uses the existing playfield and card dimensions. Dust has no WORD decoration. */
@@ -294,14 +294,14 @@ body[data-stage-theme="stage.10"] .combat-actions button{min-height:44px}
 .learning-topic .learning-bonus{margin-left:auto}
 .battle-learning-guide p{margin:2px 0}.learning-bonus{display:block;font-size:11px}.learning-detail{padding:0 5px;min-height:24px;font-size:11px}
 .score-stage:has(.battle-learning-guide){height:auto;min-height:68px;justify-content:stretch}.score-stage:has(.battle-learning-guide)>div:last-child{width:100%}
-body[data-stage-theme] .game-shell .score-stage:has(.battle-learning-guide){height:auto;min-height:68px;margin-block:3px}
+body[data-stage-theme] .game-shell:not(.responsive-battle) .score-stage:has(.battle-learning-guide){height:auto;min-height:68px;margin-block:3px}
 .boss-summary{font-size:11px;line-height:1.3}
-body[data-stage-theme] .game-shell .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:auto;min-height:max-content;flex-shrink:0;align-items:flex-start}
+body[data-stage-theme] .game-shell:not(.responsive-battle) .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:auto;min-height:max-content;flex-shrink:0;align-items:flex-start}
 .enemy-area .region-bonus{position:static;max-width:100%;white-space:normal;font-size:10px}
-body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]):has(.battle-learning-guide){height:auto;min-height:max-content;flex:0 0 auto}
+body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.score-number[hidden]):has(.battle-learning-guide){height:auto;min-height:max-content;flex:0 0 auto}
 .score-stage:has(.battle-learning-guide) .score-log:empty{display:none}
 .battle-learning-guide{letter-spacing:0}.battle-learning-guide p{line-height:inherit}
 @media(max-height:820px){
- body[data-stage-theme] .game-shell:has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.battle-learning-guide){margin-block:0}
- body[data-stage-theme] .game-shell:has(.battle-learning-guide):has(.combat-sentence .word-card:nth-child(9)) .hand-section{padding-top:8px}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.battle-learning-guide){margin-block:0}
+ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.battle-learning-guide):has(.combat-sentence .word-card:nth-child(9)) .hand-section{padding-top:8px}
 }

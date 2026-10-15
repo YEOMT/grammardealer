@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "cases": [
+    {
+      "id": "P001",
+      "nameKo": "카드기본",
+      "event": {
+        "phase": "CARD_BASE",
+        "sourceType": "CARD",
+        "operation": "ADD",
+        "before": 0,
+        "after": 10
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P002",
+      "nameKo": "완전문장",
+      "event": {
+        "phase": "COMPLETE_BONUS",
+        "sourceType": "GRAMMAR",
+        "operation": "ADD",
+        "before": 100,
+        "after": 130
+      },
+      "expectedVisualComboIncrement": 1
+    },
+    {
+      "id": "P003",
+      "nameKo": "진행형",
+      "event": {
+        "phase": "CONSTRUCTIONS",
+        "sourceType": "GRAMMAR",
+        "operation": "MULTIPLY",
+        "before": 100,
+        "after": 130,
+        "operand": {
+          "num": 13,
+          "den": 10
+        }
+      },
+      "expectedVisualComboIncrement": 1
+    },
+    {
+      "id": "P004",
+      "nameKo": "화석",
+      "event": {
+        "phase": "RUNES",
+        "sourceType": "RUNE",
+        "operation": "ADD",
+        "before": 100,
+        "after": 130
+      },
+      "expectedVisualComboIncrement": 1
+    },
+    {
+      "id": "P005",
+      "nameKo": "지역",
+      "event": {
+        "phase": "REGION",
+        "sourceType": "STAGE",
+        "operation": "MULTIPLY",
+        "before": 100,
+        "after": 125
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P006",
+      "nameKo": "저항",
+      "event": {
+        "phase": "RESISTANCE",
+        "sourceType": "STAGE",
+        "operation": "MULTIPLY",
+        "before": 100,
+        "after": 65
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P007",
+      "nameKo": "예견",
+      "event": {
+        "phase": "BOSS",
+        "sourceType": "BOSS",
+        "operation": "SET",
+        "before": 100,
+        "after": 0
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P008",
+      "nameKo": "최종값",
+      "event": {
+        "phase": "FINAL_POWER",
+        "sourceType": "SYSTEM",
+        "operation": "SET",
+        "before": 100,
+        "after": 100
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P009",
+      "nameKo": "오류감점",
+      "event": {
+        "phase": "ACCURACY",
+        "sourceType": "GRAMMAR",
+        "operation": "ADD",
+        "before": 100,
+        "after": 90
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P010",
+      "nameKo": "1배",
+      "event": {
+        "phase": "MAIN_FRAME",
+        "sourceType": "GRAMMAR",
+        "operation": "MULTIPLY",
+        "before": 100,
+        "after": 100,
+        "operand": {
+          "num": 1,
+          "den": 1
+        }
+      },
+      "expectedVisualComboIncrement": 0
+    },
+    {
+      "id": "P011",
+      "kind": "DUPLICATE_EVENT_ID",
+      "events": [
+        "attack1.event10",
+        "attack1.event10"
+      ],
+      "expectedDistinctCount": 1
+    },
+    {
+      "id": "P012",
+      "kind": "FLIGHT_THEN_SCORE",
+      "sharedEventId": "attack1.rune1",
+      "expectedComboIncrements": 1,
+      "expectedCardSpringGroups": 1
+    },
+    {
+      "id": "P013",
+      "kind": "NEW_ATTACK",
+      "comboBefore": 12,
+      "expectedStartCombo": 0
+    },
+    {
+      "id": "P014",
+      "kind": "EXACT_PHYSICAL_CARDS",
+      "evidenceIds": [
+        "card.a",
+        "card.a",
+        "card.b"
+      ],
+      "sameTextOtherId": "card.c",
+      "expectedAnimatedIds": [
+        "card.a",
+        "card.b"
+      ]
+    },
+    {
+      "id": "P015",
+      "kind": "MOTION_REDUCED",
+      "expectedDecorativeParticles": 0,
+      "expectedRotatingCards": 0,
+      "expectedTextAndNumbersVisible": true
+    },
+    {
+      "id": "P016",
+      "kind": "UTILITY_ENTRY",
+      "expectedAttackScoreEvents": 0,
+      "expectedEntryFeedback": true
+    },
+    {
+      "id": "P017",
+      "kind": "POST_ATTACK_CLEANUP",
+      "repeatedAttacks": 30,
+      "expectedTransientFXNodes": 0,
+      "expectedPendingFXTimers": 0,
+      "expectedPendingFXAnimationFrames": 0
+    },
+    {
+      "id": "P018",
+      "kind": "FORESIGHT_BLOCK_AFTER_VALID_COMBOS",
+      "expectedDamage": 0,
+      "showBlockCause": true,
+      "preserveActualPriorScoreEvents": true
+    }
+  ],
+  "noteKo": "단순이벤트검사+실제브라우저순서를둘다실행한다.이파일자체는PASS증거가아니다."
+}

@@ -1,0 +1,24 @@
+
+> sentence-balatro@0.10.1 validate:data
+> node tools/validate-data.js
+
+{
+  "status": "PASS",
+  "checks": 3112,
+  "lexemes": 147,
+  "runtimeLexemes": 146,
+  "forms": 369,
+  "activeForms": 368,
+  "frames": 21,
+  "rarityCounts": {
+    "COMMON": 113,
+    "UNCOMMON": 29,
+    "RARE": 3
+  },
+  "excluded": [
+    {
+      "lexemeId": "lex.recently.adverb",
+      "reasonKo": "현재형 초급 대표 용법으로 부적합. 과거/완료 pack 검증 전 덱·보상에서 제외."
+    }
+  ]
+}

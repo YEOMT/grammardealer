@@ -1,0 +1,68 @@
+{
+  "scope": "ASSIGNED_STATE_AUXILIARY_UI",
+  "checks": [
+    {
+      "id": "1366_SHOP_POLISH_CANCEL_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "id": "1366_THREE_REWARDS_AND_STAGE10_END",
+      "status": "PASS"
+    },
+    {
+      "id": "820_SHOP_POLISH_CANCEL_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "id": "820_THREE_REWARDS_AND_STAGE10_END",
+      "status": "PASS"
+    },
+    {
+      "id": "390_SHOP_POLISH_CANCEL_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "id": "390_THREE_REWARDS_AND_STAGE10_END",
+      "status": "PASS"
+    },
+    {
+      "id": "844_SHOP_POLISH_CANCEL_FROZEN",
+      "status": "PASS"
+    },
+    {
+      "id": "844_THREE_REWARDS_AND_STAGE10_END",
+      "status": "PASS"
+    },
+    {
+      "id": "ASSIGNED_GOLEM_HP_UI_0.10.1",
+      "status": "PASS"
+    },
+    {
+      "id": "ASSIGNED_GOLEM_HP_UI_0.10.0",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "1366-intro.png",
+    "1366-shop.png",
+    "1366-reward.png",
+    "1366-complete.png",
+    "820-intro.png",
+    "820-shop.png",
+    "820-reward.png",
+    "820-complete.png",
+    "390-intro.png",
+    "390-shop.png",
+    "390-reward.png",
+    "390-complete.png",
+    "844-intro.png",
+    "844-shop.png",
+    "844-reward.png",
+    "844-complete.png",
+    "assigned-golem-hp-0.10.1.png",
+    "assigned-golem-hp-0.10.0.png"
+  ],
+  "errors": [],
+  "actualFullscreen": true,
+  "status": "PASS"
+}

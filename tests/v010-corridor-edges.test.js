@@ -4,7 +4,7 @@ import {assignedLibrary} from './helpers/library-state.js';
 import {getEncounter,stageForRun} from '../src/data/stages.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {validateRunState} from '../src/services/localStore.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-010-controller.js';
 import {comboEligibility,scoreableAnalysis} from '../src/engine/comboEligibility.js';
 import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
 import {resolveAttack} from '../src/engine/stage.js';

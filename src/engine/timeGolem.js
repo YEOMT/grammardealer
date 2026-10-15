@@ -1,7 +1,7 @@
 import {TIME_GOLEM_PHASES,TIME_GOLEM_BREAKS} from '../data/stage3.js';
 /** Validate both saved and proposed boss states. Never repairs a corrupt boundary. */
 export function validateTimeGolem(enemy){
- const b=enemy.bossMechanic,phaseHp=b?.policyVersion==='0.9.0'?280:240,fail=()=>{throw Error('Invalid TIME_GOLEM phase state');};
+ const b=enemy.bossMechanic,phaseHp=b?.policyVersion==='0.10.1'?260:b?.policyVersion==='0.9.0'?280:240,fail=()=>{throw Error('Invalid TIME_GOLEM phase state');};
  if(b?.id!=='TIME_GOLEM'||!Number.isInteger(b.activePhase)||b.activePhase<0||b.activePhase>3||b.phaseOrder?.join('|')!==TIME_GOLEM_PHASES.join('|')||b.phases?.length!==3)fail();
  for(const[p,i]of b.phases.map((p,i)=>[p,i])){
   if(p.id!==TIME_GOLEM_PHASES[i]||p.maxHp!==phaseHp||!Number.isSafeInteger(p.hp)||p.hp<0||p.hp>p.maxHp||p.broken!==(p.hp===0))fail();

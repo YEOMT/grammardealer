@@ -38,6 +38,7 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
     foot.append(button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{'aria-label':`${model.surface} 버리기 선택`,'aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
   }
   if (onForm && !readonly) node.append(button('형태 ▾', e => { e.stopPropagation(); onForm(model.id); }, 'form-button', { 'aria-label': `${model.surface} 형태 선택`, onpointerdown: e => e.stopPropagation() }));
+  if(zone==='sentence')node.append(el('div',{class:'card-motion'},...[...node.childNodes]));
   return node;
 }
 export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRemove, onCopy, onSwap } = {}) {
@@ -74,15 +75,15 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
       const rect = card.getBoundingClientRect(); const offset = (x - rect.left) / rect.width;
       const crossZone = active.zone !== zone.dataset.cardZone;
       const mode = crossZone && offset > .2 && offset < .8 ? 'SWAP' : 'INSERT';
-      const cards = [...zone.querySelectorAll('.word-card')];
-      return { zone, card, targetZone: zone.dataset.cardZone, targetCardId: card.dataset.cardId, index: cards.indexOf(card) + (offset > .5 ? 1 : 0), mode, after: offset > .5 };
+      const cards = [...zone.querySelectorAll('.word-card')].filter(n=>!n.hidden);
+      return { zone, card, targetZone: zone.dataset.cardZone, targetCardId: card.dataset.cardId, index: Number(card.dataset.absoluteIndex??cards.indexOf(card)) + (offset > .5 ? 1 : 0), mode, after: offset > .5 };
     }
-    const cards = [...zone.querySelectorAll('.word-card')];
+    const cards = [...zone.querySelectorAll('.word-card')].filter(n=>!n.hidden);
     if (!cards.length) return { zone, targetZone: zone.dataset.cardZone, index: 0, mode: 'INSERT' };
     let nearest = cards[0], distance = Infinity;
     for (const candidate of cards) { const rect=candidate.getBoundingClientRect(); const dx=Math.max(rect.left-x,0,x-rect.right),dy=Math.max(rect.top-y,0,y-rect.bottom); const d=dx*dx+dy*dy; if(d<distance){distance=d;nearest=candidate;} }
     const rect=nearest.getBoundingClientRect(), after=x>=rect.left+rect.width/2;
-    return { zone, card:nearest, targetZone:zone.dataset.cardZone, targetCardId:nearest.dataset.cardId, index:cards.indexOf(nearest)+(after?1:0), mode:'INSERT', after };
+    return { zone, card:nearest, targetZone:zone.dataset.cardZone, targetCardId:nearest.dataset.cardId, index:Number(nearest.dataset.absoluteIndex??cards.indexOf(nearest))+(after?1:0), mode:'INSERT', after };
   };
   const down = e => {
     if (active || !enabled() || e.button !== 0 || e.target.closest('button')) return;
@@ -113,8 +114,8 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     if (saved.dragging && saved.target) onDrop({cardId:saved.id,sourceZone:saved.zone,targetZone:saved.target.targetZone,targetCardId:saved.target.targetCardId,index:saved.target.index,mode:saved.target.mode});
   };
   const cancel = e => { if (!e.pointerId || active?.pointerId === e.pointerId) cleanup(); };
-  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);window.addEventListener('blur',cancel);
-  return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel);window.removeEventListener('blur',cancel); };
+  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);window.addEventListener('blur',cancel);document.addEventListener('atlas:cancel-drag',cancel);
+  return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel);window.removeEventListener('blur',cancel);document.removeEventListener('atlas:cancel-drag',cancel); };
 }
 
 /** Hand operations share physical dimensions and discard controls with words. */

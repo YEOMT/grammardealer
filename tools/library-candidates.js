@@ -22,7 +22,7 @@ export function expandLibraryCandidates(state,bases,{limit=2500}={}){
  return out;
 }
 export function libraryCourseSatisfied(state,candidate){const targets=libraryTargetEvidence(candidate?.analysis);const kind={38:['NOMINAL_WHAT'],39:['NOMINAL_QUESTION'],40:['NOMINAL_WHETHER'],41:['EXTRAPOSED_SUBJECT_TO','EXTRAPOSED_SUBJECT_THAT']};return targets.some(t=>(kind[state.progress.battleNumber]??targets.map(n=>n.kind)).includes(t.kind));}
-export function libraryReward(state,available){if(!['0.9.0','0.10.0'].includes(state.version)||state.progress.battleNumber<33)return null;const owned=def=>state.activeCardIds.some(id=>state.cardInstances[id].cardDefId===def);return available.find(c=>['card.what','card.whether','card.know','card.think','card.where','card.when','card.it','card.good'].includes(c.cardDefId)&&!owned(c.cardDefId))??null;}
+export function libraryReward(state,available){if(!['0.9.0','0.10.0','0.10.1'].includes(state.version)||state.progress.battleNumber<33)return null;const owned=def=>state.activeCardIds.some(id=>state.cardInstances[id].cardDefId===def);return available.find(c=>['card.what','card.whether','card.know','card.think','card.where','card.when','card.it','card.good'].includes(c.cardDefId)&&!owned(c.cardDefId))??null;}
 export function libraryMove(state,candidate,{course=false}={}){
  if(state.progress.stageId!=='stage.09')return null;const c=state.combat,need=course&&!libraryCourseSatisfied(state,candidate)||c.enemyState.bossMechanic&&!candidate?.lethal&&!libraryTargetEvidence(candidate?.analysis).length;
  if(candidate?.lethal&&!course)return null;
@@ -32,7 +32,7 @@ export function libraryMove(state,candidate,{course=false}={}){
 }
 /** Public reward policy for the higher 0.9 boss HP. Keep earned multipliers instead of replacing the last slot blindly. */
 export function libraryRewardDecision(state,available){
- if(!['0.9.0','0.10.0'].includes(state.version))return null;
+ if(!['0.9.0','0.10.0','0.10.1'].includes(state.version))return null;
  const owned=def=>state.activeCardIds.some(id=>state.cardInstances[id].cardDefId===def);
  const value=id=>({'rune.longSentence':90,'rune.perfectSentence':80,'rune.svoo':75,'rune.polished':60,'rune.adverbs':55,'rune.svo':50,'rune.svc':40,'rune.openingHand':38,'rune.handSize':35}[id]??15);
  const runes=state.runes.orderedInstanceIds.map(id=>state.runes.instances[id]),weakest=[...runes].sort((a,b)=>value(a.runeId)*a.level-value(b.runeId)*b.level)[0];

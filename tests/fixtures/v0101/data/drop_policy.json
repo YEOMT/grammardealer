@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "gameVersion": "0.10.1",
+  "allCommonUncommonEligibleFromStage": 1,
+  "rareNormalBattleEligible": false,
+  "rareBossRewardsEligibleFromStage": 1,
+  "rareShopMinStage": 4,
+  "shopStages": [
+    2,
+    4,
+    6,
+    8,
+    10
+  ],
+  "addStage1Shop": false,
+  "baseRarityWeights": {
+    "COMMON": 194,
+    "UNCOMMON": 97,
+    "RARE": 9
+  },
+  "weightsStatus": "KEEP_EXISTING_0.10_PROPORTIONS",
+  "withoutRareWeights": {
+    "COMMON": 194,
+    "UNCOMMON": 97,
+    "RARE": 0
+  },
+  "normalRewardRuneTypeWeight": 10,
+  "bossRewardRuneTypeWeight": 50,
+  "doNotChangeRewardTypeWeights": true,
+  "perRarityCandidateWeight": "UNIFORM_WITHOUT_REPLACEMENT_PER_OFFER",
+  "maxLevelExclude": true,
+  "rarityRestrictionsApplyToUpgrades": true,
+  "restrictionsIncludeExistingDiamond": true,
+  "rarityDoesNotUnlockGrammar": true,
+  "preserveFirstTutorialOffers": true,
+  "firstRuneIntroFallbackCannotIncludeRare": true,
+  "noAvailableRunePolicy": "REMOVE_RUNE_TYPE_BEFORE_MIXED_DRAW; OMIT_SHOP_RUNE_SLOT; NEVER_INSERT_DISALLOWED_RARE",
+  "publicationFreezes": [
+    "offerId",
+    "choiceIds",
+    "runeIds",
+    "ownedLevel",
+    "offeredLevel",
+    "price",
+    "rngReceipt"
+  ]
+}

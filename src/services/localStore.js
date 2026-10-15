@@ -25,14 +25,14 @@ import {TIME_PACKS} from '../data/language/timeLanguage.js';
 import {validateTimeGolem} from '../engine/timeGolem.js';
 import {isGuided,validateTutorial} from '../game/guidedTutorial.js';
 import {learningRecord,reviewProfileLearning} from '../engine/learningRecords.js';
-import { clone, requireInteger, assertSerializable,POLISH_VERSIONS,EMBER_VERSIONS,WATERWAYS_VERSIONS,PATCH081_VERSIONS,LIBRARY_VERSIONS,CORRIDOR_VERSIONS } from '../contracts.js';
+import { clone, requireInteger, assertSerializable,POLISH_VERSIONS,EMBER_VERSIONS,WATERWAYS_VERSIONS,PATCH081_VERSIONS,LIBRARY_VERSIONS,CORRIDOR_VERSIONS,PATCH0101_VERSIONS } from '../contracts.js';
 import { assertRng } from '../game/rng.js';
-import { RUNE_BY_ID, runeForVersion,runesForVersion, RUNE_SLOT_LIMIT } from '../data/runes.js';
+import { runeForVersion,runesForVersion, RUNE_SLOT_LIMIT } from '../data/runes.js';
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.10.0';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(version);
+export const SAVE_VERSION = '0.10.1';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -79,8 +79,8 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE6_CLEAR'&&hasEmberCampaign(event.version))p.unlocks=[...new Set([...p.unlocks,...EMBER_PACKS])];
   if(event.type==='STAGE4_CLEAR'&&!(p.stage4CompletedRunIds??[]).includes(event.runId)){p.stage4CompletedRunIds=[...(p.stage4CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,4);}
   if(event.type==='STAGE5_CLEAR'&&!(p.stage5CompletedRunIds??[]).includes(event.runId)){p.stage5CompletedRunIds=[...(p.stage5CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,5);}
-  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
-  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
+  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
+  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
   return reviewTimeUnlocks(p);
 }
 export function reviewTimeUnlocks(profile){
@@ -93,8 +93,8 @@ export function canSaveRun(run) {
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
   if(hasPolishCampaign(run)&&run.status==='STAGE_INTRO'&&(run.entryChoice?.pending===true||run.waterwaysEntryChoice?.pending===true)&&run.combat===null)return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -107,7 +107,7 @@ export function validateRunState(run,registry) {
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
   registry=registryForVersion(run.version);validateTutorial(run);
   const corridor=hasCorridorCampaign(run),library=hasLibraryCampaign(run),waterways=hasWaterwaysCampaign(run),ember=hasEmberCampaign(run),snow=hasSnowCampaign(run),desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
-  const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
+  const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(run.version==='0.10.1'||id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
   if(!['STAGE_INTRO','BATTLE','REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','DEFEAT',...(currentCampaign?['STAGE_CLEAR','SHOP']:[])].includes(run.status))fail('잘못된 원정 상태입니다.');
   requireInteger(run.revision,'revision');requireInteger(run.economy?.gold,'gold');
@@ -136,7 +136,7 @@ export function validateRunState(run,registry) {
       const sameIds=(a,b)=>JSON.stringify([...a].sort())===JSON.stringify([...b].sort());
       if(!sameIds(manifest.cardDefIds,campaignCards(run.version).filter(c=>c.runtimeReady).map(c=>c.id))||!sameIds(manifest.runeIds,runesForVersion(run.version).filter(r=>r.runtimeReady).map(r=>r.id)))fail('0.6.1 콘텐츠 목록이 불완전합니다.');
       const versions=record(run.contentVersions,'정책 버전');
-      if(Object.entries(corridor?CORRIDOR_VERSIONS:library?LIBRARY_VERSIONS:run.version==='0.8.1'?PATCH081_VERSIONS:waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
+      if(Object.entries(run.version==='0.10.1'?PATCH0101_VERSIONS:corridor?CORRIDOR_VERSIONS:library?LIBRARY_VERSIONS:run.version==='0.8.1'?PATCH081_VERSIONS:waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
     }
     if(manifest.stageIds.join('|')!==(corridor?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09|stage.10':library?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09':waterways?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08':ember?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07':snow?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06':desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
     requireInteger(run.economy.paidRemovalCount,'paidRemovalCount');
@@ -177,7 +177,7 @@ export function validateRunState(run,registry) {
   for(const id of runes.orderedInstanceIds){
     const r=runes.instances[id];
     if(!r||r.instanceId!==id||!runeForVersion(r.runeId,run.version)?.runtimeReady||seenRunes.has(r.runeId))fail('미지원·중복 룬입니다.');
-    if(r.runeId==='rune.svoo'&&(!currentCampaign||![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo')))fail('원정에서 해금되지 않은 룬입니다.');
+    if(run.version!=='0.10.1'&&r.runeId==='rune.svoo'&&(!currentCampaign||![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo')))fail('원정에서 해금되지 않은 룬입니다.');
     if(currentCampaign&&!run.contentManifest.runeIds.includes(r.runeId))fail('원정 콘텐츠 범위 밖의 룬입니다.');
     seenRunes.add(r.runeId);requireInteger(r.level,'runeLevel',1,3);
   }
@@ -282,12 +282,12 @@ export function validateRunState(run,registry) {
       ids(shop.inventory.map(item=>item.itemId),'상점 상품');
       if(shop.inventory.filter(item=>item.kind==='CARD').length!==2||shop.inventory.filter(item=>item.kind==='RUNE').length!==1)fail('상점 상품 종류가 잘못되었습니다.');
       for(const [index,item] of shop.inventory.entries()){
-        const def=item.kind==='CARD'?cardDefinition(item.cardDefId,run.version):RUNE_BY_ID[item.runeId];
+        const def=item.kind==='CARD'?cardDefinition(item.cardDefId,run.version):runeForVersion(item.runeId,run.version);
         const prices=item.kind==='CARD'?{COMMON:6,UNCOMMON:10,RARE:14}:{COMMON:18,UNCOMMON:24,RARE:32};
         if(!def?.runtimeReady||def.rarity!==item.rarity||item.price!==prices[item.rarity]||typeof item.purchased!=='boolean')fail('상점 상품이나 가격이 잘못되었습니다.');
         if(item.itemId!==`${shop.shopId}.${index===0?'rune.0':`card.${index-1}`}`||(index===0)!==(item.kind==='RUNE'))fail('상점 상품 ID가 잘못되었습니다.');
         if(!(item.kind==='CARD'?run.contentManifest.cardDefIds:run.contentManifest.runeIds).includes(def.id))fail('원정 콘텐츠 범위 밖의 상품입니다.');
-        if(item.runeId==='rune.svoo'&&![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo'))fail('해금되지 않은 상점 룬입니다.');
+        if(run.version!=='0.10.1'&&item.runeId==='rune.svoo'&&![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo'))fail('해금되지 않은 상점 룬입니다.');
         if(item.kind==='RUNE'){requireInteger(item.ownedLevel,'shopOwnedLevel',0,2);if(item.offeredLevel!==item.ownedLevel+1)fail('상점 룬 레벨이 잘못되었습니다.');}
       }
       for(const kind of ['POLISH','REMOVE']){const service=shop.services?.[kind];if(!service||typeof service.used!=='boolean')fail('상점 서비스 정보가 잘못되었습니다.');requireInteger(service.price,'servicePrice',1);}
@@ -304,7 +304,7 @@ export function validateRunState(run,registry) {
     ids(offer.choices.map(x=>x?.choiceId),'보상 후보');
     const cardOffer=['CARD_COMMON','CARD_UNCOMMON','CARD_RARE'].includes(offer.type);
     if((cardOffer||offer.type==='RUNE')&&offer.choices.length>3)fail('보상 후보 한도를 초과했습니다.');
-    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[]),...(hasPolishCampaign(run)?['0.6.1']:[])].includes(offer.rewardVersion)||offer.choices.length!==3))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
+    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[]),...(hasPolishCampaign(run)?['0.6.1']:[])].includes(offer.rewardVersion)||(offer.choices.length!==3&&!(run.version==='0.10.1'&&offer.type==='RUNE_INTRO'&&offer.choices.length<3&&offer.trace?.some(t=>t.kind==='INTRO_POOL_EXHAUSTED')))))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
     if(sky&&offer.choices.filter(x=>x.kind==='CARD'&&cardDefinition(x.cardDefId,run.version)?.cardKind==='OPERATION').length>1)fail('운영 카드 후보가 너무 많습니다.');
     if(offer.type==='RUNE_INTRO'&&(offer.battleNumber!==2||offer.choices.some(x=>x.kind!=='RUNE')))fail('첫 룬 보상이 잘못되었습니다.');
     if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 재화가 잘못되었습니다.');
@@ -313,7 +313,7 @@ export function validateRunState(run,registry) {
       let content;
       if(mixed){
         if(choice.kind==='CARD'){const def=cardDefinition(choice.cardDefId,run.version);if(!def?.runtimeReady||def.rarity!==choice.rarity)fail('미지원 카드 보상입니다.');content=choice.cardDefId;}
-        else if(choice.kind==='RUNE'){const def=RUNE_BY_ID[choice.runeId];if(!runeInScope(choice.runeId)||def.rarity!==choice.rarity)fail('미지원 룬 보상입니다.');requireInteger(choice.ownedLevel,'ownedLevel',0,2);if(choice.offeredLevel!==choice.ownedLevel+1)fail('룬 보상 레벨이 잘못되었습니다.');content=choice.runeId;}
+        else if(choice.kind==='RUNE'){const def=runeForVersion(choice.runeId,run.version);if(!runeInScope(choice.runeId)||def.rarity!==choice.rarity)fail('미지원 룬 보상입니다.');requireInteger(choice.ownedLevel,'ownedLevel',0,2);if(choice.offeredLevel!==choice.ownedLevel+1)fail('룬 보상 레벨이 잘못되었습니다.');content=choice.runeId;}
         else if(choice.kind==='SERVICE'){if(!['POLISH','REMOVE'].includes(choice.serviceKind))fail('미지원 서비스입니다.');ids(choice.targetCardIds,'서비스 대상');if(!choice.targetCardIds.length)fail('서비스 대상이 없습니다.');if(!offer.resolved&&choice.targetCardIds.some(id=>!run.activeCardIds.includes(id)||(choice.serviceKind==='POLISH'&&!canPolish(run.cardInstances[id],run.version))))fail('서비스 대상이 잘못되었습니다.');content=choice.serviceKind;}
         else fail('미지원 보상 종류입니다.');
       }

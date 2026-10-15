@@ -1,0 +1,1176 @@
+{
+  "schemaVersion": 1,
+  "count": 130,
+  "conditions": [
+    {
+      "id": "A01",
+      "group": "기준·범위",
+      "requirementKo": "현재 main·HEAD·작업 트리·미커밋 상태를 기록하고 사용자의 기존 변경을 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A02",
+      "group": "기준·범위",
+      "requirementKo": "새 원정의 버전은0.10.1이며 47전투/STAGE10_END를 유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A03",
+      "group": "기준·범위",
+      "requirementKo": "구0.10.0 이하 저장은 자기 HP·룬·확률·카드·RNG·완료 경계를 유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A04",
+      "group": "기준·범위",
+      "requirementKo": "시작 덱28·첫손패6·기본한도10·턴드로우3·교환4·턴6·문장16을 유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A05",
+      "group": "기준·범위",
+      "requirementKo": "룬 슬롯의 기존 시작3→Stage3후4, 최대Lv.3과 동일ID 중복장착 금지를 유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A06",
+      "group": "기준·범위",
+      "requirementKo": "최종보스3연전·엔딩·승천·신규캐릭터·자동정답·별도난이도를 추가하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A07",
+      "group": "기준·범위",
+      "requirementKo": "보류한 룬을 구현하거나 과거 제안명을 별개 룬으로 중복 생성하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A08",
+      "group": "기준·범위",
+      "requirementKo": "0.10.1의 기능 분기·manifest·언어·문법·채점·저장에 구버전 fallback 누락이 없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A09",
+      "group": "기준·범위",
+      "requirementKo": "버전을 소수/parseFloat로 비교하지 않으며0.1과0.10.1이 구분된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "A10",
+      "group": "기준·범위",
+      "requirementKo": "본명세의 확정값·가산/시각초깃값·토파즈부제/복합용법 세부안을 보고서에서 구분한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B01",
+      "group": "HP·보스 보존",
+      "requirementKo": "Stage2 HP는200/270/360/750으로 실제 encounter에 적용된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B02",
+      "group": "HP·보스 보존",
+      "requirementKo": "Stage3 일반전 HP는300/320/360/400이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B03",
+      "group": "HP·보스 보존",
+      "requirementKo": "골렘 총HP780이며 각 부위 hp/maxHp가260/260/260이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B04",
+      "group": "HP·보스 보존",
+      "requirementKo": "Stage4 HP는500/530/570/600/1000이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B05",
+      "group": "HP·보스 보존",
+      "requirementKo": "Stage5 HP는640/680/740/800/1300이며 일률하향으로 치환하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B06",
+      "group": "HP·보스 보존",
+      "requirementKo": "Stage1·6~10 HP와 일반 저항30/35/40/30%는 이번에 바꾸지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B07",
+      "group": "HP·보스 보존",
+      "requirementKo": "항구75%감소/4형식해제와 하늘섬50%감소/절연결해제를 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B08",
+      "group": "HP·보스 보존",
+      "requirementKo": "골렘 순서·초과피해 미이월·마지막부위격파와 스핑크스봉인을 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B09",
+      "group": "HP·보스 보존",
+      "requirementKo": "사슴·잿불룡·청동수문장·도서관장·직조자 기믹과 무지원 원칙을 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "B10",
+      "group": "HP·보스 보존",
+      "requirementKo": "골렘 신구버전 저장·UI 총/부위HP·최종타격이 서로 일치한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C01",
+      "group": "룬 정의·레벨",
+      "requirementKo": "신규 일반2/고급5/희귀3의 정확한10종만 추가하고 기존 룬을 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C02",
+      "group": "룬 정의·레벨",
+      "requirementKo": "화석은COMMON ADD_SCORE이며 +30/+50/+70 검증초깃값을 세레벨에 적용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C03",
+      "group": "룬 정의·레벨",
+      "requirementKo": "석영은COMMON ADD_SCORE이며 +30/+50/+70 검증초깃값을 세레벨에 적용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C04",
+      "group": "룬 정의·레벨",
+      "requirementKo": "가넷은주절5형식×1.7/2.4/3.2이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C05",
+      "group": "룬 정의·레벨",
+      "requirementKo": "백금·라피스는 각각현재완료·절연결×1.4/1.7/2.0이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C06",
+      "group": "룬 정의·레벨",
+      "requirementKo": "아쿠아마린·신규토파즈는 각각to부정사·동명사×1.35/1.65/2.0이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C07",
+      "group": "룬 정의·레벨",
+      "requirementKo": "흑요석은수동태×1.9/2.55/3.2, 아다만티움은수식관계절×2.1/2.8/3.6이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C08",
+      "group": "룬 정의·레벨",
+      "requirementKo": "미스릴은가정법과거×2.0/2.7/3.5이며 과거완료전용룬을 추가하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C09",
+      "group": "룬 정의·레벨",
+      "requirementKo": "기존4형식토파즈와 신규동명사토파즈를 별도ID·효과·부제로 구분한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "C10",
+      "group": "룬 정의·레벨",
+      "requirementKo": "도감·상점·보상·장착·로그의 이름/등급/+또는×/세레벨 설명이 엔진 정의와 일치한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D01",
+      "group": "정상 근거 매칭",
+      "requirementKo": "화석은실제과거동사구를 확인하고 가정법had/were·비유한p.p.만으로 발동하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D02",
+      "group": "정상 근거 매칭",
+      "requirementKo": "석영은진행동사구에서만 발동하고 be보어/동명사/분사수식만으로 발동하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D03",
+      "group": "정상 근거 매칭",
+      "requirementKo": "가넷은실제주절5형식만 보며 문두if절이나종속절5형식으로 대신하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D04",
+      "group": "정상 근거 매칭",
+      "requirementKo": "백금은현재완료를 확인하고 본동사have·과거완료·would have만으로 발동하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D05",
+      "group": "정상 근거 매칭",
+      "requirementKo": "라피스는절연결만 인정하고 difficult and different 등 구연결은 제외한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D06",
+      "group": "정상 근거 매칭",
+      "requirementKo": "아쿠아마린은to부정사만, 신규토파즈는명사역할동명사만 인정한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D07",
+      "group": "정상 근거 매칭",
+      "requirementKo": "흑요석은현재엔진의정상수동태를 확인하고 단순p.p.수식으로 발동하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D08",
+      "group": "정상 근거 매칭",
+      "requirementKo": "아다만티움은선행사수식주격/목적격관계절과 정상생략을 인정하고 what/간접의문/관계부사만은 제외한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D09",
+      "group": "정상 근거 매칭",
+      "requirementKo": "미스릴은UNREAL_PRESENT 실제쌍만 인정하고 단독could/현실조건/UNREAL_PAST는 제외한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "D10",
+      "group": "정상 근거 매칭",
+      "requirementKo": "무효근거·미해금·ENGINE_ERROR·INVALID_CORE에 신규룬의 가짜 발동이 없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E01",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "신규룬은 해당근거가여럿이어도 룬별공격당1회만 적용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E02",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "가산/곱셈은 장착순서대로 계산하고 자동으로가산룬을앞으로정렬하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E03",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "매곱셈버림·안전정수·실제피해·초과피해와 기존 채점단계를 유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E04",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "정상실제과거진행의 화석+석영, 현재완료진행의 석영+백금 세부안이 각각1회로 검증된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E05",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "수동태관계절의 흑요석+아다만티움 등 적법한 서로다른 룬시너지를 허용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E06",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "조건/가정절 라피스와 미스릴의 룬발동이 기본if연결배율을 중복 복원하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E07",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "현재완료진행의 기본완료×진행·가정법의하위시제 배율 중복억제를 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E08",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "관련되지않은다른절의유효근거는 문장전역boolean때문에 삭제되지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E09",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "동일철자다른사본·소멸빙정·손패카드가 제출근거ID로 혼입되지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "E10",
+      "group": "연쇄·채점·사본",
+      "requirementKo": "기존사본별비취/철룬과 유틸리티 자원보정/순서변경 정책이 유지된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F01",
+      "group": "획득맥락",
+      "requirementKo": "일반/고급 전체풀은Stage1부터 후보이며 후반문법/현재덱적합성으로제거하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F02",
+      "group": "획득맥락",
+      "requirementKo": "일반전의 모든 룬추첨 경로에서 희귀는0이며 다이아몬드도 제외한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F03",
+      "group": "획득맥락",
+      "requirementKo": "희귀룬중복획득/레벨업도 일반전에서 나오지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F04",
+      "group": "획득맥락",
+      "requirementKo": "Stage1부터실제지역보스보상에서 희귀후보가 가능하며확정지급은하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F05",
+      "group": "획득맥락",
+      "requirementKo": "Stage2입장상점은희귀0이다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F06",
+      "group": "획득맥락",
+      "requirementKo": "Stage4/6/8/10입장상점에는희귀가가능하며 Stage4를네번째상점으로오해하지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F07",
+      "group": "획득맥락",
+      "requirementKo": "새Stage1상점을 추가하지 않고 기존 상점 위치/개수를 보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F08",
+      "group": "획득맥락",
+      "requirementKo": "초회1-1·1-2고정예외를보존하고 이후1-2전체풀/fallback에도희귀금지가적용된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F09",
+      "group": "획득맥락",
+      "requirementKo": "획득출처제한은신규희귀뿐아니라기존다이아몬드에도동일하게적용된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "F10",
+      "group": "획득맥락",
+      "requirementKo": "룬을획득해도 문법/카드팩이자동해금되지 않으며 조건설명이 명확하다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G01",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "허용된전체등급풀에서194:97:9,희귀금지시194:97을사용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G02",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "보상종류 RUNE가중치와등급추첨확률을분리하며 일반전희귀WORD정책은바꾸지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G03",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "같은등급내기존균등추첨과 한offer중복ID금지·최대레벨제외를보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G04",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "후보소진시금지희귀로채우지않고유효타입재선택/상점빈칸을명시한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G05",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "고정seed분포검증에서맥락별등급/개별후보빈도와기대정규화를보고한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G06",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "보상표시·닫기·대상취소·저장/로드는동일offer와RNG를보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G07",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "룬교체취소/중복선택/잘못된offerId가무료업그레이드나재화중복을만들지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G08",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "상점일반18/고급24/희귀32와카드/연마/제거가격을보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G09",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "이미공개된상품의가격·ownedLevel·offeredLevel이재렌더로달라지지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "G10",
+      "group": "확률·경제·고정보상",
+      "requirementKo": "구버전의후보/가격/추첨스트림은신규드롭필터의소급영향을받지 않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H01",
+      "group": "전체화면",
+      "requirementKo": "로비·전투와설정에서전체화면진입/종료컨트롤에접근할수있다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H02",
+      "group": "전체화면",
+      "requirementKo": "실제클릭/터치의사용자활성화에서만지원API를요청한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H03",
+      "group": "전체화면",
+      "requirementKo": "일반전투재렌더로교체되지않는루트를사용하며모달/FX도보인다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H04",
+      "group": "전체화면",
+      "requirementKo": "API거절/미지원시게임을막지않고화면맞춤을유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H05",
+      "group": "전체화면",
+      "requirementKo": "fullscreenchange·Esc·시스템종료후버튼문구/상태가실제DOM과일치한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H06",
+      "group": "전체화면",
+      "requirementKo": "재로드후저장설정만으로가짜전체화면상태/자동재진입을만들지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H07",
+      "group": "전체화면",
+      "requirementKo": "전체화면진입/종료가카드·턴·HP·룬·RNG를변경하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H08",
+      "group": "전체화면",
+      "requirementKo": "공격중전체화면전환시표시좌표/클린업만처리하고정산을반복하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H09",
+      "group": "전체화면",
+      "requirementKo": "사전/형태/보상/저장모달을전체화면에서실제로열고닫아확인한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "H10",
+      "group": "전체화면",
+      "requirementKo": "브라우저실제API검사와API mock단위검사·미지원검사를구분한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I01",
+      "group": "반응형 전투",
+      "requirementKo": "PC일반크기와낮은높이노트북창에서필수전투조작의페이지스크롤이없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I02",
+      "group": "반응형 전투",
+      "requirementKo": "태블릿가로에서주소창표시/숨김전후에도손패와행동버튼이잘리지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I03",
+      "group": "반응형 전투",
+      "requirementKo": "태블릿세로에서도필수정보와모든카드접근이유지된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I04",
+      "group": "반응형 전투",
+      "requirementKo": "모바일세로에940px고정최소너비가남지않고가로넘침이없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I05",
+      "group": "반응형 전투",
+      "requirementKo": "모바일가로·낮은실제높이에서핵심조작을스크롤없이쓸수있다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I06",
+      "group": "반응형 전투",
+      "requirementKo": "최대손패14+조합대16+4룬상태에서기기별동시표시/명시적예외를검증한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I07",
+      "group": "반응형 전투",
+      "requirementKo": "overflow:hidden이나전역축소로잘림/읽기불가를숨기지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I08",
+      "group": "반응형 전투",
+      "requirementKo": "축약/카드페이지가필요한작은화면은전체장수·순서·현재페이지를표시하고비보고누락이없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I09",
+      "group": "반응형 전투",
+      "requirementKo": "dvh/safe-area/VisualViewport와주소창·회전·분할창resize가안정적으로반영된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "I10",
+      "group": "반응형 전투",
+      "requirementKo": "사용자의확대/핀치zoom을강제로취소하지않고100%무스크롤검사와확대접근성을구분한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J01",
+      "group": "보조화면·학습도구",
+      "requirementKo": "사전과저장/불러오기버튼은PC·태블릿·휴대전화에서쉽게열수있다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J02",
+      "group": "보조화면·학습도구",
+      "requirementKo": "긴사전/도감/기록의내부스크롤은동작하고닫기/검색이항상접근가능하다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J03",
+      "group": "보조화면·학습도구",
+      "requirementKo": "가상키보드가검색칸/닫기/취소를가리지않고닫힌후전투레이아웃이복구된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J04",
+      "group": "보조화면·학습도구",
+      "requirementKo": "저장3슬롯·덮어쓰기확인·불러오기취소/성공의기존행동과안전지점을유지한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J05",
+      "group": "보조화면·학습도구",
+      "requirementKo": "사전사용/재시도에새감점·보상감소·자동정답/새힌트를추가하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J06",
+      "group": "보조화면·학습도구",
+      "requirementKo": "보상3칸·상점구매/제거/연마·지역소개/완료의핵심조작이잘리지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J07",
+      "group": "보조화면·학습도구",
+      "requirementKo": "형태선택과드래그/탭조립·맞교환·교환확정을기기별로검증한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J08",
+      "group": "보조화면·학습도구",
+      "requirementKo": "회전/모달전환중드래그를취소해도가짜공격/교환이발생하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J09",
+      "group": "보조화면·학습도구",
+      "requirementKo": "help동·명좌상단·점수우상단·메탈릭등급/연마를신규레이아웃에서도보존한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "J10",
+      "group": "보조화면·학습도구",
+      "requirementKo": "좁은화면에서도룬등급/레벨/순서요약과정렬/상세기능을사용할수있다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K01",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "문법점수적용시정확한evidence카드집합에탄성반응이발생한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K02",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "룬점수적용시그룬조건의근거카드만반응한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K03",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "같은철자의다른손패사본이나무관한다른절을일괄흔들지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K04",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "압축→작은오버슈트/들림→감쇠복귀로보이며카드순서/좌표계는변하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K05",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "시각wrapper를사용해선택/드래그/입력transform과충돌하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K06",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "다중카드stagger는타임라인안에서병렬적으로끝나고16배대기를추가하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K07",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "RUNE_FLIGHT와SCORE의동일event에서이중spring/이중콤보를만들지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K08",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "별개효과가같은카드를재사용하면해당다음event에서다시반응할수있다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K09",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "근거카드가숨겨진작은화면예외는요약피드백을주고전체보드무차별반응으로대신하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "K10",
+      "group": "카드 탄성·근거 시각화",
+      "requirementKo": "근거가없는유틸리티/방어/final재표시에가짜제출카드를만들지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L01",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "콤보이름·+/×수치·점수의글꼴/대비가개선되고긴문구와큰정수도읽힌다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L02",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "문구와점수모두누적에따라글로우/입자/반응이점진적으로강해진다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L03",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "실제양수문법/룬event만카운트하고cardbase·방어·final·flight는제외한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L04",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "동일eventId재전달은카운트를증가시키지않고새공격에서는초기화한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L05",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "일반<고급<희귀및Lv.1<2<3의시각차이를기존룬까지일관적용한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L06",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "콤보이펙트와화려함이새점수배율/게임RNG/실제피해를바꾸지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L07",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "예약영역과내외곽레이어로고콤보에서도글자/카드/버튼이밀리거나가려지지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L08",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "기존읽기시간·속도1/1.5/2를유지하며효과마다불필요한추가대기를쌓지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L09",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "reducedMotion/effectsOff에서흔들림/입자없이정확한문구·수치·정적강조를제공한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "L10",
+      "group": "콤보·등급/레벨 Game Feel",
+      "requirementKo": "입자/글로우/스케일의상한과빠른전면섬광방지기준이검증된다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M01",
+      "group": "통합·성능·인계",
+      "requirementKo": "전체단위/데이터검사/build와해당기존브라우저회귀를실행하고실제종료코드를남긴다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M02",
+      "group": "통합·성능·인계",
+      "requirementKo": "신규10룬세레벨·근거·드롭·HP·전체화면·GameFeel 테스트를추가한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M03",
+      "group": "통합·성능·인계",
+      "requirementKo": "30회고콤보반복에서FX노드/animation/timer/RAF누수와입력잠김이없다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M04",
+      "group": "통합·성능·인계",
+      "requirementKo": "동일기기·상태의효과전후frame구간/longtask/노드수성능을측정하고FPS를추정으로단정하지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M05",
+      "group": "통합·성능·인계",
+      "requirementKo": "백그라운드·복귀·resize·전체화면·watchdog·중복완료에서도피해/보상/기억을한번만정산한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M06",
+      "group": "통합·성능·인계",
+      "requirementKo": "합법적지정덱통합검사와자연보상원정의획득/소모턴/실패/완주증거를구분한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M07",
+      "group": "통합·성능·인계",
+      "requirementKo": "구0.10/0.9및대표구버전의카드·룬·상품·RNG·47/42경계를회귀검증한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M08",
+      "group": "통합·성능·인계",
+      "requirementKo": "실물iPad/휴대전화와브라우저에뮬레이션결과를분리하고못한기기는NOT RUN으로쓴다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M09",
+      "group": "통합·성능·인계",
+      "requirementKo": "체크리스트/명령/로그/스크린샷고유이름/성능/남은위험을실제실행증거로제출한다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    },
+    {
+      "id": "M10",
+      "group": "통합·성능·인계",
+      "requirementKo": "별도브랜치/PR까지만인계하며권한실패시로컬산출물을제공하고병합/배포성공을꾸미지않는다.",
+      "status": "PENDING_IMPLEMENTATION",
+      "verificationType": null,
+      "evidence": null,
+      "limitations": null
+    }
+  ]
+}

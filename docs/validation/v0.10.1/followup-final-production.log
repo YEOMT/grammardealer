@@ -1,0 +1,5 @@
+
+> sentence-balatro@0.10.1 test:production:0101
+> node tests/v0101-production-assigned.mjs
+
+PASS 5 production assigned battles

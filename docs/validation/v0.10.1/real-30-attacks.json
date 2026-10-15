@@ -1,0 +1,1132 @@
+{
+  "scope": "30_ASSIGNED_REAL_CONTROLLER_ATTACKS_FULL_PRESENTATION_NOT_NATURAL_CAMPAIGN",
+  "attacks": [
+    {
+      "index": 0,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.0:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 1,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.1:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 2,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.2:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 3,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.3:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 4,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.4:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 5,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.5:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 6,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.6:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 7,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.7:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 8,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.8:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 9,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.9:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 10,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.10:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 11,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.11:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 12,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.12:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 13,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.13:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 14,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.14:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 15,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.15:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 16,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.16:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 17,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.17:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 18,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.18:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 19,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": false,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.19:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 20,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": true,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.20:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 21,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": true,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.21:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 22,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": true,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.22:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 23,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": true,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.23:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 24,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": true,
+        "reducedMotion": false
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.24:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 25,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": true,
+        "reducedMotion": true
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.25:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 26,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": true,
+        "reducedMotion": true
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.26:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    },
+    {
+      "index": 27,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [],
+      "options": {
+        "speed": 1,
+        "effectsOff": true,
+        "reducedMotion": true
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.27:battle.47:attack.1",
+        "plannedDuration": 9895,
+        "watchdogMs": 13358
+      },
+      "animations": 0
+    },
+    {
+      "index": 28,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 1.5,
+        "effectsOff": true,
+        "reducedMotion": true
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.28:battle.47:attack.1",
+        "plannedDuration": 6598,
+        "watchdogMs": 8907
+      },
+      "animations": 0
+    },
+    {
+      "index": 29,
+      "pendingHandles": {
+        "timeouts": 0,
+        "intervals": 0,
+        "raf": 0
+      },
+      "createdHandles": {
+        "timeouts": 32,
+        "intervals": 0,
+        "raf": 0
+      },
+      "power": 3288,
+      "combo": 9,
+      "turns": 5,
+      "attacks": 1,
+      "duplicateAccepted": false,
+      "stateUnchanged": true,
+      "particles": 0,
+      "beforeRerenderAnimations": [
+        {
+          "target": "hp-fill",
+          "name": "width"
+        }
+      ],
+      "options": {
+        "speed": 2,
+        "effectsOff": true,
+        "reducedMotion": true
+      },
+      "outcome": {
+        "status": "FINISHED",
+        "reason": null,
+        "attackId": "qa.waterways.0101.feel.29:battle.47:attack.1",
+        "plannedDuration": 4948,
+        "watchdogMs": 6948
+      },
+      "animations": 0
+    }
+  ],
+  "captures": [
+    "actual-high-combo-2.png",
+    "actual-high-combo-5.png",
+    "actual-high-combo-8.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

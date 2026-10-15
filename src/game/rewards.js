@@ -1,3 +1,4 @@
+import {filterRuneDropPool,runeDropContext} from '../data/polish0101Runes.js';
 import {campaignBattleCount,hasSkyCampaign,hasSnowCampaign,hasDesertCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {selectOperation} from './operationPool.js';
 import {cardDefinition,isOperation,canPolish} from '../data/cardCatalog.js';
@@ -41,9 +42,9 @@ export function eligibleRewardCards(run) {
 
 export function isStageRelevantCard(run, card) {
   const registry = registryForVersion(run.version), lexeme = registry.lexemeById[card.lexemeId];
-  if(run.version==='0.10.0'&&run.progress.stageId==='stage.10')return ['if','will','can','have','be'].includes(lexeme.lemma)||lexeme.pos==='VERB';
-  if(['0.9.0','0.10.0'].includes(run.version)&&run.progress.stageId==='stage.09')return ['what','whether','where','when','that','it','to','good','important','easy','hard','difficult'].includes(lexeme.lemma)||lexeme.frameIds?.some(id=>['frame.svo.content','frame.svo.wh','frame.svoo.wh'].includes(id));
-  if(['0.8.0','0.8.1','0.9.0','0.10.0'].includes(run.version)&&run.progress.stageId==='stage.08')return ['who','which','where','when','that'].includes(lexeme.lemma)||['NOUN','PRONOUN','DETERMINER'].includes(lexeme.pos);
+  if(['0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.10')return ['if','will','can','have','be'].includes(lexeme.lemma)||lexeme.pos==='VERB';
+  if(['0.9.0','0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.09')return ['what','whether','where','when','that','it','to','good','important','easy','hard','difficult'].includes(lexeme.lemma)||lexeme.frameIds?.some(id=>['frame.svo.content','frame.svo.wh','frame.svoo.wh'].includes(id));
+  if(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.08')return ['who','which','where','when','that'].includes(lexeme.lemma)||['NOUN','PRONOUN','DETERMINER'].includes(lexeme.pos);
   if(hasSnowCampaign(run)&&run.progress.stageId==='stage.06')return Boolean(lexeme.comparisonPolicy&&lexeme.comparisonPolicy.strategy!=='NONE')||['more','most','as','than','too','enough','twice'].includes(lexeme.lemma);
   const focus = STAGE_BY_ID[run.progress?.stageId]?.focusFrames ?? [...BASIC_FRAMES];
   if(hasDesertCampaign(run)&&run.progress?.stageId==='stage.05')return ['to','want','need','like','enjoy','finish'].includes(lexeme.lemma)||['NOUN','PRONOUN','DETERMINER','ADJECTIVE'].includes(lexeme.pos)||lexeme.frameIds?.some(id=>id.startsWith('frame.svoc'));
@@ -80,17 +81,17 @@ function selectCardCandidates(run, type, offerId, trace, {selected=new Set(),rol
   return choices;
 }
 
-export function eligibleRunes(run) {
+export function eligibleRunes(run, context={}) {
   const levels = new Map(equipped(run).map((entry) => [entry.runeId, entry.level]));
-  return orderById(eligibleRuneDefinitions(run).filter(definition => (levels.get(definition.id) ?? 0) < RUNE_MAX_LEVEL
+  return orderById(filterRuneDropPool(run,eligibleRuneDefinitions(run),context).filter(definition => (levels.get(definition.id) ?? 0) < RUNE_MAX_LEVEL
     && (!run.contentManifest?.runeIds || run.contentManifest.runeIds.includes(definition.id))));
 }
 
-function chooseRune(run, pool, trace=[]) {
+export function chooseRune(run, pool, trace=[]) {
   const availableRarities = new Set(pool.map((entry) => entry.rarity));
   const rarityWeights = Object.fromEntries(Object.entries(runeRarityWeightsForVersion(run.version)).filter(([rarity]) => availableRarities.has(rarity)));
   const rarity = weightedPick(run.rng.reward, rarityWeights);
-  if(['0.9.0','0.10.0'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',weights:{...rarityWeights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
+  if(['0.9.0','0.10.0','0.10.1'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',...(run.version==='0.10.1'?{context:runeDropContext(run)}:{}),weights:{...rarityWeights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
   return pick(run.rng.reward, pool.filter((entry) => entry.rarity === rarity));
 }
 
@@ -159,10 +160,10 @@ export function createRewardOffer(run,profile){
   if(battleNumber===2){
     const selected=selectRuneCandidates(run,profile,offerId);firstRuneIntro=selected.firstRuneIntro;
     for(const entry of selected.choices){selectedRunes.add(entry.runeId);choices.push(runeChoice(runeForVersion(entry.runeId,run.version),entry.role));}
-    while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length)throw Error('Rune introduction requires three valid runes');const r=chooseRune(run,pool,trace);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
+    while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length){if(run.version!=='0.10.1')throw Error('Rune introduction requires three valid runes');trace.push({kind:'INTRO_POOL_EXHAUSTED'});break;}const r=chooseRune(run,pool,trace);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
   }else{
     const intro=battleNumber===1&&run.tutorial?.isIntroRun;
-    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
+    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
     const boss = encounter ? encounter.kind==='REGIONAL_BOSS' : battleNumber===3;
     const baseWeights=intro?{CARD_COMMON:100}:boss?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
     for(let index=0;index<3;index++){
@@ -202,7 +203,7 @@ export function getRemovalWarning(run, cardInstanceId) {
   if (!run.activeCardIds.includes(cardInstanceId)) return '';
   if (run.activeCardIds.length === 1) return '덱의 마지막 카드입니다. 제거하면 다음 전투에서 문장을 만들 수 없습니다. 그래도 제거할까요?';
   const classify = (frameId) => frameId === 'frame.sv' || frameId === 'frame.beLocative' ? '1형식' : frameId.startsWith('frame.svc') ? '2형식' : frameId==='frame.svoo'?'4형식':'3형식';
-  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(run.version) };
+  const options = { perFrame: 1, registry: registryForVersion(run.version), includeSvoo: ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version) };
   const before = new Set(findPlayableSentences(run.activeCardIds, run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const after = new Set(findPlayableSentences(run.activeCardIds.filter((id) => id !== cardInstanceId), run.cardInstances, options).map((entry) => classify(entry.frameId)));
   const lost = [...before].filter((frame) => !after.has(frame));

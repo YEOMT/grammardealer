@@ -16,7 +16,7 @@ try{
   page.on('pageerror',error=>report.errors.push(error.message));
   await page.goto(base);await page.locator('#start-run').waitFor();
   // The lobby advertises the new campaign; the assigned legacy scenarios below retain their own versions.
-  assert.equal(await page.locator('.version-badge').innerText(),'0.10.0 · Star Corridor');
+  assert.equal(await page.locator('.version-badge').innerText(),'0.10.1 · Core Polish');
   await page.evaluate(async()=>{
     const [{RunController},{newProfile,LocalStore},{renderIntro,renderStageClear,renderResult},{renderShop},{openDeck,openDictionary,openRecords,openSaves},{RUNE_BY_ID}]=await Promise.all([
       import('/tests/helpers/legacy-controller.js'),import('/src/services/localStore.js'),import('/src/ui/progression.js'),import('/src/ui/shop.js'),import('/src/ui/overlays.js'),import('/src/data/runes.js')]);
@@ -72,7 +72,7 @@ try{
     }
   }
   await page.evaluate(()=>ui02.fillRunes());const full=JSON.stringify(await state(page));
-  await page.getByText('현재 장착 룬 설명',{exact:true}).click();assert.equal(await page.locator('.shop-equipped-grid .rune-slot').count(),3);assert.equal(JSON.stringify(await state(page)),full);check('SHOP_EQUIPPED_RUNE_INFORMATION');
+  await page.locator('.shop-notices>summary').click();await page.getByText('현재 장착 룬 설명',{exact:true}).click();assert.equal(await page.locator('.shop-equipped-grid .rune-slot').count(),3);assert.equal(JSON.stringify(await state(page)),full);check('SHOP_EQUIPPED_RUNE_INFORMATION');
   await page.locator('.shop-item[data-item-kind=RUNE] button').click();await page.locator('#cancel-shop-replacement').waitFor();await screenshot(page,'shop-rune-replacement');await page.locator('#cancel-shop-replacement').click();assert.equal(JSON.stringify(await state(page)),full);check('SHOP_RUNE_FULL_CANCEL');
   s=await state(page);const item=s.shop.inventory.find(item=>item.kind==='CARD');
   await page.locator(`[data-item-id="${item.itemId}"] button`).click();let after=await state(page);assert.equal(after.economy.gold,s.economy.gold-item.price);assert.equal(after.activeCardIds.length,s.activeCardIds.length+1);assert.equal(after.shop.inventory.find(i=>i.itemId===item.itemId).purchased,true);check('SHOP_CARD_PURCHASE');

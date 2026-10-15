@@ -1,0 +1,69 @@
+Initial tool failure, full log preserved locally:
+
+> sentence-balatro@0.10.1 test:e2e:0101
+> node tests/v0101-e2e.mjs
+
+PASS P01,P02,U12,U13: production subpath, profile and initial six-card save/load exact (including RNG)
+PASS V051-P035,V051-P038: actual tutorial skip restores normal S1-1 without reward
+PASS P11: network disabled after all initial static resources loaded
+PASS U01,U07,U08,C13: no preview, actual submitted timeline, enemy retains old HP before impact, emoji enemy
+PASS P03,P04: frozen reward and unlock baseline survive real IndexedDB restore
+BATTLE 2: 숲 달팽이
+PASS P10: dictionary remains resource and RNG neutral after tutorial
+PASS V022-P04,V022-P05,V022-P62: actual normal-combat invalid submission consumes one card and turn, draws three and exact save/load works
+PASS D10,D15,U03: invalid submission then real card exchange via UI
+PASS R02: first rune choices rendered crystal/amber/copper
+BATTLE 3: 초원 수호자
+PASS V02-P07,V02-P08: actual stage.02 preview and once-only entry; first shop
+PASS V02-P27: shop manual save restores from lobby with the same run, grants, inventory and RNG
+PASS V061-NATURAL-OPERATION-POLISH: naturally purchased reusable operation polished through shop UI
+PASS V02-P11,V02-P18,V02-P22: real shop purchase/save/load retains inventory and identical next battle shuffle/draw offline
+BATTLE 4: 부두 갈매기
+BATTLE 5: 짐꾼 게
+BATTLE 6: 파도 문어
+PRIMARY E2E FAILURE AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    actionSequence: 1,
+    battleDirty: true,
+    discardIds: [
+      'shop.run.84431905-0d31-414a-9924-f9a4bdce818d.stage.02.card.1.owned',
+...
+        },
++       commandId: 'operation.ui.run.84431905-0d31-414a-9924-f9a4bdce818d.115.1',
+-       commandId: 'operation.qa.run.84431905-0d31-414a-9924-f9a4bdce818d.115.1',
+        drawnCardIds: [
+          'starter.15',
+          'starter.08'
+        ],
+        effectId: 'run.84431905-0d31-414a-9924-f9a4bdce818d:battle.6:operation.1',
+
+    at <repo>/tests/e2e.mjs:137:1154
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    actionSequence: 1,
+    battleDirty: true,
+    discardIds: [
+      'shop.run.84431905-0d31-414a-9924-f9a4bdce818d.stage.02.card.1.owned',
+...
+        },
++       commandId: 'operation.ui.run.84431905-0d31-414a-9924-f9a4bdce818d.115.1',
+-       commandId: 'operation.qa.run.84431905-0d31-414a-9924-f9a4bdce818d.115.1',
+        drawnCardIds: [
+          'starter.15',
+          'starter.08'
+        ],
+        effectId: 'run.84431905-0d31-414a-9924-f9a4bdce818d:battle.6:operation.1',
+
+    at <repo>/tests/e2e.mjs:137:1154 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',

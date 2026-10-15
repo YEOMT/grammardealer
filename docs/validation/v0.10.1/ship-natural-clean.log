@@ -1,0 +1,55 @@
+
+> sentence-balatro@0.10.1 test:runs:0101
+> node tools/simulate-polish0101-runs.js
+
+run-sequence.19 DEFEAT {
+  battle: 12,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 260,
+  hand: 10,
+  draw: 24,
+  discard: 0,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 49,
+  status: 'DEFEAT',
+  phase: 'FUTURE',
+  willInHand: false,
+  willInSentence: false,
+  willOwned: true
+}
+run-sequence.83 DEFEAT {
+  battle: 7,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 32,
+  hand: 4,
+  draw: 21,
+  discard: 7,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 18,
+  status: 'DEFEAT',
+  phase: null,
+  willInHand: false,
+  willInSentence: false,
+  willOwned: false
+}
+run-sequence.99 DEFEAT {
+  battle: 12,
+  turn: 6,
+  turnsRemaining: 0,
+  hp: 32,
+  hand: 6,
+  draw: 28,
+  discard: 0,
+  exchangesRemaining: 0,
+  seal: null,
+  gold: 49,
+  status: 'DEFEAT',
+  phase: 'FUTURE',
+  willInHand: false,
+  willInSentence: false,
+  willOwned: true
+}

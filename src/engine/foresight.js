@@ -28,12 +28,12 @@ export function resolveForesight(analysis,power,enemy,{attackId,eligibleAnalysis
 /** Rebuild memory/HP from this battle's actual immutable submissions (at most six). */
 export function validateForesightRun(run){
  const c=run.combat;if(!c)return true;
- const expected=run.version==='0.10.0'&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
+ const expected=['0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
  if(!expected){if(c.enemyState.bossMechanic?.id==='FATE_FORESIGHT')fail();return true;}
  if(c.enemyState.maxHp!==5000||c.enemyState.bossMechanic?.id!=='FATE_FORESIGHT')fail();
  let boss={id:'FATE_FORESIGHT',rememberedFrame:null,lastAttackId:null},hp=5000;const seen=new Set();
  for(const r of [...run.stats.history].reverse().filter(r=>r.battleId===c.enemyState.id)){
-  if(seen.has(r.attackId)||r.enemyHpBefore!==hp||r.sentenceSnapshot.languageVersion!==run.version)fail();seen.add(r.attackId);
+  if(seen.has(r.attackId)||r.enemyHpBefore!==hp||r.sentenceSnapshot.languageVersion!==registryForVersion(run.version).version)fail();seen.add(r.attackId);
   const a=analyzeSentence(r.sentenceSnapshot,registryForVersion(run.version));
   if(a.status==='INVALID_CORE'){if(r.finalPower!==0||r.foresightResult)fail();continue;}
   const proposal=resolveForesight(a,r.preBossScore,{hp,bossMechanic:boss},{attackId:r.attackId,eligibleAnalysis:scoreableAnalysis(a,comboEligibility(run))});

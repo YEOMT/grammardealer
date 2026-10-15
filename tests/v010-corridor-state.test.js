@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {assignedCorridor,checked,assignPiles,place} from './helpers/corridor-state.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-010-controller.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {analyzeSentence} from '../src/engine/grammar/index.js';
 import {newProfile,validateRunState} from '../src/services/localStore.js';

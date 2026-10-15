@@ -1,3 +1,9 @@
+# 0.10.1 현재 인계
+
+기준 main f09d4537, 브랜치 codex/v0.10.1-runes-responsive-gamefeel에서 기존 미커밋 구현을 보존해 UI Followup을 이어갔다. 계약 spec/v0.10.1/ 및 ui-followup/. [실제 보고서](TEST_REPORT_0.10.1.md)와 [후속84조건](ACCEPTANCE_0.10.1_UI_FOLLOWUP.md)를 먼저 읽는다. 신규룬은 versioned lookup, boss receipt는 실제 registry.version을 사용한다. 구버전 정책을 최신 수치로 덮지 않는다.
+
+현재 대표3가로화면은 조작 가능, stress2크기 최대16장 겹침은 알려진FAIL이다. 실기기/자연47완주는NOT RUN이며 Draft로 인계한다. 미세디자인은 사용자피드백 후 조정한다. 원본로그/영상은 .local-validation/에 보존하고 공개선별본만 docs/validation/v0.10.1/에 기록했다. main/Pages/공개배포는수행하지않았다.
+
 # 0.10 현재 인계
 
 기준 main은 `db73c606784e1ba50e664224b404ccede7447591`, 브랜치는 `codex/v0.10-star-corridor-foresight`다. 시작 clean과 이전 브랜치 보존을 확인했다. `spec/v0.10/`이 계약이며 [실제 보고서](TEST_REPORT_0.10.md), [110조건](ACCEPTANCE_0.10.md), [언어 검토](LANGUAGE_REVIEW_0.10.md), [진행 기록](IMPLEMENTATION_PROGRESS_0.10.md)를 먼저 읽는다.

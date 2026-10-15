@@ -1,3 +1,5 @@
+import {introViewport} from './viewport.js';
+import {runeReadiness} from './runes.js';
 import {FORESIGHT_HINT} from '../data/stage10.js';
 import {CORRIDOR_ENTRY_NOTICE} from '../data/corridorPolicy.js';
 import {LIBRARY_HINT} from '../data/stage9.js';
@@ -54,6 +56,7 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onRecords, 
       el('div',{class:'reward-choices'},choice.cardDefIds.map(cardDefId=>{const model=cardModel({instanceId:'preview.'+cardDefId,cardDefId,polishLevel:0},null,state.version);return el('section',{class:'reward-choice'},wordCard(model,{readonly:true,compact:true}),el('p',{text:{'card.and':'그리고 · 단어와 절을 이어 줍니다.','card.but':'그러나 · 대조되는 절을 이어 줍니다.','card.because':'왜냐하면 · 이유를 나타내는 절을 이어 줍니다.'}[cardDefId]}),button(`${model.surface} 선택`,()=>onChooseConnector?.({choiceId:choice.choiceId,entryId:choice.entryId,cardDefId}),'primary',{id:'choose-stage4-'+cardDefId.slice(5)}));})),
       el('p',{class:'helper',text:'선택 전에는 카드를 받지 않습니다. 나중에 돌아와 이어서 선택할 수 있습니다.'})):
     button(corridor?'입장 준비 · 다섯 번째 상점으로':library?'몽환의 대서고에 들어가기':waterways?'입장 준비 · 관계사 선택':ember?'잿불 동굴에 들어가기':snow?'입장 준비 · 세 번째 상점으로':desert?'소원의 사막에 들어가기':sky?'입장 준비 · 두 번째 상점으로':canyon?'시간의 협곡에 들어가기':harbor?'입장 준비 · 상점으로':'초원에 들어가기', onStart, 'primary start-button', { id: (corridor||library||waterways||harbor||canyon||sky||desert||snow||ember)?'enter-stage':'start-battle' })));
+  introViewport(root.querySelector('.intro-page'));
 }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
@@ -183,7 +186,7 @@ export function renderReward(root,state,handlers={}){
       else if(!result?.ok&&result?.message)toast(result.message);
     }finally{pending=false;}
   }
-  function runeCard(choice,action){const def=runeForVersion(choice.runeId,state.version);return el('section',{class:'reward-choice',style:`--rune-color:${def.color}`,dataset:{choiceId:choice.choiceId,runeId:choice.runeId}},el('div',{class:'reward-gem'+(def.id==='rune.longSentence'&&def.rarity==='RARE'?' diamond-gem':''),text:'◆'}),el('h3',{text:def.nameKo}),el('small',{text:choice.ownedLevel?`Lv.${choice.ownedLevel} → Lv.${choice.offeredLevel}`:'Lv.1 · 새 룬'}),el('p',{text:runeDescription(def,choice.offeredLevel)}),button('이 룬 선택',action,'primary'));}
+  function runeCard(choice,action){const def=runeForVersion(choice.runeId,state.version);return el('section',{class:'reward-choice',style:`--rune-color:${def.color}`,dataset:{choiceId:choice.choiceId,runeId:choice.runeId}},el('div',{class:'reward-gem'+(def.id==='rune.longSentence'&&def.rarity==='RARE'?' diamond-gem':''),text:'◆'}),el('h3',{text:def.nameKo}),el('small',{text:choice.ownedLevel?`Lv.${choice.ownedLevel} → Lv.${choice.offeredLevel}`:'Lv.1 · 새 룬'}),el('p',{text:runeDescription(def,choice.offeredLevel)}),el('small',{text:runeReadiness(choice.runeId,state)}),button('이 룬 선택',action,'primary'));}
   function showReplacement(choice){modal('교체할 룬을 선택하세요',[el('p',{text:'취소하면 세 후보와 기존 룬이 그대로 유지됩니다.'}),el('div',{class:'reward-choices'},state.runes.orderedInstanceIds.map(id=>{const r=state.runes.instances[id],def=runeForVersion(r.runeId,state.version);return el('section',{class:'reward-choice'},el('h3',{text:`${def.nameKo} Lv.${r.level}`}),el('p',{text:runeDescription(def,r.level)}),button('이 룬과 교체',()=>choose(choice,{replaceRuneInstanceId:id}),'primary'));})),button('교체 취소',showChoices,'secondary')],{wide:true,onClose:()=>{}});}
   function showTargets(choice){const polish=choice.serviceKind==='POLISH';modal(polish?'연마할 카드 한 장 선택':'제거할 카드 한 장 선택',[
     el('p',{text:polish?(hasPolishCampaign(state)?'단어는 단계마다 기본 점수 +5, 최대 +3. 운영은 효과를 강화하며 최대 +1입니다.':'연마 단계 +1 · 기본 10점에 단계마다 +5점. 최대 +3.'):'선택한 실제 카드만 제거합니다. 기본 문장 경로를 잃으면 추가 확인을 요청합니다.'}),

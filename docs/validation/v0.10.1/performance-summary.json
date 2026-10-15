@@ -1,0 +1,32 @@
+[
+  {
+    "effectsOff": true,
+    "replays": 30,
+    "elapsedMs": 18730.20000000298,
+    "maxParticles": 0,
+    "residualParticles": 0,
+    "activeAnimations": 0,
+    "engine": "chromium",
+    "frameSamples": 1112,
+    "p50Ms": 16.69999999999709,
+    "p95Ms": 16.799999999995634,
+    "over50Ms": 0,
+    "over100Ms": 0,
+    "longTaskCount": 0
+  },
+  {
+    "effectsOff": false,
+    "replays": 30,
+    "elapsedMs": 18901.5,
+    "maxParticles": 48,
+    "residualParticles": 0,
+    "activeAnimations": 0,
+    "engine": "chromium",
+    "frameSamples": 1093,
+    "p50Ms": 16.69999999999709,
+    "p95Ms": 16.80000000000291,
+    "over50Ms": 0,
+    "over100Ms": 0,
+    "longTaskCount": 0
+  }
+]

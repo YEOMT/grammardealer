@@ -265,8 +265,8 @@ export const SNOW_SCORE_BALANCE=deepFreeze({...DESERT_SCORE_BALANCE,
 export const EMBER_SCORE_BALANCE=deepFreeze({...SNOW_SCORE_BALANCE,passiveMultiplier:{num:9,den:5}});
 export const WATERWAYS_SCORE_BALANCE=deepFreeze({...EMBER_SCORE_BALANCE,relativeMultiplier:{num:2,den:1},issuePenalties:{...EMBER_SCORE_BALANCE.issuePenalties,RELATIVE_MARKER_ANTECEDENT:10}});
 export const CORRIDOR_SCORE_BALANCE=deepFreeze({...WATERWAYS_SCORE_BALANCE,corridorMultipliers:CORRIDOR_INITIAL.multipliers});
-export const scoreBalanceForVersion=version=>version==='0.10.0'?CORRIDOR_SCORE_BALANCE:['0.8.0','0.8.1','0.9.0','0.10.0'].includes(version)?WATERWAYS_SCORE_BALANCE:version==='0.7.0'?EMBER_SCORE_BALANCE:['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
+export const scoreBalanceForVersion=version=>['0.10.0','0.10.1'].includes(version)?CORRIDOR_SCORE_BALANCE:['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?WATERWAYS_SCORE_BALANCE:version==='0.7.0'?EMBER_SCORE_BALANCE:['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;
 
-export const runeRarityWeightsForVersion=version=>['0.9.0','0.10.0'].includes(version)?LIBRARY_CONFIRMED.runeRarityWeights:REWARD_BALANCE.runeWeights;
+export const runeRarityWeightsForVersion=version=>['0.9.0','0.10.0','0.10.1'].includes(version)?LIBRARY_CONFIRMED.runeRarityWeights:REWARD_BALANCE.runeWeights;

@@ -1,3 +1,4 @@
+import {RunController as Legacy010Controller} from './helpers/legacy-010-controller.js';
 import {RunController as Legacy09Controller} from './helpers/legacy-09-controller.js';
 import {RunController as Legacy081Controller} from './helpers/legacy-081-controller.js';
 import {libraryMove,libraryRewardDecision,libraryCourseSatisfied} from '../tools/library-candidates.js';
@@ -13,8 +14,8 @@ import {chromium,expect} from '@playwright/test';
 import assert from 'node:assert/strict';import fs from 'node:fs/promises';import {spawn} from 'node:child_process';
 import {RunController} from '../src/game/runController.js';import {rankPlayableCandidates,exchangeSelection,prepareForPower} from '../tools/simulate-runs.js';
 import {registry} from '../src/data/language/index.js';
-const corridor=process.env.SB_E2E_CAMPAIGN==='0.10.0',library=corridor||process.env.SB_E2E_CAMPAIGN==='0.9.0',libraryCourse=process.env.SB_LIBRARY_COURSE==='1';
-const waterways=['0.8.0','0.8.1','0.9.0','0.10.0'].includes(process.env.SB_E2E_CAMPAIGN),waterwaysCourse=process.env.SB_WATERWAYS_COURSE==='1',waterwaysChoice=process.env.SB_WATERWAYS_CHOICE||'WHO';
+const corridor=['0.10.0','0.10.1'].includes(process.env.SB_E2E_CAMPAIGN),library=corridor||process.env.SB_E2E_CAMPAIGN==='0.9.0',libraryCourse=process.env.SB_LIBRARY_COURSE==='1';
+const waterways=['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(process.env.SB_E2E_CAMPAIGN),waterwaysCourse=process.env.SB_WATERWAYS_COURSE==='1',waterwaysChoice=process.env.SB_WATERWAYS_CHOICE||'WHO';
 const ember=process.env.SB_E2E_CAMPAIGN==='0.7.0',emberCourse=process.env.SB_EMBER_COURSE==='1';
 const expectedBoundary=corridor?'STAGE10_END':library?'STAGE9_END':waterways?'STAGE8_END':ember?'STAGE7_END':'STAGE6_END',expectedCount=corridor?47:library?42:waterways?37:ember?32:27,expectedTitle=corridor?'별의 회랑 완료':library?'몽환의 대서고 완료':waterways?'고대의 수로도시 완료':ember?'잿불 동굴 완료':'거울의 설원 완료';
 const port=Number(process.env.SB_E2E_PORT||4174);const base=`http://127.0.0.1:${port}/grammardealer/`;
@@ -55,14 +56,14 @@ async function compose(candidate){
 try{
  await fs.mkdir(evidence,{recursive:true});await page.goto(base);await page.locator('#start-run').waitFor();assert.equal(await page.evaluate(()=>Boolean(window.__SB_DEV__)),false);
  await capture('lobby');await page.locator('#player-name').fill('검증 여행자');await page.locator('#vocabulary-mode').selectOption(vocabularyMode);await page.locator('.seed-details summary').click();await page.locator('#run-seed').fill(seed);await page.locator('#start-run').click();
- if(!corridor){
+ if(!corridor||process.env.SB_E2E_CAMPAIGN==='0.10.0'){
   // Compatibility path: create an explicitly version-pinned 0.6.1 save, then load it
   // through the production UI. Subsequent battles use actual UI and unchanged assertions.
-  const profile=(await readRows('profiles'))[0],old=new (library?Legacy09Controller:waterways?Legacy081Controller:ember?Legacy07Controller:Legacy061Controller)({profile});assert.equal(old.dispatch({type:'NEW_RUN',config:{seed,vocabularyMode}}).ok,true);assert.equal(old.dispatch({type:'START_BATTLE'}).ok,true);const run=old.getState();
+  const profile=(await readRows('profiles'))[0],old=new (corridor?Legacy010Controller:library?Legacy09Controller:waterways?Legacy081Controller:ember?Legacy07Controller:Legacy061Controller)({profile});assert.equal(old.dispatch({type:'NEW_RUN',config:{seed,vocabularyMode}}).ok,true);assert.equal(old.dispatch({type:'START_BATTLE'}).ok,true);const run=old.getState();
   await page.evaluate(({profile,run})=>new Promise((resolve,reject)=>{const open=indexedDB.open('sentence-balatro-v0-1',1);open.onsuccess=()=>{const db=open.result,tx=db.transaction('slots','readwrite');tx.objectStore('slots').put({key:profile.playerId+':3',slot:3,playerId:profile.playerId,savedAt:Date.now(),version:run.version,run});tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};open.onerror=()=>reject(open.error);}),{profile,run});
   await page.goto(base);await page.getByRole('button',{name:'수동 저장 불러오기',exact:true}).click();await page.getByRole('button',{name:'슬롯 3 불러오기',exact:true}).click();record(['LEGACY_SAVE'],`Explicit ${run.version} generated initial save loaded by current production UI; version-pinned legacy save, not a newly created 0.9 campaign`);
  }
- if(corridor)await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
+ if(corridor&&process.env.SB_E2E_CAMPAIGN!=='0.10.0')await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
  const initial=await saveSlot(1),profile=(await readRows('profiles'))[0];shadow=new RunController({initialState:initial,profile});
  await loadSlot(1);const again=await saveSlot(1);assert.deepEqual(again,initial);record(['P01','P02','U12','U13'],'production subpath, profile and initial six-card save/load exact (including RNG)');
  if(skipTutorial){
@@ -133,7 +134,7 @@ try{
   const planned=state.progress.battleNumber===27?snowPlan?.shift():null;
   if(planned?.type==='EXCHANGE'){await exchange(planned.cardIds);continue;}
   if(planned?.type==='PREPARE'){await prepare();continue;}
-  const operation=planned?.type==='OPERATION'?planned.command:planned?null:operationMove(state);if(operation){if(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0'].includes(state.version))operation.commandId=`operation.ui.${state.runId}.${state.revision}.${++operationSerial}`;if(operation.targetCardId){await page.locator('[data-card-id="'+operation.sourceCardId+'"] .operation-use').click();await cmd({type:'OPEN_OPERATION',sourceCardId:operation.sourceCardId});await page.locator('[data-target-id="'+operation.targetCardId+'"]').click();}else await page.locator('[data-card-id="'+operation.sourceCardId+'"] .operation-use').click();const used=await cmd(operation);await page.locator('.hand-cards [data-card-id="'+operation.sourceCardId+'"]').waitFor({state:'detached'});await page.locator('.presentation-locked').waitFor({state:'detached'});await cmd({type:'FINISH_OPERATION',effectId:used.operationEffect.effectId});if(shadow.getState().combat.operationHistory.filter(e=>e.sourceCardId===operation.sourceCardId).length>1)reuseExercised=true;await capture('natural-operation-battle-'+state.progress.battleNumber);const saved=await saveSlot(1);assert.deepEqual(saved.combat,shadow.getState().combat);await loadSlot(1);record(['P035','P044','P046'],'actual acquired operation used and exact pile/receipt/RNG save restored');continue;}
+  const operation=planned?.type==='OPERATION'?planned.command:planned?null:operationMove(state);if(operation){if(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(state.version))operation.commandId=`operation.ui.${state.runId}.${state.revision}.${++operationSerial}`;if(operation.targetCardId){await page.locator('[data-card-id="'+operation.sourceCardId+'"] .operation-use').click();await cmd({type:'OPEN_OPERATION',sourceCardId:operation.sourceCardId});await page.locator('[data-target-id="'+operation.targetCardId+'"]').click();}else await page.locator('[data-card-id="'+operation.sourceCardId+'"] .operation-use').click();const used=await cmd(operation);await page.locator('.hand-cards [data-card-id="'+operation.sourceCardId+'"]').waitFor({state:'detached'});await page.locator('.presentation-locked').waitFor({state:'detached'});await cmd({type:'FINISH_OPERATION',effectId:used.operationEffect.effectId});if(shadow.getState().combat.operationHistory.filter(e=>e.sourceCardId===operation.sourceCardId).length>1)reuseExercised=true;await capture('natural-operation-battle-'+state.progress.battleNumber);const saved=await saveSlot(1);assert.deepEqual(saved.combat,shadow.getState().combat);await loadSlot(1);record(['P035','P044','P046'],'actual acquired operation used and exact pile/receipt/RNG save restored');continue;}
   const reuseMove=exerciseOperationReuse&&!reuseExercised?qaOperationReuseExchange(state):null;if(reuseMove){await exchange(reuseMove.cardIds);continue;}
   const candidate=planned?.candidate??rankPlayableCandidates(state,{policy,snowCourse,emberCourse,waterwaysCourse,libraryCourse})[0];
   const courseAction=libraryMove(state,candidate,{course:libraryCourse})??waterwaysCourseMove(state,candidate,{course:waterwaysCourse})??(emberCourse?emberCourseMove(state,candidate):snowCourse?snowCourseMove(state,candidate):null);if(courseAction){if(courseAction.type==='EXCHANGE')await exchange(courseAction.cardIds);else await prepare();continue;}

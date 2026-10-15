@@ -1,0 +1,46 @@
+Full TAP is preserved locally; last45 lines:
+# Subtest: 0.9 final-turn non-target lethal attack wins before healing; final reward freezes and STAGE9_END saves
+ok 1702 - 0.9 final-turn non-target lethal attack wins before healing; final reward freezes and STAGE9_END saves
+  ---
+  duration_ms: 156.1881
+  type: 'test'
+  ...
+# Subtest: 0.9 Stage8 victory transitions to Stage9; immutable entry and old seal receipts survive
+ok 1703 - 0.9 Stage8 victory transitions to Stage9; immutable entry and old seal receipts survive
+  ---
+  duration_ms: 120.6742
+  type: 'test'
+  ...
+# Subtest: 0.9 generated reward/shop grade distribution, price, depletion and legacy policy remain distinct
+ok 1704 - 0.9 generated reward/shop grade distribution, price, depletion and legacy policy remain distinct
+  ---
+  duration_ms: 10702.4908
+  type: 'test'
+  ...
+# Subtest: 0.9 nominal catalog records actual structures independently of unlocks, once per accepted attack
+ok 1705 - 0.9 nominal catalog records actual structures independently of unlocks, once per accepted attack
+  ---
+  duration_ms: 70.2766
+  type: 'test'
+  ...
+# Subtest: 0.9 assigned five-battle integration uses real damage, rewards, frost cleanup and exact restored transitions
+ok 1706 - 0.9 assigned five-battle integration uses real damage, rewards, frost cleanup and exact restored transitions
+  ---
+  duration_ms: 689.2352
+  type: 'test'
+  ...
+# Subtest: 0.9 supply, direct search, recycling and duplicate operation completion never end the boss turn
+ok 1707 - 0.9 supply, direct search, recycling and duplicate operation completion never end the boss turn
+  ---
+  duration_ms: 173.3556
+  type: 'test'
+  ...
+1..1707
+# tests 1707
+# suites 0
+# pass 1707
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 200284.3535

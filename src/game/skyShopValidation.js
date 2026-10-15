@@ -15,7 +15,9 @@ export function validateSkyShops(run){
  if((run.status==='SHOP')===current.closed)fail();
  let paid=0;
  for(const shop of [...history,current]){
-  const two=['stage.04','stage.06','stage.08','stage.10'].includes(shop.stageId),runes=two?2:1,cards=two?3:2;
+  const two=['stage.04','stage.06','stage.08','stage.10'].includes(shop.stageId),runeSlots=two?2:1,cards=two?3:2;
+  const runes=run.version==='0.10.1'?shop.inventory.filter(i=>i.kind==='RUNE').length:runeSlots;
+  if(runes>runeSlots||runes<runeSlots&&!shop.trace?.some(t=>t.kind==='NO_ELIGIBLE_RUNE'&&t.slot===runes))fail();
   if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[]),...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
   if(!Array.isArray(shop.inventory)||shop.inventory.length!==runes+cards||new Set(shop.inventory.map(x=>x.itemId)).size!==shop.inventory.length)fail();
   let operationCount=0;const content=new Set();
@@ -24,7 +26,7 @@ export function validateSkyShops(run){
    if(item.kind!==kind||item.itemId!==`${shop.shopId}.${kind.toLowerCase()}.${slot}`||!def?.runtimeReady||def.rarity!==item.rarity||typeof item.purchased!=='boolean'||content.has(id))fail();content.add(id);
    if(!run.contentManifest[kind==='CARD'?'cardDefIds':'runeIds'].includes(id))fail();
    if(item.price!==(kind==='CARD'?{COMMON:6,UNCOMMON:10,RARE:14}:{COMMON:18,UNCOMMON:24,RARE:32})[item.rarity])fail();
-   if(kind==='RUNE'){if(id==='rune.svoo'&&![...run.eligibility.runOwnUnlocks,...run.eligibility.runStartUnlockBaseline].includes(id))fail();if(!integer(item.ownedLevel)||item.ownedLevel>2||item.offeredLevel!==item.ownedLevel+1)fail();}
+   if(kind==='RUNE'){if(run.version==='0.10.1'&&shop.stageId==='stage.02'&&def.rarity==='RARE')fail();if(run.version!=='0.10.1'&&id==='rune.svoo'&&![...run.eligibility.runOwnUnlocks,...run.eligibility.runStartUnlockBaseline].includes(id))fail();if(!integer(item.ownedLevel)||item.ownedLevel>2||item.offeredLevel!==item.ownedLevel+1)fail();}
    else if(slot===0&&(item.role!=='LOCAL_SYNTAX_RELEVANT'||def.cardKind==='OPERATION'))fail();
    if(hasPolishCampaign(run)&&kind==='CARD'&&((slot===cards-1)!==(def.cardKind==='OPERATION')||slot===cards-1&&item.role!=='DEDICATED_OPERATION'))fail();
    if(def.cardKind==='OPERATION')operationCount++;

@@ -1,0 +1,16 @@
+[
+  {
+    "boss": false,
+    "samples": 1500,
+    "runes": 492,
+    "rareRunes": 0,
+    "rareWords": 228
+  },
+  {
+    "boss": true,
+    "samples": 1500,
+    "runes": 2371,
+    "rareRunes": 72,
+    "rareWords": 497
+  }
+]

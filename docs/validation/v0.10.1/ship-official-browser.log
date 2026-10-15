@@ -1,0 +1,47 @@
+
+> sentence-balatro@0.10.1 test:browser
+> node tests/patch-input-browser.mjs && node tests/patch-reward-browser.mjs && node tests/patch-learning-browser.mjs && node tests/patch-vfx-browser.mjs && node tests/ui-browser.mjs && node tests/v02-ui-browser.mjs && node tests/guided-browser.mjs && node tests/grammar-learning-browser.mjs && node tests/time-canyon-browser.mjs && node tests/sky-foundation-browser.mjs && node tests/sky-operations-browser.mjs && node tests/sky-islands-browser.mjs && node tests/desert-browser.mjs && node tests/snow-browser.mjs
+
+Phase B browser PASS
+Phase C browser PASS
+Phase D browser PASS
+Phase E VFX browser PASS
+{"status":"PASS","checks":41,"screenshots":25}
+{"status":"PASS","checks":30,"captures":19}
+{"status":"PASS","checks":47,"captures":27}
+Grammar learning browser PASS: 28 checks, 28 captures
+{"status":"PASS","checks":23,"captures":18}
+{"status":"PASS","checks":6,"captures":4}
+{"status":"PASS","checks":14,"captures":12}
+{"status":"PASS","checks":18,"captures":13}
+{"status":"PASS","checks":36,"captures":20}
+PASS chromium P058_P066_P130_P131_P136_BOSS_OPENING
+PASS chromium P036_CLICK_RETURN_DRAG_PHYSICAL_FROST
+PASS chromium P037_FROST_DISCARD_CHECK_EXCHANGE
+PASS chromium P115_P135_P137_TWO_REAL_COPIES_SHATTER
+PASS chromium P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER
+PASS chromium P116_NONCOMPARISON_MORE_WATER
+PASS chromium P121_P123_P138_HP_ONE_LOCK_REASON
+PASS chromium P125_LAST_CRYSTAL_SAME_ATTACK_KILL
+PASS chromium P018_P019_P021_THIRD_SHOP_UI
+PASS chromium P080_P142_GROUPED_REVIEWED_FORMS
+PASS chromium P140_P141_P143_FIXED_GUIDES_AND_TEMPORARY_OWNERSHIP
+PASS chromium P130_P132_LAYOUT_1280_10
+PASS chromium P130_P132_LAYOUT_1280_14
+PASS chromium P130_P132_LAYOUT_1366_10
+PASS chromium P130_P132_LAYOUT_1366_14
+PASS chromium P130_P132_LAYOUT_1920_10
+PASS chromium P130_P132_LAYOUT_1920_14
+PASS firefox P058_P066_P130_P131_P136_BOSS_OPENING
+PASS firefox P036_CLICK_RETURN_DRAG_PHYSICAL_FROST
+PASS firefox P037_FROST_DISCARD_CHECK_EXCHANGE
+PASS firefox P115_P135_P137_TWO_REAL_COPIES_SHATTER
+PASS firefox P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER
+PASS firefox P116_NONCOMPARISON_MORE_WATER
+PASS webkit P058_P066_P130_P131_P136_BOSS_OPENING
+PASS webkit P036_CLICK_RETURN_DRAG_PHYSICAL_FROST
+PASS webkit P037_FROST_DISCARD_CHECK_EXCHANGE
+PASS webkit P115_P135_P137_TWO_REAL_COPIES_SHATTER
+PASS webkit P054_P056_P127_REAL_INDEXEDDB_RESTORE_AFTER_SHATTER
+PASS webkit P116_NONCOMPARISON_MORE_WATER
+Snow browser PASS 29 checks 19 captures

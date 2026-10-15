@@ -1,3 +1,5 @@
+import {installOrientationGate} from './ui/orientation.js';
+import {installViewport,syncFullscreenButtons} from './ui/viewport.js';
 import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
 import {attachGuidedCoach,showScoreGate,skipTutorialButton} from './ui/guidedCoach.js';
@@ -5,6 +7,7 @@ import {wordCard} from './ui/cards.js';
 import {cardModel,operationPolishPreview} from './ui/models.js';
 import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutorial.js';
 import './ui/styles.css';
+import './ui/responsive.css';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
 import { renderCombat } from './ui/combat.js';
@@ -18,6 +21,7 @@ import { registry } from './data/language/index.js';
 import { RunController } from './game/runController.js';
 import { LocalStore, newProfile } from './services/localStore.js';
 
+installViewport();syncFullscreenButtons();installOrientationGate();
 const root=document.querySelector('#app');
 const store=new LocalStore({registry});
 let profiles=[],profile=null,controller=null,cleanup=()=>{},combatView=null,presenting=false,selected=new Set(),saveQueue=Promise.resolve(),memoryWarning=false,starting=false;
