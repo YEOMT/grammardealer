@@ -38,7 +38,8 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{histo
   if(!snapshot||!Array.isArray(snapshot.orderedTokens))throw new TypeError('Malformed SentenceSnapshot');
   result={...emptyResult(snapshot),grammarVersion:languageRegistry.version??GRAMMAR_VERSION};
   if(snapshot.schemaVersion!==1)throw new TypeError('Unsupported snapshot schema');
-  if(snapshot.orderedTokens.length>16)return {...result,status:'UNSUPPORTED',messageKo:'문장 카드 한도는 16장입니다.',diagnostics:{limit:'MAX_TOKENS',maximum:16}};
+  const maximum=languageRegistry.maxSentenceCards===24?24:16;
+  if(snapshot.orderedTokens.length>maximum)return {...result,status:'UNSUPPORTED',messageKo:`문장 카드 한도는 ${maximum}장입니다.`,diagnostics:{limit:'MAX_TOKENS',maximum}};
   const ids=new Set();
   const tokens=snapshot.orderedTokens.map((token,position)=>{
    if(typeof token.cardInstanceId!=='string'||!token.cardInstanceId||ids.has(token.cardInstanceId))throw new TypeError('Duplicate or absent physical card ID');ids.add(token.cardInstanceId);

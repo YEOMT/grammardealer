@@ -1,3 +1,10 @@
+## 0.10.2 — UI Recovery r2
+
+- Restore lobby copy, windowed PC/tablet enemy and side panels, centered score feedback and fixed12×2 sentence board sharing hand-card width/type size.
+- Repair two-row rune drag and preserve guided44px exchange checks.
+- New campaigns accept24 physical WORD cards; legacy saves keep16. Extend the existing diamond10+ description to24 without multiplier changes.
+- Preserve0.10.1 HP/runes/acquisition, grammar complexity,47 encounters and historical saves. See docs/TEST_REPORT_UI_RECOVERY.md for actual tests and the small-phone layout limitation.
+
 ## 0.10.1 — 2026-10-15
 
 - 새 원정HP·신규10룬/획득 규칙 및 기존저장 버전격리.

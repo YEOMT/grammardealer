@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-0101-controller.js';
 import {newProfile,validateRunState} from '../src/services/localStore.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {runesForVersion} from '../src/data/runes.js';

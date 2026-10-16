@@ -33,7 +33,7 @@ function validatePolishedHistory(run){
  if(!list(c.exhaustedIds)||!Array.isArray(c.operationHistory)||!Number.isSafeInteger(c.operationSequence)||c.operationSequence!==c.operationHistory.length)fail();
  const exhausted=[],uses=new Map(),commands=new Set();
  const dustDefinitions=new Map(hasEmberCampaign(run)?(c.dustSupplyTrace?.cardIds??[]).map(id=>[id,c.dustSupplyTrace.cardDefId]):[]);
- const cityDefinitions=new Map(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run.version)?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
+ const cityDefinitions=new Map(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
  const laterFrostDefinitions=new Map([...(c.libraryFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.library.${run.progress.roundIndex}.${i}`,def]),...(c.corridorFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.corridor.${run.progress.roundIndex}.${i}`,def])]);
  const frostDefinitions=new Map((c.frostSupplyTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.battle.${run.progress.battleNumber}.${String(i).padStart(2,'0')}`,def]));
  for(const [i,e]of c.operationHistory.entries()){

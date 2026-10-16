@@ -10,7 +10,7 @@ export function resolveLibraryTurnEnd({runId,battleId,turnIndex,actionId,actionT
  return {turnEndId:`${runId}:${battleId}:turn.${turnIndex}`,battleId,turnIndex,actionId,actionType,hpBefore,hpAfterAttack,hpAfterTurnEnd:hpAfterAttack+actualHeal,actualDamage,actualHeal,evidenceIds:evidence.map(n=>n.id),suppressed,killed};
 }
 export function validateLibraryTurnEnds(run){
- const c=run.combat,isBoss=['0.9.0','0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex===4;
+ const c=run.combat,isBoss=['0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex===4;
  if(!c)return true;
  const fail=()=>{throw Error('Invalid library turn-end receipts');};
  if(!isBoss){if(c.libraryTurnEnds!==undefined||c.enemyState.bossMechanic?.id==='LIBRARY_REGENERATION')fail();return true;}

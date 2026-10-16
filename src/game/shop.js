@@ -93,7 +93,7 @@ export function createShop(run) {
     if (!pool.length) { trace.push({ kind: 'NO_ELIGIBLE_RUNE', slot }); break; }
     const weights=Object.fromEntries(Object.entries(runeRarityWeightsForVersion(run.version)).filter(([key])=>pool.some(rune=>rune.rarity===key)));
     const rarity=weightedPick(stream,weights);
-    if(['0.9.0','0.10.0','0.10.1'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',slot,...(run.version==='0.10.1'?{context:runeDropContext(run,{source:'SHOP'})}:{}),weights:{...weights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
+    if(['0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version))trace.push({kind:'RUNE_RARITY_DRAW',slot,...(['0.10.1','0.10.2'].includes(run.version)?{context:runeDropContext(run,{source:'SHOP'})}:{}),weights:{...weights},rarity,eligibleRuneIds:pool.map(r=>r.id)});
     const definition = pick(stream, pool.filter(rune => rune.rarity === rarity));
     const ownedLevel = equipped(run).find(rune => rune.runeId === definition.id)?.level ?? 0;
     inventory.push({ itemId: `${shopId}.rune.${slot}`, kind: 'RUNE', runeId: definition.id, rarity,

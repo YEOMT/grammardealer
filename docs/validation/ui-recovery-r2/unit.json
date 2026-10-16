@@ -1,0 +1,17 @@
+{
+  "label": "recovery-release-unit",
+  "command": [
+    "npm.cmd",
+    "test"
+  ],
+  "startedAt": "2026-10-16T09:13:04.677521+00:00",
+  "finishedAt": "2026-10-16T09:16:25.794595+00:00",
+  "exitCode": 0,
+  "status": "PASS",
+  "log": ".local-validation/v0101/recovery-release-unit/command.log",
+  "logSha256": "8d578e12a77c6667e014e7d6a3a2e3c3777bf2ca87add5388c24833d86ab102a",
+  "fixedOutputsArchivedAndRestored": [
+    "docs/evidence-0.1.1/reward-distribution.json",
+    "docs/evidence-0.1.1/timing.json"
+  ]
+}

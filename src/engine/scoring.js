@@ -12,7 +12,8 @@ export function attackableAnalysis(analysis) { return Boolean(analysis && ATTACK
 
 /** Snapshot normalization does not reach into gameplay state or language data. */
 export function validateCardScoringSnapshot(cards, balance = SCORE_BALANCE) {
-  if (!Array.isArray(cards) || !cards.length || cards.length > 16) throw new RangeError('Scoring requires 1..16 submitted cards');
+  const maximum=balance.maxSubmittedCards===24?24:16;
+  if (!Array.isArray(cards) || !cards.length || cards.length > maximum) throw new RangeError(`Scoring requires 1..${maximum} submitted cards`);
   const ids = new Set();
   return cards.map((card) => {
     const instanceId = card.instanceId ?? card.cardInstanceId;

@@ -262,7 +262,8 @@ export const RUNES=deepFreeze([...LEGACY_RUNES.map(r=>({...r,levelValues:['rune.
 export const POLISH_RUNES=deepFreeze(RUNES.map(r=>r.id==='rune.longSentence'?{...r,levelValues:[{short:{num:9,den:5},long:{num:12,den:5}},{short:{num:11,den:5},long:{num:14,den:5}},{short:{num:13,den:5},long:{num:16,den:5}}]}:r));
 export const LIBRARY_RUNES=deepFreeze(POLISH_RUNES.map(r=>r.id==='rune.longSentence'?{...r,nameKo:'다이아몬드 룬',rarity:'RARE',color:'#ccecf6'}:r));
 export const PATCH0101_RUNES=deepFreeze([...LIBRARY_RUNES,...NEW_POLISH_RUNES]);
-export const runesForVersion=version=>version==='0.10.1'?PATCH0101_RUNES:['0.9.0','0.10.0','0.10.1'].includes(version)?LIBRARY_RUNES:['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?POLISH_RUNES:['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(version)?RUNES:LEGACY_RUNES;
+const RECOVERY_RUNES=deepFreeze(PATCH0101_RUNES.map(r=>r.id==='rune.longSentence'?{...r,conditionDescriptionKo:r.conditionDescriptionKo.replace('10~16','10~24'),displayEffectSummaryKo:r.displayEffectSummaryKo.replace('10~16','10~24')}:r));
+export const runesForVersion=version=>version==='0.10.2'?RECOVERY_RUNES:['0.10.1','0.10.2'].includes(version)?PATCH0101_RUNES:['0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?LIBRARY_RUNES:['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?POLISH_RUNES:['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0'].includes(version)?RUNES:LEGACY_RUNES;
 export const runeForVersion=(id,version)=>runesForVersion(version).find(r=>r.id===id)??null;
 export const RUNE_BY_ID = Object.freeze(Object.fromEntries(RUNES.map(rune => [rune.id, rune])));
 export const ACTIVE_RUNE_IDS = Object.freeze(RUNES.map(rune => rune.id));
@@ -274,5 +275,5 @@ export const BASIC_RUNE_IDS=Object.freeze(RUNES.filter(r=>r.firstRuneBasicPoolEl
 /** Eligibility is frozen into this run; later profile unlocks do not rewrite its pools. */
 export function eligibleRuneDefinitions(run) {
  const unlocked=new Set([...(run?.eligibility?.runStartUnlockBaseline??[]),...(run?.eligibility?.runOwnUnlocks??[])]);
- return runesForVersion(run?.version).filter(r=>r.runtimeReady&&(run.version==='0.10.1'||r.id!=='rune.svoo'||['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(run?.version)&&unlocked.has(r.id)));
+ return runesForVersion(run?.version).filter(r=>r.runtimeReady&&(['0.10.1','0.10.2'].includes(run.version)||r.id!=='rune.svoo'||['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(run?.version)&&unlocked.has(r.id)));
 }
