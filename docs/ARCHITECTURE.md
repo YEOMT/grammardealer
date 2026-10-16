@@ -1,3 +1,11 @@
+# 최종 전투 UI 후속 구조
+
+- `responsive.css`는 PC/태블릿에서 같은5영역·중간3열을 유지한다. 화면별 공통 카드폭으로12×2 외곽을 계산하고 각행을 독립 중앙정렬한다. 남는 높이는 상단으로 배분하며 조합대는 늘리지 않는다.
+- `cardPager`는 한 줄 폭과 페이지당최대10장을 기준으로 실제DOM의 hidden만 바꾼다. ResizeObserver/viewport listener는 cleanup하며 원정/ID/선택/RNG에는 쓰지 않는다. 페이지 간 체크는 기존Set으로 유지한다.
+- `combat.js`는 지역 안내를 적 왼쪽으로 재배치하고 보스 상태를HP근처에 유지한다. 짧은 학습목표와 상세 모달, 확정 점수 연출 경계를 유지한다. `form-dialog`의 그룹 배치만 압축한다.
+
+[실제 검증](TEST_REPORT_FINAL_BATTLE_UI.md). 아래 UI Recovery의 좁은창 상단패널 설명은 역사적 기록이다. 게임 버전·저장·엔진은 변경하지 않았다.
+
 # 0.10.2 UI Recovery 추가 구조
 
 - `sentenceRows`는 물리DOM을12개씩 두행으로 묶고 absoluteIndex를 유지한다. viewport에 따른행수추정·조합대 flex확장을 제거했다. 넓은PC는좌우패널, 보통창/태블릿은상단정보+전폭조합대로 배치한다. 손패/조합대는 같은 CSS card-width/font식이다.

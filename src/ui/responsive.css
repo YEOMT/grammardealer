@@ -1,92 +1,88 @@
-/* Recovery r2: content-sized 12 x 2 board. Fullscreen is optional. */
+/* Final battle layout: fixed 12 x 2 board, three columns, one paged hand row. */
 :root{--viewport-height:100vh}
 @supports(height:100dvh){:root{--viewport-height:100dvh}}
 [hidden]{display:none!important}
 html:fullscreen,html:fullscreen body{width:100%;height:100%;background:#101b21}
 body:has(.responsive-battle){margin:0;min-width:320px}
-body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:96px;--board-body:64px;--form-height:28px;--board-gap:8px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 66px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));grid-template-columns:1fr;grid-template-rows:40px minmax(140px,220px) auto auto;align-content:space-between;gap:8px}
+body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:clamp(62px,calc(3.92vw + 16.45px),96px);--board-body:60px;--form-height:28px;--board-gap:10px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 44px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));grid-template-columns:1fr;grid-template-rows:38px minmax(120px,1fr) auto auto;align-content:start;gap:8px}
 .responsive-battle .game-header{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;padding-bottom:5px}
 .responsive-battle .brand-small{grid-column:1;grid-row:1;justify-self:start;font-size:13px;white-space:nowrap}
 .responsive-battle .stage-path{grid-column:2;grid-row:1;justify-self:center;min-width:0;gap:5px}.responsive-battle .stage-path h1{font-size:17px}
 .responsive-battle .header-actions{grid-column:3;grid-row:1;justify-self:end;display:flex;gap:4px;white-space:nowrap}.responsive-battle .header-actions button{min-height:32px;padding:4px 8px;font-size:12px}
-body[data-stage-theme] .responsive-battle .enemy-area{display:grid;grid-template-columns:110px minmax(220px,330px) minmax(150px,300px);align-content:center;justify-content:center;min-height:0;padding:6px;gap:12px;position:relative;overflow:visible}
-.responsive-battle .enemy-avatar{font-size:86px;line-height:1.1;width:auto;text-align:center;grid-column:1;grid-row:1}
-.responsive-battle .enemy-info{width:auto;min-width:0;grid-column:2;grid-row:1}.responsive-battle .enemy-info h2{font-size:24px;margin:5px 0;line-height:1.2}.responsive-battle .enemy-label{font-size:10px;margin:0}.responsive-battle .enemy-hp{font-size:13px;margin:4px 0}
+body[data-stage-theme] .responsive-battle .enemy-area{display:grid;grid-template-columns:300px 160px 300px;align-content:center;justify-content:center;min-height:0;padding:6px;gap:12px;position:relative;overflow:visible}
+.responsive-battle .enemy-avatar{font-size:110px;line-height:1.1;width:auto;text-align:center;grid-column:2;grid-row:1}
+.responsive-battle .enemy-info{width:auto;min-width:0;grid-column:3;grid-row:1}.responsive-battle .enemy-info h2{font-size:24px;margin:5px 0;line-height:1.2}.responsive-battle .enemy-label{font-size:10px;margin:0}.responsive-battle .enemy-hp{font-size:13px;margin:4px 0}
 .responsive-battle .enemy-area>.region-bonus{position:static;grid-column:3;grid-row:1;padding:8px;font-size:12px}
 .responsive-battle .enemy-area .canyon-tools,.responsive-battle .enemy-area .waterways-tools,.responsive-battle .enemy-area .ember-tools{position:static;grid-column:3;grid-row:1;max-width:none;min-width:0;gap:4px;font-size:12px}
 .responsive-battle .enemy-area button{min-height:30px;padding:4px 6px;font-size:12px}
 .responsive-battle .normal-resistance,.responsive-battle .foresight-memory,.responsive-battle .relative-seal,.responsive-battle .boss-seal-status,.responsive-battle .frost-crystals{position:static;font-size:12px;line-height:1.3;margin:3px 0}
 .responsive-battle .golem-phases{position:static;grid-column:1/-1;grid-row:2;width:100%;gap:5px}.responsive-battle .golem-phase{padding:4px}.responsive-battle .golem-phase-label{font-size:11px}
-body[data-stage-theme] .responsive-battle .combat-middle{grid-template-columns:minmax(150px,1fr) var(--board-width) minmax(210px,1fr);gap:12px;min-height:0;align-items:stretch}
-body[data-stage-theme] .responsive-battle .status-panel,body[data-stage-theme] .responsive-battle .rune-panel{padding:10px;gap:6px;min-width:0;min-height:0;overflow:visible;contain:none}
+body[data-stage-theme] .responsive-battle .combat-middle{display:grid;grid-template-columns:minmax(136px,1fr) calc(var(--board-width) + 14px) minmax(174px,1fr);gap:8px;min-height:0;align-items:stretch}
+body[data-stage-theme] .responsive-battle .status-panel,body[data-stage-theme] .responsive-battle .rune-panel{display:flex;flex-direction:column;padding:8px;gap:6px;min-width:0;min-height:0;overflow:visible;contain:none}
 .responsive-battle .status-label{font-size:12px}.responsive-battle .turn-count{font-size:32px}.responsive-battle .resource-row{font-size:13px}
-.responsive-battle .status-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;margin-top:auto}.responsive-battle .status-nav button{min-width:0;min-height:30px;padding:4px 2px;font-size:13px;line-height:1.2;white-space:normal;word-break:keep-all}
+.responsive-battle .status-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3px;margin-top:8px}.responsive-battle .status-nav button{min-width:0;min-height:34px;padding:4px 2px;border:1px solid #91afbe66;border-radius:6px;background:#101d2b88;font-size:12px;line-height:1.2;white-space:normal;word-break:keep-all}
 .responsive-battle .compact-battle-controls{display:none}
 .responsive-battle .rune-title{font-size:13px}.responsive-battle .rune-hint{font-size:10px;line-height:1.25;margin:2px 0}
-.responsive-battle .rune-slot{min-height:0;padding:5px}.responsive-battle .rune-slot-head{gap:4px;min-width:0}.responsive-battle .rune-info{font-size:13px;line-height:1.2;min-width:0}.responsive-battle .rune-gem{font-size:18px}
+.responsive-battle .rune-slot{min-height:62px;padding:5px;display:grid;grid-template-columns:minmax(0,1fr) 24px;gap:3px;align-content:center}.responsive-battle .rune-slot-head{gap:4px;min-width:0}.responsive-battle .rune-info{font-size:12px;line-height:1.2;min-width:0}.responsive-battle .rune-gem{font-size:18px}
 .responsive-battle .rune-effect{display:block;font-size:11px;line-height:1.2;margin:3px 0;overflow-wrap:anywhere}
-.responsive-battle .rune-order-controls{gap:3px;margin-top:2px}.responsive-battle .rune-order-controls button{min-width:30px;min-height:26px;height:26px;padding:1px 6px}
-body[data-stage-theme] .responsive-battle .sentence-area{min-height:0;display:flex;align-items:center;gap:5px;justify-content:center}
-body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){width:100%;height:68px;min-height:68px;flex:0 0 68px;margin:0;gap:16px;align-items:center;justify-content:center}
+.responsive-battle .rune-order-controls{grid-column:2;grid-row:1/3;display:flex;flex-direction:column;gap:0;margin:0}.responsive-battle .rune-order-controls button{min-width:24px;width:24px;min-height:20px;height:20px;padding:0;font-size:11px}
+body[data-stage-theme] .responsive-battle .sentence-area{min-height:0;display:flex;align-items:center;gap:5px;justify-content:flex-start;padding:6px;border:1px solid #91afbe66;border-radius:10px;background:#101d2b88}
+body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){width:100%;height:58px;min-height:58px;flex:0 0 58px;margin:0;gap:16px;align-items:center;justify-content:center}
 .responsive-battle .score-copy{flex:0 1 auto;min-width:0;max-width:660px}.responsive-battle .score-number{flex:0 0 auto;min-width:0;max-width:45%;font-size:clamp(25px,3vw,54px);white-space:nowrap;font-variant-numeric:tabular-nums}
 .responsive-battle .score-number[data-large-number=true]{font-size:26px}
-.responsive-battle .score-label{font-size:22px;line-height:1.2;min-height:0;overflow-wrap:anywhere}.responsive-battle .score-label:empty,.responsive-battle .score-log:empty{display:none}.responsive-battle .score-log{font-size:11px;line-height:1.2;margin-top:4px;min-height:0}
+.responsive-battle .score-label{font-size:19px;line-height:1.2;min-height:0;overflow-wrap:anywhere}.responsive-battle .score-label:empty,.responsive-battle .score-log:empty{display:none}.responsive-battle .score-log{font-size:11px;line-height:1.2;margin-top:4px;min-height:0}
 .responsive-battle .battle-learning-guide{font-size:13px;line-height:1.2;text-align:center}.responsive-battle .learning-topic{gap:5px;justify-content:center}.responsive-battle .learning-topic strong{font-size:16px}.responsive-battle .battle-learning-guide p{margin:2px 0}.responsive-battle .learning-bonus{display:none}
-body[data-stage-theme] .responsive-battle .combat-sentence{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;gap:var(--board-gap);width:var(--board-width);height:calc(2 * var(--board-card-height) + var(--board-gap) + 2 * var(--board-pad) + 2px);min-height:0;flex:none;padding:var(--board-pad);overflow:visible;align-self:center}
-.responsive-battle .sentence-row{display:flex;flex:none;align-items:flex-start;justify-content:center;gap:6px;width:100%;height:var(--board-card-height)}
+body[data-stage-theme] .responsive-battle .combat-sentence{display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:flex-start;position:relative;gap:var(--board-gap);width:var(--board-width);height:calc(2 * var(--board-card-height) + var(--board-gap) + 2 * var(--board-pad) + 2px);min-height:0;flex:none;padding:var(--board-pad);overflow:visible;align-self:center}
+.responsive-battle .sentence-row{display:flex;flex:none;align-items:flex-start;justify-content:center;gap:4px;width:100%;height:var(--board-card-height)}
 body[data-stage-theme] .responsive-battle .word-card{--card-w:var(--play-card-width);width:var(--play-card-width);min-width:var(--play-card-width);max-width:var(--play-card-width);flex:0 0 var(--play-card-width);container-type:inline-size}
 body[data-stage-theme] .responsive-battle .word-card .card-word{font-size:min(23px,calc(90cqw / var(--fit-factor,3)))!important;font-weight:700;line-height:1.05;margin:3px 0!important;white-space:nowrap;overflow-wrap:normal}
 body[data-stage-theme] .responsive-battle .combat-sentence .card-body{min-height:var(--board-body);height:var(--board-body);flex:none;padding:4px}
 body[data-stage-theme] .responsive-battle .combat-sentence .card-footline{display:flex;font-size:8px;line-height:1.1;min-height:9px}.responsive-battle .combat-sentence .card-topline{font-size:9px;line-height:1.1}
 .responsive-battle .combat-sentence .polish-badge{font-size:8px;padding:0 2px}.responsive-battle .combat-sentence .form-button{height:var(--form-height);min-height:var(--form-height);padding:2px;font-size:12px;flex:none}
-.responsive-battle .board-placeholder{width:100%;text-align:center}
+.responsive-battle .board-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;text-align:center;pointer-events:none;z-index:1;text-shadow:0 2px 6px #000}.responsive-battle .board-placeholder p{margin:4px}.responsive-battle .empty-board-grid{display:grid;grid-template-columns:repeat(12,var(--play-card-width));grid-template-rows:repeat(2,var(--board-card-height));gap:var(--board-gap) 4px;pointer-events:none;opacity:.45}.responsive-battle .empty-board-grid span{display:grid;place-items:center;border:1px dashed #91afbe88;border-radius:7px;color:#abc4cc;font-size:22px}
 body[data-stage-theme] .responsive-battle .combat-actions{margin:0;gap:8px;flex:none;min-height:40px;align-items:center;width:100%;flex-wrap:nowrap}
 body[data-stage-theme] .responsive-battle .combat-actions button{min-height:40px;padding:5px 10px;font-size:13px}.responsive-battle .sentence-count{font-size:12px;color:#b3c4bb;margin-right:6px;white-space:nowrap}
-body[data-stage-theme] .responsive-battle .hand-section{min-height:0;padding:6px 0 0;grid-template-columns:54px minmax(0,1fr) 54px;gap:6px}
+body[data-stage-theme] .responsive-battle .hand-section{min-height:0;padding:6px 0 0;grid-template-columns:72px minmax(0,1fr) 72px;gap:6px}
 .responsive-battle .hand-center{min-width:0;align-self:start}.responsive-battle .hand-title{font-size:12px;margin-bottom:4px}
-body[data-stage-theme] .responsive-battle .hand-cards{display:flex;flex-wrap:wrap;min-height:0;gap:5px;overflow:visible;padding:0;justify-content:center}
-body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:64px;height:64px;padding:4px;flex:none}.responsive-battle .hand-cards .card-topline{font-size:9px}.responsive-battle .hand-cards .card-footline{min-height:30px;padding:1px 30px 1px 4px;font-size:9px}.responsive-battle .hand-cards .card-select{width:29px;height:29px;min-height:29px;right:0;bottom:0}
+body[data-stage-theme] .responsive-battle .hand-cards{display:flex;flex-wrap:nowrap;min-height:0;gap:5px;overflow:visible;padding:0;justify-content:center}
+body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:60px;height:60px;padding:4px;flex:none}.responsive-battle .hand-cards .card-topline{font-size:9px}.responsive-battle .hand-cards .card-footline{min-height:30px;padding:1px 30px 1px 4px;font-size:9px;flex-wrap:wrap;gap:0 3px}.responsive-battle .card-footline>span{white-space:nowrap}.responsive-battle .hand-cards .card-select{width:29px;height:29px;min-height:29px;right:0;bottom:0}
 .responsive-battle .operation-name{font-size:14px;line-height:1.15}.responsive-battle .operation-limit{font-size:9px}.responsive-battle .operation-footer{padding-left:0!important}.responsive-battle .operation-use{font-size:11px;padding:2px;min-height:29px}
 .responsive-battle .exchange-row{margin-top:5px;gap:8px;min-height:32px}.responsive-battle .exchange-row button{min-height:32px;padding:4px 8px;font-size:12px}
 .responsive-battle .pile-button{min-height:90px;padding:3px;font-size:10px}.responsive-battle .pile-button strong{font-size:25px}
-.card-pager{display:flex;align-items:center;justify-content:space-between;font-size:11px;min-height:24px;gap:4px}.card-pager button{padding:1px 6px;min-height:24px;font-size:11px}
+.responsive-battle .card-pager{font-size:11px;color:#c6d4ce;margin:0 38px 4px}.responsive-battle .hand-page-row{display:grid;grid-template-columns:32px minmax(0,1fr) 32px;gap:6px;align-items:center}.responsive-battle .hand-page-row>button{font-size:30px;padding:0;min-height:54px;border:1px solid #91afbe66;border-radius:6px}.responsive-battle .hand-title{margin-bottom:2px}
 .battle-menu{display:grid;grid-template-columns:1fr 1fr;gap:8px}.orientation-gate{max-width:440px;padding:24px;border:1px solid #758d95;border-radius:12px;background:#142b31;color:#f7f0dc;text-align:center}.orientation-gate::backdrop{background:#08161df5}.orientation-gate button{min-height:44px}
-/* Twelve full-sized cards need the entire middle width on ordinary windows/tablets. */
-@media(max-width:1699px){
- body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:82px;--board-body:56px;--form-height:26px;grid-template-columns:190px minmax(0,1fr) 430px;grid-template-rows:36px 168px auto auto;gap:8px;align-content:space-between}
- .responsive-battle .game-header{grid-column:1/-1;grid-row:1}
- body[data-stage-theme] .responsive-battle .combat-middle{display:contents}
- body[data-stage-theme] .responsive-battle .status-panel{grid-column:1;grid-row:2;display:grid;grid-template-columns:1fr 1fr;gap:3px;padding:7px}
- .responsive-battle .status-panel>div:first-child{grid-row:1/3}.responsive-battle .status-nav{grid-column:1/-1;margin:0;grid-template-columns:repeat(4,minmax(0,1fr))}.responsive-battle .status-nav button{font-size:11px;min-height:28px;padding:2px 1px}.responsive-battle .turn-count{font-size:27px;margin:4px 0}
- body[data-stage-theme] .responsive-battle .enemy-area{grid-column:2;grid-row:2;grid-template-columns:65px minmax(0,1fr);gap:5px;padding:4px}
- .responsive-battle .enemy-avatar{font-size:58px}.responsive-battle .enemy-info h2{font-size:20px}
- .responsive-battle .enemy-area>.region-bonus,.responsive-battle .enemy-area .canyon-tools,.responsive-battle .enemy-area .waterways-tools,.responsive-battle .enemy-area .ember-tools{grid-column:1/-1;grid-row:2;font-size:11px;padding:3px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center}
- .responsive-battle .enemy-area .golem-phases{grid-row:3}.responsive-battle .golem-phase-label{font-size:9px}.responsive-battle .golem-phase .hp-track{height:4px}
- body[data-stage-theme] .responsive-battle .rune-panel{grid-column:3;grid-row:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:20px repeat(2,minmax(0,1fr));padding:5px;gap:4px}
- .responsive-battle .rune-title{grid-column:1/-1}.responsive-battle .rune-hint{display:none}.responsive-battle .rune-slot{padding:3px;position:relative}.responsive-battle .rune-slot-head{padding-right:70px}.responsive-battle .rune-info{font-size:11px}.responsive-battle .rune-gem{font-size:14px}.responsive-battle .rune-order-controls{position:absolute;right:3px;top:3px;gap:1px;margin:0}.responsive-battle .rune-order-controls button{min-width:21px;width:21px;padding:0;min-height:24px;height:24px;font-size:12px}.responsive-battle .rune-effect{font-size:10px}
- body[data-stage-theme] .responsive-battle .sentence-area{grid-column:1/-1;grid-row:3;width:100%;justify-self:center}
- body[data-stage-theme] .responsive-battle .hand-section{grid-column:1/-1;grid-row:4}
- body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:56px;height:56px}
- body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:56px;min-height:56px;flex-basis:56px}
- .responsive-battle .score-label{font-size:20px}
+/* The five regions remain in the same order in a normal window and fullscreen. */
+.responsive-battle .board-heading{display:flex;justify-content:space-between;align-items:center;width:100%;font-size:13px;color:#e8dca7;min-height:20px}
+.responsive-battle .enemy-tactics{grid-column:1;grid-row:1;justify-self:end;width:100%;padding:12px;border:1px solid #91afbe66;border-radius:8px;background:#101d2baa;font-size:12px}
+.responsive-battle .enemy-tactics>strong{display:block;margin-bottom:6px;color:#e8dca7}
+body[data-stage-theme] .responsive-battle .enemy-tactics .region-bonus{position:static;display:block;margin:4px 0;padding:3px 0;border:0;background:none;font-size:12px}
+body[data-stage-theme] .responsive-battle .enemy-tactics .canyon-tools,body[data-stage-theme] .responsive-battle .enemy-tactics .waterways-tools,body[data-stage-theme] .responsive-battle .enemy-tactics .ember-tools{display:flex;flex-direction:column;align-items:flex-start;position:static;max-width:none;padding:0;gap:4px}
+.responsive-battle .enemy-strategy-short{margin:5px 0 0;color:#bccfc8;font-size:12px}
+.responsive-battle .enemy-info .hp-track{max-width:300px;height:10px}
+.responsive-battle .rune-effect{grid-column:1;grid-row:2;margin:0}
+.responsive-battle .rune-slot.empty{display:flex;min-height:45px}
+@media(max-width:1399px){
+ .responsive-battle .rune-gem{font-size:14px}.responsive-battle .rune-slot-head{gap:3px}.responsive-battle .rune-info{font-size:11px}.responsive-battle .rune-effect{font-size:10px}
+ body[data-stage-theme] .responsive-battle .status-panel,body[data-stage-theme] .responsive-battle .rune-panel{padding:6px}
+ .responsive-battle .status-nav button{font-size:11px}.responsive-battle .turn-count{margin:5px 0;font-size:30px}
+ body[data-stage-theme] .responsive-battle .enemy-area{grid-template-columns:260px 120px 260px;gap:10px}.responsive-battle .enemy-avatar{font-size:88px}
+ .responsive-battle .enemy-info h2{font-size:22px}.responsive-battle .enemy-tactics{padding:8px}
 }
-@media(max-height:700px) and (min-width:1100px){
- body[data-stage-theme] .game-shell.responsive-battle{--board-body:50px;--form-height:24px;grid-template-rows:32px 160px auto auto;gap:4px;padding-top:5px;padding-bottom:5px}
+@media(max-height:720px){
+ body[data-stage-theme] .game-shell.responsive-battle{--board-body:48px;--form-height:24px;--board-gap:8px;grid-template-rows:32px minmax(104px,1fr) auto auto;gap:4px;padding-block:5px}
  body[data-stage-theme] .responsive-battle .sentence-area{gap:3px}
- body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:52px;min-height:52px;flex-basis:52px}
- .responsive-battle .battle-learning-guide{font-size:12px}.responsive-battle .learning-topic strong{font-size:14px}.responsive-battle .boss-summary{display:flex;gap:5px;justify-content:center;flex-wrap:wrap}.responsive-battle .boss-summary p{margin:0}
+ body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:48px;min-height:48px;flex-basis:48px}
+ .responsive-battle .score-label{font-size:17px}.responsive-battle .learning-topic strong{font-size:14px}.responsive-battle .battle-learning-guide{font-size:12px}
  body[data-stage-theme] .responsive-battle .combat-actions,body[data-stage-theme] .responsive-battle .combat-actions button{min-height:34px;font-size:12px}
- body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:46px;height:46px}.responsive-battle .hand-title{font-size:11px}.responsive-battle .exchange-row{margin-top:3px;min-height:30px}.responsive-battle .exchange-row button{min-height:30px}
- .responsive-battle .enemy-avatar{font-size:52px}.responsive-battle .enemy-info h2{font-size:18px}.responsive-battle .enemy-label{font-size:8px}.responsive-battle .enemy-hp{margin:1px 0}.responsive-battle .enemy-info .hp-track{height:7px}
- .responsive-battle .status-nav button{min-height:25px}.responsive-battle .rune-panel{font-size:11px}.responsive-battle .rune-slot-head{padding-right:60px}.responsive-battle .rune-order-controls button{min-width:18px;width:18px}
+ body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:46px;height:46px}
+ .responsive-battle .rune-slot{min-height:58px}.responsive-battle .rune-hint{font-size:9px}.responsive-battle .rune-order-controls button{height:18px;min-height:18px}
+ .responsive-battle .status-nav button{min-height:30px}.responsive-battle .resource-row{padding:5px 0}.responsive-battle .turn-count{margin:4px 0}
+ .responsive-battle .enemy-avatar{font-size:72px}.responsive-battle .enemy-tactics{padding:5px 8px}.responsive-battle .enemy-strategy-short{margin:2px 0}
+ .responsive-battle .exchange-row{margin-top:3px;min-height:30px}.responsive-battle .exchange-row button{min-height:30px}
 }
-/* Small-phone limits remain visible; never add a third row, paging, or global scale. */
-@media(max-width:1099px){
- body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:64px;--board-body:46px;--form-height:24px;--board-width:calc(12 * var(--play-card-width) + 66px + 14px);grid-template-columns:170px minmax(0,1fr) 350px;grid-template-rows:32px 150px auto auto;gap:5px;align-content:start}
- .responsive-battle .brand-small{font-size:10px}.responsive-battle .stage-path h1{font-size:13px}.responsive-battle .header-actions button{font-size:11px;padding:3px 5px}
- .responsive-battle .rune-slot-head{padding-right:0}.responsive-battle .rune-order-controls{position:static}.responsive-battle .rune-effect{font-size:10px}.responsive-battle .enemy-avatar{font-size:36px}
- .responsive-battle .combat-actions button{min-width:0}
-}
+/* Below this physical width retain readable cards and accessible horizontal scrolling. */
+@media(max-width:1159px){body[data-stage-theme] .game-shell.responsive-battle{min-width:1160px}.responsive-battle .brand-small{font-size:12px}}
+.form-dialog{width:560px}.form-dialog .dialog-body{padding:16px}.form-dialog .dialog-body>p{font-size:13px;margin:0 0 12px}.form-dialog .form-choices{gap:6px;margin-top:6px}.form-dialog .grouped-forms{grid-template-columns:repeat(3,minmax(0,1fr))}.form-dialog .grouped-forms>.form-group{grid-column:auto}.form-dialog .grouped-forms>.form-group:first-child{grid-column:1/-1}.form-dialog .form-choice{min-width:70px;padding:5px 7px}.form-dialog .form-group h3{margin:0 0 6px}.form-dialog .form-group{padding:8px}.form-dialog .dialog-actions{gap:6px;margin-top:14px}.form-dialog .dialog-actions button{padding:6px 10px;min-height:36px;font-size:12px}
 
 .app-dialog[open]{display:flex;flex-direction:column;max-height:calc(var(--viewport-height) - 24px);max-width:calc(100vw - 24px)}
 .dialog-header{flex:none;position:sticky;top:0;z-index:3;background:inherit}
@@ -110,10 +106,10 @@ body:has(.shop-page) .shop-topbar{height:40px;min-height:40px;padding:0 12px;fle
 .shop-notices>summary{padding:5px 9px;border:1px solid #587b7a;border-radius:6px;cursor:pointer;background:#163138}
 .shop-notices[open]>.shop-notice-content{position:absolute;top:100%;left:0;right:0;max-height:calc(var(--viewport-height)*.55);overflow:auto;padding:8px;background:#142b31;border:1px solid #587b7a;box-shadow:0 8px 22px #0008}
 .shop-notices .entry-grant{margin:4px 0}.shop-notices .shop-equipped{margin:4px 0}
-.responsive-shop .shop-inventory{display:grid;grid-template-columns:repeat(var(--shop-columns,5),minmax(0,1fr));flex:1;min-height:0;gap:8px;margin:0;align-items:stretch}
-.responsive-shop .shop-item{padding:10px 8px;gap:7px;min-height:0;min-width:0;justify-content:center}
+.responsive-shop .shop-inventory{display:grid;grid-template-columns:repeat(var(--shop-columns,5),minmax(0,1fr));flex:0 1 auto;min-height:0;gap:8px;margin:0;align-items:stretch}
+.responsive-shop .shop-item{padding:14px 10px;gap:9px;min-height:0;min-width:0;justify-content:flex-start}
 .responsive-shop .shop-item h2{font-size:18px}.responsive-shop .shop-item p{font-size:12px;margin:0}.responsive-shop .shop-item small{font-size:11px}.responsive-shop .shop-item>strong{font-size:13px}
-.responsive-shop .shop-item .reward-gem{font-size:36px}.responsive-shop .shop-item .word-card{--card-w:90px}.responsive-shop .shop-item .card-body{min-height:66px}.responsive-shop .shop-item .card-word{font-size:22px!important;margin:5px 0}.responsive-shop .shop-price{margin-top:auto}
+.responsive-shop .shop-item .reward-gem{font-size:36px}.responsive-shop .shop-item .word-card{--card-w:90px}.responsive-shop .shop-item .card-body{min-height:66px}.responsive-shop .shop-item .card-word{font-size:min(22px,calc(76px / var(--fit-factor,3)))!important;margin:5px 0}.responsive-shop .shop-price{margin-top:8px}
 .responsive-shop .shop-item>button{min-height:34px;padding:5px;font-size:12px}
 .shop-pager{display:flex;justify-content:space-between;align-items:center;flex:none;font-size:12px;min-height:26px}.shop-pager button{min-height:26px;padding:2px 10px}
 .responsive-shop .shop-services{grid-template-columns:1fr 1fr;gap:8px;flex:none}

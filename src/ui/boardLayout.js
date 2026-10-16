@@ -9,6 +9,7 @@ export function observeBoard(zone){
  const cards=[...zone.children].filter(n=>n.classList.contains('word-card'));
  cards.forEach((n,i)=>{n.dataset.absoluteIndex=String(i);});
  if(cards.length){zone.replaceChildren(...sentenceRows(cards).map(group=>{const row=document.createElement('div');row.className='sentence-row';row.append(...group);return row;}));}
+ if(!cards.length){const grid=document.createElement('div');grid.className='empty-board-grid';grid.setAttribute('aria-hidden','true');for(let i=0;i<24;i++){const slot=document.createElement('span');slot.textContent='+';grid.append(slot);}zone.append(grid);}
  zone.dataset.columns='12';zone.dataset.rows=String(Math.ceil(cards.length/12));
  // The shared CSS profile sizes both rows; no resize observer or animated layout loop.
  return ()=>{};
