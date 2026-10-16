@@ -1,3 +1,7 @@
+# 최종 전투 UI 현재 인계
+
+기준main `0866906bfbe64bbf9ac8b665c9d3b9afb4184df9`(PR17 병합), 브랜치 `codex/final-battle-layout-polish`. [최신 UI 계약](../spec/final-battle-ui/BRIEF_KO.md)과 [이번 검증](TEST_REPORT_FINAL_BATTLE_UI.md)을 우선한다. PC/태블릿 중간3열, 12×2 고정 조합대, 한 줄 손패/페이지, 좌측 지역 안내다. 이전 좁은창 상단패널 배치는 대체했다. production 변경은UI5파일뿐이며 0.10.2의24장/기존저장/수치를 유지한다. 1,160px 미만은 가로 스크롤 제약이 남는다. 최신main과 사용자 변경을 확인한 후 개발하며 아래 기록은 보존한다.
+
 # 0.10.2 UI Recovery 현재 인계
 
 기준main `8df20b9a40ba5d12c1d10d9f63b35db5f9714347`(0.10.1 병합 완료), 브랜치 `codex/v0.10.2-ui-recovery-24-cards`. [r2 계약](../spec/ui-recovery-r2/Syntax_Atlas_UI_Recovery_Brief.md)과 [실제 보고서](TEST_REPORT_UI_RECOVERY.md)를 먼저 읽는다. UI 복원과24장 정책은 별도 커밋이다. 새0.10.2만24장이고 과거원정은16장을 유지한다. 게임규칙/HP/룬수치/획득/47전투는0.10.1과 동일하다. 단위1718·데이터3112·빌드·대표Chromium·production실습을 확인했다. 작은844×390 최대배치는FAIL이며 실기기/교차브라우저재실행/자연47완주는NOT RUN이다. 후속 개발은 그 시점main을 확인하고 이번 브랜치/사용자변경을 보존한다. 이하 이전 인계는 역사적 기록이다.

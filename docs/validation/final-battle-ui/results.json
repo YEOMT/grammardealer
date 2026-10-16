@@ -1,0 +1,268 @@
+{
+  "date": "2026-10-16",
+  "base": "0866906bfbe64bbf9ac8b665c9d3b9afb4184df9",
+  "commands": [
+    {
+      "label": "final-layout-unit",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-10-16T11:12:48.167241+00:00",
+      "finishedAt": "2026-10-16T11:15:11.371122+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-unit/command.log",
+      "logSha256": "4a045f182b0b4f1591510c05bd41c8aece0792a0adf236c0476a8a4fe26aa8b6",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/reward-distribution.json",
+        "docs/evidence-0.1.1/timing.json"
+      ]
+    },
+    {
+      "label": "final-layout-data",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-10-16T11:15:50.023065+00:00",
+      "finishedAt": "2026-10-16T11:15:50.726612+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-data/command.log",
+      "logSha256": "6081c7a1c20d4dd598f5a816ea46786727a92cb85090651f9b05224ebc4c039f",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "final-layout-build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-10-16T11:15:59.676401+00:00",
+      "finishedAt": "2026-10-16T11:16:00.892037+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-build/command.log",
+      "logSha256": "9a70b13244b0764245a53c859e7ac207e59bab628db1ca9d8e17d5dcb5114526",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "final-layout-browser-complete",
+      "command": [
+        "node",
+        "tests/final-battle-layout-browser.mjs"
+      ],
+      "startedAt": "2026-10-16T11:11:38.653582+00:00",
+      "finishedAt": "2026-10-16T11:12:10.228296+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-browser-complete/command.log",
+      "logSha256": "5ac8967175e13eb690548e06d8129835c99e831f25a5ca24cdb4936a12e6686a",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "final-layout-form",
+      "command": [
+        "node",
+        "tests/final-battle-form-browser.mjs"
+      ],
+      "startedAt": "2026-10-16T11:17:07.825285+00:00",
+      "finishedAt": "2026-10-16T11:17:09.263769+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-form/command.log",
+      "logSha256": "d30a6461225d105079767603633d67e8299e142a094d5015a28d8400139b7f89",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "final-layout-production",
+      "command": [
+        "node",
+        "tests/ui-recovery-production.mjs"
+      ],
+      "startedAt": "2026-10-16T11:16:13.273475+00:00",
+      "finishedAt": "2026-10-16T11:16:31.270383+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/final-layout-production/command.log",
+      "logSha256": "92ce1dd631f4db69df95050f0e3199e553de884e91e6262a600fb8841bd620b7",
+      "fixedOutputsArchivedAndRestored": []
+    }
+  ],
+  "unit": {
+    "pass": 1718,
+    "fail": 0,
+    "skip": 0
+  },
+  "dataChecks": 3112,
+  "browserScope": "ASSIGNED_STATE_REAL_UI_AND_API_NOT_NATURAL_RUN_OR_PHYSICAL_DEVICE",
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    }
+  ],
+  "browserChecks": [
+    {
+      "id": "LOBBY_COPY_WINDOWED",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768-0",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768-7",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x650-12",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x650-13",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1366x768-24",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1180x820-24",
+      "status": "PASS"
+    },
+    {
+      "id": "LAYOUT_1920x1080-24",
+      "status": "PASS"
+    },
+    {
+      "id": "PAGING_PRESERVES_IDS_SELECTION_AND_RUN",
+      "status": "PASS"
+    },
+    {
+      "id": "CROSS_PAGE_SELECTION_EXCHANGE",
+      "status": "PASS"
+    },
+    {
+      "id": "TEN_CARD_SINGLE_PAGE",
+      "status": "PASS"
+    },
+    {
+      "id": "ROW_BOUNDARY_REAL_POINTER_DRAG",
+      "status": "PASS"
+    },
+    {
+      "id": "SECOND_ROW_FORM_SELECTION",
+      "status": "PASS"
+    },
+    {
+      "id": "SECOND_ROW_RETURN",
+      "status": "PASS"
+    },
+    {
+      "id": "MATCHING_CARD_WIDTH_AND_ENGLISH_SIZE",
+      "status": "PASS"
+    },
+    {
+      "id": "DICTIONARY_RECORDS_SAVE_RETURN",
+      "status": "PASS"
+    },
+    {
+      "id": "RUNE_VERTICAL_POINTER_ORDER",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FULLSCREEN",
+      "status": "PASS"
+    },
+    {
+      "id": "FULLSCREEN_ROUNDTRIP_NO_MUTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_UI_SUBMIT_5",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_UI_SUBMIT_24",
+      "status": "PASS"
+    },
+    {
+      "id": "24_CARD_RECEIPT_INDEXEDDB_RESTORE",
+      "status": "PASS"
+    },
+    {
+      "id": "ROTATION_GUIDANCE_EMULATION_NO_MUTATION",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_COMPACT_1366",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_COMPACT_1180",
+      "status": "PASS"
+    },
+    {
+      "id": "SHOP_SERVICE_CANCEL_NO_MUTATION",
+      "status": "PASS"
+    }
+  ],
+  "browserCaptureCount": 18,
+  "browserErrors": [],
+  "form": {
+    "status": "PASS",
+    "visibleControlCount": 13,
+    "actualClick": "return",
+    "viewport": "1366x650"
+  },
+  "production": {
+    "scope": "PRODUCTION_NEW_RUN_REAL_UI_TUTORIAL_NOT_47_BATTLES",
+    "checks": [
+      {
+        "id": "PRODUCTION_GUIDED_40_126",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_NEW_POLICY_SAVE",
+        "status": "PASS"
+      },
+      {
+        "id": "PRODUCTION_BASEPATH_RESOURCES",
+        "status": "PASS"
+      }
+    ],
+    "captures": [
+      "production-lobby.png",
+      "tutorial-start.png",
+      "discard-selected.png",
+      "first-hit.png",
+      "prepared.png",
+      "score-gate-26.png",
+      "score-gate-27.png",
+      "score-gate-28.png",
+      "overpower-defeat.png",
+      "tutorial-reward.png"
+    ],
+    "errors": [],
+    "resources": [
+      {
+        "url": "/grammardealer/assets/index-Dtjutxw_.css",
+        "status": 200
+      },
+      {
+        "url": "/grammardealer/assets/index-6W-SNCAR.js",
+        "status": 200
+      }
+    ]
+  },
+  "notRun": [
+    "full historical browser bundle",
+    "cross-browser rerun",
+    "physical tablet/mobile",
+    "natural 47-battle expedition"
+  ]
+}

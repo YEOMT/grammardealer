@@ -35,26 +35,26 @@ export function syncFullscreenButtons(){
  document.addEventListener('fullscreenchange',sync);return()=>document.removeEventListener('fullscreenchange',sync);
 }
 
-/** Explicit paging is restricted to a phone/split viewport. All nodes keep physical IDs. */
-export function cardPager(zone,{label,selected=()=>0,summary=()=>'',pageSize=8}={}){
+/** One measured row on every viewport. Paging only changes visibility, never card IDs. */
+export function cardPager(zone,{label,selected=()=>0,pageSize=10}={}){
  let page=0;const nav=document.createElement('div');nav.className='card-pager';
- const prev=button('이전',()=>{page--;update();},'quiet'),next=button('다음',()=>{page++;update();},'quiet');
+ const prev=button('‹',()=>{document.dispatchEvent(new Event('atlas:cancel-drag'));page--;update();},'quiet',{'aria-label':'이전 손패 페이지'}),next=button('›',()=>{document.dispatchEvent(new Event('atlas:cancel-drag'));page++;update();},'quiet',{'aria-label':'다음 손패 페이지'});
  const status=document.createElement('span');status.setAttribute('aria-live','polite');
- const full=document.createElement('div');full.className='sentence-order-summary';full.dataset.presentation='sentence-summary';
- nav.append(prev,status,next);zone.after(nav,full);
+ const row=document.createElement('div');row.className='hand-page-row';zone.before(row);row.append(prev,zone,next);
+ nav.append(status);row.before(nav);
  const update=()=>{
   const cards=[...zone.querySelectorAll(':scope > .word-card')];
-  const compact=window.innerWidth<720||window.innerHeight<430;
-  const size=compact?(window.innerHeight<430?Math.min(4,pageSize):pageSize):Math.max(1,cards.length),pages=Math.max(1,Math.ceil(cards.length/size));
+  const width=(cards[0]?parseFloat(getComputedStyle(cards[0]).width):82),gap=parseFloat(getComputedStyle(zone).columnGap)||5;
+  const size=Math.max(1,Math.min(pageSize,Math.floor((zone.clientWidth+gap)/(width+gap)))),pages=Math.max(1,Math.ceil(cards.length/size));
   page=Math.max(0,Math.min(page,pages-1));
-  cards.forEach((n,i)=>{n.hidden=compact&&(i<page*size||i>=(page+1)*size);n.dataset.absoluteIndex=String(i);});
+  cards.forEach((n,i)=>{n.hidden=i<page*size||i>=(page+1)*size;n.dataset.absoluteIndex=String(i);});
   zone.style.setProperty('--visible-cards',String(Math.min(size,cards.length)||1));
-  nav.hidden=!compact;status.textContent=`${label} ${page+1}/${pages} · 전체 ${cards.length}장${selected()?` · 선택 ${selected()}장`:''}`;
+  status.textContent=`${label} ${page+1} / ${pages} · 전체 ${cards.length}장${selected()?` · 선택 ${selected()}장`:''}`;
   prev.disabled=page===0;next.disabled=page===pages-1;
-  full.hidden=!compact||!summary();full.textContent=summary();
  };
+ const observer=new ResizeObserver(update);observer.observe(zone);
  document.addEventListener('atlas:viewport',update);update();
- return {update,cleanup(){document.removeEventListener('atlas:viewport',update);}};
+ return {update,cleanup(){observer.disconnect();document.removeEventListener('atlas:viewport',update);}};
 }
 
 /** Explicit small-screen shop pages; prices and inventory are never regenerated here. */
