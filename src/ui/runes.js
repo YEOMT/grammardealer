@@ -23,7 +23,9 @@ export function bindRuneDrag(panel,onOrder,{enabled=()=>true}={}){
   const nodes=[...panel.querySelectorAll('[data-rune-index]')],rect=panel.getBoundingClientRect();active.to=null;
   if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)return;
   const horizontal=nodes.length>1&&Math.abs(nodes[0].getBoundingClientRect().top-nodes[1].getBoundingClientRect().top)<10;
-  const target=nodes.find(n=>horizontal?e.clientX<n.getBoundingClientRect().right:e.clientY<n.getBoundingClientRect().bottom)??nodes.at(-1);if(!target)return;
+  // A two-column top band has multiple rows: resolve the pointed row before x order.
+  const candidates=horizontal?nodes.filter(n=>{const r=n.getBoundingClientRect();return e.clientY>=r.top&&e.clientY<=r.bottom;}):nodes;
+  const target=candidates.find(n=>horizontal?e.clientX<n.getBoundingClientRect().right:e.clientY<n.getBoundingClientRect().bottom)??candidates.at(-1);if(!target)return;
   const r=target.getBoundingClientRect(),after=horizontal?e.clientX>r.left+r.width/2:e.clientY>r.top+r.height/2,insertion=Number(target.dataset.runeIndex)+(after?1:0);active.to=insertion-(active.from<insertion?1:0);target.classList.add(after?'rune-drop-after':'rune-drop-before');
  };
  const up=e=>{if(!active||e.pointerId!==active.id)return;const a=active;clear();if(a.moved&&a.to!==null&&a.to!==a.from&&enabled()&&!document.querySelector('dialog[open]'))onOrder(a.from,a.to);};
