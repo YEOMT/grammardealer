@@ -31,7 +31,7 @@ export function runeDropContext(run,{source='REWARD',stageId=run.progress.stageI
  return {source:introduction?'INTRO':source,stageId,rareAllowed};
 }
 export function filterRuneDropPool(run,pool,context={}){
- if(run.version!=='0.10.1')return pool;
+ if(!['0.10.1','0.10.2'].includes(run.version))return pool;
  const {rareAllowed}=runeDropContext(run,context);
  return pool.filter(r=>r.rarity!=='RARE'||rareAllowed);
 }

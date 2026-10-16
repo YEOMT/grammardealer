@@ -137,7 +137,9 @@ export const campaign07Registry=freeze(addEmberLanguage(campaign061Registry));
 export const campaign08Registry=freeze(addHelpUsage(addWaterwaysLanguage(campaign07Registry)));
 export const campaign09Registry=freeze(addLibraryLanguage(campaign08Registry));
 export const campaign010Registry=freeze(addCorridorLanguage(campaign09Registry));
-export const registry = campaign010Registry;
+// Same language/grammar; only the authenticated new campaign permits 24 tokens.
+export const recoveryRegistry=freeze({...campaign010Registry,maxSentenceCards:24});
+export const registry = recoveryRegistry;
 export const languageRegistry = registry;
 
 // A small ordered content view keeps old saves' future draws and grammar scope stable.
@@ -156,7 +158,7 @@ const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
 const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
 const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
 export const campaign02Registry=freeze({...campaign021Registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
-export function registryForVersion(version) { return ['0.10.0','0.10.1'].includes(version)?campaign010Registry:version==='0.9.0'?campaign09Registry:['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:['0.5.0','0.5.1'].includes(version)?campaign05Registry:version==='0.6.0'?campaign06Registry:version==='0.6.1'?campaign061Registry:version==='0.7.0'?campaign07Registry:['0.8.0','0.8.1'].includes(version)?campaign08Registry:version===undefined?registry:(()=>{throw new TypeError('Unsupported language version: '+version);})(); }
+export function registryForVersion(version) { return version==='0.10.2'?recoveryRegistry:['0.10.0','0.10.1','0.10.2'].includes(version)?campaign010Registry:version==='0.9.0'?campaign09Registry:['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:['0.5.0','0.5.1'].includes(version)?campaign05Registry:version==='0.6.0'?campaign06Registry:version==='0.6.1'?campaign061Registry:version==='0.7.0'?campaign07Registry:['0.8.0','0.8.1'].includes(version)?campaign08Registry:version===undefined?registry:(()=>{throw new TypeError('Unsupported language version: '+version);})(); }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
 export function lexemeForCard(card, registry=languageRegistry) {

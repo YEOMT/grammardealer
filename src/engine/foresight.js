@@ -28,7 +28,7 @@ export function resolveForesight(analysis,power,enemy,{attackId,eligibleAnalysis
 /** Rebuild memory/HP from this battle's actual immutable submissions (at most six). */
 export function validateForesightRun(run){
  const c=run.combat;if(!c)return true;
- const expected=['0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
+ const expected=['0.10.0','0.10.1','0.10.2'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
  if(!expected){if(c.enemyState.bossMechanic?.id==='FATE_FORESIGHT')fail();return true;}
  if(c.enemyState.maxHp!==5000||c.enemyState.bossMechanic?.id!=='FATE_FORESIGHT')fail();
  let boss={id:'FATE_FORESIGHT',rememberedFrame:null,lastAttackId:null},hp=5000;const seen=new Set();

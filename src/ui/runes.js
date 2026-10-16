@@ -3,8 +3,8 @@ import {runeForVersion,runesForVersion} from '../data/runes.js';
 import {comboEligibility} from '../engine/comboEligibility.js';
 import {describeRune} from '../engine/runes.js';
 const requiredPack={'rune.svoo':'pack.svoo','rune.past':'pack.time.past','rune.progressive':'pack.time.progressive','rune.svoc':'pack.svoc.basic','rune.presentPerfect':'pack.time.perfect','rune.clauseLink':'pack.clauseLink','rune.infinitive':'pack.infinitive','rune.gerund':'pack.gerund','rune.passive':'pack.passive','rune.relative':'pack.relative','rune.unrealPresent':'pack.corridor'};
-export function runeReadiness(id,run){if(runeForVersion(id,run?.version??'0.10.1')?.group==='UTILITY')return '전투 시작 시 자원에 적용됩니다. 공격 점수 효과가 아닙니다.';return requiredPack[id]&&run&&!comboEligibility(run).unlocks.includes(requiredPack[id])?'아직 해당 문법 보너스가 해금되지 않았습니다. 룬 소유는 유지됩니다.':'문법 조건을 충족한 공격에서 발동합니다.';}
-export function runeCatalog(run){const version=run?.version??'0.10.1';return modal('룬 도감',el('div',{class:'dictionary-grid'},runesForVersion(version).map(r=>el('article',{class:'dictionary-entry',dataset:{runeId:r.id,rarity:r.rarity}},el('h3',{text:r.nameKo}),el('p',{text:({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'})[r.rarity]+' · '+r.conditionDescriptionKo}),...[1,2,3].map(level=>el('p',{text:`Lv.${level} · ${describeRune(r.id,level,version)}`})),el('small',{text:runeReadiness(r.id,run)})))),{wide:true});}
+export function runeReadiness(id,run){if(runeForVersion(id,run?.version??'0.10.2')?.group==='UTILITY')return '전투 시작 시 자원에 적용됩니다. 공격 점수 효과가 아닙니다.';return requiredPack[id]&&run&&!comboEligibility(run).unlocks.includes(requiredPack[id])?'아직 해당 문법 보너스가 해금되지 않았습니다. 룬 소유는 유지됩니다.':'문법 조건을 충족한 공격에서 발동합니다.';}
+export function runeCatalog(run){const version=run?.version??'0.10.2';return modal('룬 도감',el('div',{class:'dictionary-grid'},runesForVersion(version).map(r=>el('article',{class:'dictionary-entry',dataset:{runeId:r.id,rarity:r.rarity}},el('h3',{text:r.nameKo}),el('p',{text:({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'})[r.rarity]+' · '+r.conditionDescriptionKo}),...[1,2,3].map(level=>el('p',{text:`Lv.${level} · ${describeRune(r.id,level,version)}`})),el('small',{text:runeReadiness(r.id,run)})))),{wide:true});}
 export function runeView(instance,{index=0,total=1,onOrder,readonly=false,entry=false,version='0.3.0',run=null}={}){
  const rune=runeForVersion(instance.runeId,version);
  const node=el('div',{class:`rune-slot ${entry&&rune.scope==='AT_BATTLE_RULES_SNAPSHOT'?'utility-entry':''}`,dataset:{runeId:rune.id,runeInstanceId:instance.instanceId,runeIndex:String(index),rarity:rune.rarity,level:String(instance.level)},style:`--rune-color:${rune.color}`});
@@ -23,7 +23,9 @@ export function bindRuneDrag(panel,onOrder,{enabled=()=>true}={}){
   const nodes=[...panel.querySelectorAll('[data-rune-index]')],rect=panel.getBoundingClientRect();active.to=null;
   if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)return;
   const horizontal=nodes.length>1&&Math.abs(nodes[0].getBoundingClientRect().top-nodes[1].getBoundingClientRect().top)<10;
-  const target=nodes.find(n=>horizontal?e.clientX<n.getBoundingClientRect().right:e.clientY<n.getBoundingClientRect().bottom)??nodes.at(-1);if(!target)return;
+  // A two-column top band has multiple rows: resolve the pointed row before x order.
+  const candidates=horizontal?nodes.filter(n=>{const r=n.getBoundingClientRect();return e.clientY>=r.top&&e.clientY<=r.bottom;}):nodes;
+  const target=candidates.find(n=>horizontal?e.clientX<n.getBoundingClientRect().right:e.clientY<n.getBoundingClientRect().bottom)??candidates.at(-1);if(!target)return;
   const r=target.getBoundingClientRect(),after=horizontal?e.clientX>r.left+r.width/2:e.clientY>r.top+r.height/2,insertion=Number(target.dataset.runeIndex)+(after?1:0);active.to=insertion-(active.from<insertion?1:0);target.classList.add(after?'rune-drop-after':'rune-drop-before');
  };
  const up=e=>{if(!active||e.pointerId!==active.id)return;const a=active;clear();if(a.moved&&a.to!==null&&a.to!==a.from&&enabled()&&!document.querySelector('dialog[open]'))onOrder(a.from,a.to);};

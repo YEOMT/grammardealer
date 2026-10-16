@@ -1,3 +1,11 @@
+# 0.10.2 UI Recovery 추가 구조
+
+- `sentenceRows`는 물리DOM을12개씩 두행으로 묶고 absoluteIndex를 유지한다. viewport에 따른행수추정·조합대 flex확장을 제거했다. 넓은PC는좌우패널, 보통창/태블릿은상단정보+전폭조합대로 배치한다. 손패/조합대는 같은 CSS card-width/font식이다.
+- `RECOVERY_VERSIONS`는 game/save/balance만0.10.2, 나머지0.10.1 정책을 상속한다. `combatBalanceForVersion`의 새24장 snapshot, 같은0.10.0언어에 maxSentenceCards24인 recoveryRegistry, scoreBalanceForVersion의 maxSubmittedCards24를 사용한다. 과거 registry/저장16장과 parser 복잡도 상한은 유지한다.
+- 긴관계절 보스의 저장 재검증에서 언어alias가아닌 원정버전 registry를 선택한다. 다이아몬드>=10 계산은 그대로이고 새설명만24장이다. 기존effects/presentation/RunController 단독정산을 유지한다.
+
+[검증과한계](TEST_REPORT_UI_RECOVERY.md). 이하 이전 구조기록은 보존한다.
+
 # 0.10.1 추가 구조
 
 - PATCH0101_VERSIONS는 새 HP/룬/획득/저장 정책만 고정한다. 언어/문법/카드/콤보 registry는 frozen0100을 재사용한다. 기존 RUNES12개는 역사적 계약이다.

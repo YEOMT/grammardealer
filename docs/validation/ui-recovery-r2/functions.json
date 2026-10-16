@@ -1,0 +1,168 @@
+{
+  "scope": "ASSIGNED_STATE_REAL_UI_AND_API_NOT_NATURAL_RUN_OR_PHYSICAL_DEVICE",
+  "checks": [
+    {
+      "id": "LOBBY_COPY_WINDOWED",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ROW_BOUNDARY_REAL_POINTER_DRAG",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SECOND_ROW_FORM_SELECTION",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "SECOND_ROW_RETURN",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "MATCHING_CARD_WIDTH_AND_ENGLISH_SIZE",
+      "engine": "chromium",
+      "status": "PASS",
+      "fonts": [
+        [
+          {
+            "text": "be",
+            "font": "23px",
+            "width": 82
+          },
+          {
+            "text": "be",
+            "font": "23px",
+            "width": 82
+          }
+        ]
+      ]
+    },
+    {
+      "id": "DICTIONARY_RECORDS_SAVE_RETURN",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "RUNE_GRID_ROW_POINTER_ORDER",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_FULLSCREEN",
+      "status": "PASS",
+      "engine": "chromium"
+    },
+    {
+      "id": "FULLSCREEN_ROUNDTRIP_NO_MUTATION",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ACTUAL_UI_SUBMIT_5",
+      "engine": "chromium",
+      "status": "PASS",
+      "power": 658,
+      "hpLoss": 658,
+      "phases": [
+        "charge",
+        "lunge",
+        "impact"
+      ],
+      "actualEventCount": 12,
+      "maxCombo": 5,
+      "sources": [
+        "qa.corridor.0",
+        "qa.corridor.1",
+        "qa.corridor.2",
+        "qa.corridor.3",
+        "qa.corridor.4",
+        "COMPLETE_SENTENCE",
+        "FRAME.SVO",
+        "CORRIDOR.PRESENT_PERFECT_PROGRESSIVE",
+        "rune.progressive",
+        "rune.presentPerfect",
+        "boss.foresight",
+        "FINAL_POWER"
+      ],
+      "allGuideRemoved": true,
+      "exactEvidenceChecks": true
+    },
+    {
+      "id": "ACTUAL_UI_SUBMIT_24",
+      "engine": "chromium",
+      "status": "PASS",
+      "power": 2678,
+      "hpLoss": 2678,
+      "phases": [
+        "charge",
+        "lunge",
+        "impact"
+      ],
+      "actualEventCount": 39,
+      "maxCombo": 13,
+      "sources": [
+        "qa.corridor.0",
+        "qa.corridor.1",
+        "qa.corridor.2",
+        "qa.corridor.3",
+        "qa.corridor.4",
+        "qa.corridor.5",
+        "qa.corridor.6",
+        "qa.corridor.7",
+        "qa.corridor.8",
+        "qa.corridor.9",
+        "qa.corridor.10",
+        "qa.corridor.11",
+        "qa.corridor.12",
+        "qa.corridor.13",
+        "qa.corridor.14",
+        "qa.corridor.15",
+        "qa.corridor.16",
+        "qa.corridor.17",
+        "qa.corridor.18",
+        "qa.corridor.19",
+        "qa.corridor.20",
+        "qa.corridor.21",
+        "qa.corridor.22",
+        "qa.corridor.23",
+        "COMPLETE_SENTENCE",
+        "FRAME.SVO",
+        "LINK.CLAUSE",
+        "MODIFIER.ADJECTIVE",
+        "MODIFIER.ADVERB",
+        "PHRASE.PP",
+        "rune.longSentence",
+        "boss.foresight",
+        "FINAL_POWER"
+      ],
+      "allGuideRemoved": true,
+      "exactEvidenceChecks": true
+    },
+    {
+      "id": "24_CARD_RECEIPT_INDEXEDDB_RESTORE",
+      "engine": "chromium",
+      "status": "PASS"
+    },
+    {
+      "id": "ROTATION_GUIDANCE_EMULATION_NO_MUTATION",
+      "engine": "chromium",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "chromium-lobby-1366x650.png",
+    "chromium-actual-score-5.png",
+    "chromium-actual-score-24.png"
+  ],
+  "errors": [],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    }
+  ],
+  "performance": []
+}

@@ -1,3 +1,7 @@
+# 0.10.2 UI Recovery 현재 인계
+
+기준main `8df20b9a40ba5d12c1d10d9f63b35db5f9714347`(0.10.1 병합 완료), 브랜치 `codex/v0.10.2-ui-recovery-24-cards`. [r2 계약](../spec/ui-recovery-r2/Syntax_Atlas_UI_Recovery_Brief.md)과 [실제 보고서](TEST_REPORT_UI_RECOVERY.md)를 먼저 읽는다. UI 복원과24장 정책은 별도 커밋이다. 새0.10.2만24장이고 과거원정은16장을 유지한다. 게임규칙/HP/룬수치/획득/47전투는0.10.1과 동일하다. 단위1718·데이터3112·빌드·대표Chromium·production실습을 확인했다. 작은844×390 최대배치는FAIL이며 실기기/교차브라우저재실행/자연47완주는NOT RUN이다. 후속 개발은 그 시점main을 확인하고 이번 브랜치/사용자변경을 보존한다. 이하 이전 인계는 역사적 기록이다.
+
 # 0.10.1 현재 인계
 
 기준 main f09d4537, 브랜치 codex/v0.10.1-runes-responsive-gamefeel에서 기존 미커밋 구현을 보존해 UI Followup을 이어갔다. 계약 spec/v0.10.1/ 및 ui-followup/. [실제 보고서](TEST_REPORT_0.10.1.md)와 [후속84조건](ACCEPTANCE_0.10.1_UI_FOLLOWUP.md)를 먼저 읽는다. 신규룬은 versioned lookup, boss receipt는 실제 registry.version을 사용한다. 구버전 정책을 최신 수치로 덮지 않는다.

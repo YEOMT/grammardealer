@@ -1,0 +1,320 @@
+{
+  "scope": "LAYOUT_SECTION_OF_BROWSER_FUNCTIONAL_2_ONLY",
+  "sourceExitCode": 1,
+  "sourceErrorsExplained": "The full run later failed a guideHidden measurement; corrected functions rerun separately. Layout FAIL is retained. Original full evidence remains local.",
+  "checks": [
+    {
+      "id": "LAYOUT_1920x900-3",
+      "engine": "chromium",
+      "status": "PASS",
+      "scope": "ASSIGNED_LAYOUT_CAPACITY_NOT_SUBMISSION",
+      "geometrySummary": {
+        "w": 1920,
+        "h": 900,
+        "board": {
+          "x": 344,
+          "y": 405,
+          "w": 1232,
+          "h": 218,
+          "r": 1576,
+          "b": 623
+        },
+        "enemy": {
+          "x": 12,
+          "y": 54,
+          "w": 1896,
+          "h": 220,
+          "r": 1908,
+          "b": 274
+        },
+        "actions": {
+          "x": 344,
+          "y": 628,
+          "w": 1232,
+          "h": 40,
+          "r": 1576,
+          "b": 668
+        },
+        "hand": {
+          "x": 12,
+          "y": 726,
+          "w": 1896,
+          "h": 168,
+          "r": 1908,
+          "b": 894
+        }
+      },
+      "rowLengths": [
+        3
+      ],
+      "buttonHitFailures": [],
+      "effectsVisible": true
+    },
+    {
+      "id": "LAYOUT_1920x900-12",
+      "engine": "chromium",
+      "status": "PASS",
+      "scope": "ASSIGNED_LAYOUT_CAPACITY_NOT_SUBMISSION",
+      "geometrySummary": {
+        "w": 1920,
+        "h": 900,
+        "board": {
+          "x": 344,
+          "y": 405,
+          "w": 1232,
+          "h": 218,
+          "r": 1576,
+          "b": 623
+        },
+        "enemy": {
+          "x": 12,
+          "y": 54,
+          "w": 1896,
+          "h": 220,
+          "r": 1908,
+          "b": 274
+        },
+        "actions": {
+          "x": 344,
+          "y": 628,
+          "w": 1232,
+          "h": 40,
+          "r": 1576,
+          "b": 668
+        },
+        "hand": {
+          "x": 12,
+          "y": 726,
+          "w": 1896,
+          "h": 168,
+          "r": 1908,
+          "b": 894
+        }
+      },
+      "rowLengths": [
+        12
+      ],
+      "buttonHitFailures": [],
+      "effectsVisible": true
+    },
+    {
+      "id": "LAYOUT_1366x650-13",
+      "engine": "chromium",
+      "status": "PASS",
+      "scope": "ASSIGNED_LAYOUT_CAPACITY_NOT_SUBMISSION",
+      "geometrySummary": {
+        "w": 1366,
+        "h": 650,
+        "board": {
+          "x": 151,
+          "y": 270,
+          "w": 1064,
+          "h": 182,
+          "r": 1215,
+          "b": 452
+        },
+        "enemy": {
+          "x": 206,
+          "y": 46,
+          "w": 714,
+          "h": 160,
+          "r": 920,
+          "b": 206
+        },
+        "actions": {
+          "x": 12,
+          "y": 455,
+          "w": 1342,
+          "h": 34,
+          "r": 1354,
+          "b": 489
+        },
+        "hand": {
+          "x": 12,
+          "y": 498,
+          "w": 1342,
+          "h": 147,
+          "r": 1354,
+          "b": 645
+        }
+      },
+      "rowLengths": [
+        12,
+        1
+      ],
+      "buttonHitFailures": [],
+      "effectsVisible": true
+    },
+    {
+      "id": "LAYOUT_1366x650-24",
+      "engine": "chromium",
+      "status": "PASS",
+      "scope": "ASSIGNED_LAYOUT_CAPACITY_NOT_SUBMISSION",
+      "geometrySummary": {
+        "w": 1366,
+        "h": 650,
+        "board": {
+          "x": 151,
+          "y": 270,
+          "w": 1064,
+          "h": 182,
+          "r": 1215,
+          "b": 452
+        },
+        "enemy": {
+          "x": 206,
+          "y": 46,
+          "w": 714,
+          "h": 160,
+          "r": 920,
+          "b": 206
+        },
+        "actions": {
+          "x": 12,
+          "y": 455,
+          "w": 1342,
+          "h": 34,
+          "r": 1354,
+          "b": 489
+        },
+        "hand": {
+          "x": 12,
+          "y": 498,
+          "w": 1342,
+          "h": 147,
+          "r": 1354,
+          "b": 645
+        }
+      },
+      "rowLengths": [
+        12,
+        12
+      ],
+      "buttonHitFailures": [],
+      "effectsVisible": true
+    },
+    {
+      "id": "LAYOUT_1180x820-24",
+      "engine": "chromium",
+      "status": "PASS",
+      "scope": "ASSIGNED_LAYOUT_CAPACITY_NOT_SUBMISSION",
+      "geometrySummary": {
+        "w": 1180,
+        "h": 820,
+        "board": {
+          "x": 58,
+          "y": 299.65625,
+          "w": 1064,
+          "h": 198,
+          "r": 1122,
+          "b": 497.65625
+        },
+        "enemy": {
+          "x": 210,
+          "y": 56.328125,
+          "w": 520,
+          "h": 168,
+          "r": 730,
+          "b": 224.328125
+        },
+        "actions": {
+          "x": 12,
+          "y": 502.65625,
+          "w": 1156,
+          "h": 40,
+          "r": 1168,
+          "b": 542.65625
+        },
+        "hand": {
+          "x": 12,
+          "y": 556.984375,
+          "w": 1156,
+          "h": 257,
+          "r": 1168,
+          "b": 813.984375
+        }
+      },
+      "rowLengths": [
+        12,
+        12
+      ],
+      "buttonHitFailures": [],
+      "effectsVisible": true
+    },
+    {
+      "id": "LAYOUT_844x390-24",
+      "engine": "chromium",
+      "status": "FAIL",
+      "reason": "Small-phone viewport bounds/overlap; see original full geometry in local report.",
+      "geometrySummary": {
+        "w": 846,
+        "h": 472,
+        "board": {
+          "x": -2,
+          "y": 162.5,
+          "w": 848,
+          "h": 174,
+          "r": 846,
+          "b": 336.5
+        },
+        "enemy": {
+          "x": 187,
+          "y": 43,
+          "w": 290,
+          "h": 150,
+          "r": 477,
+          "b": 193
+        },
+        "actions": {
+          "x": 12,
+          "y": 341.5,
+          "w": 820,
+          "h": 40,
+          "r": 832,
+          "b": 381.5
+        },
+        "hand": {
+          "x": 12,
+          "y": 290,
+          "w": 820,
+          "h": 94,
+          "r": 832,
+          "b": 384
+        }
+      },
+      "rowLengths": [
+        12,
+        12
+      ],
+      "buttonHitFailures": [
+        "사전",
+        "도감",
+        "공격 기록",
+        "내 덱",
+        "사용 완료 0",
+        "저장",
+        "설정",
+        "↶ 편집 되돌리기",
+        "공격 확정",
+        "준비 · 다음 턴 +3",
+        "▲",
+        "▼",
+        "⠿",
+        "▲",
+        "▼",
+        "⠿",
+        "▲",
+        "▼",
+        "⠿",
+        "⠿"
+      ],
+      "effectsVisible": true
+    }
+  ],
+  "browsers": [
+    {
+      "engine": "chromium",
+      "version": "134.0.6998.35"
+    }
+  ]
+}

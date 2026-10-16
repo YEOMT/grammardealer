@@ -2,7 +2,7 @@ import {CORRIDOR_CONFIRMED} from '../data/corridorPolicy.js';
 import {registryForVersion} from '../data/language/index.js';
 import {cardDefinition} from '../data/cardCatalog.js';
 const SOURCE='STAR_CORRIDOR';
-const eligible=run=>['0.10.0','0.10.1'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex<4;
+const eligible=run=>['0.10.0','0.10.1','0.10.2'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex<4;
 export const corridorFrostId=(run,i)=>`frost.${run.runId}.corridor.${run.progress.roundIndex}.${i}`;
 export function corridorFrostDefinitions(round,permanentDefinitions){
  const minimum=CORRIDOR_CONFIRMED.frostMinimums[round];if(!minimum)throw Error('Unknown corridor round');

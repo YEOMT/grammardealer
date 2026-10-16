@@ -49,7 +49,7 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   else if (linkHits.length||timeHits.length||frameHit && stage.focusFrames.includes(frameId)) emit({ phase: 'REGION', sourceType: 'STAGE', sourceId: stage.id, labelKo: stage.regionLabelKo,
     operation: 'MULTIPLY', operand: stage.regionMultiplier ?? SCORE_BALANCE.regionMultiplier, evidenceRefs: linkHits.length?linkHits.map(h=>h.id):timeHits.length?timeHits.map(h=>h.id):[frameHit.id], highlightCardIds: linkHits.length?[...new Set(linkHits.flatMap(h=>h.cardIds))]:timeHits.length?[...new Set(timeHits.flatMap(h=>h.cardIds))]:frameHit.cardIds });
   const postRegionScore = score;
-  const resistance=['0.10.0','0.10.1'].includes(policyVersion)?resolveNormalResistance({version:policyVersion,stageId:stage.id,kind:enemy.kind,power:score,hp:enemyHpBefore}):null;
+  const resistance=['0.10.0','0.10.1','0.10.2'].includes(policyVersion)?resolveNormalResistance({version:policyVersion,stageId:stage.id,kind:enemy.kind,power:score,hp:enemyHpBefore}):null;
   if(resistance?.applied)emit({phase:'RESISTANCE',sourceType:'STAGE',sourceId:'NORMAL_RESISTANCE',labelKo:`기본 저항 −${resistance.percent}%`,operation:'MULTIPLY',operand:resistance.ratio});
   const bossEffects = [];
   const bossStateBefore = enemy.bossMechanic ? structuredClone(enemy.bossMechanic) : null;
@@ -64,8 +64,8 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   if (stage.id === 'stage.02' && enemy.kind === 'REGIONAL_BOSS' && bossStateBefore?.id === 'SVOO_VEIL' && bossStateBefore.active) {
     const rawClause=originalAnalysis.clauses?.find(c=>c.id===originalAnalysis.mainClauseId);
     const rawHit=mainFrameHit(originalAnalysis);
-    const veilHit=['0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1'].includes(originalAnalysis.grammarVersion)?rawHit:frameHit;
-    const releases = ['0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1'].includes(originalAnalysis.grammarVersion)?Boolean(rawHit?.frameId==='frame.svoo'&&rawClause?.frameId==='frame.svoo'&&rawClause.subjectNodeId&&rawClause.verbCardId&&rawClause.indirectObjectNodeId&&rawClause.directObjectNodeId):frameHit && frameId === 'frame.svoo';
+    const veilHit=['0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2'].includes(originalAnalysis.grammarVersion)?rawHit:frameHit;
+    const releases = ['0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2'].includes(originalAnalysis.grammarVersion)?Boolean(rawHit?.frameId==='frame.svoo'&&rawClause?.frameId==='frame.svoo'&&rawClause.subjectNodeId&&rawClause.verbCardId&&rawClause.indirectObjectNodeId&&rawClause.directObjectNodeId):frameHit && frameId === 'frame.svoo';
     if (releases) bossStateAfter.active = false;
     const sourceId = releases ? 'boss.svooVeil.release' : 'boss.svooVeil.reduce';
     const labelKo = releases ? '4형식 적중 · 보호 장막 해제' : '보호 장막 · 피해 ×0.25';
@@ -105,9 +105,9 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   attackId = 'attack.sandbox', runId = null, battleId = null, expectedRevision = 0,
   sentenceSnapshot = null, syntheticBossFixture = null, policyVersion = null, comboEligibility = null,temporaryCardMeta={},
 }) {
-  const temporary=['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(policyVersion)?{consumedTemporaryCardIds:cards.filter(c=>temporaryCardMeta[c.instanceId]?.battleId===battleId).map(c=>c.instanceId)}:{};
-  if (['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
-    const cardScoringSnapshot=validateCardScoringSnapshot(cards);
+  const temporary=['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(policyVersion)?{consumedTemporaryCardIds:cards.filter(c=>temporaryCardMeta[c.instanceId]?.battleId===battleId).map(c=>c.instanceId)}:{};
+  if (['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(policyVersion) && analysis?.status === 'INVALID_CORE') {
+    const cardScoringSnapshot=validateCardScoringSnapshot(cards,scoreBalanceForVersion(policyVersion));
     const hp=safeInteger(enemy.hp,'enemy hp',{min:0});
     return {schemaVersion:1,attackId,runId,battleId,expectedRevision,status:analysis.status,accepted:true,...temporary,
       sentenceSnapshot,analysis,cardScoringSnapshot,runeSnapshot:[],comboEligibility,scoreableHitIds:[],
@@ -123,11 +123,11 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
     analysis, sentenceSnapshot, accepted: false, scoreTimeline: [], preRuneScore: 0, postRuneScore: 0, postRegionScore: 0,
     finalPower: 0, actualHpLoss: 0, overkill: 0, killed: false, proposedStateEffects: { consumeTurn: false, discardCardIds: [], killGold: 0 },
   };
-  const cardScoringSnapshot = validateCardScoringSnapshot(cards);
+  const cardScoringSnapshot = validateCardScoringSnapshot(cards,scoreBalanceForVersion(policyVersion));
   const eligibleAnalysis=scoreableAnalysis(analysis,comboEligibility);
   const version=policyVersion==='0.5.1'?'0.5.0':policyVersion??analysis.grammarVersion;
   const scoring = scoreAttack(analysis, cardScoringSnapshot, { attackId, eligibleAnalysis,balance:scoreBalanceForVersion(version) });
-  const runeEvidence=version==='0.10.1'?buildRuneEvidence(analysis,comboEligibility):{};
+  const runeEvidence=['0.10.1','0.10.2'].includes(version)?buildRuneEvidence(analysis,comboEligibility):{};
   const runeResult = applyRunes(eligibleAnalysis, scoring, equippedRunes, cardScoringSnapshot, { attackId,version,runeEvidence });
   const encounter = resolveEncounter(eligibleAnalysis, runeResult.postRuneScore, enemy, {
     attackId, eventOffset: scoring.events.length + runeResult.runeEvents.length, stage, syntheticBossFixture,originalAnalysis:analysis,submittedCards:cardScoringSnapshot,temporaryCardMeta,policyVersion:version,
@@ -135,10 +135,10 @@ export function resolveAttack({ analysis, cards, equippedRunes = [], enemy, stag
   return {
     schemaVersion: 1, attackId, runId, battleId, expectedRevision, status: analysis.status, accepted: true,...temporary,...(encounter.relativeSealResult?{relativeSealResult:encounter.relativeSealResult,preventedDamage:encounter.preventedDamage}:{}),...(encounter.frostCrystalResult?{frostCrystalResult:encounter.frostCrystalResult,preventedDamage:encounter.preventedDamage}:{}),
     versions: { language: sentenceSnapshot?.languageVersion ?? analysis.grammarVersion ?? '0.2.0', grammar: analysis.grammarVersion ?? '0.2.0',
-      balance: version==='0.10.1'?'balance.0.10.1':version==='0.10.0'?'balance.0.10.0':version==='0.9.0'?'balance.0.9.0':version==='0.8.0'?'balance.0.8.0':version==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'balance.0.6.0':version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: version==='0.10.1'?'runes.0.10.1':['0.9.0','0.10.0','0.10.1'].includes(version)?'runes.0.9.0':['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'runes.0.6.1':['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: version==='0.10.1'?'stage.0.10.1':version==='0.10.0'?'stage.0.10.0':version==='0.9.0'?'stage.0.9.0':version==='0.8.0'?'stage.0.8.0':version==='0.7.0'?'stage.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'stage.0.6.0':version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: version==='0.10.1'?'presentation.0.10.1':version==='0.10.0'?'presentation.0.10.0':version==='0.9.0'?'presentation.0.9.0':version==='0.8.0'?'presentation.0.8.0':version==='0.7.0'?'presentation.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1'].includes(version)?'presentation.0.6.0':'presentation.0.2.1' },
+      balance: version==='0.10.2'?'balance.0.10.2':version==='0.10.1'?'balance.0.10.1':version==='0.10.0'?'balance.0.10.0':version==='0.9.0'?'balance.0.9.0':version==='0.8.0'?'balance.0.8.0':version==='0.7.0'?'balance.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'balance.0.6.0':version==='0.5.0'?'balance.0.5.0':version==='0.4.0'?'balance.0.4.0':version==='0.3.0'?'balance.0.3.0':BALANCE_VERSION, runes: ['0.10.1','0.10.2'].includes(version)?'runes.0.10.1':['0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'runes.0.9.0':['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'runes.0.6.1':['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'runes.0.3.0':RUNE_VERSION, stage: ['0.10.1','0.10.2'].includes(version)?'stage.0.10.1':version==='0.10.0'?'stage.0.10.0':version==='0.9.0'?'stage.0.9.0':version==='0.8.0'?'stage.0.8.0':version==='0.7.0'?'stage.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'stage.0.6.0':version==='0.5.0'?'stage.0.5.0':version==='0.4.0'?'stage.0.4.0':version==='0.3.0'?'stage.0.3.0':STAGE_VERSION, presentation: ['0.10.1','0.10.2'].includes(version)?'presentation.0.10.1':version==='0.10.0'?'presentation.0.10.0':version==='0.9.0'?'presentation.0.9.0':version==='0.8.0'?'presentation.0.8.0':version==='0.7.0'?'presentation.0.7.0':['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'presentation.0.6.0':'presentation.0.2.1' },
     sentenceSnapshot, cardScoringSnapshot, runeSnapshot: runeResult.runeSnapshot, analysis, comboEligibility,
-    scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),...(version==='0.10.1'?{runeEvidence}:{}),
-    ...(['0.10.0','0.10.1'].includes(version)?{suppressedScoreEvidence:eligibleAnalysis.suppressedScoreEvidence??[],resistanceResult:encounter.resistanceResult,preResistancePower:encounter.preResistancePower,postResistancePower:encounter.postResistancePower,preventedByResistance:encounter.preventedByResistance,...(encounter.foresightResult?{foresightResult:encounter.foresightResult}:{})}:{}),
+    scoreableHitIds:eligibleAnalysis.grammarHits.map(h=>h.id),...(['0.10.1','0.10.2'].includes(version)?{runeEvidence}:{}),
+    ...(['0.10.0','0.10.1','0.10.2'].includes(version)?{suppressedScoreEvidence:eligibleAnalysis.suppressedScoreEvidence??[],resistanceResult:encounter.resistanceResult,preResistancePower:encounter.preResistancePower,postResistancePower:encounter.postResistancePower,preventedByResistance:encounter.preventedByResistance,...(encounter.foresightResult?{foresightResult:encounter.foresightResult}:{})}:{}),
     zeroReason:encounter.relativeSealResult&&encounter.actualHpLoss===0&&encounter.finalPower>0?'BOSS_BLOCKED':encounter.finalPower===0?(encounter.bossEffects.length?'BOSS_BLOCKED':'ACCURACY_ZERO'):null,
     scoreTimeline: [...scoring.events, ...runeResult.runeEvents, ...encounter.events],
     preRuneScore: scoring.preRuneScore, postRuneScore: runeResult.postRuneScore,

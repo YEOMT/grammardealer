@@ -1,0 +1,40 @@
+{
+  "scope": "PRODUCTION_NEW_RUN_REAL_UI_TUTORIAL_NOT_47_BATTLES",
+  "checks": [
+    {
+      "id": "PRODUCTION_GUIDED_40_126",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_NEW_POLICY_SAVE",
+      "status": "PASS"
+    },
+    {
+      "id": "PRODUCTION_BASEPATH_RESOURCES",
+      "status": "PASS"
+    }
+  ],
+  "captures": [
+    "production-lobby.png",
+    "tutorial-start.png",
+    "discard-selected.png",
+    "first-hit.png",
+    "prepared.png",
+    "score-gate-26.png",
+    "score-gate-27.png",
+    "score-gate-28.png",
+    "overpower-defeat.png",
+    "tutorial-reward.png"
+  ],
+  "errors": [],
+  "resources": [
+    {
+      "url": "/grammardealer/assets/index-eTJoactW.css",
+      "status": 200
+    },
+    {
+      "url": "/grammardealer/assets/index-CKLR2QBh.js",
+      "status": 200
+    }
+  ]
+}

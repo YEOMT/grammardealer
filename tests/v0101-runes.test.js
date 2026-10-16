@@ -9,7 +9,7 @@ import {scoreableAnalysis} from '../src/engine/comboEligibility.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {runesForVersion} from '../src/data/runes.js';
 import {getEncounter} from '../src/data/stages.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-0101-controller.js';
 import {newProfile,validateRunState} from '../src/services/localStore.js';
 const fixture=name=>JSON.parse(fs.readFileSync(new URL('./fixtures/v0101/fixtures/'+name,import.meta.url)));
 const unlocks=['pack.svoo','pack.svoc.basic','pack.time.past','pack.time.progressive','pack.time.perfect','pack.time.futureWill','pack.clauseLink','pack.infinitive','pack.gerund','pack.passive','pack.relative','pack.relativeAdverb','pack.corridor','pack.participles','pack.causativePerception'];

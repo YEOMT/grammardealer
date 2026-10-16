@@ -1,0 +1,15 @@
+{
+  "label": "recovery-guided-build",
+  "command": [
+    "npm.cmd",
+    "run",
+    "build"
+  ],
+  "startedAt": "2026-10-16T09:11:26.832368+00:00",
+  "finishedAt": "2026-10-16T09:11:37.045696+00:00",
+  "exitCode": 0,
+  "status": "PASS",
+  "log": ".local-validation/v0101/recovery-guided-build/command.log",
+  "logSha256": "0ce4aaf17d9d965f7865cfb43c1c35576b35d86e27cde9a0123995d176bd8337",
+  "fixedOutputsArchivedAndRestored": []
+}

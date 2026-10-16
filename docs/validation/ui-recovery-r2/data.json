@@ -1,0 +1,15 @@
+{
+  "label": "recovery-final-data",
+  "command": [
+    "npm.cmd",
+    "run",
+    "validate:data"
+  ],
+  "startedAt": "2026-10-16T09:09:19.263925+00:00",
+  "finishedAt": "2026-10-16T09:09:26.572054+00:00",
+  "exitCode": 0,
+  "status": "PASS",
+  "log": ".local-validation/v0101/recovery-final-data/command.log",
+  "logSha256": "6081c7a1c20d4dd598f5a816ea46786727a92cb85090651f9b05224ebc4c039f",
+  "fixedOutputsArchivedAndRestored": []
+}
