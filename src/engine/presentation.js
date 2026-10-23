@@ -167,7 +167,7 @@ export function connect(root, fromCardId, toCardIds) {
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
   const scoreEffects=createScoreEffects(root);
-  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null;
+  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null;
   const fallbacks=new Set();
   const text = (name, value) => { const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
@@ -194,7 +194,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       const timer=setTimeout(cleanup,Math.max(90,duration));fallbacks.add(cleanup);
     }
   };
-  const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
+  const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackLayer?.remove();attackLayer=null;attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
   const clearHighlights = () => {
     scoreEffects.clearEvidence();
     root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
@@ -324,7 +324,13 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
         for(const node of [attackBody,...attackBody.querySelectorAll('*')]){for(const name of ['id','data-card-id','data-card-zone','data-presentation','tabindex'])node.removeAttribute(name);}
         attackBody.dataset.presentation='attack-body';attackBody.classList.add('core-attack-body');
         Object.assign(attackBody.style,{position:'fixed',left:`${a.left}px`,top:`${a.top}px`,width:`${a.width}px`,height:`${a.height}px`,minHeight:'0',margin:'0',zIndex:'1000',pointerEvents:'none',overflow:'visible'});
-        root.ownerDocument.body.append(attackBody);
+        // Preserve the responsive card/row CSS context outside the clipped combat board.
+        attackLayer=root.ownerDocument.createElement('div');attackLayer.className='responsive-battle attack-overlay';
+        Object.assign(attackLayer.style,{position:'fixed',inset:'0',zIndex:'1000',pointerEvents:'none'});
+        const sourceStyle=getComputedStyle(root);
+        // CSSStyleDeclaration enumeration does not expose custom properties in every engine.
+        for(const property of ['--play-card-width','--board-body','--form-height','--board-gap','--board-pad','--board-card-height','--board-width'])attackLayer.style.setProperty(property,sourceStyle.getPropertyValue(property));
+        attackLayer.append(attackBody);root.ownerDocument.body.append(attackLayer);
         // Bounding boxes are viewport pixels; fixed-position CSS coordinates inherit page zoom.
         const zoom=a.width>0?attackBody.getBoundingClientRect().width/a.width:1;
         const scale=Number.isFinite(zoom)&&zoom>0?zoom:1;

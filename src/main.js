@@ -58,7 +58,7 @@ async function runCommand(command){
     toast(words.length?'입장 준비 · '+words.join(' · ')+' 획득':'입장 준비 · 필요한 재료를 이미 보유하고 있습니다.');
   }
   if(result.operationEffect){await presentOperationResult(before,result.operationEffect);return result;}
-  if(['ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
+  if(['CLEAR_SENTENCE','ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
   if(result.rewardEffect){
     const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel},null,before.version),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:e.beforeOperation?operationPolishPreview(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.beforeLevel},null,before.version)):`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
   }
@@ -68,9 +68,9 @@ async function runCommand(command){
   return result;
 }
 async function presentOperationResult(before,effect){
- presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;
+ presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,handSelection:id=>controller.getHandSelection(id),selected,locked:true});cleanup=combatView.cleanup;
  const source=[...root.querySelectorAll('[data-card-id]')].find(n=>n.dataset.cardId===effect.sourceCardId);
- try{await presentOperation(effect,{sourceElement:source,audio,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,showAfter:()=>{cleanup();combatView=renderCombat(root,controller.getState(),{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;return combatView.element;}});}
+ try{await presentOperation(effect,{sourceElement:source,audio,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches,showAfter:()=>{cleanup();combatView=renderCombat(root,controller.getState(),{command:runCommand,openOverlay,handSelection:id=>controller.getHandSelection(id),selected,locked:true});cleanup=combatView.cleanup;return combatView.element;}});}
  finally{controller.dispatch({type:'FINISH_OPERATION',effectId:effect.effectId});selected.clear();presenting=false;render();}
 }
 async function interruptTutorial(mode){
@@ -80,7 +80,7 @@ async function interruptTutorial(mode){
  if(mode==='exit')changeRoute('lobby');else render();
 }
 async function presentResolution(before,resolution){
- selected.clear();presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,selected,locked:true});cleanup=combatView.cleanup;combatView.beginPresentation();
+ selected.clear();presenting=true;cleanup();combatView=renderCombat(root,before,{command:runCommand,openOverlay,handSelection:id=>controller.getHandSelection(id),selected,locked:true});cleanup=combatView.cleanup;combatView.beginPresentation();
  const epoch=++presentationEpoch,owner=controller;const guided=isGuided(before);if(guided){const skip=skipTutorialButton(interruptTutorial);skip.id='guided-skip-live';skip.classList.add('tutorial-skip-live');combatView.element.append(skip);}presentationAbort=new AbortController();const signal=presentationAbort.signal;
  const waitForGate=guided&&controller.getState().tutorialSession.attackCount===2?async gate=>{
   const current=controller.getState();if(!isGuided(current)||current.tutorialSession.completedSteps.includes(Number(gate.cueId.slice(1))))return;
@@ -127,7 +127,7 @@ function render(){
     if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records'),onSaves:()=>openOverlay('saves'),onChooseConnector:payload=>runCommand({type:'CHOOSE_STAGE4_CONNECTOR',...payload}),onChooseWaterways:payload=>runCommand({type:'CHOOSE_STAGE8_WORD',...payload})});return;}
     if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
-    if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=isGuided(state)?attachGuidedCoach(root,state,runCommand,{onInterrupt:interruptTutorial}):attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
+    if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,handSelection:id=>controller.getHandSelection(id),selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=isGuided(state)?attachGuidedCoach(root,state,runCommand,{onInterrupt:interruptTutorial}):attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
     if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}

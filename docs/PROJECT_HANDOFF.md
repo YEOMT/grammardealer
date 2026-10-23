@@ -1,3 +1,7 @@
+# Quick UX 0.10.3 현재 인계
+
+기준 main `ad59039d491b5e2c607380052d6c178b497ced39`, 브랜치 `codex/v0.10.3-quick-ux`. [명세](../spec/quick-ux/Syntax_Atlas_Quick_UX_Patch.md)와 [실제 검증](TEST_REPORT_QUICK_UX.md)을 우선한다. 손패만 1.25배 확대·페이지 유지, 조합대 중앙정렬/24장, 턴 넘기기, 빈자리만큼 우측 회수, 버리기 위치, 공격 오버레이 스타일 문맥, 상시 입장 정보를 정돈했다. 앱 0.10.3이고 원정/저장 정책은 0.10.2 그대로다. 단위1723·빌드·집중 UI를 확인했으며 자연 원정/전 기기 검사는 NOT RUN. 아래는 이전 기록으로 보존한다.
+
 # 최종 전투 UI 현재 인계
 
 기준main `0866906bfbe64bbf9ac8b665c9d3b9afb4184df9`(PR17 병합), 브랜치 `codex/final-battle-layout-polish`. [최신 UI 계약](../spec/final-battle-ui/BRIEF_KO.md)과 [이번 검증](TEST_REPORT_FINAL_BATTLE_UI.md)을 우선한다. PC/태블릿 중간3열, 12×2 고정 조합대, 한 줄 손패/페이지, 좌측 지역 안내다. 이전 좁은창 상단패널 배치는 대체했다. production 변경은UI5파일뿐이며 0.10.2의24장/기존저장/수치를 유지한다. 1,160px 미만은 가로 스크롤 제약이 남는다. 최신main과 사용자 변경을 확인한 후 개발하며 아래 기록은 보존한다.
