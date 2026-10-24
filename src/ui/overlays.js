@@ -81,7 +81,7 @@ export function openDictionary(state,{ownedOnly=false}={}) {
       const notes=[...(dual?['동사: 돕다 / 명사: 도움(셀 수 없는 명사)','I help you. / I need more help.','명사 도움은 기본형 help로 씁니다. 활용형은 기존 동사 용법을 따릅니다.']:[]),tips[word.lemma]??(word.pos==='VERB'&&!['will','can'].includes(word.lemma)?null:word.usageNoteKo)].filter(Boolean);
       if(word.pos==='NOUN')notes.push(({COUNT:'가산명사: 단수에는 한정사를 쓰고, 복수형도 사용할 수 있습니다.',MASS:'불가산명사: 이 게임의 뜻에서는 a/an과 복수형을 사용하지 않습니다.',BOTH:'가산·불가산 용법: 종류·개별 사례는 a/an 또는 복수형, 일반 개념·물질은 무관사 단수형을 사용할 수 있습니다.'})[senses[0]?.countability]);
       return el('article', { class: 'dictionary-entry' },
-        el('strong', { class:'word-heading', text: word.lemma }), el('span', { class: 'badge', text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
+        el('strong', { class:'word-heading', text: word.lemma }), el('span', { class: `badge pos-${word.pos}`, text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
         el('p',{text:word.glossKo||'뜻 확인 중'}),el('p',{text:owned.length?`보유 ${owned.length}장`:'현재 보유하지 않음'}),
         el('small', { text: `허용 형태: ${visibleForms(word.pos,forms).map(form => `${form.surface} (${form.aliasForms?.map(f=>formMeaning(word,f)).join('·')??(form.grammaticalFeatures?.tense==='PAST_PARTICIPLE'?formLabel(form):formMeaning(word,form))})`).join(' · ') || '0.1에서는 제공하지 않음'}` }),
         ...notes.filter(Boolean).map(note => el('small', { text: note })),

@@ -142,7 +142,7 @@ export function buyShopItem(run, shopId, itemId, { replaceRuneInstanceId = null 
   if (!openShop(run, shopId)) return fail('현재 열려 있는 상점이 아닙니다.');
   const item = run.shop.inventory.find(entry => entry.itemId === itemId);
   if (!item || item.purchased) return fail('이미 구매했거나 현재 상점에 없는 상품입니다.');
-  if (!canAfford(run, item.price)) return fail('재화가 부족합니다.');
+  if (!canAfford(run, item.price)) return fail('골드가 부족합니다.');
   if (item.kind === 'CARD') {
     const definition = hasSkyCampaign(run)?cardDefinition(item.cardDefId,run.version):eligibleRewardCards(run).find(card=>card.id===item.cardDefId&&card.rarity===item.rarity);
     if(hasSkyCampaign(run)&&(!run.contentManifest.cardDefIds.includes(item.cardDefId)||definition?.rarity!==item.rarity))return fail('원정 범위 밖의 상품입니다.');
@@ -165,7 +165,7 @@ export function buyShopItem(run, shopId, itemId, { replaceRuneInstanceId = null 
     return { ok: true, message: `${definition.nameKo} Lv.${same.level}` };
   }
   const full = run.runes.orderedInstanceIds.length >= run.runes.slotLimit;
-  if (full && !replaceRuneInstanceId) return fail('교체할 룬을 선택하세요. 취소하면 재화와 상품은 그대로 남습니다.', { needsReplacement: true });
+  if (full && !replaceRuneInstanceId) return fail('교체할 룬을 선택하세요. 취소하면 골드와 상품은 그대로 남습니다.', { needsReplacement: true });
   if (replaceRuneInstanceId && (!full || !run.runes.orderedInstanceIds.includes(replaceRuneInstanceId))) return fail('교체 대상 룬을 확인하세요.');
   const instanceId = `${itemId}.owned`;
   if (run.runes.instances[instanceId]) return fail('이미 존재하는 룬 상품입니다.');
@@ -184,7 +184,7 @@ export function useShopService(run, shopId, serviceKind, { targetCardInstanceId 
   if (!['POLISH', 'REMOVE'].includes(serviceKind)) return fail('알 수 없는 상점 서비스입니다.');
   const service = run.shop.services[serviceKind];
   if (!service || service.used) return fail('이미 사용한 상점 서비스입니다.');
-  if (!canAfford(run, service.price)) return fail('재화가 부족합니다.');
+  if (!canAfford(run, service.price)) return fail('골드가 부족합니다.');
   if (!targetCardInstanceId) return fail('보유 카드 한 장을 선택하세요.', { needsTarget: true, serviceKind });
   const card = run.cardInstances[targetCardInstanceId];
   if (!card || !run.activeCardIds.includes(targetCardInstanceId)) return fail('현재 덱에 없는 카드입니다.');

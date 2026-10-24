@@ -68,13 +68,5 @@ export function shopViewport(main){
  const update=()=>{const items=[...zone.children],size=innerHeight<430||innerWidth<720?2:innerWidth<940?3:items.length,pages=Math.max(1,Math.ceil(items.length/size));page=Math.max(0,Math.min(page,pages-1));items.forEach((n,i)=>n.hidden=i<page*size||i>=(page+1)*size);zone.style.setProperty('--shop-columns',String(size));nav.hidden=pages===1;status.textContent=`상품 ${page+1}/${pages} · 전체 ${items.length}개`;prev.disabled=page===0;next.disabled=page===pages-1;};
  update();document.addEventListener('atlas:viewport',update);return()=>document.removeEventListener('atlas:viewport',update);
 }
-/** Entry information stays visible; the existing choice/entry controls remain last. */
-export function introViewport(main){
- main.classList.add('responsive-intro');
- const footer=document.createElement('div'),content=document.createElement('section');
- footer.className='intro-footer';content.className='intro-details-content';
- const nodes=[...main.querySelectorAll(':scope > .boss-preview,:scope > .intro-encounters,:scope > .helper')];
- if(!nodes.length)return;
- const tail=[];for(let n=nodes[0];n;n=n.nextElementSibling)tail.push(n);
- content.append(...nodes);footer.append(content,...tail.filter(n=>!nodes.includes(n)));main.append(footer);
-}
+/** View-only region introduction; entry/choice/shop transitions remain controller-owned. */
+export function introViewport(main){main.classList.add('responsive-intro');}
