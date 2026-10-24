@@ -1,3 +1,5 @@
+import {openClearLeaderboard,renderFinalClear} from './ui/finale.js';
+import {LocalLeaderboardRepository,MemoryLeaderboardRepository} from './services/clearLeaderboard.js';
 import {installOrientationGate} from './ui/orientation.js';
 import {installViewport,syncFullscreenButtons} from './ui/viewport.js';
 import {presentOperation} from './ui/operationPresentation.js';
@@ -19,11 +21,14 @@ import { playAttack, createDOMPresentation, connect } from './engine/presentatio
 import { audio } from './services/audio.js';
 import { registry } from './data/language/index.js';
 import { RunController } from './game/runController.js';
-import { LocalStore, newProfile } from './services/localStore.js';
+import { LocalStore, newProfile, applyProfileEvent } from './services/localStore.js';
 
 installViewport();syncFullscreenButtons();installOrientationGate();
 const root=document.querySelector('#app');
 const store=new LocalStore({registry});
+const sessionLeaderboard=new MemoryLeaderboardRepository();
+let rankingSessionFallback=false;
+const leaderboard=()=>store.available&&!rankingSessionFallback?new LocalLeaderboardRepository(store,{profile}):sessionLeaderboard;
 let profiles=[],profile=null,controller=null,cleanup=()=>{},combatView=null,presenting=false,selected=new Set(),saveQueue=Promise.resolve(),memoryWarning=false,starting=false;
 const defaultSettings={speed:1,sfxVolume:45,muted:false,effectsOff:false};
 let presentationAbort=null,presentationEpoch=0;
@@ -31,7 +36,13 @@ let sessionSettings={...defaultSettings};
 const settings=()=>profile?.settings||sessionSettings;
 function applySettings(){const s=settings();audio.configure({muted:s.muted,volume:s.sfxVolume/100});document.body.classList.toggle('effects-off',s.effectsOff);}
 function persistProfile(next){profile=next;profiles=profiles.filter(p=>p.playerId!==next.playerId).concat(next);applySettings();if(!store.available)return Promise.resolve();const frozen=structuredClone(next);saveQueue=saveQueue.catch(()=>{}).then(()=>store.saveProfile(frozen)).catch(error=>{toast(`개인 기록을 저장하지 못했습니다. 플레이는 계속할 수 있습니다. ${error.message}`);});return saveQueue;}
-function newController(){controller=new RunController({profile,onProfileEvent:(_event,next)=>{void persistProfile(next);}});}
+function persistFinalClear(next,record){
+ profile=next;profiles=profiles.filter(p=>p.playerId!==next.playerId).concat(next);applySettings();
+ const frozen=structuredClone(next),snapshot=structuredClone(record);
+ saveQueue=saveQueue.catch(()=>{}).then(()=>leaderboard().upsertClear(snapshot,{profile:frozen})).catch(async error=>{rankingSessionFallback=true;await sessionLeaderboard.upsertClear(snapshot);toast(`클리어는 완료했습니다. 기록은 이번 세션에 보존합니다: ${error.message}`);});return saveQueue;
+}
+function newController(){controller=new RunController({profile,onProfileEvent:(event,next)=>{if(event.type==='FINAL50_CLEAR')void persistFinalClear(next,event.clearRecord);else void persistProfile(next);}});}
+function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,memory:!store.available||rankingSessionFallback}));}
 function changeRoute(route){if(location.hash===`#${route}`)render();else location.hash=route;}
 async function startRun(config,{sameSeed=false}={}){
   if(starting||presenting)return;starting=true;void audio.unlock();
@@ -64,7 +75,7 @@ async function runCommand(command){
   }
   if(result.resolution){
     await presentResolution(before,result.resolution);
-  }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();if(result.turnEndReceipt){const r=result.turnEndReceipt;toast(r.actualHeal?`도서관장 회복 +${r.actualHeal}`:'도서관장 회복 0 · 최대 체력');}}
+  }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();if(result.turnEndReceipt){const r=result.turnEndReceipt;toast(r.actualHeal?`${r.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 +${r.actualHeal}`:`${r.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 0 · 최대 체력`);}}
   return result;
 }
 async function presentOperationResult(before,effect){
@@ -106,12 +117,13 @@ function openOverlay(kind){
   }
   if(kind==='dictionary')return openDictionary(state);
   if(kind==='deck'||kind==='draw'||kind==='discard'||kind==='exhausted')return openDeck(state,kind==='deck'?'all':kind);
-  if(kind==='records')return openRecords(profile,state);
+  if(kind==='leaderboard')return showClearLeaderboard();
+  if(kind==='records'){const view=openRecords(profile,state);view.dialog.querySelector('.dialog-body')?.prepend(button('이 기기의 클리어 랭킹',showClearLeaderboard,'secondary'));return view;}
   if(kind==='recent')return openRecentAttack(state);
   if(kind==='settings')return openSettings(settings(),async next=>{sessionSettings={...next};if(profile){profile={...profile,settings:{...profile.settings,...next}};if(controller?.setProfile)controller.setProfile(profile);else if(controller)controller.profile=structuredClone(profile);await persistProfile(profile);}applySettings();},()=>openTutorialPractice(root));
   if(kind==='saves'){
     if(!profile){toast('프로필을 선택하거나 원정을 먼저 시작하세요.');return;}
-    return openSaves({store,profile,state,onLoad:async loaded=>{newController();const result=controller.dispatch({type:'RESUME_RUN',state:loaded});if(!result.ok)throw Error(result.message);selected.clear();changeRoute('game');}});
+    return openSaves({store,profile,state,onLoad:async loaded=>{newController();const result=controller.dispatch({type:'RESUME_RUN',state:loaded});if(!result.ok)throw Error(result.message);if(loaded.finale?.clearRecord&&loaded.finale.clearRecord.playerId===profile.playerId){const restored=applyProfileEvent(profile,{type:'FINAL50_CLEAR',clearRecord:loaded.finale.clearRecord});controller.setProfile(restored);void persistFinalClear(restored,loaded.finale.clearRecord);}selected.clear();changeRoute('game');}});
   }
   if(kind==='lobby')return leaveToLobby();
 }
@@ -130,6 +142,7 @@ function render(){
     if(state.status==='BATTLE'){combatView=renderCombat(root,state,{command:runCommand,openOverlay,handSelection:id=>controller.getHandSelection(id),selected,onTutorialSkip:()=>runCommand({type:'SKIP_GUIDE'})});const guide=isGuided(state)?attachGuidedCoach(root,state,runCommand,{onInterrupt:interruptTutorial}):attachTutorial(root,state,runCommand);cleanup=()=>{combatView?.cleanup();guide();};return;}
     if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
+    if(state.clearKind==='FINAL_CLEAR'&&state.status==='CONTENT_COMPLETE'){renderFinalClear(root,state,{onLobby:leaveToLobby,onSaves:()=>openOverlay('saves'),onLeaderboard:showClearLeaderboard});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}
   }
   renderLobby(root,{profiles,activeProfile:profile,onStart:startRun,onLoad:()=>openOverlay('saves'),onSettings:()=>openOverlay('settings'),onRecords:()=>openOverlay('records'),onSandbox:import.meta.env.DEV?()=>changeRoute('sandbox'):null,onProfile:id=>{profile=profiles.find(p=>p.playerId===id)||null;controller=null;render();},onCreateProfile:()=>{profile=null;controller=null;render();}});

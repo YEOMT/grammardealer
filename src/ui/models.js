@@ -19,7 +19,7 @@ export function cardModel(instance, selection = null, version='0.3.0') {
 export function runeDescription(rune, level = 1, version='0.3.0') {
   if(!Number.isInteger(level)||level<1||level>3)return '지원하지 않는 레벨';
   const value=rune.levelValues[level-1];
-  if(rune.id==='rune.longSentence')return `유효 카드 5~9장 ×${value.short.num/value.short.den} / 10~${version==='0.10.2'?24:16}장 ×${value.long.num/value.long.den}`;
+  if(rune.id==='rune.longSentence')return `유효 카드 5~9장 ×${value.short.num/value.short.den} / 10~${['0.10.2','0.11.0'].includes(version)?24:16}장 ×${value.long.num/value.long.den}`;
   return `${rune.displayEffectSummaryKo} ${typeof value==='object'?`×${value.num/value.den}`:`+${value}`}`;
 }
 

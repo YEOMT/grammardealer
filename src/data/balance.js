@@ -247,7 +247,7 @@ export const BALANCE = deepFreeze({
   }
 });
 export const COMBAT_BALANCE = BALANCE.combat;
-export const combatBalanceForVersion=version=>version==='0.10.2'?RECOVERY_COMBAT_BALANCE:COMBAT_BALANCE;
+export const combatBalanceForVersion=version=>['0.10.2','0.11.0'].includes(version)?RECOVERY_COMBAT_BALANCE:COMBAT_BALANCE;
 const RECOVERY_COMBAT_BALANCE=deepFreeze({...COMBAT_BALANCE,sentenceLimit:24});
 export const SCORE_BALANCE = BALANCE.score;
 export const TIME_SCORE_BALANCE=deepFreeze({...SCORE_BALANCE,completeBonus:30,
@@ -268,8 +268,8 @@ export const EMBER_SCORE_BALANCE=deepFreeze({...SNOW_SCORE_BALANCE,passiveMultip
 export const WATERWAYS_SCORE_BALANCE=deepFreeze({...EMBER_SCORE_BALANCE,relativeMultiplier:{num:2,den:1},issuePenalties:{...EMBER_SCORE_BALANCE.issuePenalties,RELATIVE_MARKER_ANTECEDENT:10}});
 export const CORRIDOR_SCORE_BALANCE=deepFreeze({...WATERWAYS_SCORE_BALANCE,corridorMultipliers:CORRIDOR_INITIAL.multipliers});
 const RECOVERY_SCORE_BALANCE=deepFreeze({...CORRIDOR_SCORE_BALANCE,maxSubmittedCards:24});
-export const scoreBalanceForVersion=version=>version==='0.10.2'?RECOVERY_SCORE_BALANCE:['0.10.0','0.10.1','0.10.2'].includes(version)?CORRIDOR_SCORE_BALANCE:['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?WATERWAYS_SCORE_BALANCE:version==='0.7.0'?EMBER_SCORE_BALANCE:['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
+export const scoreBalanceForVersion=version=>['0.10.2','0.11.0'].includes(version)?RECOVERY_SCORE_BALANCE:['0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?CORRIDOR_SCORE_BALANCE:['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?WATERWAYS_SCORE_BALANCE:version==='0.7.0'?EMBER_SCORE_BALANCE:['0.6.0','0.6.1'].includes(version)?SNOW_SCORE_BALANCE:['0.5.0','0.5.1'].includes(version)?DESERT_SCORE_BALANCE:version==='0.4.0'?SKY_SCORE_BALANCE:version==='0.3.0'?TIME_SCORE_BALANCE:SCORE_BALANCE;
 export const REWARD_BALANCE = BALANCE.reward;
 export const ECONOMY = BALANCE.economy;
 
-export const runeRarityWeightsForVersion=version=>['0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?LIBRARY_CONFIRMED.runeRarityWeights:REWARD_BALANCE.runeWeights;
+export const runeRarityWeightsForVersion=version=>['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?LIBRARY_CONFIRMED.runeRarityWeights:REWARD_BALANCE.runeWeights;

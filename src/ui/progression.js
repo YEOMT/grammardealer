@@ -36,6 +36,7 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, on
     'stage.07':'잿불이 남은 동굴 깊은 곳으로 나아가세요.',
     'stage.08':'오래된 물길을 따라 수로도시를 탐험하세요.',
     'stage.09':'문장들이 꿈꾸는 대서고의 문을 여세요.',
+    'stage.final':'당신이 모은 단어와 문장으로 마지막 세 형상을 마주하세요.',
     'stage.10':'거대한 기둥 사이로 흐르는 별빛을 따라가세요.'
   };
   const openChoice=()=>{
@@ -57,9 +58,9 @@ export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
   applyStageTheme(state);
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
     el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${campaignBattleCount(state)}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
-    el('p',{text:state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
+    el('p',{text:state.progress.stageId==='stage.10'?'마지막 준비 상점과 최종 세 전투가 기다립니다.':state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'골드')),
-    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.09'?'별의 회랑으로':state.progress.stageId==='stage.08'?'몽환의 대서고로':state.progress.stageId==='stage.07'?'고대의 수로도시로':state.progress.stageId==='stage.06'?'잿불 동굴로':state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
+    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.10'?'최종전으로':state.progress.stageId==='stage.09'?'별의 회랑으로':state.progress.stageId==='stage.08'?'몽환의 대서고로':state.progress.stageId==='stage.07'?'고대의 수로도시로':state.progress.stageId==='stage.06'?'잿불 동굴로':state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
 }
 
 /** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
@@ -132,13 +133,14 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
   applyStageTheme(state);
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
-    el('span', { class: 'eyebrow', text: `CHAPTER ${state.progress.stageId.slice(-2)} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
+    el('span', { class: 'eyebrow', text: `${state.progress.stageId==='stage.final'?'FINAL':`CHAPTER ${state.progress.stageId.slice(-2)}`} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
     el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
     el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·골드는 유지됩니다.` }),
     state.progress.stageId==='stage.08'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:WATERWAYS_HINT}),
     state.progress.stageId==='stage.07'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:EMBER_HINT}),
     state.progress.stageId==='stage.06'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:FROST_HINT}),
     state.progress.stageId==='stage.05'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:TURN_HAND_SEAL_HINT}),
+    state.progress.stageId==='stage.final'&&el('p',{class:'boss-rule',text:state.progress.roundIndex===0?'다음 전투는 실제 기여도가 높은 공격 룬과 매 턴 단어 최대 두 장을 봉인합니다. 시제 과제로 룬을 되찾을 수 있습니다.':'다음 전투에는 방어막·봉인·회복이 없습니다. 새 6턴과 정상 자원으로 시작합니다.'}),
     harbor&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:HARBOR_BOSS_HINT}),
     el('div', { class: 'record-grid' }, metric(state.activeCardIds.length, '현재 덱'), metric(state.runes.orderedInstanceIds.length, '장착 룬'), metric(state.economy.gold, '골드')),
     el('div', { class: 'reward-footer' }, button('다음 전투', onNext, 'primary', { id: 'next-battle' }), button('여기서 저장', onSaves, 'secondary'))));

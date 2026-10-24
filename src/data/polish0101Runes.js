@@ -27,11 +27,11 @@ export function runeDropContext(run,{source='REWARD',stageId=run.progress.stageI
  const introduction=source==='INTRO'||source==='REWARD'&&run.progress.battleNumber===2;
  const kind=run.combat?.enemyState?.kind;
  const boss=kind?kind==='REGIONAL_BOSS':run.progress.roundIndex===({'stage.01':2,'stage.02':3}[stageId]??4);
- const rareAllowed=!introduction&&(source==='SHOP'?['stage.04','stage.06','stage.08','stage.10'].includes(stageId):boss);
+ const rareAllowed=!introduction&&(source==='SHOP'?['stage.04','stage.06','stage.08','stage.10','stage.final'].includes(stageId):boss);
  return {source:introduction?'INTRO':source,stageId,rareAllowed};
 }
 export function filterRuneDropPool(run,pool,context={}){
- if(!['0.10.1','0.10.2'].includes(run.version))return pool;
+ if(!['0.10.1','0.10.2','0.11.0'].includes(run.version))return pool;
  const {rareAllowed}=runeDropContext(run,context);
  return pool.filter(r=>r.rarity!=='RARE'||rareAllowed);
 }

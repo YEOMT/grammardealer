@@ -4,7 +4,7 @@ const okStatus=a=>['VALID','VALID_WITH_ISSUES'].includes(a?.status);
 const digest=row=>{let h=2166136261;for(const c of JSON.stringify(row)){h=Math.imul(h^c.charCodeAt(0),16777619);}return (h>>>0).toString(16).padStart(8,'0');};
 /** The single selected analysis graph is the only source; no past-attack role counters. */
 export function relativeSealPair(analysis,submittedCards=[]){
- if(!okStatus(analysis)||!['0.8.0','0.9.0','0.10.0','0.10.1','0.10.2'].includes(analysis.grammarVersion))return null;
+ if(!okStatus(analysis)||!['0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(analysis.grammarVersion))return null;
  const physical=new Set(submittedCards.map(c=>c.instanceId)),covered=new Set(analysis.coverage?.consumedCardIds??[]);
  if(physical.size!==submittedCards.length||physical.size!==covered.size||[...covered].some(id=>!physical.has(id)))return null;
  const rows=(analysis.relativeClauses??[]).filter(r=>{
@@ -43,11 +43,11 @@ export function validateRelativeSealReceipt(run){
  if(b?.id!=='DUAL_RELATIVE_SEAL'){if(r!==undefined)fail();return true;}
  validateDualRelativeSeal(c.enemyState);
  if(!b.unlocked){if(r!==undefined)fail();return true;}
- if(!r||r.runId!==run.runId||r.battleId!==c.enemyState.id||r.attackId!==b.unlockedByAttackId||r.sentenceSnapshot?.languageVersion!==(['0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)?registryForVersion(run.version).version:'0.8.0')||r.preBossScore<=0||r.bossStateBefore?.unlocked!==false||r.bossStateAfter?.unlocked!==true)fail();
+ if(!r||r.runId!==run.runId||r.battleId!==c.enemyState.id||r.attackId!==b.unlockedByAttackId||r.sentenceSnapshot?.languageVersion!==(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?registryForVersion(run.version).version:'0.8.0')||r.preBossScore<=0||r.bossStateBefore?.unlocked!==false||r.bossStateAfter?.unlocked!==true)fail();
  const tokens=r.sentenceSnapshot.orderedTokens;
  if(!Array.isArray(r.cardScoringSnapshot)||r.cardScoringSnapshot.length!==tokens.length||r.cardScoringSnapshot.some((x,i)=>x.instanceId!==tokens[i].cardInstanceId||x.cardDefId!==tokens[i].cardDefId))fail();
- if(['0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)?r.grammarPatchVersion!==registryForVersion(run.version).version:run.version==='0.8.1'&&r.grammarPatchVersion!=='0.8.1'||r.grammarPatchVersion!==undefined&&r.grammarPatchVersion!=='0.8.1')fail();
- const analysis=analyzeSentence(r.sentenceSnapshot,registryForVersion(['0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)?run.version:'0.8.0'),{historicalReceipt:r.grammarPatchVersion===undefined});
+ if(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?r.grammarPatchVersion!==registryForVersion(run.version).version:run.version==='0.8.1'&&r.grammarPatchVersion!=='0.8.1'||r.grammarPatchVersion!==undefined&&r.grammarPatchVersion!=='0.8.1')fail();
+ const analysis=analyzeSentence(r.sentenceSnapshot,registryForVersion(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?run.version:'0.8.0'),{historicalReceipt:r.grammarPatchVersion===undefined});
  const result=resolveDualRelativeSeal(analysis,r.preBossScore,{id:r.battleId,hp:r.enemyHpBefore,bossMechanic:r.bossStateBefore},{attackId:r.attackId,submittedCards:r.cardScoringSnapshot});
  if(!result.unlockedNow||result.enemyHpAfter!==r.enemyHpAfter||JSON.stringify(result.bossStateAfter)!==JSON.stringify(r.bossStateAfter)||JSON.stringify(result.bossStateAfter.unlockWitness)!==JSON.stringify(b.unlockWitness))fail();
  return true;

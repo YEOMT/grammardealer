@@ -4,7 +4,7 @@ import { safeInteger, addSafe, scoreEvent } from './numeric.js';
 import { attackableAnalysis, normalizedHits, mainFrameHit, validateCardScoringSnapshot } from './scoring.js';
 
 /** An ordered, validated copy: reading a rune never mutates its instance or grants a resource. */
-export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
+export function validateEquippedRunes(equippedRunes = [], {version=null,slotLimit=['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?4:RUNE_SLOT_LIMIT}={}) {
   if (!Array.isArray(equippedRunes) || equippedRunes.length > slotLimit) throw new RangeError('Rune slot limit exceeded');
   const seen = new Set();
   return equippedRunes.map((rune, index) => {
@@ -50,7 +50,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
     const operation = definition.operation === 'MULTIPLY_SCORE' ? 'MULTIPLY' : 'ADD';
     const amount = operation === 'MULTIPLY' ? `×${operand.num / operand.den}` : `+${operand}`;
     const event = scoreEvent({ attackId, index: scoreResult.events.length + runeEvents.length, phase: 'RUNES', sourceType: 'RUNE',
-      sourceId: rune.runeId, runeInstanceId: rune.instanceId, runeLevel: rune.level, ...(['0.10.1','0.10.2'].includes(version)?{runeRarity:definition.rarity}:{}), labelKo: `${definition.nameKo} ${amount}`,
+      sourceId: rune.runeId, runeInstanceId: rune.instanceId, runeLevel: rune.level, ...(['0.10.1','0.10.2','0.11.0'].includes(version)?{runeRarity:definition.rarity}:{}), labelKo: `${definition.nameKo} ${amount}`,
       operation, operand, before: score, evidenceRefs, highlightCardIds: cardIds });
     runeEvents.push(event); score = event.after;
   };
@@ -78,7 +78,7 @@ export function applyRunes(analysis, scoreResult, equippedRunes, cards, { attack
       for (const card of scoringCards) if (card.polishLevel >= 1 && contributionIds.has(card.instanceId)) emit(rune, definition, value, [card.instanceId], [card.instanceId]);
     }
   }
-  return { schemaVersion: 1, runeVersion: ['0.10.1','0.10.2'].includes(version)?'runes.0.10.1':['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version)?'runes.0.6.1':RUNE_VERSION, runeSnapshot, postRuneScore: score, runeEvents, events: runeEvents };
+  return { schemaVersion: 1, runeVersion: ['0.10.1','0.10.2','0.11.0'].includes(version)?'runes.0.10.1':['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?'runes.0.6.1':RUNE_VERSION, runeSnapshot, postRuneScore: score, runeEvents, events: runeEvents };
 }
 
 /** Shared tooltip formatter derived from the same values used in the engine. */
@@ -86,6 +86,6 @@ export function describeRune(runeId, level = 1, version='0.3.0') {
   const definition = runeForVersion(runeId,version);
   if (!definition || !Number.isInteger(level) || level < 1 || level > 3) return '후속 버전';
   const value = definition.levelValues[level - 1];
-  if(runeId==='rune.longSentence')return `유효 카드 5~9장 ×${value.short.num/value.short.den} / 10~${version==='0.10.2'?24:16}장 ×${value.long.num/value.long.den}`;
+  if(runeId==='rune.longSentence')return `유효 카드 5~9장 ×${value.short.num/value.short.den} / 10~${['0.10.2','0.11.0'].includes(version)?24:16}장 ×${value.long.num/value.long.den}`;
   return `${definition.displayEffectSummaryKo} ${typeof value === 'object' ? `×${value.num / value.den}` : `+${value}`}`;
 }

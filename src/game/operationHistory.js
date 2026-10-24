@@ -1,4 +1,4 @@
-import {hasEmberCampaign,hasSkyCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {hasFinaleCampaign,hasEmberCampaign,hasSkyCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition,maxPolish} from '../data/cardCatalog.js';
 import {assertStream} from './rng.js';
 import {operationSpec} from '../data/operationSpec.js';
@@ -33,8 +33,9 @@ function validatePolishedHistory(run){
  if(!list(c.exhaustedIds)||!Array.isArray(c.operationHistory)||!Number.isSafeInteger(c.operationSequence)||c.operationSequence!==c.operationHistory.length)fail();
  const exhausted=[],uses=new Map(),commands=new Set();
  const dustDefinitions=new Map(hasEmberCampaign(run)?(c.dustSupplyTrace?.cardIds??[]).map(id=>[id,c.dustSupplyTrace.cardDefId]):[]);
- const cityDefinitions=new Map(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
+ const cityDefinitions=new Map(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?(c.waterwaysFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.waterways.${i}`,def]):[]);
  const laterFrostDefinitions=new Map([...(c.libraryFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.library.${run.progress.roundIndex}.${i}`,def]),...(c.corridorFrostTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.corridor.${run.progress.roundIndex}.${i}`,def])]);
+ const finaleDefinitions=new Map(hasFinaleCampaign(run)?[...(c.finaleDustTrace?.cardIds??[]).map(id=>[id,{cardDefId:'card.obstacle.blackDust',source:'FINALE_SURFACE_DUST'}]),...(c.finaleFrostTrace??[]).map(r=>[r.cardInstanceId,{cardDefId:r.cardDefId,source:'FINALE_SURFACE_FROST'}])]:[]);
  const frostDefinitions=new Map((c.frostSupplyTrace?.[0]?.cardDefIds??[]).map((def,i)=>[`frost.${run.runId}.battle.${run.progress.battleNumber}.${String(i).padStart(2,'0')}`,def]));
  for(const [i,e]of c.operationHistory.entries()){
   const def=cardDefinition(e.cardDefId,run.version),ss=e.sourceSnapshot;
@@ -57,7 +58,7 @@ function validatePolishedHistory(run){
    if(!Number.isSafeInteger(card.polishLevel)||card.polishLevel<0||card.polishLevel>maxPolish(card,run.version)||card.specialEffectId!==null)fail();
    const current=run.cardInstances[id];
    const removedByReward=run.reward?.resolved&&run.reward.resolution?.kind==='REMOVE'&&run.reward.resolution.cardInstanceId===id;
-   if(!current&&(run.status==='BATTLE'||!frostDefinitions.has(id)&&!dustDefinitions.has(id)&&!cityDefinitions.has(id)&&!laterFrostDefinitions.has(id)&&!removedByReward))fail();
+   if(!current&&(run.status==='BATTLE'||!frostDefinitions.has(id)&&!dustDefinitions.has(id)&&!cityDefinitions.has(id)&&!laterFrostDefinitions.has(id)&&!finaleDefinitions.has(id)&&!removedByReward))fail();
    if(current&&(operationLifetime(current)!==operationLifetime(card)||(run.status==='BATTLE'?current.polishLevel!==card.polishLevel:current.polishLevel<card.polishLevel)))fail();
    // Cleanup deletes temporary objects, but the fixed supply trace still proves
    // which physical IDs were battle-only and what each of those cards was.
@@ -65,6 +66,7 @@ function validatePolishedHistory(run){
     if(card.cardDefId!==frostDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='MIRROR_SNOWFIELD'||card.temporary.battleId!==c.enemyState.id)fail();
    }else if(cityDefinitions.has(id)){if(card.cardDefId!==cityDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='ANCIENT_WATERWAYS'||card.temporary.battleId!==c.enemyState.id)fail();}
    else if(dustDefinitions.has(id)){if(card.cardDefId!==dustDefinitions.get(id)||card.polishLevel!==0||card.temporary?.source!=='EMBER_CAVE'||card.temporary.battleId!==c.enemyState.id)fail();}
+   else if(finaleDefinitions.has(id)){const expected=finaleDefinitions.get(id);if(card.cardDefId!==expected.cardDefId||card.polishLevel!==0||card.temporary?.source!==expected.source||card.temporary.battleId!==c.enemyState.id)fail();}
    else if(card.temporary||card.cardDefId==='card.obstacle.blackDust')fail();
   }
   const source=e.cardSnapshots[e.sourceCardId];if(!source||source.cardDefId!==e.cardDefId||source.polishLevel!==ss.polishLevel||operationLifetime(source)!==ss.lifetime)fail();

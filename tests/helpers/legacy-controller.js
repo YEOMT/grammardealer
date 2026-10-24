@@ -1,3 +1,4 @@
+import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {restoreLegacyStarter} from './legacy-starter.js';
 /** Explicit pre-0.2.1 campaign fixture. Assertions still execute the current controller/engines. */
 import {RunController as CurrentController} from '../../src/game/runController.js';
@@ -13,7 +14,7 @@ export class RunController extends CurrentController {
    state.contentManifest.cardDefIds=registryForVersion('0.2.0').cards.filter(c=>c.runtimeReady).map(c=>c.id);
    state.contentManifest.id='campaign.0.2';state.contentManifest.stageIds=['stage.01','stage.02'];state.contentManifest.runeIds=LEGACY_RUNES.map(r=>r.id);
    state.eligibility.runStartUnlockBaseline=state.eligibility.runStartUnlockBaseline.filter(id=>id!=='rune.longSentence'&&!id.startsWith('pack.time.'));
-   state.tutorial=createTutorial(this.getProfile());this._state=state;
+   state.tutorial=createTutorial(this.getProfile());this._state=removeFinaleFromHistoricalFixture(state);
   }
   return result;
  }

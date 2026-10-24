@@ -1,4 +1,8 @@
+import {validateFinaleRun} from '../game/finaleState.js';
+import {hasFinaleCampaign} from '../data/campaignFeatures.js';
+import {FINALE_VERSIONS} from '../contracts.js';
 import {validateForesightRun} from '../engine/foresight.js';
+import {validateClearRecord,clearStorageKey,bestStorageKey,FINALE_SEQUENCE_KEY,topClearRecords,FINALE_RULESET_ID} from './clearLeaderboard.js';
 import {validateCorridorEntry} from '../game/starCorridor.js';
 import {CORRIDOR_PACK} from '../data/corridorPolicy.js';
 import {validateLibraryTurnEnds} from '../engine/libraryTurnEnd.js';
@@ -31,8 +35,8 @@ import { runeForVersion,runesForVersion, RUNE_SLOT_LIMIT } from '../data/runes.j
 import {registryForVersion} from '../data/language/index.js';
 import {stageForRun,getEncounter,isCurrentCampaign} from '../data/stages.js';
 
-export const SAVE_VERSION = '0.10.2';
-const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(version);
+export const SAVE_VERSION = '0.11.0';
+const supportedVersion = version => ['0.1.0','0.1.1','0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version);
 export const STORE_NAME = 'sentence-balatro-v0-1';
 const uniqueId = prefix => `${prefix}.${globalThis.crypto?.randomUUID?.() ?? `${Date.now()}.${++uniqueId.counter}`}`;
 uniqueId.counter = 0;
@@ -62,6 +66,7 @@ export function applyProfileEvent(profile,event) {
       old.count++;if(r.analysis.status==='VALID'&&!r.analysis.issues?.length){const complete=learningRecord(r);if(!old.firstComplete){old.firstComplete=complete;}if(!old.bestComplete||r.finalPower>old.bestComplete.finalPower)old.bestComplete=complete;}if(r.finalPower>old.bestPower){old.bestPower=r.finalPower;old.bestSentence=sentence;old.bestLearning=learningRecord(r);}p.grammarRecords[tag]=old;
     }
   }
+  if(event.type==='FINAL50_CLEAR'&&event.clearRecord&&!p.finalClearIds?.includes(event.clearRecord.clearId)){p.finalClearIds=[...(p.finalClearIds??[]),event.clearRecord.clearId];p.storyClearCount=(p.storyClearCount??0)+1;}
   if(event.type==='STAGE1_CLEAR'&&!p.qualifiedRunIds.includes(event.runId)){
     p.qualifiedRunIds.push(event.runId);
     p.unlocks=[...new Set([...p.unlocks,'pack.svoo','rune.svoo','rune.humanSubject',...(p.qualifiedRunIds.length>=3?['rune.turnDraw']:[])])];
@@ -79,8 +84,8 @@ export function applyProfileEvent(profile,event) {
   if(event.type==='STAGE6_CLEAR'&&hasEmberCampaign(event.version))p.unlocks=[...new Set([...p.unlocks,...EMBER_PACKS])];
   if(event.type==='STAGE4_CLEAR'&&!(p.stage4CompletedRunIds??[]).includes(event.runId)){p.stage4CompletedRunIds=[...(p.stage4CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,4);}
   if(event.type==='STAGE5_CLEAR'&&!(p.stage5CompletedRunIds??[]).includes(event.runId)){p.stage5CompletedRunIds=[...(p.stage5CompletedRunIds??[]),event.runId];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,5);}
-  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
-  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
+  if(event.type==='STAGE6_CLEAR'&&['0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(event.version)){p.stage6CompletedRunIds=[...new Set([...(p.stage6CompletedRunIds??[]),event.runId])];p.highestCompletedStage=Math.max(p.highestCompletedStage??0,6);p.unlocks=[...new Set([...p.unlocks,SNOW_REWARD_PACK])];}
+  if(event.type==='STAGE4_CLEAR'&&['0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(event.version))p.unlocks=[...new Set([...p.unlocks,...DESERT_PACKS])];
   return reviewTimeUnlocks(p);
 }
 export function reviewTimeUnlocks(profile){
@@ -90,11 +95,12 @@ export function reviewTimeUnlocks(profile){
 export function reviewDesertUnlocks(profile){const p=reviewTimeUnlocks(profile);if(p.stage4CompletedRunIds?.length){p.unlocks=[...new Set([...(p.unlocks??[]),...DESERT_PACKS])];p.desertUnlockReviewVersion='0.5.0';}return p;}
 export function canSaveRun(run) {
   if(!run)return false;
+  if(hasFinaleCampaign(run)&&run.progress?.stageId==='stage.final'){if(run.status==='STAGE_INTRO'&&run.combat===null)return true;if(run.status==='BATTLE')return run.combat?.phase==='EDIT'&&!run.combat.battleDirty&&run.combat.turnIndex===1;}
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
   if(hasPolishCampaign(run)&&run.status==='STAGE_INTRO'&&(run.entryChoice?.pending===true||run.waterwaysEntryChoice?.pending===true)&&run.combat===null)return true;
-  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
-  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
+  if(run.status==='SHOP')return ['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&run.combat===null&&run.shop?.closed===false;
+  return run.status==='BATTLE'&&run.combat?.phase==='EDIT'&&((!run.combat.battleDirty&&run.combat.turnIndex===1)||(['0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&!run.combat.sentenceSlots.length&&!run.combat.pendingAttackId));
 }
 /** Defense in depth on persisted plain data; never repairs unknown content. */
 export function validateRunState(run,registry) {
@@ -106,8 +112,8 @@ export function validateRunState(run,registry) {
   if(!registry?.cardById||!registry?.formById)fail('단어 데이터가 준비되지 않았습니다.');
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
   registry=registryForVersion(run.version);validateTutorial(run);
-  const corridor=hasCorridorCampaign(run),library=hasLibraryCampaign(run),waterways=hasWaterwaysCampaign(run),ember=hasEmberCampaign(run),snow=hasSnowCampaign(run),desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
-  const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(['0.10.1','0.10.2'].includes(run.version)||id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
+  const finale=hasFinaleCampaign(run),corridor=hasCorridorCampaign(run),library=hasLibraryCampaign(run),waterways=hasWaterwaysCampaign(run),ember=hasEmberCampaign(run),snow=hasSnowCampaign(run),desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
+  const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(['0.10.1','0.10.2','0.11.0'].includes(run.version)||id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
   if(!['STAGE_INTRO','BATTLE','REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','DEFEAT',...(currentCampaign?['STAGE_CLEAR','SHOP']:[])].includes(run.status))fail('잘못된 원정 상태입니다.');
   requireInteger(run.revision,'revision');requireInteger(run.economy?.gold,'gold');
@@ -117,28 +123,28 @@ export function validateRunState(run,registry) {
   if(config.character!=='traveler'||config.difficulty!==1||!['BEGINNER','STANDARD','ADVANCED','FREE'].includes(config.vocabularyMode))fail('이번 버전에서 지원하지 않는 원정 설정입니다.');
   if(!['string','number'].includes(typeof config.seed)||(typeof config.seed==='number'&&!Number.isSafeInteger(config.seed)))fail('시드가 잘못되었습니다.');
   const progress=record(run.progress,'진행');
-  if(!['stage.01',...(currentCampaign?['stage.02']:[]),...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[]),...(ember?['stage.07']:[]),...(waterways?['stage.08']:[]),...(library?['stage.09']:[]),...(corridor?['stage.10']:[])].includes(progress.stageId))fail('지원하지 않는 전투 진행입니다.');
+  if(!['stage.01',...(currentCampaign?['stage.02']:[]),...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[]),...(ember?['stage.07']:[]),...(waterways?['stage.08']:[]),...(library?['stage.09']:[]),...(corridor?['stage.10']:[]),...(finale?['stage.final']:[])].includes(progress.stageId))fail('지원하지 않는 전투 진행입니다.');
   const stage=stageForRun(run);
   requireInteger(progress.roundIndex,'roundIndex',0,stage.rounds.length-1);
   if(progress.battleNumber!==stage.rounds[progress.roundIndex].battleNumber)fail('지원하지 않는 전투 진행입니다.');
-  const endBoundary=corridor?'STAGE10_END':library?'STAGE9_END':waterways?'STAGE8_END':ember?'STAGE7_END':snow?'STAGE6_END':desert?'STAGE5_END':sky?'STAGE4_END':time?'STAGE3_END':currentCampaign?'STAGE2_END':'STAGE1_END';
+  const endBoundary=finale?'FINAL50_CLEAR':corridor?'STAGE10_END':library?'STAGE9_END':waterways?'STAGE8_END':ember?'STAGE7_END':snow?'STAGE6_END':desert?'STAGE5_END':sky?'STAGE4_END':time?'STAGE3_END':currentCampaign?'STAGE2_END':'STAGE1_END';
   if(![null,undefined,endBoundary].includes(progress.contentBoundary))fail('지원하지 않는 콘텐츠 경계입니다.');
-  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==stage.rounds.length-1||progress.contentBoundary!==endBoundary||currentCampaign&&progress.stageId!==(corridor?'stage.10':library?'stage.09':waterways?'stage.08':ember?'stage.07':snow?'stage.06':desert?'stage.05':sky?'stage.04':time?'stage.03':'stage.02')))fail('제공 구간 완료 상태가 잘못되었습니다.');
-  if(run.status==='STAGE_CLEAR'&&(!['stage.01',...(time?['stage.02']:[]),...(sky?['stage.03']:[]),...(desert?['stage.04']:[]),...(snow?['stage.05']:[]),...(ember?['stage.06']:[]),...(waterways?['stage.07']:[]),...(library?['stage.08']:[]),...(corridor?['stage.09']:[])].includes(progress.stageId)||progress.roundIndex!==stage.rounds.length-1||!run.reward?.resolved))fail('지역 완료 상태가 잘못되었습니다.');
+  if(run.status==='CONTENT_COMPLETE'&&(progress.roundIndex!==stage.rounds.length-1||progress.contentBoundary!==endBoundary||currentCampaign&&progress.stageId!==(finale?'stage.final':corridor?'stage.10':library?'stage.09':waterways?'stage.08':ember?'stage.07':snow?'stage.06':desert?'stage.05':sky?'stage.04':time?'stage.03':'stage.02')))fail('제공 구간 완료 상태가 잘못되었습니다.');
+  if(run.status==='STAGE_CLEAR'&&(!['stage.01',...(time?['stage.02']:[]),...(sky?['stage.03']:[]),...(desert?['stage.04']:[]),...(snow?['stage.05']:[]),...(ember?['stage.06']:[]),...(waterways?['stage.07']:[]),...(library?['stage.08']:[]),...(corridor?['stage.09']:[]),...(finale?['stage.10']:[])].includes(progress.stageId)||progress.roundIndex!==stage.rounds.length-1||!run.reward?.resolved))fail('지역 완료 상태가 잘못되었습니다.');
   if(run.status!=='CONTENT_COMPLETE'&&progress.contentBoundary!=null)fail('진행 중인 원정의 완료 경계가 잘못되었습니다.');
   if(currentCampaign&&run.status==='STAGE_INTRO'&&progress.roundIndex!==0)fail('지역 소개 전투 번호가 잘못되었습니다.');
   if(currentCampaign&&run.status==='BETWEEN_BATTLES'&&progress.roundIndex>=stage.rounds.length-1)fail('지역 마지막 전투 이후 진행이 잘못되었습니다.');
   if(currentCampaign){
     const manifest=record(run.contentManifest,'콘텐츠 목록');
-    if(manifest.id!==(corridor?'campaign.0.10':library?'campaign.0.9':waterways?'campaign.0.8':ember?'campaign.0.7':hasPolishCampaign(run)?'campaign.0.6.1':snow?'campaign.0.6':desert?'campaign.0.5':sky?'campaign.0.4':time?'campaign.0.3':'campaign.0.2'))fail('지원하지 않는 콘텐츠 목록입니다.');
+    if(manifest.id!==(finale?'campaign.0.11':corridor?'campaign.0.10':library?'campaign.0.9':waterways?'campaign.0.8':ember?'campaign.0.7':hasPolishCampaign(run)?'campaign.0.6.1':snow?'campaign.0.6':desert?'campaign.0.5':sky?'campaign.0.4':time?'campaign.0.3':'campaign.0.2'))fail('지원하지 않는 콘텐츠 목록입니다.');
     ids(manifest.cardDefIds,'콘텐츠 카드');ids(manifest.runeIds,'콘텐츠 룬');ids(manifest.stageIds,'콘텐츠 지역');
     if(hasPolishCampaign(run)){
       const sameIds=(a,b)=>JSON.stringify([...a].sort())===JSON.stringify([...b].sort());
       if(!sameIds(manifest.cardDefIds,campaignCards(run.version).filter(c=>c.runtimeReady).map(c=>c.id))||!sameIds(manifest.runeIds,runesForVersion(run.version).filter(r=>r.runtimeReady).map(r=>r.id)))fail('0.6.1 콘텐츠 목록이 불완전합니다.');
       const versions=record(run.contentVersions,'정책 버전');
-      if(Object.entries(run.version==='0.10.2'?RECOVERY_VERSIONS:run.version==='0.10.1'?PATCH0101_VERSIONS:corridor?CORRIDOR_VERSIONS:library?LIBRARY_VERSIONS:run.version==='0.8.1'?PATCH081_VERSIONS:waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
+      if(Object.entries(finale?FINALE_VERSIONS:run.version==='0.10.2'?RECOVERY_VERSIONS:run.version==='0.10.1'?PATCH0101_VERSIONS:corridor?CORRIDOR_VERSIONS:library?LIBRARY_VERSIONS:run.version==='0.8.1'?PATCH081_VERSIONS:waterways?WATERWAYS_VERSIONS:ember?EMBER_VERSIONS:POLISH_VERSIONS).some(([key,value])=>versions[key]!==value))fail('0.6.1 정책 버전이 일치하지 않습니다.');
     }
-    if(manifest.stageIds.join('|')!==(corridor?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09|stage.10':library?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09':waterways?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08':ember?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07':snow?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06':desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
+    if(manifest.stageIds.join('|')!==(finale?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09|stage.10|stage.final':corridor?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09|stage.10':library?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08|stage.09':waterways?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07|stage.08':ember?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06|stage.07':snow?'stage.01|stage.02|stage.03|stage.04|stage.05|stage.06':desert?'stage.01|stage.02|stage.03|stage.04|stage.05':sky?'stage.01|stage.02|stage.03|stage.04':time?'stage.01|stage.02|stage.03':'stage.01|stage.02')||manifest.cardDefIds.some(id=>!cardDefinition(id,run.version)?.runtimeReady)||manifest.runeIds.some(id=>!runeForVersion(id,run.version)?.runtimeReady))fail('없는 콘텐츠가 포함되어 있습니다.');
     requireInteger(run.economy.paidRemovalCount,'paidRemovalCount');
     ids(run.milestoneIds,'지역 사건');
     if(run.milestoneIds.some(id=>!['STAGE1_CLEAR',...(time?['STAGE2_CLEAR','STAGE3_CLEAR']:[]),...(desert?['STAGE4_CLEAR','STAGE5_CLEAR']:[]),...(snow?['STAGE6_CLEAR']:[]),...(ember?['STAGE7_CLEAR']:[]),...(waterways?['STAGE8_CLEAR']:[]),...(library?['STAGE9_CLEAR']:[]),...(corridor?['STAGE10_CLEAR']:[])].includes(id)))fail('지원하지 않는 지역 사건입니다.');
@@ -155,8 +161,9 @@ export function validateRunState(run,registry) {
   if(snow){if(progress.stageId==='stage.06'&&(!['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR'].every(id=>run.milestoneIds.includes(id))||!SNOW_PACKS.every(id=>run.eligibility.runOwnUnlocks.includes(id))))fail('설원 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE6_CLEAR')&&(!(ember&&progress.battleNumber>27)&&(progress.battleNumber!==27||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(ember?['STAGE_CLEAR']:[])].includes(run.status))||!run.eligibility.runOwnUnlocks.includes(SNOW_REWARD_PACK)))fail('설원 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE6_CLEAR'))fail('설원 완료 누락');}
   if(ember){if(progress.stageId==='stage.07'&&(!['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR','STAGE6_CLEAR'].every(id=>run.milestoneIds.includes(id))||!EMBER_PACKS.every(id=>run.eligibility.runOwnUnlocks.includes(id))))fail('잿불 동굴 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE7_CLEAR')&&(!(waterways&&progress.battleNumber>32)&&(progress.battleNumber!==32||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(waterways?['STAGE_CLEAR']:[])].includes(run.status))))fail('잿불 동굴 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE7_CLEAR'))fail('잿불 동굴 완료 누락');}
   if(waterways){if(progress.stageId==='stage.08'&&(!['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR','STAGE6_CLEAR','STAGE7_CLEAR'].every(id=>run.milestoneIds.includes(id))||![...WATERWAYS_PACKS,WATERWAYS_REWARD_PACK].every(id=>run.eligibility.runOwnUnlocks.includes(id))))fail('수로도시 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE8_CLEAR')&&(!(library&&progress.battleNumber>37)&&(progress.battleNumber!==37||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(library?['STAGE_CLEAR']:[])].includes(run.status))))fail('수로도시 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE8_CLEAR'))fail('수로도시 완료 누락');}
+  validateFinaleRun(run);
   validateCorridorEntry(run);
-  if(corridor){if(progress.stageId==='stage.10'&&(!Array.from({length:9},(_,i)=>`STAGE${i+1}_CLEAR`).every(id=>run.milestoneIds.includes(id))||run.status!=='STAGE_INTRO'&&!run.eligibility.runOwnUnlocks.includes(CORRIDOR_PACK)))fail('회랑 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE10_CLEAR')&&(progress.battleNumber!==47||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE'].includes(run.status)))fail('회랑 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE10_CLEAR'))fail('회랑 완료 누락');}
+  if(corridor){if(progress.stageId==='stage.10'&&(!Array.from({length:9},(_,i)=>`STAGE${i+1}_CLEAR`).every(id=>run.milestoneIds.includes(id))||run.status!=='STAGE_INTRO'&&!run.eligibility.runOwnUnlocks.includes(CORRIDOR_PACK)))fail('회랑 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE10_CLEAR')&&!(finale&&progress.battleNumber>47)&&(progress.battleNumber!==47||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(finale?['STAGE_CLEAR']:[])].includes(run.status)))fail('회랑 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE10_CLEAR'))fail('회랑 완료 누락');}
   if(library){if(progress.stageId==='stage.09'&&(!Array.from({length:8},(_,i)=>`STAGE${i+1}_CLEAR`).every(id=>run.milestoneIds.includes(id))||run.status!=='STAGE_INTRO'&&!run.eligibility.runOwnUnlocks.includes(LIBRARY_REWARD_PACK)))fail('대서고 이전 완료·해금 누락');if(run.milestoneIds.includes('STAGE9_CLEAR')&&(!(corridor&&progress.battleNumber>42)&&(progress.battleNumber!==42||run.combat?.enemyState.hp!==0||!['REWARD','CONTENT_COMPLETE',...(corridor?['STAGE_CLEAR']:[])].includes(run.status))))fail('대서고 완료 기록 오류');if(run.status==='CONTENT_COMPLETE'&&!run.milestoneIds.includes('STAGE9_CLEAR'))fail('대서고 완료 누락');}
   validateLibraryTurnEnds(run);
   validateWaterwaysEntry(run);validateRelativeSealReceipt(run);
@@ -164,7 +171,7 @@ export function validateRunState(run,registry) {
   ids(run.activeCardIds,'카드');record(run.cardInstances,'카드');
   for(const [id,c] of Object.entries(run.cardInstances)){
     if(!c||c.instanceId!==id||!cardDefinition(c,run.version)?.runtimeReady)fail('없는 카드가 포함되어 있습니다.');
-    if(currentCampaign&&!run.contentManifest.cardDefIds.includes(c.cardDefId)&&!(ember&&c.cardDefId==='card.obstacle.blackDust'&&c.temporary?.source==='EMBER_CAVE'))fail('원정 콘텐츠 범위 밖의 카드입니다.');
+    if(currentCampaign&&!run.contentManifest.cardDefIds.includes(c.cardDefId)&&!(ember&&c.cardDefId==='card.obstacle.blackDust'&&['EMBER_CAVE',...(finale?['FINALE_SURFACE_DUST']:[])].includes(c.temporary?.source)))fail('원정 콘텐츠 범위 밖의 카드입니다.');
     requireInteger(c.polishLevel,'polishLevel',0,maxPolish(c,run.version));if(c.specialEffectId!==null)fail('미지원 카드 효과입니다.');
   }
   for(const id of run.activeCardIds)if(!run.cardInstances[id])fail('없는 카드가 포함되어 있습니다.');
@@ -177,7 +184,7 @@ export function validateRunState(run,registry) {
   for(const id of runes.orderedInstanceIds){
     const r=runes.instances[id];
     if(!r||r.instanceId!==id||!runeForVersion(r.runeId,run.version)?.runtimeReady||seenRunes.has(r.runeId))fail('미지원·중복 룬입니다.');
-    if(!['0.10.1','0.10.2'].includes(run.version)&&r.runeId==='rune.svoo'&&(!currentCampaign||![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo')))fail('원정에서 해금되지 않은 룬입니다.');
+    if(!['0.10.1','0.10.2','0.11.0'].includes(run.version)&&r.runeId==='rune.svoo'&&(!currentCampaign||![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo')))fail('원정에서 해금되지 않은 룬입니다.');
     if(currentCampaign&&!run.contentManifest.runeIds.includes(r.runeId))fail('원정 콘텐츠 범위 밖의 룬입니다.');
     seenRunes.add(r.runeId);requireInteger(r.level,'runeLevel',1,3);
   }
@@ -185,7 +192,7 @@ export function validateRunState(run,registry) {
   if(c){
     if(!['EDIT','EXCHANGE_SELECT','RESOLVING','PRESENTING','OPERATION_PRESENTING','VICTORY','DEFEAT','TURN_START'].includes(c.phase))fail('잘못된 전투 단계입니다.');
     const rules=record(c.rulesSnapshot,'전투 규칙');
-    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:run.tutorialSession&&run.tutorialSession.endReason!=='SKIPPED'&&progress.battleNumber===1?[1]:[4,5,6,7],turnLimit:[6],sentenceLimit:[run.version==='0.10.2'?24:16]};
+    const allowed={initialHand:[6,8,9,10],handLimit:[10,12,13,14],turnDraw:[3],discardActions:run.tutorialSession&&run.tutorialSession.endReason!=='SKIPPED'&&progress.battleNumber===1?[1]:[4,5,6,7],turnLimit:[6],sentenceLimit:[['0.10.2','0.11.0'].includes(run.version)?24:16]};
     for(const [key,values] of Object.entries(allowed))if(!values.includes(rules[key]))fail(`지원하지 않는 전투 규칙: ${key}`);
     if(rules.initialHand>rules.handLimit)fail('초기 손패 한도가 잘못되었습니다.');
     requireInteger(c.turnsRemaining,'turnsRemaining',0,rules.turnLimit);
@@ -199,7 +206,8 @@ export function validateRunState(run,registry) {
     if(c.enemyState.maxHp!==encounter.hpMax||c.enemyState.hp>c.enemyState.maxHp)fail('잘못된 적 HP입니다.');
     if(currentCampaign){
       if(c.enemyState.id!==encounter.id||c.enemyState.stageId!==progress.stageId||c.enemyState.kind!==encounter.kind)fail('잘못된 적 정의입니다.');
-      if(encounter.bossMechanic?.id==='FATE_FORESIGHT')validateForesightRun(run);
+      if(progress.stageId==='stage.final')validateFinaleRun(run);
+      else if(encounter.bossMechanic?.id==='FATE_FORESIGHT')validateForesightRun(run);
       else if(encounter.bossMechanic?.id==='LIBRARY_REGENERATION')validateLibraryTurnEnds(run);
       else if(encounter.bossMechanic?.id==='DUAL_RELATIVE_SEAL'){validateDualRelativeSeal(c.enemyState);validateRelativeSealReceipt(run);}
       else if(encounter.bossMechanic?.id==='EMBER_SCALE_SHIELD'){validateEmberScale(c.enemyState);validateEmberReleaseReceipt(run);}
@@ -224,10 +232,10 @@ export function validateRunState(run,registry) {
       }
     }
   } else if(!['STAGE_INTRO','SHOP'].includes(run.status))fail('전투 정보가 없습니다.');
-  if(run.status==='SHOP'&&(!['stage.02',...(sky?['stage.04']:[]),...(snow?['stage.06']:[]),...(waterways?['stage.08']:[]),...(corridor?['stage.10']:[])].includes(progress.stageId)||progress.roundIndex!==0||c!==null))fail('상점 진입 상태가 잘못되었습니다.');
+  if(run.status==='SHOP'&&(!['stage.02',...(sky?['stage.04']:[]),...(snow?['stage.06']:[]),...(waterways?['stage.08']:[]),...(corridor?['stage.10']:[]),...(finale?['stage.final']:[])].includes(progress.stageId)||progress.roundIndex!==0||c!==null))fail('상점 진입 상태가 잘못되었습니다.');
   if(currentCampaign){
     record(run.entryGrants,'입장 지급');
-    if(Object.keys(run.entryGrants).some(id=>!['stage.02',...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[]),...(waterways?['stage.08']:[]),...(corridor?['stage.10']:[])].includes(id)))fail('지원하지 않는 입장 지급입니다.');
+    if(Object.keys(run.entryGrants).some(id=>!['stage.02',...(time?['stage.03']:[]),...(sky?['stage.04']:[]),...(desert?['stage.05']:[]),...(snow?['stage.06']:[]),...(waterways?['stage.08']:[]),...(corridor?['stage.10']:[]),...(finale?['stage.final']:[])].includes(id)))fail('지원하지 않는 입장 지급입니다.');
     const snowGrant=run.entryGrants['stage.06'];if(snowGrant&&(!snow||snowGrant.entryGrantId!==run.runId+':stage.06.entryGrant'||snowGrant.applied!==true||snowGrant.cardInstanceIds?.length!==0||snowGrant.cardDefIds?.length!==0))fail('설원 입장 정보 오류');if(snow&&progress.stageId==='stage.06'&&run.status!=='STAGE_INTRO'&&!snowGrant)fail('설원 입장 정보 없음');
     const desertGrant=run.entryGrants['stage.05'];
     if(desertGrant){
@@ -287,7 +295,7 @@ export function validateRunState(run,registry) {
         if(!def?.runtimeReady||def.rarity!==item.rarity||item.price!==prices[item.rarity]||typeof item.purchased!=='boolean')fail('상점 상품이나 가격이 잘못되었습니다.');
         if(item.itemId!==`${shop.shopId}.${index===0?'rune.0':`card.${index-1}`}`||(index===0)!==(item.kind==='RUNE'))fail('상점 상품 ID가 잘못되었습니다.');
         if(!(item.kind==='CARD'?run.contentManifest.cardDefIds:run.contentManifest.runeIds).includes(def.id))fail('원정 콘텐츠 범위 밖의 상품입니다.');
-        if(!['0.10.1','0.10.2'].includes(run.version)&&item.runeId==='rune.svoo'&&![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo'))fail('해금되지 않은 상점 룬입니다.');
+        if(!['0.10.1','0.10.2','0.11.0'].includes(run.version)&&item.runeId==='rune.svoo'&&![...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes('rune.svoo'))fail('해금되지 않은 상점 룬입니다.');
         if(item.kind==='RUNE'){requireInteger(item.ownedLevel,'shopOwnedLevel',0,2);if(item.offeredLevel!==item.ownedLevel+1)fail('상점 룬 레벨이 잘못되었습니다.');}
       }
       for(const kind of ['POLISH','REMOVE']){const service=shop.services?.[kind];if(!service||typeof service.used!=='boolean')fail('상점 서비스 정보가 잘못되었습니다.');requireInteger(service.price,'servicePrice',1);}
@@ -304,7 +312,7 @@ export function validateRunState(run,registry) {
     ids(offer.choices.map(x=>x?.choiceId),'보상 후보');
     const cardOffer=['CARD_COMMON','CARD_UNCOMMON','CARD_RARE'].includes(offer.type);
     if((cardOffer||offer.type==='RUNE')&&offer.choices.length>3)fail('보상 후보 한도를 초과했습니다.');
-    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[]),...(hasPolishCampaign(run)?['0.6.1']:[])].includes(offer.rewardVersion)||(offer.choices.length!==3&&!(['0.10.1','0.10.2'].includes(run.version)&&offer.type==='RUNE_INTRO'&&offer.choices.length<3&&offer.trace?.some(t=>t.kind==='INTRO_POOL_EXHAUSTED')))))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
+    if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[]),...(hasPolishCampaign(run)?['0.6.1']:[])].includes(offer.rewardVersion)||(offer.choices.length!==3&&!(['0.10.1','0.10.2','0.11.0'].includes(run.version)&&offer.type==='RUNE_INTRO'&&offer.choices.length<3&&offer.trace?.some(t=>t.kind==='INTRO_POOL_EXHAUSTED')))))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
     if(sky&&offer.choices.filter(x=>x.kind==='CARD'&&cardDefinition(x.cardDefId,run.version)?.cardKind==='OPERATION').length>1)fail('운영 카드 후보가 너무 많습니다.');
     if(offer.type==='RUNE_INTRO'&&(offer.battleNumber!==2||offer.choices.some(x=>x.kind!=='RUNE')))fail('첫 룬 보상이 잘못되었습니다.');
     if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 골드가 잘못되었습니다.');
@@ -342,6 +350,39 @@ export class LocalStore {
   async listProfiles(){return ((await this._transaction('profiles','readonly',s=>s.getAll()))??[]).map(reviewProfileLearning);}
   async createProfile(name){const p=newProfile(name);await this.saveProfile(p);return p;}
   async saveProfile(profile){assertSerializable(profile);if(!profile.playerId)throw Error('프로필 ID가 없습니다.');await this._transaction('profiles','readwrite',s=>s.put(clone(profile)));return clone(profile);}
+  async saveFinaleClear(profile,record){
+    validateClearRecord(record);assertSerializable(profile);if(profile?.playerId!==record.playerId)throw Error('클리어 기록의 프로필이 다릅니다.');
+    if(!this.db)throw Error('저장소를 사용할 수 없습니다. 이번 세션의 클리어 기록은 유지됩니다.');
+    // The existing stores and database version remain unchanged. Read/write
+    // serialization assigns a device-wide sequence and commits the ledger,
+    // per-player best and profile together, including across browser tabs.
+    return new Promise((resolve,reject)=>{
+      const tx=this.db.transaction(['profiles','slots'],'readwrite'),slots=tx.objectStore('slots');let result,failure,pending=3;
+      const values={},abort=error=>{failure=error;try{tx.abort();}catch{reject(error);}};
+      const ready=()=>{
+        if(--pending)return;
+        try{
+          const existing=values.clear?.record,previous=values.best?.record;
+          if(existing){validateClearRecord(existing);requireInteger(existing.storedSequence,'storedSequence',1);if(existing.playerId!==record.playerId||existing.rulesetId!==record.rulesetId)throw Error('이미 다른 프로필의 클리어로 등록되었습니다.');}
+          if(previous){validateClearRecord(previous);requireInteger(previous.storedSequence,'storedSequence',1);if(previous.playerId!==record.playerId||previous.rulesetId!==record.rulesetId)throw Error('저장된 클리어 순위 정보가 잘못되었습니다.');}
+          const last=values.sequence?.sequence??0;requireInteger(last,'clear sequence',0,Number.MAX_SAFE_INTEGER-1);
+          const stored=existing??{...clone(record),storedSequence:last+1};
+          const ownBest=!previous||stored.bestAttackSnapshot.finalPower>previous.bestAttackSnapshot.finalPower?stored:previous;
+          if(!existing){slots.put({key:clearStorageKey(stored.clearId),kind:'FINAL_CLEAR',record:stored});slots.put({key:FINALE_SEQUENCE_KEY,sequence:stored.storedSequence});}
+          if(ownBest!==previous)slots.put({key:bestStorageKey(record.playerId,record.rulesetId),kind:'FINAL_CLEAR_BEST',record:ownBest});
+          tx.objectStore('profiles').put(clone(profile));
+          result={record:clone(stored),ownBest:clone(ownBest),duplicate:Boolean(existing),mode:'LOCAL',persistence:'INDEXED_DB'};
+        }catch(error){abort(error);}
+      };
+      for(const [name,key]of [['clear',clearStorageKey(record.clearId)],['best',bestStorageKey(record.playerId,record.rulesetId)],['sequence',FINALE_SEQUENCE_KEY]]){
+        const request=slots.get(key);request.onsuccess=()=>{values[name]=request.result;ready();};
+      }
+      tx.oncomplete=()=>resolve(result);tx.onerror=()=>reject(failure??tx.error??Error('클리어 기록을 저장하지 못했습니다.'));tx.onabort=()=>reject(failure??tx.error??Error('클리어 기록을 저장하지 못했습니다.'));
+    });
+  }
+  async listClearTop(options={}){const rows=(await this._transaction('slots','readonly',s=>s.getAll()))??[];return topClearRecords(rows.filter(row=>row.kind==='FINAL_CLEAR_BEST').map(row=>row.record),options);}
+  async getOwnClearBest({playerKey,rulesetId=FINALE_RULESET_ID}){const row=await this._transaction('slots','readonly',s=>s.get(bestStorageKey(playerKey,rulesetId)));if(!row)return null;validateClearRecord(row.record);if(row.record.playerId!==playerKey||row.record.rulesetId!==rulesetId)throw Error('클리어 순위의 프로필이 다릅니다.');return clone(row.record);}
+  async listFinaleClears(playerId){const rows=(await this._transaction('slots','readonly',s=>s.getAll()))??[];return rows.filter(row=>row.kind==='FINAL_CLEAR'&&row.record.playerId===playerId).map(row=>{validateClearRecord(row.record);return clone(row.record);});}
   async listSlots(playerId){const rows=(await this._transaction('slots','readonly',s=>s.getAll()))??[];return [1,2,3].map(slot=>rows.find(r=>r.key===`${playerId}:${slot}`)??{slot,empty:true});}
   async saveRun(playerId,slot,run){
     requireInteger(slot,'slot',1,3);if(!canSaveRun(run))throw Error('전투 시작 전이나 보상·전투 사이에서 저장할 수 있습니다.');validateRunState(run,this.registry);

@@ -1,0 +1,486 @@
+{
+  "baseCommit": "cb1958f66dda4e4cd320c7b03e661d7a8cb41cf4",
+  "branch": "codex/v0.11-final-trilogy",
+  "commands": [
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "status": "FAIL",
+      "exitCode": 1,
+      "startedAt": "2026-10-24T11:12:21.563213+00:00",
+      "finishedAt": "2026-10-24T11:15:16.701207+00:00",
+      "log": ".local-validation/v0101/v011-final-unit/command.log",
+      "logSha256": "89ba23456a4b248a92f0887f85eb140233a712feeba23eeba7da72a1d51fec39",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/reward-distribution.json",
+        "docs/evidence-0.1.1/timing.json"
+      ]
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "startedAt": "2026-10-24T11:19:38.249369+00:00",
+      "finishedAt": "2026-10-24T11:22:19.075291+00:00",
+      "log": ".local-validation/v0101/v011-final-unit-r2/command.log",
+      "logSha256": "57d4b52bbcf72f541b89fcba37fa11b8e8d2ddcb793027fe8a07ea2e6b920523",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/reward-distribution.json",
+        "docs/evidence-0.1.1/timing.json"
+      ]
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "startedAt": "2026-10-24T11:16:10.175347+00:00",
+      "finishedAt": "2026-10-24T11:16:12.418452+00:00",
+      "log": ".local-validation/v0101/v011-final-data/command.log",
+      "logSha256": "c55b0567a8a5cff4af2d736a6e9d1c5b84d08ef41f7ed65aa75101c8d8b4d8b7",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "startedAt": "2026-10-24T11:16:18.636386+00:00",
+      "finishedAt": "2026-10-24T11:16:21.656028+00:00",
+      "log": ".local-validation/v0101/v011-final-build/command.log",
+      "logSha256": "949f76e4345838e32c5b2931270a5a3ac4f6c665a71724b56d465a441681fe08",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "status": "PASS",
+      "exitCode": 0,
+      "startedAt": "2026-10-24T11:22:39.962513+00:00",
+      "finishedAt": "2026-10-24T11:22:43.294821+00:00",
+      "log": ".local-validation/v0101/v011-final-build-r2/command.log",
+      "logSha256": "a7ec2cc7e22c58faed0746f004caed7d285835e22c37ec9bc1b134016d8caefb",
+      "fixedOutputsArchivedAndRestored": []
+    }
+  ],
+  "finalUnit": {
+    "pass": 1803,
+    "fail": 0,
+    "skip": 0
+  },
+  "dataChecks": 3112,
+  "productionUi": {
+    "kind": "ASSIGNED_LEGAL_DECK_PRODUCTION_UI_NOT_NATURAL_50",
+    "seed": "finale.ui.1",
+    "initialWordCount": 13,
+    "status": "PASS",
+    "checks": [
+      {
+        "id": "surface-pc",
+        "status": "PASS",
+        "boxes": [
+          {
+            "class": "game-header",
+            "x": 12,
+            "y": 6,
+            "right": 1354,
+            "bottom": 44,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "finale-status",
+            "x": 753,
+            "y": 148.296875,
+            "right": 1013,
+            "bottom": 165.09375,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "combat-actions",
+            "x": 234.015625,
+            "y": 492,
+            "right": 1131.96875,
+            "bottom": 532,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "hand-section",
+            "x": 12,
+            "y": 562,
+            "right": 1354,
+            "bottom": 760,
+            "w": 1366,
+            "h": 768
+          }
+        ]
+      },
+      {
+        "id": "surface-tablet-landscape",
+        "status": "PASS",
+        "boxes": [
+          {
+            "class": "game-header",
+            "x": 12,
+            "y": 6,
+            "right": 1168,
+            "bottom": 44,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "finale-status",
+            "x": 660,
+            "y": 171.28125,
+            "right": 920,
+            "bottom": 188.078125,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "combat-actions",
+            "x": 168.53125,
+            "y": 538,
+            "right": 979,
+            "bottom": 578,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "hand-section",
+            "x": 12,
+            "y": 614,
+            "right": 1168,
+            "bottom": 812,
+            "w": 1180,
+            "h": 820
+          }
+        ]
+      },
+      {
+        "id": "phase-49-pc",
+        "status": "PASS",
+        "boxes": [
+          {
+            "class": "game-header",
+            "x": 12,
+            "y": 6,
+            "right": 1354,
+            "bottom": 44,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "finale-status",
+            "x": 753,
+            "y": 139.90625,
+            "right": 1013,
+            "bottom": 173.5,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "combat-actions",
+            "x": 234.015625,
+            "y": 492,
+            "right": 1131.96875,
+            "bottom": 532,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "hand-section",
+            "x": 12,
+            "y": 562,
+            "right": 1354,
+            "bottom": 760,
+            "w": 1366,
+            "h": 768
+          }
+        ]
+      },
+      {
+        "id": "deep-tablet-landscape",
+        "status": "PASS",
+        "boxes": [
+          {
+            "class": "game-header",
+            "x": 12,
+            "y": 6,
+            "right": 1168,
+            "bottom": 44,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "finale-status",
+            "x": 660,
+            "y": 144.015625,
+            "right": 920,
+            "bottom": 177.609375,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "combat-actions",
+            "x": 168.53125,
+            "y": 500.21875,
+            "right": 979,
+            "bottom": 540.21875,
+            "w": 1180,
+            "h": 820
+          },
+          {
+            "class": "hand-section",
+            "x": 12,
+            "y": 614,
+            "right": 1168,
+            "bottom": 812,
+            "w": 1180,
+            "h": 820
+          }
+        ]
+      },
+      {
+        "id": "phase-50-pc",
+        "status": "PASS",
+        "boxes": [
+          {
+            "class": "game-header",
+            "x": 12,
+            "y": 6,
+            "right": 1354,
+            "bottom": 44,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "finale-status",
+            "x": 753,
+            "y": 148.296875,
+            "right": 1013,
+            "bottom": 165.09375,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "combat-actions",
+            "x": 234.015625,
+            "y": 492,
+            "right": 1131.96875,
+            "bottom": 532,
+            "w": 1366,
+            "h": 768
+          },
+          {
+            "class": "hand-section",
+            "x": 12,
+            "y": 562,
+            "right": 1354,
+            "bottom": 760,
+            "w": 1366,
+            "h": 768
+          }
+        ]
+      },
+      {
+        "id": "UI_47_REWARD_LAST_SHOP_48_49_50_QA_CLEAR_SAVE_RELOAD_NO_RANKING",
+        "status": "PASS"
+      }
+    ],
+    "attacks": [
+      {
+        "battle": 47,
+        "turn": 2,
+        "finalPower": 29904,
+        "actualHpLoss": 5000,
+        "killed": true,
+        "motion": {
+          "phases": [
+            "CHARGE",
+            "LUNGE",
+            "IMPACT",
+            "RECOIL"
+          ],
+          "visibleAttackBody": true
+        }
+      },
+      {
+        "battle": 48,
+        "turn": 2,
+        "finalPower": 15752,
+        "actualHpLoss": 4999,
+        "killed": false,
+        "motion": {
+          "phases": [
+            "CHARGE",
+            "LUNGE",
+            "IMPACT",
+            "RECOIL",
+            "TURN_END"
+          ],
+          "visibleAttackBody": true
+        }
+      },
+      {
+        "battle": 48,
+        "turn": 6,
+        "finalPower": 26956,
+        "actualHpLoss": 1601,
+        "killed": true,
+        "motion": {
+          "phases": [
+            "CHARGE",
+            "LUNGE",
+            "IMPACT",
+            "RECOIL"
+          ],
+          "visibleAttackBody": true
+        }
+      },
+      {
+        "battle": 49,
+        "turn": 4,
+        "finalPower": 33695,
+        "actualHpLoss": 6000,
+        "killed": true,
+        "motion": {
+          "phases": [
+            "CHARGE",
+            "LUNGE",
+            "IMPACT",
+            "RECOIL"
+          ],
+          "visibleAttackBody": true
+        }
+      },
+      {
+        "battle": 50,
+        "turn": 2,
+        "finalPower": 29904,
+        "actualHpLoss": 10000,
+        "killed": true,
+        "motion": {
+          "phases": [
+            "CHARGE",
+            "LUNGE",
+            "IMPACT",
+            "RECOIL"
+          ],
+          "visibleAttackBody": true
+        }
+      }
+    ],
+    "assetRequests": [
+      {
+        "path": "/grammardealer/assets/index-Dn7EHbFv.css",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-B4C959Hs.js",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-Dn7EHbFv.css",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-B4C959Hs.js",
+        "status": 200
+      }
+    ],
+    "pageErrors": []
+  },
+  "recordStorage": {
+    "scope": "SYNTHETIC_STORAGE_UI_NOT_NATURAL",
+    "browser": "Chromium",
+    "status": "PASS",
+    "completedChecks": 6,
+    "checks": [
+      {
+        "id": "EMPTY_LOCAL_BOARD_AND_REMOTE_NOTICE",
+        "status": "PASS"
+      },
+      {
+        "id": "REAL_IDB_TOP20_OWN_BEST_TIE_DUPLICATE_PROFILE_LEDGER",
+        "status": "PASS",
+        "topCount": 20,
+        "ownLedgerCount": 4,
+        "profileClearCount": 4
+      },
+      {
+        "id": "OUTSIDE_TOP20_VISIBLE_AND_NAMES_LITERAL_HTML_SAFE",
+        "status": "PASS"
+      },
+      {
+        "id": "RELOAD_REOPENS_REAL_INDEXEDDB_WITH_SAME_SCORE_SENTENCE_AND_SEQUENCE",
+        "status": "PASS",
+        "storedSequence": 24
+      },
+      {
+        "id": "ACTUAL_INDEXEDDB_ABORT_ROLLS_BACK_PROFILE_LEDGER_BEST_SEQUENCE",
+        "status": "PASS"
+      },
+      {
+        "id": "REMOTE_UNCONNECTED_AND_LATER_PROFILE_SAVE_PRESERVE_LOCAL_LEDGER",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "notRun": [
+      "Natural campaign",
+      "Public leaderboard service",
+      "Physical devices"
+    ]
+  },
+  "finalBundleSmoke": {
+    "kind": "FINAL_BUILT_UI_SMOKE_ASSIGNED_CLEAR_ONLY",
+    "errors": [],
+    "resources": [
+      {
+        "path": "/grammardealer/assets/index-Dn7EHbFv.css",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-DesJLFKp.js",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-Dn7EHbFv.css",
+        "status": 200
+      },
+      {
+        "path": "/grammardealer/assets/index-DesJLFKp.js",
+        "status": 200
+      }
+    ],
+    "status": "PASS",
+    "checks": 2
+  },
+  "notRun": [
+    "Natural50battlebalance/winrate",
+    "Physicaldevices",
+    "Fullbrowsermatrix",
+    "Publicleaderboardoperations",
+    "Newbossspecificart",
+    "Finale-specifichidden-tab/watchdogbrowserpath"
+  ],
+  "publicOperation": "UNCONNECTED",
+  "deployment": "NOT RUN"
+}

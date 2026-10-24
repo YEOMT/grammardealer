@@ -1,0 +1,163 @@
+{
+  "documentVersion": "1.0",
+  "targetRelease": "0.11.0",
+  "source": {
+    "repository": "YEOMT/grammardealer",
+    "commit": "cb1958f66dda4e4cd320c7b03e661d7a8cb41cf4",
+    "appPackage": "0.10.4",
+    "campaignContract": "0.10.2",
+    "grammarContract": "0.10.0"
+  },
+  "provenance": {
+    "USER_CONFIRMED": "사용자의 최신 확정 요구. confirmed 필드에 해당한다.",
+    "IMPLEMENTATION_INITIAL": "미확정 수치 또는 이번 명세가 정한 구현 세부 정의. 실제 밸런스 검증값이 아니다."
+  },
+  "confirmed": {
+    "battleCount": 50,
+    "existingBattleCount": 47,
+    "phases": [
+      {
+        "number": 1,
+        "battle": 48,
+        "name": "Surface Structure",
+        "hp": 5000
+      },
+      {
+        "number": 2,
+        "battle": 49,
+        "name": "Deep Structure",
+        "hp": 6000
+      },
+      {
+        "number": 3,
+        "battle": 50,
+        "name": "Universal Grammar",
+        "hp": 10000
+      }
+    ],
+    "surface": {
+      "layers": 2,
+      "taskCategories": [
+        "FRAME",
+        "GRAMMAR",
+        "OWNED_VERB"
+      ],
+      "distinctCategories": true,
+      "maxLayersBrokenPerAttack": 1,
+      "frames": [
+        "SV",
+        "SVC",
+        "SVO",
+        "SVOO",
+        "SVOC"
+      ],
+      "grammarGoals": [
+        "PASSIVE",
+        "INFINITIVE",
+        "EXTRAPOSITION",
+        "RELATIVE",
+        "COUNTERFACTUAL"
+      ],
+      "verbMustBeOwned": true,
+      "survivalFloorWithLayers": 1,
+      "hasEndTurnRecovery": true,
+      "hasDust": true,
+      "hasConditionalFrost": true,
+      "handSeal": false,
+      "runeSeal": false
+    },
+    "deep": {
+      "maxRuneSeals": 2,
+      "resourceRunesEligible": false,
+      "selectionByActualAttackContribution": true,
+      "targetType": "TENSE_VERB_PHRASE",
+      "handWordSealsPerTurn": 2,
+      "freeSupport": false
+    },
+    "universal": {
+      "damageReduction": false,
+      "survivalFloor": 0,
+      "regen": false,
+      "dust": false,
+      "frost": false,
+      "runeSeal": false,
+      "handSeal": false
+    },
+    "leaderboard": {
+      "requiresFinalClear": true,
+      "topCount": 20,
+      "order": "SCORE_DESC",
+      "showPlayerName": true,
+      "showSameAttackScoreAndSentence": true
+    }
+  },
+  "implementationInitial": {
+    "surface": {
+      "regenPerConsumedSurvivingTurn": 400,
+      "regenContinuesAfterBothLayersBroken": true,
+      "regenSuppressionGrammar": null,
+      "damageMultiplier": {
+        "num": 1,
+        "den": 1
+      },
+      "dustCountWeights": {
+        "4": 1,
+        "5": 1
+      },
+      "maxFrostPerTask": 1,
+      "maxFrostPerPhase": 2,
+      "frostHandFullPolicy": "PUT_AT_DRAW_TOP_NO_EVICTION",
+      "frostConsumedOnAcceptedInvalid": true,
+      "categoryWeights": {
+        "FRAME": 1,
+        "GRAMMAR": 1,
+        "OWNED_VERB": 1
+      }
+    },
+    "deep": {
+      "tenseTargets": [
+        "PRESENT_SIMPLE",
+        "PAST_SIMPLE",
+        "PRESENT_PROGRESSIVE",
+        "PRESENT_PERFECT",
+        "FUTURE_WILL"
+      ],
+      "scope": "MAIN_FINITE_VERB_PHRASE",
+      "contributionScope": "MAX_LEAVE_ONE_RUNE_OUT_DELTA_ACROSS_PHASE1_ATTACKS",
+      "positiveContributorsOnly": true,
+      "targetRuneUnique": true,
+      "unlockBonus": {
+        "num": 5,
+        "den": 4
+      },
+      "unsealBeforeCurrentRuneCalculation": true,
+      "nextRuneSealAt": "NEXT_TURN_START",
+      "killAllowedWithSealedRune": true,
+      "cardSealCandidates": "ALL_CURRENT_HAND_WORDS",
+      "cardSealsAreUniqueWithinTurn": true,
+      "exchangeSealedCardAllowed": true,
+      "sameTurnRedrawRemainsSealed": true
+    },
+    "finale": {
+      "baseTurnsPerPhase": 6,
+      "resetBattleResourcesPerPhase": true,
+      "regionMultiplier": {
+        "num": 1,
+        "den": 1
+      },
+      "lastShopBeforeBattle": 48,
+      "betweenPhaseChoiceRewards": false,
+      "overkillCarriesToNextPhase": false,
+      "preserveLegacyBossGoldPolicy": true
+    },
+    "leaderboard": {
+      "metric": "FINAL_POWER_BEFORE_HP_CAP",
+      "scope": "CURRENT_CLEARED_RUN_BATTLES_1_TO_50",
+      "perPlayerBestOnly": true,
+      "sameScorePreserveEarlier": true,
+      "defaultAvailableStorage": "LOCAL_DEVICE",
+      "remoteProvider": null,
+      "neverCallLocalPublic": true
+    }
+  }
+}

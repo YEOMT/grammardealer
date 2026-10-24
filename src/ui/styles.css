@@ -305,3 +305,12 @@ body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence 
  body[data-stage-theme] .game-shell:not(.responsive-battle):has(.combat-sentence .word-card:nth-child(9)) .score-stage:has(.battle-learning-guide){margin-block:0}
  body[data-stage-theme] .game-shell:not(.responsive-battle):has(.battle-learning-guide):has(.combat-sentence .word-card:nth-child(9)) .hand-section{padding-top:8px}
 }
+.finale-status { font-size: 12px; line-height: 1.4; margin: 5px 0 0; max-width: 520px; overflow-wrap: anywhere; }
+.rune-sealed { border-style: dashed; }
+.rune-seal-label { color: #efc888; font-size: 11px; }
+.finale-clear { max-width: 860px; margin: auto; padding: 24px; }
+.finale-best-power { display: block; font-size: 32px; color: var(--gold, #e6ca88); }
+.finale-full-sentence { overflow-wrap: anywhere; line-height: 1.6; }
+.finale-ranking-entry { padding: 10px 0; border-bottom: 1px solid #ffffff25; }
+.finale-ranking-entry summary { cursor: pointer; }
+.finale-ranking-line { display: block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-top: 4px; }
