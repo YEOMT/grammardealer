@@ -70,7 +70,7 @@ production 경로 후 랭킹 DOM 수정만 포함해 다시 빌드했고 최종 
 - PC/태블릿은 Chromium viewport 검사다. 실기기·전 브라우저/해상도 전수 검사는 **NOT RUN**이며 이번 필수 범위가 아니다. 태블릿의 긴 상태 문구 줄바꿈 등 미세 디자인은 후속 폴리싱으로 남긴다.
 - 공용 서버/인증/운영 검증: **미연결·NOT RUN**. 외부 계정·비용·배포를 만들지 않았다. 로컬 기록과 공용 운영 완료를 구분한다.
 - 최종 보스 전용 아트: **미제공**. 기존 테마/아이콘 fallback이며 미세 연출·디자인은 사용자 플레이 피드백 대상으로 남긴다.
-- 원격 인계는 `codex/v0.11-final-trilogy`의 별도 PR로 수행한다. main 직접 변경·자동 병합·Pages 설정 변경·공개 배포는 하지 않는다.
+- 구현 커밋 `649ccfc138aa835f8538a31ea50a5a6677516971`을 `codex/v0.11-final-trilogy`로 push하고 [PR #21](https://github.com/YEOMT/grammardealer/pull/21)을 Ready for review로 생성했다. 생성 시 원격 main은 기준 SHA와 동일했다. main 직접 변경·자동 병합·Pages 설정 변경·공개 배포는 하지 않았다. GitHub CI 결과는 로컬 검사 결과와 별개다.
 
 ## 대표 화면과 재현
 
