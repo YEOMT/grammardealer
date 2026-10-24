@@ -31,7 +31,7 @@ export function attachTutorial(root,state,command){const t=state.tutorial;if(!t?
 /** Ephemeral controller/profile. No persistence callback and no access to the live run. */
 export function openTutorialPractice(liveRoot){
  const practice=new RunController();practice.dispatch({type:'NEW_RUN',config:{seed:'practice.0.2.1'}});practice.dispatch({type:'START_BATTLE'});
- const board=el('div'),overlay=el('section',{class:'practice-overlay'},el('header',{class:'practice-header'},el('strong',{text:'조작 연습 · 원정/재화/기록에 반영되지 않습니다'}),button('연습 닫기',()=>interrupt('exit'),'secondary',{id:'close-practice'})),board);
+ const board=el('div'),overlay=el('section',{class:'practice-overlay'},el('header',{class:'practice-header'},el('strong',{text:'조작 연습 · 원정/골드/기록에 반영되지 않습니다'}),button('연습 닫기',()=>interrupt('exit'),'secondary',{id:'close-practice'})),board);
  let clean=()=>{},busy=false,abort=null,closed=false;
  function close(){closed=true;abort?.abort();clean();overlay.remove();liveRoot.inert=false;}
  function interrupt(mode){abort?.abort();if(mode==='exit'||mode==='skip'){close();return;}practice.dispatch(tutorialCommand(practice.getState(),{type:'TUTORIAL_RESTART',confirmed:true}));if(!busy)render();}

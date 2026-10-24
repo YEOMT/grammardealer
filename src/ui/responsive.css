@@ -4,7 +4,7 @@
 [hidden]{display:none!important}
 html:fullscreen,html:fullscreen body{width:100%;height:100%;background:#101b21}
 body:has(.responsive-battle){margin:0;min-width:320px}
-body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:clamp(62px,calc(3.92vw + 16.45px),96px);--board-body:60px;--form-height:28px;--board-gap:10px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 44px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(6px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));grid-template-columns:1fr;grid-template-rows:38px minmax(120px,1fr) auto auto;align-content:start;gap:8px}
+body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:clamp(62px,calc(3.92vw + 16.45px),96px);--board-body:60px;--form-height:28px;--board-gap:10px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 44px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));grid-template-columns:1fr;grid-template-rows:38px minmax(120px,1fr) auto auto;align-content:start;gap:8px}
 .responsive-battle .game-header{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;padding-bottom:5px}
 .responsive-battle .brand-small{grid-column:1;grid-row:1;justify-self:start;font-size:13px;white-space:nowrap}
 .responsive-battle .stage-path{grid-column:2;grid-row:1;justify-self:center;min-width:0;gap:5px}.responsive-battle .stage-path h1{font-size:17px}
@@ -47,6 +47,9 @@ body[data-stage-theme] .responsive-battle .hand-section{min-height:0;padding:6px
 body[data-stage-theme] .responsive-battle .hand-cards{display:flex;flex-wrap:nowrap;min-height:0;gap:5px;overflow:visible;padding:0;justify-content:center}
 body[data-stage-theme] .responsive-battle .hand-cards .word-card{--card-w:calc(var(--play-card-width) * 1.25);width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex-basis:var(--card-w)}
 body[data-stage-theme] .responsive-battle .hand-cards .card-body{min-height:78px;height:78px;padding:4px;flex:none}.responsive-battle .hand-cards .card-topline{font-size:9px}.responsive-battle .hand-cards .card-footline{min-height:36px;padding:1px 36px 1px 4px;font-size:9px;flex-wrap:wrap;gap:0 3px}.responsive-battle .card-footline>span{white-space:nowrap}.responsive-battle .hand-cards .card-select{width:35px;height:35px;min-height:35px;right:0;bottom:0}
+body[data-stage-theme] .responsive-battle .hand-cards .word-card:not([data-card-kind]) .card-body{display:grid;grid-template-rows:auto minmax(0,1fr);justify-content:stretch}
+body[data-stage-theme] .responsive-battle .hand-cards .word-card:not([data-card-kind]) .card-word{align-self:center;margin:0!important}
+body[data-stage-theme] .responsive-battle .hand-cards .card-body:has(>.card-footline){grid-template-rows:auto minmax(0,1fr) auto}
 .responsive-battle .operation-name{font-size:14px;line-height:1.15}.responsive-battle .operation-limit{font-size:9px}.responsive-battle .operation-footer{padding-left:0!important}.responsive-battle .operation-use{font-size:11px;padding:2px;min-height:29px}
 .responsive-battle .exchange-row{position:absolute;right:78px;top:0;margin:0;gap:8px;min-height:32px}.responsive-battle .exchange-row button{min-height:32px;padding:4px 8px;font-size:12px}
 .responsive-battle .pile-button{min-height:90px;padding:3px;font-size:10px}.responsive-battle .pile-button strong{font-size:25px}
@@ -70,7 +73,7 @@ body[data-stage-theme] .responsive-battle .enemy-tactics .canyon-tools,body[data
  .responsive-battle .enemy-info h2{font-size:22px}.responsive-battle .enemy-tactics{padding:8px}
 }
 @media(max-height:720px){
- body[data-stage-theme] .game-shell.responsive-battle{--board-body:48px;--form-height:24px;--board-gap:8px;grid-template-rows:32px minmax(104px,1fr) auto auto;gap:4px;padding-block:5px}
+ body[data-stage-theme] .game-shell.responsive-battle{--board-body:48px;--form-height:24px;--board-gap:8px;grid-template-rows:32px minmax(104px,1fr) auto auto;gap:4px;padding-top:5px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
  body[data-stage-theme] .responsive-battle .sentence-area{gap:3px}
  body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:48px;min-height:48px;flex-basis:48px}
  .responsive-battle .score-label{font-size:17px}.responsive-battle .learning-topic strong{font-size:14px}.responsive-battle .battle-learning-guide{font-size:12px}
@@ -107,15 +110,15 @@ body:has(.shop-page) .shop-topbar{height:40px;min-height:40px;padding:0 12px;fle
 .shop-notices>summary{padding:5px 9px;border:1px solid #587b7a;border-radius:6px;cursor:pointer;background:#163138}
 .shop-notices[open]>.shop-notice-content{position:absolute;top:100%;left:0;right:0;max-height:calc(var(--viewport-height)*.55);overflow:auto;padding:8px;background:#142b31;border:1px solid #587b7a;box-shadow:0 8px 22px #0008}
 .shop-notices .entry-grant{margin:4px 0}.shop-notices .shop-equipped{margin:4px 0}
-.responsive-shop .shop-inventory{display:grid;grid-template-columns:repeat(var(--shop-columns,5),minmax(0,1fr));flex:0 1 auto;min-height:0;gap:8px;margin:0;align-items:stretch}
-.responsive-shop .shop-item{padding:14px 10px;gap:9px;min-height:0;min-width:0;justify-content:flex-start}
+.responsive-shop .shop-inventory{display:grid;grid-template-columns:repeat(var(--shop-columns,5),minmax(0,1fr));flex:0 0 auto;min-height:0;gap:8px;margin:0;align-items:start}
+.responsive-shop .shop-item{padding:10px;gap:6px;min-height:0;min-width:0;justify-content:flex-start;overflow-wrap:anywhere}
 .responsive-shop .shop-item h2{font-size:18px}.responsive-shop .shop-item p{font-size:12px;margin:0}.responsive-shop .shop-item small{font-size:11px}.responsive-shop .shop-item>strong{font-size:13px}
-.responsive-shop .shop-item .reward-gem{font-size:36px}.responsive-shop .shop-item .word-card{--card-w:90px}.responsive-shop .shop-item .card-body{min-height:66px}.responsive-shop .shop-item .card-word{font-size:min(22px,calc(76px / var(--fit-factor,3)))!important;margin:5px 0}.responsive-shop .shop-price{margin-top:8px}
+.responsive-shop .shop-item .reward-gem{font-size:36px}.responsive-shop .shop-item .word-card{--card-w:90px}.responsive-shop .shop-item .card-body{min-height:66px}.responsive-shop .shop-item .card-word{font-size:min(22px,calc((var(--card-w) - 12px) / var(--fit-factor,3)))!important;margin:5px 0}.responsive-shop .shop-price{margin-top:8px}
 .responsive-shop .shop-item>button{min-height:34px;padding:5px;font-size:12px}
 .shop-pager{display:flex;justify-content:space-between;align-items:center;flex:none;font-size:12px;min-height:26px}.shop-pager button{min-height:26px;padding:2px 10px}
 .responsive-shop .shop-services{grid-template-columns:1fr 1fr;gap:8px;flex:none}
 .responsive-shop .shop-service{padding:8px;gap:5px}.responsive-shop .shop-service h2{font-size:15px}.responsive-shop .shop-service p{font-size:10px;margin:3px 0}.responsive-shop .shop-service strong{font-size:11px}.responsive-shop .shop-service button{font-size:11px;min-height:32px;padding:4px}
-.responsive-shop .shop-footer{margin:0;padding:0;gap:8px;flex:none;flex-direction:row;align-items:center}.responsive-shop .shop-footer .helper{font-size:10px;margin:0}.responsive-shop #leave-shop{min-height:34px;padding:6px 12px;font-size:12px;white-space:nowrap}
+.responsive-shop .shop-footer{margin:auto 0 0;padding:0;gap:8px;flex:none;flex-direction:row;align-items:center}.responsive-shop .shop-footer .helper{font-size:10px;margin:0}.responsive-shop #leave-shop{min-height:34px;padding:6px 12px;font-size:12px;white-space:nowrap}
 @media(max-width:939px){
  .shop-page.responsive-shop{padding:7px 10px;gap:5px}.responsive-shop .shop-heading h1{font-size:18px}.responsive-shop .shop-heading .eyebrow{font-size:9px}.responsive-shop .shop-resources{min-width:84px}.responsive-shop .shop-resources span{white-space:normal}
  .responsive-shop .shop-item{padding:7px;gap:5px}.responsive-shop .shop-service{flex-direction:column;align-items:stretch}.responsive-shop .shop-service button{width:100%}
@@ -130,13 +133,12 @@ body:has(.shop-page) .shop-topbar{height:40px;min-height:40px;padding:0 12px;fle
  .responsive-shop .shop-item{gap:3px;padding:5px}.responsive-shop .shop-item .reward-gem{font-size:20px}.responsive-shop .shop-item h2{font-size:15px}.responsive-shop .shop-item p,.responsive-shop .shop-item small{font-size:10px;line-height:1.15}.responsive-shop .shop-item>strong{font-size:11px}.responsive-shop .shop-item>button{min-height:26px;padding:3px}
  .responsive-shop .shop-item .word-card{--card-w:72px}.responsive-shop .shop-item .card-body{min-height:43px;padding:3px}.responsive-shop .shop-item .card-word{font-size:17px!important;margin:1px 0}.responsive-shop .shop-item .card-footline{min-height:17px;font-size:8px}.responsive-shop .operation-name{font-size:12px}.responsive-shop .operation-limit{font-size:9px}
 }
-/* Always-visible compact entry footer; natural scrolling on very short windows. */
-.intro-page.responsive-intro{padding:12px 20px max(16px,env(safe-area-inset-bottom));max-width:1120px;min-height:calc(var(--viewport-height) - 70px);display:flex;flex-direction:column}.responsive-intro .intro-footer{margin-top:auto;padding-top:28px}.responsive-intro .intro-footer>.start-button{margin-top:12px}.responsive-intro .boss-silhouette{display:none}
-.responsive-intro .intro-art{font-size:40px;margin:5px}.responsive-intro h1{font-size:30px;margin:6px 0}.responsive-intro>p{font-size:13px;margin:5px 0 10px}
-.intro-details-content{padding:6px;text-align:left;font-size:13px}
-.intro-details-content .intro-encounters{margin:10px 0;gap:6px}.intro-details-content .intro-encounters>div{flex:1;min-width:0;width:auto;padding:6px}.intro-details-content .intro-encounters strong{font-size:11px;margin:5px 0}.intro-details-content .intro-encounters b{font-size:22px}.intro-details-content .boss-preview{padding:8px;gap:8px;margin:0}.intro-details-content .boss-preview h2{font-size:16px}.intro-details-content .boss-preview p{font-size:12px;margin:4px 0}.intro-details-content .helper{font-size:12px;margin:6px 0}
-.responsive-intro .stage4-connector-choice{padding:8px}.responsive-intro .stage4-connector-choice h2{font-size:17px}.responsive-intro .stage4-connector-choice p{font-size:11px;margin:3px}.responsive-intro .stage4-connector-choice .reward-choices{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.responsive-intro .stage4-connector-choice .reward-choice{padding:5px;gap:5px;width:auto}.responsive-intro .stage4-connector-choice .word-card{--card-w:74px}.responsive-intro .stage4-connector-choice .card-body{min-height:52px}.responsive-intro .stage4-connector-choice button{padding:4px;font-size:11px;min-height:32px}
-.responsive-intro .stage4-connector-choice .reward-choices{margin:8px 0}.responsive-intro .stage4-connector-choice .card-body{height:64px;min-height:64px}.responsive-intro .stage4-connector-choice .card-word{font-size:20px}
+/* Region scenery and one progression action; required card choices use the existing modal. */
+.intro-page.responsive-intro{padding:36px 20px max(16px,env(safe-area-inset-bottom));max-width:1120px;min-height:calc(var(--viewport-height) - 70px);display:flex;flex-direction:column;box-sizing:border-box}
+.responsive-intro h1{font-size:30px;margin:6px 0}.responsive-intro>p{font-size:14px;margin:5px 0 10px}
+.responsive-intro .intro-footer{margin-top:auto;padding-top:28px}.responsive-intro .start-button{margin:0}
+.entry-choice-dialog .stage4-connector-choice{padding:8px}.entry-choice-dialog h2{font-size:17px}.entry-choice-dialog p{font-size:12px;margin:6px 0}
+.entry-choice-dialog .reward-choices{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:8px 0}.entry-choice-dialog .reward-choice{width:auto;padding:8px;gap:6px}.entry-choice-dialog .word-card{--card-w:90px}.entry-choice-dialog .card-body{min-height:70px}.entry-choice-dialog button{min-height:36px}
 @media(max-width:939px),(max-height:699px){
  body:has(.responsive-intro) .topbar,body:has(.result-page) .topbar{height:40px;min-height:40px}
  .intro-page.responsive-intro{padding:8px 12px}.responsive-intro .intro-art{font-size:28px;margin:2px}.responsive-intro h1{font-size:24px;margin:4px 0}.responsive-intro>p{font-size:12px;margin:4px 0 8px}
@@ -153,3 +155,5 @@ body:has(.shop-page) .shop-topbar{height:40px;min-height:40px;padding:0 12px;fle
 /* The guided exchange lesson retains its existing 44px touch target. */
 body:has(.guided-coach) .responsive-battle .hand-cards .card-footline{min-height:44px;padding-right:44px}
 body:has(.guided-coach) .responsive-battle .hand-cards .card-select{width:44px;height:44px;min-height:44px}
+
+.dictionary-entry .badge[class*="pos-"]{border-left:3px solid var(--pos);padding-left:4px}

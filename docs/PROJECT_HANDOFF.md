@@ -1,3 +1,7 @@
+# PreBoss UI 0.10.4 현재 인계
+
+기준 main `056ee5e02f2658d939cdda9a61dcb884b74abb9b`, 브랜치 `codex/preboss-ui-polish`. [v2 명세](../spec/preboss-ui/Syntax_Atlas_PreBoss_UI_Patch_v2.md), [실제 검사/대표 3장](TEST_REPORT_PREBOSS_UI.md). 손패 본문 중앙·하단8px·대명사 진한 파랑·골드 표기, 풍경 중심 입장과 컴팩트 상점만 정돈했다. 필수 입장 카드 선택은 버튼에서 여는 선택창이며 상태/지급/방문은 기존 그대로다. 기존 전투 전 안내도 유지한다. 앱0.10.4, 원정/저장0.10.2 유지. 단위1723·빌드 PASS, 대표 UI 8개 고유 항목 확인. 전체 원정/전 기기 NOT RUN. 아래는 이전 기록이다.
+
 # Quick UX 0.10.3 현재 인계
 
 기준 main `ad59039d491b5e2c607380052d6c178b497ced39`, 브랜치 `codex/v0.10.3-quick-ux`. [명세](../spec/quick-ux/Syntax_Atlas_Quick_UX_Patch.md)와 [실제 검증](TEST_REPORT_QUICK_UX.md)을 우선한다. 손패만 1.25배 확대·페이지 유지, 조합대 중앙정렬/24장, 턴 넘기기, 빈자리만큼 우측 회수, 버리기 위치, 공격 오버레이 스타일 문맥, 상시 입장 정보를 정돈했다. 앱 0.10.3이고 원정/저장 정책은 0.10.2 그대로다. 단위1723·빌드·집중 UI를 확인했으며 자연 원정/전 기기 검사는 NOT RUN. 아래는 이전 기록으로 보존한다.

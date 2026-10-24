@@ -307,7 +307,7 @@ export function validateRunState(run,registry) {
     if(mixed&&(!['0.1.1',...(currentCampaign?['0.2.0']:[]),...(sky?['0.4.0']:[]),...(snow?['0.6.0']:[]),...(hasPolishCampaign(run)?['0.6.1']:[])].includes(offer.rewardVersion)||(offer.choices.length!==3&&!(['0.10.1','0.10.2'].includes(run.version)&&offer.type==='RUNE_INTRO'&&offer.choices.length<3&&offer.trace?.some(t=>t.kind==='INTRO_POOL_EXHAUSTED')))))fail('혼합 보상은 고정된 후보 세 칸이어야 합니다.');
     if(sky&&offer.choices.filter(x=>x.kind==='CARD'&&cardDefinition(x.cardDefId,run.version)?.cardKind==='OPERATION').length>1)fail('운영 카드 후보가 너무 많습니다.');
     if(offer.type==='RUNE_INTRO'&&(offer.battleNumber!==2||offer.choices.some(x=>x.kind!=='RUNE')))fail('첫 룬 보상이 잘못되었습니다.');
-    if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 재화가 잘못되었습니다.');
+    if(offer.skipGold!==((cardOffer||(mixed&&offer.choices.some(x=>x.kind==='CARD')))?3:2))fail('보상 건너뛰기 골드가 잘못되었습니다.');
     const seenContent=new Set();
     for(const choice of offer.choices){
       let content;

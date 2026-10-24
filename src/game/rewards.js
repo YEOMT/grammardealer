@@ -140,7 +140,7 @@ function createLegacyRewardOffer(run, profile) {
   const empty = !choices.some((choice) => !choice.disabled);
   const offer = { offerId, battleNumber, type, choices, resolved: false, firstRuneIntro, trace,
     skipGold: CARD_TYPES.has(type) ? ECONOMY.skipCardGold : ECONOMY.skipOtherGold,
-    ...(empty ? { emptyReasonKo: '현재 선택할 수 있는 대상이 없습니다. 건너뛰기 재화를 받을 수 있습니다.' } : {}) };
+    ...(empty ? { emptyReasonKo: '현재 선택할 수 있는 대상이 없습니다. 건너뛰기 골드를 받을 수 있습니다.' } : {}) };
   rememberCards(run, choices);
   run.reward = deepFreeze(offer);
   return run.reward;
@@ -227,7 +227,7 @@ export function resolveReward(run, offerId, choiceId, { replaceRuneInstanceId = 
     const gold = addSafe(run.economy.gold, offer.skipGold);
     run.economy.gold = gold;
     markResolved(run, choiceId, { kind: 'SKIP', gold: offer.skipGold });
-    return { ok: true, message: `보상을 건너뛰고 +${offer.skipGold} 재화를 받았습니다.` };
+    return { ok: true, message: `보상을 건너뛰고 +${offer.skipGold} 골드를 받았습니다.` };
   }
   const choice = offer.choices.find((entry) => entry.choiceId === choiceId);
   if (!choice || choice.disabled) return fail(choice?.reasonKo ?? '선택할 수 없는 보상입니다.');

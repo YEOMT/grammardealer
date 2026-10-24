@@ -92,7 +92,7 @@ async function presentResolution(before,resolution){
  if(!guided||outcome.status==='FINISHED')controller.dispatch({type:'FINISH_PRESENTATION',attackId:resolution.attackId});
  const stillPending=controller.getState()?.combat?.pendingAttackId===resolution.attackId;
  if(guided&&outcome.status==='INTERRUPTED'&&stillPending){
-  let recovery;recovery=modal('튜토리얼 연출을 중단했습니다',[el('p',{text:'같은 공격 결과를 다시 보여드립니다. 피해와 재화는 다시 계산하지 않습니다.'}),button('같은 결과 다시 보기',()=>{recovery.close();presentResolution(before,resolution);},'primary'),button('튜토리얼 다시 시작',()=>{recovery.close();interruptTutorial('restart');},'secondary'),button('튜토리얼 나가기',()=>{recovery.close();interruptTutorial('exit');},'quiet')],{closeable:false});return;
+  let recovery;recovery=modal('튜토리얼 연출을 중단했습니다',[el('p',{text:'같은 공격 결과를 다시 보여드립니다. 피해와 골드는 다시 계산하지 않습니다.'}),button('같은 결과 다시 보기',()=>{recovery.close();presentResolution(before,resolution);},'primary'),button('튜토리얼 다시 시작',()=>{recovery.close();interruptTutorial('restart');},'secondary'),button('튜토리얼 나가기',()=>{recovery.close();interruptTutorial('exit');},'quiet')],{closeable:false});return;
  }
  render();
 }
