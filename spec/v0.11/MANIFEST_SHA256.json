@@ -1,0 +1,13 @@
+{
+  "00_README.md": "9250b7acd2ccd085d20445e92dc63d45ce98cbd6dbe192ebe50c7c47d9bb0906",
+  "01_START_PROMPT_KO.md": "decd2b85e1531a3358cea7a9f7e0b34c8142ceba992d77db361497d376a74f18",
+  "02_Clear_Leaderboard.md": "a85e95b0d107fb67b55fbeff9620d1885862cace59a69964651c07a48a0b2cbc",
+  "03_Focused_Verification.md": "cfda6660f5822e80f7246b70dbc220a0af10b40b0e70ca7567af924f97ec31f2",
+  "04_Finale_Policy.json": "225ef3daaab55e2f299a18ff573e0e323bdee6f5d3b7c2edd51ad5c7b5ab2acd",
+  "05_Rule_Examples.json": "14611beaf5e8a8d91c1e8bb743587ce56c4a8ca452bd55762eaa83a2239233e7",
+  "06_State_Scenarios.json": "dc414bf93bcb6a107cc501ad796f30f11913104121d285c84c3f7153073c1671",
+  "PACKAGE_CHECK.json": "130ea859d8d9ec82779e153b9b94f02131fab3a7221b830f902331d4d8466147",
+  "Syntax_Atlas_0.11_FinalBoss_Spec.md": "f4bb012e02575e39bb0d83b9920fef813119e82d3a748e9e84e7bc6060bb21ae",
+  "Syntax_Atlas_0.11_FinalBoss_Spec.txt": "eaac4e37c615828bf3907ae5413599a56ebe6ca986d81d6f3a8c2e8700405f36",
+  "Syntax_Atlas_0.11_START_PROMPT.txt": "e05750af0cf5c7c6cdae457d11940ec67b94827069edcbd4215147ed97fd0a2b"
+}

@@ -1,0 +1,561 @@
+{
+  "note": "명세의 독립 산술 기대 예시다. 실제 게임 엔진이나 플레이 테스트 실행 결과가 아니다.",
+  "surface": [
+    {
+      "id": "S01",
+      "purpose": "미해제 초고화력은 HP1, 이후회복",
+      "input": {
+        "hp": 5000,
+        "layers": 2,
+        "power": 9000
+      },
+      "expected": {
+        "layersAfter": 2,
+        "hpAfterAttack": 1,
+        "actualHpLoss": 4999,
+        "preventedBySeal": 4001,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 401,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S02",
+      "purpose": "첫 해제 공격은 한겹만, 즉시처치 불가",
+      "input": {
+        "hp": 5000,
+        "layers": 2,
+        "power": 9000,
+        "match": true
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1,
+        "actualHpLoss": 4999,
+        "preventedBySeal": 4001,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 401,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S03",
+      "purpose": "두번째 해제 공격 즉시처치",
+      "input": {
+        "hp": 1200,
+        "layers": 1,
+        "power": 1500,
+        "match": true
+      },
+      "expected": {
+        "layersAfter": 0,
+        "hpAfterAttack": 0,
+        "actualHpLoss": 1200,
+        "preventedBySeal": 0,
+        "overkill": 300,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsAfter": 2,
+        "outcome": "VICTORY"
+      }
+    },
+    {
+      "id": "S04",
+      "purpose": "HP1에서 마지막겹 해제",
+      "input": {
+        "hp": 1,
+        "layers": 1,
+        "power": 500,
+        "match": true
+      },
+      "expected": {
+        "layersAfter": 0,
+        "hpAfterAttack": 0,
+        "actualHpLoss": 1,
+        "preventedBySeal": 0,
+        "overkill": 499,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsAfter": 2,
+        "outcome": "VICTORY"
+      }
+    },
+    {
+      "id": "S05",
+      "purpose": "HP1에서 첫겹 해제는 실제피해0이어도 성공",
+      "input": {
+        "hp": 1,
+        "layers": 2,
+        "power": 500,
+        "match": true
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1,
+        "actualHpLoss": 0,
+        "preventedBySeal": 500,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 401,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S06",
+      "purpose": "모든층 제거뒤에도 회복",
+      "input": {
+        "hp": 3000,
+        "layers": 0,
+        "power": 800
+      },
+      "expected": {
+        "layersAfter": 0,
+        "hpAfterAttack": 2200,
+        "actualHpLoss": 800,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 2600,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S07",
+      "purpose": "최대체력에서 턴넘김은 실제회복0",
+      "input": {
+        "hp": 5000,
+        "layers": 2,
+        "action": "PASS_TURN"
+      },
+      "expected": {
+        "layersAfter": 2,
+        "hpAfterAttack": 5000,
+        "actualHpLoss": 0,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 5000,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S08",
+      "purpose": "턴넘기기 회복",
+      "input": {
+        "hp": 1000,
+        "layers": 1,
+        "action": "PASS_TURN"
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1000,
+        "actualHpLoss": 0,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 1400,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S09",
+      "purpose": "카드편집은 회복/턴소모 없음",
+      "input": {
+        "hp": 1000,
+        "layers": 1,
+        "action": "EDIT"
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1000,
+        "actualHpLoss": 0,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1000,
+        "turnsAfter": 3,
+        "outcome": "NO_CHANGE"
+      }
+    },
+    {
+      "id": "S10",
+      "purpose": "마지막턴 두번째해제 처치는 승리",
+      "input": {
+        "hp": 500,
+        "layers": 1,
+        "power": 500,
+        "match": true,
+        "turns": 1
+      },
+      "expected": {
+        "layersAfter": 0,
+        "hpAfterAttack": 0,
+        "actualHpLoss": 500,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 0,
+        "turnsAfter": 0,
+        "outcome": "VICTORY"
+      }
+    },
+    {
+      "id": "S11",
+      "purpose": "마지막턴 비정답은 생존·회복 후 패배",
+      "input": {
+        "hp": 500,
+        "layers": 1,
+        "power": 700,
+        "turns": 1
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1,
+        "actualHpLoss": 499,
+        "preventedBySeal": 201,
+        "overkill": 0,
+        "actualHeal": 400,
+        "hpAfterTurnEnd": 401,
+        "turnsAfter": 0,
+        "outcome": "DEFEAT"
+      }
+    },
+    {
+      "id": "S12",
+      "purpose": "접수된 비문은 0피해·회복·턴소모",
+      "input": {
+        "hp": 4700,
+        "layers": 2,
+        "power": 0,
+        "match": false
+      },
+      "expected": {
+        "layersAfter": 2,
+        "hpAfterAttack": 4700,
+        "actualHpLoss": 0,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 300,
+        "hpAfterTurnEnd": 5000,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "S13",
+      "purpose": "엔진오류 거절은 완전 무변경",
+      "input": {
+        "hp": 1000,
+        "layers": 1,
+        "power": 800,
+        "match": true,
+        "accepted": false
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 1000,
+        "actualHpLoss": 0,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 0,
+        "hpAfterTurnEnd": 1000,
+        "turnsAfter": 3,
+        "outcome": "NO_CHANGE"
+      }
+    },
+    {
+      "id": "S14",
+      "purpose": "해제성공 저위력도 새층은 다시판정 안함",
+      "input": {
+        "hp": 5000,
+        "layers": 2,
+        "power": 100,
+        "match": true
+      },
+      "expected": {
+        "layersAfter": 1,
+        "hpAfterAttack": 4900,
+        "actualHpLoss": 100,
+        "preventedBySeal": 0,
+        "overkill": 0,
+        "actualHeal": 100,
+        "hpAfterTurnEnd": 5000,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    }
+  ],
+  "deep": [
+    {
+      "id": "D01",
+      "purpose": "과제실패시 봉인룬 제외",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": false
+      },
+      "expected": {
+        "unsealedNow": false,
+        "completedSeals": 0,
+        "unlockBonusApplied": false,
+        "finalPower": 600,
+        "actualHpLoss": 600,
+        "overkill": 0,
+        "hpAfterAttack": 5400,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "D02",
+      "purpose": "첫 해제는 같은공격 복구+보너스, 다음턴 새봉인",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": true
+      },
+      "expected": {
+        "unsealedNow": true,
+        "completedSeals": 1,
+        "unlockBonusApplied": true,
+        "finalPower": 1250,
+        "actualHpLoss": 1250,
+        "overkill": 0,
+        "hpAfterAttack": 4750,
+        "nextTurnStartsNewRuneSeal": true,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "D03",
+      "purpose": "두번째해제 처치와 새봉인없음",
+      "input": {
+        "hp": 1000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": true,
+        "seals_completed": 1
+      },
+      "expected": {
+        "unsealedNow": true,
+        "completedSeals": 2,
+        "unlockBonusApplied": true,
+        "finalPower": 1250,
+        "actualHpLoss": 1000,
+        "overkill": 250,
+        "hpAfterAttack": 0,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 2,
+        "outcome": "VICTORY"
+      }
+    },
+    {
+      "id": "D04",
+      "purpose": "봉인未해제라도 처치허용",
+      "input": {
+        "hp": 500,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": false
+      },
+      "expected": {
+        "unsealedNow": false,
+        "completedSeals": 0,
+        "unlockBonusApplied": false,
+        "finalPower": 600,
+        "actualHpLoss": 500,
+        "overkill": 100,
+        "hpAfterAttack": 0,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 2,
+        "outcome": "VICTORY"
+      }
+    },
+    {
+      "id": "D05",
+      "purpose": "마지막턴 살아있으면 새봉인 만들지않고 패배",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": true,
+        "turns": 1
+      },
+      "expected": {
+        "unsealedNow": true,
+        "completedSeals": 1,
+        "unlockBonusApplied": true,
+        "finalPower": 1250,
+        "actualHpLoss": 1250,
+        "overkill": 0,
+        "hpAfterAttack": 4750,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 0,
+        "outcome": "DEFEAT"
+      }
+    },
+    {
+      "id": "D06",
+      "purpose": "기여룬0개는 봉인/해방보너스없이 정상공격",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 1000,
+        "success": false,
+        "target_count": 0
+      },
+      "expected": {
+        "unsealedNow": false,
+        "completedSeals": 0,
+        "unlockBonusApplied": false,
+        "finalPower": 1000,
+        "actualHpLoss": 1000,
+        "overkill": 0,
+        "hpAfterAttack": 5000,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "D07",
+      "purpose": "기여룬1개는 한회만",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": true,
+        "target_count": 1
+      },
+      "expected": {
+        "unsealedNow": true,
+        "completedSeals": 1,
+        "unlockBonusApplied": true,
+        "finalPower": 1250,
+        "actualHpLoss": 1250,
+        "overkill": 0,
+        "hpAfterAttack": 4750,
+        "nextTurnStartsNewRuneSeal": false,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "D08",
+      "purpose": "정수내림은 기존 정책",
+      "input": {
+        "hp": 6000,
+        "all_score": 101,
+        "masked_score": 60,
+        "success": true
+      },
+      "expected": {
+        "unsealedNow": true,
+        "completedSeals": 1,
+        "unlockBonusApplied": true,
+        "finalPower": 126,
+        "actualHpLoss": 126,
+        "overkill": 0,
+        "hpAfterAttack": 5874,
+        "nextTurnStartsNewRuneSeal": true,
+        "turnsAfter": 2,
+        "outcome": "CONTINUE"
+      }
+    },
+    {
+      "id": "D09",
+      "purpose": "거절된 제출 무변경",
+      "input": {
+        "hp": 6000,
+        "all_score": 1000,
+        "masked_score": 600,
+        "success": true,
+        "accepted": false
+      },
+      "expected": {
+        "unchanged": true
+      }
+    }
+  ],
+  "runeContribution": [
+    {
+      "id": "R01",
+      "preRuneScore": 100,
+      "runesInOrder": [
+        {
+          "id": "A",
+          "op": "ADD",
+          "value": 30
+        },
+        {
+          "id": "B",
+          "op": "MULTIPLY",
+          "num": 2,
+          "den": 1
+        },
+        {
+          "id": "C",
+          "op": "MULTIPLY",
+          "num": 3,
+          "den": 1
+        }
+      ],
+      "allScore": 780,
+      "without": {
+        "A": 600,
+        "B": 390,
+        "C": 260
+      },
+      "contribution": {
+        "A": 180,
+        "B": 390,
+        "C": 520
+      },
+      "sealOrder": [
+        "C",
+        "B"
+      ],
+      "note": "가상 산술 룬이다. 운영 룬 DB를 대체하지 않는다."
+    }
+  ],
+  "universal": [
+    {
+      "id": "U01",
+      "hp": 10000,
+      "power": 12000,
+      "turnsBefore": 1,
+      "expected": {
+        "hpAfter": 0,
+        "actualHpLoss": 10000,
+        "overkill": 2000,
+        "outcome": "FINAL_CLEAR",
+        "rankingCandidatePower": 12000
+      }
+    },
+    {
+      "id": "U02",
+      "hp": 1,
+      "power": 1,
+      "turnsBefore": 1,
+      "expected": {
+        "hpAfter": 0,
+        "actualHpLoss": 1,
+        "overkill": 0,
+        "outcome": "FINAL_CLEAR",
+        "rankingCandidatePower": 1
+      }
+    }
+  ]
+}

@@ -1,3 +1,10 @@
+## 0.11.0 — Final Trilogy
+
+- 새 원정만 마지막 상점과 Surface / Deep / Universal을 연결해50전투 실제 클리어로 확장.
+- 실제 문법/덱 근거 과제, 두 층 방어막·턴 회복, 룬 기여도 기반 봉인·해방, 손패2장 봉인.
+- 최고 위력과 실제 문장을 즉시 보존하고 완료 원정의 플레이어별 로컬Top20 제공. 공용 랭킹 미연결.
+- 기존47전투·구버전 저장·UI 유지. [검증 결과와 미실행 범위](docs/TEST_REPORT_0.11.md).
+
 ## 0.10.2 — UI Recovery r2
 
 - Restore lobby copy, windowed PC/tablet enemy and side panels, centered score feedback and fixed12×2 sentence board sharing hand-card width/type size.

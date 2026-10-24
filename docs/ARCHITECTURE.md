@@ -1,3 +1,12 @@
+# 0.11 최종전·클리어 기록 구조
+
+- `FINALE_VERSIONS`는 game/save만0.11.0으로 확장하고0.10.2의 기존 정책을 상속한다. `finalePolicy`가 최종 지역과 확정값/초깃값을 분리한다. 구원정은 `stage.final`에 들어가지 않는다.
+- `finaleTasks`는 영구 사본을 이용한 실제 파서 witness로 가능 후보를 구성하고 encounter RNG로 과제를 고정한다. 정답 문자열 표를 production에서 읽지 않는다. `engine/finale`은 주절/문법 증거, Surface 층/HP/회복, 룬 제외 재계산 기여, Deep의 룬 계산 전 해제 제안을 반환한다.
+- `finaleCards`는 먼지/지원 빙정 혼합 보존식과 WORD2장 봉인 receipt를, `finaleState`는 과제/전환/공격/저장 참조를 검증한다. 기존 RunController가47보상·마지막 상점·48→49→50·턴 종료·정리를 한 번 커밋한다. Presentation은 확정된 상태만 표시한다.
+- `clearLeaderboard`는 실제 최고 공격을 즉시 deep copy하고50완료 근거/QA 제외·동점·플레이어별 Top20을 검증한다. LocalStore는 기존 DB의 profiles/slots에서 완료 원장·개인 최고·순번을 원자적으로 저장한다. 메모리 fallback과 미연결 remote 어댑터는 명시적으로 구분한다. `ui/finale`은 안전한 텍스트로 과제·완료·기기 내 보드를 표시하며 전투 배치를 재설계하지 않는다.
+
+[이번 실제 검사와 한계](TEST_REPORT_0.11.md). 아래 구조 기록은 이전 버전의 변경 근거다.
+
 # 최종 전투 UI 후속 구조
 
 - `responsive.css`는 PC/태블릿에서 같은5영역·중간3열을 유지한다. 화면별 공통 카드폭으로12×2 외곽을 계산하고 각행을 독립 중앙정렬한다. 남는 높이는 상단으로 배분하며 조합대는 늘리지 않는다.

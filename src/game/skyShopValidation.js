@@ -1,13 +1,14 @@
+import {hasFinaleCampaign} from '../data/campaignFeatures.js';
 import {hasCorridorCampaign,hasWaterwaysCampaign,hasSnowCampaign,hasPolishCampaign} from '../data/campaignFeatures.js';
 import {cardDefinition,maxPolish} from '../data/cardCatalog.js';
 import {runeForVersion} from '../data/runes.js';
 const integer=n=>Number.isSafeInteger(n)&&n>=0;
 export function validateSkyShops(run){
  const fail=()=>{throw Error('0.4 상점 방문·상품·서비스 기록이 잘못되었습니다.');};
- if(!Array.isArray(run.shopHistory)||run.shopHistory.length>(hasCorridorCampaign(run)?4:hasWaterwaysCampaign(run)?3:hasSnowCampaign(run)?2:1))fail();
+ if(!Array.isArray(run.shopHistory)||run.shopHistory.length>(hasFinaleCampaign(run)?5:hasCorridorCampaign(run)?4:hasWaterwaysCampaign(run)?3:hasSnowCampaign(run)?2:1))fail();
  const history=run.shopHistory,current=run.shop;
  if(!current){if(history.length||run.status==='SHOP'||run.progress.battleNumber>3&&!(run.progress.stageId==='stage.02'&&run.status==='STAGE_INTRO'))fail();return true;}
- if(hasSnowCampaign(run)){const index=['stage.02','stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[])].indexOf(current.stageId);const expected=run.progress.battleNumber<13?0:run.progress.battleNumber<23?1:run.progress.battleNumber<33||!hasWaterwaysCampaign(run)?2:run.progress.battleNumber<43||!hasCorridorCampaign(run)?3:4;const entering=run.status==='STAGE_INTRO'&&run.progress.roundIndex===0&&['stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[])].includes(run.progress.stageId);if(index!==(entering?expected-1:expected))fail();if(index<0||history.length!==index||history.some((s,i)=>s.stageId!==['stage.02','stage.04','stage.06','stage.08'][i]||!s.closed)||run.progress.battleNumber>=23&&run.status!=='STAGE_INTRO'&&index!==expected)fail();}
+ if(hasSnowCampaign(run)){const index=['stage.02','stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[]),...(hasFinaleCampaign(run)?['stage.final']:[])].indexOf(current.stageId);const expected=run.progress.battleNumber<13?0:run.progress.battleNumber<23?1:run.progress.battleNumber<33||!hasWaterwaysCampaign(run)?2:run.progress.battleNumber<43||!hasCorridorCampaign(run)?3:run.progress.battleNumber<48||!hasFinaleCampaign(run)?4:5;const entering=run.status==='STAGE_INTRO'&&run.progress.roundIndex===0&&['stage.04','stage.06',...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[]),...(hasFinaleCampaign(run)?['stage.final']:[])].includes(run.progress.stageId);if(index!==(entering?expected-1:expected))fail();if(index<0||history.length!==index||history.some((s,i)=>s.stageId!==['stage.02','stage.04','stage.06','stage.08','stage.10'][i]||!s.closed)||run.progress.battleNumber>=23&&run.status!=='STAGE_INTRO'&&index!==expected)fail();}
  else if(current.stageId==='stage.04'&&!['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)||['stage.04',...(['0.5.0','0.5.1'].includes(run.version)?['stage.05']:[])].includes(run.progress.stageId)&&run.status!=='STAGE_INTRO'&&current.stageId!=='stage.04')fail();
  const third=current.stageId==='stage.06';if(third&&!hasSnowCampaign(run))fail();
  const second=current.stageId==='stage.04';
@@ -15,10 +16,10 @@ export function validateSkyShops(run){
  if((run.status==='SHOP')===current.closed)fail();
  let paid=0;
  for(const shop of [...history,current]){
-  const two=['stage.04','stage.06','stage.08','stage.10'].includes(shop.stageId),runeSlots=two?2:1,cards=two?3:2;
-  const runes=['0.10.1','0.10.2'].includes(run.version)?shop.inventory.filter(i=>i.kind==='RUNE').length:runeSlots;
+  const two=['stage.04','stage.06','stage.08','stage.10','stage.final'].includes(shop.stageId),runeSlots=two?2:1,cards=two?3:2;
+  const runes=['0.10.1','0.10.2','0.11.0'].includes(run.version)?shop.inventory.filter(i=>i.kind==='RUNE').length:runeSlots;
   if(runes>runeSlots||runes<runeSlots&&!shop.trace?.some(t=>t.kind==='NO_ELIGIBLE_RUNE'&&t.slot===runes))fail();
-  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[]),...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
+  if(!['stage.02','stage.04',...(hasSnowCampaign(run)?['stage.06']:[]),...(hasWaterwaysCampaign(run)?['stage.08']:[]),...(hasCorridorCampaign(run)?['stage.10']:[]),...(hasFinaleCampaign(run)?['stage.final']:[])].includes(shop.stageId)||shop.shopId!==`shop.${run.runId}.${shop.stageId}`||shop.shopVersion!==(hasPolishCampaign(run)?'0.6.1':'0.4.0')||typeof shop.closed!=='boolean'||!run.entryGrants[shop.stageId]?.applied||shop.paidRemovalCountAtEntry!==paid)fail();
   if(!Array.isArray(shop.inventory)||shop.inventory.length!==runes+cards||new Set(shop.inventory.map(x=>x.itemId)).size!==shop.inventory.length)fail();
   let operationCount=0;const content=new Set();
   for(const [i,item]of shop.inventory.entries()){
@@ -26,7 +27,7 @@ export function validateSkyShops(run){
    if(item.kind!==kind||item.itemId!==`${shop.shopId}.${kind.toLowerCase()}.${slot}`||!def?.runtimeReady||def.rarity!==item.rarity||typeof item.purchased!=='boolean'||content.has(id))fail();content.add(id);
    if(!run.contentManifest[kind==='CARD'?'cardDefIds':'runeIds'].includes(id))fail();
    if(item.price!==(kind==='CARD'?{COMMON:6,UNCOMMON:10,RARE:14}:{COMMON:18,UNCOMMON:24,RARE:32})[item.rarity])fail();
-   if(kind==='RUNE'){if(['0.10.1','0.10.2'].includes(run.version)&&shop.stageId==='stage.02'&&def.rarity==='RARE')fail();if(!['0.10.1','0.10.2'].includes(run.version)&&id==='rune.svoo'&&![...run.eligibility.runOwnUnlocks,...run.eligibility.runStartUnlockBaseline].includes(id))fail();if(!integer(item.ownedLevel)||item.ownedLevel>2||item.offeredLevel!==item.ownedLevel+1)fail();}
+   if(kind==='RUNE'){if(['0.10.1','0.10.2','0.11.0'].includes(run.version)&&shop.stageId==='stage.02'&&def.rarity==='RARE')fail();if(!['0.10.1','0.10.2','0.11.0'].includes(run.version)&&id==='rune.svoo'&&![...run.eligibility.runOwnUnlocks,...run.eligibility.runStartUnlockBaseline].includes(id))fail();if(!integer(item.ownedLevel)||item.ownedLevel>2||item.offeredLevel!==item.ownedLevel+1)fail();}
    else if(slot===0&&(item.role!=='LOCAL_SYNTAX_RELEVANT'||def.cardKind==='OPERATION'))fail();
    if(hasPolishCampaign(run)&&kind==='CARD'&&((slot===cards-1)!==(def.cardKind==='OPERATION')||slot===cards-1&&item.role!=='DEDICATED_OPERATION'))fail();
    if(def.cardKind==='OPERATION')operationCount++;

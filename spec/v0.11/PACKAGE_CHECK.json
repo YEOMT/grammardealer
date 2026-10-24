@@ -1,0 +1,29 @@
+{
+  "kind": "SPEC_PACKAGE_ONLY",
+  "checks": {
+    "jsonParsing": true,
+    "50BattleArithmetic": true,
+    "confirmedNamesAndHP": true,
+    "phase1OneLayerAndHP1Examples": true,
+    "phase2UnsealAndNextTurnExamples": true,
+    "runeContributionExample": true,
+    "documentLinks": true
+  },
+  "exampleCounts": {
+    "surface": 14,
+    "deep": 9,
+    "runeContribution": 1,
+    "universal": 2,
+    "stateScenarios": 18,
+    "verificationGroups": 20
+  },
+  "notPerformed": [
+    "game source modification",
+    "game unit tests",
+    "game build",
+    "browser tests",
+    "real-device tests",
+    "natural campaign balance",
+    "remote leaderboard deployment"
+  ]
+}

@@ -68,6 +68,7 @@ export const BOSS_SUMMARIES={
  DUAL_RELATIVE_SEAL:['이중 연결 인장이 마지막 체력을 지킵니다.','한 문장에 별개의 주격·목적격 관계절을 함께 사용하세요.','그 공격부터 격파할 수 있으며, 공격 사이의 실적은 누적되지 않습니다.']
 };
 export function battleLearningGuide(run){
+ if(run.progress.stageId==='stage.final'){const i=run.progress.roundIndex;return {title:['Surface Structure','Deep Structure','Universal Grammar'][i],pattern:['두 겹의 방어막','공격 룬과 손패 봉인','최후의 문장'][i],description:['현재 과제를 풀어 방어막을 한 겹씩 해제하세요.','주절의 시제 과제로 봉인된 룬을 되찾으세요.','모든 방해가 사라졌습니다. 가장 강한 문장으로 공격하세요.'][i],bonus:'최종전 · 지역 배율 ×1',boss:[['서로 다른 두 과제 · 한 공격에 한 겹만 해제합니다.','방어막이 남으면 HP 1 보호. 마지막 해제 공격부터 격파할 수 있습니다.','살아 있는 턴 종료마다 최대 400 회복합니다.'],['Surface의 실제 기여도가 높은 공격 룬을 최대 두 번 봉인합니다.','시제 과제 성공 공격부터 룬 복구와 해방 ×1.25가 적용됩니다.','매 턴 손패 단어 최대 두 장은 배치만 금지합니다. 교환은 가능합니다.'],['6턴 동안 순수 화력으로 HP 10000을 줄이세요.','마지막 턴도 HP 0이면 즉시 원정 클리어입니다.']][i]};}
  const stage=stageForRun(run),[title,pattern,description]=TOPICS[stage.id][run.progress.roundIndex];
  const multiplier=stage.regionMultiplier;
  return {title,pattern,description,bonus:`지역 보너스 · ${TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id]??null,

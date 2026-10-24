@@ -1,3 +1,4 @@
+import {finaleStatusText} from '../ui/finale.js';
 import {meaningfulComboEvent,runeFeel} from './comboFeel.js';
 import {createScoreEffects} from '../ui/scoreEffects.js';
 import {frameLabel} from './foresight.js';
@@ -209,6 +210,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const showBossState=state=>{
     if(state?.id==='FATE_FORESIGHT')text('foresight-memory','예견 · 직전 문형 '+frameLabel(state.rememberedFrame));
+    if(state?.id?.startsWith('FINALE_')){const n=find(root,'finale-status');if(n)n.textContent=finaleStatusText(state);}
     if(state?.id==='DUAL_RELATIVE_SEAL'){const n=find(root,'relative-seal');if(n){n.dataset.unlocked=String(state.unlocked);n.textContent=state.unlocked?'청동 인장 해제 · 처치 가능':'청동 인장 · HP 1 보호';}}
     if(state?.id==='EMBER_SCALE_SHIELD'){const n=find(root,'ember-scale');if(n){n.dataset.active=String(state.active);n.textContent=state.active?'검댕 비늘 · 피해 75% 감소':'검댕 비늘 해제';}}
     if(state?.id==='FROST_CRYSTAL_LOCK'){const n=find(root,'frost-crystals');if(n){const changed=n.dataset.remaining!==undefined&&Number(n.dataset.remaining)>state.crystalsRemaining;n.dataset.remaining=String(state.crystalsRemaining);n.textContent='◆'.repeat(state.crystalsRemaining)+'◇'.repeat(5-state.crystalsRemaining)+' · 빙결핵 '+state.crystalsRemaining+' / 5 · '+(state.crystalsRemaining?'HP 1 잠금':'잠금 해제');if(changed)animateCore(n,[{filter:'brightness(2)'},{filter:'brightness(1)'}],300);}}
@@ -304,7 +306,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       Object.assign(node.style,{position:'fixed',left:`${x}px`,top:`${y}px`});root.append(node);effectNodes.push(node);
       animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(${Math.min(1.12,.7+.25*weight)})`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
-    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`도서관장 회복 +${receipt.actualHeal}`:'도서관장 회복 0 · 최대 체력';text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
+    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';
