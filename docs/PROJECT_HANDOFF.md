@@ -242,3 +242,7 @@ IndexedDB 이름 `sentence-balatro-v0-1`, DB version 1, `profiles`/`slots`, 독�
 ## 후속 경계
 
 Stage 3 이후 실제 전투, 총48전투 완성, 다른 캐릭터·난이도, 과거·완료·수동·관계절·5형식, 상점 추가 방문, 서버·랭킹, PWA는 미구현이다. roadmap의 48전투·상점6회·미래 해금 ID는 메타데이터로 보존한다. 실제 기기와 다른 브라우저 검증 한계는 `KNOWN_ISSUES.md`, 다음 작업은 `NEXT_STEPS.md`를 따른다.
+
+## 0.11 표시·상점 순서 후속 패치
+
+새 원정은 `config.shopFlowPolicy = BOSS_REWARD_FIRST_V1`로 기존 정규 5상점 및 마지막 준비 상점을 보스 보상 직후에 연다. Stage 4/8 입장 선택은 상점 준비에서, 지역 소개는 상점 종료 후에 처리한다. 표식이 없는 기존 저장은 예전 순서로 재개한다. 몬스터/최종 지역 명칭은 `src/ui/displayText.js`의 표시 별칭이며 저장 encounter를 개명하지 않는다. 실제 검증 및 한계는 [TEXT_SHOP_FLOW_REPORT.md](TEXT_SHOP_FLOW_REPORT.md)를 참고한다.

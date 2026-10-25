@@ -75,7 +75,7 @@ async function runCommand(command){
   }
   if(result.resolution){
     await presentResolution(before,result.resolution);
-  }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();if(result.turnEndReceipt){const r=result.turnEndReceipt;toast(r.actualHeal?`${r.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 +${r.actualHeal}`:`${r.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 0 · 최대 체력`);}}
+  }else{if(['EXCHANGE','PREPARE','NEXT_BATTLE','START_BATTLE'].includes(command.type))selected.clear();else for(const id of selected)if(!controller.getState().combat?.handIds.includes(id))selected.delete(id);render();if(result.turnEndReceipt){const r=result.turnEndReceipt;toast(r.actualHeal?`${r.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 +${r.actualHeal}`:`${r.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 0 · 최대 체력`);}}
   return result;
 }
 async function presentOperationResult(before,effect){

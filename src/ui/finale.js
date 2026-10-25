@@ -50,7 +50,7 @@ export function renderFinalClear(root,state,{onLobby,onSaves,onLeaderboard}={}){
   const nav=el('header',{class:'topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),el('nav',{},onSaves&&button('저장',onSaves,'quiet'),onLobby&&button('로비',onLobby,'quiet')));
   root.replaceChildren(nav,el('main',{class:'result-page finale-clear'},
     el('span',{class:'eyebrow',text:'UNIVERSAL GRAMMAR DEFEATED'}),el('h1',{text:'원정 클리어 · 50 / 50'}),
-    el('p',{text:'Surface Structure · Deep Structure · Universal Grammar를 모두 넘어섰습니다.'}),
+    el('p',{text:'서피스 스트럭처 · 딥 스트럭처 · 유니버셜 그래머를 모두 넘어섰습니다.'}),
     qa&&el('p',{class:'finale-qa-notice',text:'지정 덱 QA · 랭킹 제외'}),
     el('section',{class:'panel finale-best-attack'},el('h2',{text:'이번 원정 최고의 한 문장'}),
       best?el('div',{},el('strong',{class:'finale-best-power',text:`${best.finalPower.toLocaleString()}점`}),el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} / 50 · 최종 위력 기준`})):el('p',{text:'보존된 실제 최고 문장 기록이 없습니다.'})),

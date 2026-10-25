@@ -1,3 +1,5 @@
+import {enemyDisplayName,stageDisplayName} from './displayText.js';
+import {usesPostBossShop} from '../game/shopFlow.js';
 import {introViewport} from './viewport.js';
 import {runeReadiness} from './runes.js';
 import {WATERWAYS_HINT} from '../data/stage8.js';
@@ -48,17 +50,19 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, on
     view=modal(cityChoice?'입장 카드 선택':'입장 연결어 선택',content,{wide:true});
     view.dialog.classList.add('entry-choice-dialog');
   };
-  root.replaceChildren(nav({onLobby,onDeck,onSaves}),el('main',{class:'intro-page'},
-    el('h1',{text:stage.nameKo}),el('p',{text:introductions[stageId]}),
-    el('div',{class:'intro-footer'},button(choice||cityChoice?'입장 카드 선택':stage.nameKo+'에 들어가기',choice||cityChoice?openChoice:onStart,'primary start-button',{id:stageId==='stage.01'?'start-battle':'enter-stage'}))));
-  introViewport(root.querySelector('.intro-page'));
+  const preparing=usesPostBossShop(state)&&!!(choice||cityChoice);
+  root.replaceChildren(nav({onLobby,onDeck,onSaves}),el('main',{class:preparing?'shop-page harbor-page shop-entry-preparation':'intro-page'},
+    preparing&&el('span',{class:'eyebrow',text:'다음 지역 준비 상점'}),
+    el('h1',{text:preparing?stageDisplayName(stage)+' · 상점 입장 준비':stageDisplayName(stage)}),el('p',{text:preparing?'입장 카드를 선택하면 이번 상점의 상품을 확인할 수 있습니다.':introductions[stageId]}),
+    el('div',{class:preparing?'shop-footer':'intro-footer'},button(choice||cityChoice?'입장 카드 선택':stageDisplayName(stage)+'에 들어가기',choice||cityChoice?openChoice:onStart,'primary start-button',{id:stageId==='stage.01'?'start-battle':'enter-stage'}))));
+  if(!preparing)introViewport(root.querySelector('.intro-page'));
 }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
   applyStageTheme(state);
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
-    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${campaignBattleCount(state)}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageForRun(state).nameKo+' 클리어'}),
-    el('p',{text:state.progress.stageId==='stage.10'?'마지막 준비 상점과 최종 세 전투가 기다립니다.':state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
+    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${campaignBattleCount(state)}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageDisplayName(stageForRun(state))+' 클리어'}),
+    el('p',{text:state.progress.stageId==='stage.10'?'마지막 준비 상점과 최종 세 전투가 기다립니다.':state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 꿈의 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'골드')),
     el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.10'?'최종전으로':state.progress.stageId==='stage.09'?'별의 회랑으로':state.progress.stageId==='stage.08'?'몽환의 대서고로':state.progress.stageId==='stage.07'?'고대의 수로도시로':state.progress.stageId==='stage.06'?'잿불 동굴로':state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
 }
@@ -134,7 +138,7 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
     el('span', { class: 'eyebrow', text: `${state.progress.stageId==='stage.final'?'FINAL':`CHAPTER ${state.progress.stageId.slice(-2)}`} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
-    el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: next.nameKo }),
+    el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: enemyDisplayName(next) }),
     el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·골드는 유지됩니다.` }),
     state.progress.stageId==='stage.08'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:WATERWAYS_HINT}),
     state.progress.stageId==='stage.07'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:EMBER_HINT}),
@@ -154,9 +158,9 @@ export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves,
     : [button('새 원정', onNew, 'primary', { id: 'new-run-result' }), onRetrySeed && button('같은 시드로 재도전', onRetrySeed, 'secondary'), button('수동 저장 불러오기', onLoad, 'secondary')];
   root.replaceChildren(nav({ onLobby }), el('main', { class: 'result-page' },
     el('span', { class: 'eyebrow', text: complete ? `CHAPTER COMPLETE · VERSION ${harbor?'0.2':state.version}` : 'EXPEDITION ENDED' }),
-    el('div', { class: 'intro-art'+(waterways?' waterways-open-gate':''), text: complete ? corridor?'✦':library?'📚':waterways?'🏇':'🌄' : '🍂',...waterways?{'aria-label':'청동 수문장이 연 보관소 문'}:{} }),
+    el('div', { class: 'intro-art'+(waterways?' waterways-open-gate':''), text: complete ? corridor?'✦':library?'📚':waterways?'🏇':'🌄' : '🍂',...waterways?{'aria-label':'고대 수호대장이 연 보관소 문'}:{} }),
     el('h1', { text: complete ? corridor?'별의 회랑 완료':library?'몽환의 대서고 완료':waterways?'고대의 수로도시 완료':ember?'잿불 동굴 완료':snow?'거울의 설원 완료':desert?'소원의 사막 완료':sky?'이음의 하늘섬 완료':canyon?'시간의 협곡 완료':harbor?'전달의 항구 완료':'시작의 초원 클리어' : '이번 원정은 여기까지' }),
-    el('p', { text: complete ? corridor?'별의 회랑을 통과했습니다. 이번 버전의 여정은 여기까지입니다.':library?'총 42전투를 마쳤습니다. 명사절과 가주어·진주어로 도서관장을 넘어섰습니다. 다음 지역은 아직 제공하지 않습니다.':waterways?'총 37전투를 마쳤습니다. 청동 수문장이 보관소로 향하는 길을 열었습니다. 다음 새 원정의 정규 보상 풀에 수로도시 단어가 추가됩니다. 다음 지역 전투는 아직 제공하지 않습니다.':ember?'총 32전투를 마쳤습니다. 잠든 잿불룡을 넘어 잿불 동굴을 건넜습니다. 다음 지역은 아직 제공하지 않습니다.':snow?'총 27전투를 마쳤습니다. 다음 새 원정의 정규 보상 풀에 설원 단어가 추가됩니다. 비교 콤보 해금은 각 원정의 진행을 따릅니다. 다음 지역은 아직 제공하지 않습니다.':desert?'총 22전투를 마쳤습니다. 봉인에 맞서 소원의 사막을 건넜습니다. 다음 지역은 아직 제공하지 않습니다.':sky?'총 17전투를 마쳤습니다. 연결의 보호막을 넘어 하늘길을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':canyon?'총 12전투를 마쳤습니다. 시간의 골렘을 공략하고 룬 슬롯 4칸을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':harbor?'전달의 항구 완료 — 0.2 제공 구간을 모두 플레이했습니다.\n총 7전투를 마쳤습니다. 다음 지역은 후속 버전에서 이어집니다.':'이 저장은 이전 버전의 시작의 초원 구간입니다.\n0.2의 새 지역은 새 원정에서 시작할 수 있습니다.' : `${enemy?.nameKo ?? '적'}의 남은 HP ${enemy?.hp ?? 0}.\n제한된 턴을 모두 사용했습니다. 새 덱으로 다시 도전할 수 있습니다.` }),
+    el('p', { text: complete ? corridor?'별의 회랑을 통과했습니다. 이번 버전의 여정은 여기까지입니다.':library?'총 42전투를 마쳤습니다. 명사절과 가주어·진주어로 꿈의 도서관장을 넘어섰습니다. 다음 지역은 아직 제공하지 않습니다.':waterways?'총 37전투를 마쳤습니다. 고대 수호대장이 보관소로 향하는 길을 열었습니다. 다음 새 원정의 정규 보상 풀에 수로도시 단어가 추가됩니다. 다음 지역 전투는 아직 제공하지 않습니다.':ember?'총 32전투를 마쳤습니다. 잠든 잿불룡을 넘어 잿불 동굴을 건넜습니다. 다음 지역은 아직 제공하지 않습니다.':snow?'총 27전투를 마쳤습니다. 다음 새 원정의 정규 보상 풀에 설원 단어가 추가됩니다. 비교 콤보 해금은 각 원정의 진행을 따릅니다. 다음 지역은 아직 제공하지 않습니다.':desert?'총 22전투를 마쳤습니다. 봉인에 맞서 소원의 사막을 건넜습니다. 다음 지역은 아직 제공하지 않습니다.':sky?'총 17전투를 마쳤습니다. 연결의 보호막을 넘어 하늘길을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':canyon?'총 12전투를 마쳤습니다. 시간의 골렘을 공략하고 룬 슬롯 4칸을 열었습니다. 다음 지역은 아직 제공하지 않습니다.':harbor?'전달의 항구 완료 — 0.2 제공 구간을 모두 플레이했습니다.\n총 7전투를 마쳤습니다. 다음 지역은 후속 버전에서 이어집니다.':'이 저장은 이전 버전의 시작의 초원 구간입니다.\n0.2의 새 지역은 새 원정에서 시작할 수 있습니다.' : `${enemyDisplayName(enemy)}의 남은 HP ${enemy?.hp ?? 0}.\n제한된 턴을 모두 사용했습니다. 새 덱으로 다시 도전할 수 있습니다.` }),
     el('div', { class: 'record-grid' }, metric(state.stats.bestAttack, '이번 원정 최고 공격'), metric(state.economy.gold, '보유 골드'), metric(complete ? state.stats.attacks : state.combat?.exchangesRemaining ?? 0, complete ? '확정한 공격' : '남은 교환 횟수')),
     complete && el('p', { class: 'helper', text: '최종 여정과 엔딩은 아직 제공하지 않습니다. 여행자·난이도 1로 새 원정을 시작할 수 있습니다.' }),
     el('div', { class: 'reward-footer' }, actions)));
@@ -204,5 +208,5 @@ export function renderReward(root,state,handlers={}){
 
 function renderWaterwaysChoice(state,offer,onChoose){
  const submit=(choice,confirmNone=false)=>onChoose?.({offerId:offer.offerId,choice,confirmNone});
- return el('section',{class:'panel waterways-entry-choice','aria-label':'수로도시 입장 선택'},el('h2',{text:'관계사 한 장을 선택하세요'}),el('p',{text:'이미 가지고 있어도 한 장 더 선택할 수 있습니다. 받지 않아도 보상이나 골드를 대신 지급하지 않습니다.'}),el('div',{class:'reward-choices'},...['WHO','WHICH'].map(choice=>{const lemma=choice.toLowerCase(),model=cardModel({instanceId:'preview.'+lemma,cardDefId:'card.'+lemma,polishLevel:0},null,state.version);return el('section',{class:'reward-choice'},wordCard(model,{readonly:true,compact:true}),el('p',{text:'현재 보유 '+offer.ownedCounts[lemma]+'장'}),button(lemma+' 선택',()=>submit(choice),'primary',{id:'choose-stage8-'+lemma}));}),el('section',{class:'reward-choice'},el('h3',{text:'받지 않기'}),el('p',{text:'현재 that '+offer.ownedCounts.that+'장 · 기존 덱으로 진행합니다.'}),button('받지 않기',()=>offer.needsNoneConfirmation?confirmDialog('관계사 없이 진행할까요?','현재 who·which·that이 없습니다. 청동 수문장은 한 문장 안의 주격·목적격 관계절을 요구하며, 보스 입장 시 카드를 대신 지급하지 않습니다.','그대로 진행',()=>submit('NONE',true)):submit('NONE'),'secondary',{id:'choose-stage8-none'}))));
+ return el('section',{class:'panel waterways-entry-choice','aria-label':'수로도시 입장 선택'},el('h2',{text:'관계사 한 장을 선택하세요'}),el('p',{text:'이미 가지고 있어도 한 장 더 선택할 수 있습니다. 받지 않아도 보상이나 골드를 대신 지급하지 않습니다.'}),el('div',{class:'reward-choices'},...['WHO','WHICH'].map(choice=>{const lemma=choice.toLowerCase(),model=cardModel({instanceId:'preview.'+lemma,cardDefId:'card.'+lemma,polishLevel:0},null,state.version);return el('section',{class:'reward-choice'},wordCard(model,{readonly:true,compact:true}),el('p',{text:'현재 보유 '+offer.ownedCounts[lemma]+'장'}),button(lemma+' 선택',()=>submit(choice),'primary',{id:'choose-stage8-'+lemma}));}),el('section',{class:'reward-choice'},el('h3',{text:'받지 않기'}),el('p',{text:'현재 that '+offer.ownedCounts.that+'장 · 기존 덱으로 진행합니다.'}),button('받지 않기',()=>offer.needsNoneConfirmation?confirmDialog('관계사 없이 진행할까요?','현재 who·which·that이 없습니다. 고대 수호대장은 한 문장 안의 주격·목적격 관계절을 요구하며, 보스 입장 시 카드를 대신 지급하지 않습니다.','그대로 진행',()=>submit('NONE',true)):submit('NONE'),'secondary',{id:'choose-stage8-none'}))));
 }
