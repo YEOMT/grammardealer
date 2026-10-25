@@ -306,7 +306,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       Object.assign(node.style,{position:'fixed',left:`${x}px`,top:`${y}px`});root.append(node);effectNodes.push(node);
       animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(${Math.min(1.12,.7+.25*weight)})`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
-    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'Surface':'도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
+    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';

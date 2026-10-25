@@ -1,3 +1,4 @@
+import {isPreparedShopIntro} from '../game/shopFlow.js';
 import {validateFinaleRun} from '../game/finaleState.js';
 import {hasFinaleCampaign} from '../data/campaignFeatures.js';
 import {FINALE_VERSIONS} from '../contracts.js';
@@ -95,6 +96,7 @@ export function reviewTimeUnlocks(profile){
 export function reviewDesertUnlocks(profile){const p=reviewTimeUnlocks(profile);if(p.stage4CompletedRunIds?.length){p.unlocks=[...new Set([...(p.unlocks??[]),...DESERT_PACKS])];p.desertUnlockReviewVersion='0.5.0';}return p;}
 export function canSaveRun(run) {
   if(!run)return false;
+  if(isPreparedShopIntro(run))return true;
   if(hasFinaleCampaign(run)&&run.progress?.stageId==='stage.final'){if(run.status==='STAGE_INTRO'&&run.combat===null)return true;if(run.status==='BATTLE')return run.combat?.phase==='EDIT'&&!run.combat.battleDirty&&run.combat.turnIndex===1;}
   if(isGuided(run))return run.status==='BATTLE'&&run.tutorialSession.step===1&&run.combat?.phase==='EDIT'&&!run.combat.battleDirty;
   if(['REWARD','BETWEEN_BATTLES','CONTENT_COMPLETE','STAGE_CLEAR'].includes(run.status))return true;
