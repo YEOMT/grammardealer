@@ -52,9 +52,9 @@ export function cardPager(zone,{label,selected=()=>0,pageSize=10}={}){
   status.textContent=`${label} ${page+1} / ${pages} · 전체 ${cards.length}장${selected()?` · 선택 ${selected()}장`:''}`;
   prev.disabled=page===0;next.disabled=page===pages-1;
  };
- const observer=new ResizeObserver(update);observer.observe(zone);
+ // Paging reacts to committed renders and viewport changes, not animated content.
  document.addEventListener('atlas:viewport',update);update();
- return {update,cleanup(){observer.disconnect();document.removeEventListener('atlas:viewport',update);}};
+ return {update,cleanup(){document.removeEventListener('atlas:viewport',update);}};
 }
 
 /** Explicit small-screen shop pages; prices and inventory are never regenerated here. */

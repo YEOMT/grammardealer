@@ -8,9 +8,9 @@ const TOPICS={
   ['가정법 과거완료','if + had + p.p., S + would / could + have + p.p.','과거에 실현되지 않은 조건과 그 결과를 가정합니다.'],
   ['운명의 직조자','다른 주절 문형 또는 정상 가정법','직전 유효 공격과 다른 문형을 사용하거나 정상 가정법으로 예견을 넘으세요.']],
  'stage.01':[
-  ['기본 문형','S + V / S + V + C / S + V + O','주어와 동사를 중심으로 문장을 완성합니다.'],
+  ['1·2·3형식','S + V / S + V + C / S + V + O','주어와 동사를 중심으로 문장을 완성합니다.'],
   ['2형식','S + V + C','보어는 주어의 상태나 정체를 설명합니다.'],
-  ['기본 문형 복습','S + V / S + V + C / S + V + O','완성한 문장으로 공격해 적의 체력을 모두 줄이세요.']],
+  ['1·2·3형식 복습','S + V / S + V + C / S + V + O','완성한 문장으로 공격해 적의 체력을 모두 줄이세요.']],
  'stage.02':Array.from({length:4},()=>['4형식','S + V + IO + DO','간접목적어는 받는 대상, 직접목적어는 전달되는 것을 나타냅니다.']),
  'stage.03':[
   ['과거시제','S + 과거형 동사','과거에 일어난 일을 나타냅니다.'],
@@ -55,7 +55,7 @@ const TOPICS={
   ['관계절과 시제·수동태','선행사 + 관계절','관계절 안의 동사구도 시제와 태를 갖습니다.'],
   ['고대 수호대장','한 문장에 별개의 주격·목적격 관계절','서로 다른 두 관계절의 역할을 한 공격에서 함께 성립시킵니다.']]
 };
-const TARGETS={'stage.10':'조건·가정법·과거완료','stage.09':'명사절·가주어','stage.01':'기본 문형','stage.02':'4형식','stage.03':'과거·진행·완료·will 미래','stage.04':'절 연결','stage.05':'to부정사·동명사·5형식','stage.06':'비교·정도','stage.07':'분사·수동태·목적격보어','stage.08':'관계절'};
+const TARGETS={'stage.10':'조건·가정법·과거완료','stage.09':'명사절·가주어','stage.01':'1·2·3형식','stage.02':'4형식','stage.03':'과거·진행·완료·will 미래','stage.04':'절 연결','stage.05':'to부정사·동명사·5형식','stage.06':'비교·정도','stage.07':'분사·수동태·목적격보어','stage.08':'관계절'};
 export const BOSS_SUMMARIES={
  FATE_FORESIGHT:['직조자는 직전 공격의 주절 문형을 기억합니다.','같은 문형으로 다시 공격하면 피해를 줄 수 없습니다.','가정법 공격은 예견을 무시합니다.'],
  LIBRARY_REGENERATION:['턴이 끝날 때 체력을 최대 1000 회복합니다.','정상 명사절 또는 가주어·진주어로 피해를 주면 이번 턴의 회복을 저지합니다.','체력을 0으로 만들면 즉시 격파합니다. 이 전투에는 빙정 지원이 없습니다.'],
@@ -68,9 +68,26 @@ export const BOSS_SUMMARIES={
  DUAL_RELATIVE_SEAL:['이중 연결 인장이 마지막 체력을 지킵니다.','한 문장에 별개의 주격·목적격 관계절을 함께 사용하세요.','그 공격부터 격파할 수 있으며, 공격 사이의 실적은 누적되지 않습니다.']
 };
 export function battleLearningGuide(run){
- if(run.progress.stageId==='stage.final'){const i=run.progress.roundIndex;return {title:['서피스 스트럭처','딥 스트럭처','유니버셜 그래머'][i],pattern:['두 겹의 방어막','공격 룬과 손패 봉인','최후의 문장'][i],description:['현재 과제를 풀어 방어막을 한 겹씩 해제하세요.','주절의 시제 과제로 봉인된 룬을 되찾으세요.','모든 방해가 사라졌습니다. 가장 강한 문장으로 공격하세요.'][i],bonus:'최종전 · 지역 배율 ×1',boss:[['서로 다른 두 과제 · 한 공격에 한 겹만 해제합니다.','방어막이 남으면 HP 1 보호. 마지막 해제 공격부터 격파할 수 있습니다.','살아 있는 턴 종료마다 최대 400 회복합니다.'],['서피스 스트럭처의 실제 기여도가 높은 공격 룬을 최대 두 번 봉인합니다.','시제 과제 성공 공격부터 룬 복구와 해방 ×1.25가 적용됩니다.','매 턴 손패 단어 최대 두 장은 배치만 금지합니다. 교환은 가능합니다.'],['6턴 동안 순수 화력으로 HP 10000을 줄이세요.','마지막 턴도 HP 0이면 즉시 원정 클리어입니다.']][i]};}
+ if(run.progress.stageId==='stage.final'){const i=run.progress.roundIndex;return {title:['서피스 스트럭처','딥 스트럭처','유니버셜 그래머'][i],pattern:['두 겹의 방어막','공격 룬과 손패 봉인','최후의 문장'][i],description:['현재 과제를 풀어 방어막을 한 겹씩 해제하세요.','주절의 시제 과제로 봉인된 룬을 되찾으세요.','모든 방해가 사라졌습니다. 가장 강한 문장으로 공격하세요.'][i],bonus:'최종전 · 지역 배율 ×1',bonusHelp:['최종 세 전투에는 지역 추가 배율이 없습니다. 문법·룬과 각 보스의 실제 조건은 그대로 적용합니다.'],boss:[['서로 다른 두 과제 · 한 공격에 한 겹만 해제합니다.','방어막이 남으면 HP 1 보호. 마지막 해제 공격부터 격파할 수 있습니다.','살아 있는 턴 종료마다 최대 400 회복합니다.'],['서피스 스트럭처의 실제 기여도가 높은 공격 룬을 최대 두 번 봉인합니다.','시제 과제 성공 공격부터 룬 복구와 해방 ×1.25가 적용됩니다.','매 턴 손패 단어 최대 두 장은 배치만 금지합니다. 교환은 가능합니다.'],['6턴 동안 순수 화력으로 HP 10000을 줄이세요.','마지막 턴도 HP 0이면 즉시 원정 클리어입니다.']][i]};}
  const stage=stageForRun(run),[title,pattern,description]=TOPICS[stage.id][run.progress.roundIndex];
  const multiplier=stage.regionMultiplier;
- return {title,pattern,description,bonus:`지역 보너스 · ${TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id]??null,
+ return {title,pattern,description,bonusHelp:regionBonusHelp(stage),bonus:`지역 보너스 · ${TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id]??null,
   detail:stage.id==='stage.05'&&run.progress.roundIndex===1?'명사를 꾸미는 형용사적 용법: I have a book to read.\n행동의 목적을 나타내는 부사적 용법: I went to the park to read.':null};
+}
+
+// Fixed curriculum only. Never inspect a sentence being edited.
+function regionBonusHelp(stage){
+ const conditions={
+  'stage.01':['1형식: 주어 + 동사 — I run. (나는 달립니다.)','2형식: 주어 + 동사 + 주격보어 — She is kind. (보어는 주어의 상태를 설명합니다.)','3형식: 주어 + 동사 + 목적어 — I read books. (목적어는 동작의 대상입니다.)','제출 후 문장이 성립하고 주절의 1·2·3형식이 점수 근거로 인정되면 지역 배율을 한 번 적용합니다. 동사의 문형과 필수 성분을 확인합니다. 형태 오류는 별도의 정확도 감점으로 처리될 수 있습니다.'],
+  'stage.02':['주절의 4형식(주어 + 동사 + 간접목적어 + 직접목적어)이 점수 근거로 인정될 때 적용합니다. SVO + to/for는 4형식이 아닙니다.'],
+  'stage.03':['점수 근거로 인정된 과거·진행·완료·will 미래 표현에 적용합니다.'],
+  'stage.04':['정상적인 접속사의 절 연결이 점수 근거로 인정될 때 적용합니다. 단어나 구만 잇는 경우와는 다릅니다.'],
+  'stage.05':['정상 to부정사·동명사 또는 주절 5형식이 점수 근거로 인정될 때 적용합니다.'],
+  'stage.06':['정상 비교급·최상급·as ~ as·too/enough 구문이 점수 근거로 인정될 때 적용합니다.'],
+  'stage.07':['정상 수동태·분사 수식·목적격보어 구문이 점수 근거로 인정될 때 적용합니다.'],
+  'stage.08':['정상 주격·목적격 관계절 또는 관계부사절이 점수 근거로 인정될 때 적용합니다.'],
+  'stage.09':['정상 명사절 또는 가주어·진주어 구문에 적용합니다.'],
+  'stage.10':['정상 조건절·가정법·과거완료가 점수 근거로 인정될 때 적용합니다. 현재완료진행만으로는 지역 보너스를 받지 않습니다.']
+ };
+ return [`지역 보너스 · ${TARGETS[stage.id]} ×${stage.regionMultiplier.num/stage.regionMultiplier.den}`,...conditions[stage.id], '카드를 놓는 동안에는 판정하지 않습니다. 제출 후 실제 분석으로 결정하며 지역 배율은 중복 적용하지 않습니다.'];
 }

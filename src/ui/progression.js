@@ -139,7 +139,6 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
     el('span', { class: 'eyebrow', text: `${state.progress.stageId==='stage.final'?'FINAL':`CHAPTER ${state.progress.stageId.slice(-2)}`} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
     el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: enemyDisplayName(next) }),
-    el('p', { text: `${next.kind === 'REGIONAL_BOSS' ? '지역 보스' : '다음 전투'} · HP ${next.hp}\n현재 덱 전체를 새로 섞습니다. 연마·룬·골드는 유지됩니다.` }),
     state.progress.stageId==='stage.08'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:WATERWAYS_HINT}),
     state.progress.stageId==='stage.07'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:EMBER_HINT}),
     state.progress.stageId==='stage.06'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:FROST_HINT}),

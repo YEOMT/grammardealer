@@ -168,7 +168,7 @@ export function connect(root, fromCardId, toCardIds) {
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
   const scoreEffects=createScoreEffects(root);
-  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null;
+  let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null,visualSnapshot=null;
   const fallbacks=new Set();
   const text = (name, value) => { const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
@@ -194,6 +194,27 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       const cleanup=()=>{clearTimeout(timer);Object.assign(node.style,old);fallbacks.delete(cleanup);};
       const timer=setTimeout(cleanup,Math.max(90,duration));fallbacks.add(cleanup);
     }
+  };
+  const snapshotCards=()=>{
+    const sentence=find(root,'sentence');if(!sentence)return null;
+    const rect=sentence.getBoundingClientRect(),body=root.ownerDocument.createElement('div');body.className='core-attack-body';body.inert=true;body.setAttribute('aria-hidden','true');
+    for(const source of sentence.querySelectorAll('.word-card')){
+      const box=source.getBoundingClientRect(),copy=source.cloneNode(true);
+      const originals=[source,...source.querySelectorAll('*')],copies=[copy,...copy.querySelectorAll('*')];
+      originals.forEach((node,i)=>{const style=getComputedStyle(node),target=copies[i];for(const key of style)target.style.setProperty(key,style.getPropertyValue(key));
+        for(const attr of [...target.attributes])if(attr.name==='id'||attr.name.startsWith('data-')||attr.name==='tabindex')target.removeAttribute(attr.name);
+        target.style.animation='none';target.style.transition='none';target.style.transform='none';target.style.pointerEvents='none';
+      });
+      Object.assign(copy.style,{position:'absolute',left:`${box.left-rect.left}px`,top:`${box.top-rect.top}px`,width:`${box.width}px`,height:`${box.height}px`,margin:'0'});body.append(copy);
+    }
+    return {body,rect};
+  };
+  const mountAttack=()=>{
+    if(attackBody||!visualSnapshot)return;
+    attackBody=visualSnapshot.body;const a=visualSnapshot.rect;
+    Object.assign(attackBody.style,{left:`${a.left}px`,top:`${a.top}px`,width:`${a.width}px`,height:`${a.height}px`});
+    attackLayer=root.ownerDocument.createElement('div');attackLayer.className='attack-overlay';attackLayer.append(attackBody);
+    (root.ownerDocument.fullscreenElement??root.ownerDocument.body).append(attackLayer);
   };
   const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackLayer?.remove();attackLayer=null;attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
   const clearHighlights = () => {
@@ -231,13 +252,13 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       node.textContent=state.active?'보호 장막 · 피해 ×¼ · 4형식으로 해제':'보호 장막 해제';
     }
   };
-  const resizeEffects=()=>{scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];};
+  const resizeEffects=()=>{visualSnapshot=null;scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];};
   const adapter = {
     setPaused(paused){scoreEffects.pause(paused);for(const a of animations){if(paused)a.pause();else a.play();}if(paused)audio?.stopAll?.();},
     setLocked(locked) { root.dataset.presenting = String(locked); root.setAttribute('aria-busy', String(locked)); },
     begin(resolution, options) {
       current = resolution; settings = options;scoreEffects.begin(options);root.ownerDocument.addEventListener('atlas:viewport',resizeEffects);
-      clearHighlights(); adapter.clearConnections(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
+      clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const log = find(root, 'log'); if (log) log.replaceChildren();
       const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
@@ -257,11 +278,12 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
         for(const id of event.connectToCardIds??[]){const card=findCard(root,id);if(card){card.classList.add('connector-bridge');animate(card,[{filter:'brightness(1)'},{filter:'brightness(2)',boxShadow:'0 0 18px #a4edff'},{filter:'brightness(1)'}],500);}}
       }
       if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
-      text('label', event.labelKo ?? event.phase); text('score', event.after);
+      const label=event.sourceId==='stage.01'?(event.labelKo??event.phase).replace('기본 문형','1·2·3형식'):(event.labelKo??event.phase);
+      text('label', label); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
       scoreEffects.score(event,combo);
       const log = find(root, 'log'); if (log) {
-        const line = root.ownerDocument.createElement('div'); line.textContent = `${event.labelKo ?? event.phase}  ${event.before} → ${event.after}`;
+        const line = root.ownerDocument.createElement('div'); line.textContent = `${label}  ${event.before} → ${event.after}`;
         line.dataset.eventId = event.eventId ?? ''; log.append(line); while (log.children.length > 3) log.firstElementChild.remove();
       }
       audio?.play?.(/CARD|BASE/.test(event.phase) ? 'card' : 'score', { step, intensity });
@@ -311,34 +333,15 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';
       text('label', '힘을 모읍니다'); audio?.play?.('charge', { intensity });
-      animateCore(find(root, 'sentence'), [{ transform: 'scale(1)' }, { transform: 'scale(.96)' }], duration);
+      mountAttack();animateCore(attackBody,[{transform:'scale(1)'},{transform:'scale(.96)'}],duration);
     },
     lunge({ duration }) {
       root.dataset.corePhase='LUNGE';
       text('label', '문장 공격!');
-      const sentence = find(root, 'sentence'), enemy = find(root, 'enemy');
-      if (sentence && enemy) {
-        const a = sentence.getBoundingClientRect(), b = enemy.getBoundingClientRect();
-        const x = b.left + b.width / 2 - a.left - a.width / 2, y = b.top + b.height / 2 - a.top - a.height / 2;
-        if(settings.reducedMotion){animateCore(sentence,[],duration);return;}
-        // A non-interactive viewport overlay avoids clipping by the board's scroll container.
-        attackBody=sentence.cloneNode(true);attackBody.inert=true;attackBody.setAttribute('aria-hidden','true');
-        for(const node of [attackBody,...attackBody.querySelectorAll('*')]){for(const name of ['id','data-card-id','data-card-zone','data-presentation','tabindex'])node.removeAttribute(name);}
-        attackBody.dataset.presentation='attack-body';attackBody.classList.add('core-attack-body');
-        Object.assign(attackBody.style,{position:'fixed',left:`${a.left}px`,top:`${a.top}px`,width:`${a.width}px`,height:`${a.height}px`,minHeight:'0',margin:'0',zIndex:'1000',pointerEvents:'none',overflow:'visible'});
-        // Preserve the responsive card/row CSS context outside the clipped combat board.
-        attackLayer=root.ownerDocument.createElement('div');attackLayer.className='responsive-battle attack-overlay';
-        Object.assign(attackLayer.style,{position:'fixed',inset:'0',zIndex:'1000',pointerEvents:'none'});
-        const sourceStyle=getComputedStyle(root);
-        // CSSStyleDeclaration enumeration does not expose custom properties in every engine.
-        for(const property of ['--play-card-width','--board-body','--form-height','--board-gap','--board-pad','--board-card-height','--board-width'])attackLayer.style.setProperty(property,sourceStyle.getPropertyValue(property));
-        attackLayer.append(attackBody);root.ownerDocument.body.append(attackLayer);
-        // Bounding boxes are viewport pixels; fixed-position CSS coordinates inherit page zoom.
-        const zoom=a.width>0?attackBody.getBoundingClientRect().width/a.width:1;
-        const scale=Number.isFinite(zoom)&&zoom>0?zoom:1;
-        Object.assign(attackBody.style,{left:`${a.left/scale}px`,top:`${a.top/scale}px`,width:`${a.width/scale}px`,height:`${a.height/scale}px`});
-        sentence.style.opacity='.25';
-        lungeAnimation=animateCore(attackBody, [{ transform: 'translate(0,0) scale(.96)', opacity: 1 }, { transform: `translate(${x/scale}px,${y/scale}px) scale(.36)`, opacity: .5 }], duration,'forwards');
+      mountAttack();const enemy=find(root,'enemy');
+      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=enemy.getBoundingClientRect();
+        const x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;
+        lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(.96)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.36)`,opacity:.5}],duration,'forwards');
       }
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {
@@ -355,7 +358,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(killed&&overkill>0&&actualHpLoss>0){text('label',`격파! · 초과 피해 +${overkill}`);find(root,'label')?.setAttribute('data-overkill-tier',feel.tier);}
       audio?.play?.(actualHpLoss === 0 ? 'blocked' : 'impact', { intensity });
       root.dataset.impactTier=feel.tier;
-      if(zeroReason==='INCOMPLETE_SENTENCE'){animate(find(root,'sentence'),[{opacity:1,transform:'scale(1)'},{opacity:.4,transform:'scale(.98)'},{opacity:1,transform:'scale(1)'}],500);return;}
+      if(zeroReason==='INCOMPLETE_SENTENCE'){animate(attackBody,[{opacity:1},{opacity:.4},{opacity:1}],500);return;}
       if(actualHpLoss>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
       const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
       if(actualHpLoss>0)animateCore(enemy,[{filter:'brightness(1)'},{filter:'brightness(1.4)'},{filter:'brightness(1)'}],Math.max(90,feel.hitStop));
@@ -367,7 +370,6 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       clearCore();
       const enemy=find(root,'enemy');
       if(feel.tier==='BLOCKED')return;
-      if(feel.shake&&!settings.reducedMotion)animateCore(root,[{transform:'translate(0,0)'},{transform:`translate(${feel.shake}px,2px)`},{transform:`translate(${-feel.shake}px,-2px)`},{transform:'translate(0,0)'}],Math.min(180,duration));
       animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
     cancel(){root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
