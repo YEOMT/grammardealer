@@ -157,3 +157,38 @@ body:has(.guided-coach) .responsive-battle .hand-cards .card-footline{min-height
 body:has(.guided-coach) .responsive-battle .hand-cards .card-select{width:44px;height:44px;min-height:44px}
 
 .dictionary-entry .badge[class*="pos-"]{border-left:3px solid var(--pos);padding-left:4px}
+/* Stable viewport budget: contents never redistribute the four outer rows. */
+body[data-stage-theme] .game-shell.responsive-battle{
+ --hand-body:78px;--hand-foot:36px;--hand-card-height:calc(var(--hand-body) + var(--hand-foot) + 6px);
+ --score-height:58px;--action-height:40px;--board-zone-height:calc(2 * var(--board-card-height) + var(--board-gap) + 2 * var(--board-pad) + 2px);
+ --middle-height:calc(var(--board-zone-height) + var(--score-height) + var(--action-height) + 44px);
+ --hand-height:calc(var(--hand-card-height) + 71px);
+ grid-template-rows:38px minmax(0,1fr) var(--middle-height) var(--hand-height);
+ padding-bottom:calc(8px + env(safe-area-inset-bottom));
+}
+body[data-stage-theme] .responsive-battle .combat-middle{height:var(--middle-height)}
+body[data-stage-theme] .responsive-battle .sentence-area{display:grid;grid-template-rows:18px var(--score-height) var(--board-zone-height) var(--action-height);gap:4px;padding:6px;align-content:center;justify-items:center}
+.responsive-battle .board-heading{height:18px;min-height:18px;font-size:12px}
+body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:var(--score-height);min-height:0;max-height:var(--score-height);overflow:auto}
+.responsive-battle .score-copy{max-height:100%;overflow:auto}
+body[data-stage-theme] .responsive-battle .combat-sentence{height:var(--board-zone-height);margin:0}
+.responsive-battle .sentence-row{height:calc(var(--board-card-height) * var(--board-scale,1))}
+body[data-stage-theme] .responsive-battle .combat-sentence .word-card{--card-w:calc(var(--play-card-width) * var(--board-scale,1));width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex-basis:var(--card-w)}
+body[data-stage-theme] .responsive-battle .combat-sentence .card-body{height:calc(var(--board-body) * var(--board-scale,1));min-height:calc(var(--board-body) * var(--board-scale,1));padding:calc(4px * var(--board-scale,1))}
+body[data-stage-theme] .responsive-battle .combat-sentence .card-word{font-size:min(calc(23px * var(--board-scale,1)),calc(90cqw / var(--fit-factor,3)))!important}
+.responsive-battle .combat-sentence .form-button{height:calc(var(--form-height) * var(--board-scale,1));min-height:calc(var(--form-height) * var(--board-scale,1));font-size:calc(12px * var(--board-scale,1))}
+.responsive-battle .combat-sentence .card-topline{font-size:calc(9px * var(--board-scale,1))}
+body[data-stage-theme] .responsive-battle .status-panel,body[data-stage-theme] .responsive-battle .rune-panel{overflow:auto}
+body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);box-sizing:border-box;padding:38px 0 0;align-items:start}
+.responsive-battle .hand-title{height:16px;line-height:16px;margin:0 0 2px}
+.responsive-battle .card-pager{height:15px;line-height:15px;margin-bottom:0}
+.responsive-battle .hand-page-row,body[data-stage-theme] .responsive-battle .hand-cards{height:var(--hand-card-height);min-height:var(--hand-card-height);align-items:center}
+body[data-stage-theme] .responsive-battle .hand-cards .card-body{height:var(--hand-body);min-height:var(--hand-body)}
+.responsive-battle .hand-cards .card-footline{height:var(--hand-foot);min-height:var(--hand-foot)}
+.responsive-battle .hand-cards>.helper{margin:0;text-align:center;font-size:12px}
+.responsive-battle .exchange-row{transform:translateY(4px)}
+/* Frozen, non-interactive card pictures only. No battle/grid layout classes on the FX root. */
+.attack-overlay{position:fixed;inset:0;pointer-events:none;z-index:1000}
+.core-attack-body{position:absolute;pointer-events:none;background:none;border:0;overflow:visible}
+@media(max-height:720px){body[data-stage-theme] .game-shell.responsive-battle{--hand-body:62px;--score-height:48px;--action-height:34px;grid-template-rows:32px minmax(0,1fr) var(--middle-height) var(--hand-height)}}
+body:has(.guided-coach) .game-shell.responsive-battle{--hand-foot:44px}
