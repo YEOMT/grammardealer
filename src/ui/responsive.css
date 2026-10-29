@@ -164,7 +164,8 @@ body[data-stage-theme] .game-shell.responsive-battle{
  --middle-height:calc(var(--board-zone-height) + var(--score-height) + var(--action-height) + 44px);
  --hand-height:calc(var(--hand-card-height) + 71px);
  grid-template-rows:38px minmax(0,1fr) var(--middle-height) var(--hand-height);
- padding-bottom:calc(8px + env(safe-area-inset-bottom));
+ /* The hand border consumes 1px: 10px budget leaves 9px below real card bounds. */
+ padding-bottom:calc(10px + env(safe-area-inset-bottom));
 }
 body[data-stage-theme] .responsive-battle .combat-middle{height:var(--middle-height)}
 body[data-stage-theme] .responsive-battle .sentence-area{display:grid;grid-template-rows:18px var(--score-height) var(--board-zone-height) var(--action-height);gap:4px;padding:6px;align-content:center;justify-items:center}
@@ -192,3 +193,20 @@ body[data-stage-theme] .responsive-battle .hand-cards .card-body{height:var(--ha
 .core-attack-body{position:absolute;pointer-events:none;background:none;border:0;overflow:visible}
 @media(max-height:720px){body[data-stage-theme] .game-shell.responsive-battle{--hand-body:62px;--score-height:48px;--action-height:34px;grid-template-rows:32px minmax(0,1fr) var(--middle-height) var(--hand-height)}}
 body:has(.guided-coach) .game-shell.responsive-battle{--hand-foot:44px}
+/* Original scene art is paint only: it never supplies a grid's intrinsic size. */
+#app:has(.scene-backdrop-full){position:relative;isolation:isolate}
+.scene-backdrop{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden;background-size:cover;background-repeat:no-repeat;border-radius:inherit}
+.scene-backdrop-full{position:fixed;border-radius:0}
+.scene-backdrop-full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08121f8c,transparent 55%,#08121f55)}
+.enemy-area:has(.monster-slot){isolation:isolate;grid-template-rows:minmax(0,1fr)}
+.enemy-area:has(.scene-backdrop) .enemy-info{text-shadow:0 1px 3px #000,0 1px 8px #000;background:#101d2b88;border-radius:8px}
+.monster-slot{grid-column:2;grid-row:1;position:relative;min-height:0;align-self:stretch;width:100%}
+.responsive-battle .monster-slot .enemy-avatar{position:absolute;inset:0;width:100%;height:100%;display:grid;place-items:center}
+.monster-art-motion{position:absolute;inset:0;transform:scale(var(--monster-scale,1));transform-origin:50% 100%;pointer-events:none}
+.monster-image{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;visibility:hidden}
+.has-monster-art[data-monster-pose=idle] .monster-art-motion{animation:monster-breathe 3.8s ease-in-out infinite}
+.has-monster-art[data-monster-pose=idle] .monster-art-motion[data-motion=float]{animation-name:monster-float}
+@keyframes monster-float{50%{translate:0 -2px}}
+@keyframes monster-breathe{50%{scale:1.008}}
+.effects-off .monster-art-motion,.has-monster-art[data-static-motion=true] .monster-art-motion{animation:none!important}
+@media(prefers-reduced-motion:reduce){.monster-art-motion{animation:none!important}}

@@ -19,6 +19,7 @@ import { openDeck, openDictionary, openRecords, openSettings, openSaves, openRec
 import { el, button, modal, toast, confirmDialog } from './ui/dom.js';
 import { playAttack, createDOMPresentation, connect } from './engine/presentation.js';
 import { audio } from './services/audio.js';
+import {resolveMusicContext,musicManifest} from './services/musicContext.js';
 import { registry } from './data/language/index.js';
 import { RunController } from './game/runController.js';
 import { LocalStore, newProfile, applyProfileEvent } from './services/localStore.js';
@@ -30,11 +31,11 @@ const sessionLeaderboard=new MemoryLeaderboardRepository();
 let rankingSessionFallback=false;
 const leaderboard=()=>store.available&&!rankingSessionFallback?new LocalLeaderboardRepository(store,{profile}):sessionLeaderboard;
 let profiles=[],profile=null,controller=null,cleanup=()=>{},combatView=null,presenting=false,selected=new Set(),saveQueue=Promise.resolve(),memoryWarning=false,starting=false;
-const defaultSettings={speed:1,sfxVolume:45,muted:false,effectsOff:false};
+const defaultSettings={speed:1,sfxVolume:45,bgmVolume:100,muted:false,effectsOff:false};
 let presentationAbort=null,presentationEpoch=0;
 let sessionSettings={...defaultSettings};
 const settings=()=>profile?.settings||sessionSettings;
-function applySettings(){const s=settings();audio.configure({muted:s.muted,volume:s.sfxVolume/100});document.body.classList.toggle('effects-off',s.effectsOff);}
+function applySettings(){const s=settings();audio.configure({muted:s.muted,volume:s.sfxVolume/100,bgmVolume:(s.bgmVolume??100)/100});document.body.classList.toggle('effects-off',s.effectsOff);}
 function persistProfile(next){profile=next;profiles=profiles.filter(p=>p.playerId!==next.playerId).concat(next);applySettings();if(!store.available)return Promise.resolve();const frozen=structuredClone(next);saveQueue=saveQueue.catch(()=>{}).then(()=>store.saveProfile(frozen)).catch(error=>{toast(`개인 기록을 저장하지 못했습니다. 플레이는 계속할 수 있습니다. ${error.message}`);});return saveQueue;}
 function persistFinalClear(next,record){
  profile=next;profiles=profiles.filter(p=>p.playerId!==next.playerId).concat(next);applySettings();
@@ -135,6 +136,7 @@ function render(){
     cleanup=renderSandbox(root,{onBack:()=>changeRoute('lobby'),presentationSample:(board,ids)=>{connect(board,ids[0],ids.slice(1));}});return;
   }
   const state=controller?.getState();
+  audio.setBgmAsset(resolveMusicContext(location.hash,state),musicManifest);
   if(location.hash==='#game'&&state){
     if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records'),onSaves:()=>openOverlay('saves'),onChooseConnector:payload=>runCommand({type:'CHOOSE_STAGE4_CONNECTOR',...payload}),onChooseWaterways:payload=>runCommand({type:'CHOOSE_STAGE8_WORD',...payload})});return;}
     if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
@@ -148,6 +150,7 @@ function render(){
   renderLobby(root,{profiles,activeProfile:profile,onStart:startRun,onLoad:()=>openOverlay('saves'),onSettings:()=>openOverlay('settings'),onRecords:()=>openOverlay('records'),onSandbox:import.meta.env.DEV?()=>changeRoute('sandbox'):null,onProfile:id=>{profile=profiles.find(p=>p.playerId===id)||null;controller=null;render();},onCreateProfile:()=>{profile=null;controller=null;render();}});
 }
 window.addEventListener('hashchange',render);
+for(const type of ['pointerdown','keydown'])document.addEventListener(type,()=>{void audio.unlock();},{capture:true,passive:true});
 window.addEventListener('error',event=>{console.error('Application error',event.error);toast('화면 처리에 문제가 생겼습니다. 로비로 돌아가 다시 시도할 수 있습니다.');});
 if(import.meta.env.DEV&&new URLSearchParams(location.search).get('debug')==='1')Object.defineProperty(window,'__SB_DEV__',{value:{getState:()=>controller?.getState(),getProfile:()=>profile},writable:false});
 root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'신택스 아틀라스'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));

@@ -1,3 +1,4 @@
+import {sceneBackdrop} from '../services/sceneAssets.js';
 import {fullscreenButton} from './viewport.js';
 import {applyStageTheme} from './theme.js';
 import { el, button, modal, heading } from './dom.js';
@@ -22,4 +23,5 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     el('main',{class:'lobby'},el('section',{class:'hero'},el('div',{class:'eyebrow hero-eyebrow'},el('span',{class:'tiny-diamond'}),'WORDS BECOME POWER'),el('h1',{},'Syntax',el('br'),el('span',{text:'Atlas'})),el('p',{class:'hero-description',text:'아름다운 지역을 탐험하며 나만의 문장을 만들어가는 모험'}),preview,
     el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01–10 + FINAL'}),el('div',{},el('span',{class:'eyebrow',text:'FIFTY BATTLES'}),el('h3',{text:'열 지역과 최종 성역을 잇는 모험'}),el('p',{text:'총 50전투 · 통사의 근원 · 마지막 세 전투'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
     el('footer',{class:'lobby-footer'},el('span',{text:'과거 · 현재 · 미래로 이어지는 문장 모험'}),onSandbox&&button('문장 샌드박스 ↗',onSandbox,'quiet')));
+  sceneBackdrop(root,'lobby','background',{full:true});
 }
