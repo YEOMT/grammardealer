@@ -1,3 +1,4 @@
+import {monsterViewFor} from '../ui/monsterArt.js';
 import {finaleStatusText} from '../ui/finale.js';
 import {meaningfulComboEvent,runeFeel} from './comboFeel.js';
 import {createScoreEffects} from '../ui/scoreEffects.js';
@@ -261,7 +262,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const log = find(root, 'log'); if (log) log.replaceChildren();
-      const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
+      const enemy = find(root, 'enemy');monsterViewFor(enemy)?.begin(options); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
     onScore(event, { step, intensity,combo=0 }) {
@@ -360,7 +361,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       root.dataset.impactTier=feel.tier;
       if(zeroReason==='INCOMPLETE_SENTENCE'){animate(attackBody,[{opacity:1},{opacity:.4},{opacity:1}],500);return;}
       if(actualHpLoss>0)audio?.play?.('impactLow',{intensity:Math.min(1.4,intensity)});
-      const enemy=find(root,'enemy');if(enemy)enemy.dataset.defeated=String(killed);
+      const enemy=find(root,'enemy');monsterViewFor(enemy)?.impact({attackId:current.attackId,actualHpLoss,killed,staticMotion:settings.effectsOff||settings.reducedMotion});if(enemy)enemy.dataset.defeated=String(killed);
       if(actualHpLoss>0)animateCore(enemy,[{filter:'brightness(1)'},{filter:'brightness(1.4)'},{filter:'brightness(1)'}],Math.max(90,feel.hitStop));
       if(actualHpLoss>0&&!settings.effectsOff&&!settings.reducedMotion){const ring=root.ownerDocument.createElement('i');ring.className='impact-ring';find(root,'enemy')?.append(ring);effectNodes.push(ring);animate(ring,[{transform:'scale(.4)',opacity:.9},{transform:'scale(1.8)',opacity:0}],feel.hitStop+feel.settle);}
     },
@@ -369,10 +370,10 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       lungeAnimation?.cancel();lungeAnimation=null;
       clearCore();
       const enemy=find(root,'enemy');
-      if(feel.tier==='BLOCKED')return;
+      if(feel.tier==='BLOCKED'||monsterViewFor(enemy))return;
       animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
-    cancel(){root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
+    cancel(){monsterViewFor(find(root,'enemy'))?.reset(current?.killed);root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
     finish(resolution) {
       root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
       scoreEffects.clear();
@@ -382,7 +383,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       const score=find(root,'score');if(score){score.style.textShadow='';score.style.fontWeight='';}
       audio?.stopAll?.();
       showHp(resolution.turnEndReceipt?.hpAfterTurnEnd??resolution.enemyHpAfter);showBossState(resolution.bossStateAfter);
-      const enemy = find(root, 'enemy'); if (enemy) { enemy.style.opacity = resolution.killed ? '0' : '1'; enemy.dataset.defeated = String(Boolean(resolution.killed)); }
+      const enemy = find(root, 'enemy');monsterViewFor(enemy)?.reset(resolution.killed); if (enemy) { enemy.style.opacity = resolution.killed ? '0' : '1'; enemy.dataset.defeated = String(Boolean(resolution.killed)); }
       clearHighlights(); adapter.clearConnections();
     },
     connect(fromCardId, toCardIds) { return connect(root, fromCardId, toCardIds); },

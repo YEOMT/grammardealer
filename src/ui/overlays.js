@@ -169,7 +169,7 @@ export function openRecentAttack(state) {
 
 /** Emits a new settings value; caller owns profile persistence and AudioManager configuration. */
 export function openSettings(settings = {}, onChange, onGuide) {
-  let value = { speed: 1, sfxVolume: 45, muted: false, effectsOff: false, ...settings };
+  let value = { speed: 1, sfxVolume: 45, bgmVolume:100, muted: false, effectsOff: false, ...settings };
   const update = patch => {
     value = { ...value, ...patch };
     try { Promise.resolve(onChange?.({ ...value })).catch(error => toast(`설정을 저장하지 못했습니다: ${error.message}`)); }
@@ -181,12 +181,15 @@ export function openSettings(settings = {}, onChange, onGuide) {
   const volume = el('input', { type: 'range', min: 0, max: 100, step: 1, value: value.sfxVolume, 'aria-label': '효과음 음량', oninput: event => {
     const sfxVolume = Number(event.target.value); volumeLabel.textContent = `${sfxVolume}%`; update({ sfxVolume });
   } });
+  const bgmLabel=el('span',{text:`${value.bgmVolume}%`});
+  const bgmVolume=el('input',{type:'range',min:0,max:100,step:1,value:value.bgmVolume,'aria-label':'배경음악 음량',oninput:event=>{const bgmVolume=Number(event.target.value);bgmLabel.textContent=`${bgmVolume}%`;update({bgmVolume});}});
   const mute = el('input', { type: 'checkbox', checked: Boolean(value.muted), 'aria-label': '음소거', onchange: event => update({ muted: event.target.checked }) });
   const reduced = el('input', { type: 'checkbox', checked: Boolean(value.effectsOff), 'aria-label': '효과 감소', onchange: event => update({ effectsOff: event.target.checked }) });
   let view;
   const controls = el('div', { class: 'settings-grid' },fullscreenButton(),
     el('label', {}, '연출 속도', speed),
     el('label', {}, '효과음 음량', el('div', { class: 'dialog-actions' }, volume, volumeLabel)),
+    el('label',{},'배경음악',el('div',{class:'dialog-actions'},bgmVolume,bgmLabel)),
     el('label', {}, '음소거', mute), el('label', {}, '효과 감소', reduced),
     small('장식 효과를 줄입니다. 공격·피격 표시는 유지됩니다.'),globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches&&small('기기의 동작 줄이기를 적용 중입니다.'),
     onGuide && button('튜토리얼 다시 보기', () => { view.close(); onGuide(); }, 'secondary'),

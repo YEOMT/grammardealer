@@ -12,10 +12,10 @@ const TYPES = Object.freeze({
 });
 const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
 
-/** One AudioContext / Master / SFX bus, bounded synthesis, and a future local BGM asset hook. */
+/** One AudioContext / Master / SFX bus, bounded synthesis, and an independent persistent BGM bus. */
 export class AudioManager {
   /** @param {{contextFactory?: Function, maxVoices?: number}} [options] */
-  constructor({ contextFactory, maxVoices = 8 } = {}) {
+  constructor({ contextFactory, maxVoices = 8, fetchAudio = (...args) => fetch(...args), fadeSeconds = 1.5 } = {}) {
     this.contextFactory = contextFactory ?? (() => {
       const Constructor = globalThis.AudioContext ?? globalThis.webkitAudioContext;
       return Constructor ? new Constructor() : null;
@@ -24,6 +24,9 @@ export class AudioManager {
     this.context = null; this.master = null; this.sfx = null; this.bgm = null;
     this.voices = new Set(); this.muted = false; this.volume = .65;
     this.failed = false; this.initializing = null;
+    this.bgmBus=null;this.bgmVolume=1;this.bgmSources=new Set();this.currentBgm=null;
+    this.bgmEpoch=0;this.bgmLoad=null;this.bgmLoadingEpoch=null;this.fetchAudio=fetchAudio;this.fadeSeconds=fadeSeconds;
+    this.bgmStatus='IDLE';this.bgmWarnings=new Set();
   }
 
   /** Call from a real user gesture. Autoplay rejection is a silent, recoverable false result. */
@@ -39,9 +42,11 @@ export class AudioManager {
           this.master.gain.value = this.muted ? 0 : .7;
           this.sfx.gain.value = this.volume;
           this.sfx.connect(this.master); this.master.connect(context.destination);
+          this.bgmBus=context.createGain();this.bgmBus.gain.value=this.muted?0:.8*this.bgmVolume;this.bgmBus.connect(context.destination);
         }
         if (this.context.state === 'suspended') await this.context.resume();
         this.failed = false;
+        if(this.context.state==='running')void this.loadBgm(this.bgmEpoch);
         return this.context.state === 'running';
       } catch { this.failed = true; return false; }
     })();
@@ -49,9 +54,11 @@ export class AudioManager {
   }
 
   /** @param {{muted?: boolean, volume?: number}} settings */
-  configure({ muted = this.muted, volume = this.volume } = {}) {
+  configure({ muted = this.muted, volume = this.volume, bgmVolume = this.bgmVolume } = {}) {
     this.muted = Boolean(muted);
     this.volume = Number.isFinite(volume) ? clamp(volume, 0, 1) : this.volume;
+    this.bgmVolume=Number.isFinite(bgmVolume)?clamp(bgmVolume,0,1):this.bgmVolume;
+    if(this.bgmBus)this.bgmBus.gain.value=this.muted?0:.8*this.bgmVolume;
     if (this.master) this.master.gain.value = this.muted ? 0 : .7;
     if (this.sfx) this.sfx.gain.value = this.volume;
     if (this.muted) this.stopAll();
@@ -91,12 +98,54 @@ export class AudioManager {
 
   stopAll() { for (const voice of [...this.voices]) this.stopVoice(voice); }
 
-  /** Replacement hook only: no BGM is loaded unless a real local file is registered. */
+  /** Idempotent scene request; resolves immediately and never gates a game transition. */
   setBgmAsset(assetId, manifest = {}) {
-    const url = assetUrl(assetId, manifest);
-    this.bgm = url ? { assetId, url } : null;
+    const url=assetId?assetUrl(assetId,manifest):null;
+    if((this.bgm?.url??null)===url&&(!url||this.bgm?.assetId===assetId))return this.bgm;
+    this.bgm=url?{assetId,url}:null;this.bgmEpoch++;this.bgmLoad?.abort();this.bgmLoad=null;
+    this.bgmStatus=url?'REQUESTED':'SILENT';
+    if(!url)this.fadeBgm(null);else if(this.context?.state==='running')void this.loadBgm(this.bgmEpoch);
     return this.bgm;
   }
+
+  async loadBgm(epoch){
+    const requested=this.bgm;
+    if(!requested||epoch!==this.bgmEpoch||this.bgmLoadingEpoch===epoch||this.bgmStatus==='ERROR')return;
+    if(this.currentBgm?.url===requested.url)return;
+    this.bgmLoadingEpoch=epoch;const abort=new AbortController();this.bgmLoad=abort;
+    const timeout=setTimeout(()=>abort.abort(),15000);this.bgmStatus='LOADING';
+    try{
+      const response=await this.fetchAudio(requested.url,{signal:abort.signal});if(!response.ok)throw Error('HTTP '+response.status);
+      const bytes=await response.arrayBuffer();if(epoch!==this.bgmEpoch)return;
+      const buffer=await this.context.decodeAudioData(bytes);if(epoch!==this.bgmEpoch)return;
+      const source=this.context.createBufferSource(),gain=this.context.createGain();
+      source.buffer=buffer;source.loop=true;source.connect(gain);gain.connect(this.bgmBus);gain.gain.value=0;
+      const voice={...requested,source,gain,startedAt:this.context.currentTime,duration:buffer.duration};
+      source.onended=()=>this.releaseBgm(voice);source.start();this.fadeBgm(voice);this.bgmStatus='PLAYING';
+    }catch(error){if(epoch===this.bgmEpoch){this.bgmStatus='ERROR';this.fadeBgm(null);if(!this.bgmWarnings.has(requested.url)){this.bgmWarnings.add(requested.url);console.warn('BGM unavailable:',requested.url,error.message);}}}
+    finally{clearTimeout(timeout);if(this.bgmLoadingEpoch===epoch)this.bgmLoadingEpoch=null;if(this.bgmLoad===abort)this.bgmLoad=null;}
+  }
+
+  releaseBgm(voice){
+    if(!this.bgmSources.delete(voice))return;
+    voice.source.onended=null;try{voice.source.stop();}catch{}voice.source.disconnect();voice.gain.disconnect();voice.source.buffer=null;
+    if(this.currentBgm===voice)this.currentBgm=null;
+  }
+
+  fadeBgm(next){
+    if(!this.context)return;
+    const now=this.context.currentTime,seconds=this.fadeSeconds;
+    // Retain at most the current voice plus its replacement, including rapid requests.
+    for(const voice of [...this.bgmSources])if(voice!==this.currentBgm)this.releaseBgm(voice);
+    const previous=this.currentBgm;
+    if(previous){const ramp=previous.ramp;const value=ramp?clamp((now-ramp.start)/ramp.duration,0,1):1;
+      previous.gain.gain.cancelScheduledValues(now);previous.gain.gain.setValueAtTime(value,now);previous.gain.gain.linearRampToValueAtTime(0,now+seconds);previous.source.stop(now+seconds);}
+    this.currentBgm=next;
+    if(next){this.bgmSources.add(next);next.ramp={start:now,duration:seconds};next.gain.gain.setValueAtTime(0,now);next.gain.gain.linearRampToValueAtTime(1,now+seconds);}
+  }
+
+  bgmSnapshot(){return {requested:this.bgm?.assetId??null,status:this.bgmStatus,context:this.context?.state??'locked',gain:this.bgmBus?.gain.value??(this.muted?0:.8*this.bgmVolume),sources:[...this.bgmSources].map(v=>({assetId:v.assetId,url:v.url,startedAt:v.startedAt,position:(this.context.currentTime-v.startedAt)%v.duration,duration:v.duration,loop:v.source.loop}))};}
+
 }
 
 export const audio = new AudioManager();

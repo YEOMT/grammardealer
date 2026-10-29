@@ -1,3 +1,4 @@
+import {sceneBackdrop} from '../services/sceneAssets.js';
 import {enemyDisplayName,stageDisplayName} from './displayText.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {introViewport} from './viewport.js';
@@ -55,7 +56,7 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, on
     preparing&&el('span',{class:'eyebrow',text:'다음 지역 준비 상점'}),
     el('h1',{text:preparing?stageDisplayName(stage)+' · 상점 입장 준비':stageDisplayName(stage)}),el('p',{text:preparing?'입장 카드를 선택하면 이번 상점의 상품을 확인할 수 있습니다.':introductions[stageId]}),
     el('div',{class:preparing?'shop-footer':'intro-footer'},button(choice||cityChoice?'입장 카드 선택':stageDisplayName(stage)+'에 들어가기',choice||cityChoice?openChoice:onStart,'primary start-button',{id:stageId==='stage.01'?'start-battle':'enter-stage'}))));
-  if(!preparing)introViewport(root.querySelector('.intro-page'));
+  if(!preparing){introViewport(root.querySelector('.intro-page'));sceneBackdrop(root,stageId,'entry',{full:true});}
 }
 
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
