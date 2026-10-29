@@ -1,3 +1,4 @@
+import './lobby.css';
 import {sceneBackdrop} from '../services/sceneAssets.js';
 import {fullscreenButton} from './viewport.js';
 import {applyStageTheme} from './theme.js';
@@ -12,7 +13,7 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     el('div',{class:'setup-heading'},el('span',{class:'eyebrow',text:'YOUR EXPEDITION'}),el('h2',{text:'새로운 원정'})),
     el('div',{class:'traveler-choice'},el('span',{class:'traveler-icon',text:'🧭'}),el('div',{},el('strong',{text:'여행자'}),el('p',{text:'28장의 단어로 시작하는 나만의 문장.'})),el('span',{class:'pill',text:'난이도 1'})),
     el('label',{class:'field'},el('span',{text:'여행자 이름'}),nameInput),
-    profiles.length?el('div',{class:'profile-row'},profileSelect,button('새 프로필',()=>{nameInput.value='';profileSelect.value='';onCreateProfile?.();nameInput.focus();},'quiet')):null,
+    profiles.length?el('div',{class:'profile-row'},profileSelect,button('새 프로필',()=>{nameInput.value='';profileSelect.value='';onCreateProfile?.();root.querySelector('#player-name')?.focus();},'quiet')):null,
     el('label',{class:'field'},el('span',{text:'어휘 수준'}),modeSelect,el('small',{text:'어휘만 달라집니다. 점수와 전투 규칙은 같습니다.'})),
     el('details',{class:'seed-details'},el('summary',{text:'원정 시드 직접 입력'}),seedInput),
     el('button',{type:'submit',class:'primary start-button',id:'start-run',text:'원정 시작하기  →'}),

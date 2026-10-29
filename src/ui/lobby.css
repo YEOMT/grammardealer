@@ -1,0 +1,28 @@
+/* Lobby-only paint and typography; existing form, handlers and preview semantics stay intact. */
+.lobby-topbar{background:linear-gradient(#0c214899,#0c214844);border-color:#e0c88755;color:#f8f0df}
+.lobby-topbar .brand-small{color:#f6dfaa;letter-spacing:3px}
+.lobby-topbar .quiet,.lobby-topbar .version-badge{color:#f3eee0}
+.lobby{color:#f7f1e5;--muted:#c4d1d1}
+.lobby .setup-card{background:linear-gradient(180deg,rgba(17,35,59,.82),rgba(16,45,48,.88));border:1px solid #dfc68b;border-radius:18px;box-shadow:inset 0 0 0 3px #f7de9c12,inset 0 1px 0 #fff3cf66,0 18px 48px #06152177;backdrop-filter:blur(3px)}
+.lobby .setup-heading h2{color:#fff6e5;text-shadow:0 2px 5px #061324}
+.lobby .eyebrow{color:#f0d69c}
+.lobby .traveler-choice{background:linear-gradient(135deg,#54788255,#183b4c55);border-color:#bfc7b580;box-shadow:inset 0 1px 0 #fff2c822}
+.lobby .traveler-choice p,.lobby .field>span,.lobby .field small,.lobby .local-note,.lobby .seed-details summary{color:#d0dbd8}
+.lobby .pill{background:#081d2bba;border-color:#a8b7aa66;color:#f4edda}
+.lobby input,.lobby select{background:rgba(7,20,30,.78);border-color:#a5b9b680;color:#fff8e9;box-shadow:inset 0 1px 4px #0003}
+.lobby select option{background:#102a3a;color:#fff8e9}
+.lobby input::placeholder{color:#a4b9bc}
+.lobby .secondary,.lobby .profile-row .quiet{background:linear-gradient(#254e5799,#16343ccc);border:1px solid #b4c4bc66;color:#f4f0df;box-shadow:inset 0 1px 0 #fff2}
+.lobby .secondary:hover,.lobby .profile-row .quiet:hover{background:#315563}
+.lobby .start-button{color:#1d2930;background:linear-gradient(135deg,#ffe8a6,#d9b667);border-color:#f7dda0;box-shadow:inset 0 1px 0 #fff4d6,0 3px 0 #8d7344,0 6px 14px #08162455}
+.lobby .start-button:hover{background:linear-gradient(135deg,#fff0b8,#e5c37b)}
+.lobby .start-button:active{box-shadow:inset 0 1px 4px #92734266,0 1px 0 #8d7344}
+.lobby .hero h1{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.045em;color:#fff7e8;text-shadow:0 3px 16px #09214488}
+.lobby .hero h1 span{color:#f2d38c}
+.lobby .hero-description{color:#f8f5e9;text-shadow:0 1px 3px #061933,0 2px 12px #061933}
+.lobby .hero-word-card{box-shadow:0 12px 24px #07193088,inset 0 0 0 3px #d6ba7722}
+.lobby .chapter-preview{background:linear-gradient(90deg,#0b2647c7,#12384580,transparent);border-top-color:#efd29377;border-radius:6px;padding:16px 12px;text-shadow:0 2px 5px #06162a}
+.lobby .chapter-number{color:#f5d58e;opacity:1}
+.lobby .chapter-preview p,.lobby .hero-features{color:#e4eee5;text-shadow:0 1px 4px #06182c}
+.lobby-footer{color:#e0e9df;background:linear-gradient(90deg,#0c263499,#0c263466);border-top-color:#d8c48b44;padding-inline:12px}
+#app:has(>.lobby)>.scene-backdrop-full::after{background:linear-gradient(90deg,#081b3b38,transparent 55%,#081b3b20)}

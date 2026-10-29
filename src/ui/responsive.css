@@ -170,8 +170,10 @@ body[data-stage-theme] .game-shell.responsive-battle{
 body[data-stage-theme] .responsive-battle .combat-middle{height:var(--middle-height)}
 body[data-stage-theme] .responsive-battle .sentence-area{display:grid;grid-template-rows:18px var(--score-height) var(--board-zone-height) var(--action-height);gap:4px;padding:6px;align-content:center;justify-items:center}
 .responsive-battle .board-heading{height:18px;min-height:18px;font-size:12px}
-body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:var(--score-height);min-height:0;max-height:var(--score-height);overflow:auto}
-.responsive-battle .score-copy{max-height:100%;overflow:auto}
+body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:var(--score-height);min-height:0;max-height:var(--score-height);overflow:visible}
+.responsive-battle .score-copy{height:100%;max-height:100%;overflow:visible;flex:0 1 660px;display:flex;align-items:center;justify-content:center}
+.responsive-battle .score-label{max-width:88%;font-size:clamp(14px,1.4vw,19px);line-height:1.2;text-wrap:balance}
+.responsive-battle .score-number{font-size:clamp(25px,3vw,calc(var(--score-height) / 1.12))}
 body[data-stage-theme] .responsive-battle .combat-sentence{height:var(--board-zone-height);margin:0}
 .responsive-battle .sentence-row{height:calc(var(--board-card-height) * var(--board-scale,1))}
 body[data-stage-theme] .responsive-battle .combat-sentence .word-card{--card-w:calc(var(--play-card-width) * var(--board-scale,1));width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex-basis:var(--card-w)}
@@ -180,7 +182,7 @@ body[data-stage-theme] .responsive-battle .combat-sentence .card-word{font-size:
 .responsive-battle .combat-sentence .form-button{height:calc(var(--form-height) * var(--board-scale,1));min-height:calc(var(--form-height) * var(--board-scale,1));font-size:calc(12px * var(--board-scale,1))}
 .responsive-battle .combat-sentence .card-topline{font-size:calc(9px * var(--board-scale,1))}
 body[data-stage-theme] .responsive-battle .status-panel,body[data-stage-theme] .responsive-battle .rune-panel{overflow:auto}
-body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);box-sizing:border-box;padding:38px 0 0;align-items:start}
+body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);box-sizing:border-box;padding:37px 0 0;align-items:start}
 .responsive-battle .hand-title{height:16px;line-height:16px;margin:0 0 2px}
 .responsive-battle .card-pager{height:15px;line-height:15px;margin-bottom:0}
 .responsive-battle .hand-page-row,body[data-stage-theme] .responsive-battle .hand-cards{height:var(--hand-card-height);min-height:var(--hand-card-height);align-items:center}
@@ -199,7 +201,17 @@ body:has(.guided-coach) .game-shell.responsive-battle{--hand-foot:44px}
 .scene-backdrop-full{position:fixed;border-radius:0}
 .scene-backdrop-full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08121f8c,transparent 55%,#08121f55)}
 .enemy-area:has(.monster-slot){isolation:isolate;grid-template-rows:minmax(0,1fr)}
-.enemy-area:has(.scene-backdrop) .enemy-info{text-shadow:0 1px 3px #000,0 1px 8px #000;background:#101d2b88;border-radius:8px}
+.responsive-battle:has(.combat-backdrop){position:relative;isolation:isolate}
+.responsive-battle>.combat-backdrop{grid-column:1/-1;grid-row:1/3;top:calc(-1 * max(6px,env(safe-area-inset-top)));left:calc(-1 * max(12px,env(safe-area-inset-left)));right:calc(-1 * max(12px,env(safe-area-inset-right)));border-radius:0}
+.responsive-battle:has(.combat-backdrop) .game-header{background:linear-gradient(#081a32b3,#081a3255);border-bottom-color:#d6bf7955}
+body[data-stage-theme] .responsive-battle:has(.combat-backdrop) .enemy-area{column-gap:clamp(30px,4vw,76px)}
+.responsive-battle:has(.combat-backdrop) .enemy-info,.responsive-battle:has(.combat-backdrop) .enemy-tactics{padding:14px 20px;border:1px solid #a4b5b74d;border-radius:8px;background:#0c2134b3;text-shadow:0 1px 3px #000}
+.responsive-battle:has(.combat-backdrop) .enemy-info .hp-track{width:100%}
+@media(max-width:1399px){.responsive-battle:has(.combat-backdrop) .enemy-info,.responsive-battle:has(.combat-backdrop) .enemy-tactics{padding:10px 16px}}
+@media(max-height:720px){.responsive-battle>.combat-backdrop{top:-5px}.responsive-battle:has(.combat-backdrop) .enemy-info,.responsive-battle:has(.combat-backdrop) .enemy-tactics{padding:6px 12px}}
+/* Keep the visible selection outline on the same bottom line as unselected cards. */
+.responsive-battle .hand-cards .word-card.selected{transform:translateY(-3px)}
+.responsive-battle .hand-cards .card-select:focus-visible{outline-offset:-3px}
 .monster-slot{grid-column:2;grid-row:1;position:relative;min-height:0;align-self:stretch;width:100%}
 .responsive-battle .monster-slot .enemy-avatar{position:absolute;inset:0;width:100%;height:100%;display:grid;place-items:center}
 .monster-art-motion{position:absolute;inset:0;transform:scale(var(--monster-scale,1));transform-origin:50% 100%;pointer-events:none}
