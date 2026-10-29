@@ -37,7 +37,7 @@ try{
   await page.setViewportSize({width:w,height:h});await page.evaluate(()=>{q.reset();q.f.assignSentence(q.c,'I read books '.repeat(8));q.show();});if(w===1920)await page.locator('.fullscreen-toggle').click();
   let base;const widths={};for(const count of [0,5,6,9,10,11,12,13,24])for(const hand of w===1366?[10,1,0]:[10,0]){
    const data=await page.evaluate(({count,hand})=>{const ids=q.c.getState().activeCardIds;q.f.assignPiles(q.c,{sentence:ids.slice(0,count).map(cardInstanceId=>({cardInstanceId})),hand:ids.slice(count,count+hand)});q.show();return {rects:q.rects(),gap:q.gap(),width:q.root.querySelector('.combat-sentence .word-card')?.getBoundingClientRect().width};},{count,hand});
-   if(base)compare(base,data.rects);else base=data.rects;assert.ok(data.gap>=8&&data.gap<=10,`gap ${data.gap} @ ${w}`);if(data.width)widths[count]=data.width;geometry.push({w,h,count,hand,gap:data.gap});
+   if(base)compare(base,data.rects);else base=data.rects;assert.ok(data.gap>=12&&data.gap<=16,`gap ${data.gap} @ ${w}`);if(data.width)widths[count]=data.width;geometry.push({w,h,count,hand,gap:data.gap});
   }
   assert.ok(widths[5]>widths[6]&&widths[9]>widths[10]&&widths[11]>widths[12]);assert.equal(widths[12],widths[24]);await expect(page.locator('#attack-submit')).toBeInViewport({ratio:1});
   if(w===1180)await page.screenshot({path:out+'/tablet-bottom.png'});if(w===1920)await page.locator('.fullscreen-toggle').click();

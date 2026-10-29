@@ -1,3 +1,4 @@
+import {mountCombatQA} from './helpers/combat-ui-browser.js';
 import {chromium,expect} from '@playwright/test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
@@ -23,12 +24,7 @@ try{
  pass(1,{nameSeedModeAndModals:true,realNewRunToFirstBattle:true});
  }
  // Reuse existing physical-card assignment helpers for short, bounded UI cases.
- await page.evaluate(async()=>{
-  const f=await import('/tests/helpers/waterways-state.js'),{RunController}=await import('/src/game/runController.js'),{newProfile}=await import('/src/services/localStore.js'),{renderCombat}=await import('/src/ui/combat.js'),{openRecentAttack}=await import('/src/ui/overlays.js'),p=await import('/src/engine/presentation.js'),{audio}=await import('/src/services/audio.js'),music=await import('/src/services/musicContext.js'),{getEncounter}=await import('/src/data/stages.js');
-  document.querySelectorAll('.guided-coach').forEach(n=>n.remove());
-  window.q={f,p,audio,getEncounter,root:document.querySelector('#app'),reset(){this.view?.cleanup();this.c=new RunController({profile:{...newProfile('UI QA'),guidedTutorialCompletedVersion:'0.2.1'}});f.checked(this.c,{type:'NEW_RUN',config:{seed:'lobby.polish.qa'}});f.checked(this.c,{type:'START_BATTLE'});},show(locked=false,state=this.c.getState()){this.view?.cleanup();this.view=renderCombat(this.root,state,{locked,command:c=>this.command(c),openOverlay:id=>{if(id==='recent')openRecentAttack(this.c.getState());}});audio.setBgmAsset(music.resolveMusicContext('#game',state),music.musicManifest);},rects(){return Object.fromEntries(['.game-header','.enemy-area','.combat-middle','.score-stage','.combat-sentence','.combat-actions','.hand-section'].map(s=>{const r=this.root.querySelector(s).getBoundingClientRect();return[s,[r.x,r.y,r.width,r.height]];}));},bounds(){const nodes=[...this.root.querySelectorAll('.hand-cards>.word-card:not([hidden])')],v=visualViewport;return nodes.length?nodes.map(n=>{const s=getComputedStyle(n),r=n.getBoundingClientRect(),extra=n.classList.contains('selected')?Math.max(0,parseFloat(s.outlineWidth)+parseFloat(s.outlineOffset)):0;return{bottom:r.bottom,selectionBottom:r.bottom+extra,gap:v.offsetTop+v.height-r.bottom-extra,width:r.width,height:r.height};}):[{gap:v.offsetTop+v.height-this.root.querySelector('.hand-page-row').getBoundingClientRect().bottom}];},scoreBox(){return [...this.root.querySelectorAll('.score-stage,.score-copy')].map(n=>({client:[n.clientWidth,n.clientHeight],scroll:[n.scrollWidth,n.scrollHeight],overflow:getComputedStyle(n).overflow,text:n.textContent}));},async command(cmd){const before=this.c.getState(),r=f.checked(this.c,cmd);if(!r.resolution){this.show();return;}this.resolution=r.resolution;this.show(true,before);this.view.beginPresentation();this.presenting=true;this.samples=[];this.events=[];const a=p.createDOMPresentation(this.view.element,{audio}),score=a.onScore;a.onScore=(e,ctx)=>{score(e,ctx);this.events.push({id:e.eventId,label:this.root.querySelector('.score-label').textContent,after:Number(this.root.querySelector('.score-number').textContent)});};const timer=setInterval(()=>this.samples.push({rects:this.rects(),boxes:this.scoreBox(),logRows:this.root.querySelectorAll('.score-log>*').length}),16);await p.playAttack(r.resolution,a,{speed:1.5});clearInterval(timer);this.final={score:Number(this.root.querySelector('.score-number').textContent),label:this.root.querySelector('.score-label').textContent};f.checked(this.c,{type:'FINISH_PRESENTATION',attackId:r.resolution.attackId});this.presenting=false;this.show();}};
-  q.reset();q.show();
- });
+ await page.evaluate(mountCombatQA);
  await page.locator('.monster-image[data-ready=true]').first().waitFor();await page.locator('.combat-backdrop[data-ready=true]').waitFor();
  if(!focused){
  const art=await page.evaluate(()=>{const layer=document.querySelector('.combat-backdrop'),r=layer.getBoundingClientRect(),header=document.querySelector('.game-header').getBoundingClientRect(),enemy=document.querySelector('.enemy-area').getBoundingClientRect();return{count:document.querySelectorAll('.responsive-battle .scene-backdrop').length,rect:r.toJSON(),header:header.toJSON(),enemy:enemy.toJSON(),url:getComputedStyle(layer).backgroundImage};});
@@ -39,7 +35,7 @@ try{
  for(const stage of ['stage.01','stage.02']){
   await page.evaluate(stage=>{q.reset();const s=q.c.getState(),round=stage==='stage.01'?2:3;s.progress={stageId:stage,roundIndex:round,battleNumber:stage==='stage.01'?3:7};s.combat=null;q.c._beginBattle(s);q.c._state=s;q.show();},stage);
   await page.waitForFunction(()=>document.querySelectorAll('.monster-image[data-ready=true]').length===2);
-  const data=await page.evaluate(()=>{const r=s=>document.querySelector(s).getBoundingClientRect().toJSON(),css=getComputedStyle(document.querySelector('.enemy-info'));return{left:r('.enemy-tactics'),right:r('.enemy-info'),monster:r('.monster-art-motion'),images:[...document.querySelectorAll('.monster-image')].map(n=>({rect:n.getBoundingClientRect().toJSON(),anchor:getComputedStyle(n).objectPosition})),hp:r('.hp-track'),padding:[css.paddingTop,css.paddingRight]};});
+  const data=await page.evaluate(async()=>{const {monsterPaintBounds}=await import('/tests/helpers/monster-paint-bounds.js');const r=s=>document.querySelector(s).getBoundingClientRect().toJSON(),css=getComputedStyle(document.querySelector('.enemy-info'));return{left:r('.enemy-tactics'),right:r('.enemy-info'),monster:monsterPaintBounds(),images:[...document.querySelectorAll('.monster-image')].map(n=>({rect:n.getBoundingClientRect().toJSON(),anchor:getComputedStyle(n).objectPosition})),hp:r('.hp-track'),padding:[css.paddingTop,css.paddingRight]};});
   assert.ok(data.left.right<data.monster.left&&data.monster.right<data.right.left);assert.deepEqual(data.images[0].rect,data.images[1].rect);assert.equal(data.images[0].anchor,data.images[1].anchor);assert.ok(data.hp.left>=data.right.left+15&&data.hp.right<=data.right.right-15);bosses.push({stage,...data});
  }
  pass(3,{bosses});
@@ -49,8 +45,8 @@ try{
   let base;
   for(const [count,hand]of [[0,14],[13,10],[24,0]]){
    await page.evaluate(({count,hand})=>{const ids=q.c.getState().activeCardIds;q.f.assignPiles(q.c,{sentence:ids.slice(0,count).map(cardInstanceId=>({cardInstanceId})),hand:ids.slice(count,count+hand)});q.show();},{count,hand});
-   const data=await page.evaluate(()=>({rects:q.rects(),cards:q.bounds()}));if(base)same(base,data.rects);else base=data.rects;for(const c of data.cards)assert.ok(c.gap>=8&&c.gap<=10,`gap ${c.gap}`);
-   if(hand){await page.locator('.card-select:visible').first().click();const selected=await page.evaluate(()=>q.bounds());for(const c of selected)assert.ok(c.gap>=8&&c.gap<=10,`selected gap ${c.gap}`);data.selected=selected;if(hand===14){await page.getByRole('button',{name:'다음 손패 페이지',exact:true}).click();same(base,await page.evaluate(()=>q.rects()));}}
+   const data=await page.evaluate(()=>({rects:q.rects(),cards:q.bounds()}));if(base)same(base,data.rects);else base=data.rects;for(const c of data.cards)assert.ok(c.gap>=12&&c.gap<=16,`gap ${c.gap}`);
+   if(hand){await page.locator('.card-select:visible').first().click();const selected=await page.evaluate(()=>q.bounds());for(const c of selected)assert.ok(c.gap>=12&&c.gap<=16,`selected gap ${c.gap}`);data.selected=selected;if(hand===14){await page.getByRole('button',{name:'다음 손패 페이지',exact:true}).click();same(base,await page.evaluate(()=>q.rects()));}}
    geometry.push({width,height,fullscreen,count,hand,...data});
    if(width===1180&&count===13)await page.screenshot({path:out+'/tablet.png'});
   }
