@@ -1,4 +1,4 @@
-import {sceneBackdrop} from '../services/sceneAssets.js';
+import {sceneBackdrop,MONSTER_ASSETS,sceneAssetUrl,warnAsset} from '../services/sceneAssets.js';
 import {enemyDisplayName,stageDisplayName} from './displayText.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {introViewport} from './viewport.js';
@@ -134,12 +134,20 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
     el('div', { class: 'reward-footer' }, button(`건너뛰기 · +${offer.skipGold} 골드`, () => choose('SKIP'), 'secondary', { id: 'skip-reward' }))));
 }
 
+function betweenMonster(enemy){
+  const node=el('div',{class:'intro-art',text:enemy.emoji}),art=MONSTER_ASSETS[enemy.enemyId];
+  if(!art)return node;
+  node.classList.add('monster-preview');
+  const img=el('img',{alt:enemyDisplayName(enemy),src:sceneAssetUrl(art.idle)});
+  img.onerror=()=>{warnAsset(img.src);node.textContent=enemy.emoji;};
+  node.replaceChildren(img);return node;
+}
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
   applyStageTheme(state);
   const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
   root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
     el('span', { class: 'eyebrow', text: `${state.progress.stageId==='stage.final'?'FINAL':`CHAPTER ${state.progress.stageId.slice(-2)}`} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
-    el('div', { class: 'intro-art', text: next.emoji }), el('h1', { text: enemyDisplayName(next) }),
+    betweenMonster(next), el('h1', { text: enemyDisplayName(next) }),
     state.progress.stageId==='stage.08'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:WATERWAYS_HINT}),
     state.progress.stageId==='stage.07'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:EMBER_HINT}),
     state.progress.stageId==='stage.06'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:FROST_HINT}),
