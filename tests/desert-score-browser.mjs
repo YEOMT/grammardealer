@@ -13,6 +13,7 @@ const check=id=>report.checks.push({id,status:'PASS'});
 try{
  context=await browser.newContext({viewport:{width:1366,height:768},recordVideo:{dir:out}});
  page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));page.setDefaultTimeout(15000);
+ await page.clock.install();await page.clock.pauseAt(new Date(Date.now()+100));
  await page.goto(url);await page.locator('#start-run').waitFor();
  await page.evaluate(async()=>{
   const [{assignedSphinx},{snapshotFromText},{registryForVersion},{isTurnSealed},{renderCombat},{createDOMPresentation,playAttack}]=await Promise.all([
@@ -38,7 +39,7 @@ try{
     const node=this.root.querySelector('[data-presentation="score"]');
     this.frames.push({sourceId:event.sourceId,eventId:event.eventId,label:event.labelKo,operand:structuredClone(event.operand),operation:event.operation,before:event.before,after:event.after,
      displayedLabel:this.root.querySelector('[data-presentation="label"]').textContent,displayedScore:node.textContent,title:node.title,beforeAttribute:node.dataset.before,afterAttribute:node.dataset.after,
-     latestLog:this.root.querySelector('[data-presentation="log"]').lastElementChild?.textContent??null,at:performance.now()});
+     recordedEvent:this.committed.stats.lastAttack.scoreTimeline.find(e=>e.eventId===event.eventId),liveLogRows:this.root.querySelectorAll('.score-log>*').length,at:performance.now()});
     this.currentEventId=event.eventId;
    };
    this.promise=playAttack(this.resolution,adapter,{speed:1}).then(done=>{this.done=done;return done;});
@@ -56,22 +57,29 @@ try{
  for(const scenario of cases){
   const result=await page.evaluate(text=>desertScore.start(text),scenario.text);
   assert.equal(result.analysis.status,'VALID');assert.equal(result.finalPower,scenario.expectedPower);assert.equal(result.enemyHpBefore,840);
+  const timeline=await page.evaluate(async()=>{const {buildPresentationTimeline}=await import('/src/engine/presentation.js');return buildPresentationTimeline(desertScore.resolution,{speed:1});});
+  let elapsed=0;
   for(const [sourceId,multiplier]of scenario.targets){
    const expected=result.scoreTimeline.filter(e=>e.sourceId===sourceId);assert.equal(expected.length,1);
    const event=expected[0];assert.equal(event.operation,'MULTIPLY');assert.equal(event.operand.num/event.operand.den,multiplier);
    assert.equal(event.after,Math.floor(event.before*event.operand.num/event.operand.den));
-   await page.waitForFunction(id=>desertScore.currentEventId===id,event.eventId);
+   // Advance the test clock to this exact original timeline step; screenshot I/O cannot consume it.
+   const index=timeline.findIndex(step=>step.event?.eventId===event.eventId),targetElapsed=timeline.slice(0,index).reduce((sum,step)=>sum+step.duration,0)+1;
+   await page.clock.runFor(targetElapsed-elapsed);elapsed=targetElapsed;
+   assert.equal(await page.evaluate(()=>desertScore.currentEventId),event.eventId);
    const frame=await page.evaluate(id=>desertScore.frames.find(f=>f.eventId===id),event.eventId);
    assert.equal(frame.displayedLabel,event.labelKo);assert.ok(frame.displayedLabel.includes('×'+multiplier));
    assert.equal(frame.displayedScore,String(event.after));assert.equal(frame.title,`${event.before} → ${event.after}`);
    assert.equal(frame.beforeAttribute,String(event.before));assert.equal(frame.afterAttribute,String(event.after));
-   assert.equal(frame.latestLog,`${event.labelKo}  ${event.before} → ${event.after}`);
+   // The polish contract moves full history to attack records; it is no longer a live log.
+   assert.deepEqual(frame.recordedEvent,event);assert.equal(frame.liveLogRows,0);
    const name=scenario.id+'-'+sourceId.toLowerCase().replaceAll('.','-')+'.png';
    await page.screenshot({path:out+'/'+name,fullPage:true});report.captures.push(name);
    assert.equal(await page.evaluate(()=>desertScore.currentEventId),event.eventId,'Capture must still show the actual live score event');
    check('LIVE_'+scenario.id.toUpperCase()+'_'+sourceId+'_OPERAND_AND_FLOOR');
   }
-  await page.waitForFunction(()=>desertScore.done);
+  await page.clock.runFor(timeline.reduce((sum,step)=>sum+step.duration,0)-elapsed+50);
+  assert.ok(await page.evaluate(()=>desertScore.done));
   const shown=await page.evaluate(()=>({done:desertScore.done,frames:desertScore.frames,before:desertScore.before,committed:desertScore.committed,current:desertScore.c.getState(),committedProfile:desertScore.committedProfile,currentProfile:desertScore.c.getProfile(),hp:desertScore.root.querySelector('[data-presentation="hp"]').textContent,busy:desertScore.view.element.getAttribute('aria-busy'),effectNodes:desertScore.root.querySelectorAll('.rune-flight,[data-presentation-role]').length}));
   assert.equal(shown.done.status,'FINISHED');assert.equal(shown.frames.length,result.scoreTimeline.length);
   assert.deepEqual(shown.current,shown.committed);assert.deepEqual(shown.currentProfile,shown.committedProfile);

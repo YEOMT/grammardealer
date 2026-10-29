@@ -6,7 +6,7 @@ export const SCENE_ASSETS = Object.freeze({
   'stage.01':{entry:'assets/stages/stage-01/entry.png',combat:'assets/stages/stage-01/combat.png',bgm:'assets/stages/stage-01/bgm.mp3',position:'50% 60%'},
   'stage.02':{entry:'assets/stages/stage-02/entry.png',combat:'assets/stages/stage-02/combat.png',bgm:'assets/stages/stage-02/bgm.mp3',position:'50% 60%'},
 });
-const pair=(stage,number,motion='float')=>({idle:`assets/stages/${stage}/monsters/${number}_idle.png`,hit:`assets/stages/${stage}/monsters/${number}_hit.png`,scale:1,anchor:'50% 100%',motion});
+const pair=(stage,number,motion='float')=>({idle:`assets/stages/${stage}/monsters/${number}_idle.png`,hit:`assets/stages/${stage}/monsters/${number}_hit.png`,scale:1.12,anchor:'50% 100%',motion});
 export const MONSTER_ASSETS=Object.freeze({
   'enemy.stage1.01':pair('stage-01','01'),
   'enemy.stage1.02':pair('stage-01','02','breathe'),

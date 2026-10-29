@@ -261,7 +261,6 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       current = resolution; settings = options;scoreEffects.begin(options);root.ownerDocument.addEventListener('atlas:viewport',resizeEffects);
       clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
-      const log = find(root, 'log'); if (log) log.replaceChildren();
       const enemy = find(root, 'enemy');monsterViewFor(enemy)?.begin(options); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
@@ -280,13 +279,11 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       }
       if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
       const label=event.sourceId==='stage.01'?(event.labelKo??event.phase).replace('기본 문형','1·2·3형식'):(event.labelKo??event.phase);
-      text('label', label); text('score', event.after);
+      // Show only this committed effect; the full timeline remains in attack records.
+      const amount=event.operation==='MULTIPLY'?`×${event.operand.num/event.operand.den}`:event.operation==='ADD'?`${event.operand>=0?'+':''}${event.operand}`:'';
+      text('label', amount&&!label.includes(amount)?`${label} · ${amount}`:label); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
       scoreEffects.score(event,combo);
-      const log = find(root, 'log'); if (log) {
-        const line = root.ownerDocument.createElement('div'); line.textContent = `${label}  ${event.before} → ${event.after}`;
-        line.dataset.eventId = event.eventId ?? ''; log.append(line); while (log.children.length > 3) log.firstElementChild.remove();
-      }
       audio?.play?.(/CARD|BASE/.test(event.phase) ? 'card' : 'score', { step, intensity });
     },
     highlight(cardIds, roles = [], argumentsByNode=[]) {
@@ -340,7 +337,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       root.dataset.corePhase='LUNGE';
       text('label', '문장 공격!');
       mountAttack();const enemy=find(root,'enemy');
-      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=enemy.getBoundingClientRect();
+      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=(enemy.querySelector('.monster-art-motion')??enemy).getBoundingClientRect();
         const x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;
         lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(.96)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.36)`,opacity:.5}],duration,'forwards');
       }
