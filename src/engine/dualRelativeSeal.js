@@ -1,4 +1,4 @@
-import {registryForVersion} from '../data/language/index.js';
+import {registryForVersion,registryForReceipt} from '../data/language/index.js';
 import {analyzeSentence} from './grammar/index.js';
 const okStatus=a=>['VALID','VALID_WITH_ISSUES'].includes(a?.status);
 const digest=row=>{let h=2166136261;for(const c of JSON.stringify(row)){h=Math.imul(h^c.charCodeAt(0),16777619);}return (h>>>0).toString(16).padStart(8,'0');};
@@ -36,7 +36,7 @@ export function resolveDualRelativeSeal(analysis,power,enemy,{attackId,submitted
 }
 /** Keep the unlocking submission independently of rolling UI history. No live-deck lookup. */
 export function relativeSealReceipt(resolution){
- return {...Object.fromEntries(['attackId','runId','battleId','sentenceSnapshot','cardScoringSnapshot','preBossScore','enemyHpBefore','enemyHpAfter','bossStateBefore','bossStateAfter'].map(k=>[k,structuredClone(resolution[k])])),grammarPatchVersion:resolution.analysis.grammarPatchVersion};
+ return {...Object.fromEntries(['attackId','runId','battleId','sentenceSnapshot','cardScoringSnapshot','preBossScore','enemyHpBefore','enemyHpAfter','bossStateBefore','bossStateAfter'].map(k=>[k,structuredClone(resolution[k])])),grammarPatchVersion:resolution.analysis.grammarPatchVersion,...(resolution.analysis.adjectiveModifierPolicy?{adjectiveModifierPolicy:resolution.analysis.adjectiveModifierPolicy}:{})};
 }
 export function validateRelativeSealReceipt(run){
  const c=run.combat,b=c?.enemyState.bossMechanic,r=c?.relativeSealUnlockReceipt,fail=()=>{throw Error('Invalid relative seal unlock receipt');};
@@ -47,7 +47,7 @@ export function validateRelativeSealReceipt(run){
  const tokens=r.sentenceSnapshot.orderedTokens;
  if(!Array.isArray(r.cardScoringSnapshot)||r.cardScoringSnapshot.length!==tokens.length||r.cardScoringSnapshot.some((x,i)=>x.instanceId!==tokens[i].cardInstanceId||x.cardDefId!==tokens[i].cardDefId))fail();
  if(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?r.grammarPatchVersion!==registryForVersion(run.version).version:run.version==='0.8.1'&&r.grammarPatchVersion!=='0.8.1'||r.grammarPatchVersion!==undefined&&r.grammarPatchVersion!=='0.8.1')fail();
- const analysis=analyzeSentence(r.sentenceSnapshot,registryForVersion(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?run.version:'0.8.0'),{historicalReceipt:r.grammarPatchVersion===undefined});
+ const analysis=analyzeSentence(r.sentenceSnapshot,registryForReceipt(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?run.version:'0.8.0',r),{historicalReceipt:r.grammarPatchVersion===undefined});
  const result=resolveDualRelativeSeal(analysis,r.preBossScore,{id:r.battleId,hp:r.enemyHpBefore,bossMechanic:r.bossStateBefore},{attackId:r.attackId,submittedCards:r.cardScoringSnapshot});
  if(!result.unlockedNow||result.enemyHpAfter!==r.enemyHpAfter||JSON.stringify(result.bossStateAfter)!==JSON.stringify(r.bossStateAfter)||JSON.stringify(result.bossStateAfter.unlockWitness)!==JSON.stringify(b.unlockWitness))fail();
  return true;

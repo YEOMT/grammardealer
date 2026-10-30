@@ -21,10 +21,19 @@ function assigned(phase=0,wordCount=10){
 function surface(count=4){const s=assigned(),combat=s.combat;s.combat=null;const supply=createFinaleDustSupply(s,count);s.combat={...combat,...supply,drawIds:[...supply.temporaryCardIds]};return s;}
 const check=s=>{validateFinaleCards(s);assertCardConservation(s.activeCardIds,s.combat,s.cardInstances);};
 
-test('0.11 new campaign only extends 47 to 50 and inherits every existing policy',()=>{
+test('0.11 extends 47 to 50; balance/runes stay identical and only reviewed clearly AP policy differs',()=>{
  assert.deepEqual(FINALE_VERSIONS,{...RECOVERY_VERSIONS,game:'0.11.0',save:'0.11.0'});
  assert.equal(campaignBattleCount('0.10.2'),47);assert.equal(campaignBattleCount('0.11.0'),50);assert.equal(hasFinaleCampaign('0.10.4'),false);
- for(const f of [combatBalanceForVersion,scoreBalanceForVersion,registryForVersion,runesForVersion])assert.equal(f('0.11.0'),f('0.10.2'));
+ for(const f of [combatBalanceForVersion,scoreBalanceForVersion,runesForVersion])assert.equal(f('0.11.0'),f('0.10.2'));
+ const old=registryForVersion('0.10.2'),current=registryForVersion('0.11.0');
+ assert.deepEqual(Object.keys(current).sort(),[...Object.keys(old),'adjectiveModifierPolicy'].sort());
+ assert.equal(current.adjectiveModifierPolicy,'CLEARLY_AP_V1');
+ for(const key of Object.keys(old))if(!['senses','senseById'].includes(key))assert.equal(current[key],old[key]);
+ assert.equal(current.senses.length,old.senses.length);
+ for(const sense of old.senses){const actual=current.senseById[sense.id];assert.ok(current.senses.includes(actual));
+  if(sense.lexemeId==='lex.clearly.adverb')assert.deepEqual(actual,{...sense,adverbPolicy:{...sense.adverbPolicy,adjectiveModifier:true}});
+  else assert.equal(actual,sense);
+ }
  assert.equal(combatBalanceForVersion('0.11.0').sentenceLimit,24);
  for(let stage=1;stage<=10;stage++)for(let round=0;round<(stage===1?3:stage===2?4:5);round++)assert.deepEqual(getEncounter(`stage.${String(stage).padStart(2,'0')}`,round,'0.11.0'),getEncounter(`stage.${String(stage).padStart(2,'0')}`,round,'0.10.2'));
  assert.equal(stageForRun({version:'0.10.2',progress:{stageId:'stage.10'}}).nextStageImplemented,false);

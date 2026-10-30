@@ -1,4 +1,4 @@
-import {button,toast} from './dom.js';
+import {button,el,modal} from './dom.js';
 
 /** Viewport state belongs to the view only, never a run/save or its RNG. */
 export function installViewport(win=window,doc=document){
@@ -21,13 +21,24 @@ export function fullscreenButton(){
  const node=button('',async()=>{
   try{
    if(document.fullscreenElement)await document.exitFullscreen();
-   else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();
-   else toast('이 브라우저는 전체화면을 지원하지 않습니다. 브라우저 메뉴의 전체화면을 이용해 주세요.');
-  }catch{toast('전체화면으로 전환하지 못했습니다. 브라우저 메뉴의 전체화면을 이용해 주세요.');}
+   else if(document.documentElement.requestFullscreen&&document.fullscreenEnabled!==false)await document.documentElement.requestFullscreen();
+   else fullscreenFallback();
+  }catch{fullscreenFallback();}
   sync();
  },'quiet fullscreen-toggle',{'aria-label':'전체화면 전환'});
  const sync=()=>{const active=!!document.fullscreenElement;node.textContent=active?'전체화면 종료':'전체화면';node.setAttribute('aria-pressed',String(active));};
  sync();return node;
+}
+export function lobbyAddress(origin=location.href,base=import.meta.env?.BASE_URL??'./'){
+ const url=new URL(base,origin);url.search='';url.hash='lobby';return url.href;
+}
+function fullscreenFallback(){
+ const url=lobbyAddress(),address=el('input',{value:url,readOnly:true,'aria-label':'게임 주소'}),status=el('p',{role:'status'});
+ let view;view=modal('전체화면 안내',[
+  el('p',{text:'이 환경에서는 전체화면을 사용할 수 없습니다. 게임 주소를 Safari 또는 Chrome 등 일반 브라우저에서 직접 열어볼 수 있습니다. 지원 여부는 기기와 브라우저에 따라 다릅니다.'}),
+  el('p',{text:'다른 브라우저에서는 현재 로컬 저장과 프로필이 공유되지 않을 수 있습니다.'}),address,status,
+  el('div',{class:'dialog-actions'},button('주소 복사',async()=>{try{await navigator.clipboard.writeText(url);status.textContent='게임 주소를 복사했습니다.';}catch{status.textContent='자동 복사가 허용되지 않았습니다. 선택된 주소를 직접 복사해 주세요.';address.focus();address.select();}},'secondary'),button('현재 화면에서 계속',()=>view.close(),'primary'))]);
+ view.dialog.classList.add('fullscreen-help');
 }
 // A single delegated listener also updates buttons rendered after a transition.
 export function syncFullscreenButtons(){

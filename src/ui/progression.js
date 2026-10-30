@@ -1,3 +1,4 @@
+import {soundButton} from './soundControls.js';
 import {sceneBackdrop,MONSTER_ASSETS,sceneAssetUrl,warnAsset} from '../services/sceneAssets.js';
 import {enemyDisplayName,stageDisplayName} from './displayText.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
@@ -20,7 +21,7 @@ import { STAGE2_VEIL_HINT } from '../data/stage2.js';
 
 const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar' },
   el('span', { class: 'brand-small', text: 'SYNTAX ATLAS' }),
-  el('nav', {}, onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
+  el('nav', {}, soundButton(), onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
 const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
 
 export const HARBOR_BOSS_HINT = STAGE2_VEIL_HINT;

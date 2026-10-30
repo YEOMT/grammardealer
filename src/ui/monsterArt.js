@@ -32,7 +32,11 @@ export function attachMonster(element,enemy,name){
   for(const kind of ['idle','hit']){const img=doc.createElement('img');images[kind]=img;img.alt='';img.draggable=false;img.className='monster-image';img.style.objectPosition=art.anchor;img.decoding='async';
     img.onload=()=>{if(alive){img.dataset.ready='true';show();}};img.onerror=()=>{if(alive){warnAsset(img.src);show();}};motion.append(img);img.src=sceneAssetUrl(art[kind]);}
   const reset=killed=>{epoch++;clearTimeout(timer);animation?.cancel();animation=null;dead=!!killed;pose=dead?'hit':'idle';motion.style.opacity=dead?'0':'1';show();};
-  const view={begin(options={}){reset(false);element.dataset.staticMotion=String(!!(options.effectsOff||options.reducedMotion));},
+  const view={visibleRect(){
+      const img=images.idle,r=img.getBoundingClientRect(),[w,h,left,top,right,bottom]=art.bounds,unit=Math.min(r.width/w,r.height/h);
+      const x=r.left+(r.width-w*unit)/2,y=r.bottom-h*unit;
+      return {left:x+left*unit,top:y+top*unit,width:(right-left)*unit,height:(bottom-top)*unit};
+    },begin(options={}){reset(false);element.dataset.staticMotion=String(!!(options.effectsOff||options.reducedMotion));},
     impact({attackId,actualHpLoss,killed,staticMotion=false}){
       if(!alive||seen.has(attackId)||actualHpLoss<=0)return;seen.add(attackId);const token=++epoch;clearTimeout(timer);animation?.cancel();dead=killed;pose='hit';show();
       if(killed){motion.style.opacity='0';animation=motion.animate([{opacity:1},{opacity:0}],{duration:staticMotion?100:360});}

@@ -46,7 +46,9 @@ test('presentation: readable duration and, speed settings preserve exact score e
   assert.ok(duration(base) >= 3000 && duration(base) <= 5000);
   for (const speed of [1.5, 2]) {
     const scaled = buildPresentationTimeline(resolution, { speed });
-    assert.ok(Math.abs(duration(base) / speed - duration(scaled)) < scaled.length);
+    // Game-feel contract: keep gather/lunge visible at 2x instead of scaling below their floor.
+    for(const [i,step]of scaled.entries())assert.equal(step.duration,
+      Math.max(step.kind==='CHARGE'?180:step.kind==='LUNGE'?140:0,Math.round(base[i].duration/speed)));
     assert.deepEqual(scaled.filter(step => step.event).map(step => step.event), resolution.scoreTimeline);
   }
   assert.equal(duration(buildPresentationTimeline(resolution, { effectsOff: true })),duration(base));

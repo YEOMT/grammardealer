@@ -1,4 +1,4 @@
-import {registryForVersion} from '../data/language/index.js';
+import {registryForVersion,registryForReceipt} from '../data/language/index.js';
 import {analyzeSentence} from './grammar/index.js';
 /** Pure original-analysis proposal; independent of combo unlocks and surface spelling. */
 export function emberScaleEvent(analysis,power,before,{attackId,submittedCards}){
@@ -15,7 +15,7 @@ export function validateEmberReleaseReceipt(run){
  if(!receipt||receipt.battleId!==run.combat.enemyState.id||receipt.preBossScore<=0||receipt.bossStateBefore?.active!==true||receipt.bossStateAfter?.active!==false||JSON.stringify(receipt.bossStateAfter)!==JSON.stringify(b))fail();
  const patch=receipt.analysis?.grammarPatchVersion;
  if(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?patch!==registryForVersion(run.version).version:run.version==='0.8.1'&&patch!=='0.8.1'||patch!==undefined&&patch!=='0.8.1')fail();
- const analysis=analyzeSentence(receipt.sentenceSnapshot,registryForVersion(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?run.version:['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?'0.8.0':'0.7.0'),{historicalReceipt:run.version==='0.8.0'&&patch===undefined});
+ const analysis=analyzeSentence(receipt.sentenceSnapshot,registryForReceipt(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?run.version:['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)?'0.8.0':'0.7.0',receipt),{historicalReceipt:run.version==='0.8.0'&&patch===undefined});
  const event=emberScaleEvent(analysis,receipt.preBossScore,receipt.bossStateBefore,{attackId:receipt.attackId,submittedCards:receipt.cardScoringSnapshot});
  if(JSON.stringify(event.bossStateAfter)!==JSON.stringify(b))fail();return true;
 }

@@ -1,3 +1,4 @@
+import {soundButton} from './soundControls.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {shopViewport} from './viewport.js';
 import {FORESIGHT_HINT} from '../data/stage10.js';
@@ -89,7 +90,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
   const animateGrant=grant&&!displayedGrants.has(grant.entryGrantId);
   if(grant)displayedGrants.add(grant.entryGrantId);
   root.replaceChildren(el('header',{class:'topbar shop-topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),
-    el('nav',{},button('내 덱',onDeck,'quiet'),button('단어 사전',onDictionary,'quiet'),button('도감',onRecords,'quiet'),button('저장',onSaves,'quiet'),button('로비',onLobby,'quiet'))),
+    el('nav',{},soundButton(),button('내 덱',onDeck,'quiet'),button('단어 사전',onDictionary,'quiet'),button('도감',onRecords,'quiet'),button('저장',onSaves,'quiet'),button('로비',onLobby,'quiet'))),
     el('main',{class:'shop-page harbor-page'},
       el('header',{class:'shop-heading'},el('div',{},el('span',{class:'eyebrow',text:finale?'FINAL · LAST SHOP':corridor?'CHAPTER 10 · FIFTH SHOP':waterways?'CHAPTER 08 · FOURTH SHOP':snow?'CHAPTER 06 · THIRD SHOP':sky?'CHAPTER 04 · SECOND SHOP':'CHAPTER 02 · FIRST SHOP'}),el('h1',{text:finale?'통사의 근원 · 마지막 준비 상점':corridor?'별의 회랑 · 다섯 번째 상점':waterways?'고대의 수로도시 · 네 번째 상점':snow?'거울의 설원 · 세 번째 상점':sky?'이음의 하늘섬 · 두 번째 상점':'전달의 항구 · 첫 상점'})),
         el('div',{class:'shop-resources'},el('strong',{text:`${gold} 골드`,dataset:{shopGold:String(gold)}}),el('span',{text:`현재 덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length} / ${state.runes.slotLimit}`}))),
