@@ -1,6 +1,6 @@
 import {safeInteger} from './numeric.js';
 import {analyzeSentence} from './grammar/index.js';
-import {registryForVersion} from '../data/language/index.js';
+import {registryForVersion,registryForReceipt} from '../data/language/index.js';
 import {scoreableAnalysis,comboEligibility} from './comboEligibility.js';
 export const FRAME_KEYS=Object.freeze({ 'frame.sv':'SV','frame.beLocative':'SV','frame.svc.adj':'SVC','frame.svc.np':'SVC','frame.svo':'SVO','frame.svoo':'SVOO','frame.svoc':'SVOC'});
 export const frameLabel=key=>({SV:'1형식',SVC:'2형식',SVO:'3형식',SVOO:'4형식',SVOC:'5형식'})[key]??'없음';
@@ -34,7 +34,7 @@ export function validateForesightRun(run){
  let boss={id:'FATE_FORESIGHT',rememberedFrame:null,lastAttackId:null},hp=5000;const seen=new Set();
  for(const r of [...run.stats.history].reverse().filter(r=>r.battleId===c.enemyState.id)){
   if(seen.has(r.attackId)||r.enemyHpBefore!==hp||r.sentenceSnapshot.languageVersion!==registryForVersion(run.version).version)fail();seen.add(r.attackId);
-  const a=analyzeSentence(r.sentenceSnapshot,registryForVersion(run.version));
+  const a=analyzeSentence(r.sentenceSnapshot,registryForReceipt(run.version,r));
   if(a.status==='INVALID_CORE'){if(r.finalPower!==0||r.foresightResult)fail();continue;}
   const proposal=resolveForesight(a,r.preBossScore,{hp,bossMechanic:boss},{attackId:r.attackId,eligibleAnalysis:scoreableAnalysis(a,comboEligibility(run))});
   if(JSON.stringify(proposal)!==JSON.stringify(r.foresightResult)||r.finalPower!==proposal.finalPower||r.enemyHpAfter!==proposal.enemyHpAfter||r.actualHpLoss!==proposal.actualHpLoss)fail();

@@ -1,3 +1,4 @@
+import {scoreFeedback} from './scoreFeedback.js';
 import {monsterViewFor} from '../ui/monsterArt.js';
 import {finaleStatusText} from '../ui/finale.js';
 import {meaningfulComboEvent,runeFeel} from './comboFeel.js';
@@ -46,11 +47,11 @@ export function buildPresentationTimeline(resolution, { speed = 1, effectsOff = 
     const rune=event.sourceType==='RUNE';
     const meaningful=meaningfulComboEvent(event)&&!seenEvents.has(event.eventId);
     seenEvents.add(event.eventId);if(meaningful)combo++;
-    const score={kind:'SCORE',event,combo,duration:duration(event.phase==='CARD_BASE'?170:rune?520:550)};
+    const score={kind:'SCORE',event,combo,duration:event.after<event.before?Math.max(350,duration(700)):duration(event.phase==='CARD_BASE'?170:rune?520:550)};
     return rune?[{kind:'RUNE_FLIGHT',runeEvent:event,combo,duration:duration(220)},score]:[score];
   });
-  return [{kind:'LOCK',duration:duration(50)},...scores,{kind:'POWER',duration:duration(420)},{kind:'CHARGE',duration:duration(400)},
-    {kind:'LUNGE',duration:duration(140)},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)},...(resolution.phaseBreak?[{kind:'PHASE_BREAK_READ',duration:duration(1000)}]:[]),...turnEnd];
+  return [{kind:'LOCK',duration:duration(50)},...scores,{kind:'POWER',duration:duration(420)},{kind:'CHARGE',duration:Math.max(180,duration(300))},
+    {kind:'LUNGE',duration:Math.max(140,duration(220))},{kind:'IMPACT',duration:duration(feel.hitStop)},{kind:'RECOIL',duration:duration(feel.settle)},...(resolution.phaseBreak?[{kind:'PHASE_BREAK_READ',duration:duration(1000)}]:[]),...turnEnd];
 }
 
 /**
@@ -179,7 +180,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   // Decoration may disappear. Core feedback always has a visible, bounded non-motion fallback.
   const animateCore=(node,frames,duration,fill='none')=>{
     if(!node)return;
-    if(settings.reducedMotion)frames=[{filter:'brightness(1)',outline:'2px solid transparent'},{filter:'brightness(1.2)',outline:'2px solid #f2d48c'},{filter:'brightness(1)',outline:'2px solid transparent'}];
+    if(settings.reducedMotion||settings.effectsOff)frames=[{filter:'brightness(1)',outline:'2px solid transparent'},{filter:'brightness(1.2)',outline:'2px solid #f2d48c'},{filter:'brightness(1)',outline:'2px solid transparent'}];
     try{
       if(typeof node.animate!=='function')throw Error('WAAPI unavailable');
       const animation=node.animate(frames,{duration,easing:'ease-out',fill});animations.push(animation);
@@ -198,13 +199,15 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const snapshotCards=()=>{
     const sentence=find(root,'sentence');if(!sentence)return null;
-    const rect=sentence.getBoundingClientRect(),body=root.ownerDocument.createElement('div');body.className='core-attack-body';body.inert=true;body.setAttribute('aria-hidden','true');
-    for(const source of sentence.querySelectorAll('.word-card')){
+    const sources=[...sentence.querySelectorAll('.word-card')];if(!sources.length)return null;
+    const boxes=sources.map(n=>n.getBoundingClientRect()),left=Math.min(...boxes.map(r=>r.left)),top=Math.min(...boxes.map(r=>r.top));
+    const rect={left,top,width:Math.max(...boxes.map(r=>r.right))-left,height:Math.max(...boxes.map(r=>r.bottom))-top},body=root.ownerDocument.createElement('div');body.className='core-attack-body';body.inert=true;body.setAttribute('aria-hidden','true');
+    for(const source of sources){
       const box=source.getBoundingClientRect(),copy=source.cloneNode(true);
       const originals=[source,...source.querySelectorAll('*')],copies=[copy,...copy.querySelectorAll('*')];
       originals.forEach((node,i)=>{const style=getComputedStyle(node),target=copies[i];for(const key of style)target.style.setProperty(key,style.getPropertyValue(key));
         for(const attr of [...target.attributes])if(attr.name==='id'||attr.name.startsWith('data-')||attr.name==='tabindex')target.removeAttribute(attr.name);
-        target.style.animation='none';target.style.transition='none';target.style.transform='none';target.style.pointerEvents='none';
+        target.removeAttribute('aria-label');if('tabIndex'in target)target.tabIndex=-1;target.style.animation='none';target.style.transition='none';target.style.transform='none';target.style.pointerEvents='none';
       });
       Object.assign(copy.style,{position:'absolute',left:`${box.left-rect.left}px`,top:`${box.top-rect.top}px`,width:`${box.width}px`,height:`${box.height}px`,margin:'0'});body.append(copy);
     }
@@ -280,11 +283,11 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
       const label=event.sourceId==='stage.01'?(event.labelKo??event.phase).replace('기본 문형','1·2·3형식'):(event.labelKo??event.phase);
       // Show only this committed effect; the full timeline remains in attack records.
-      const amount=event.operation==='MULTIPLY'?`×${event.operand.num/event.operand.den}`:event.operation==='ADD'?`${event.operand>=0?'+':''}${event.operand}`:'';
-      text('label', amount&&!label.includes(amount)?`${label} · ${amount}`:label); text('score', event.after);
+      const feedback=scoreFeedback(event),amount=feedback.amount;
+      text('label',feedback.delta<0?`${feedback.kind==='defense'?'🛡 ':''}${event.before} → ${event.after} · ${amount} · ${label}`:amount&&!label.includes(amount)?`${label} · ${amount}`:label); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
       scoreEffects.score(event,combo);
-      audio?.play?.(/CARD|BASE/.test(event.phase) ? 'card' : 'score', { step, intensity });
+      audio?.play?.(feedback.delta<0?(feedback.kind==='defense'?'blocked':'penalty'):event.phase==='CARD_BASE'?'card':'score', { step, intensity });
     },
     highlight(cardIds, roles = [], argumentsByNode=[]) {
       for (const id of cardIds) {
@@ -326,20 +329,25 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       Object.assign(node.style,{position:'fixed',left:`${x}px`,top:`${y}px`});root.append(node);effectNodes.push(node);
       animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(${Math.min(1.12,.7+.25*weight)})`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
-    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
+    turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const hp=find(root,'hp');if(hp&&receipt.actualHeal>0)hp.style.color='#a4e8a1';const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
     setPower(power) { text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';
       text('label', '힘을 모읍니다'); audio?.play?.('charge', { intensity });
-      mountAttack();animateCore(attackBody,[{transform:'scale(1)'},{transform:'scale(.96)'}],duration);
+      if(settings.effectsOff||settings.reducedMotion){animateCore(find(root,'score'),[{opacity:1},{opacity:.7},{opacity:1}],duration);return;}
+      mountAttack();if(!attackBody)return;
+      const cards=[...attackBody.children],a=visualSnapshot.rect;
+      cards.forEach((card,i)=>{const x=a.width/2-parseFloat(card.style.left)-parseFloat(card.style.width)/2+(i-(cards.length-1)/2)*3,y=a.height/2-parseFloat(card.style.top)-parseFloat(card.style.height)/2;
+        animateCore(card,[{transform:'translate(0,0) scale(1)'},{transform:`translate(${x}px,${y}px) scale(.72) rotate(${(i%5-2)*3}deg)`}],duration,'forwards');});
     },
     lunge({ duration }) {
       root.dataset.corePhase='LUNGE';
       text('label', '문장 공격!');
+      if(settings.effectsOff||settings.reducedMotion)return;
       mountAttack();const enemy=find(root,'enemy');
-      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=(enemy.querySelector('.monster-art-motion')??enemy).getBoundingClientRect();
+      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=monsterViewFor(enemy)?.visibleRect()??enemy.getBoundingClientRect();
         const x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;
-        lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(.96)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.36)`,opacity:.5}],duration,'forwards');
+        lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.65)`,opacity:1}],duration,'forwards');
       }
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {

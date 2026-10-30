@@ -59,6 +59,7 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{histo
   if(['0.8.0','0.9.0','0.10.0'].includes(languageRegistry.version)&&snapshot.fixtureMultipleSentences)return {...result,status:'INVALID_CORE',messageKo:'한 문장씩 제출하세요.'};
   const parsed=parseSupportedClause(tokens,languageRegistry,{historicalReceipt});
   result={...result,...parsed};
+  if(languageRegistry.adjectiveModifierPolicy&&!historicalReceipt)result.adjectiveModifierPolicy=languageRegistry.adjectiveModifierPolicy;
   if(['0.9.0','0.10.0'].includes(languageRegistry.version))result.grammarVersion=languageRegistry.version;
   if(['0.9.0','0.10.0'].includes(languageRegistry.version))result.grammarPatchVersion=languageRegistry.version;
   if(languageRegistry.version==='0.8.0'&&!historicalReceipt)result.grammarPatchVersion='0.8.1';

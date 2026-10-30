@@ -1,3 +1,4 @@
+import {soundButton} from './soundControls.js';
 import './lobby.css';
 import {sceneBackdrop} from '../services/sceneAssets.js';
 import {fullscreenButton} from './viewport.js';
@@ -20,7 +21,7 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     button('수동 저장 불러오기',onLoad,'secondary full-width'),
     el('p',{class:'local-note',text:'이 기기에 기록되는 개인 원정 · 계정 없이 플레이'}));
   const preview=el('div',{class:'hero-card-fan','aria-hidden':'true'},[['I','대명사','PRONOUN'],['make','동사','VERB'],['stories','명사','NOUN']].map(([word,pos,type],i)=>el('div',{class:`hero-word-card pos-${type} fan-${i}`},el('span',{text:pos}),el('strong',{text:word}),el('small',{text:'10  ◇'}))));
-  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},fullscreenButton(),button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.11.0'}))),
+  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},soundButton(),fullscreenButton(),button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:'0.11.0'}))),
     el('main',{class:'lobby'},el('section',{class:'hero'},el('div',{class:'eyebrow hero-eyebrow'},el('span',{class:'tiny-diamond'}),'WORDS BECOME POWER'),el('h1',{},'Syntax',el('br'),el('span',{text:'Atlas'})),el('p',{class:'hero-description',text:'아름다운 지역을 탐험하며 나만의 문장을 만들어가는 모험'}),preview,
     el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01–10 + FINAL'}),el('div',{},el('span',{class:'eyebrow',text:'FIFTY BATTLES'}),el('h3',{text:'열 지역과 최종 성역을 잇는 모험'}),el('p',{text:'총 50전투 · 통사의 근원 · 마지막 세 전투'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
     el('footer',{class:'lobby-footer'},el('span',{text:'과거 · 현재 · 미래로 이어지는 문장 모험'}),onSandbox&&button('문장 샌드박스 ↗',onSandbox,'quiet')));

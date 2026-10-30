@@ -10,3 +10,18 @@ export function resolveMusicContext(route,run){
   return usesPostBossShop(run)&&preparing?(previous[stage]??stage):stage;
 }
 export const musicManifest=Object.fromEntries(Object.entries(SCENE_ASSETS).filter(([,v])=>v.bgm).map(([id,v])=>[id,v.bgm]));
+
+/** One pending region transition. Re-renders and fast entry keep the original deadline. */
+export function createMusicDirector(audio,{delay=3000,schedule=setTimeout,cancel=clearTimeout}={}){
+ let key=null,target=null,owner=null,timer=null,epoch=0;
+ return {sync(route,run,session=null){
+   const next=resolveMusicContext(route,run),nextKey=`${route==='#game'?run?.runId??'':route}:${next}`;
+   if(nextKey===key&&owner===session)return;
+   const prior=target,changedSession=owner!==session;key=nextKey;target=next;owner=session;epoch++;cancel(timer);timer=null;
+   const token=epoch;
+   if(!changedSession&&prior?.startsWith('stage.')&&next?.startsWith('stage.')&&prior!==next&&audio.currentBgm){
+     audio.holdCurrentBgm?.();
+     timer=schedule(()=>{timer=null;if(token===epoch)audio.setBgmAsset(next,musicManifest);},delay);
+   }else audio.setBgmAsset(next,musicManifest);
+ },cancel(){epoch++;cancel(timer);timer=null;key=null;target=null;owner=null;},get pending(){return timer!==null;}};
+}

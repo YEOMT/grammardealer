@@ -1,3 +1,7 @@
+# Game Feel · Audio Stability 후속 패치
+
+기준 main `4ce13fb1ab5a8008639e04fd97891ff1dac150bd`, 브랜치 `codex/gamefeel-audio-stability`. [이번 실제 검사와 한계](GAMEFEEL_AUDIO_STABILITY_REPORT.md). 같은 전투의 상단 view 수명, 고정 점수·별도 공격 FX, 소리 패널과 지역 BGM 지연을 보완했다. 최신 제출의 `CLEARLY_AP_V1`만 clearly→형용사를 좁게 지원하고 과거 registry/receipt는 당시 판정을 유지한다. 게임 수치·에셋·저장 버전은 그대로다. 아래는 이전 인계다.
+
 # 0.11.0 현재 인계
 
 기준 main은 `cb1958f66dda4e4cd320c7b03e661d7a8cb41cf4`, 브랜치는 `codex/v0.11-final-trilogy`다. [실제 검사·V01~V20·남은 한계](TEST_REPORT_0.11.md)와 [명세](../spec/v0.11/Syntax_Atlas_0.11_FinalBoss_Spec.md)를 먼저 읽는다. 새 원정만 마지막 상점과48~50 최종 세 전투/`FINAL50_CLEAR`를 사용한다. 기존1~47 정책·구저장·현재 전투 UI는 유지한다.

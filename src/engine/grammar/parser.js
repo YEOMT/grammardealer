@@ -110,13 +110,14 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  function parseAPAtom(start,{attributive=false,depth=0,determiner=null,subject=null}={}) {
   const compared=comparisonPhrase(start,{attributive,depth,determiner,subject});if(compared!==null)return compared;
   tick();let p=start;const degrees=[];
-  while(isDegree(p)){degrees.push(p++);tick();}
+  while(isDegree(p)||!historicalReceipt&&registry.adjectiveModifierPolicy&&tok(p)?.sense.adverbPolicy?.adjectiveModifier&&hasRole(p+1,'ADJECTIVE')&&(registry.formById[tok(p+1).selectionId].grammaticalFeatures.degree??'POSITIVE')==='POSITIVE'){degrees.push(p++);tick();}
   if(!hasRole(p,'ADJECTIVE')){
    if(desert&&attributive&&(ingAt(p)||ppAt(p)))return nonfiniteOptions(p,p+1,depth,{kind:ppAt(p)?'PP':'ING',function:'NOUN_MODIFIER',interpretation:'PARTICIPLE'}).map(n=>phrase('AP',start,n.end,n.head,{hits:n.hits,issues:n.issues,roles:n.roles,children:[n]}));
    if(ember&&!attributive&&ppAt(p)&&tok(p).lex.participleStateForms?.some(id=>tok(p).forms.some(f=>f.id===id)))return [phrase('AP',start,p+1,p,{roles:[role(p,'COMPLEMENT')],hits:[{...hit('PARTICIPLE.PAST',p,p+1),function:'SUBJECT_COMPLEMENT',interpretation:'STATE',bonusEligible:false,validity:'VALID'}],participleState:true})];
    return [];
   }
-  const base=phrase('AP',start,p+1,p,{hits:[...degrees.map(i=>hit('MODIFIER.ADVERB',i,i+1)),...(attributive?[hit('MODIFIER.ADJECTIVE',p,p+1)]:[])],roles:[...degrees.map(i=>role(i,'ADVERB')),role(p,'ADJECTIVE')]});
+  const explicitTarget=degrees.some(i=>tok(i).sense.adverbPolicy?.adjectiveModifier);
+  const base=phrase('AP',start,p+1,p,{hits:[...degrees.map(i=>({...hit('MODIFIER.ADVERB',i,i+1),...(explicitTarget?{modifierCardIds:[tok(i).cardInstanceId],targetCardIds:[tok(p).cardInstanceId]}:{})})),...(attributive?[{...hit('MODIFIER.ADJECTIVE',p,p+1),...(explicitTarget?{targetCardIds:[]}:{})}]:[])],roles:[...degrees.map(i=>role(i,'ADVERB')),role(p,'ADJECTIVE')]});
   const out=[base];if(desert&&!attributive&&depth<limits.depth){
    if(tok(p).senses.some(s=>s.infinitiveComplement))for(const n of nonfiniteOptions(p+1,tokens.length,depth,{kind:'TO',function:'ADJECTIVE_COMPLEMENT'}))out.push(merge(base,n,{end:n.end}));
    if(polish061&&subject&&tok(p).senses.some(s=>s.subjectObjectInfinitive))for(const n of nonfiniteOptions(p+1,tokens.length,depth,{kind:'TO',function:'ADJECTIVE_COMPLEMENT',objectGap:subject,adjectiveObjectGap:true,governorHead:p}))out.push(merge(base,n,{end:n.end}));
@@ -151,7 +152,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   if(hasRole(p,'NOUN_HEAD')) {
    const noun=tok(p);const f=noun.forms.find(f=>f.allowedRoleCandidates.includes('NOUN_HEAD'));
    const nounLex=registry.lexemeById[f.lexemeId],nounSense=nounLex.id===noun.lex.id?noun.sense:registry.senseById[nounLex.senseIds[0]];
-   const nounAps=desert?aps.map(ap=>({...ap,hits:ap.hits.map(h=>h.tag==='MODIFIER.ADJECTIVE'&&h.modifierCardIds?{...h,targetCardIds:[tok(p).cardInstanceId]}:h),children:ap.children.map(n=>n.nonfinite?{...n,nonfinite:{...n.nonfinite,controllerHead:p}}:n)})):aps;
+   const nounAps=desert?aps.map(ap=>({...ap,hits:ap.hits.map(h=>h.tag==='MODIFIER.ADJECTIVE'&&(h.modifierCardIds||h.targetCardIds)?{...h,targetCardIds:[tok(p).cardInstanceId]}:h),children:ap.children.map(n=>n.nonfinite?{...n,nonfinite:{...n.nonfinite,controllerHead:p}}:n)})):aps;
    const features={person:3,number:f.grammaticalFeatures.number,countability:nounSense.countability};
    const issues=[];const indefinite=determinant!==null&&tok(determinant).lex.lemma==='a';
    const singularDet=determinant!==null&&(indefinite||['this','that'].includes(word(determinant)));

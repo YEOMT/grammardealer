@@ -1,4 +1,4 @@
-import {registryForVersion} from '../data/language/index.js';
+import {registryForVersion,registryForReceipt} from '../data/language/index.js';
 import {analyzeSentence} from './grammar/index.js';
 import {libraryTargetEvidence} from './libraryEvidence.js';
 import {LIBRARY_CONFIRMED} from '../data/libraryPolicy.js';
@@ -19,7 +19,7 @@ export function validateLibraryTurnEnds(run){
  for(const [i,r]of c.libraryTurnEnds.entries()){
   const attack=(run.stats.history??[]).find(a=>a.attackId===r.actionId);
   if(r.actionType==='ATTACK'&&(!attack||attack.battleId!==c.enemyState.id||attack.actualHpLoss!==r.actualDamage||attack.enemyHpBefore!==r.hpBefore||attack.enemyHpAfter!==r.hpAfterAttack))fail();
-  const expected=resolveLibraryTurnEnd({runId:run.runId,battleId:c.enemyState.id,turnIndex:i+1,actionId:r.actionId,actionType:r.actionType,hpBefore:hp,hpAfterAttack:r.actionType==='PREPARE'?hp:attack.enemyHpAfter,actualDamage:r.actionType==='PREPARE'?0:attack.actualHpLoss,analysis:attack?analyzeSentence(attack.sentenceSnapshot,registryForVersion(run.version)):null});
+  const expected=resolveLibraryTurnEnd({runId:run.runId,battleId:c.enemyState.id,turnIndex:i+1,actionId:r.actionId,actionType:r.actionType,hpBefore:hp,hpAfterAttack:r.actionType==='PREPARE'?hp:attack.enemyHpAfter,actualDamage:r.actionType==='PREPARE'?0:attack.actualHpLoss,analysis:attack?analyzeSentence(attack.sentenceSnapshot,registryForReceipt(run.version,attack)):null});
   if(JSON.stringify(r)!==JSON.stringify(expected)||r.actionType==='ATTACK'&&JSON.stringify(attack.turnEndReceipt)!==JSON.stringify(r))fail();
   hp=r.hpAfterTurnEnd;
  }
