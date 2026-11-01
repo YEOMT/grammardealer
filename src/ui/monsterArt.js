@@ -17,13 +17,19 @@ export function attachMonster(element,enemy,name){
     // Preserve the previous 1.12x canvas's ground line, using one common foot anchor for both poses.
     const shift=(foot-r.height)*.12,ground=r.top+foot+shift,center=r.left+r.width/2;
     const l=stage.querySelector('.enemy-tactics').getBoundingClientRect(),rr=stage.querySelector('.enemy-info').getBoundingClientRect();
-    const scale=Math.max(0,Math.min(art.scale,
+    const boss=enemy.kind==='REGIONAL_BOSS'||enemy.kind==='FINAL_BOSS';
+    // Two normal-sized bodies is a target, constrained by this unchanged stage.
+    const normalArt=MONSTER_ASSETS[enemy.enemyId==='boss.stage1'?'enemy.stage1.01':'enemy.stage2.01'];
+    const normalBody=(normalArt.bounds[5]-normalArt.bounds[3])*Math.min(r.width/normalArt.bounds[0],r.height/normalArt.bounds[1])*normalArt.scale;
+    const desired=boss?normalBody*2/((bottom-top)*unit):art.scale;
+    const scale=Math.max(0,Math.min(desired,
       (center-l.right-8)/(r.width/2-x-left*unit),
       (rr.left-center-8)/(x+right*unit-r.width/2),
       (ground-stage.getBoundingClientRect().top-8)/((bottom-top)*unit)));
     motion.style.transformOrigin=`50% ${foot}px`;
     motion.style.setProperty('--monster-foot-shift',`${shift}px`);
     motion.style.setProperty('--monster-scale',scale);
+    if(boss){motion.dataset.bodyTarget=String(normalBody*2);motion.dataset.bodyHeight=String((bottom-top)*unit*scale);motion.dataset.safetyCapped=String(scale<desired);}
   };
   const resize=new ResizeObserver(fit);resize.observe(slot);fit();
   let alive=true,epoch=0,timer=null,pose='idle',dead=enemy.hp===0,animation=null;const seen=new Set(),images={};
@@ -32,7 +38,11 @@ export function attachMonster(element,enemy,name){
   for(const kind of ['idle','hit']){const img=doc.createElement('img');images[kind]=img;img.alt='';img.draggable=false;img.className='monster-image';img.style.objectPosition=art.anchor;img.decoding='async';
     img.onload=()=>{if(alive){img.dataset.ready='true';show();}};img.onerror=()=>{if(alive){warnAsset(img.src);show();}};motion.append(img);img.src=sceneAssetUrl(art[kind]);}
   const reset=killed=>{epoch++;clearTimeout(timer);animation?.cancel();animation=null;dead=!!killed;pose=dead?'hit':'idle';motion.style.opacity=dead?'0':'1';show();};
-  const view={visibleRect(){
+  const view={impactPoint(){
+      if(!art.impactAnchor){const b=this.visibleRect();return {x:b.left+b.width/2,y:b.top+b.height/2};}
+      const r=images.idle.getBoundingClientRect(),[w,h]=art.bounds,u=Math.min(r.width/w,r.height/h);
+      return {x:r.left+(r.width-w*u)/2+art.impactAnchor[0]*w*u,y:r.bottom-h*u+art.impactAnchor[1]*h*u};
+    },visibleRect(){
       const img=images.idle,r=img.getBoundingClientRect(),[w,h,left,top,right,bottom]=art.bounds,unit=Math.min(r.width/w,r.height/h);
       const x=r.left+(r.width-w*unit)/2,y=r.bottom-h*unit;
       return {left:x+left*unit,top:y+top*unit,width:(right-left)*unit,height:(bottom-top)*unit};

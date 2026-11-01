@@ -19,15 +19,16 @@ test('audio rejection clears initialization; subsequent tap retries without rese
  const ctx=context();let reject=true;ctx.resume=async()=>{if(reject)throw Error('NotAllowed');ctx.state='running';};const a=new AudioManager({contextFactory:()=>ctx});a.configure({volume:0,muted:true});
  assert.equal(await a.unlock(),false);assert.equal(a.initializing,null);reject=false;assert.equal(await a.unlock(),true);assert.equal(a.volume,0);assert.equal(a.muted,true);
 });
-test('music grace deadline survives fast entry, cancels on lobby/load, never starts an unregistered URL',()=>{
- let now=0,id=0;const jobs=new Map(),calls=[],audio={currentBgm:{assetId:'stage.01'},setBgmAsset(key){calls.push([now,key]);}},director=createMusicDirector(audio,{schedule:(fn,ms)=>{jobs.set(++id,{fn,at:now+ms});return id;},cancel:key=>jobs.delete(key)});
- const tick=ms=>{now+=ms;for(const [key,job]of jobs)if(job.at<=now){jobs.delete(key);job.fn();}};
+test('music sequence request survives fast entry, cancels on lobby/load, no stale grace timer',()=>{
+ const calls=[],audio={currentBgm:{assetId:'stage.01'},setBgmAsset(key,manifest,options){calls.push({key,options});}},director=createMusicDirector(audio);
  const run={runId:'qa',version:'0.11.0',config:{shopFlowPolicy:'BOSS_REWARD_FIRST_V1'},progress:{stageId:'stage.01'},status:'REWARD'},owner={};
- director.sync('#game',run,owner);run.progress.stageId='stage.02';run.status='SHOP';director.sync('#game',run,owner);assert.equal(jobs.size,0);
- run.status='STAGE_INTRO';run.shop={stageId:'stage.02',closed:true};director.sync('#game',run,owner);tick(1800);run.status='BATTLE';director.sync('#game',run,owner);tick(1199);assert.equal(calls.length,1);tick(1);assert.deepEqual(calls.at(-1),[3000,'stage.02']);
- run.progress.stageId='stage.03';director.sync('#game',run,owner);director.sync('#lobby',run,owner);tick(4000);assert.equal(calls.at(-1)[1],'lobby');assert.equal(jobs.size,0);
- director.sync('#game',run,{});assert.equal(calls.at(-1)[1],'stage.03');assert.equal(musicManifest['stage.03'],undefined);assert.equal(jobs.size,0);
+ director.sync('#game',run,owner);run.progress.stageId='stage.02';run.status='SHOP';director.sync('#game',run,owner);assert.equal(calls.length,1);
+ run.status='STAGE_INTRO';run.shop={stageId:'stage.02',closed:true};director.sync('#game',run,owner);assert.deepEqual(calls.at(-1),{key:'stage.02',options:{sequential:true}});
+ run.status='BATTLE';director.sync('#game',run,owner);assert.equal(calls.length,2);
+ run.progress.stageId='stage.03';director.sync('#game',run,owner);director.sync('#lobby',run,owner);assert.deepEqual(calls.at(-1),{key:'lobby',options:{sequential:false}});
+ director.sync('#game',run,{});assert.equal(calls.at(-1).key,'stage.03');assert.equal(musicManifest['stage.03'],undefined);
 });
+
 test('negative display uses real delta, separates defense and grammar, HP protection is neutral',()=>{
  assert.deepEqual(scoreFeedback({before:90,after:80,phase:'ACCURACY',sourceType:'GRAMMAR'}),{kind:'grammar-loss',delta:-10,amount:'−10',color:'#ff956d'});
  assert.equal(scoreFeedback({before:100,after:25,phase:'BOSS',sourceType:'BOSS'}).kind,'defense');

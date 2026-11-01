@@ -1,3 +1,9 @@
+# 0.12.1 현재 인계
+
+기준 main `61f02494888e8358161d53aba13631f0af143f71`, 브랜치 `codex/v0.12.1-integrated-polish`. [본명세](../spec/v0.12.1/Syntax_Atlas_0.12.1_Polish_Spec.md)와 [실제 검사·대표 화면·제한](POLISH_0.12.1_REPORT.md)을 먼저 읽는다.
+
+새0.12.1만 clone된 언어/공급 정책을 사용하며 기존 원정을 자동 승격하지 않는다. 이전0.12의28장/고정동사8장·50전투·저장·수치는 유지한다. 정상 제출 표시자료는 viewport에서 폐기하지 않고 재배치하며, BGM은 기존3초 지연 대신 source 종료 후1초 무음을 갖는다. 두 보스 몸체의2배 목표는 고정 무대 안전 한도로 제한된다. 최종단위1911·데이터3652·빌드·11브라우저 묶음 및 별도최종전11검사 PASS. 실기기청취/자연50/production완주는 NOT RUN. 아래는 이전 인계다.
+
 # 0.12.0 현재 인계
 
 기준 main `e0c68d83985605aa1ed950889e87da2df9c45aec`, 브랜치 `codex/v0.12.0-learning-score-overlay`. [패치 노트](../PATCH_NOTES_0.12.0_KO.md), [실제 검사·언어 검토·대표 화면](LEARNING_SCORE_0.12_REPORT.md), [유일한 본명세](../spec/v0.12/Syntax_Atlas_0.12.0_Patch_Spec.md)를 읽는다.

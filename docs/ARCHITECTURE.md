@@ -1,3 +1,12 @@
+# 0.12.1 정책·표시 수명
+
+- `POLISH0121_VERSIONS`는0.12의 game/save/language/generator/presentation만 확장한다. `polish0121` registry는 새 어휘·secondary lexeme·형용사별 extraposition 정책을 clone에만 적용한다. 기존 버전별 grammar/score/rune/보스/저장 경계를 유지하도록 허용 목록에 새버전을 연결한다.
+- parser는 등록 표면형의 실제 품사 후보와 frame binding을 사용한다. `INFINITIVE_ACTOR`와 nominal 증거의 actor/marker/adjective 카드 ID는 for 의미상주어/of 평가대상을 구분한다. 정답 여부·중복 물리카드·보너스 적격은 분리한다.
+- presentation은 제출 snapshot을 유지하고 viewport/host 변화 때 복사본 좌표와 진행 중 WAAPI 시간을 복구한다. 원본 카드/상단 view나 Controller 정산은 다시 만들지 않는다. `monsterArt.impactPoint`는 공통 PNG 몸체 배율·접지로 구한 명시적 타격점이다.
+- MusicDirector는 새 지역 목표만 즉시 전달한다. AudioManager가 이전 source의 ended와 AudioContext 시계를 기준으로 fade-out→1초 silence→fade-in을 소유한다. epoch/abort/gate 취소로 늦은 로드와 이전 예약을 무효화한다. 같은 곡은 재시작하지 않는다.
+
+[실제 검사·한계](POLISH_0.12.1_REPORT.md). 아래는 이전 구조 기록이다.
+
 # 0.12 학습 정책과 독립 점수 표시
 
 - `LEARNING012_VERSIONS`는0.11 계약의 game/save/language/generator/presentation만0.12로 바꾼다. 다른 수치·보상·룬 정책은 상속한다. `learning012`는 이전 registry를 clone하여 신규 어휘/겸용/긍정 주절 명령문 정책을 추가하며 이전 registry는 불변이다.

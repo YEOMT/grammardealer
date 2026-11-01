@@ -103,7 +103,7 @@ export function preparationGuide(run){
   'stage.05':['I want to run.','I have a book to read.','I like running.','I make you happy.'],
   'stage.06':['I am bigger than you.','I have the biggest book.','I am as big as you.','I am too tired to run.'],
   'stage.07':['I see a running dog.','The book was made.','I make him work.','I see him running.'],
-  'stage.08':['I see a dog that runs.','I see the book you read.','I know the room where you work.','I see the book that was made.'],
+  'stage.08':['I see a dog that runs.','I see the book you read.','I know the school where you work.','I see the book that was made.'],
   'stage.09':['I know what you like.','I know where you work.','I know whether you work.','It is easy to run.'],
   'stage.10':['If you run I will run.','If I had time I would run.','I had worked.','If I had worked I would have helped you.'],
  };

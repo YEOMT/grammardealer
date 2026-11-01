@@ -1,3 +1,4 @@
+import {addPolish0121} from './polish0121.js';
 import {addLearning012} from './learning012.js';
 import {addCorridorLanguage} from './corridorLanguage.js';
 import {addLibraryLanguage} from './libraryLanguage.js';
@@ -144,6 +145,7 @@ export const recoveryRegistry=freeze({...campaign010Registry,maxSentenceCards:24
 const currentSenses=recoveryRegistry.senses.map(s=>s.lexemeId==='lex.clearly.adverb'?{...s,adverbPolicy:{...s.adverbPolicy,adjectiveModifier:true}}:s);
 export const currentSubmissionRegistry=freeze({...recoveryRegistry,adjectiveModifierPolicy:'CLEARLY_AP_V1',senses:currentSenses,senseById:index(currentSenses)});
 export const learning012Registry=freeze(addLearning012(currentSubmissionRegistry));
+export const polish0121Registry=freeze(addPolish0121(learning012Registry));
 export const registry = recoveryRegistry;
 export const languageRegistry = registry;
 
@@ -163,7 +165,7 @@ const campaign02Lexemes=lexemes.filter(l=>l.introducedVersion!=='0.2.1');
 const campaign02Ids=new Set(campaign02Lexemes.map(l=>l.id));
 const campaign02Rows={lexemes:campaign02Lexemes,forms:forms.filter(x=>campaign02Ids.has(x.lexemeId)),senses:senses.filter(x=>campaign02Ids.has(x.lexemeId)),morphologies:morphologies.filter(x=>campaign02Ids.has(x.lexemeId)),cards:cardDefinitions.filter(x=>campaign02Ids.has(x.lexemeId))};
 export const campaign02Registry=freeze({...campaign021Registry,...campaign02Rows,version:'0.2.0',cardDefinitions:campaign02Rows.cards,lexemeById:index(campaign02Rows.lexemes),formById:index(campaign02Rows.forms),senseById:index(campaign02Rows.senses),morphologyById:index(campaign02Rows.morphologies),cardById:index(campaign02Rows.cards)});
-export function registryForVersion(version) { return version==='0.12.0'?learning012Registry:version==='0.11.0'?currentSubmissionRegistry:version==='0.10.2'?recoveryRegistry:['0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(version)?campaign010Registry:version==='0.9.0'?campaign09Registry:['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:['0.5.0','0.5.1'].includes(version)?campaign05Registry:version==='0.6.0'?campaign06Registry:version==='0.6.1'?campaign061Registry:version==='0.7.0'?campaign07Registry:['0.8.0','0.8.1'].includes(version)?campaign08Registry:version===undefined?registry:(()=>{throw new TypeError('Unsupported language version: '+version);})(); }
+export function registryForVersion(version) { return version==='0.12.1'?polish0121Registry:version==='0.12.0'?learning012Registry:version==='0.11.0'?currentSubmissionRegistry:version==='0.10.2'?recoveryRegistry:['0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(version)?campaign010Registry:version==='0.9.0'?campaign09Registry:['0.1.0','0.1.1'].includes(version)?legacyRegistry:version==='0.2.0'?campaign02Registry:version==='0.2.1'?campaign021Registry:version==='0.2.2'?campaign022Registry:version==='0.3.0'?campaign03Registry:version==='0.4.0'?campaign04Registry:['0.5.0','0.5.1'].includes(version)?campaign05Registry:version==='0.6.0'?campaign06Registry:version==='0.6.1'?campaign061Registry:version==='0.7.0'?campaign07Registry:['0.8.0','0.8.1'].includes(version)?campaign08Registry:version===undefined?registry:(()=>{throw new TypeError('Unsupported language version: '+version);})(); }
 
 /** Resolve a definition, instance, or definition ID to its registered Lexeme. */
 export function lexemeForCard(card, registry=languageRegistry) {

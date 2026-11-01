@@ -24,16 +24,17 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  const ingAt=i=>tok(i)?.lex.pos==='VERB'&&tok(i).forms.some(isIngForm);
  const ppAt=i=>ember&&tok(i)?.lex.pos==='VERB'&&tok(i).forms.some(f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE');
  const cardIds=(start,end)=>tokens.slice(start,end).map(t=>t.cardInstanceId);
- const role=(i,type,usage=tok(i).lex)=>{
+ const usageFor=(i,pos)=>tok(i)?.forms.map(f=>registry.lexemeById[f.lexemeId]).find(l=>l.pos===pos);
+ const role=(i,type,usage=usageFor(i,({ADJECTIVE:'ADJECTIVE',ADVERB:'ADVERB'})[type])??tok(i).lex)=>{
   const selected=registry.cardById[tok(i).cardDefId]?.secondaryLexemeIds?.length;
   const label=({SUBJECT:'주어 S',FINITE_VERB:'동사 V',OBJECT:'목적어 O',INDIRECT_OBJECT:'간접목적어 IO',DIRECT_OBJECT:'직접목적어 DO',COMPLEMENT:'보어 C',NONFINITE_VERB:'동사 원형',INFINITIVE_CONNECTOR:'부정사 to',RELATIVE_CONNECTOR:'관계사',DETERMINER:'한정사',ADJECTIVE:'형용사',ADVERB:'부사',PREPOSITION:'전치사',PP_OBJECT:'전치사 목적어',NOUN_HEAD:'명사'}[type]??type);
-  return {cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:label+(selected&&!historicalReceipt?(usage.pos==='NOUN'?' · 명사':' · 동사'):''),...(selected&&!historicalReceipt?{selectedLexemeId:usage.id,selectedPos:usage.pos}:{})};
+  return {cardInstanceId:tok(i).cardInstanceId,role:type,labelKo:label+(selected&&!historicalReceipt?(({NOUN:' · 명사',VERB:' · 동사',ADJECTIVE:' · 형용사',ADVERB:' · 부사'})[usage.pos]??''):''),...(selected&&!historicalReceipt?{selectedLexemeId:usage.id,selectedPos:usage.pos}:{})};
  };
  const hit=(tag,start,end,head=start)=>({tag,cardIds:cardIds(start,end),headCardId:tok(head).cardInstanceId,evidenceKey:`${tag}:${cardIds(start,end).join('|')}`});
  const issue=(code,indices)=>({code,cardIds:indices.map(i=>tok(i).cardInstanceId),causeId:`${code}:${indices.map(i=>tok(i).cardInstanceId).join('|')}`,messageKo:LABELS[code]});
  const phrase=(kind,start,end,head,more={})=>({kind,start,end,head,features:{},issues:[],hits:[],roles:[],children:[],...more});
  const isDegree=(i)=>tok(i)?.lex.pos==='ADVERB'&&tok(i)?.sense.adverbPolicy?.degree;
- const advAllowed=(i,position)=>tok(i)?.lex.pos==='ADVERB'&&tok(i)?.sense.adverbPolicy?.positions.includes(position);
+ const advAllowed=(i,position)=>{const l=usageFor(i,'ADVERB');return l?registry.senseById[l.senseIds[0]].adverbPolicy?.positions?.includes(position):registry.languagePolicyVersion==='0.12.1'&&tok(i)?.sense.adverbPolicy?.additive&&position==='END';};
  const ppStart=(i)=>hasRole(i,'PREPOSITION');
  const merge=(a,b,extra={})=>({...a,...extra,issues:[...a.issues,...b.issues],hits:[...a.hits,...b.hits],roles:[...a.roles,...b.roles],children:[...a.children,b],...(desert?{interpretationPriority:(a.interpretationPriority??0)+(b.interpretationPriority??0)}:{})});
 
@@ -73,7 +74,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   if(['more','most','as','too'].includes(word(p))){prefix=word(p);markerIndices.push(p++);}
   const head=p,expectedRole=kind==='AP'?'ADJECTIVE':'ADVERB';
   if(!hasRole(head,expectedRole)||kind==='AdvP'&&!advAllowed(head,position))return prefix?[]:null;
-  const form=registry.formById[tok(head).selectionId],degree=form.grammaticalFeatures.degree??'POSITIVE',policy=tok(head).lex.comparisonPolicy;
+  const form=tok(head).forms.find(f=>f.allowedRoleCandidates.includes(expectedRole)),degree=form.grammaticalFeatures.degree??'POSITIVE',policy=(usageFor(head,kind==='AP'?'ADJECTIVE':'ADVERB')??tok(head).lex).comparisonPolicy;
   const enough=word(head+1)==='enough';
   if(!prefix&&!enough&&!['COMPARATIVE','SUPERLATIVE'].includes(degree))return null;
   let tag=prefix==='as'?'COMPARISON.EQUALITY':prefix==='too'?'DEGREE.TOO':enough?'DEGREE.ENOUGH':prefix==='most'||degree==='SUPERLATIVE'?'COMPARISON.SUPERLATIVE':'COMPARISON.COMPARATIVE';
@@ -107,7 +108,9 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   }
   return bases;
  }
- function parseAPAtom(start,{attributive=false,depth=0,determiner=null,subject=null}={}) {
+ function parseAPAtom(start,{attributive=false,depth=0,determiner=null,subject=null,governor=null}={}) {
+  const head=start+(isDegree(start)?1:0),usage=usageFor(head,'ADJECTIVE');
+  if(usage?.predicateVerbs&&(attributive||governor&&!usage.predicateVerbs.includes(governor)))return [];
   const compared=comparisonPhrase(start,{attributive,depth,determiner,subject});if(compared!==null)return compared;
   tick();let p=start;const degrees=[];
   while(isDegree(p)||!historicalReceipt&&registry.adjectiveModifierPolicy&&tok(p)?.sense.adverbPolicy?.adjectiveModifier&&hasRole(p+1,'ADJECTIVE')&&(registry.formById[tok(p+1).selectionId].grammaticalFeatures.degree??'POSITIVE')==='POSITIVE'){degrees.push(p++);tick();}
@@ -242,10 +245,11 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  }
  function advPhrase(i){return phrase('AdvP',i,i+1,i,{hits:[hit('MODIFIER.ADVERB',i,i+1)],roles:[role(i,'ADVERB')]});}
  function parseAdvPAtom(start,position) {
+  if(registry.languagePolicyVersion==='0.12.1'&&tok(start)?.sense.adverbPolicy?.additive&&position==='END'&&!hasRole(start+1,'ADJECTIVE')&&!hasRole(start+1,'ADVERB'))return advPhrase(start);
   const compared=comparisonPhrase(start,{kind:'AdvP',position,depth:1});if(compared!==null)return compared.sort((a,b)=>b.end-a.end)[0]??null;
   tick();let p=start;
   while(isDegree(p))p++;
-  if(p>start&&advAllowed(p,position)&&['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p)))return phrase('AdvP',start,p+1,p,{
+  if(p>start&&advAllowed(p,position)&&(['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p))||registry.languagePolicyVersion==='0.12.1'&&word(p)==='hard'))return phrase('AdvP',start,p+1,p,{
    hits:Array.from({length:p-start+1},(_,n)=>hit('MODIFIER.ADVERB',start+n,start+n+1)),
    roles:Array.from({length:p-start+1},(_,n)=>role(start+n,'ADVERB')),
   });
@@ -254,7 +258,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  }
  function parseAdverbRun(start,position,{recoverVery=false}={}) {
   let p=start;let combined=phrase('ADVERBS',start,start,start);const variants=[combined];
-  while(tok(p)?.lex.pos==='ADVERB'||snow&&['more','most','as','too'].includes(word(p))) {
+  while(usageFor(p,'ADVERB')||snow&&['more','most','as','too'].includes(word(p))) {
    const adverb=parseAdvP(p,position);
    if(adverb){combined=merge(combined,adverb,{end:adverb.end});p=adverb.end;}
    else if(recoverVery&&word(p)==='very'&&tokens.slice(p).find(t=>t.surface.toLowerCase()!=='very')?.lex.pos==='VERB'){
@@ -353,12 +357,19 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
    let complements=[];
    const np=(position,role)=>parseNP(position,role,{depth}).filter(n=>n.end<=end);
    if(internalFrame==='frame.sv'||internalFrame==='frame.beLocative')complements=[phrase('EMPTY',pos,pos,vi)];
-   if(internalFrame==='frame.svc.adj')complements=parseAP(pos,{depth,...(polish061?{subject}:{})}).map(ap=>({...ap,npRole:'COMPLEMENT',roles:ap.roles.map(r=>r.cardInstanceId===tok(ap.head).cardInstanceId?role(ap.head,'COMPLEMENT'):r)}));
+   if(internalFrame==='frame.svc.adj')complements=parseAP(pos,{depth,governor:verb.lex.lemma,...(polish061?{subject}:{})}).map(ap=>({...ap,npRole:'COMPLEMENT',roles:ap.roles.map(r=>r.cardInstanceId===tok(ap.head).cardInstanceId?role(ap.head,'COMPLEMENT',usageFor(ap.head,'ADJECTIVE')??tok(ap.head).lex):r)}));
    if(library&&finite&&verb.lex.lemma==='be'&&internalFrame==='frame.svc.adj'&&subject?.end===subject?.start+1&&word(subject.head)==='it'){
     for(const ap of [...complements]){
-     const allowed=EXTRAPOSITION_PREDICATES[tok(ap.head)?.lex.lemma]??[];
+     const allowed=(registry.extrapositionPredicates??EXTRAPOSITION_PREDICATES)[tok(ap.head)?.lex.lemma]??[];
      if(ap.children.some(n=>n.nonfinite))continue;
-     if(allowed.includes('TO')&&word(ap.end)==='to')for(const n of nonfiniteOptions(ap.end,end,depth,{kind:'TO',function:'SUBJECT'}))complements.push({...merge(ap,n,{end:n.end}),nominal:{kind:'EXTRAPOSED_SUBJECT_TO',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end}});
+     if(registry.extrapositionPredicates&&allowed.includes(word(ap.end)?.toUpperCase()+'_TO'))for(const actor of parseNP(ap.end+1,'PP_OBJECT',{depth,prep:word(ap.end),allowPostPP:false,allowRelative:false})){
+      if(word(actor.end)!=='to')continue;
+      for(const n of nonfiniteOptions(actor.end,end,depth,{kind:'TO',function:'SUBJECT',controller:actor})){
+       const actorPhrase=phrase('INFINITIVE_ACTOR',ap.end,actor.end,actor.head,{issues:actor.issues,roles:[role(ap.end,'PREPOSITION'),...actor.roles],children:[actor]});
+       complements.push({...merge(merge(ap,actorPhrase,{end:actor.end}),n,{end:n.end}),interpretationPriority:-1,nominal:{kind:'EXTRAPOSED_SUBJECT_TO',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end,actorMarkerIndex:ap.end,actorHead:actor.head,actorRange:[actor.start,actor.end],actorRelation:word(ap.end)==='of'?'EVALUATION_TARGET':'SEMANTIC_SUBJECT',adjectiveIndex:ap.head}});
+      }
+     }
+     if(allowed.includes('TO')&&word(ap.end)==='to')for(const n of nonfiniteOptions(ap.end,end,depth,{kind:'TO',function:'SUBJECT'}))complements.push({...merge(ap,n,{end:n.end}),...(registry.extrapositionPredicates?{interpretationPriority:-1}:{}),nominal:{kind:'EXTRAPOSED_SUBJECT_TO',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end}});
      if(allowed.includes('THAT')&&word(ap.end)==='that')for(let ce=ap.end+3;ce<=end;ce++)for(const child of parseRange(ap.end+1,ce,{depth:depth+1})){
       const n=phrase('EXTRAPOSED_CONTENT',ap.end,ce,child.verbIndex,{issues:child.issues,hits:child.tree.hits,roles:[linkRole(ap.end,'CLAUSE'),...child.tree.roles],children:[child.tree],childClauseRole:'EXTRAPOSED_SUBJECT'});
       complements.push({...merge(ap,n,{end:ce}),nominal:{kind:'EXTRAPOSED_SUBJECT_THAT',externalRole:'SUBJECT',dummyIndex:subject.head,finiteIndex:vi,contentStart:ap.end}});
@@ -366,7 +377,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
     }
    }
    if(internalFrame==='frame.svc.np'||internalFrame==='frame.svo')complements=np(pos,internalFrame==='frame.svo'?'OBJECT':'COMPLEMENT');
-   if(sky&&!objectGap&&internalFrame==='frame.svo.content'){
+   if(sky&&!objectGap&&internalFrame==='frame.svo.content'&&(!binding.requiresThat||word(pos)==='that')){
     const marker=word(pos)==='that',contentStart=pos+(marker?1:0);complements=[];
     for(let ce=contentStart+2;ce<=end;ce++)for(const child of parseRange(contentStart,ce,{depth:depth+1})){
      const tree=child.tree??asClause(child,contentStart,ce,'CONTENT_OBJECT');

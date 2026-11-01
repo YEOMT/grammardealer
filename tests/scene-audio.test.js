@@ -34,12 +34,12 @@ test('BGM independent 0.8 bus, stable source/position on renders, mute/settings/
   ctx.currentTime=12;a.setBgmAsset('lobby',musicManifest);a.configure({muted:true});a.stopAll();assert.equal(a.bgmBus.gain.value,0);a.configure({muted:false,volume:.1});
   assert.equal(a.currentBgm,source);assert.equal(a.bgmSnapshot().sources[0].position,12);assert.equal(a.bgmBus.gain.value,.8);a.configure({bgmVolume:.5});assert.equal(a.bgmBus.gain.value,.4);
 });
-test('BGM late loads cannot resurrect stale requests; crossfade is bounded and failed/unregistered regions fade out',async()=>{
+test('BGM late loads cannot resurrect stale requests; replacement has no overlapping sources and failed/unregistered regions fade out',async()=>{
   const pending=[],ctx=context(),a=new AudioManager({contextFactory:()=>ctx,fetchAudio:(url)=>new Promise(resolve=>pending.push({url,resolve}))});await a.unlock();
   const ready=async i=>{pending[i].resolve({ok:true,arrayBuffer:async()=>new ArrayBuffer(1)});await flush();};
   a.setBgmAsset('lobby',musicManifest);a.setBgmAsset('stage.01',musicManifest);await ready(1);await ready(0);assert.equal(a.currentBgm.assetId,'stage.01');assert.equal(a.bgmSources.size,1);
-  ctx.currentTime=2;a.setBgmAsset('stage.02',musicManifest);await ready(2);assert.equal(a.bgmSources.size,2);assert.equal(a.currentBgm.gain.gain.target,1);
-  a.setBgmAsset('lobby',musicManifest);await ready(3);assert.equal(a.bgmSources.size,2);
+  ctx.currentTime=2;a.setBgmAsset('stage.02',musicManifest);await ready(2);assert.equal(a.bgmSources.size,1);assert.equal(a.currentBgm.gain.gain.target,1);
+  a.setBgmAsset('lobby',musicManifest);await ready(3);assert.equal(a.bgmSources.size,1);
   a.setBgmAsset('bad',{bad:'assets/missing.mp3'});pending[4].resolve({ok:false,status:404});await flush();assert.equal(a.bgmStatus,'ERROR');assert.equal(a.currentBgm,null);
   for(const voice of [...a.bgmSources])voice.source.onended();assert.equal(a.bgmSources.size,0);
   a.setBgmAsset('stage.03',musicManifest);assert.equal(a.bgm,null);assert.equal(pending.length,5);

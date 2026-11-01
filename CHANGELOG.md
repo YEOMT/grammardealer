@@ -1,3 +1,10 @@
+## 0.12.1 — 2026-11-01
+
+- 새 원정 look→smile, room 공급 제외, 확정8개 어휘/of, 겸용 품사·too·that 목적어절·형용사별 가주어 for/of 지원.
+- 원형 라벨 정리, 공격 복사본의 resize/fullscreen 복구, 지역 BGM의 순차 fade-out/1초무음/fade-in.
+- 기존 PNG 몸체 기준 보스2배 목표와 고정 무대 안전 상한·타격점. 일반 몬스터/CSS/에셋은 그대로.
+- 기존 원정 정책·28장·50전투·HP/점수/룬/경제 보존. 의존성 변경 없음. [검사와 한계](docs/POLISH_0.12.1_REPORT.md).
+
 ## 0.12.0 — 2026-11-01
 
 - 새28장 모드별 핵심 동사, watch/notice/allow/try/remember, plan/work/change 구조 기반 겸용과 긍정 주절 명령문.
