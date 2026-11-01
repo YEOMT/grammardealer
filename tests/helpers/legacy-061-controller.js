@@ -1,7 +1,7 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {runesForVersion} from '../../src/data/runes.js';
 import {restore04Starter} from './legacy-04-starter.js';
-import {RunController as Current} from '../../src/game/runController.js';
+import {RunController as Current} from './legacy-011-controller.js';
 import {POLISH_VERSIONS} from '../../src/contracts.js';
 import {campaignCards} from '../../src/data/cardCatalog.js';
 /** Pin historical regression fixtures to their original policy, without changing assertions. */

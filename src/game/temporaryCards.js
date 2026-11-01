@@ -10,10 +10,10 @@ export function validateTemporaryCards(run){
  validateFinaleCards(run);
  if(hasFinaleCampaign(run)&&run.progress.stageId==='stage.final'&&run.progress.roundIndex===0&&run.combat)return true;
  validateCorridorFrost(run);
- if(['0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex<4&&run.combat)return true;
+ if(['0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex<4&&run.combat)return true;
  validateLibraryFrost(run);validateWaterwaysFrost(run);
- if(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex<4&&run.combat)return true;
- if(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&run.progress.stageId==='stage.08'&&run.progress.roundIndex===2&&run.combat)return true;
+ if(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(run.version)&&run.progress.stageId==='stage.09'&&run.progress.roundIndex<4&&run.combat)return true;
+ if(['0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(run.version)&&run.progress.stageId==='stage.08'&&run.progress.roundIndex===2&&run.combat)return true;
  if(hasEmberCampaign(run)&&run.progress.stageId==='stage.07'&&run.combat)return validateDustCards(run);
  if(run.combat?.dustSupplyTrace!==undefined||run.combat?.dustCleanup!==undefined)throw Error('Dust outside ember battle');
  return validateFrostCards(run);

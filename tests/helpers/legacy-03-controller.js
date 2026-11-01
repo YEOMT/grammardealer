@@ -1,6 +1,6 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {runesForVersion} from '../../src/data/runes.js';
-import {RunController as CurrentController} from '../../src/game/runController.js';
+import {RunController as CurrentController} from './legacy-011-controller.js';
 import {registryForVersion} from '../../src/data/language/index.js';
 import {restoreLegacyStarter} from './legacy-starter.js';
 /** Execute historical 12-battle assertions against the real versioned controller. */

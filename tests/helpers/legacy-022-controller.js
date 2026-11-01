@@ -1,6 +1,6 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {restoreLegacyStarter} from './legacy-starter.js';
-import {RunController as CurrentController} from '../../src/game/runController.js';
+import {RunController as CurrentController} from './legacy-011-controller.js';
 import {registryForVersion} from '../../src/data/language/index.js';
 import {LEGACY_RUNES} from '../../src/data/runes.js';
 /** The original 0.2.2 browser fixtures keep their saved campaign contract. */

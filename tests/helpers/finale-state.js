@@ -9,8 +9,8 @@ export const FINALE_QA_RUNES=['rune.longSentence','rune.svo','rune.clauseLink','
 /** Fixed, registered, polished QA deck before battle47; never a natural campaign claim.
  * All entry/shop/attacks after this supplied starting state are the real controller.
  */
-export function assignedFinale({seed='finale.assigned',extraWords=['be','run','good','like','that','to','want','if','will'],operations=false}={}){
- const registry=registryForVersion('0.11.0'),{c,slots}=assignedCorridor({version:'0.11.0',entry:true,seed,sentences:[FINALE_POWER_SENTENCE],words:extraWords,removeWords:registry.cards.map(d=>d.id.slice(5)),polish:3,runes:FINALE_QA_RUNES});
+export function assignedFinale({version='0.11.0',seed='finale.assigned',extraWords=['be','run','good','like','that','to','want','if','will'],operations=false}={}){
+ const registry=registryForVersion(version),{c,slots}=assignedCorridor({version,entry:true,seed,sentences:[FINALE_POWER_SENTENCE],words:extraWords,removeWords:registry.cards.map(d=>d.id.slice(5)),polish:3,runes:FINALE_QA_RUNES});
  const state=c.getState();state.config.qaFixture=true;state.tutorial.visible=false;
  if(operations)for(const [i,kind]of ['supply','search'].entries()){const id=`qa.finale.operation.${i}`;state.activeCardIds.push(id);state.cardInstances[id]={instanceId:id,cardDefId:`card.operation.${kind}`,polishLevel:1,specialEffectId:null};}
  c._state=state;checked(c,{type:'ENTER_STAGE'});checked(c,{type:'LEAVE_SHOP',shopId:c.getState().shop.shopId});

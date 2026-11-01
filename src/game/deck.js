@@ -1,5 +1,5 @@
 import {isOperation,cardKind} from '../data/cardCatalog.js';
-import { registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
+import { registry, learning012Registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
 import { analyzeSentence } from '../engine/grammar/index.js';
 import { createRng, createStream, pick, shuffle, weightedPick, assertStream } from './rng.js';
 import { BALANCE } from '../data/balance.js';
@@ -19,7 +19,7 @@ const feature = (form, name) => form.grammaticalFeatures?.[name];
 const getFrames = row => row.lexeme.frameIds || [];
 
 function cardRows(ids, instances, language = registry) {
-  return ids.filter(id=>cardKind(instances[id],language.version)==='WORD').map(id => {
+  return ids.filter(id=>cardKind(instances[id],language.languagePolicyVersion??language.version)==='WORD').map(id => {
     const card = instances[id];
     if (!card) throw new Error(`Unknown card instance: ${id}`);
     const lexeme = language.lexemeById[language.cardById[card.cardDefId]?.lexemeId];
@@ -90,7 +90,7 @@ export function findPlayableSentences(availableIds, cardInstances, options = {})
     if (seen.has(key)) return null;
     seen.add(key);
     checks += 1;
-    const snapshot = createSentenceSnapshot(slots, cardInstances, { sentenceId: `witness.${checks}`, languageVersion:language.version });
+    const snapshot = createSentenceSnapshot(slots, cardInstances, { sentenceId: `witness.${checks}`, languageVersion:language.languagePolicyVersion??language.version });
     const analysis = analyzeSentence(snapshot, language);
     if (analysis.status !== 'VALID' || (expectedFrame && analysis.mainFrameId !== expectedFrame)) return null;
     return { frameId: analysis.mainFrameId, slots, snapshot, analysis, text: snapshot.orderedTokens.map(t => t.surface).join(' ') };
@@ -182,8 +182,8 @@ function buildSlotPlan(mode, stream, trace, version) {
   for (const lemma of [...BALANCE.starter.pronouns,pick(stream,BALANCE.starter.thirdPersonPronounChoices)]) addFixed(lemma, 'PRONOUN', 'PRONOUN');
   addFixed('be', 'VERB', 'BE'); addFixed('be', 'VERB', 'BE');
   for (let i = 0; i < 2; i += 1) choose('SV', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.sv') && ['go','come','run','live'].includes(lex.lemma),true);
-  if(['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version))addFixed('have','VERB','HAVE');
-  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
+  if(['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(version))addFixed('have','VERB','HAVE');
+  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
   choose('MULTI', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.filter(frame => BASIC_FRAMES.includes(frame)).length > 1);
   for (let i = 0; i < STARTER_SLOT_COUNTS.ADJECTIVE; i += 1) choose('ADJECTIVE', lex => lex.pos === 'ADJECTIVE', i < 3);
   choose('DEGREE_ADVERB', lex => lex.pos === 'ADVERB' && ['very', 'really'].includes(lex.lemma));
@@ -204,8 +204,9 @@ function instantiatePlan(plan) {
 }
 
 /** Check physical slots and actual parser-backed paths; coverage tags alone never suffice. */
-export function validateStarterDeck(deck) {
-  const rows = cardRows(deck.activeCardIds, deck.cardInstances);
+export function validateStarterDeck(deck,{version=deck.generationTrace?.generatorVersion,mode=deck.generationTrace?.vocabularyMode}={}) {
+  const learning=version==='0.12.0'&&mode!=='FREE',language=learning?learning012Registry:campaign021Registry;
+  const rows = cardRows(deck.activeCardIds, deck.cardInstances,language);
   const counts = Object.fromEntries(Object.keys(STARTER_SLOT_COUNTS).map(key => [key, rows.filter(r => r.lexeme.pos === key).length]));
   const errors = [];
   if (rows.length !== BALANCE.combat.startingDeckSize || new Set(deck.activeCardIds).size !== BALANCE.combat.startingDeckSize) errors.push('PHYSICAL_CARD_COUNT');
@@ -219,26 +220,45 @@ export function validateStarterDeck(deck) {
   const lemmasFor = pos => rows.filter(r => r.lexeme.pos === pos).map(r => r.lexeme.lemma.toLowerCase()).sort();
   const pronouns=lemmasFor('PRONOUN');
   if(!['i','you','they'].every(x=>pronouns.includes(x))||pronouns.filter(x=>['he','she'].includes(x)).length!==1)errors.push('FIXED_PRONOUNS');
-  if(new Set(rows.filter(r=>['go','come','run','live'].includes(r.lexeme.lemma)).map(r=>r.lexeme.id)).size<2)errors.push('DISTINCT_SV_VERBS');
+  if(!learning&&new Set(rows.filter(r=>['go','come','run','live'].includes(r.lexeme.lemma)).map(r=>r.lexeme.id)).size<2)errors.push('DISTINCT_SV_VERBS');
   if (lemmasFor('DETERMINER').join('|') !== 'a|a|the') errors.push('FIXED_DETERMINERS');
   const prepositions = lemmasFor('PREPOSITION');
   if (new Set(prepositions).size !== 2 || prepositions.some(x => !['in', 'on', 'at', 'with'].includes(x))) errors.push('PREPOSITIONS');
   const adverbs = lemmasFor('ADVERB');
   if (adverbs.filter(x => ['very', 'really'].includes(x)).length !== 1) errors.push('ADVERB_ROLES');
-  const witnesses = findPlayableSentences(deck.activeCardIds, deck.cardInstances, { perFrame: 1, registry:campaign021Registry });
+  if(learning){
+    const expected=['be','be','have','make',...LEARNING_VERBS[mode]],actual=lemmasFor('VERB');
+    const movement=actual.filter(x=>['go','run'].includes(x));
+    if(movement.length!==1||[...expected,...movement].sort().join('|')!==actual.join('|'))errors.push('FIXED_LEARNING_VERBS');
+  }
+  const witnesses = findPlayableSentences(deck.activeCardIds, deck.cardInstances, { perFrame: 1, registry:language });
   const found = new Set(witnesses.map(w => w.frameId));
   for (const frame of BASIC_FRAMES) if (!found.has(frame)) errors.push(`MISSING_${frame}`);
   return { valid: errors.length === 0, errors, counts, witnesses };
 }
 
+const LEARNING_VERBS={BEGINNER:['see','need','like'],STANDARD:['watch','want','try'],ADVANCED:['notice','allow','remember']};
+function learningSlotPlan(mode,stream,trace){
+  // Reuse the historical nonverb pools and FREE distribution, including random draw order.
+  const plan=buildSlotPlan(mode,stream,trace,'0.8.1');
+  if(mode==='FREE')return plan;
+  const verbs=['be','be','have','make',...LEARNING_VERBS[mode],pick(stream,['go','run'])];let n=0;
+  return plan.map(entry=>{
+    if(campaign021Registry.lexemeById[entry.card.lexemeId].pos!=='VERB')return entry;
+    const card=learning012Registry.cardById['card.'+verbs[n++]];
+    if(!card?.runtimeReady)throw Error('Missing fixed 0.12 verb material');
+    return {card,role:'FIXED_LEARNING_VERB'};
+  });
+}
 /** Create a fresh 28-card deck. An optional RNG input is cloned; caller commits returned rng. */
 export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGINNER', rng, version = GENERATOR_VERSION } = {}) {
   if (!VOCABULARY_MODES.includes(vocabularyMode)) throw new RangeError('Unknown vocabulary mode');
   const nextRng = rng ? structuredClone(rng) : createRng(seed);
   const trace = { generatorVersion:version, policy: 'ROLE_SLOTS_THEN_BAND_V2', vocabularyMode, bandFallbacks: [], repairs: [], fallbackUsed: false, attemptLimit: 32, startCursor: nextRng.deck.cursor };
-  let plan = buildSlotPlan(vocabularyMode, nextRng.deck, trace, version);
+  const makePlan=stream=>version==='0.12.0'?learningSlotPlan(vocabularyMode,stream,trace):buildSlotPlan(vocabularyMode,stream,trace,version);
+  let plan = makePlan(nextRng.deck);
   let deck = instantiatePlan(plan);
-  let validation = validateStarterDeck(deck);
+  let validation = validateStarterDeck(deck,{version,mode:vocabularyMode});
   // Replace only a deficient role. Fixed pronouns/determiners/be are never rerolled.
   for (let attempt = 0; !validation.valid && attempt < trace.attemptLimit; attempt += 1) {
     const failed = validation.errors.find(error => error.startsWith('MISSING_'));
@@ -256,15 +276,15 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
     const old = plan[target].card.id;
     plan[target] = { card: selectCard(candidates, counts, vocabularyMode, nextRng.deck, trace, targetRole, ['ADJECTIVE', 'NOUN'].includes(targetRole)), role: targetRole };
     trace.repairs.push({ attempt: attempt + 1, slotIndex: target, from: old, to: plan[target].card.id, reason: failed });
-    deck = instantiatePlan(plan); validation = validateStarterDeck(deck);
+    deck = instantiatePlan(plan); validation = validateStarterDeck(deck,{version,mode:vocabularyMode});
   }
   if (!validation.valid) {
     trace.fallbackUsed = true;
     trace.fallbackReasons = [...validation.errors];
     // Same mode, independently seeded finite fallback, revalidated against current real language data.
     const fallbackStream = createStream(`validated-fallback-v1:${vocabularyMode}`);
-    plan = buildSlotPlan(vocabularyMode, fallbackStream, trace, version);
-    deck = instantiatePlan(plan); validation = validateStarterDeck(deck);
+    plan = makePlan(fallbackStream);
+    deck = instantiatePlan(plan); validation = validateStarterDeck(deck,{version,mode:vocabularyMode});
     trace.fallbackCursor = fallbackStream.cursor;
     if (!validation.valid) throw new Error(`Starter fallback failed validation: ${validation.errors.join(', ')}`);
   }

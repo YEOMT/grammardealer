@@ -1,11 +1,12 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {RunController} from '../src/game/runController.js';
+import {RunController as LegacyController} from './helpers/legacy-011-controller.js';
 import {newProfile,validateRunState,canSaveRun} from '../src/services/localStore.js';
 import {registry} from '../src/data/language/index.js';
 import {tutorialCommand} from '../src/game/guidedTutorial.js';
 import {firstAttack,secondAttack,action} from './guided-tutorial.test.js';
 import {removeFinaleFromHistoricalFixture} from './helpers/legacy-finale-boundary.js';
-const start=profile=>{const c=new RunController({profile});assert.ok(c.dispatch({type:'NEW_RUN',config:{seed:'skip.same',vocabularyMode:'STANDARD'}}).ok);assert.ok(c.dispatch({type:'START_BATTLE'}).ok);return c;};
+const start=(profile,Controller=RunController)=>{const c=new Controller({profile});assert.ok(c.dispatch({type:'NEW_RUN',config:{seed:'skip.same',vocabularyMode:'STANDARD'}}).ok);assert.ok(c.dispatch({type:'START_BATTLE'}).ok);return c;};
 const normalized=s=>Object.fromEntries(['activeCardIds','cardInstances','vocabulary','rng','openingFrames','combat','stats','economy','reward','settlementIds','eligibility'].map(k=>[k,s[k]]));
 for(const step of [1,2,12,13,26,27,28,30,31])test(`0.5.1 skip at real tutorial step ${step} restores identical normal first battle without reward`,()=>{
  const p=newProfile('skip'),c=start(p),normal=start({...p,guidedTutorialCompletedVersion:'0.2.1'});
@@ -24,7 +25,7 @@ for(const step of [1,2,12,13,26,27,28,30,31])test(`0.5.1 skip at real tutorial s
 });
 test('0.5.1 skip older guided save preserves its original version, and does not overwrite unrelated profile settings',()=>{
  for(const version of ['0.2.1','0.3.0','0.4.0','0.5.0']){
-  const c=start(newProfile('old')),s=c.getState();s.version=version;
+  const c=start(newProfile('old'),LegacyController),s=c.getState();s.version=version;
   removeFinaleFromHistoricalFixture(s);
   // Actual historical safe save structure is covered by prior guided tests; this adds the skip transaction.
   c._state=s;const p=c.getProfile();p.settings.muted=true;p.bestAttack=987;c.profile=p;

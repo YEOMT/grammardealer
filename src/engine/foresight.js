@@ -1,3 +1,4 @@
+import {hasValidatedSubject,isVerifiedImperative} from './clauseSubject.js';
 import {safeInteger} from './numeric.js';
 import {analyzeSentence} from './grammar/index.js';
 import {registryForVersion,registryForReceipt} from '../data/language/index.js';
@@ -14,7 +15,7 @@ export function foresightDecision({attackId,memory=null,frame=null,validMain=fal
 export function mainFrameEvidence(a){
  if(!['VALID','VALID_WITH_ISSUES'].includes(a?.status))return null;
  const c=a.clauses?.find(c=>c.id===a.mainClauseId),v=a.verbPhrases?.find(v=>v.clauseId===c?.id&&v.lexicalVerbCardId===c.verbCardId),key=FRAME_KEYS[c?.frameId];
- if(!key||!c.subjectNodeId||!v?.finiteCardId||!v.chainWellFormed||v.issueIds.length)return null;
+ if(!key||!hasValidatedSubject(c)||!(v?.finiteCardId||isVerifiedImperative(c)&&v?.lexicalVerbCardId)||!v.chainWellFormed||v.issueIds.length)return null;
  const required=key==='SVO'?[c.objectNodeId]:key==='SVOO'?[c.indirectObjectNodeId,c.directObjectNodeId]:key==='SVOC'?[c.objectNodeId,c.objectComplementNodeId]:key==='SVC'?[c.subjectComplementNodeId]:[];
  if(required.some(id=>!id)||!a.grammarHits.some(h=>h.scope==='MAIN_CLAUSE'&&h.frameId===c.frameId))return null;
  return {key,clauseId:c.id,verbPhraseId:v.id};
@@ -28,12 +29,12 @@ export function resolveForesight(analysis,power,enemy,{attackId,eligibleAnalysis
 /** Rebuild memory/HP from this battle's actual immutable submissions (at most six). */
 export function validateForesightRun(run){
  const c=run.combat;if(!c)return true;
- const expected=['0.10.0','0.10.1','0.10.2','0.11.0'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
+ const expected=['0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(run.version)&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4,fail=()=>{throw Error('Invalid foresight receipt chain');};
  if(!expected){if(c.enemyState.bossMechanic?.id==='FATE_FORESIGHT')fail();return true;}
  if(c.enemyState.maxHp!==5000||c.enemyState.bossMechanic?.id!=='FATE_FORESIGHT')fail();
  let boss={id:'FATE_FORESIGHT',rememberedFrame:null,lastAttackId:null},hp=5000;const seen=new Set();
  for(const r of [...run.stats.history].reverse().filter(r=>r.battleId===c.enemyState.id)){
-  if(seen.has(r.attackId)||r.enemyHpBefore!==hp||r.sentenceSnapshot.languageVersion!==registryForVersion(run.version).version)fail();seen.add(r.attackId);
+  if(seen.has(r.attackId)||r.enemyHpBefore!==hp||r.sentenceSnapshot.languageVersion!==(registryForVersion(run.version).languagePolicyVersion??registryForVersion(run.version).version))fail();seen.add(r.attackId);
   const a=analyzeSentence(r.sentenceSnapshot,registryForReceipt(run.version,r));
   if(a.status==='INVALID_CORE'){if(r.finalPower!==0||r.foresightResult)fail();continue;}
   const proposal=resolveForesight(a,r.preBossScore,{hp,bossMechanic:boss},{attackId:r.attackId,eligibleAnalysis:scoreableAnalysis(a,comboEligibility(run))});

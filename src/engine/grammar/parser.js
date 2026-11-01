@@ -523,6 +523,15 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   rangeMemo.set(key,out);return out;
  }
  const candidates=[...parseRange(0,tokens.length),...(waterways?waterwaysQuestion(0,tokens.length,0,false):[])];
+ if(!candidates.length&&registry.imperativePolicy&&!historicalReceipt&&tokens[0]?.lex.pos==='VERB'&&tokens[0].surface.toLowerCase()===tokens[0].lex.lemma.toLowerCase()&&!['will','can'].includes(tokens[0].lex.lemma)){
+  // A zero-width grammatical controller, never an inserted token/card or evidence node.
+  const subject={start:0,end:0,head:null,kind:'IMPLICIT_SUBJECT',features:{person:2,number:'ANY'},issues:[],hits:[],roles:[],children:[]};
+  for(const result of predicateSingle(0,subject,tokens.length,0,{finite:false})){
+   const r={...result,mood:'IMPERATIVE',implicitSubject:{person:2,lemma:'you',verified:true,physical:false}};
+   candidates.push({...r,tree:asClause(r,0,tokens.length)});
+  }
+ }
+
  if(!candidates.length) {
   if(partialAdvanced)return unsupported(partialAdvanced);
   return invalid(subjectBeforeVerb?'MISSING_REQUIRED_COMPLEMENT':'CORE_WORD_ORDER');
@@ -533,7 +542,10 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  const whObjects=c=>{let n=0;const walk=x=>{if(x.question?.kind.startsWith('EMBEDDED'))n++;for(const ch of x.children??[])walk(ch);};walk(c.tree);return n;};
  const implicitRelatives=c=>{let count=0;const walk=n=>{if(n.relative?.markerOmitted)count++;for(const child of n.children??[])walk(child);};walk(c.tree);return count;};
  const nominalIfs=c=>{let count=0;const walk=n=>{if(n.nominal?.kind==="NOMINAL_IF")count++;for(const child of n.children??[])walk(child);};walk(c.tree);return count;};
- candidates.sort((a,b)=>(corridor?nominalIfs(b)-nominalIfs(a):0)||(waterways?whObjects(b)-whObjects(a):0)||(desert?(a.interpretationPriority??0)-(b.interpretationPriority??0):0)||a.issues.length-b.issues.length||(corridor?implicitRelatives(a)-implicitRelatives(b):0)||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||desertAttachmentPriority(a)-desertAttachmentPriority(b)||(learning?((priority.indexOf(a.internalFrame)<0?priority.length:priority.indexOf(a.internalFrame))-(priority.indexOf(b.internalFrame)<0?priority.length:priority.indexOf(b.internalFrame))||a.senseId.localeCompare(b.senseId)):0));
+ // Resolve Make him work's noun/verb ambiguity only within the root imperative parse.
+ // Declarative perfect/causative and coordinated clauses keep their existing priorities.
+ const imperativeTie=c=>c.mood==='IMPERATIVE'&&c.internalFrame==='frame.svoc.bare'? -1:0;
+ candidates.sort((a,b)=>(a.mood==='IMPERATIVE'&&b.mood==='IMPERATIVE'?(a.issues.length-b.issues.length||imperativeTie(a)-imperativeTie(b)):0)||(corridor?nominalIfs(b)-nominalIfs(a):0)||(waterways?whObjects(b)-whObjects(a):0)||(desert?(a.interpretationPriority??0)-(b.interpretationPriority??0):0)||a.issues.length-b.issues.length||(corridor?implicitRelatives(a)-implicitRelatives(b):0)||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||desertAttachmentPriority(a)-desertAttachmentPriority(b)||(learning?((priority.indexOf(a.internalFrame)<0?priority.length:priority.indexOf(a.internalFrame))-(priority.indexOf(b.internalFrame)<0?priority.length:priority.indexOf(b.internalFrame))||a.senseId.localeCompare(b.senseId)):0));
  const best=candidates[0];if(sky)return skyEvidence(best,{tokens,registry,candidateCount:candidates.length,workUnits:work,limits});const recovered=best.issues.length>0;
  const issues=best.issues.map((i,n)=>({...i,id:`issue.${n}`}));
  const unlicensed=[...new Set(issues.filter(i=>i.code==='INVALID_ADVERB_TARGET').flatMap(i=>i.cardIds))];

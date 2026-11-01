@@ -91,3 +91,21 @@ function regionBonusHelp(stage){
  };
  return [`지역 보너스 · ${TARGETS[stage.id]} ×${stage.regionMultiplier.num/stage.regionMultiplier.den}`,...conditions[stage.id], '카드를 놓는 동안에는 판정하지 않습니다. 제출 후 실제 분석으로 결정하며 지역 배율은 중복 적용하지 않습니다.'];
 }
+
+
+export function preparationGuide(run){
+ const g=battleLearningGuide(run),stage=stageForRun(run);
+ if(stage.id==='stage.02')return {targetLabel:'4형식',patternKo:'주어 + 동사 + 간접목적어 + 직접목적어',meaningKo:'~에게 ~를 주다.',example:'I give you a book.',effectLabel:'4형식 문장 사용 시 보너스 배율 적용',boss:g.boss?.slice(0,2)??[]};
+ const examples={
+  'stage.01':['I run.','She is kind.','I read books.'],
+  'stage.03':['I ran.','I am running.','I have worked.','I will run.'],
+  'stage.04':['I run and you work.','I run but you work.','I run because you work.','I think that you work.'],
+  'stage.05':['I want to run.','I have a book to read.','I like running.','I make you happy.'],
+  'stage.06':['I am bigger than you.','I have the biggest book.','I am as big as you.','I am too tired to run.'],
+  'stage.07':['I see a running dog.','The book was made.','I make him work.','I see him running.'],
+  'stage.08':['I see a dog that runs.','I see the book you read.','I know the room where you work.','I see the book that was made.'],
+  'stage.09':['I know what you like.','I know where you work.','I know whether you work.','It is easy to run.'],
+  'stage.10':['If you run I will run.','If I had time I would run.','I had worked.','If I had worked I would have helped you.'],
+ };
+ return {targetLabel:g.title,patternKo:g.pattern,meaningKo:g.description,example:examples[stage.id]?.[run.progress.roundIndex]??null,effectLabel:stage.id==='stage.final'?'지역 추가 배율 없음':g.bonus,boss:g.boss?.slice(0,2)??[]};
+}

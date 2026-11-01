@@ -1,5 +1,5 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
-import {RunController as Current} from '../../src/game/runController.js';
+import {RunController as Current} from './legacy-011-controller.js';
 import {PATCH0101_VERSIONS} from '../../src/contracts.js';
 /** Explicit historical fixture: preserves 0.10.1's sixteen-card campaign contract. */
 export class RunController extends Current {
