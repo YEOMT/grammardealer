@@ -1,5 +1,5 @@
 import {isOperation,cardKind} from '../data/cardCatalog.js';
-import { registry, learning012Registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
+import { registry, registryForVersion, learning012Registry, polish0121Registry, campaign021Registry, campaign04Registry, formsForCard, lexemeForCard, createSentenceSnapshot } from '../data/language/index.js';
 import { analyzeSentence } from '../engine/grammar/index.js';
 import { createRng, createStream, pick, shuffle, weightedPick, assertStream } from './rng.js';
 import { BALANCE } from '../data/balance.js';
@@ -143,7 +143,10 @@ export function findPlayableSentences(availableIds, cardInstances, options = {})
   return results;
 }
 
-const allStarterCards = version => stableSort(campaign021Registry.cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady) && (version!=='0.8.1'||card.id!=='card.help')));
+const starterRegistry=version=>version==='0.12.1'?polish0121Registry:campaign021Registry;
+const allStarterCards = version => stableSort(starterRegistry(version).cards.filter(card => (card.availability?.starterEligible ?? card.starterEligible) && (card.availability?.runtimeReady ?? card.runtimeReady) && (!['0.8.1','0.12.1'].includes(version)||card.id!=='card.help')
+  // FREE retains its historical random verb pool. Other modes assign their eight verbs below.
+  && (version!=='0.12.1'||polish0121Registry.lexemeById[card.lexemeId].pos!=='VERB'||campaign021Registry.cardById[card.id])));
 
 function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
   const candidates = pool.filter(card => (counts[card.lexemeId] || 0) < (distinct ? 1 : 2));
@@ -154,7 +157,7 @@ function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
   let selectedPool = [];
   let usedBand;
   for (const band of lowerBands) {
-    selectedPool = candidates.filter(card => campaign04Registry.lexemeById[card.lexemeId].vocabBand === band);
+    selectedPool = candidates.filter(card => (polish0121Registry.lexemeById[card.lexemeId]??campaign04Registry.lexemeById[card.lexemeId]).vocabBand === band);
     if (selectedPool.length) { usedBand = band; break; }
   }
   if (!selectedPool.length) throw new Error(`No same-role/common/lower band candidates for ${role}:${requestedBand}`);
@@ -165,25 +168,25 @@ function selectCard(pool, counts, mode, stream, trace, role, distinct = false) {
 }
 
 function buildSlotPlan(mode, stream, trace, version) {
-  const pool = allStarterCards(version);
+  const pool = allStarterCards(version),language=starterRegistry(version);
   const counts = {};
   const planned = [];
   const addFixed = (lemma, pos, role) => {
-    const card = pool.find(card => { const lex = campaign04Registry.lexemeById[card.lexemeId]; return lex.lemma.toLowerCase() === lemma.toLowerCase() && lex.pos === pos; });
+    const card = pool.find(card => { const lex = language.lexemeById[card.lexemeId]; return lex.lemma.toLowerCase() === lemma.toLowerCase() && lex.pos === pos; });
     if (!card) throw new Error(`Missing starter material ${lemma}`);
     counts[card.lexemeId] = (counts[card.lexemeId] || 0) + 1;
     planned.push({ card, role });
   };
   const choose = (role, filter, distinct = false) => {
-    const card = selectCard(pool.filter(card => filter(campaign021Registry.lexemeById[card.lexemeId])), counts, mode, stream, trace, role, distinct);
+    const card = selectCard(pool.filter(card => filter(language.lexemeById[card.lexemeId])), counts, mode, stream, trace, role, distinct);
     planned.push({ card, role });
   };
   for (let i = 0; i < STARTER_SLOT_COUNTS.NOUN; i += 1) choose('NOUN', lex => lex.pos === 'NOUN', i < 4);
   for (const lemma of [...BALANCE.starter.pronouns,pick(stream,BALANCE.starter.thirdPersonPronounChoices)]) addFixed(lemma, 'PRONOUN', 'PRONOUN');
   addFixed('be', 'VERB', 'BE'); addFixed('be', 'VERB', 'BE');
   for (let i = 0; i < 2; i += 1) choose('SV', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.sv') && ['go','come','run','live'].includes(lex.lemma),true);
-  if(['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(version))addFixed('have','VERB','HAVE');
-  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
+  if(['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(version))addFixed('have','VERB','HAVE');
+  for (let i = 0; i < (['0.4.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(version)?2:3); i += 1) choose('SVO', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.includes('frame.svo'));
   choose('MULTI', lex => lex.pos === 'VERB' && lex.lemma !== 'be' && lex.frameIds.filter(frame => BASIC_FRAMES.includes(frame)).length > 1);
   for (let i = 0; i < STARTER_SLOT_COUNTS.ADJECTIVE; i += 1) choose('ADJECTIVE', lex => lex.pos === 'ADJECTIVE', i < 3);
   choose('DEGREE_ADVERB', lex => lex.pos === 'ADVERB' && ['very', 'really'].includes(lex.lemma));
@@ -205,7 +208,7 @@ function instantiatePlan(plan) {
 
 /** Check physical slots and actual parser-backed paths; coverage tags alone never suffice. */
 export function validateStarterDeck(deck,{version=deck.generationTrace?.generatorVersion,mode=deck.generationTrace?.vocabularyMode}={}) {
-  const learning=version==='0.12.0'&&mode!=='FREE',language=learning?learning012Registry:campaign021Registry;
+  const learning=['0.12.0','0.12.1'].includes(version)&&mode!=='FREE',language=version==='0.12.1'?polish0121Registry:learning?learning012Registry:campaign021Registry;
   const rows = cardRows(deck.activeCardIds, deck.cardInstances,language);
   const counts = Object.fromEntries(Object.keys(STARTER_SLOT_COUNTS).map(key => [key, rows.filter(r => r.lexeme.pos === key).length]));
   const errors = [];
@@ -238,14 +241,14 @@ export function validateStarterDeck(deck,{version=deck.generationTrace?.generato
 }
 
 const LEARNING_VERBS={BEGINNER:['see','need','like'],STANDARD:['watch','want','try'],ADVANCED:['notice','allow','remember']};
-function learningSlotPlan(mode,stream,trace){
+function learningSlotPlan(mode,stream,trace,version){
   // Reuse the historical nonverb pools and FREE distribution, including random draw order.
-  const plan=buildSlotPlan(mode,stream,trace,'0.8.1');
+  const plan=buildSlotPlan(mode,stream,trace,version==='0.12.1'?version:'0.8.1'),language=registryForVersion(version);
   if(mode==='FREE')return plan;
   const verbs=['be','be','have','make',...LEARNING_VERBS[mode],pick(stream,['go','run'])];let n=0;
   return plan.map(entry=>{
-    if(campaign021Registry.lexemeById[entry.card.lexemeId].pos!=='VERB')return entry;
-    const card=learning012Registry.cardById['card.'+verbs[n++]];
+    if(language.lexemeById[entry.card.lexemeId].pos!=='VERB')return entry;
+    const card=language.cardById['card.'+verbs[n++]];
     if(!card?.runtimeReady)throw Error('Missing fixed 0.12 verb material');
     return {card,role:'FIXED_LEARNING_VERB'};
   });
@@ -255,7 +258,7 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
   if (!VOCABULARY_MODES.includes(vocabularyMode)) throw new RangeError('Unknown vocabulary mode');
   const nextRng = rng ? structuredClone(rng) : createRng(seed);
   const trace = { generatorVersion:version, policy: 'ROLE_SLOTS_THEN_BAND_V2', vocabularyMode, bandFallbacks: [], repairs: [], fallbackUsed: false, attemptLimit: 32, startCursor: nextRng.deck.cursor };
-  const makePlan=stream=>version==='0.12.0'?learningSlotPlan(vocabularyMode,stream,trace):buildSlotPlan(vocabularyMode,stream,trace,version);
+  const makePlan=stream=>['0.12.0','0.12.1'].includes(version)?learningSlotPlan(vocabularyMode,stream,trace,version):buildSlotPlan(vocabularyMode,stream,trace,version);
   let plan = makePlan(nextRng.deck);
   let deck = instantiatePlan(plan);
   let validation = validateStarterDeck(deck,{version,mode:vocabularyMode});
@@ -270,7 +273,7 @@ export function generateStarterDeck({ seed = 'sentence', vocabularyMode = 'BEGIN
     const counts = {};
     plan.forEach((entry, index) => { if (index !== target) counts[entry.card.lexemeId] = (counts[entry.card.lexemeId] || 0) + 1; });
     const candidates = allStarterCards(version).filter(card => {
-      const lex = campaign04Registry.lexemeById[card.lexemeId];
+      const lex = starterRegistry(version).lexemeById[card.lexemeId];
       return ['ADJECTIVE', 'NOUN'].includes(targetRole) ? lex.pos === targetRole : lex.pos === 'VERB' && lex.frameIds.includes(frame);
     });
     const old = plan[target].card.id;

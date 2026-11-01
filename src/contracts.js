@@ -21,7 +21,8 @@ export const RECOVERY_VERSIONS=Object.freeze({...PATCH0101_VERSIONS,game:'0.10.2
 // Finale changes progression only; all existing battle/card/score contracts are inherited.
 export const FINALE_VERSIONS=Object.freeze({...RECOVERY_VERSIONS,game:'0.11.0',save:'0.11.0'});
 export const LEARNING012_VERSIONS=Object.freeze({...FINALE_VERSIONS,game:'0.12.0',save:'0.12.0',language:'0.12.0',generator:'0.12.0',presentation:'0.12.0'});
-export const VERSIONS = LEARNING012_VERSIONS;
+export const POLISH0121_VERSIONS=Object.freeze({...LEARNING012_VERSIONS,game:'0.12.1',save:'0.12.1',language:'0.12.1',generator:'0.12.1',presentation:'0.12.1'});
+export const VERSIONS = POLISH0121_VERSIONS;
 export const clone = value => structuredClone(value);
 export function deepFreeze(value) {if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.freeze(value);Object.values(value).forEach(deepFreeze);}return value;}
 export function requireInteger(value,name,min=0,max=Number.MAX_SAFE_INTEGER) {if(!Number.isSafeInteger(value)||value<min||value>max)throw new TypeError(`${name}: invalid integer`);return value;}

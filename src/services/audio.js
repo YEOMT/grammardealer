@@ -106,12 +106,15 @@ export class AudioManager {
   stopAll() { for (const voice of [...this.voices]) this.stopVoice(voice); }
 
   /** Idempotent scene request; resolves immediately and never gates a game transition. */
-  setBgmAsset(assetId, manifest = {}) {
+  setBgmAsset(assetId, manifest = {},{sequential=false}={}) {
     const url=assetId?assetUrl(assetId,manifest):null;
     if((this.bgm?.url??null)===url&&(!url||this.bgm?.assetId===assetId))return this.bgm;
     this.bgm=url?{assetId,url}:null;this.bgmEpoch++;this.bgmLoad?.abort();this.bgmLoad=null;
+    const hadTransition=!!this.bgmTransition;this.cancelBgmTransition();
     this.bgmStatus=url?'REQUESTED':'SILENT';
-    if(!url)this.fadeBgm(null);else if(this.context?.state==='running')void this.loadBgm(this.bgmEpoch);
+    if(sequential&&this.currentBgm&&!hadTransition)this.beginBgmTransition(this.bgmEpoch);
+    else for(const voice of [...this.bgmSources])this.releaseBgm(voice);
+    if(url&&this.context?.state==='running')void this.loadBgm(this.bgmEpoch);
     this.notify();return this.bgm;
   }
 
@@ -120,16 +123,19 @@ export class AudioManager {
     if(!requested||epoch!==this.bgmEpoch||this.bgmLoadingEpoch===epoch||this.bgmStatus==='ERROR')return;
     if(this.currentBgm?.url===requested.url)return;
     this.bgmLoadingEpoch=epoch;const abort=new AbortController();this.bgmLoad=abort;
-    const timeout=setTimeout(()=>abort.abort(),15000);this.bgmStatus='LOADING';this.notify();
+    const timeout=setTimeout(()=>abort.abort(),15000);if(!this.bgmTransition)this.bgmStatus='LOADING';this.notify();
     try{
       const response=await this.fetchAudio(requested.url,{signal:abort.signal});if(!response.ok)throw Error('HTTP '+response.status);
       const bytes=await response.arrayBuffer();if(epoch!==this.bgmEpoch)return;
-      const buffer=await this.context.decodeAudioData(bytes);if(epoch!==this.bgmEpoch)return;
+      const buffer=await this.context.decodeAudioData(bytes);if(epoch!==this.bgmEpoch)return;clearTimeout(timeout);
+      const gate=this.bgmTransition;
+      if(gate&&(!(await gate.ready)||epoch!==this.bgmEpoch))return;
       const source=this.context.createBufferSource(),gain=this.context.createGain();
       source.buffer=buffer;source.loop=true;source.connect(gain);gain.connect(this.bgmBus);gain.gain.value=0;
       const voice={...requested,source,gain,startedAt:this.context.currentTime-(this.resumeOffsets.get(requested.assetId)??0),duration:buffer.duration};
-      source.onended=()=>this.releaseBgm(voice);source.start(0,(this.resumeOffsets.get(requested.assetId)??0)%buffer.duration);this.resumeOffsets.delete(requested.assetId);this.fadeBgm(voice);this.bgmStatus='PLAYING';
-    }catch(error){if(epoch===this.bgmEpoch){this.bgmStatus='ERROR';this.fadeBgm(null);if(!this.bgmWarnings.has(requested.url)){this.bgmWarnings.add(requested.url);console.warn('BGM unavailable:',requested.url,error.message);}}}
+      source.onended=()=>this.releaseBgm(voice);source.start(0,(this.resumeOffsets.get(requested.assetId)??0)%buffer.duration);this.resumeOffsets.delete(requested.assetId);this.fadeBgm(voice);this.bgmStatus='FADING_IN';
+      const settled=()=>{if(this.currentBgm!==voice||epoch!==this.bgmEpoch)return;if(this.context.currentTime>=voice.ramp.start+voice.ramp.duration){this.bgmStatus='PLAYING';this.notify();}else{voice.fadeTimer=setTimeout(settled,50);voice.fadeTimer.unref?.();}};settled();
+    }catch(error){if(epoch===this.bgmEpoch){this.cancelBgmTransition();this.bgmStatus='ERROR';this.fadeBgm(null);if(!this.bgmWarnings.has(requested.url)){this.bgmWarnings.add(requested.url);console.warn('BGM unavailable:',requested.url,error.message);}}}
     finally{clearTimeout(timeout);if(this.bgmLoadingEpoch===epoch)this.bgmLoadingEpoch=null;if(this.bgmLoad===abort)this.bgmLoad=null;this.notify();}
   }
 
@@ -139,8 +145,32 @@ export class AudioManager {
     this.bgmStatus=this.currentBgm?'PLAYING':'IDLE';this.notify();
   }
 
+  cancelBgmTransition(){
+    const t=this.bgmTransition;if(!t)return;this.bgmTransition=null;clearTimeout(t.timer);t.resolve(false);
+  }
+
+  beginBgmTransition(epoch){
+    const voice=this.currentBgm,now=this.context.currentTime;
+    let resolve;const ready=new Promise(r=>{resolve=r;});
+    const t={epoch,voice,phase:'FADING_OUT',remaining:1,last:now,ready,resolve,timer:null};this.bgmTransition=t;this.bgmStatus=t.phase;
+    const ramp=voice.ramp,value=ramp?clamp((now-ramp.start)/ramp.duration,0,1):1;
+    voice.gain.gain.cancelScheduledValues(now);voice.gain.gain.setValueAtTime(value,now);voice.gain.gain.linearRampToValueAtTime(0,now+this.fadeSeconds);
+    // onended is the boundary: no replacement is audible while this source exists.
+    voice.source.onended=()=>{this.releaseBgm(voice);if(this.bgmTransition!==t)return;t.phase='SILENT_GAP';t.last=this.context.currentTime;this.bgmStatus=t.phase;this.notify();pump();};
+    voice.source.stop(now+this.fadeSeconds);
+    const pump=()=>{
+      if(this.bgmTransition!==t||epoch!==this.bgmEpoch)return;
+      const time=this.context.currentTime,delta=Math.max(0,time-t.last);t.last=time;
+      if(this.context.state==='running'&&!this.muted)t.remaining-=delta;
+      if(t.remaining<=0){this.bgmTransition=null;t.resolve(true);this.bgmStatus=this.bgm?'LOADING':'SILENT';this.notify();return;}
+      t.timer=setTimeout(pump,25);t.timer.unref?.();
+    };
+    this.notify();
+  }
+
   releaseBgm(voice){
     if(!this.bgmSources.delete(voice))return;
+    clearTimeout(voice.fadeTimer);
     voice.source.onended=null;try{voice.source.stop();}catch{}voice.source.disconnect();voice.gain.disconnect();voice.source.buffer=null;
     if(this.currentBgm===voice)this.currentBgm=null;
   }
@@ -148,11 +178,7 @@ export class AudioManager {
   fadeBgm(next){
     if(!this.context)return;
     const now=this.context.currentTime,seconds=this.fadeSeconds;
-    // Retain at most the current voice plus its replacement, including rapid requests.
-    for(const voice of [...this.bgmSources])if(voice!==this.currentBgm)this.releaseBgm(voice);
-    const previous=this.currentBgm;
-    if(previous){const ramp=previous.ramp;const value=ramp?clamp((now-ramp.start)/ramp.duration,0,1):1;
-      previous.gain.gain.cancelScheduledValues(now);previous.gain.gain.setValueAtTime(value,now);previous.gain.gain.linearRampToValueAtTime(0,now+seconds);previous.source.stop(now+seconds);}
+    for(const voice of [...this.bgmSources])this.releaseBgm(voice);
     this.currentBgm=next;
     if(next){this.bgmSources.add(next);next.ramp={start:now,duration:seconds};next.gain.gain.setValueAtTime(0,now);next.gain.gain.linearRampToValueAtTime(1,now+seconds);}
   }
@@ -160,6 +186,7 @@ export class AudioManager {
   subscribe(listener){this.listeners.add(listener);return()=>this.listeners.delete(listener);}
   notify(){for(const listener of this.listeners)listener();}
   disposeClosedContext(){
+    this.cancelBgmTransition();
     this.bgmEpoch++;this.bgmLoad?.abort();this.bgmLoad=null;this.bgmLoadingEpoch=null;this.stopAll();
     for(const voice of [...this.bgmSources])this.releaseBgm(voice);
     for(const node of [this.master,this.sfx,this.bgmBus])try{node?.disconnect();}catch{}

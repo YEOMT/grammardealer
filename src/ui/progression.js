@@ -158,7 +158,7 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
       el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),el('p',{text:'뜻: '+g.meaningKo}),
       g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{text:'전투 효과: '+g.effectLabel}),
       ...g.boss.map(text=>el('small',{class:'boss-rule',text})),
-      state.version==='0.12.0'&&state.progress.stageId==='stage.01'&&el('small',{text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'}))),
+      ['0.12.0','0.12.1'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'}))),
     el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`}),
     el('div',{class:'reward-footer'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
 }

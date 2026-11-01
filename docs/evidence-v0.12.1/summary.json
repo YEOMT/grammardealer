@@ -1,0 +1,446 @@
+{
+  "baseline": "61f02494888e8358161d53aba13631f0af143f71",
+  "branch": "codex/v0.12.1-integrated-polish",
+  "version": "0.12.1",
+  "environment": {
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "playwright": "1.51.1",
+    "os": "Windows"
+  },
+  "runs": [
+    {
+      "label": "v0121-final-unit-r3",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-01T12:58:59.556620+00:00",
+      "finishedAt": "2026-11-01T13:02:07.473315+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0121-final-unit-r3/command.log",
+      "logSha256": "30d6470050eeeb32161130f28efea81afb66082d44edd5aeeeeb911772bee293",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/reward-distribution.json",
+        "docs/evidence-0.1.1/timing.json"
+      ]
+    },
+    {
+      "label": "v0121-final-data",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-11-01T12:40:26.620946+00:00",
+      "finishedAt": "2026-11-01T12:40:42.754677+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0121-final-data/command.log",
+      "logSha256": "3ce918b8c4b42d4f8ee61188c44d2ae4d2ea3ded9189dd837b2459de0afab424",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "v0121-final-build-r3",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-01T13:02:14.764405+00:00",
+      "finishedAt": "2026-11-01T13:02:17.672107+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0121-final-build-r3/command.log",
+      "logSha256": "0c60cf5543214cd4de11b361a32f3c11f6082fbef0d8c855950f1f359d019908",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "label": "v0121-final-browser-r4",
+      "command": [
+        "node",
+        "tests/gamefeel-browser.mjs"
+      ],
+      "startedAt": "2026-11-01T13:02:40.732720+00:00",
+      "finishedAt": "2026-11-01T13:03:09.673620+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0121-final-browser-r4/command.log",
+      "logSha256": "1f156cc6d9c12e3140a3858904ccf778ac47767ed34db14d8fe44f48aa78e08e",
+      "fixedOutputsArchivedAndRestored": []
+    }
+  ],
+  "additionalFocusedRun": {
+    "command": "node --test tests/finale-controller.test.js",
+    "exitCode": 0,
+    "tests": 11,
+    "log": ".local-validation/v0121/finale.log",
+    "sha256": "72a305343b6f98a7ccc49ea61ae73801498b74fa511f4a976bed7a1c46713747",
+    "scope": "Includes the newly added 0.12.1 assigned 47→50 case; not a natural campaign"
+  },
+  "browser": {
+    "status": "PASS",
+    "scope": "Actual app editing/settings plus assigned registered-card attacks; not a natural campaign or physical device/audio listening test",
+    "checks": [
+      {
+        "group": "actual app: add/return/form keep connected stage and idle timeline",
+        "status": "PASS",
+        "same": true,
+        "animation": true,
+        "timeAdvanced": true
+      },
+      {
+        "group": "shared sound settings: no combat render, gain or source restart",
+        "status": "PASS",
+        "rev": 6,
+        "hp": 77,
+        "same": true,
+        "gain": 0.29600000381469727,
+        "profile": 37
+      },
+      {
+        "group": "fullscreen trusted success and deliberate unsupported/rejected/manual-copy fallbacks",
+        "status": "PASS"
+      },
+      {
+        "group": "normal real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 1,
+        "fullscreen": false,
+        "fullscreenToggledDuringScore": false,
+        "events": 12,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 192,
+        "monster": {
+          "motion": "float"
+        },
+        "monsterBounds": {
+          "body": {
+            "left": 631.2041804117449,
+            "top": 59.99998455868956,
+            "width": 107.14491439892343,
+            "height": 108.92155201013007
+          },
+          "point": {
+            "x": 684.7766376112066,
+            "y": 114.4607605637546
+          },
+          "stage": {
+            "x": 12,
+            "y": 52,
+            "width": 1342,
+            "height": 145,
+            "top": 52,
+            "right": 1354,
+            "bottom": 197,
+            "left": 12
+          },
+          "leftEdge": 568.375,
+          "rightEdge": 797.625,
+          "images": [
+            {
+              "x": 597.3114013671875,
+              "y": 7.131385803222656,
+              "width": 171.377197265625,
+              "height": 189.94302368164062,
+              "top": 7.131385803222656,
+              "right": 768.6885986328125,
+              "bottom": 197.07440948486328,
+              "left": 597.3114013671875
+            },
+            {
+              "x": 597.3114013671875,
+              "y": 7.131385803222656,
+              "width": 171.377197265625,
+              "height": 189.94302368164062,
+              "top": 7.131385803222656,
+              "right": 768.6885986328125,
+              "bottom": 197.07440948486328,
+              "left": 597.3114013671875
+            }
+          ]
+        }
+      },
+      {
+        "group": "fast real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": true,
+        "fullscreenToggledDuringScore": true,
+        "events": 12,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "RECOIL"
+        ],
+        "power": 192,
+        "monster": {
+          "motion": "breathe",
+          "bodyTarget": "281.88631578947366",
+          "bodyHeight": "157.9626794258373",
+          "safetyCapped": "true"
+        },
+        "monsterBounds": {
+          "body": {
+            "left": 618.8229577461498,
+            "top": 59.99757972972815,
+            "width": 131.61180238860646,
+            "height": 125.96509139503588
+          },
+          "point": {
+            "x": 685.7234521484374,
+            "y": 122.9801254272461
+          },
+          "stage": {
+            "x": 12,
+            "y": 52,
+            "width": 1342,
+            "height": 145,
+            "top": 52,
+            "right": 1354,
+            "bottom": 197,
+            "left": 12
+          },
+          "leftEdge": 568.375,
+          "rightEdge": 797.625,
+          "images": [
+            {
+              "x": 614.9136962890625,
+              "y": 40.14183807373047,
+              "width": 136.172607421875,
+              "height": 150.92459106445312,
+              "top": 40.14183807373047,
+              "right": 751.0863037109375,
+              "bottom": 191.0664291381836,
+              "left": 614.9136962890625
+            },
+            {
+              "x": 614.9136962890625,
+              "y": 40.14183807373047,
+              "width": 136.172607421875,
+              "height": 150.92459106445312,
+              "top": 40.14183807373047,
+              "right": 751.0863037109375,
+              "bottom": 191.0664291381836,
+              "left": 614.9136962890625
+            }
+          ]
+        }
+      },
+      {
+        "group": "penalty real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": false,
+        "fullscreenToggledDuringScore": false,
+        "events": 13,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 102,
+        "monster": {
+          "motion": "float"
+        },
+        "monsterBounds": {
+          "body": {
+            "left": 631.2041804117449,
+            "top": 59.99998455868956,
+            "width": 107.14491439892343,
+            "height": 108.92155201013007
+          },
+          "point": {
+            "x": 684.7766376112066,
+            "y": 114.4607605637546
+          },
+          "stage": {
+            "x": 12,
+            "y": 52,
+            "width": 1342,
+            "height": 145,
+            "top": 52,
+            "right": 1354,
+            "bottom": 197,
+            "left": 12
+          },
+          "leftEdge": 568.375,
+          "rightEdge": 797.625,
+          "images": [
+            {
+              "x": 597.3114013671875,
+              "y": 7.131385803222656,
+              "width": 171.377197265625,
+              "height": 189.94302368164062,
+              "top": 7.131385803222656,
+              "right": 768.6885986328125,
+              "bottom": 197.07440948486328,
+              "left": 597.3114013671875
+            },
+            {
+              "x": 597.3114013671875,
+              "y": 7.131385803222656,
+              "width": 171.377197265625,
+              "height": 189.94302368164062,
+              "top": 7.131385803222656,
+              "right": 768.6885986328125,
+              "bottom": 197.07440948486328,
+              "left": 597.3114013671875
+            }
+          ]
+        }
+      },
+      {
+        "group": "defense real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": false,
+        "fullscreenToggledDuringScore": false,
+        "events": 7,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "RECOIL"
+        ],
+        "power": 27,
+        "monster": {
+          "motion": "breathe",
+          "bodyTarget": "299.3684210526316",
+          "bodyHeight": "125.10526315789477",
+          "safetyCapped": "true"
+        },
+        "monsterBounds": {
+          "body": {
+            "left": 614.4869857861095,
+            "top": 59.99937901352391,
+            "width": 137.9172546289374,
+            "height": 125.10587798731558
+          },
+          "point": {
+            "x": 689.9849853515625,
+            "y": 114.39759826660156
+          },
+          "stage": {
+            "x": 12,
+            "y": 52,
+            "width": 1342,
+            "height": 145,
+            "top": 52,
+            "right": 1354,
+            "bottom": 197,
+            "left": 12
+          },
+          "leftEdge": 568.375,
+          "rightEdge": 797.625,
+          "images": [
+            {
+              "x": 613.150146484375,
+              "y": 36.398651123046875,
+              "width": 139.69970703125,
+              "height": 154.8337860107422,
+              "top": 36.398651123046875,
+              "right": 752.849853515625,
+              "bottom": 191.23243713378906,
+              "left": 613.150146484375
+            },
+            {
+              "x": 613.150146484375,
+              "y": 36.398651123046875,
+              "width": 139.69970703125,
+              "height": 154.8337860107422,
+              "top": 36.398651123046875,
+              "right": 752.849853515625,
+              "bottom": 191.23243713378906,
+              "left": 613.150146484375
+            }
+          ]
+        }
+      },
+      {
+        "group": "tablet layout: bottom clearance, empty hand fixed, sound panel",
+        "status": "PASS",
+        "minimumGap": 14
+      },
+      {
+        "group": "actual BGM buffers: ended source → 1s silence → new fade, fast entry and lobby cancellation",
+        "status": "PASS",
+        "shop": true,
+        "elapsed": 2.530666666666665,
+        "firstSilent": 1.509333333333334,
+        "lastSilent": 2.509333333333334,
+        "silence": 1.021333333333331,
+        "track": "stage.02",
+        "maximumSources": 1,
+        "settled": 1,
+        "cancelled": true,
+        "gain": 0.29600000381469727
+      },
+      {
+        "group": "0.12.1 physical written form menu: base label, distinct p.p., existing large buttons",
+        "status": "PASS",
+        "forms": [
+          "write원형",
+          "writes현재 · 3인칭 단수",
+          "wrote과거",
+          "written과거분사 · p.p.",
+          "writing-ing형"
+        ]
+      },
+      {
+        "group": "existing between-battle idle preview retained",
+        "status": "PASS"
+      }
+    ],
+    "errors": []
+  },
+  "captures": [
+    {
+      "path": "pc-gather.png",
+      "sha256": "5989f0c89b88b28f75b25a3e3acb0b10741a7fe3fc30028abcbaa341950029b3"
+    },
+    {
+      "path": "pc-fullscreen-lunge.png",
+      "sha256": "99f69e38a3029b4f290485689e42d5ddb26f05596d7985e5527e26c338f512d1"
+    },
+    {
+      "path": "pc-kraken.png",
+      "sha256": "be96160a9e715a2659ee41dc71542fce33b7c4176d735d7cda6f3f07fa8d93e0"
+    },
+    {
+      "path": "tablet-forms.png",
+      "sha256": "154ecfe086cfa61d27ca69c406a25e956654cee09aca10e91dac074afbd74e00"
+    }
+  ],
+  "notRun": [
+    "Physical tablet listening",
+    "Kakao in-app fullscreen",
+    "All-device/browser matrix",
+    "Natural 50-battle expedition",
+    "Production UI full expedition"
+  ],
+  "reproducedIntermediateFailure": {
+    "label": "v0121-resize-resume-before",
+    "command": [
+      "node",
+      "tests/gamefeel-browser.mjs"
+    ],
+    "startedAt": "2026-11-01T12:58:24.226562+00:00",
+    "finishedAt": "2026-11-01T12:58:37.199096+00:00",
+    "exitCode": 1,
+    "status": "FAIL",
+    "log": ".local-validation/v0101/v0121-resize-resume-before/command.log",
+    "logSha256": "70dd07d8940cafd149126ec460692d4808741b044f738e07a81c1d6ab12505d0",
+    "fixedOutputsArchivedAndRestored": []
+  }
+}

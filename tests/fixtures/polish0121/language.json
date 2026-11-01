@@ -1,0 +1,372 @@
+[
+  {
+    "id": "L01",
+    "text": "The work is hard.",
+    "expectation": "work 명사, hard 형용사 보어"
+  },
+  {
+    "id": "L02",
+    "text": "I work hard.",
+    "expectation": "work 동사, hard 부사"
+  },
+  {
+    "id": "L03",
+    "text": "You are fast.",
+    "expectation": "fast 형용사 보어"
+  },
+  {
+    "id": "L04",
+    "text": "You run fast.",
+    "expectation": "fast 부사"
+  },
+  {
+    "id": "L05",
+    "text": "I am well.",
+    "expectation": "well 건강 의미 형용사"
+  },
+  {
+    "id": "L06",
+    "text": "I work well.",
+    "expectation": "well 부사"
+  },
+  {
+    "id": "L07",
+    "text": "I work harder.",
+    "expectation": "harder 부사 비교형; 비교 대상 생략은 기존 규칙 유지"
+  },
+  {
+    "id": "L08",
+    "text": "You are faster than me.",
+    "expectation": "fast 형용사 비교"
+  },
+  {
+    "id": "L09",
+    "text": "I work better.",
+    "expectation": "well 비교형, good 카드와 자동 합치지 않음"
+  },
+  {
+    "id": "L10",
+    "text": "I know the answer.",
+    "expectation": "answer 명사"
+  },
+  {
+    "id": "L11",
+    "text": "I answer you.",
+    "expectation": "answer 동사"
+  },
+  {
+    "id": "L12",
+    "text": "I have a watch.",
+    "expectation": "watch 명사"
+  },
+  {
+    "id": "L13",
+    "text": "I watch you.",
+    "expectation": "watch 동사"
+  },
+  {
+    "id": "L14",
+    "text": "I like the show.",
+    "expectation": "show 명사"
+  },
+  {
+    "id": "L15",
+    "text": "I show you a book.",
+    "expectation": "show 기존 4형식"
+  },
+  {
+    "id": "L16",
+    "text": "She watches the watches.",
+    "expectation": "서로 다른 watch 사본; 동사3단/명사복수"
+  },
+  {
+    "id": "L17",
+    "text": "I watch the show.",
+    "expectation": "watch 동사/show 명사, 대표 품사색과 판정 분리"
+  },
+  {
+    "id": "L18",
+    "text": "The book is too big.",
+    "expectation": "정도 too"
+  },
+  {
+    "id": "L19",
+    "text": "I like you too.",
+    "expectation": "첨가 too, DEGREE.TOO 금지"
+  },
+  {
+    "id": "L20",
+    "text": "I run too fast.",
+    "expectation": "degree too + 부사"
+  },
+  {
+    "id": "L21",
+    "text": "I run fast too.",
+    "expectation": "additive too; fast는 부사"
+  },
+  {
+    "id": "L22",
+    "text": "I try to help you.",
+    "expectation": "try + to 목적어"
+  },
+  {
+    "id": "L23",
+    "text": "I try working.",
+    "expectation": "try + -ing 목적어"
+  },
+  {
+    "id": "L24",
+    "text": "I remember to help you.",
+    "expectation": "remember + to"
+  },
+  {
+    "id": "L25",
+    "text": "I remember helping you.",
+    "expectation": "remember + -ing"
+  },
+  {
+    "id": "L26",
+    "text": "I notice that she is tired.",
+    "expectation": "notice 내용절 목적어, 관계절 아님"
+  },
+  {
+    "id": "L27",
+    "text": "I remember that you like music.",
+    "expectation": "remember 내용절"
+  },
+  {
+    "id": "L28",
+    "text": "I discover that she is happy.",
+    "expectation": "discover 내용절"
+  },
+  {
+    "id": "L29",
+    "text": "It is possible to help you.",
+    "expectation": "TO extraposition"
+  },
+  {
+    "id": "L30",
+    "text": "It is possible that she will come.",
+    "expectation": "THAT extraposition"
+  },
+  {
+    "id": "L31",
+    "text": "It is necessary to work.",
+    "expectation": "TO extraposition"
+  },
+  {
+    "id": "L32",
+    "text": "It is necessary that we work.",
+    "expectation": "THAT; 일반 복수 주어 절, 새 당위 가정법 불필요"
+  },
+  {
+    "id": "L33",
+    "text": "It is clear that she is happy.",
+    "expectation": "clear THAT"
+  },
+  {
+    "id": "L34",
+    "text": "It is easy for me to read the book.",
+    "expectation": "FOR_TO, me와 read 연결"
+  },
+  {
+    "id": "L35",
+    "text": "It is hard for the student to solve the problem.",
+    "expectation": "명사구 의미상 주어"
+  },
+  {
+    "id": "L36",
+    "text": "It is possible for her to help you.",
+    "expectation": "possible FOR_TO"
+  },
+  {
+    "id": "L37",
+    "text": "It is necessary for us to work.",
+    "expectation": "necessary FOR_TO"
+  },
+  {
+    "id": "L38",
+    "text": "It is important for them to read the book.",
+    "expectation": "기존 important 확장"
+  },
+  {
+    "id": "L39",
+    "text": "It is kind of you to help me.",
+    "expectation": "OF_TO, kind와 you의 평가 관계"
+  },
+  {
+    "id": "L40",
+    "text": "It was good of him to help us.",
+    "expectation": "OF_TO, 주절 과거 보존"
+  },
+  {
+    "id": "L41",
+    "text": "It is good for you to run.",
+    "expectation": "good FOR_TO; of만 허용하지 않음"
+  },
+  {
+    "id": "L42",
+    "text": "It is kind to help the child.",
+    "expectation": "기본 TO, 추가 of 강제 금지"
+  },
+  {
+    "id": "L43",
+    "text": "It is clear.",
+    "expectation": "일반 문장 가능, 가주어진주어 근거 없음"
+  },
+  {
+    "id": "L44",
+    "text": "I smile.",
+    "expectation": "smile SV"
+  },
+  {
+    "id": "L45",
+    "text": "She smiles.",
+    "expectation": "3인칭 단수"
+  },
+  {
+    "id": "L46",
+    "text": "They smiled.",
+    "expectation": "과거"
+  },
+  {
+    "id": "L47",
+    "text": "Smile.",
+    "expectation": "기존 긍정 명령문 경로"
+  },
+  {
+    "id": "L48",
+    "text": "I write a story.",
+    "expectation": "write SVO"
+  },
+  {
+    "id": "L49",
+    "text": "I wrote a story.",
+    "expectation": "불규칙 과거"
+  },
+  {
+    "id": "L50",
+    "text": "I have written a story.",
+    "expectation": "have + written 완료"
+  },
+  {
+    "id": "L51",
+    "text": "I write you a story.",
+    "expectation": "write 수여4형식"
+  },
+  {
+    "id": "L52",
+    "text": "I solve the problem.",
+    "expectation": "solve 타동사"
+  },
+  {
+    "id": "L53",
+    "text": "The problem was solved.",
+    "expectation": "새 타동사 수동태"
+  },
+  {
+    "id": "L54",
+    "text": "I visit the school.",
+    "expectation": "visit 목적어, to 없이 정상"
+  },
+  {
+    "id": "L55",
+    "text": "I give you a gift.",
+    "expectation": "gift 명사, give 기존4형식"
+  },
+  {
+    "id": "L56",
+    "text": "I protect the child.",
+    "expectation": "protect 타동사"
+  },
+  {
+    "id": "L57",
+    "text": "I discovered a problem.",
+    "expectation": "discover 과거"
+  },
+  {
+    "id": "L58",
+    "text": "I see the result.",
+    "expectation": "result COUNT"
+  },
+  {
+    "id": "L59",
+    "text": "I try the method.",
+    "expectation": "method COUNT"
+  },
+  {
+    "id": "L60",
+    "text": "I developed a new method.",
+    "expectation": "새 명사+기존 동사/형용사"
+  },
+  {
+    "id": "E01",
+    "text": "I smile a book.",
+    "expectation": "이번 smile SV 등록으로 SVO를 정상화하지 않음"
+  },
+  {
+    "id": "E02",
+    "text": "It is easy of me to read the book.",
+    "expectation": "이번 easy 의미에 OF_TO 성공 근거 금지"
+  },
+  {
+    "id": "E03",
+    "text": "It is kind of I to help you.",
+    "expectation": "목적격 오류 감지; 정상 OF_TO로 보상하지 않음"
+  },
+  {
+    "id": "E04",
+    "text": "It is possible for she to help you.",
+    "expectation": "목적격 오류 감지"
+  },
+  {
+    "id": "E05",
+    "text": "It is possible for her to helps you.",
+    "expectation": "to 뒤 원형 위반 감지"
+  },
+  {
+    "id": "E06",
+    "text": "It is necessary for us.",
+    "expectation": "문맥상 일반 구조로 처리할 수는 있어도 진주어가 없으므로 extraposition 보너스 금지"
+  },
+  {
+    "id": "E07",
+    "text": "I remember that she happy.",
+    "expectation": "내용절 동사 누락을 정상 내용절로 보상하지 않음"
+  },
+  {
+    "id": "E08",
+    "text": "I try to working.",
+    "expectation": "to + -ing 오류 감지"
+  },
+  {
+    "id": "E09",
+    "text": "I have writed a story.",
+    "expectation": "미등록/잘못된 활용; written으로 몰래 보정 금지"
+  },
+  {
+    "id": "E10",
+    "text": "Me too.",
+    "expectation": "이번 첨가 too만으로 독립 공격문 지원 확대 금지"
+  },
+  {
+    "id": "E11",
+    "text": "I have a watch.",
+    "expectation": "지각동사 룬 근거 생성 금지"
+  },
+  {
+    "id": "E12",
+    "text": "I like you too.",
+    "expectation": "정도/설원 효과 생성 금지"
+  },
+  {
+    "id": "E13",
+    "text": "I am well.",
+    "expectation": "부사 역할을 중복 계산하지 않음"
+  },
+  {
+    "id": "E14",
+    "text": "I watch the watch.에 같은 instanceId 2회",
+    "expectation": "카드 보존 오류를 문법 겸용으로 우회하지 않음"
+  }
+]

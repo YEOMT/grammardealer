@@ -3,18 +3,18 @@ import {GRAMMAR_GUIDE,ROLE_GUIDE,SUBMISSION_LABELS} from '../data/grammarGuideDa
 export const LEARNING_VERSION='0.5.0';
 export function learningRecord(r){
  const a=r.analysis;
- return {version:['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?a.grammarVersion:LEARNING_VERSION,recordId:r.attackId,sentenceSnapshot:structuredClone(r.sentenceSnapshot),
-  ...(['0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{formUses:structuredClone(a.formUses??[])}:{}),
-  ...(['0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{relativeClauses:structuredClone(a.relativeClauses??[]),questionClauses:structuredClone(a.questionClauses??[]),embeddedQuestions:structuredClone(a.embeddedQuestions??[])}:{}),
+ return {version:['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?a.grammarVersion:LEARNING_VERSION,recordId:r.attackId,sentenceSnapshot:structuredClone(r.sentenceSnapshot),
+  ...(['0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{formUses:structuredClone(a.formUses??[])}:{}),
+  ...(['0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{relativeClauses:structuredClone(a.relativeClauses??[]),questionClauses:structuredClone(a.questionClauses??[]),embeddedQuestions:structuredClone(a.embeddedQuestions??[])}:{}),
   ...(a.grammarPatchVersion?{grammarPatchVersion:a.grammarPatchVersion,lexicalUses:structuredClone((a.resolvedTokenRoles??[]).filter(r=>r.selectedPos))}:{}),
-  ...(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{nominalStructures:structuredClone(a.nominalStructures??[]),turnEndReceipt:r.turnEndReceipt?structuredClone(r.turnEndReceipt):null}:{}),
+  ...(['0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{nominalStructures:structuredClone(a.nominalStructures??[]),turnEndReceipt:r.turnEndReceipt?structuredClone(r.turnEndReceipt):null}:{}),
   grammarVersion:a.grammarVersion??null,status:a.status??null,mainFrameId:a.mainFrameId??null,
-  ...(['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{comparisonEvidence:structuredClone((a.grammarHits??[]).filter(h=>/^(COMPARISON|DEGREE|QUANTIFIER|ADVERB)\./.test(h.tag)))}:{}),
+  ...(['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{comparisonEvidence:structuredClone((a.grammarHits??[]).filter(h=>/^(COMPARISON|DEGREE|QUANTIFIER|ADVERB)\./.test(h.tag)))}:{}),
   roles:roleRanges(a,r.sentenceSnapshot),...clauseEvidence(a),issues:(a.issues??[]).map(i=>({code:i.code,messageKo:i.messageKo??null})),
   scoreableTags:[...new Set((a.grammarHits??[]).filter(h=>(r.scoreableHitIds?.includes(h.id)??true)&&GRAMMAR_GUIDE[h.tag]).map(h=>h.tag))],
   complete:a.status==='VALID'&&!a.issues?.length,finalPower:r.finalPower,actualHpLoss:r.actualHpLoss,zeroReason:r.zeroReason??null,
-  ...(['0.3.0','0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{verbPhrases:structuredClone(a.verbPhrases??[]),phaseId:r.phaseId??null,phaseExcess:r.phaseExcess??0}:{}),
-  ...(['0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion)?{nonfinitePhrases:structuredClone(a.nonfinitePhrases??[])}:{})};
+  ...(['0.3.0','0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{verbPhrases:structuredClone(a.verbPhrases??[]),phaseId:r.phaseId??null,phaseExcess:r.phaseExcess??0}:{}),
+  ...(['0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion)?{nonfinitePhrases:structuredClone(a.nonfinitePhrases??[])}:{})};
 }
 export function roleRanges(analysis,snapshot){
  const tokens=snapshot?.orderedTokens??[],nodes=analysis.nodes??[];
@@ -48,4 +48,4 @@ export function reviewProfileLearning(profile){
  p.educationalReview={version:LEARNING_VERSION,entries};return p;
 }
 
-function clauseEvidence(a){if(!['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0'].includes(a.grammarVersion))return {};return {primaryScoringClauseId:a.primaryScoringClauseId??null,clauses:(a.clauses??[]).map(c=>({...structuredClone(c),cardIds:a.nodes.find(n=>n.id===c.nodeId)?.cardIds??[]})),links:(a.grammarHits??[]).filter(h=>h.tag.startsWith('LINK.')).map(h=>({role:h.linkRole,connectorCardIds:[...(h.connectorCardIds??[])],cardIds:[...h.cardIds]}))};}
+function clauseEvidence(a){if(!['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1'].includes(a.grammarVersion))return {};return {primaryScoringClauseId:a.primaryScoringClauseId??null,clauses:(a.clauses??[]).map(c=>({...structuredClone(c),cardIds:a.nodes.find(n=>n.id===c.nodeId)?.cardIds??[]})),links:(a.grammarHits??[]).filter(h=>h.tag.startsWith('LINK.')).map(h=>({role:h.linkRole,connectorCardIds:[...(h.connectorCardIds??[])],cardIds:[...h.cardIds]}))};}

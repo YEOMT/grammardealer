@@ -174,6 +174,8 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   const scoreEffects=createScoreEffects(root,()=>({score:overlay.number,label:overlay.label}));
   let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null,visualSnapshot=null;
   const fallbacks=new Set();
+  let coreAnimations=[],viewportKey=null,viewportHost=null;
+  const viewportSignature=()=>{const s=find(root,'sentence')?.getBoundingClientRect(),v=root.ownerDocument.defaultView?.visualViewport;return [s?.x,s?.y,s?.width,s?.height,v?.width,v?.height,v?.offsetLeft,v?.offsetTop].join('|');};
   const text = (name, value) => { overlay.text(name,value);const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
     if (!node?.animate || settings.effectsOff || settings.reducedMotion) return;
@@ -213,7 +215,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       });
       Object.assign(copy.style,{position:'absolute',left:`${box.left-rect.left}px`,top:`${box.top-rect.top}px`,width:`${box.width}px`,height:`${box.height}px`,margin:'0'});body.append(copy);
     }
-    return {body,rect};
+    return {body,rect,cardIds:sources.map(n=>n.dataset.cardId)};
   };
   const mountAttack=()=>{
     if(attackBody||!visualSnapshot)return;
@@ -258,13 +260,45 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       node.textContent=state.active?'보호 장막 · 피해 ×¼ · 4형식으로 해제':'보호 장막 해제';
     }
   };
-  const resizeEffects=()=>{visualSnapshot=null;scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];};
+  const resizeEffects=()=>{
+    if(!visualSnapshot)return;
+    const key=viewportSignature(),host=root.ownerDocument.fullscreenElement??root.ownerDocument.body;
+    if(key===viewportKey&&host===viewportHost)return;
+    viewportKey=key;viewportHost=host;
+    // Keep the submitted copies and their phase clock. Only geometry is replaceable.
+    const sources=visualSnapshot.cardIds.map(id=>findCard(root,id)),boxes=sources.map(n=>n?.getBoundingClientRect());
+    if(boxes.some(r=>!r?.width))return;
+    const left=Math.min(...boxes.map(r=>r.left)),top=Math.min(...boxes.map(r=>r.top));
+    visualSnapshot.rect={left,top,width:Math.max(...boxes.map(r=>r.right))-left,height:Math.max(...boxes.map(r=>r.bottom))-top};
+    [...visualSnapshot.body.children].forEach((n,i)=>Object.assign(n.style,{left:`${boxes[i].left-left}px`,top:`${boxes[i].top-top}px`,width:`${boxes[i].width}px`,height:`${boxes[i].height}px`}));
+    if(!attackBody)return;
+    host.append(attackLayer);const r=visualSnapshot.rect;Object.assign(attackBody.style,{left:`${r.left}px`,top:`${r.top}px`,width:`${r.width}px`,height:`${r.height}px`});
+    const phase=root.dataset.corePhase,old=phase==='LUNGE'?lungeAnimation:coreAnimations[0],elapsed=old?.currentTime??0,duration=old?.effect?.getTiming().duration??0,paused=old?.playState==='paused';
+    if(!['CHARGE','LUNGE'].includes(phase)||!duration)return;
+    const replaced=new Set([...coreAnimations,lungeAnimation]);
+    for(const a of replaced)a?.cancel();animations=animations.filter(a=>!replaced.has(a));coreAnimations=[];lungeAnimation=null;
+    drawCharge(phase==='CHARGE'?duration:1);
+    if(phase==='LUNGE'){for(const a of coreAnimations)a?.finish();drawLunge(duration);}
+    const active=phase==='LUNGE'?[lungeAnimation]:coreAnimations;
+    for(const a of active)if(a){a.currentTime=Math.min(elapsed,duration);if(paused)a.pause();}
+  };
+  const drawCharge=duration=>{
+    mountAttack();if(!attackBody)return;
+    const cards=[...attackBody.children],a=visualSnapshot.rect;
+    coreAnimations=cards.map((card,i)=>{const x=a.width/2-parseFloat(card.style.left)-parseFloat(card.style.width)/2+(i-(cards.length-1)/2)*3,y=a.height/2-parseFloat(card.style.top)-parseFloat(card.style.height)/2;
+      return animateCore(card,[{transform:'translate(0,0) scale(1)'},{transform:`translate(${x}px,${y}px) scale(.72) rotate(${(i%5-2)*3}deg)`}],duration,'forwards');});
+  };
+  const drawLunge=duration=>{
+    mountAttack();const enemy=find(root,'enemy');if(!attackBody||!enemy||!visualSnapshot)return;
+    const a=visualSnapshot.rect,b=enemy.getBoundingClientRect(),point=monsterViewFor(enemy)?.impactPoint()??{x:b.left+b.width/2,y:b.top+b.height/2},x=point.x-a.left-a.width/2,y=point.y-a.top-a.height/2;
+    lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.65)`,opacity:1}],duration,'forwards');
+  };
   const adapter = {
     setPaused(paused){scoreEffects.pause(paused);for(const a of animations){if(paused)a.pause();else a.play();}if(paused)audio?.stopAll?.();},
     setLocked(locked) { root.dataset.presenting = String(locked); root.setAttribute('aria-busy', String(locked)); },
     begin(resolution, options) {
       current = resolution; settings = options;scoreEffects.begin(options);root.ownerDocument.addEventListener('atlas:viewport',resizeEffects);
-      clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
+      clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards();viewportKey=viewportSignature();viewportHost=root.ownerDocument.fullscreenElement??root.ownerDocument.body; showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
       overlay.begin(resolution.attackId,options);text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const enemy = find(root, 'enemy');monsterViewFor(enemy)?.begin(options); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
       root.style.setProperty('--attack-intensity', String(options.intensity));
@@ -337,20 +371,13 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       root.dataset.corePhase='CHARGE';
       text('label', '힘을 모읍니다'); audio?.play?.('charge', { intensity });
       if(settings.effectsOff||settings.reducedMotion){animateCore(find(root,'score'),[{opacity:1},{opacity:.7},{opacity:1}],duration);return;}
-      mountAttack();if(!attackBody)return;
-      const cards=[...attackBody.children],a=visualSnapshot.rect;
-      cards.forEach((card,i)=>{const x=a.width/2-parseFloat(card.style.left)-parseFloat(card.style.width)/2+(i-(cards.length-1)/2)*3,y=a.height/2-parseFloat(card.style.top)-parseFloat(card.style.height)/2;
-        animateCore(card,[{transform:'translate(0,0) scale(1)'},{transform:`translate(${x}px,${y}px) scale(.72) rotate(${(i%5-2)*3}deg)`}],duration,'forwards');});
+      drawCharge(duration);
     },
     lunge({ duration }) {
       root.dataset.corePhase='LUNGE';
       text('label', '문장 공격!');
       if(settings.effectsOff||settings.reducedMotion)return;
-      mountAttack();const enemy=find(root,'enemy');
-      if(attackBody&&enemy&&visualSnapshot){const a=visualSnapshot.rect,b=monsterViewFor(enemy)?.visibleRect()??enemy.getBoundingClientRect();
-        const x=b.left+b.width/2-a.left-a.width/2,y=b.top+b.height/2-a.top-a.height/2;
-        lungeAnimation=animateCore(attackBody,[{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${x}px,${y}px) scale(.65)`,opacity:1}],duration,'forwards');
-      }
+      drawLunge(duration);
     },
     impact({ hpAfter, finalPower, actualHpLoss, killed, overkill, intensity,feel,zeroReason,feedbackKo }) {
       root.dataset.corePhase='IMPACT';showBossState(current?.bossStateAfter);if(current?.bossStateAfter?.id==='DUAL_RELATIVE_SEAL'){const enemy=find(root,'enemy');if(enemy)enemy.dataset.gateOpen=String(current.killed&&current.bossStateAfter.unlocked);}
@@ -380,9 +407,9 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(feel.tier==='BLOCKED'||monsterViewFor(enemy))return;
       animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
-    cancel(){overlay.clear();monsterViewFor(find(root,'enemy'))?.reset(current?.killed);root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
+    cancel(){visualSnapshot=null;overlay.clear();monsterViewFor(find(root,'enemy'))?.reset(current?.killed);root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
     finish(resolution) {
-      overlay.clear();root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
+      overlay.clear();visualSnapshot=null;root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
       scoreEffects.clear();
       clearCore();root.dataset.corePhase='FINISHED';
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];

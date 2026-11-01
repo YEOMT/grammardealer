@@ -5,7 +5,7 @@ import {registryForVersion,createSentenceSnapshot,makeToken,formsForCard} from '
 import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
 import {generateStarterDeck,validateStarterDeck} from '../src/game/deck.js';
 import {visibleForms} from '../src/ui/formView.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-012-controller.js';
 import {RunController as Legacy} from './helpers/legacy-011-controller.js';
 import {newProfile,validateRunState} from '../src/services/localStore.js';
 import {checked,assignSentence,assignedWaterways} from './helpers/waterways-state.js';
