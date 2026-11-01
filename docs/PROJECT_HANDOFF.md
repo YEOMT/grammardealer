@@ -1,3 +1,11 @@
+# 0.12.0 현재 인계
+
+기준 main `e0c68d83985605aa1ed950889e87da2df9c45aec`, 브랜치 `codex/v0.12.0-learning-score-overlay`. [패치 노트](../PATCH_NOTES_0.12.0_KO.md), [실제 검사·언어 검토·대표 화면](LEARNING_SCORE_0.12_REPORT.md), [유일한 본명세](../spec/v0.12/Syntax_Atlas_0.12.0_Patch_Spec.md)를 읽는다.
+
+새 원정만 모드별28장/새 언어 정책을 사용한다. 기존0.11은 원래 registry·생성기·RNG·저장·상점을 유지한다. `languagePolicyVersion:0.12.0`과 기존 grammar capability base0.10을 분리했으므로 신규 버전을 만들 때 기존 버전 allowlist·후반 보스 receipt·최종 지역 허용을 함께 확인한다. 명령문은 실제카드 없이 암시된 you를 갖지만 시제 과제 근거는 만들지 않는다. 겸용 카드는 선택ID가 아닌 표면형·구조로 역할을 결정한다.
+
+숫자 overlay는 확정 ScoreEvent.after의 표시 전용이다. 기존 score anchor 공간·몬스터 view·공격 FX를 보존한다. 초기회귀 실패와 수정내역은 보고서에 남겼으며 최종1845단위/3303데이터/빌드/9+10브라우저 묶음은 PASS다. 자연50완주·실기기 청취·production UI 완주는 NOT RUN. main 병합·Pages 변경·공개 배포는 수행하지 않는다. 아래는 이전 인계다.
+
 # Game Feel · Audio Stability 후속 패치
 
 기준 main `4ce13fb1ab5a8008639e04fd97891ff1dac150bd`, 브랜치 `codex/gamefeel-audio-stability`. [이번 실제 검사와 한계](GAMEFEEL_AUDIO_STABILITY_REPORT.md). 같은 전투의 상단 view 수명, 고정 점수·별도 공격 FX, 소리 패널과 지역 BGM 지연을 보완했다. 최신 제출의 `CLEARLY_AP_V1`만 clearly→형용사를 좁게 지원하고 과거 registry/receipt는 당시 판정을 유지한다. 게임 수치·에셋·저장 버전은 그대로다. 아래는 이전 인계다.

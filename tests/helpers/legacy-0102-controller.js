@@ -1,4 +1,4 @@
-import {RunController as Current} from '../../src/game/runController.js';
+import {RunController as Current} from './legacy-011-controller.js';
 import {RECOVERY_VERSIONS} from '../../src/contracts.js';
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 /** Explicit 0.10.2 regression fixture: 24 cards, 47 battles and no final clear. */

@@ -1,3 +1,12 @@
+# 0.12 학습 정책과 독립 점수 표시
+
+- `LEARNING012_VERSIONS`는0.11 계약의 game/save/language/generator/presentation만0.12로 바꾼다. 다른 수치·보상·룬 정책은 상속한다. `learning012`는 이전 registry를 clone하여 신규 어휘/겸용/긍정 주절 명령문 정책을 추가하며 이전 registry는 불변이다.
+- `deck.learningSlotPlan`은 기존 비동사 슬롯을 유지하고8개 동사 자리만 교체한다. FREE는 옛 분포, repair/fallback도 동일한 정책과 실제 평서문 witness 검사를 거친다.
+- parser의 명령문 후보는 일반 주절 파싱이 없을 때만 원형으로 만들며 암시 subject는 물리token/node가 아니다. `clauseSubject`가 검증된 명령문 여부를 문형/장막에 전달하고 시제 근거는 별도로 거부한다. plan/work/change는 연결된 lexeme의 등록 표면형 후보만 허용한다.
+- `preparationGuide`와 `renderBetween`은 다음encounter를 read-only로 표시한다. `scoreHeat`는 event.after의 tier/dedup/reset만 담당한다. `scoreOverlay`는 clipping 패널 밖/body 또는fullscreen host에 표시하고 cleanup한다. 상태 변경은 기존 RunController 한 곳에서만 수행한다.
+
+[검증과 한계](LEARNING_SCORE_0.12_REPORT.md). 아래는 기존 구조 기록이다.
+
 # 0.11 최종전·클리어 기록 구조
 
 - `FINALE_VERSIONS`는 game/save만0.11.0으로 확장하고0.10.2의 기존 정책을 상속한다. `finalePolicy`가 최종 지역과 확정값/초깃값을 분리한다. 구원정은 `stage.final`에 들어가지 않는다.

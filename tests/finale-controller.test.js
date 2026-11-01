@@ -8,13 +8,13 @@ import {buildFinaleTaskPool} from '../src/game/finaleTasks.js';
 import {comboEligibility} from '../src/engine/comboEligibility.js';
 import {analyzeSentence} from '../src/engine/grammar/index.js';
 import {assignedFinale,checked,assignPiles,placeExistingText,placeTaskWitness,finish,enterFinale,FINALE_POWER_SENTENCE} from './helpers/finale-state.js';
-const valid=c=>validateRunState(c.getState(),registryForVersion('0.11.0'));
+const valid=c=>validateRunState(c.getState(),registryForVersion(c.getState().version));
 const fire=c=>checked(c,{type:'SUBMIT'}).resolution;
 test('0.11 assigned fixed deck47 → reward once → introduction → frozen last shop → Surface',()=>{
  const {c}=assignedFinale();placeExistingText(c,FINALE_POWER_SENTENCE);const r=fire(c);assert.ok(r.finalPower>=5000);assert.equal(r.killed,true);finish(c,r);assert.equal(c.getState().status,'REWARD');const offer=c.getState().reward.offerId;checked(c,{type:'SKIP_REWARD',offerId:offer});assert.equal(c.getState().status,'STAGE_CLEAR');assert.equal(c.dispatch({type:'SKIP_REWARD',offerId:offer}).ok,false);checked(c,{type:'NEXT_STAGE'});assert.equal(c.getState().progress.stageId,'stage.final');assert.equal(canSaveRun(c.getState()),true);checked(c,{type:'ENTER_STAGE'});const shop=c.getState();assert.equal(shop.shop.stageId,'stage.final');assert.equal(new RunController({initialState:shop,profile:c.getProfile()}).getState().shop.shopId,shop.shop.shopId);assert.equal(c.dispatch({type:'ENTER_STAGE'}).ok,false);assert.deepEqual(c.getState(),shop);checked(c,{type:'LEAVE_SHOP',shopId:shop.shop.shopId});assert.equal(c.getState().combat.enemyState.hp,5000);assert.equal(c.getState().combat.turnsRemaining,6);assert.ok([4,5].includes(c.getState().combat.finaleDustTrace.count));assert.equal(valid(c),true);
 });
-test('0.11 designated existing piles connect all three phases; no HP edits or new cards; QA cannot rank',()=>{
- const {c}=assignedFinale({seed:'finale.linked'});enterFinale(c);const owned=c.getState().activeCardIds;
+for(const version of ['0.11.0','0.12.0'])test(version+' designated existing piles connect all three phases; no HP edits or new cards; QA cannot rank',()=>{
+ const {c}=assignedFinale({version,seed:'finale.linked'});enterFinale(c);const owned=c.getState().activeCardIds;
  for(let i=0;i<2;i++){placeTaskWitness(c);const r=fire(c);assert.equal(r.surfaceResult.layerBroken,true);finish(c,r);assert.equal(valid(c),true);}
  if(c.getState().status==='BATTLE'){placeExistingText(c,FINALE_POWER_SENTENCE);const r=fire(c);assert.equal(r.killed,true);finish(c,r);}
  assert.equal(c.getState().status,'BETWEEN_BATTLES');assert.equal(c.getState().reward,null);assert.equal(c.getState().combat.temporaryCardIds.length,0);assert.deepEqual(c.getState().activeCardIds,owned);assert.equal(canSaveRun(c.getState()),true);const between=c.getState();assert.deepEqual(new RunController({initialState:between,profile:c.getProfile()}).getState(),between);

@@ -1,0 +1,636 @@
+{
+  "baseline": "e0c68d83985605aa1ed950889e87da2df9c45aec",
+  "branch": "codex/v0.12.0-learning-score-overlay",
+  "commands": [
+    {
+      "label": "v012-final-unit-r2",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-01T05:44:36.208802+00:00",
+      "finishedAt": "2026-11-01T05:49:23.016789+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "6028c2f4066434d0e077532b0ee38164b33864c8835d4b35b54474840b107269"
+    },
+    {
+      "label": "v012-final-data",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-11-01T05:49:40.014031+00:00",
+      "finishedAt": "2026-11-01T05:49:42.168800+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "7a34602b7b4911ed71b983bb173327d88dd676ea2878827a8297a37683a777ee"
+    },
+    {
+      "label": "v012-final-build",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-01T05:49:47.531856+00:00",
+      "finishedAt": "2026-11-01T05:49:52.390332+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "c3624ff4bfd35eb0ec5f1681bf32f21e6b0a0eaa30ecd7a268b9d82036962735"
+    },
+    {
+      "label": "v012-final-browser",
+      "command": [
+        "node",
+        "tests/learning012-browser.mjs"
+      ],
+      "startedAt": "2026-11-01T05:50:05.204732+00:00",
+      "finishedAt": "2026-11-01T05:50:33.836853+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "fd185a06fedfc9a242b64aa86f34195e47ae982a38e11ddf57261337000fbeb3"
+    },
+    {
+      "label": "v012-final-gamefeel",
+      "command": [
+        "node",
+        "tests/gamefeel-browser.mjs"
+      ],
+      "startedAt": "2026-11-01T05:51:09.061795+00:00",
+      "finishedAt": "2026-11-01T05:51:45.971529+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "logSha256": "bb5728c98409470492fb2ebf14a62fb121b0d78da3a8f633834390695b9b5a4d"
+    }
+  ],
+  "unit": {
+    "passed": 1845,
+    "failed": 0,
+    "skipped": 0
+  },
+  "data": {
+    "checks": 3303,
+    "lexemes": 155,
+    "forms": 402
+  },
+  "browser": {
+    "scope": "Registered physical cards + real controller/presentation. High-score display is explicitly a visual fixture, not natural campaign power.",
+    "checks": [
+      {
+        "name": "actual opening attack: real events, centered overlay, stable stage/regions, one settlement",
+        "status": "PASS",
+        "events": 7
+      },
+      {
+        "name": "compound assigned physical-card attack",
+        "status": "PASS",
+        "result": {
+          "status": "FINISHED",
+          "reason": null,
+          "attackId": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1",
+          "plannedDuration": 2720,
+          "watchdogMs": 4720
+        },
+        "events": [
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.0",
+            "after": 10,
+            "expected": 10,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.1",
+            "after": 20,
+            "expected": 20,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.2",
+            "after": 30,
+            "expected": 30,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.3",
+            "after": 40,
+            "expected": 40,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.4",
+            "after": 50,
+            "expected": 50,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.5",
+            "after": 60,
+            "expected": 60,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.6",
+            "after": 70,
+            "expected": 70,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.7",
+            "after": 80,
+            "expected": 80,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.8",
+            "after": 90,
+            "expected": 90,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.9",
+            "after": 120,
+            "expected": 120,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "완전한 문장! · +30",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.10",
+            "after": 216,
+            "expected": 216,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "주절 · 3형식! · ×1.8",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.11",
+            "after": 270,
+            "expected": 270,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "시작의 초원 · 1·2·3형식 ×1.25",
+            "static": "false"
+          },
+          {
+            "id": "run.b118db0c-a3de-4f8a-9012-9c9bdcaae66f:battle.1:attack.1:score.12",
+            "after": 270,
+            "expected": 270,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "최종 공격력",
+            "static": "false"
+          }
+        ],
+        "duplicate": true,
+        "impacts": 1,
+        "power": 270
+      },
+      {
+        "name": "loss assigned physical-card attack",
+        "status": "PASS",
+        "result": {
+          "status": "FINISHED",
+          "reason": null,
+          "attackId": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1",
+          "plannedDuration": 3410,
+          "watchdogMs": 5410
+        },
+        "events": [
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.0",
+            "after": 10,
+            "expected": 10,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.1",
+            "after": 20,
+            "expected": 20,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.2",
+            "after": 30,
+            "expected": 30,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.3",
+            "after": 40,
+            "expected": 40,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.4",
+            "after": 50,
+            "expected": 50,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.5",
+            "after": 60,
+            "expected": 60,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.6",
+            "after": 55,
+            "expected": 55,
+            "centerError": 0,
+            "tier": 0,
+            "label": "60 → 55 · −5 · a/an 형태 -5",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.7",
+            "after": 45,
+            "expected": 45,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "55 → 45 · −10 · 주어-동사 일치 -10",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.8",
+            "after": 72,
+            "expected": 72,
+            "centerError": 0,
+            "tier": 0,
+            "label": "주절 · 2형식! · ×1.6",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.9",
+            "after": 77,
+            "expected": 77,
+            "centerError": 0,
+            "tier": 0,
+            "label": "형용사 수식! · +5",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.10",
+            "after": 82,
+            "expected": 82,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "부사 수식! · +5",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.11",
+            "after": 102,
+            "expected": 102,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "시작의 초원 · 1·2·3형식 ×1.25",
+            "static": "false"
+          },
+          {
+            "id": "run.7a766370-8f5b-4b7b-a150-5f3919e8bdd0:battle.1:attack.1:score.12",
+            "after": 102,
+            "expected": 102,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "최종 공격력",
+            "static": "false"
+          }
+        ],
+        "duplicate": true,
+        "impacts": 1,
+        "power": 102
+      },
+      {
+        "name": "static assigned physical-card attack",
+        "status": "PASS",
+        "result": {
+          "status": "FINISHED",
+          "reason": null,
+          "attackId": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1",
+          "plannedDuration": 3000,
+          "watchdogMs": 5000
+        },
+        "events": [
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.0",
+            "after": 10,
+            "expected": 10,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.1",
+            "after": 20,
+            "expected": 20,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.2",
+            "after": 30,
+            "expected": 30,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.3",
+            "after": 40,
+            "expected": 40,
+            "centerError": 0.0078125,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.4",
+            "after": 50,
+            "expected": 50,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.5",
+            "after": 60,
+            "expected": 60,
+            "centerError": 0,
+            "tier": 0,
+            "label": "카드 점수 · +10",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.6",
+            "after": 90,
+            "expected": 90,
+            "centerError": 0,
+            "tier": 0,
+            "label": "완전한 문장! · +30",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.7",
+            "after": 144,
+            "expected": 144,
+            "centerError": 0,
+            "tier": 1,
+            "label": "주절 · 2형식! · ×1.6",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.8",
+            "after": 149,
+            "expected": 149,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "형용사 수식! · +5",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.9",
+            "after": 154,
+            "expected": 154,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "부사 수식! · +5",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.10",
+            "after": 192,
+            "expected": 192,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "시작의 초원 · 1·2·3형식 ×1.25",
+            "static": "true"
+          },
+          {
+            "id": "run.42ca45f8-d2b2-4dd5-bb8d-c302a00656b4:battle.1:attack.1:score.11",
+            "after": 192,
+            "expected": 192,
+            "centerError": 0.0078125,
+            "tier": 1,
+            "label": "최종 공격력",
+            "static": "true"
+          }
+        ],
+        "duplicate": true,
+        "impacts": 1,
+        "power": 192
+      },
+      {
+        "name": "high score visual fixture: settled scale, fullscreen relocation, decrease and final tier",
+        "status": "PASS",
+        "centerError": 0,
+        "font": 86.48,
+        "tier": "10",
+        "pointer": "none",
+        "insideFullscreen": true,
+        "viewport": true
+      },
+      {
+        "name": "tablet form choices and preserved hand clearance",
+        "status": "PASS",
+        "form": {
+          "x": 220,
+          "y": 69.6875,
+          "width": 740,
+          "height": 680.609375
+        },
+        "minimumGap": 14
+      },
+      {
+        "name": "be/new verb/dual form selection and actual discard preserve stage/card/turn rules",
+        "status": "PASS"
+      },
+      {
+        "name": "read-only next-battle preview: correct encounter, idle, exact guidance, action",
+        "status": "PASS"
+      },
+      {
+        "name": "boss preview: actual next boss, separate brief mechanic, no state advance",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "preservedGameFeel": {
+    "scope": "Actual app editing/settings plus assigned registered-card attacks; not a natural campaign or physical device/audio listening test",
+    "checks": [
+      {
+        "group": "actual app: add/return/form keep connected stage and idle timeline",
+        "status": "PASS",
+        "same": true,
+        "animation": true,
+        "timeAdvanced": true
+      },
+      {
+        "group": "shared sound settings: no combat render, gain or source restart",
+        "status": "PASS",
+        "rev": 6,
+        "hp": 77,
+        "same": true,
+        "gain": 0.29600000381469727,
+        "profile": 37
+      },
+      {
+        "group": "fullscreen trusted success and deliberate unsupported/rejected/manual-copy fallbacks",
+        "status": "PASS"
+      },
+      {
+        "group": "normal real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 1,
+        "fullscreen": false,
+        "events": 12,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 192
+      },
+      {
+        "group": "fast real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": true,
+        "events": 12,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 192
+      },
+      {
+        "group": "penalty real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": false,
+        "events": 13,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 102
+      },
+      {
+        "group": "defense real timeline/visible copies/one settlement",
+        "status": "PASS",
+        "speed": 2,
+        "fullscreen": false,
+        "events": 7,
+        "phases": [
+          null,
+          "CHARGE",
+          "LUNGE",
+          "IMPACT",
+          "RECOIL"
+        ],
+        "power": 27
+      },
+      {
+        "group": "tablet layout: bottom clearance, empty hand fixed, sound panel",
+        "status": "PASS",
+        "minimumGap": 14
+      },
+      {
+        "group": "actual BGM buffers: shop continuity, 3s grace, 1.5s fade, lobby cancellation",
+        "status": "PASS",
+        "shop": true,
+        "grace": true,
+        "elapsed": 4273.69999999553,
+        "track": "stage.02",
+        "count": 2,
+        "settled": 1,
+        "cancelled": true,
+        "gain": 0.29600000381469727
+      },
+      {
+        "group": "existing between-battle idle preview retained",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "additionalFocusedChecks": {
+    "status": "PASS",
+    "checks": [
+      "dual work: one physical score and one discard",
+      "imperative SVOO: actual topaz + region + veil, four physical cards",
+      "fixed preparation examples: 39 valid registered examples",
+      "new words: donor rarity/weight and actual reward candidates"
+    ]
+  },
+  "notRun": [
+    "natural 50-battle run",
+    "physical tablet/Kakao audio/fullscreen",
+    "all-browser matrix",
+    "public deployment"
+  ]
+}

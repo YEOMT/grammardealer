@@ -1,0 +1,445 @@
+{
+  "kind": "acceptance_examples_not_executed",
+  "cases": [
+    {
+      "id": "V01",
+      "area": "new_verb",
+      "text": "I watch you.",
+      "expectation": "VALID; SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V02",
+      "area": "new_verb",
+      "text": "I notice you.",
+      "expectation": "VALID; SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V03",
+      "area": "new_verb",
+      "text": "I allow games.",
+      "expectation": "VALID; SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V04",
+      "area": "new_verb",
+      "text": "I try food.",
+      "expectation": "VALID; SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V05",
+      "area": "new_verb",
+      "text": "I remember you.",
+      "expectation": "VALID; SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V06",
+      "area": "new_verb",
+      "text": "I watch him run.",
+      "expectation": "VALID; SVOC; PERCEPTION evidence",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V07",
+      "area": "new_verb",
+      "text": "I notice him running.",
+      "expectation": "VALID; SVOC; PERCEPTION evidence",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V08",
+      "area": "new_verb",
+      "text": "I allow you to run.",
+      "expectation": "VALID; SVOC-to",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V09",
+      "area": "new_verb",
+      "text": "I try to run.",
+      "expectation": "VALID; SVO-to",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V10",
+      "area": "new_verb",
+      "text": "I try running.",
+      "expectation": "VALID; gerund OBJECT",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V11",
+      "area": "new_verb",
+      "text": "I remember to work.",
+      "expectation": "VALID; SVO-to",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V12",
+      "area": "new_verb",
+      "text": "I remember working.",
+      "expectation": "VALID; gerund OBJECT",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V13",
+      "area": "new_verb",
+      "text": "I allow you run.",
+      "expectation": "not VALID; preserve genuine missing-to diagnosis",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V14",
+      "area": "new_verb",
+      "text": "I go school.",
+      "expectation": "not VALID; do not invent to",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V15",
+      "area": "new_verb",
+      "text": "I go home.",
+      "expectation": "existing valid home path preserved",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V16",
+      "area": "new_verb",
+      "text": "She tries to run.",
+      "expectation": "VALID; tries third-person morphology",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "V17",
+      "area": "new_verb",
+      "text": "I watched her.",
+      "expectation": "VALID; past morphology",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D01",
+      "area": "dual",
+      "text": "I have a plan.",
+      "expectation": "VALID; plan=NOUN",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D02",
+      "area": "dual",
+      "text": "I plan the game.",
+      "expectation": "VALID; plan=VERB",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D03",
+      "area": "dual",
+      "text": "She plans the game.",
+      "expectation": "VALID; plans=VERB-3SG",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D04",
+      "area": "dual",
+      "text": "I need plans.",
+      "expectation": "VALID; plans=NOUN-PL",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D05",
+      "area": "dual",
+      "text": "I planned the game.",
+      "expectation": "VALID; planned=VERB-PAST",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D06",
+      "area": "dual",
+      "text": "I am planning the game.",
+      "expectation": "VALID; planning=PARTICIPLE in progressive",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D07",
+      "area": "dual",
+      "text": "I work.",
+      "expectation": "VALID; work=VERB",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D08",
+      "area": "dual",
+      "text": "I need work.",
+      "expectation": "VALID; work=NOUN-MASS",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D09",
+      "area": "dual",
+      "text": "I need a work.",
+      "expectation": "not VALID in supported work=일 sense; retain countability issue, not a claim about artwork sense",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D10",
+      "area": "dual",
+      "text": "I change the plan.",
+      "expectation": "VALID; change=VERB, plan=NOUN",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D11",
+      "area": "dual",
+      "text": "I need a change.",
+      "expectation": "VALID; change=NOUN-COUNT",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D12",
+      "area": "dual",
+      "text": "I need change.",
+      "expectation": "VALID; change=NOUN-MASS, 변화 sense",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D13",
+      "area": "dual",
+      "text": "I need changes.",
+      "expectation": "VALID; changes=NOUN-PL",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "D14",
+      "area": "dual",
+      "text": "She changes the plan.",
+      "expectation": "VALID; changes=VERB-3SG",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I01",
+      "area": "imperative",
+      "text": "Run.",
+      "expectation": "VALID; IMPERATIVE, frame.sv; no TIME.PRESENT",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I02",
+      "area": "imperative",
+      "text": "Go.",
+      "expectation": "VALID; IMPERATIVE, frame.sv",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I03",
+      "area": "imperative",
+      "text": "Be happy.",
+      "expectation": "VALID; IMPERATIVE, SVC; base be licensed here",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I04",
+      "area": "imperative",
+      "text": "Help me.",
+      "expectation": "VALID; IMPERATIVE, SVO",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I05",
+      "area": "imperative",
+      "text": "Give me a book.",
+      "expectation": "VALID; IMPERATIVE, SVOO; existing SVOO rune/region/boss evidence can qualify",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I06",
+      "area": "imperative",
+      "text": "Make me happy.",
+      "expectation": "VALID; IMPERATIVE, SVOC",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I07",
+      "area": "imperative",
+      "text": "Read the book.",
+      "expectation": "VALID; IMPERATIVE even when read has same-surface past candidate",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I08",
+      "area": "imperative",
+      "text": "Make him work.",
+      "expectation": "VALID; IMPERATIVE plus existing causative evidence",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I09",
+      "area": "imperative",
+      "text": "Runs.",
+      "expectation": "not valid imperative; no plain-form candidate",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I10",
+      "area": "imperative",
+      "text": "Went.",
+      "expectation": "not valid imperative; past not plain",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I11",
+      "area": "imperative",
+      "text": "Running.",
+      "expectation": "not valid imperative; noun/participle fragment is not licensed root",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I12",
+      "area": "imperative",
+      "text": "Happy.",
+      "expectation": "not valid imperative; missing verb",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I13",
+      "area": "imperative",
+      "text": "I be happy.",
+      "expectation": "retain declarative be-form diagnostic; no imperative salvage",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "I14",
+      "area": "imperative",
+      "text": "I run.",
+      "expectation": "existing DECLARATIVE interpretation preserved",
+      "notes": "Use actual registered physical cards and selected forms. Do not add vocabulary merely to pass the fixture.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H01",
+      "area": "score_heat",
+      "text": "99 -> 100",
+      "expectation": "tier 0 -> 1; one threshold burst; settled scale remains higher",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H02",
+      "area": "score_heat",
+      "text": "299 -> 300",
+      "expectation": "tier 1 -> 2",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H03",
+      "area": "score_heat",
+      "text": "800 -> 3200",
+      "expectation": "tier 3 -> 7; one destination burst, no four-step queue",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H04",
+      "area": "score_heat",
+      "text": "6000 -> 3000",
+      "expectation": "tier 10 -> 7 with negative reason and delta -3000",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H05",
+      "area": "score_heat",
+      "text": "950 -> 475 (shield)",
+      "expectation": "tier 3 -> 2; defense, not grammar blame; delta -475",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H06",
+      "area": "score_heat",
+      "text": "3000 -> 6500 after earlier 6000",
+      "expectation": "tier follows 6500; no duplicate large burst for prior thresholds",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H07",
+      "area": "score_heat",
+      "text": "9999 -> 10000",
+      "expectation": "tier 10 -> 11",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H08",
+      "area": "score_heat",
+      "text": "12000 power / enemy HP 200",
+      "expectation": "power remains 12000; actual damage 200 is not score loss",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H09",
+      "area": "score_heat",
+      "text": "next attack starts",
+      "expectation": "heat and seen thresholds reset; no prior flame remains",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    },
+    {
+      "id": "H10",
+      "area": "score_heat",
+      "text": "effectsOff or reducedMotion",
+      "expectation": "static legible score/result remains; no distracting motion",
+      "notes": "Visual contract only; this does not set game damage values.",
+      "execution": "NOT_RUN"
+    }
+  ]
+}

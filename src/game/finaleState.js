@@ -67,7 +67,7 @@ function validateTask(run,task){
  const available=new Map();for(const id of run.activeCardIds){const def=run.cardInstances[id].cardDefId;available.set(def,(available.get(def)??0)+1);}
  const deficits=[];for(const def of task.witnessCardDefIds){const n=available.get(def)??0;if(n)available.set(def,n-1);else deficits.push(def);}
  if(!same(deficits,task.supportCardDefId?[task.supportCardDefId]:[]))fail('witness permanent deficit');
- const registry=registryForVersion(run.version),snapshot=createSentenceSnapshot(task.witnessSlots,cards,{languageVersion:registry.version}),analysis=analyzeSentence(snapshot,registry);
+ const registry=registryForVersion(run.version),snapshot=createSentenceSnapshot(task.witnessSlots,cards,{languageVersion:registry.languagePolicyVersion??registry.version}),analysis=analyzeSentence(snapshot,registry);
  if(analysis.status!=='VALID'||!matchFinaleTask(task,analysis,{comboEligibility:comboEligibility(run),submittedCards:snapshot.orderedTokens}))fail('unsupported task');
 }
 

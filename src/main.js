@@ -10,6 +10,7 @@ import {cardModel,operationPolishPreview} from './ui/models.js';
 import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutorial.js';
 import './ui/styles.css';
 import './ui/responsive.css';
+import './ui/learning012.css';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
 import { renderCombat } from './ui/combat.js';

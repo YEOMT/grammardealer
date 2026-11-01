@@ -1,3 +1,4 @@
+import {preparationGuide} from '../data/battleLearningGuide.js';
 import {soundButton} from './soundControls.js';
 import {sceneBackdrop,MONSTER_ASSETS,sceneAssetUrl,warnAsset} from '../services/sceneAssets.js';
 import {enemyDisplayName,stageDisplayName} from './displayText.js';
@@ -141,22 +142,25 @@ function betweenMonster(enemy){
   node.classList.add('monster-preview');
   const img=el('img',{alt:enemyDisplayName(enemy),src:sceneAssetUrl(art.idle)});
   img.onerror=()=>{warnAsset(img.src);node.textContent=enemy.emoji;};
-  node.replaceChildren(img);return node;
+  const [w,h,l,t,r,b]=art.bounds;
+  img.style.cssText=`width:${w/(r-l)*100}%;max-width:none;height:auto;left:${-l/(r-l)*100}%;top:${-t/(b-t)*100}%;`;
+  node.style.aspectRatio=`${r-l} / ${b-t}`;node.replaceChildren(img);return node;
 }
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
   applyStageTheme(state);
-  const next = roundsForRun(state)[state.progress.roundIndex + 1],harbor=state.progress.stageId==='stage.02';
-  root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'intro-page' },
-    el('span', { class: 'eyebrow', text: `${state.progress.stageId==='stage.final'?'FINAL':`CHAPTER ${state.progress.stageId.slice(-2)}`} · ${state.progress.battleNumber} / ${campaignBattleCount(state)}` }),
-    betweenMonster(next), el('h1', { text: enemyDisplayName(next) }),
-    state.progress.stageId==='stage.08'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:WATERWAYS_HINT}),
-    state.progress.stageId==='stage.07'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:EMBER_HINT}),
-    state.progress.stageId==='stage.06'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:FROST_HINT}),
-    state.progress.stageId==='stage.05'&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:TURN_HAND_SEAL_HINT}),
-    state.progress.stageId==='stage.final'&&el('p',{class:'boss-rule',text:state.progress.roundIndex===0?'다음 전투는 실제 기여도가 높은 공격 룬과 매 턴 단어 최대 두 장을 봉인합니다. 시제 과제로 룬을 되찾을 수 있습니다.':'다음 전투에는 방어막·봉인·회복이 없습니다. 새 6턴과 정상 자원으로 시작합니다.'}),
-    harbor&&next.kind==='REGIONAL_BOSS'&&el('p',{class:'boss-rule',text:HARBOR_BOSS_HINT}),
-    el('div', { class: 'record-grid' }, metric(state.activeCardIds.length, '현재 덱'), metric(state.runes.orderedInstanceIds.length, '장착 룬'), metric(state.economy.gold, '골드')),
-    el('div', { class: 'reward-footer' }, button('다음 전투', onNext, 'primary', { id: 'next-battle' }), button('여기서 저장', onSaves, 'secondary'))));
+  const next=roundsForRun(state)[state.progress.roundIndex+1];
+  const preview={...state,progress:{...state.progress,roundIndex:state.progress.roundIndex+1,battleNumber:next.battleNumber},combat:{enemyState:next}};
+  const g=preparationGuide(preview);
+  root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page battle-preparation'},
+    el('span',{class:'eyebrow',text:`다음 전투 · ${next.battleNumber} / ${campaignBattleCount(state)}`}),
+    el('h1',{text:enemyDisplayName(next)}),
+    el('div',{class:'preparation-content'},betweenMonster(next),el('section',{class:'preparation-guide'},
+      el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),el('p',{text:'뜻: '+g.meaningKo}),
+      g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{text:'전투 효과: '+g.effectLabel}),
+      ...g.boss.map(text=>el('small',{class:'boss-rule',text})),
+      state.version==='0.12.0'&&state.progress.stageId==='stage.01'&&el('small',{text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'}))),
+    el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`}),
+    el('div',{class:'reward-footer'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
 }
 
 export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves, onLobby, onRecords } = {}) {

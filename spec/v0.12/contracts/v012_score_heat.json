@@ -1,0 +1,84 @@
+{
+  "kind": "presentation_only_tuning_contract",
+  "tierEntryRule": "score >= minScore",
+  "aboveHighest": "retain_top_tier_and_readable_digit_fit; no_new_tiers_required",
+  "baseFontPx": {
+    "desktop": 46,
+    "tabletLandscape": 38,
+    "compactLandscape": 32
+  },
+  "maxNumericWidth": "min(560px, 60vw), further clamp to readable presentation safe band",
+  "maxConcurrentParticles": {
+    "desktop": 48,
+    "coarsePointerOrSmallScreen": 24
+  },
+  "extraTimelineDelayForCrossedThresholds": 0,
+  "onMultiThresholdJump": "one_burst_at_destination_tier; mark_all_crossed_as_seen",
+  "onDecrease": "semantic_negative_feedback_then_settle_in_after_tier",
+  "onRecross": "tier_changes_but_no_repeat_large_burst_for_seen_threshold_in_same_attack",
+  "resetScope": "new_attack_only; also_cleanup_on_abort_or_route_leave",
+  "reducedMotion": "readable_static_size_color_label; no_flame_loop_big_shake_flight",
+  "tiers": [
+    {
+      "minScore": 0,
+      "settledScale": 1.0,
+      "style": "CLEAR"
+    },
+    {
+      "minScore": 100,
+      "settledScale": 1.06,
+      "style": "WARM_EDGE"
+    },
+    {
+      "minScore": 300,
+      "settledScale": 1.13,
+      "style": "GOLD_EDGE"
+    },
+    {
+      "minScore": 600,
+      "settledScale": 1.22,
+      "style": "EMBER"
+    },
+    {
+      "minScore": 1000,
+      "settledScale": 1.32,
+      "style": "FLAME"
+    },
+    {
+      "minScore": 1500,
+      "settledScale": 1.41,
+      "style": "RISING_FLAME"
+    },
+    {
+      "minScore": 2000,
+      "settledScale": 1.5,
+      "style": "HOT_FLAME"
+    },
+    {
+      "minScore": 3000,
+      "settledScale": 1.6,
+      "style": "SURGE"
+    },
+    {
+      "minScore": 4000,
+      "settledScale": 1.69,
+      "style": "DOUBLE_AURA"
+    },
+    {
+      "minScore": 5000,
+      "settledScale": 1.78,
+      "style": "HIGH_POWER"
+    },
+    {
+      "minScore": 6000,
+      "settledScale": 1.88,
+      "style": "BLAZING"
+    },
+    {
+      "minScore": 10000,
+      "settledScale": 2.02,
+      "style": "ORIGIN_LIGHT"
+    }
+  ],
+  "allVisualValuesAreInitialTuningNotGameBalance": true
+}

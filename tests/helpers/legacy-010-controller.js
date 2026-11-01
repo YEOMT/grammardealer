@@ -1,5 +1,5 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
-import {RunController as Current} from '../../src/game/runController.js';
+import {RunController as Current} from './legacy-011-controller.js';
 import {CORRIDOR_VERSIONS} from '../../src/contracts.js';
 import {runesForVersion} from '../../src/data/runes.js';
 /** Explicit historical 0.10 fixture. Retains its HP, drops and original 12-rune pool. */

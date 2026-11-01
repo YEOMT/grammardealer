@@ -2,7 +2,7 @@ import {scoreFeedback} from '../engine/scoreFeedback.js';
 import {comboFeel,meaningfulComboEvent,runeFeel} from '../engine/comboFeel.js';
 
 /** Bounded WAAPI overlays. Only physical evidence IDs from the committed score event are read. */
-export function createScoreEffects(root){
+export function createScoreEffects(root,display=()=>({})){
  let settings={},seen=new Set(),animations=new Set(),particles=new Set();
  const pool=[];
  const release=n=>{particles.delete(n);n.remove();if(pool.length<48&&!pool.includes(n))pool.push(n);};
@@ -17,7 +17,7 @@ export function createScoreEffects(root){
   score(event,count){
    if(seen.has(event.eventId))return;
    seen.add(event.eventId);const feedback=scoreFeedback(event),meaningful=meaningfulComboEvent(event);const feel=comboFeel(count),weight=event.sourceType==='RUNE'?runeFeel(event.runeRarity??[...root.querySelectorAll('[data-rune-id]')].find(n=>n.dataset.runeId===event.sourceId)?.dataset.rarity,event.runeLevel):1;
-   const score=root.querySelector('[data-presentation="score"]'),label=root.querySelector('[data-presentation="label"]');
+   const score=display().score??root.querySelector('[data-presentation="score"]'),label=display().label??root.querySelector('[data-presentation="label"]');
    const rune=[...root.querySelectorAll('[data-rune-id]')].find(n=>n.dataset.runeId===event.sourceId),color=feedback.kind==='rune'?getComputedStyle(rune??root).getPropertyValue('--rune-color').trim()||feedback.color:feedback.color;
    for(const n of [score,label])if(n){n.classList.remove('combo-static');n.dataset.feedback=feedback.kind;n.style.color=feedback.color;n.style.textShadow='';}
    if(feedback.delta<=0){

@@ -1,6 +1,6 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {runesForVersion} from '../../src/data/runes.js';
-import {RunController as Current} from '../../src/game/runController.js';
+import {RunController as Current} from './legacy-011-controller.js';
 import {LIBRARY_VERSIONS} from '../../src/contracts.js';
 import {campaignCards} from '../../src/data/cardCatalog.js';
 /** Explicit pre-corridor campaign fixture, never auto-upgraded to 47 battles. */

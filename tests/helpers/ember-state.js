@@ -1,3 +1,4 @@
+import {RunController as LearningController} from '../../src/game/runController.js';
 import {RunController} from './legacy-07-controller.js';
 import {newProfile,validateRunState} from '../../src/services/localStore.js';
 import {registryForVersion} from '../../src/data/language/index.js';
@@ -9,8 +10,8 @@ import {grantStage6Entry,SNOW_PACKS,SNOW_REWARD_PACK} from '../../src/game/mirro
 import {EMBER_PACKS} from '../../src/data/stage7.js';
 export function checked(c,command){const r=c.dispatch(command);if(!r.ok)throw Error(command.type+': '+r.message);return r;}
 /** Explicit assigned-state fixture; never claimed as campaign play. Entry/shop routines are real. */
-export function assignedEmber({round=0,seed='ember.assigned',opening=0}={}){
- const c=new RunController({profile:{...newProfile('Ember assigned QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed}});const s=c.getState();s.runId='qa.ember.'+seed;s.economy.gold=100;s.runes.slotLimit=4;
+export function assignedEmber({version='0.7.0',round=0,seed='ember.assigned',opening=0}={}){
+ const Controller=version==='0.12.0'?LearningController:RunController;const c=new Controller({profile:{...newProfile('Ember assigned QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed}});const s=c.getState();s.runId='qa.ember.'+seed;s.economy.gold=100;s.runes.slotLimit=4;
  s.milestoneIds=['STAGE1_CLEAR','STAGE2_CLEAR','STAGE3_CLEAR','STAGE4_CLEAR','STAGE5_CLEAR','STAGE6_CLEAR'];s.eligibility.runOwnUnlocks=['pack.svoo','rune.svoo','pack.clauseLink',...TIME_PACKS,...DESERT_PACKS,...SNOW_PACKS,SNOW_REWARD_PACK,...EMBER_PACKS];
  for(const [stage,battle]of [[2,4],[3,8],[4,13],[5,18],[6,23]]){
   s.progress={stageId:`stage.0${stage}`,roundIndex:0,battleNumber:battle,contentBoundary:null};s.status='STAGE_INTRO';

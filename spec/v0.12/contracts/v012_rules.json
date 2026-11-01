@@ -1,0 +1,161 @@
+{
+  "documentKind": "implementation_contract_not_game_source_or_test_result",
+  "targetRelease": "0.12.0",
+  "reviewedMain": "e0c68d83985605aa1ed950889e87da2df9c45aec",
+  "confirmed": {
+    "starterWordCount": 28,
+    "primaryCategoryCounts": {
+      "NOUN": 6,
+      "PRONOUN": 4,
+      "VERB": 8,
+      "ADJECTIVE": 3,
+      "ADVERB": 2,
+      "DETERMINER": 3,
+      "PREPOSITION": 2
+    },
+    "commonVerbCopies": {
+      "be": 2,
+      "have": 1,
+      "make": 1
+    },
+    "modeRequiredVerbs": {
+      "BEGINNER": [
+        "see",
+        "need",
+        "like"
+      ],
+      "STANDARD": [
+        "watch",
+        "want",
+        "try"
+      ],
+      "ADVANCED": [
+        "notice",
+        "allow",
+        "remember"
+      ]
+    },
+    "svChoice": {
+      "candidates": [
+        "go",
+        "run"
+      ],
+      "copies": 1
+    },
+    "newDualCards": [
+      "plan",
+      "work",
+      "change"
+    ],
+    "existingDualCardPreserved": "help",
+    "imperative": {
+      "firstScope": "positive_main_clause_plain_form",
+      "extraBonus": false,
+      "extraPenalty": false,
+      "implicitSubjectIsPhysicalCard": false,
+      "implicitSubjectAddsScore": false,
+      "ordinaryScoringAndEligibleFrameRunes": true,
+      "countsAsSimplePresentTask": false
+    },
+    "prepCopySVOO": {
+      "target": "4형식",
+      "pattern": "주어 + 동사 + 간접목적어 + 직접목적어",
+      "meaning": "~에게 ~를 주다.",
+      "effect": "4형식 문장 사용 시 보너스 배율 적용"
+    },
+    "scoreThresholds": [
+      100,
+      300,
+      600,
+      1000,
+      1500,
+      2000,
+      3000,
+      4000,
+      5000,
+      6000,
+      10000
+    ],
+    "scoreTierBasedOn": "committed_event_after_not_combo_count_or_damage",
+    "keepOuterBattleGeometry": true,
+    "preserveHandCardAppearanceAndFontFamily": true,
+    "preserveMusicBaseGain": 0.8,
+    "preserveRegionDelaySeconds": 3
+  },
+  "implementationDefaultsNotUserApprovedBalanceNumbers": {
+    "svWeights": {
+      "go": 1,
+      "run": 1
+    },
+    "freeMode": "preserve_existing_FREE_starter_distribution_and_28_card_count; no_new_fixed_tier_set",
+    "newRarityReference": {
+      "watch": "see",
+      "notice": "see",
+      "allow": "want",
+      "try": "like",
+      "remember": "like"
+    },
+    "newRewards": "reuse_same_role_donor_acquisition_policy; no_global_rarity_probability_change; fixed_start_copies_are_generator_exception_only",
+    "newUserDefaultMode": "BEGINNER",
+    "firstScopeExclusions": [
+      "negative_imperative",
+      "lets_imperative",
+      "emphatic_do_imperative",
+      "multi_imperative_coordination",
+      "new_question_grammar",
+      "extra_dictionary_senses"
+    ],
+    "formDialog": {
+      "preferredWidthPx": [
+        640,
+        760
+      ],
+      "buttonHeightPx": [
+        64,
+        80
+      ],
+      "wordSizePx": [
+        24,
+        28
+      ],
+      "labelSizePx": [
+        14,
+        16
+      ],
+      "paddingPx": [
+        12,
+        16
+      ],
+      "gapPx": [
+        8,
+        12
+      ]
+    },
+    "discardButton": {
+      "heightPx": [
+        40,
+        44
+      ],
+      "labelPx": [
+        14,
+        16
+      ],
+      "reposition": false
+    },
+    "animationTimingMsAt1x": {
+      "scoreEventPulse": [
+        180,
+        280
+      ],
+      "thresholdBurst": [
+        280,
+        420
+      ],
+      "finalPowerHold": [
+        350,
+        500
+      ]
+    },
+    "frozenBaselinePolicy": "old_saved_runs_keep_old_rules; presentation_may_upgrade_without_recomputing_receipts"
+  }
+}

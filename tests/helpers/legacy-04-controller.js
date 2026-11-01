@@ -1,7 +1,7 @@
 import {removeFinaleFromHistoricalFixture} from './legacy-finale-boundary.js';
 import {runesForVersion} from '../../src/data/runes.js';
 import {restore04Starter} from './legacy-04-starter.js';
-import {RunController as CurrentController} from '../../src/game/runController.js';
+import {RunController as CurrentController} from './legacy-011-controller.js';
 import {campaignCards} from '../../src/data/cardCatalog.js';
 /** Historical assertions execute the real persisted 0.4 path, never regenerate expected results. */
 export class RunController extends CurrentController{

@@ -23,10 +23,10 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
   node.append(body);
   const dual=model.secondaryLexemes?.length>0;
-  if(dual){node.classList.add('dual-usage-card');const label=body.querySelector('.pos-label');label.replaceChildren(el('span',{class:'dual-usage-badge',text:'동·명'}));}
+  if(dual){node.classList.add('dual-usage-card');const label=body.querySelector('.pos-label');label.replaceChildren(el('span',{class:'dual-usage-badge',text:model.definition.dualUsage?.label??'동·명'}));}
   if((dual||model.temporary)&&['hand','sentence'].includes(zone)){
     const details=()=>modal(model.surface+' · 카드 상세',[
-      ...(dual?[el('p',{text:'동사: 돕다 / 명사: 도움(셀 수 없는 명사)'}),el('p',{text:'I help you.'}),el('p',{text:'I need more help.'}),el('p',{text:'명사 도움은 기본형 help로 씁니다. 실제 용법은 문장 제출 후 판정합니다.'})]:[]),
+      ...(dual?[el('p',{text:model.definition.dualUsage?.description??'동사: 돕다 / 명사: 도움(셀 수 없는 명사)'}),...(model.definition.dualUsage?.examples??['I help you.','I need more help.']).map(text=>el('p',{text})),el('p',{text:'실제 용법은 표면형과 문장 구조로 제출 후 판정합니다.'})]:[]),
       ...(model.temporary?[el('p',{text:'이번 전투 한정 WORD입니다. 일반 단어처럼 조합·교환·보급·탐색할 수 있습니다. 공격 제출 시 깨지고 전투가 끝나면 사라집니다.'}),el('p',{text:model.temporary.source==='MIRROR_SNOWFIELD'&&CRYSTAL_WORDS.has(model.definition.id.slice(5))?'거울뿔 사슴전에서 문법적으로 성립한 양수 피해 공격에 사용하면 이 빙정 사본이 핵 하나를 깹니다. 비교 문장일 필요는 없습니다.':'지원용 빙정입니다. 빙결핵을 깨지 않습니다.'})]:[])]);
     body.append(button('ⓘ',e=>{e.stopPropagation();details();},'card-info',{'aria-label':model.surface+' 카드 상세',onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
   }

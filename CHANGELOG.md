@@ -1,3 +1,10 @@
+## 0.12.0 — 2026-11-01
+
+- 새28장 모드별 핵심 동사, watch/notice/allow/try/remember, plan/work/change 구조 기반 겸용과 긍정 주절 명령문.
+- 다음 전투 idle/고정 학습 안내, 확대된 형태 팝업과 버리기 대비, ScoreEvent.after 기반 독립 점수 오버레이.
+- 이전 원정 정책과50전투·상점6회·최종 기록을 유지하는 명시적 버전 연결 및 회귀 검사.
+- 의존성·에셋·HP·턴·룬·경제·BGM 수치 변경 없음. [실제 검사·한계](docs/LEARNING_SCORE_0.12_REPORT.md).
+
 ## 0.11.0 — Final Trilogy
 
 - 새 원정만 마지막 상점과 Surface / Deep / Universal을 연결해50전투 실제 클리어로 확장.

@@ -1,6 +1,7 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {assignedLibrary,checked,assignPiles,place} from './helpers/library-state.js';
 import {RunController} from '../src/game/runController.js';
+import {RunController as LibraryController} from './helpers/legacy-09-controller.js';
 import {registryForVersion} from '../src/data/language/index.js';
 import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
 import {resolveLibraryTurnEnd,validateLibraryTurnEnds} from '../src/engine/libraryTurnEnd.js';
@@ -29,7 +30,7 @@ test('0.9 confirmed boss HP, golem single-phase excess and version isolation',()
  assert.equal(campaignBattleCount('0.8.1'),37);assert.equal(campaignBattleCount('0.9.0'),42);assert.throws(()=>stageForRun({version:'0.8.1',progress:{stageId:'stage.09'}}));
 });
 test('0.9 new run still has 28 cards, two be, fixed have and reward-only help; definitions are versioned',()=>{
- const c=new RunController({profile:{...newProfile('starter QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed:'library.deck'}});const s=c.getState(),defs=s.activeCardIds.map(id=>s.cardInstances[id].cardDefId);assert.equal(defs.length,28);assert.equal(defs.filter(id=>id==='card.be').length,2);assert.ok(defs.includes('card.have'));assert.ok(!defs.includes('card.help'));assert.equal(s.contentVersions.generator,'0.8.1');
+ const c=new LibraryController({profile:{...newProfile('starter QA'),guidedTutorialCompletedVersion:'0.2.1'}});checked(c,{type:'NEW_RUN',config:{seed:'library.deck'}});const s=c.getState(),defs=s.activeCardIds.map(id=>s.cardInstances[id].cardDefId);assert.equal(defs.length,28);assert.equal(defs.filter(id=>id==='card.be').length,2);assert.ok(defs.includes('card.have'));assert.ok(!defs.includes('card.help'));assert.equal(s.contentVersions.generator,'0.8.1');
  for(const [w,r]of Object.entries({have:'RARE',that:'RARE',to:'UNCOMMON',make:'UNCOMMON',help:'UNCOMMON',be:'UNCOMMON',want:'UNCOMMON'}))assert.equal(registry.cardById['card.'+w].rarity,r);
  const old=runeForVersion('rune.longSentence','0.8.1'),now=runeForVersion('rune.longSentence','0.9.0');assert.equal(now.nameKo,'다이아몬드 룬');assert.equal(now.rarity,'RARE');assert.equal(old.nameKo,'운석 룬');assert.equal(old.rarity,'UNCOMMON');assert.deepEqual(now.levelValues,old.levelValues);
 });

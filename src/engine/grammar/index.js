@@ -10,14 +10,15 @@ export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',reg
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
  const words=text.trim().replace(['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
  const orderedTokens=words.map((word,position)=>{
-  const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase()&&!registry.lexemeById[f.lexemeId].secondaryOnly);
+  const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase()&&(!registry.lexemeById[f.lexemeId].secondaryOnly||registry.languagePolicyVersion));
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];
+  const linked=registry.languagePolicyVersion&&registry.cards.find(c=>lexemeIds.every(id=>id===c.lexemeId||c.secondaryLexemeIds?.includes(id)));
   const selected=matches.find(f=>f.runtimeReady)??matches[0];
-  if(!selected||lexemeIds.length!==1&&!(['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0'].includes(registry.version)&&matches.every(f=>f.grammaticalFeatures.degree&&f.grammaticalFeatures.degree!=='POSITIVE')))return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
-  const def=registry.cards.find(c=>c.lexemeId===selected.lexemeId);
+  if(!selected||lexemeIds.length!==1&&!linked&&!(['0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0'].includes(registry.version)&&matches.every(f=>f.grammaticalFeatures.degree&&f.grammaticalFeatures.degree!=='POSITIVE')))return {cardInstanceId:`${prefix}.${position}`,cardDefId:null,lexemeId:null,selectionId:null,surface:word,allowedFormCandidates:[],position,unsupportedFixture:true};
+  const def=linked||registry.cards.find(c=>c.lexemeId===selected.lexemeId);
   return makeToken(`${prefix}.${position}`,def.id,selected.id,position,registry);
  });
- return {schemaVersion:1,sentenceId,languageVersion:registry.version,orderedTokens,...(['0.8.0','0.9.0','0.10.0'].includes(registry.version)&&/[.!?]\s*\S/.test(text)?{fixtureMultipleSentences:true}:{}),...(/[?]/.test(text)&&!['0.8.0','0.9.0','0.10.0'].includes(registry.version)?{fixtureCapabilityId:'cap.question'}:{})};
+ return {schemaVersion:1,sentenceId,languageVersion:registry.languagePolicyVersion??registry.version,orderedTokens,...(['0.8.0','0.9.0','0.10.0'].includes(registry.version)&&/[.!?]\s*\S/.test(text)?{fixtureMultipleSentences:true}:{}),...(/[?]/.test(text)&&!['0.8.0','0.9.0','0.10.0'].includes(registry.version)?{fixtureCapabilityId:'cap.question'}:{})};
 }
 const fingerprint=(tokens)=>{
  let value=2166136261;
@@ -47,18 +48,22 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{histo
    const def=languageRegistry.cardById[token.cardDefId];const lex=languageRegistry.lexemeById[token.lexemeId];
    if(!def||!lex||def.lexemeId!==lex.id)throw new TypeError('Unregistered card or mismatched lexeme');
    const selection=languageRegistry.formById[token.selectionId];
-   if(!selection||selection.lexemeId!==lex.id||selection.surface.toLowerCase()!==String(token.surface).toLowerCase())throw new TypeError('Surface does not match its registered form');
+   if(!selection||!(selection.lexemeId===lex.id||languageRegistry.languagePolicyVersion&&def.secondaryLexemeIds?.includes(selection.lexemeId))||selection.surface.toLowerCase()!==String(token.surface).toLowerCase())throw new TypeError('Surface does not match its registered form');
    if(token.position!==position)throw new TypeError('Position must match the ordered token sequence');
    // Never trust a hidden selection ID to choose the syntactic role of a homograph.
    const candidates=lex.formIds.map(id=>languageRegistry.formById[id]).filter(f=>f.surface.toLowerCase()===selection.surface.toLowerCase());
    const active=candidates.filter(f=>f.runtimeReady);
    const secondaryForms=(historicalReceipt?[]:def.secondaryLexemeIds??[]).flatMap(id=>languageRegistry.lexemeById[id].formIds.map(fid=>languageRegistry.formById[fid])).filter(f=>f.runtimeReady&&f.surface.toLowerCase()===selection.surface.toLowerCase());
-   return {...token,lex,sense:languageRegistry.senseById[lex.senseIds.find(id=>id.endsWith('.sense.basic'))??[...lex.senseIds].sort()[0]],senses:[...lex.senseIds].sort().map(id=>languageRegistry.senseById[id]).filter(Boolean),forms:[...active,...secondaryForms],surface:selection.surface,unsupported:active.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
+   const available=[...active,...secondaryForms];
+   const verbUsage=languageRegistry.languagePolicyVersion&&available.map(f=>languageRegistry.lexemeById[f.lexemeId]).find(l=>l.pos==='VERB');
+   const usage=verbUsage||lex;
+   return {...token,lex:usage,sense:languageRegistry.senseById[usage.senseIds.find(id=>id.endsWith('.sense.basic'))??[...usage.senseIds].sort()[0]],senses:[...usage.senseIds].sort().map(id=>languageRegistry.senseById[id]).filter(Boolean),forms:available,surface:selection.surface,unsupported:available.length===0,unsupportedCapabilityId:selection.requiredCapabilityIds?.[0]};
   });
   if((snapshot.fixtureCapabilityId&&!(['0.8.0','0.9.0','0.10.0'].includes(languageRegistry.version)&&snapshot.fixtureCapabilityId==='cap.question'))||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
   if(['0.8.0','0.9.0','0.10.0'].includes(languageRegistry.version)&&snapshot.fixtureMultipleSentences)return {...result,status:'INVALID_CORE',messageKo:'한 문장씩 제출하세요.'};
   const parsed=parseSupportedClause(tokens,languageRegistry,{historicalReceipt});
   result={...result,...parsed};
+  if(languageRegistry.languagePolicyVersion)result.languagePolicyVersion=languageRegistry.languagePolicyVersion;
   if(languageRegistry.adjectiveModifierPolicy&&!historicalReceipt)result.adjectiveModifierPolicy=languageRegistry.adjectiveModifierPolicy;
   if(['0.9.0','0.10.0'].includes(languageRegistry.version))result.grammarVersion=languageRegistry.version;
   if(['0.9.0','0.10.0'].includes(languageRegistry.version))result.grammarPatchVersion=languageRegistry.version;

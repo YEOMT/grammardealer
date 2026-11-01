@@ -38,7 +38,7 @@ export function matchFinaleTask(task,analysis,{comboEligibility=null,submittedCa
   for(const v of analysis.verbPhrases??[]){
    if(!cleanVP(v)||!usable(v.cardIds))continue;
    const token=tokens.find(t=>(t.cardInstanceId??t.instanceId)===v.lexicalVerbCardId);
-   const def=token?.cardDefId?registryForVersion('0.10.2').cardById[token.cardDefId]:null;
+   const def=token?.cardDefId?registryForVersion(analysis.languagePolicyVersion??'0.10.2').cardById[token.cardDefId]:null;
    if((token?.lexemeId??def?.lexemeId)===task.target)return result([v.id],[v.lexicalVerbCardId]);
   }
   return null;
@@ -77,7 +77,7 @@ export function buildFinaleTaskPool(activeCardIds,cardInstances,{registry=regist
  function accept(slots,known=null){
   if(slots.length>24||new Set(slots.map(s=>s.cardInstanceId)).size!==slots.length||slots.filter(s=>support.has(s.cardInstanceId)).length>1)return null;
   const key=slots.map(s=>s.cardInstanceId+':'+s.selection.formId).join('|');if(seen.has(key)||pool.search.checks>=phaseLimit)return null;seen.add(key);pool.search.checks++;
-  const snapshot=known?.snapshot??createSentenceSnapshot(slots,instances,{sentenceId:`finale.witness.${pool.search.checks}`,languageVersion:registry.version});
+  const snapshot=known?.snapshot??createSentenceSnapshot(slots,instances,{sentenceId:`finale.witness.${pool.search.checks}`,languageVersion:registry.languagePolicyVersion??registry.version});
   const analysis=known?.analysis??analyzeSentence(snapshot,registry);if(analysis.status!=='VALID')return null;
   const missing=slots.find(s=>support.has(s.cardInstanceId)),supportCardDefId=missing?instances[missing.cardInstanceId].cardDefId:null;
   for(const task of candidates){

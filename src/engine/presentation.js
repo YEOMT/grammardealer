@@ -1,3 +1,4 @@
+import {createScoreOverlay} from '../ui/scoreOverlay.js';
 import {scoreFeedback} from './scoreFeedback.js';
 import {monsterViewFor} from '../ui/monsterArt.js';
 import {finaleStatusText} from '../ui/finale.js';
@@ -169,10 +170,11 @@ export function connect(root, fromCardId, toCardIds) {
 /** Small optional DOM adapter. data-presentation: score,label,sentence,enemy,hp,hp-fill,log,power. */
 export function createDOMPresentation(root, { audio, hpMax } = {}) {
   if (!root?.querySelector) throw new TypeError('Presentation root element required');
-  const scoreEffects=createScoreEffects(root);
+  const overlay=createScoreOverlay(root);
+  const scoreEffects=createScoreEffects(root,()=>({score:overlay.number,label:overlay.label}));
   let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null,visualSnapshot=null;
   const fallbacks=new Set();
-  const text = (name, value) => { const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
+  const text = (name, value) => { overlay.text(name,value);const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
     if (!node?.animate || settings.effectsOff || settings.reducedMotion) return;
     try { const animation=node.animate(frames, { duration, easing: 'ease-out', fill });animations.push(animation);if(root.ownerDocument.hidden&&settings.guided)animation.pause();return animation; } catch { /* final DOM is independent */ }
@@ -263,7 +265,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     begin(resolution, options) {
       current = resolution; settings = options;scoreEffects.begin(options);root.ownerDocument.addEventListener('atlas:viewport',resizeEffects);
       clearHighlights(); adapter.clearConnections(); visualSnapshot=snapshotCards(); showHp(resolution.enemyHpBefore);showBossState(resolution.bossStateBefore);
-      text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
+      overlay.begin(resolution.attackId,options);text('score', '0'); text('label', '문장을 펼칩니다'); text('power', '');
       const enemy = find(root, 'enemy');monsterViewFor(enemy)?.begin(options); if (enemy) { enemy.style.opacity = '1'; enemy.dataset.defeated = 'false'; }
       root.style.setProperty('--attack-intensity', String(options.intensity));
     },
@@ -286,7 +288,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       const feedback=scoreFeedback(event),amount=feedback.amount;
       text('label',feedback.delta<0?`${feedback.kind==='defense'?'🛡 ':''}${event.before} → ${event.after} · ${amount} · ${label}`:amount&&!label.includes(amount)?`${label} · ${amount}`:label); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
-      scoreEffects.score(event,combo);
+      scoreEffects.score(event,combo);overlay.score(event);
       audio?.play?.(feedback.delta<0?(feedback.kind==='defense'?'blocked':'penalty'):event.phase==='CARD_BASE'?'card':'score', { step, intensity });
     },
     highlight(cardIds, roles = [], argumentsByNode=[]) {
@@ -378,9 +380,9 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(feel.tier==='BLOCKED'||monsterViewFor(enemy))return;
       animateCore(enemy,killed?[{transform:'translateX(0) rotate(0)',opacity:1},{transform:`translateX(${feel.recoil}px) rotate(8deg)`,opacity:.8},{transform:`translateX(${feel.recoil}px) rotate(12deg)`,opacity:0}]:[{transform:'translateX(0)'},{transform:'translateX('+feel.recoil+'px) scale(.94,1.05)'},{transform:'translateX(0) scale(1)'}],duration);
     },
-    cancel(){monsterViewFor(find(root,'enemy'))?.reset(current?.killed);root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
+    cancel(){overlay.clear();monsterViewFor(find(root,'enemy'))?.reset(current?.killed);root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);scoreEffects.clear();for(const a of animations){try{a.cancel();}catch{}}animations=[];clearCore();effectNodes.forEach(n=>n.remove());effectNodes=[];clearHighlights();adapter.clearConnections();audio?.stopAll?.();root.dataset.corePhase='CANCELLED';},
     finish(resolution) {
-      root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
+      overlay.clear();root.ownerDocument.removeEventListener('atlas:viewport',resizeEffects);
       scoreEffects.clear();
       clearCore();root.dataset.corePhase='FINISHED';
       for (const animation of animations) { try { animation.cancel(); } catch { /* no-op */ } } animations = [];
