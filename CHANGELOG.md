@@ -1,3 +1,9 @@
+## 0.12.2 — 2026-11-05
+
+- 기존 디자인을 유지하는 게임 면 touch-action과 내부 스크롤/입력 예외.
+- 카드/룬 drag의 최종 drop 좌표, 다중 touch 취소, 중복 click/분리된 view 방지, fullscreen ghost 및 실제 viewport 변화 cleanup.
+- 앱/패키지 표시만0.12.2. 기존0.12.1 원정·언어·저장·오디오·규칙을 유지. [실제 검사/한계](docs/DEVICE_STABILITY_0.12.2_REPORT.md).
+
 ## 0.12.1 — 2026-11-01
 
 - 새 원정 look→smile, room 공급 제외, 확정8개 어휘/of, 겸용 품사·too·that 목적어절·형용사별 가주어 for/of 지원.

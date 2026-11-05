@@ -129,6 +129,7 @@ export function renderCombat(root,state,{command,openOverlay,selected=new Set(),
     shell=stable;
     const avatar=stage.querySelector('.enemy-avatar');if(enemy.hp===0){monsterViewFor(avatar)?.reset(true);avatar.style.opacity='0';}
   }else{sceneBackdrop(shell,state.progress.stageId,'combat')?.classList.add('combat-backdrop');root.replaceChildren(shell);}
+  shell.dataset.inputRevision=String(state.revision);
   const menu=button('메뉴',()=>modal('전투 메뉴',el('div',{class:'battle-menu'},...['dictionary','records','recent','deck','exhausted','saves','settings'].map((id,i)=>button(['사전','도감','공격 기록','내 덱','사용 완료','저장','설정'][i],()=>openOverlay(id),'secondary')))),'quiet compact-battle-menu',{disabled:locked});status.append(el('div',{class:'compact-battle-controls'},button('사전',()=>openOverlay('dictionary'),'quiet compact-dictionary',{disabled:locked}),button('도감',()=>openOverlay('records'),'quiet compact-records',{disabled:locked}),button('내 덱',()=>openOverlay('deck'),'quiet compact-deck',{disabled:locked}),button('저장',()=>openOverlay('saves'),'quiet compact-saves',{disabled:locked}),menu));
   handPager=cardPager(hand,{label:'손패',pageSize:10,selected:()=>selected.size});
   cleanupBoard=observeBoard(sentence);

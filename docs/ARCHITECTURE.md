@@ -1,3 +1,7 @@
+# 0.12.2 입력 수명과 앱 버전
+
+`appVersion.js`는 배포/표시만 소유한다. 원정·언어·저장 계약은0.12.1이다. `input.css`는 게임 제스처와 내부 scroller/input의 native 동작을 구분하며 시각 배치는 바꾸지 않는다. 앱당 한 `inputGuard`가 포인터 묶음과 취소된 compatibility click을 관리한다. 카드/룬 drag는 현재 view revision·연결 상태를 확인하고 최종 pointerup 좌표로 한 번만 명령을 보낸다. 실제 viewport/host 변경은 취소하지만 동일 치수 통지는 유지한다. 오디오 trusted gesture와 공격 presentation 수명/RunController 정산은 기존 소유자를 유지한다. [실행 근거](DEVICE_STABILITY_0.12.2_REPORT.md).
+
 # 0.12.1 정책·표시 수명
 
 - `POLISH0121_VERSIONS`는0.12의 game/save/language/generator/presentation만 확장한다. `polish0121` registry는 새 어휘·secondary lexeme·형용사별 extraposition 정책을 clone에만 적용한다. 기존 버전별 grammar/score/rune/보스/저장 경계를 유지하도록 허용 목록에 새버전을 연결한다.
