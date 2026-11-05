@@ -1,3 +1,7 @@
+# 0.12.2 현재 인계
+
+기준 main `cc802001556f88ec210a5d237ccb6c9fc9a26dd4`, 브랜치 `codex/v0.12.2-device-stability`. [입력 안정화 명세](../spec/v0.12.2/Syntax_Atlas_0.12.2_Device_Stability_Spec.md)와 [이번 실제 검사/한계](DEVICE_STABILITY_0.12.2_REPORT.md)를 확인한다. 앱 표시만0.12.2, 원정·언어·저장·수치는0.12.1이다. inputGuard는 제스처/취소만 소유하고 RunController 정산은 바꾸지 않는다. 최종1918단위·빌드·관련 브라우저 PASS, 실기기 touch/청취/카톡 NOT RUN. 이전0.12.1 구현과 보고서는 아래에 보존한다.
+
 # 0.12.1 현재 인계
 
 기준 main `61f02494888e8358161d53aba13631f0af143f71`, 브랜치 `codex/v0.12.1-integrated-polish`. [본명세](../spec/v0.12.1/Syntax_Atlas_0.12.1_Polish_Spec.md)와 [실제 검사·대표 화면·제한](POLISH_0.12.1_REPORT.md)을 먼저 읽는다.

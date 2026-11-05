@@ -11,6 +11,8 @@ import {attachTutorial,explainFirstAttack,openTutorialPractice} from './ui/tutor
 import './ui/styles.css';
 import './ui/responsive.css';
 import './ui/learning012.css';
+import './ui/input.css';
+import {installInputGuard} from './ui/inputGuard.js';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
 import { renderCombat } from './ui/combat.js';
@@ -169,6 +171,7 @@ function render(){
 }
 window.addEventListener('hashchange',render);
 audio.installLifecycle();
+installInputGuard();
 window.addEventListener('error',event=>{console.error('Application error',event.error);toast('화면 처리에 문제가 생겼습니다. 로비로 돌아가 다시 시도할 수 있습니다.');});
 if(import.meta.env.DEV&&new URLSearchParams(location.search).get('debug')==='1')Object.defineProperty(window,'__SB_DEV__',{value:{getState:()=>controller?.getState(),getProfile:()=>profile},writable:false});
 root.replaceChildren(el('main',{class:'intro-page'},el('h1',{text:'신택스 아틀라스'}),el('p',{text:'원정 기록을 불러오고 있습니다…'})));

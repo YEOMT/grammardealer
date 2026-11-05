@@ -1,0 +1,13 @@
+/* Input policy only. Preserve both-axis access to the existing narrow layout. */
+#app > *,dialog.app-dialog,dialog.orientation-gate{touch-action:pan-x pan-y}
+#app button,#app summary,.game-header,.enemy-area,
+.word-card[data-zone=hand] .card-body,.word-card[data-zone=sentence] .card-body,
+.rune-drag-handle{touch-action:none}
+.dialog-body,.shop-notice-content{touch-action:pan-y;overscroll-behavior:contain}
+dialog.app-dialog button,dialog.app-dialog .word-card .card-body{touch-action:pan-y}
+dialog.orientation-gate button{touch-action:none}
+input,textarea,select,[contenteditable=true]{touch-action:pan-x pan-y}
+input[type=range]{touch-action:pan-y}
+.word-card[data-zone=hand],.word-card[data-zone=sentence],.rune-drag-handle,
+.monster-image,.scene-backdrop{ -webkit-touch-callout:none;user-select:none }
+.drag-ghost,.drag-ghost *{pointer-events:none!important}

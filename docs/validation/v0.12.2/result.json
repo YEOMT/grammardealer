@@ -1,0 +1,535 @@
+{
+  "date": "2026-11-05",
+  "baseSha": "cc802001556f88ec210a5d237ccb6c9fc9a26dd4",
+  "branch": "codex/v0.12.2-device-stability",
+  "appVersion": "0.12.2",
+  "contentVersion": "0.12.1",
+  "environment": {
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "playwright": "1.51.1",
+    "chromium": "134.0.6998.35",
+    "host": "Windows",
+    "physicalDevice": false
+  },
+  "commands": [
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-05T14:02:02.104986+00:00",
+      "finishedAt": "2026-11-05T14:05:09.955140+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-final-unit/command.log",
+      "logSha256": "3cf84a7679a9dbf6aa7f7b2c5dbc6a3a0dfc550b817351f9c51ca99ad906eb5b",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/reward-distribution.json",
+        "docs/evidence-0.1.1/timing.json"
+      ]
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-05T14:05:47.210712+00:00",
+      "finishedAt": "2026-11-05T14:05:49.337310+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-final-build/command.log",
+      "logSha256": "ed568dfd1a5f8e7d776ee7296da18ff83fa67a3a05fe3e0376313f048f068f3e",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "node",
+        "tests/patch-input-browser.mjs"
+      ],
+      "startedAt": "2026-11-05T14:06:04.480586+00:00",
+      "finishedAt": "2026-11-05T14:06:08.889702+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-existing-input/command.log",
+      "logSha256": "ea2465c2c5014190f726c43f97941d5a98d9bfd8f39f1924b50a50ccf5e6fea5",
+      "fixedOutputsArchivedAndRestored": [
+        "docs/evidence-0.1.1/after-be-form-menu.png",
+        "docs/evidence-0.1.1/after-select-first.png"
+      ]
+    },
+    {
+      "command": [
+        "node",
+        "tests/gamefeel-browser.mjs"
+      ],
+      "startedAt": "2026-11-05T14:06:23.962482+00:00",
+      "finishedAt": "2026-11-05T14:06:54.310602+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-existing-gamefeel/command.log",
+      "logSha256": "1f156cc6d9c12e3140a3858904ccf778ac47767ed34db14d8fe44f48aa78e08e",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs"
+      ],
+      "startedAt": "2026-11-05T14:01:14.113259+00:00",
+      "finishedAt": "2026-11-05T14:01:23.824075+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-input-02/command.log",
+      "logSha256": "76e7ab298607e5045bc727ec85c36e0a91dd1e66d3c886db5208683a215f3047",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs",
+        "--audio"
+      ],
+      "startedAt": "2026-11-05T14:07:14.137998+00:00",
+      "finishedAt": "2026-11-05T14:07:16.044640+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-touch-audio/command.log",
+      "logSha256": "e49fd28af6bcaeb58bfe76308b1593989e302f8f9e802494c1089fed2769ad24",
+      "fixedOutputsArchivedAndRestored": []
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs",
+        "--production"
+      ],
+      "startedAt": "2026-11-05T14:07:29.663453+00:00",
+      "finishedAt": "2026-11-05T14:07:32.258904+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0101/v0122-production/command.log",
+      "logSha256": "3d79067f25d9ba23c407935b2b2efefafdb2edddfcecd79332b4c290c2a073d0",
+      "fixedOutputsArchivedAndRestored": []
+    }
+  ],
+  "reproduction": {
+    "before": {
+      "outsideDropCount": 1,
+      "multiGhosts": 1,
+      "rects": {
+        ".game-header": {
+          "x": 12,
+          "y": 6,
+          "width": 1342,
+          "height": 38,
+          "top": 6,
+          "right": 1354,
+          "bottom": 44,
+          "left": 12
+        },
+        ".enemy-area": {
+          "x": 12,
+          "y": 52,
+          "width": 1342,
+          "height": 145,
+          "top": 52,
+          "right": 1354,
+          "bottom": 197,
+          "left": 12
+        },
+        ".combat-middle": {
+          "x": 12,
+          "y": 205,
+          "width": 1342,
+          "height": 354,
+          "top": 205,
+          "right": 1354,
+          "bottom": 559,
+          "left": 12
+        },
+        ".combat-sentence": {
+          "x": 234.015625,
+          "y": 296,
+          "width": 897.953125,
+          "height": 212,
+          "top": 296,
+          "right": 1131.96875,
+          "bottom": 508,
+          "left": 234.015625
+        },
+        ".hand-section": {
+          "x": 12,
+          "y": 567,
+          "width": 1342,
+          "height": 191,
+          "top": 567,
+          "right": 1354,
+          "bottom": 758,
+          "left": 12
+        },
+        ".hand-cards .word-card": {
+          "x": 408.046875,
+          "y": 634,
+          "width": 87.484375,
+          "height": 120,
+          "top": 634,
+          "right": 495.53125,
+          "bottom": 754,
+          "left": 408.046875
+        }
+      }
+    },
+    "after": {
+      "outsideDropCount": 0,
+      "multiGhosts": 0,
+      "rects": {
+        ".game-header": {
+          "x": 12,
+          "y": 6,
+          "width": 1342,
+          "height": 38,
+          "top": 6,
+          "right": 1354,
+          "bottom": 44,
+          "left": 12
+        },
+        ".enemy-area": {
+          "x": 12,
+          "y": 52,
+          "width": 1342,
+          "height": 145,
+          "top": 52,
+          "right": 1354,
+          "bottom": 197,
+          "left": 12
+        },
+        ".combat-middle": {
+          "x": 12,
+          "y": 205,
+          "width": 1342,
+          "height": 354,
+          "top": 205,
+          "right": 1354,
+          "bottom": 559,
+          "left": 12
+        },
+        ".combat-sentence": {
+          "x": 234.015625,
+          "y": 296,
+          "width": 897.953125,
+          "height": 212,
+          "top": 296,
+          "right": 1131.96875,
+          "bottom": 508,
+          "left": 234.015625
+        },
+        ".hand-section": {
+          "x": 12,
+          "y": 567,
+          "width": 1342,
+          "height": 191,
+          "top": 567,
+          "right": 1354,
+          "bottom": 758,
+          "left": 12
+        },
+        ".hand-cards .word-card": {
+          "x": 408.046875,
+          "y": 634,
+          "width": 87.484375,
+          "height": 120,
+          "top": 634,
+          "right": 495.53125,
+          "bottom": 754,
+          "left": 408.046875
+        }
+      }
+    },
+    "sameRects": true
+  },
+  "focused": {
+    "scope": "Chromium desktop/touch emulation and explicit lifecycle events; no physical touch, listening or Kakao claim",
+    "checks": [
+      {
+        "group": "B rapid taps, insert/reorder, final up outside, two fingers, cancellation and next input",
+        "status": "PASS",
+        "scale": 1,
+        "syntheticLifecycle": [
+          "pointercancel",
+          "lostpointercapture",
+          "blur",
+          "hidden",
+          "pageshow"
+        ]
+      },
+      {
+        "group": "C dictionary scroll/search, form, discard, native slider and fallback address",
+        "status": "PASS"
+      },
+      {
+        "group": "D fullscreen host/drop, unchanged and changed viewport, tablet recovery and narrow horizontal access",
+        "status": "PASS"
+      },
+      {
+        "group": "A/F saved 0.12.1 run, IDs/RNG/resources restored exactly; history and unchanged geometry",
+        "status": "PASS",
+        "version": "0.12.1",
+        "cardCount": 28,
+        "rects": {
+          ".game-header": {
+            "x": 12,
+            "y": 6,
+            "width": 1342,
+            "height": 38,
+            "top": 6,
+            "right": 1354,
+            "bottom": 44,
+            "left": 12
+          },
+          ".enemy-area": {
+            "x": 12,
+            "y": 52,
+            "width": 1342,
+            "height": 145,
+            "top": 52,
+            "right": 1354,
+            "bottom": 197,
+            "left": 12
+          },
+          ".combat-middle": {
+            "x": 12,
+            "y": 205,
+            "width": 1342,
+            "height": 354,
+            "top": 205,
+            "right": 1354,
+            "bottom": 559,
+            "left": 12
+          },
+          ".combat-sentence": {
+            "x": 234.015625,
+            "y": 296,
+            "width": 897.953125,
+            "height": 212,
+            "top": 296,
+            "right": 1131.96875,
+            "bottom": 508,
+            "left": 234.015625
+          },
+          ".hand-section": {
+            "x": 12,
+            "y": 567,
+            "width": 1342,
+            "height": 191,
+            "top": 567,
+            "right": 1354,
+            "bottom": 758,
+            "left": 12
+          },
+          ".hand-cards .word-card": {
+            "x": 408.046875,
+            "y": 634,
+            "width": 87.484375,
+            "height": 120,
+            "top": 634,
+            "right": 495.53125,
+            "bottom": 754,
+            "left": 408.046875
+          }
+        },
+        "gap": 14
+      },
+      {
+        "group": "B/C assigned rune final coordinates/multitouch/keyboard and 14-card paging",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "audio": {
+    "scope": "Chromium desktop/touch emulation and explicit lifecycle events; no physical touch, listening or Kakao claim",
+    "checks": [
+      {
+        "group": "E first trusted emulated touch, suspended context retry, mute/zero preserved",
+        "status": "PASS",
+        "before": "NONE",
+        "after": {
+          "state": "running",
+          "muted": true,
+          "gain": 0
+        },
+        "listening": "NOT RUN"
+      }
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "production": {
+    "scope": "Chromium desktop/touch emulation and explicit lifecycle events; no physical touch, listening or Kakao claim",
+    "checks": [
+      {
+        "group": "A production subpath, direct hash/reload, actual skip/save/load and input",
+        "status": "PASS",
+        "resources": [
+          {
+            "path": "/grammardealer/",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-BdNEug1u.css",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-B3CtWVm3.js",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/lobby/background.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-BdNEug1u.css",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-B3CtWVm3.js",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/lobby/background.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/bgm.mp3",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/entry.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/monsters/01_idle.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/monsters/01_hit.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/combat.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-BdNEug1u.css",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/index-B3CtWVm3.js",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/lobby/background.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/lobby/bgm.mp3",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/monsters/01_idle.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/monsters/01_hit.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/combat.png",
+            "status": 200
+          },
+          {
+            "path": "/grammardealer/assets/stages/stage-01/bgm.mp3",
+            "status": 200
+          }
+        ]
+      },
+      {
+        "group": "A deliberately missing optional image/audio does not block entry or controls",
+        "status": "PASS"
+      }
+    ],
+    "errors": [],
+    "status": "PASS"
+  },
+  "gamefeelGroups": [
+    {
+      "group": "actual app: add/return/form keep connected stage and idle timeline",
+      "status": "PASS"
+    },
+    {
+      "group": "shared sound settings: no combat render, gain or source restart",
+      "status": "PASS"
+    },
+    {
+      "group": "fullscreen trusted success and deliberate unsupported/rejected/manual-copy fallbacks",
+      "status": "PASS"
+    },
+    {
+      "group": "normal real timeline/visible copies/one settlement",
+      "status": "PASS"
+    },
+    {
+      "group": "fast real timeline/visible copies/one settlement",
+      "status": "PASS"
+    },
+    {
+      "group": "penalty real timeline/visible copies/one settlement",
+      "status": "PASS"
+    },
+    {
+      "group": "defense real timeline/visible copies/one settlement",
+      "status": "PASS"
+    },
+    {
+      "group": "tablet layout: bottom clearance, empty hand fixed, sound panel",
+      "status": "PASS"
+    },
+    {
+      "group": "actual BGM buffers: ended source → 1s silence → new fade, fast entry and lobby cancellation",
+      "status": "PASS"
+    },
+    {
+      "group": "0.12.1 physical written form menu: base label, distinct p.p., existing large buttons",
+      "status": "PASS"
+    },
+    {
+      "group": "existing between-battle idle preview retained",
+      "status": "PASS"
+    }
+  ],
+  "unit": {
+    "pass": 1918,
+    "fail": 0,
+    "skip": 0
+  },
+  "notRun": [
+    "physical pinch/touch/OS keyboard",
+    "physical listening and iPad interrupted recovery",
+    "Kakao in-app browser",
+    "natural 50 battles",
+    "all-browser/device matrix",
+    "separate validate:data"
+  ],
+  "deployment": "Not performed; no merge or Pages changes"
+}

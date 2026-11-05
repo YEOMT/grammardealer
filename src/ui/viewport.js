@@ -2,9 +2,11 @@ import {button,el,modal} from './dom.js';
 
 /** Viewport state belongs to the view only, never a run/save or its RNG. */
 export function installViewport(win=window,doc=document){
- let frame=0;
+ let frame=0,key=null,host=null;
+ const signature=()=>{const v=win.visualViewport;return [win.innerWidth,win.innerHeight,v?.width,v?.height,v?.scale,v?.offsetLeft,v?.offsetTop,win.screen?.orientation?.type].join('|');};
+ const changed=()=>{const next=signature(),nextHost=doc.fullscreenElement;if(next===key&&nextHost===host)return;const existed=key!==null;key=next;host=nextHost;if(existed)doc.dispatchEvent(new Event('atlas:cancel-drag'));};
  const update=()=>{frame=0;const vv=win.visualViewport;
-  // Pinch zoom must zoom the existing layout instead of shrinking it again.
+  // Preserve existing user/manual zoom; input scopes control new touch gestures.
   if(!vv||Math.abs(vv.scale-1)<.02){
    const height=vv?.height??win.innerHeight;
    doc.documentElement.style.setProperty('--viewport-height',`${height}px`);
@@ -12,9 +14,9 @@ export function installViewport(win=window,doc=document){
   }
   doc.dispatchEvent(new Event('atlas:viewport'));
  };
- const schedule=()=>{doc.dispatchEvent(new Event('atlas:cancel-drag'));if(!frame)frame=win.requestAnimationFrame(update);};
+ const schedule=()=>{changed();if(!frame)frame=win.requestAnimationFrame(update);};
  win.addEventListener('resize',schedule);win.visualViewport?.addEventListener('resize',schedule);
- doc.addEventListener('fullscreenchange',schedule);update();
+ doc.addEventListener('fullscreenchange',schedule);changed();update();
  return()=>{win.removeEventListener('resize',schedule);win.visualViewport?.removeEventListener('resize',schedule);doc.removeEventListener('fullscreenchange',schedule);if(frame)win.cancelAnimationFrame(frame);};
 }
 export function fullscreenButton(){

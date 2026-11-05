@@ -5,6 +5,7 @@ import {isIngForm} from '../data/language/desertLanguage.js';
 import { el, button, modal } from './dom.js';
 import {ING_FORM_GUIDE} from '../data/grammarGuideData.js';
 import {TURN_HAND_SEAL_LABEL} from '../data/stage5.js';
+import {installInputGuard,inputRevision} from './inputGuard.js';
 export const POS_LABELS = { NOUN: '명사', PRONOUN: '대명사', VERB: '동사', ADJECTIVE: '형용사', ADVERB: '부사', DETERMINER: '한정사', PREPOSITION: '전치사', FUNCTION: '연결어' };
 export const RARITY_LABELS = { COMMON: '일반', UNCOMMON: '고급', RARE: '희귀' };
 /** Display-only card model. No grammar inspection takes place while rendering. */
@@ -17,7 +18,7 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
     el('strong', { class: `card-word ${model.surface?.length > 10 ? 'long-word' : ''}`, text: model.surface, style: `--fit-factor:${Math.max(1,model.surface.length * .66)}` }),
     el('div', { class: 'card-footline' }, el('span', { text: RARITY_LABELS[model.rarity] || '일반' }), el('span', { class:model.polish?'polish-badge':'',text: model.polish ? `✦ +${model.polish}` : '◇',title:`기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}` })));
   if (!readonly) {
-    body.addEventListener('click', e => { if (Date.now() < Number(node.dataset.suppressUntil || 0)) { e.preventDefault(); return; } onActivate?.(model.id); });
+    body.addEventListener('click', () => onActivate?.(model.id));
     body.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onActivate?.(model.id); } });
   }
   node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
@@ -58,16 +59,19 @@ export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRe
 }
 /** Pointer capture + one pointer + 8px threshold. Zones and stable IDs are supplied by the caller. */
 export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
-  let active = null;
-  const cleanup = () => {
+  const doc=container.ownerDocument,guard=installInputGuard(doc,doc.defaultView);
+  let active = null,disposed=false;
+  const cleanup = (cancelled=true) => {
     if (!active) return;
-    active.ghost?.remove(); active.node.classList.remove('drag-source');
-    try { active.body.releasePointerCapture(active.pointerId); } catch {}
+    const saved=active;active=null;
+    if(cancelled)guard.suppress(saved.pointerId);
+    saved.ghost?.remove(); saved.node.classList.remove('drag-source');
+    try { saved.body.releasePointerCapture(saved.pointerId); } catch {}
     container.querySelectorAll('.drop-before,.drop-after,.drop-replace,.drop-zone-active').forEach(n => n.classList.remove('drop-before','drop-after','drop-replace','drop-zone-active'));
-    active = null;
   };
+  const valid=()=>active&&!disposed&&active.node.isConnected&&enabled()&&!guard.blocked&&!doc.querySelector('dialog[open]')&&active.revision===inputRevision(container);
   const targetAt = (x, y) => {
-    const target = document.elementFromPoint(x,y);
+    const target = doc.elementFromPoint(x,y);
     const zone = target?.closest('[data-card-zone]');
     if (!zone || !container.contains(zone)) return null;
     const card = target.closest('.word-card');
@@ -87,36 +91,40 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     return { zone, card:nearest, targetZone:zone.dataset.cardZone, targetCardId:nearest.dataset.cardId, index:Number(nearest.dataset.absoluteIndex??cards.indexOf(nearest))+(after?1:0), mode:'INSERT', after };
   };
   const down = e => {
-    if (active || !enabled() || e.button !== 0 || e.target.closest('button')) return;
+    if (active || disposed || guard.blocked || !enabled() || doc.querySelector('dialog[open]') || e.button !== 0 || e.target.closest('button')) return;
     const body = e.target.closest('.card-body'), node = body?.closest('.word-card');
-    if (!node || ['OPERATION','OBSTACLE'].includes(node.dataset.cardKind) || !container.contains(node) || body.tabIndex < 0) return;
-    active = { node, body, pointerId: e.pointerId, startX:e.clientX, startY:e.clientY, id:node.dataset.cardId, zone:node.dataset.zone, dragging:false };
-    body.setPointerCapture(e.pointerId);
+    if (!node || ['OPERATION','OBSTACLE'].includes(node.dataset.cardKind) || !container.contains(node) || body.tabIndex < 0 || body.getAttribute('aria-disabled')==='true') return;
+    const rect=node.getBoundingClientRect();
+    active = { node, body, pointerId: e.pointerId, startX:e.clientX, startY:e.clientY, offsetX:e.clientX-rect.left,offsetY:e.clientY-rect.top,revision:inputRevision(container), id:node.dataset.cardId, zone:node.dataset.zone, dragging:false };
+    try{body.setPointerCapture(e.pointerId);}catch{cleanup();}
   };
   const move = e => {
     if (!active || e.pointerId !== active.pointerId) return;
+    if(!valid()){cleanup();return;}
     if (!active.dragging && Math.hypot(e.clientX-active.startX,e.clientY-active.startY) >= 8) {
       active.dragging = true; active.node.classList.add('drag-source');
-      active.node.dataset.suppressUntil = String(Date.now()+1000);
       const rect = active.node.getBoundingClientRect(); active.ghost = active.node.cloneNode(true);
-      active.ghost.classList.add('drag-ghost'); active.ghost.inert=true; active.ghost.setAttribute('aria-hidden','true'); active.ghost.style.width=`${rect.width}px`; active.ghost.style.height=`${rect.height}px`; active.ghost.removeAttribute('data-card-id'); document.body.append(active.ghost);
+      active.ghost.classList.add('drag-ghost'); active.ghost.inert=true; active.ghost.setAttribute('aria-hidden','true'); active.ghost.style.width=`${rect.width}px`; active.ghost.style.height=`${rect.height}px`; active.ghost.removeAttribute('data-card-id');(doc.fullscreenElement??doc.body).append(active.ghost);
     }
     if (!active.dragging) return;
-    e.preventDefault(); active.ghost.style.left=`${e.clientX-45}px`; active.ghost.style.top=`${e.clientY-35}px`;
+    e.preventDefault(); active.ghost.style.left=`${e.clientX-active.offsetX}px`; active.ghost.style.top=`${e.clientY-active.offsetY}px`;
     container.querySelectorAll('.drop-before,.drop-after,.drop-replace,.drop-zone-active').forEach(n => n.classList.remove('drop-before','drop-after','drop-replace','drop-zone-active'));
     active.target = targetAt(e.clientX,e.clientY);
     if (active.target) { const t=active.target; t.zone.classList.add('drop-zone-active'); t.card?.classList.add(t.mode==='SWAP'?'drop-replace':t.after?'drop-after':'drop-before'); }
   };
   const up = e => {
     if (!active || e.pointerId !== active.pointerId) return;
+    if(!valid()){cleanup();return;}
     const saved = active;
-    if (saved.dragging) { e.preventDefault(); saved.node.dataset.suppressUntil=String(Date.now()+1000); }
-    cleanup();
-    if (saved.dragging && saved.target) onDrop({cardId:saved.id,sourceZone:saved.zone,targetZone:saved.target.targetZone,targetCardId:saved.target.targetCardId,index:saved.target.index,mode:saved.target.mode});
+    const target=saved.dragging?targetAt(e.clientX,e.clientY):null;
+    if (saved.dragging) { e.preventDefault();guard.suppress(saved.pointerId); }
+    cleanup(false);
+    if (saved.dragging && target) onDrop({cardId:saved.id,sourceZone:saved.zone,targetZone:target.targetZone,targetCardId:target.targetCardId,index:target.index,mode:target.mode});
   };
   const cancel = e => { if (!e.pointerId || active?.pointerId === e.pointerId) cleanup(); };
-  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel); window.addEventListener('resize',cancel);window.addEventListener('blur',cancel);document.addEventListener('atlas:cancel-drag',cancel);
-  return () => { cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel); window.removeEventListener('resize',cancel);window.removeEventListener('blur',cancel);document.removeEventListener('atlas:cancel-drag',cancel); };
+  const native=e=>{if(e.target.closest('.word-card[data-zone=hand],.word-card[data-zone=sentence]'))e.preventDefault();};
+  container.addEventListener('pointerdown',down); container.addEventListener('pointermove',move); container.addEventListener('pointerup',up); container.addEventListener('pointercancel',cancel);container.addEventListener('lostpointercapture',cancel);container.addEventListener('dragstart',native);document.addEventListener('atlas:cancel-drag',cancel);
+  return () => { disposed=true;cleanup(); container.removeEventListener('pointerdown',down); container.removeEventListener('pointermove',move); container.removeEventListener('pointerup',up); container.removeEventListener('pointercancel',cancel);container.removeEventListener('lostpointercapture',cancel);container.removeEventListener('dragstart',native);document.removeEventListener('atlas:cancel-drag',cancel); };
 }
 
 /** Hand operations share physical dimensions and discard controls with words. */
