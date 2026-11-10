@@ -1,6 +1,8 @@
 import {preparationGuide} from '../data/battleLearningGuide.js';
+import {panoramaPreview} from './panoramaPreview.js';
+import './panorama.css';
 import {soundButton} from './soundControls.js';
-import {sceneBackdrop,MONSTER_ASSETS,sceneAssetUrl,warnAsset} from '../services/sceneAssets.js';
+import {sceneBackdrop} from '../services/sceneAssets.js';
 import {enemyDisplayName,stageDisplayName} from './displayText.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {introViewport} from './viewport.js';
@@ -136,31 +138,26 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
     el('div', { class: 'reward-footer' }, button(`건너뛰기 · +${offer.skipGold} 골드`, () => choose('SKIP'), 'secondary', { id: 'skip-reward' }))));
 }
 
-function betweenMonster(enemy){
-  const node=el('div',{class:'intro-art',text:enemy.emoji}),art=MONSTER_ASSETS[enemy.enemyId];
-  if(!art)return node;
-  node.classList.add('monster-preview');
-  const img=el('img',{alt:enemyDisplayName(enemy),src:sceneAssetUrl(art.idle)});
-  img.onerror=()=>{warnAsset(img.src);node.textContent=enemy.emoji;};
-  const [w,h,l,t,r,b]=art.bounds;
-  img.style.cssText=`width:${w/(r-l)*100}%;max-width:none;height:auto;left:${-l/(r-l)*100}%;top:${-t/(b-t)*100}%;`;
-  node.style.aspectRatio=`${r-l} / ${b-t}`;node.replaceChildren(img);return node;
-}
+const preparationViews=new WeakMap();
 export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
+  preparationViews.get(root)?.();
   applyStageTheme(state);
   const next=roundsForRun(state)[state.progress.roundIndex+1];
   const preview={...state,progress:{...state.progress,roundIndex:state.progress.roundIndex+1,battleNumber:next.battleNumber},combat:{enemyState:next}};
-  const g=preparationGuide(preview);
-  root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page battle-preparation'},
-    el('span',{class:'eyebrow',text:`다음 전투 · ${next.battleNumber} / ${campaignBattleCount(state)}`}),
-    el('h1',{text:enemyDisplayName(next)}),
-    el('div',{class:'preparation-content'},betweenMonster(next),el('section',{class:'preparation-guide'},
+  const g=preparationGuide(preview),panorama=panoramaPreview(state.progress.stageId,next,enemyDisplayName(next));
+  const top=nav({onLobby,onSaves,onDeck});top.classList.add('preparation-topbar');
+  top.querySelector('.brand-small').classList.add('eyebrow');
+  top.querySelector('.brand-small').textContent=`${stageDisplayName(stageForRun(state))} · 다음 전투 ${next.battleNumber} / ${campaignBattleCount(state)}`;
+  root.replaceChildren(top,el('main',{class:'intro-page battle-preparation panorama-preparation'},panorama.element,
+    el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),el('small',{text:next.kind==='NORMAL'?'일반 전투':'보스 전투'})),el('section',{class:'preparation-guide'},
       el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),el('p',{text:'뜻: '+g.meaningKo}),
-      g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{text:'전투 효과: '+g.effectLabel}),
-      ...g.boss.map(text=>el('small',{class:'boss-rule',text})),
-      ['0.12.0','0.12.1'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'}))),
-    el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`}),
-    el('div',{class:'reward-footer'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
+      g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{class:'preparation-effect',text:'전투 효과: '+g.effectLabel}),
+      g.boss.length>0&&el('details',{class:'preparation-boss'},el('summary',{text:g.boss[0].split(/[.!?。]\s*/)[0]+' · 공략 상세'}),...g.boss.map(text=>el('small',{class:'boss-rule',text}))),
+      ['0.12.0','0.12.1'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{class:'preparation-notice',text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'})),
+      el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`})),
+    el('div',{class:'reward-footer preparation-actions'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
+  const cleanup=()=>{panorama.cleanup();if(preparationViews.get(root)===cleanup)preparationViews.delete(root);};
+  preparationViews.set(root,cleanup);return cleanup;
 }
 
 export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves, onLobby, onRecords } = {}) {

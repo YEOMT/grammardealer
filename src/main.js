@@ -1,6 +1,7 @@
 import {openClearLeaderboard,renderFinalClear} from './ui/finale.js';
 import {LocalLeaderboardRepository,MemoryLeaderboardRepository} from './services/clearLeaderboard.js';
 import {installOrientationGate} from './ui/orientation.js';
+import {installDeviceLayout} from './ui/deviceLayout.js';
 import {installViewport,syncFullscreenButtons} from './ui/viewport.js';
 import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
@@ -12,6 +13,8 @@ import './ui/styles.css';
 import './ui/responsive.css';
 import './ui/learning012.css';
 import './ui/input.css';
+import './ui/mobile.css';
+import './ui/mobileBoard.css';
 import {installInputGuard} from './ui/inputGuard.js';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
@@ -28,7 +31,7 @@ import { registry } from './data/language/index.js';
 import { RunController } from './game/runController.js';
 import { LocalStore, newProfile, applyProfileEvent } from './services/localStore.js';
 
-installViewport();syncFullscreenButtons();installOrientationGate();
+installDeviceLayout();installViewport();syncFullscreenButtons();installOrientationGate();
 const musicDirector=createMusicDirector(audio);
 const root=document.querySelector('#app');
 const store=new LocalStore({registry});
@@ -163,7 +166,7 @@ function render(){
     if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
     if(state.status==='BATTLE'){showCombat(state);return;}
     if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
-    if(state.status==='BETWEEN_BATTLES'){renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
+    if(state.status==='BETWEEN_BATTLES'){cleanup=renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
     if(state.clearKind==='FINAL_CLEAR'&&state.status==='CONTENT_COMPLETE'){renderFinalClear(root,state,{onLobby:leaveToLobby,onSaves:()=>openOverlay('saves'),onLeaderboard:showClearLeaderboard});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}
   }

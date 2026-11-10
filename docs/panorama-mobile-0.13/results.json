@@ -1,0 +1,226 @@
+{
+  "baseCommit": "aa28555b51a37daf9245a1d2e9b49f2eb5cedeae",
+  "appVersion": "0.13.0",
+  "runContract": "0.12.1",
+  "unitTests": {
+    "pass": 1930,
+    "fail": 0,
+    "skip": 0
+  },
+  "commands": [
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:28:33.771363+00:00",
+      "finishedAt": "2026-11-10T14:31:53.232244+00:00",
+      "log": ".local-validation/v0101/v013-release-unit/command.log",
+      "logSha256": "085e3c9c91d7f7144a9a9fff6c05f644d6201981881e09688cee2176c4402262"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:32:56.496039+00:00",
+      "finishedAt": "2026-11-10T14:32:59.000515+00:00",
+      "log": ".local-validation/v0101/v013-release-build/command.log",
+      "logSha256": "a8d2f5d69868bfca0e89f77da02ac850da2ad16798d02960a98d3480f0b7c765"
+    },
+    {
+      "command": [
+        "node",
+        "tests/gamefeel-browser.mjs"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:15:33.366327+00:00",
+      "finishedAt": "2026-11-10T14:16:02.677685+00:00",
+      "log": ".local-validation/v0101/v013-final-gamefeel/command.log",
+      "logSha256": "1f156cc6d9c12e3140a3858904ccf778ac47767ed34db14d8fe44f48aa78e08e"
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:16:26.563978+00:00",
+      "finishedAt": "2026-11-10T14:16:37.483652+00:00",
+      "log": ".local-validation/v0101/v013-final-device/command.log",
+      "logSha256": "76e7ab298607e5045bc727ec85c36e0a91dd1e66d3c886db5208683a215f3047"
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs",
+        "--audio"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:17:20.936317+00:00",
+      "finishedAt": "2026-11-10T14:17:22.939337+00:00",
+      "log": ".local-validation/v0101/v013-final-audio/command.log",
+      "logSha256": "e49fd28af6bcaeb58bfe76308b1593989e302f8f9e802494c1089fed2769ad24"
+    },
+    {
+      "command": [
+        "node",
+        "tests/device-stability-browser.mjs",
+        "--production"
+      ],
+      "exitCode": 0,
+      "startedAt": "2026-11-10T14:33:16.425755+00:00",
+      "finishedAt": "2026-11-10T14:33:20.222601+00:00",
+      "log": ".local-validation/v0101/v013-release-production/command.log",
+      "logSha256": "3d79067f25d9ba23c407935b2b2efefafdb2edddfcecd79332b4c290c2a073d0"
+    }
+  ],
+  "focusedChecks": [
+    {
+      "name": "actual-flow",
+      "status": "PASS",
+      "coverageReferences": [
+        "B01",
+        "B02",
+        "B05",
+        "B18",
+        "B21",
+        "B22"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/actual-flow-fixed/result.json"
+    },
+    {
+      "name": "panorama",
+      "status": "PASS",
+      "coverageReferences": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A11",
+        "A12"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/panorama/result.json"
+    },
+    {
+      "name": "missing-panorama",
+      "status": "PASS",
+      "coverageReferences": [
+        "A08",
+        "A09"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/missing-panorama-document/result.json"
+    },
+    {
+      "name": "board-layout",
+      "status": "PASS",
+      "coverageReferences": [
+        "B03",
+        "B04",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B11",
+        "B12",
+        "B20"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/board-layout-diagnostic/result.json"
+    },
+    {
+      "name": "card-rune-input",
+      "status": "PASS",
+      "coverageReferences": [
+        "B10",
+        "B11",
+        "B12",
+        "B13",
+        "B14",
+        "B18"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/card-rune-input/result.json"
+    },
+    {
+      "name": "other-views",
+      "status": "PASS",
+      "coverageReferences": [
+        "B01",
+        "B05",
+        "B16",
+        "B17",
+        "B21"
+      ],
+      "localEvidence": ".local-validation/v013/qa-initial/other-views-fixed/result.json"
+    },
+    {
+      "name": "focused-modal-captures",
+      "status": "PASS",
+      "coverageReferences": [
+        "A12",
+        "B05",
+        "B16",
+        "B17",
+        "B21"
+      ],
+      "localEvidence": ".local-validation/v013/qa-final-native/result.json"
+    },
+    {
+      "name": "mobile-attack",
+      "status": "PASS",
+      "coverageReferences": [
+        "B14",
+        "B15",
+        "B21"
+      ],
+      "localEvidence": ".local-validation/v013/qa-final-attack/result.json"
+    },
+    {
+      "name": "saved-preparation",
+      "status": "PASS",
+      "coverageReferences": [
+        "A12",
+        "B22"
+      ],
+      "localEvidence": ".local-validation/v013/qa-saved-preparation-registry/result.json"
+    }
+  ],
+  "measurements": {
+    "originalCombatImages": [
+      2172,
+      724
+    ],
+    "phoneViewport": [
+      844,
+      390
+    ],
+    "handCard": [
+      88,
+      76
+    ],
+    "handBottom": 382,
+    "handBottomGap": 8,
+    "preparationInfoHeight": 38.67,
+    "phone12Layout": "6 columns x 2 rows; sequence group1",
+    "phone24Layout": "two real12-card groups; scroll controls expose group2",
+    "lastMobileAttack": {
+      "settledAttacks": 1,
+      "impacts": 1,
+      "fxSamples": 261
+    }
+  },
+  "notRun": [
+    "physical iOS/Android/Kakao touch/rotation/audio listening",
+    "historically exported user save artifact",
+    "natural50-battle run",
+    "heap/leak profiling",
+    "full legacy browser matrix",
+    "local validate:data (no language/data changes)"
+  ]
+}

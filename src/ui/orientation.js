@@ -7,16 +7,19 @@ export function needsRotation({touchPoints=0,coarse=false,mobile=false,type='',w
 export function installOrientationGate(win=window,doc=document) {
  const gate=doc.createElement('dialog');gate.className='orientation-gate';
  gate.setAttribute('aria-labelledby','rotation-title');
- gate.innerHTML='<h2 id="rotation-title">가로로 플레이해 주세요</h2><p>문장 전체를 읽고 조합하려면 기기를 가로로 돌려 주세요.</p><button type="button" class="primary">가로로 플레이하기</button><p role="status">방향 잠금을 지원하지 않는 브라우저에서는 직접 회전해 주세요.</p>';
- doc.body.append(gate);let previousFocus=null,frame=0;
- gate.addEventListener('cancel',e=>e.preventDefault());
+ gate.innerHTML='<h2 id="rotation-title">가로로 플레이해 주세요</h2><p>로비부터 전투까지 가로 화면에서 이용할 수 있습니다. 기기를 가로로 돌려 주세요.</p><button type="button" class="primary">가로로 플레이하기</button><p role="status">방향 잠금을 지원하지 않는 브라우저에서는 직접 회전해 주세요.</p><button type="button" class="quiet rotation-continue">현재 방향에서 계속</button>';
+ doc.body.append(gate);let previousFocus=null,frame=0,dismissed=false;
+ const dismiss=()=>{dismissed=true;gate.close();if(previousFocus?.isConnected)previousFocus.focus();};
+ gate.addEventListener('cancel',e=>{e.preventDefault();dismiss();});gate.querySelector('.rotation-continue').addEventListener('click',dismiss);
  gate.querySelector('button').addEventListener('click',async()=>{
   try{if(!doc.fullscreenElement)await doc.documentElement.requestFullscreen?.();await win.screen.orientation?.lock?.('landscape');}
   catch{/* A refusal is a supported manual-rotation fallback. */}
   gate.querySelector('[role=status]').textContent='기기를 가로로 돌려 주세요. 전체화면이나 방향 잠금 없이도 가로로 플레이할 수 있습니다.';schedule();
  });
  const update=()=>{
-  frame=0;const blocked=!!doc.querySelector('.responsive-battle')&&needsRotation({touchPoints:win.navigator.maxTouchPoints,coarse:win.matchMedia('(pointer: coarse)').matches,mobile:/Android|iPhone|iPad|Mobile/i.test(win.navigator.userAgent),type:win.screen.orientation?.type??'',width:win.innerWidth,height:win.innerHeight});
+  frame=0;const portrait=needsRotation({touchPoints:win.navigator.maxTouchPoints,coarse:win.matchMedia('(pointer: coarse)').matches,mobile:/Android|iPhone|iPad|Mobile/i.test(win.navigator.userAgent),type:win.screen.orientation?.type??'',width:win.innerWidth,height:win.innerHeight});
+  if(!portrait)dismissed=false;
+  const blocked=portrait&&!dismissed;
   if(blocked&&!gate.open){previousFocus=doc.activeElement;doc.dispatchEvent(new Event('atlas:cancel-drag'));gate.showModal();}
   if(!blocked&&gate.open){gate.close();if(previousFocus?.isConnected)previousFocus.focus();}
  };

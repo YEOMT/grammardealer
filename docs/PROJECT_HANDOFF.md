@@ -1,3 +1,9 @@
+# 0.13.0 현재 인계
+
+기준 main `aa28555b51a37daf9245a1d2e9b49f2eb5cedeae`(PR #30), 브랜치 `codex/v0.13.0-panorama-mobile`. [이번 구현 계약](../spec/v0.13.0/Syntax_Atlas_v0.13.0_Panorama_Mobile_Spec.md)과 [실제 검사·한계](PANORAMA_MOBILE_0.13.0_REPORT.md)를 확인한다. 앱/패키지만0.13.0이며 원정·언어·점수·저장은0.12.1 그대로다.
+
+`deviceLayout`은 root client viewport와 실제 터치 입력으로 휴대폰을 구분한다. 좁은 PC를 휴대폰으로 판정하지 않는다. `mobile.css`/`mobileBoard.css`는 휴대폰 표시만 소유하며 1024폭 태블릿은 기존3열을 화면에 맞춘다. `panoramaPreview`는 BETWEEN_BATTLES만 담당한다. 실제 배경은2172×724(3:1)이므로 작은 가로 화면의 하단 정보는 내부 스크롤을 사용한다. 게임/서비스/데이터/에셋/워크플로는 변경하지 않았다. 아래 과거 기록은 보존한다.
+
 # 0.12.2 현재 인계
 
 기준 main `cc802001556f88ec210a5d237ccb6c9fc9a26dd4`, 브랜치 `codex/v0.12.2-device-stability`. [입력 안정화 명세](../spec/v0.12.2/Syntax_Atlas_0.12.2_Device_Stability_Spec.md)와 [이번 실제 검사/한계](DEVICE_STABILITY_0.12.2_REPORT.md)를 확인한다. 앱 표시만0.12.2, 원정·언어·저장·수치는0.12.1이다. inputGuard는 제스처/취소만 소유하고 RunController 정산은 바꾸지 않는다. 최종1918단위·빌드·관련 브라우저 PASS, 실기기 touch/청취/카톡 NOT RUN. 이전0.12.1 구현과 보고서는 아래에 보존한다.

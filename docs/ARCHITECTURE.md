@@ -1,3 +1,12 @@
+# 0.13.0 표시 전용 레이아웃
+
+- `deviceLayout`이 터치 가능 여부·coarse/mobile·root client viewport로 handheld 표시를 정한다. PC 콘텐츠가 `innerWidth`를1160px로 확장하더라도 실제667px 화면으로 복귀한다. 기존 `atlas:cancel-drag`/`atlas:viewport` 수명을 재사용한다.
+- `boardLayout.mobileBoardLayout`은 카드 순서를 바꾸지 않고 앞12/뒤12를 배치한다. 긴 단어는6열 fallback, 24장 중 넘치는 영역은 내부 스크롤과 ↑↓ 버튼으로 접근한다. `cardPager.memory`는 뷰의 페이지 번호만 보존하며 저장/RNG에 참여하지 않는다.
+- 동일 전투의 상단 DOM·몬스터 수명은 유지한다. 휴대폰 HUD는 실제 자원에서 갱신한다. 골렘의 실제 부위 노드만 휴대폰 HP 내부 스크롤에 놓고, PC에서는 기존 둘째 행으로 복귀시킨다. 정산/기믹 판정은 바꾸지 않는다.
+- `panoramaPreview`는 기존 asset manifest와 alpha bounds로 준비 화면의 비율·몸체·접지를 계산한다. 기존 전투 스케일/피격점과 분리하며 cleanup에서 ResizeObserver와 이미지 callback을 해제한다. `renderBetween`은 읽기 전용 preview와 기존 명령을 유지한다.
+
+[실제 검사와 한계](PANORAMA_MOBILE_0.13.0_REPORT.md). 아래는 이전 구조 기록이다.
+
 # 0.12.2 입력 수명과 앱 버전
 
 `appVersion.js`는 배포/표시만 소유한다. 원정·언어·저장 계약은0.12.1이다. `input.css`는 게임 제스처와 내부 scroller/input의 native 동작을 구분하며 시각 배치는 바꾸지 않는다. 앱당 한 `inputGuard`가 포인터 묶음과 취소된 compatibility click을 관리한다. 카드/룬 drag는 현재 view revision·연결 상태를 확인하고 최종 pointerup 좌표로 한 번만 명령을 보낸다. 실제 viewport/host 변경은 취소하지만 동일 치수 통지는 유지한다. 오디오 trusted gesture와 공격 presentation 수명/RunController 정산은 기존 소유자를 유지한다. [실행 근거](DEVICE_STABILITY_0.12.2_REPORT.md).
