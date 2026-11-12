@@ -3,28 +3,43 @@ import assert from 'node:assert/strict';
 import {sentenceRows,mobileBoardLayout} from '../src/ui/boardLayout.js';
 import {handPageWindow} from '../src/ui/viewport.js';
 
-test('0.13 mobile: twelve-card groups remain physically ordered across readability wrapping',()=>{
- for(const count of [1,5,8,11,12,13,24]){
-  const cards=Array.from({length:count},(_,id)=>({id}));assert.deepEqual(sentenceRows(cards).flat(),cards);
-  const compact=mobileBoardLayout({width:540,height:128,count,longestWord:11});
-  assert.equal(compact.columns,6);assert.equal(compact.fallback,true);assert.equal(compact.lines,Math.ceil(count/6));
-  assert.ok(compact.cardWidth* Math.min(count,6)+4*(Math.min(count,6)-1)<=540+.001);assert.ok(compact.formHeight>=24);assert.ok(compact.bodyHeight>=32);
+test('mobile visual rows contain eight cards across the physical twelve-card boundary', () => {
+ const expectedRows = [[0,0], [1,1], [5,1], [8,1], [9,2], [12,2], [13,2], [16,2], [17,3], [24,3]];
+ for (const [count, rows] of expectedRows) {
+  const cards = Array.from({length: count}, (_, id) => ({id}));
+  assert.deepEqual(sentenceRows(cards).flat(), cards);
+  const layout = mobileBoardLayout({width: 540, height: 128, count});
+  assert.equal(layout.columns, 8);
+  assert.equal(layout.lines, rows);
+  assert.ok(layout.bodyHeight >= 30);
+  assert.equal(layout.formHeight, 24);
  }
- assert.equal(mobileBoardLayout({width:720,height:128,count:12,longestWord:4}).columns,12);
 });
-test('0.13 mobile: count changes reduce card width gradually rather than fixed size bands',()=>{
- for(const width of [540,720])for(const longestWord of [4,11]){
-  let previous=Infinity;
-  for(let count=1;count<=12;count++){
-   const {cardWidth}=mobileBoardLayout({width,height:128,count,longestWord});
-   assert.ok(cardWidth<=previous+.001);if(previous!==Infinity)assert.ok(cardWidth>=previous*.8);previous=cardWidth;
+test('full mobile rows fill the width and retain slot size when another row begins', () => {
+ for (const width of [452.5, 540, 720, 818.25]) {
+  let previousWidth = Infinity;
+  for (let count = 1; count <= 24; count++) {
+   const {cardWidth, rowSlots} = mobileBoardLayout({width, height: 128, count});
+   const occupied = cardWidth * rowSlots + 4 * (rowSlots - 1);
+   assert.ok(occupied <= width + .001);
+   assert.ok(cardWidth <= previousWidth + .001);
+   if (count > 1) assert.ok(cardWidth >= previousWidth * .8);
+   if (count >= 8) assert.ok(Math.abs(occupied - width) < .001);
+   if (count > 8) assert.equal(cardWidth, previousWidth);
+   previousWidth = cardWidth;
   }
  }
- const long=mobileBoardLayout({width:600,height:128,count:12,longestWord:11});assert.ok((long.cardWidth-8)/(11*.66)>=11);
 });
-test('0.13 mobile: insufficient height scrolls real rows without reducing touch controls',()=>{
- const layout=mobileBoardLayout({width:540,height:128,count:24,longestWord:11});assert.equal(layout.overflow,true);assert.equal(layout.lines,4);assert.equal(layout.formHeight,24);
- assert.equal(mobileBoardLayout({width:720,height:128,count:12,longestWord:4}).overflow,false);
+test('mobile board keeps a usable form target while scrolling the third row when needed', () => {
+ const two = mobileBoardLayout({width: 540, height: 128, count: 16});
+ assert.equal(two.cardHeight * two.lines + 4, 128);
+ assert.equal(two.bodyHeight, 32);
+ assert.equal(two.overflow, false);
+ const three = mobileBoardLayout({width: 540, height: 128, count: 24});
+ assert.equal(three.overflow, true);
+ assert.equal(three.lines, 3);
+ assert.equal(three.formHeight, 24);
+ assert.equal(mobileBoardLayout({width: 540, height: 200, count: 24}).overflow, false);
 });
 test('0.13 hand: measured pages keep copied IDs outside calculations and clamp after edits',()=>{
  const cards=Array.from({length:14},(_,i)=>'physical.'+i),before=[...cards];let page=0,seen=[];
