@@ -1,8 +1,21 @@
 /* BETWEEN_BATTLES only: originals retain their full aspect and combat remains untouched. */
 body:has(.panorama-preparation){--preparation-nav-height:66px}
 body:has(.panorama-preparation) .preparation-topbar{height:var(--preparation-nav-height);min-height:0;flex:none}
-body .intro-page.battle-preparation.panorama-preparation{height:calc(var(--viewport-height) - var(--preparation-nav-height));max-width:none;width:100%;padding:0 0 max(8px,env(safe-area-inset-bottom));margin:0;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:0;background:var(--stage-gradient,linear-gradient(160deg,#21362b,#11251e));overflow:clip}
-.panorama-preparation .preparation-panorama{--panorama-ratio:3;position:relative;width:100%;aspect-ratio:var(--panorama-ratio);max-height:calc(var(--viewport-height) - var(--preparation-nav-height) - 92px);min-height:0;background:var(--stage-gradient,linear-gradient(160deg,#21362b,#11251e));isolation:isolate}
+body .intro-page.battle-preparation.panorama-preparation{
+  --preparation-details-space:min(336px,calc(var(--viewport-height) * .45));
+  --preparation-art-limit:calc(var(--viewport-height) - var(--preparation-nav-height) - var(--preparation-details-space) - env(safe-area-inset-bottom));
+  height:calc(var(--viewport-height) - var(--preparation-nav-height));
+  max-width:none;width:100%;padding:0 0 max(8px,env(safe-area-inset-bottom));margin:0;
+  display:flex;flex-direction:column;gap:0;
+  background:var(--stage-gradient,linear-gradient(160deg,#21362b,#11251e));overflow:clip;
+}
+.panorama-preparation .preparation-panorama{
+  --panorama-ratio:3;
+  position:relative;flex:none;align-self:center;
+  width:min(100%,calc(max(1px,var(--preparation-art-limit)) * var(--panorama-ratio)));
+  aspect-ratio:var(--panorama-ratio);min-height:0;isolation:isolate;
+  background:var(--stage-gradient,linear-gradient(160deg,#21362b,#11251e));
+}
 .panorama-preparation .preparation-scene{display:block;width:100%;height:100%;max-width:none;object-fit:contain;object-position:center bottom;visibility:hidden;pointer-events:none}
 .panorama-preparation .preparation-scene[data-ready=true]{visibility:visible}
 .panorama-preparation .preparation-monster{position:absolute;inset:0;pointer-events:none}
@@ -10,7 +23,7 @@ body .intro-page.battle-preparation.panorama-preparation{height:calc(var(--viewp
 .panorama-preparation .monster-preview-image[data-ready=true]{visibility:visible}
 .panorama-preparation .preparation-monster-fallback{position:absolute;left:50%;bottom:10px;translate:-50% 0;font-size:clamp(80px,15vh,180px);line-height:1}
 .panorama-preparation .preparation-monster[data-boss=true] .preparation-monster-fallback{font-size:clamp(100px,23vh,260px)}
-.panorama-preparation .preparation-scroll{min-height:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px max(20px,calc((100vw - 1000px)/2));text-align:left}
+.panorama-preparation .preparation-scroll{min-height:0;margin-block-start:auto;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;padding:12px max(20px,calc((100vw - 1000px)/2));text-align:left}
 .panorama-preparation .preparation-identity{display:flex;align-items:baseline;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
 .panorama-preparation .preparation-identity h1{font-size:26px;margin:0;line-height:1.15}
 .panorama-preparation .preparation-identity small{font-size:12px}
@@ -21,21 +34,24 @@ body .intro-page.battle-preparation.panorama-preparation{height:calc(var(--viewp
 .panorama-preparation .preparation-boss summary{cursor:pointer;color:#efd6a1;font-size:13px;line-height:1.4;padding:3px 0}
 .panorama-preparation .preparation-boss .boss-rule{font-size:13px;line-height:1.45;margin:5px 0}
 .panorama-preparation .preparation-resources{font-size:13px;line-height:1.4;margin:8px 0 0;text-align:center}
-.panorama-preparation .preparation-actions.reward-footer{margin:0;padding:6px max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));min-height:0;gap:10px;align-items:center;flex:none}
+.panorama-preparation .preparation-actions.reward-footer{margin:0 0 auto;padding:6px max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));min-height:0;gap:10px;align-items:center;flex:none}
 .panorama-preparation .preparation-actions button{min-height:42px;padding:8px 22px}
 html[data-handheld=true] body:has(.panorama-preparation){--preparation-nav-height:28px}
 html[data-handheld=true] body:has(.panorama-preparation) .preparation-topbar{height:28px;padding:0 max(8px,env(safe-area-inset-right)) 0 max(8px,env(safe-area-inset-left));gap:5px}
 html[data-handheld=true] .preparation-topbar .brand-small{font-size:10px;letter-spacing:.2px;line-height:1.1;max-width:50%;white-space:normal}
 html[data-handheld=true] .preparation-topbar nav{gap:1px}
 html[data-handheld=true] .preparation-topbar nav button{min-height:26px;padding:2px 7px;font-size:11px}
-html[data-handheld=true] body .intro-page.battle-preparation.panorama-preparation{padding-bottom:max(4px,env(safe-area-inset-bottom))}
-html[data-handheld=true] .panorama-preparation .preparation-panorama{max-height:calc(var(--viewport-height) - var(--preparation-nav-height) - 78px - env(safe-area-inset-bottom))}
-html[data-handheld=true] .panorama-preparation .preparation-scroll{padding:5px max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left))}
+html[data-handheld=true] body .intro-page.battle-preparation.panorama-preparation{
+  /* At the target landscape sizes: 120px guide, 20px gap, 44px controls, 4px inset. */
+  --preparation-details-space:min(188px,calc(var(--viewport-height) * .55));
+  padding-bottom:max(4px,env(safe-area-inset-bottom));
+}
+html[data-handheld=true] .panorama-preparation .preparation-scroll{flex:1 1 0;margin:0;padding:5px max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left))}
 html[data-handheld=true] .panorama-preparation .preparation-identity{margin-bottom:4px;gap:7px}
 html[data-handheld=true] .panorama-preparation .preparation-identity h1{font-size:17px}
 html[data-handheld=true] .panorama-preparation .preparation-identity small{font-size:11px}
 html[data-handheld=true] .panorama-preparation .preparation-guide{gap:4px 12px;padding:7px 10px}
 html[data-handheld=true] .panorama-preparation .preparation-guide strong{font-size:14px}
 html[data-handheld=true] .panorama-preparation .preparation-guide p,html[data-handheld=true] .panorama-preparation .preparation-boss summary,html[data-handheld=true] .panorama-preparation .preparation-guide .boss-rule{font-size:12px}
-html[data-handheld=true] .panorama-preparation .preparation-actions.reward-footer{padding-top:2px;gap:8px}
-html[data-handheld=true] .panorama-preparation .preparation-actions button{min-height:36px;padding:4px 18px;font-size:13px}
+html[data-handheld=true] .panorama-preparation .preparation-actions.reward-footer{margin:20px 0 0;padding-top:0;gap:8px}
+html[data-handheld=true] .panorama-preparation .preparation-actions button{min-height:44px;padding:4px 18px;font-size:13px}
