@@ -3,6 +3,7 @@ import {chromium,expect} from '@playwright/test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import {mountCombatQA} from './helpers/combat-ui-browser.js';
+import {checkPreparationReadability} from './helpers/preparation-readability-browser.js';
 const out=process.env.SB_PANORAMA_OUT||'.local-validation/panorama-mobile/browser';await fs.mkdir(out,{recursive:true});
 const only=process.argv.find(a=>a.startsWith('--section='))?.split('=')[1];
 const browser=await chromium.launch();let context=await browser.newContext({viewport:{width:844,height:390},hasTouch:true,isMobile:true,deviceScaleFactor:1}),page=await context.newPage();page.setDefaultTimeout(8000);
@@ -31,6 +32,7 @@ async function assigned(){await page.evaluate(mountCombatQA);await page.evaluate
  });}
 try{
  await boot();
+ await check('preparation-readability',['A01','A05','A06'],()=>checkPreparationReadability(browser,out,!process.argv.includes('--no-captures')));
  await check('actual-flow',['B01','B02','B05','B18','B21','B22'],async()=>{
   await onScreen(page.locator('#start-run'));await noPan();await page.locator('details summary').click();await page.locator('#run-seed').fill('device.0122');await page.locator('#start-run').tap();await onScreen(page.locator('#start-battle'));await page.locator('#start-battle').tap();await page.locator('#attack-submit').waitFor();
   const initial=await page.evaluate(()=>__SB_DEV__.getState());assert.equal(initial.activeCardIds.length,28);assert.equal(initial.version,'0.12.1');await page.getByRole('button',{name:'메뉴',exact:true}).click();await page.getByRole('button',{name:'저장',exact:true}).last().click();await page.getByRole('button',{name:'슬롯 1 저장',exact:true}).click();await expect(page.getByRole('button',{name:'슬롯 1 불러오기',exact:true})).toBeEnabled();await close();
