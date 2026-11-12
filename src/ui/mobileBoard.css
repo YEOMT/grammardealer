@@ -1,35 +1,38 @@
-/* Portable battle board only. The desktop --board-scale path stays unchanged. */
+/* Phone layout uses the same physical cards and reading order across row boundaries. */
 .board-scroll-controls{display:none}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence{
- width:100%;max-width:100%;min-width:0;height:100%;min-height:0;align-self:stretch;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:2px;
+ grid-column:2;grid-row:1;width:100%;max-width:100%;min-width:0;height:100%;min-height:0;
+ display:flex;flex-flow:row wrap;align-items:center;align-content:center;justify-content:center;gap:4px;padding:2px;
  overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;touch-action:pan-y;scroll-padding:4px;
 }
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence[data-mobile-overflow=true]{justify-content:flex-start}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence[data-mobile-overflow=true]{align-content:flex-start}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence[data-mobile-scroll-controls=true]{width:calc(100% - 30px);justify-self:start}
-html[data-handheld=true] .responsive-battle .board-scroll-controls{position:absolute;right:2px;top:2px;bottom:34px;width:26px;display:flex;flex-direction:column;justify-content:center;gap:5px}
+html[data-handheld=true] .responsive-battle .board-scroll-controls{position:absolute;right:2px;top:2px;bottom:2px;width:26px;display:flex;flex-direction:column;justify-content:center;gap:5px}
 html[data-handheld=true] .responsive-battle .board-scroll-controls button{min-width:26px;min-height:36px;padding:0;font-size:20px;border:1px solid var(--line);touch-action:none}
-html[data-handheld=true] .responsive-battle .combat-sentence .sentence-row{
- display:flex;flex-wrap:wrap;flex:none;align-items:flex-start;justify-content:center;gap:4px;height:auto;min-height:0;
- width:100%;max-width:calc(var(--mobile-columns) * var(--mobile-card-width) + (var(--mobile-columns) - 1) * 4px);
-}
+html[data-handheld=true] .responsive-battle .combat-sentence .sentence-row{display:contents}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence .word-card{
  --card-w:var(--mobile-card-width);width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex:0 0 var(--card-w);height:var(--mobile-card-height);
 }
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence .card-body{
- height:var(--mobile-card-body);min-height:var(--mobile-card-body);padding:2px;display:grid;grid-template-rows:8px minmax(0,1fr) 8px;gap:0;
+html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-motion{height:100%}
+html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-body{
+ display:grid;grid-template: minmax(0,1fr) / minmax(0,1fr);place-items:center;
+ flex:1 1 0;min-height:0;height:auto;padding:0 1px;gap:0;
 }
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence .card-word{
- font-size:min(var(--mobile-word-size),calc((100cqw - 8px) / var(--fit-factor,3)))!important;
- line-height:1;align-self:center;margin:0!important;white-space:nowrap;overflow:visible;text-overflow:clip;
+html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) :is(.card-topline,.card-footline){display:none}
+html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-word{
+ /* Match the hand's 90% content-width budget, including on narrower board tiles. */
+ font-size:min(22px,calc((var(--mobile-hand-card-width) - 2px) * .9 / var(--fit-factor,3)))!important;
+ width:max-content;max-width:none;line-height:1.05;margin:0!important;text-align:center;white-space:nowrap;
+ scale:var(--mobile-word-fit,1) 1;
 }
-html[data-handheld=true] .responsive-battle .combat-sentence .card-topline{font-size:8px;line-height:1}
-html[data-handheld=true] .responsive-battle .combat-sentence .card-footline{display:flex;min-height:8px;height:8px;line-height:1;font-size:7.5px;margin:0;padding:0}
-html[data-handheld=true] .responsive-battle .combat-sentence .polish-badge{font-size:7px;padding:0 1px}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence .form-button{
- height:var(--mobile-form-height);min-height:var(--mobile-form-height);max-height:var(--mobile-form-height);font-size:11px;padding:0 2px;line-height:1;
+html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .form-button{
+ flex:0 0 var(--mobile-form-height,24px);height:var(--mobile-form-height,24px);min-height:0;font-size:11px;padding:0 2px;line-height:1;
 }
-html[data-handheld=true] .responsive-battle .combat-sentence .card-motion{height:100%}
+html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-info{
+ top:100%;right:0;width:22px;height:24px;min-height:24px;line-height:24px;
+}
+html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-motion:has(.card-info)>.form-button{width:calc(100% - 22px)}
 html[data-handheld=true] .responsive-battle .combat-sentence .empty-board-grid{
- width:100%;height:100%;min-height:0;grid-template-columns:repeat(12,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:4px;
+ width:100%;height:100%;min-height:0;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:4px;
 }
 html[data-handheld=true] .responsive-battle .hand-page-row>button{min-height:42px;min-width:32px;padding:0;touch-action:none}

@@ -1,7 +1,7 @@
 # 0.13.0 표시 전용 레이아웃
 
 - `deviceLayout`이 터치 가능 여부·coarse/mobile·root client viewport로 handheld 표시를 정한다. PC 콘텐츠가 `innerWidth`를1160px로 확장하더라도 실제667px 화면으로 복귀한다. 기존 `atlas:cancel-drag`/`atlas:viewport` 수명을 재사용한다.
-- `boardLayout.mobileBoardLayout`은 카드 순서를 바꾸지 않고 앞12/뒤12를 배치한다. 긴 단어는6열 fallback, 24장 중 넘치는 영역은 내부 스크롤과 ↑↓ 버튼으로 접근한다. `cardPager.memory`는 뷰의 페이지 번호만 보존하며 저장/RNG에 참여하지 않는다.
+- 휴대폰에서 `boardLayout.mobileBoardLayout`은 한 줄에 최대 8장의 폭을 계산한다. CSS가 기존 12장 단위 DOM 묶음을 가로질러 같은 카드 노드를 이어 배치하며, 넘치는 줄은 내부 스크롤과 ↑↓ 버튼으로 접근한다. 글자는 손패와 같은 높이를 쓰고 칸을 넘는 단어만 실측해 가로폭을 맞춘다. PC는 12장 단위 행을 사용한다. `cardPager.memory`는 뷰의 페이지 번호만 보존하며 저장/RNG에 참여하지 않는다.
 - 동일 전투의 상단 DOM·몬스터 수명은 유지한다. 휴대폰 HUD는 실제 자원에서 갱신한다. 골렘의 실제 부위 노드만 휴대폰 HP 내부 스크롤에 놓고, PC에서는 기존 둘째 행으로 복귀시킨다. 정산/기믹 판정은 바꾸지 않는다.
 - `panoramaPreview`는 기존 asset manifest와 alpha bounds로 준비 화면의 비율·몸체·접지를 계산한다. 기존 전투 스케일/피격점과 분리하며 cleanup에서 ResizeObserver와 이미지 callback을 해제한다. `renderBetween`은 읽기 전용 preview와 기존 명령을 유지한다.
 
