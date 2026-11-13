@@ -1,0 +1,16 @@
+{
+  "id": "/grammardealer/",
+  "name": "Syntax Atlas · 신택스 아틀라스",
+  "short_name": "Syntax Atlas",
+  "lang": "ko",
+  "start_url": "/grammardealer/#lobby",
+  "scope": "/grammardealer/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "theme_color": "#092623",
+  "background_color": "#092623",
+  "icons": [
+    {"src": "icons/atlas-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/atlas-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

@@ -23,11 +23,11 @@ try{
   await page.evaluate(async()=>{const{audio}=await import('/src/services/audio.js');await audio.context.suspend();});await page.getByRole('button',{name:'소리 확인',exact:true}).tap();await expect(page.locator('.sound-notice')).toContainText('음소거');
   const after=await page.evaluate(async()=>{const{audio}=await import('/src/services/audio.js');return {state:audio.context.state,muted:audio.muted,gain:audio.bgmBus.gain.value};});assert.deepEqual(after,{state:'running',muted:true,gain:0});pass('E first trusted emulated touch, suspended context retry, mute/zero preserved',{before,after,listening:'NOT RUN'});
  }else if(process.argv.includes('--production')){
-  const root=path.resolve('dist'),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.png':'image/png','.mp3':'audio/mpeg'};
+  const root=path.resolve('dist'),types={'.html':'text/html','.js':'text/javascript','.css':'text/css','.webmanifest':'application/manifest+json','.png':'image/png','.mp3':'audio/mpeg'};
   server=http.createServer(async(req,res)=>{try{const name=decodeURIComponent(new URL(req.url,'http://local').pathname);if(!name.startsWith('/grammardealer/'))throw Error('base');const file=path.resolve(root,name.slice(15)||'index.html');if(!file.startsWith(root+path.sep))throw Error('path');const bytes=await fs.readFile(file);res.writeHead(200,{'Content-Type':types[path.extname(file)]??'application/octet-stream'});res.end(bytes);}catch{res.writeHead(404);res.end();}});await new Promise(r=>server.listen(0,'127.0.0.1',r));
   const base=`http://127.0.0.1:${server.address().port}/grammardealer/`,resources=[];
   page.on('response',r=>{if(new URL(r.url()).origin===new URL(base).origin)resources.push({path:new URL(r.url()).pathname,status:r.status()});});
-  await page.goto(base+'#game');await page.locator('#start-run').waitFor();await expect(page.locator('.version-badge')).toHaveText('0.13.0');await page.reload();await page.locator('#start-run').waitFor();
+  await page.goto(base+'#game');await page.locator('#start-run').waitFor();await expect(page.locator('.version-badge')).toHaveText('0.13.1');await page.reload();await page.locator('#start-run').waitFor();
   await page.locator('#player-name').fill('Device production QA');await page.locator('#start-run').click();await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
   await page.getByRole('button',{name:'튜토리얼 건너뛰기',exact:true}).click();await page.getByRole('button',{name:'건너뛰기',exact:true}).click();
   await expect(page.locator('#attack-submit')).toBeVisible();await page.getByRole('button',{name:'저장',exact:true}).click();await page.getByRole('button',{name:'슬롯 1 저장',exact:true}).click();await expect(page.getByRole('button',{name:'슬롯 1 불러오기',exact:true})).toBeEnabled();await close();
@@ -35,11 +35,35 @@ try{
   assert.deepEqual(await page.locator('.hand-cards>.word-card').evaluateAll(ns=>ns.map(n=>({id:n.dataset.cardId,text:n.textContent}))),hand);await body().tap();await expect(page.locator('.combat-sentence .word-card')).toHaveCount(1);
   await page.waitForFunction(()=>document.querySelectorAll('.monster-image[data-ready=true]').length===2);
   assert.ok(resources.some(r=>r.path.endsWith('.js'))&&resources.some(r=>r.path.endsWith('.css')));assert.ok(resources.every(r=>r.path.startsWith('/grammardealer/')&&r.status===200),JSON.stringify(resources));pass('A production subpath, direct hash/reload, actual skip/save/load and input',{resources});
+  const manifestUrl = await page.locator('link[rel=manifest]').getAttribute('href');
+  const manifestResponse = await context.request.get(new URL(manifestUrl,base).href);
+  assert.equal(manifestResponse.status(),200);
+  const manifest = await manifestResponse.json();
+  assert.equal(manifest.display,'standalone');
+  assert.equal(manifest.orientation,'landscape');
+  assert.equal(manifest.id,'/grammardealer/');
+  assert.equal(manifest.scope,'/grammardealer/');
+  const start = new URL(manifest.start_url,base);
+  assert.equal(start.href,base+'#lobby');
+  assert.equal((await context.request.get(start.href)).status(),200);
+  const icons = [...manifest.icons,{src:await page.locator('link[rel=apple-touch-icon]').getAttribute('href'),sizes:'180x180'}];
+  for(const icon of icons){
+    const url = new URL(icon.src,base);
+    assert.ok(url.pathname.startsWith(manifest.scope));
+    const response = await context.request.get(url.href);
+    assert.equal(response.status(),200);
+    const file = await response.body();
+    assert.equal(file.toString('ascii',1,4),'PNG');
+    assert.equal(file.readUInt32BE(16)+'x'+file.readUInt32BE(20),icon.sizes);
+  }
+  assert.equal(await page.evaluate(async()=> (await navigator.serviceWorker.getRegistrations()).length),0);
+  pass('Production manifest, start URL, three PNG icons and uninstalled tab on Pages subpath',{start:start.pathname+start.hash,icons:icons.length});
   // Deliberate optional-asset failure in a fresh isolated browser profile.
   const bad=await context.newPage();bad.on('pageerror',e=>report.errors.push(e.message));await bad.route(/\.(png|mp3)(\?|$)/,r=>r.abort());await bad.goto(base);await bad.locator('#player-name').fill('Asset fallback QA');await bad.locator('#start-run').click();await bad.locator('#start-battle').click();await expect(bad.locator('#attack-submit')).toBeVisible();await bad.locator('.sound-toggle').click();await expect(bad.locator('.sound-dialog')).toBeVisible();await bad.close();pass('A deliberately missing optional image/audio does not block entry or controls');
  }else{
   const cdp=await context.newCDPSession(page);await page.goto('http://127.0.0.1:5173/?debug=1#lobby');await page.locator('#start-run').waitFor();
   await page.evaluate(async()=>{const{LocalStore,newProfile}=await import('/src/services/localStore.js');const s=new LocalStore();await s.init();const p=newProfile('Device QA');p.guidedTutorialCompletedVersion='0.2.1';await s.saveProfile(p);});await page.reload();await page.locator('details summary').click();await page.locator('#run-seed').fill('device.0122');await page.locator('#start-run').click();await page.locator('#start-battle').click();await page.locator('#attack-submit').waitFor();
+  if(await page.evaluate(()=>!!document.fullscreenElement))await page.locator('.fullscreen-toggle').tap();
   const initial=await state();assert.equal(initial.version,'0.12.1');assert.equal(initial.activeCardIds.length,28);
   await page.waitForFunction(()=>document.querySelectorAll('.monster-image[data-ready=true]').length===2);
   const rects=await page.evaluate(()=>Object.fromEntries(['.game-header','.enemy-area','.combat-middle','.combat-sentence','.hand-section','.hand-cards .word-card'].map(s=>[s,document.querySelector(s).getBoundingClientRect().toJSON()])));await page.screenshot({path:out+'/pc.png'});
@@ -58,7 +82,7 @@ try{
   const candidate=await page.evaluate(async()=>{const {formsForCard,registryForVersion}=await import('/src/data/language/index.js');const s=__SB_DEV__.getState();return s.combat.handIds.find(id=>formsForCard(s.cardInstances[id],{registry:registryForVersion(s.version)}).length>1);});assert.ok(candidate);await page.locator(`.hand-cards [data-card-id="${candidate}"] .card-body`).tap();await page.locator('.combat-sentence .form-button').tap();await page.locator('.form-choice:not(.current)').first().tap();await page.locator('#clear-sentence').click();
   const beforeDiscard=await state();await page.locator('.hand-cards .card-select').first().tap();assert.deepEqual(await state(),beforeDiscard);await page.locator('#discard-selected').tap();assert.equal((await state()).combat.exchangesRemaining,beforeDiscard.combat.exchangesRemaining-1);assert.equal((await state()).combat.turnsRemaining,beforeDiscard.combat.turnsRemaining);
   await page.locator('.sound-toggle').tap();const slider=page.getByRole('slider',{name:'배경음'});await slider.focus();await page.keyboard.press('Home');assert.equal(await slider.inputValue(),'0');await slider.fill('37');await page.getByRole('button',{name:'소리 확인',exact:true}).tap();await close();
-  await page.evaluate(()=>{window.savedFullscreen=document.documentElement.requestFullscreen;document.documentElement.requestFullscreen=undefined;});await page.locator('.fullscreen-toggle').tap();await page.getByRole('textbox',{name:'게임 주소'}).selectText();assert.equal(await page.evaluate(()=>getSelection().toString()||document.activeElement.value),'http://127.0.0.1:5173/#lobby');await page.getByRole('button',{name:'현재 화면에서 계속'}).tap();await page.evaluate(()=>document.documentElement.requestFullscreen=savedFullscreen);pass('C dictionary scroll/search, form, discard, native slider and fallback address');
+  await page.evaluate(()=>{window.savedFullscreen=document.documentElement.requestFullscreen;document.documentElement.requestFullscreen=undefined;});await page.locator('.fullscreen-toggle').tap();await page.getByRole('textbox',{name:'게임 주소'}).selectText();assert.equal(await page.evaluate(()=>getSelection().toString()||document.activeElement.value),'https://yeomt.github.io/grammardealer/#lobby');await page.getByRole('button',{name:'현재 화면에서 계속'}).tap();await page.evaluate(()=>document.documentElement.requestFullscreen=savedFullscreen);pass('C dictionary scroll/search, form, discard, native slider and fallback address');
   await dragStart();await page.evaluate(()=>window.dispatchEvent(new Event('resize')));await expect(page.locator('.drag-ghost')).toHaveCount(1);await page.mouse.up();
   await page.locator('.fullscreen-toggle').click();await page.waitForFunction(()=>!!document.fullscreenElement);await dragStart();assert.equal(await page.evaluate(()=>document.querySelector('.drag-ghost').parentElement===document.fullscreenElement),true);const fsBoard=await point(page.locator('.combat-sentence'));await page.mouse.move(fsBoard.x,fsBoard.y,{steps:3});await page.mouse.up();await expect(page.locator('.combat-sentence .word-card')).toHaveCount(1);await page.locator('#clear-sentence').click();await page.locator('.fullscreen-toggle').click();
   await dragStart();await page.setViewportSize({width:1180,height:820});await expect(page.locator('.drag-ghost')).toHaveCount(0);await page.mouse.up();await body().tap();await page.locator('#clear-sentence').click();await page.screenshot({path:out+'/tablet.png'});

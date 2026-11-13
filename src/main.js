@@ -1,7 +1,6 @@
 import {openClearLeaderboard,renderFinalClear} from './ui/finale.js';
 import {LocalLeaderboardRepository,MemoryLeaderboardRepository} from './services/clearLeaderboard.js';
 import {installOrientationGate} from './ui/orientation.js';
-import {installDeviceLayout} from './ui/deviceLayout.js';
 import {installViewport,syncFullscreenButtons} from './ui/viewport.js';
 import {presentOperation} from './ui/operationPresentation.js';
 import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
@@ -15,6 +14,7 @@ import './ui/learning012.css';
 import './ui/input.css';
 import './ui/mobile.css';
 import './ui/mobileBoard.css';
+import './ui/visibleLayout.css';
 import {installInputGuard} from './ui/inputGuard.js';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
@@ -31,7 +31,7 @@ import { registry } from './data/language/index.js';
 import { RunController } from './game/runController.js';
 import { LocalStore, newProfile, applyProfileEvent } from './services/localStore.js';
 
-installDeviceLayout();installViewport();syncFullscreenButtons();installOrientationGate();
+installViewport();syncFullscreenButtons();installOrientationGate();
 const musicDirector=createMusicDirector(audio);
 const root=document.querySelector('#app');
 const store=new LocalStore({registry});

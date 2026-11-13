@@ -31,13 +31,13 @@ test('device: keyboard and text editing stay native; cancelled touch still reach
  try{f.fire('pointerdown');f.guard.suppress(1);f.fire('pointerup');assert.equal(gestures,1);assert.equal(f.fire('click',f.a,1,{detail:0,pointerType:''}).defaultPrevented,false);assert.equal(f.fire('click',f.input).defaultPrevented,false);}finally{f.guard.dispose();}
 });
 test('device: unchanged viewport notifications preserve gesture; real size/host changes cancel',()=>{
- const win=new EventTarget(),doc=new EventTarget();Object.assign(win,{innerWidth:1366,innerHeight:768,requestAnimationFrame:()=>1,cancelAnimationFrame:()=>{}});doc.documentElement={style:{setProperty(){}},dataset:{}};
+ const win=new EventTarget(),doc=new EventTarget();let nextFrame;Object.assign(win,{innerWidth:1366,innerHeight:768,requestAnimationFrame:fn=>{nextFrame=fn;return 1;},cancelAnimationFrame:()=>{}});doc.documentElement={style:{setProperty(){}},dataset:{}};
  let cancels=0;doc.addEventListener('atlas:cancel-drag',()=>cancels++);const cleanup=installViewport(win,doc);
- try{win.dispatchEvent(new Event('resize'));assert.equal(cancels,0);win.innerHeight=800;win.dispatchEvent(new Event('resize'));assert.equal(cancels,1);win.dispatchEvent(new Event('resize'));assert.equal(cancels,1);doc.fullscreenElement={};doc.dispatchEvent(new Event('fullscreenchange'));assert.equal(cancels,2);}finally{cleanup();}
+ try{win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,0);win.innerHeight=800;win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,1);win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,1);doc.fullscreenElement={};doc.dispatchEvent(new Event('fullscreenchange'));nextFrame();assert.equal(cancels,2);}finally{cleanup();}
 });
 test('device: release labels are distinct from unchanged content contracts',async()=>{
  const fs=await import('node:fs/promises');const pkg=JSON.parse(await fs.readFile(new URL('../package.json',import.meta.url)));
- assert.equal(APP_VERSION,'0.13.0');assert.equal(pkg.version,APP_VERSION);
+ assert.equal(APP_VERSION,'0.13.1');assert.equal(pkg.version,APP_VERSION);
  const {RunController}=await import('../src/game/runController.js');
  const c=new RunController();assert.equal(c.dispatch({type:'NEW_RUN',config:{seed:'device.version'}}).ok,true);const run=c.getState();
  assert.equal(run.version,'0.12.1');assert.equal(run.activeCardIds.length,28);

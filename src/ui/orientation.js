@@ -1,3 +1,4 @@
+import {enterLandscape} from './immersive.js';
 /** Screen orientation (not the keyboard's visual viewport) gates portable play. */
 export function needsRotation({touchPoints=0,coarse=false,mobile=false,type='',width,height}) {
  const portable=touchPoints>0&&(coarse||mobile);
@@ -12,12 +13,16 @@ export function installOrientationGate(win=window,doc=document) {
  const dismiss=()=>{dismissed=true;gate.close();if(previousFocus?.isConnected)previousFocus.focus();};
  gate.addEventListener('cancel',e=>{e.preventDefault();dismiss();});gate.querySelector('.rotation-continue').addEventListener('click',dismiss);
  gate.querySelector('button').addEventListener('click',async()=>{
-  try{if(!doc.fullscreenElement)await doc.documentElement.requestFullscreen?.();await win.screen.orientation?.lock?.('landscape');}
-  catch{/* A refusal is a supported manual-rotation fallback. */}
-  gate.querySelector('[role=status]').textContent='기기를 가로로 돌려 주세요. 전체화면이나 방향 잠금 없이도 가로로 플레이할 수 있습니다.';schedule();
+  const result = await enterLandscape(win, doc);
+  gate.querySelector('[role=status]').textContent = result === 'active'
+    ? '기기를 가로로 돌려 주세요.'
+    : '직접 가로로 돌리거나 현재 방향에서 계속할 수 있습니다.';
+  schedule();
  });
  const update=()=>{
-  frame=0;const portrait=needsRotation({touchPoints:win.navigator.maxTouchPoints,coarse:win.matchMedia('(pointer: coarse)').matches,mobile:/Android|iPhone|iPad|Mobile/i.test(win.navigator.userAgent),type:win.screen.orientation?.type??'',width:win.innerWidth,height:win.innerHeight});
+  frame=0;
+  if(doc.documentElement.dataset.keyboard==='true')return;
+  const portrait=needsRotation({touchPoints:win.navigator.maxTouchPoints,coarse:win.matchMedia('(pointer: coarse)').matches,mobile:/Android|iPhone|iPad|Mobile/i.test(win.navigator.userAgent),type:win.screen.orientation?.type??'',width:win.innerWidth,height:win.innerHeight});
   if(!portrait)dismissed=false;
   const blocked=portrait&&!dismissed;
   if(blocked&&!gate.open){previousFocus=doc.activeElement;doc.dispatchEvent(new Event('atlas:cancel-drag'));gate.showModal();}

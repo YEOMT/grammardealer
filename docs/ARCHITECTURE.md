@@ -1,3 +1,7 @@
+# 0.13.1 가시 영역과 전체화면
+
+`visualViewport.js`가 뷰포트와 호스트 변화 통지를 소유한다. 루트 레이아웃 치수·입력 특성으로 휴대폰 배치를 정하고, 실제 보이는 사각형은 별도로 측정한다. 휴대기기 앱 스크롤 영역과 네이티브 모달이 같은 가시 좌표를 사용한다. 낮은 태블릿 무대에서는 골렘의 기존 부위 노드를 HP 패널에 둔다. `immersive.js`는 제스처 요청/거절/복사와 앱 표시 모드만 관리한다. RunController와 오디오는 기존 소유권을 유지한다. [검증과 구현 위치](IMMERSIVE_LINK_0.13.1_REPORT.md)
+
 # 0.13.0 표시 전용 레이아웃
 
 - `deviceLayout`이 터치 가능 여부·coarse/mobile·root client viewport로 handheld 표시를 정한다. PC 콘텐츠가 `innerWidth`를1160px로 확장하더라도 실제667px 화면으로 복귀한다. 기존 `atlas:cancel-drag`/`atlas:viewport` 수명을 재사용한다.

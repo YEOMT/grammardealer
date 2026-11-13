@@ -4,7 +4,7 @@
 [hidden]{display:none!important}
 html:fullscreen,html:fullscreen body{width:100%;height:100%;background:#101b21}
 body:has(.responsive-battle){margin:0;min-width:320px}
-body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:clamp(62px,calc(3.92vw + 16.45px),96px);--board-body:60px;--form-height:28px;--board-gap:10px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 44px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left));grid-template-columns:1fr;grid-template-rows:38px minmax(120px,1fr) auto auto;align-content:start;gap:8px}
+body[data-stage-theme] .game-shell.responsive-battle{--play-card-width:clamp(62px,calc(3.92vw + 16.45px),96px);--board-body:60px;--form-height:28px;--board-gap:10px;--board-pad:6px;--board-card-height:calc(var(--board-body) + var(--form-height) + 6px);--board-width:calc(12 * var(--play-card-width) + 44px + 2 * var(--board-pad) + 2px);box-sizing:border-box;width:100%;max-width:1920px;min-width:0;min-height:0;height:var(--viewport-height);padding:max(6px,var(--inset-top)) max(12px,var(--inset-right)) max(8px,var(--inset-bottom)) max(12px,var(--inset-left));grid-template-columns:1fr;grid-template-rows:38px minmax(120px,1fr) auto auto;align-content:start;gap:8px}
 .responsive-battle .game-header{min-width:0;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;padding-bottom:5px}
 .responsive-battle .brand-small{grid-column:1;grid-row:1;justify-self:start;font-size:13px;white-space:nowrap}
 .responsive-battle .stage-path{grid-column:2;grid-row:1;justify-self:center;min-width:0;gap:5px}.responsive-battle .stage-path h1{font-size:17px}
@@ -73,7 +73,7 @@ body[data-stage-theme] .responsive-battle .enemy-tactics .canyon-tools,body[data
  .responsive-battle .enemy-info h2{font-size:22px}.responsive-battle .enemy-tactics{padding:8px}
 }
 @media(max-height:720px){
- body[data-stage-theme] .game-shell.responsive-battle{--board-body:48px;--form-height:24px;--board-gap:8px;grid-template-rows:32px minmax(104px,1fr) auto auto;gap:4px;padding-top:5px;padding-bottom:max(8px,env(safe-area-inset-bottom))}
+ body[data-stage-theme] .game-shell.responsive-battle{--board-body:48px;--form-height:24px;--board-gap:8px;grid-template-rows:32px minmax(104px,1fr) auto auto;gap:4px;padding-top:5px;padding-bottom:max(8px,var(--inset-bottom))}
  body[data-stage-theme] .responsive-battle .sentence-area{gap:3px}
  body[data-stage-theme] .responsive-battle .sentence-area .score-stage,body[data-stage-theme] .responsive-battle .sentence-area .score-stage:has(.battle-learning-guide):has(.score-number[hidden]){height:48px;min-height:48px;flex-basis:48px}
  .responsive-battle .score-label{font-size:17px}.responsive-battle .learning-topic strong{font-size:14px}.responsive-battle .battle-learning-guide{font-size:12px}
@@ -134,7 +134,7 @@ body:has(.shop-page) .shop-topbar{height:40px;min-height:40px;padding:0 12px;fle
  .responsive-shop .shop-item .word-card{--card-w:72px}.responsive-shop .shop-item .card-body{min-height:43px;padding:3px}.responsive-shop .shop-item .card-word{font-size:17px!important;margin:1px 0}.responsive-shop .shop-item .card-footline{min-height:17px;font-size:8px}.responsive-shop .operation-name{font-size:12px}.responsive-shop .operation-limit{font-size:9px}
 }
 /* Region scenery and one progression action; required card choices use the existing modal. */
-.intro-page.responsive-intro{padding:36px 20px max(16px,env(safe-area-inset-bottom));max-width:1120px;min-height:calc(var(--viewport-height) - 70px);display:flex;flex-direction:column;box-sizing:border-box}
+.intro-page.responsive-intro{padding:36px 20px max(16px,var(--inset-bottom));max-width:1120px;min-height:calc(var(--viewport-height) - 70px);display:flex;flex-direction:column;box-sizing:border-box}
 .responsive-intro h1{font-size:30px;margin:6px 0}.responsive-intro>p{font-size:14px;margin:5px 0 10px}
 .responsive-intro .intro-footer{margin-top:auto;padding-top:28px}.responsive-intro .start-button{margin:0}
 .entry-choice-dialog .stage4-connector-choice{padding:8px}.entry-choice-dialog h2{font-size:17px}.entry-choice-dialog p{font-size:12px;margin:6px 0}
@@ -165,7 +165,7 @@ body[data-stage-theme] .game-shell.responsive-battle{
  --hand-height:calc(var(--hand-card-height) + 71px);
  grid-template-rows:38px minmax(0,1fr) var(--middle-height) var(--hand-height);
  /* Keep the outer budget; four pixels of internal top space move below the cards. */
- padding-bottom:calc(10px + env(safe-area-inset-bottom));
+ padding-bottom:calc(10px + var(--inset-bottom));
 }
 body[data-stage-theme] .responsive-battle .combat-middle{height:var(--middle-height)}
 body[data-stage-theme] .responsive-battle .sentence-area{display:grid;grid-template-rows:18px var(--score-height) var(--board-zone-height) var(--action-height);gap:4px;padding:6px;align-content:center;justify-items:center}
@@ -202,7 +202,7 @@ body:has(.guided-coach) .game-shell.responsive-battle{--hand-foot:44px}
 .scene-backdrop-full::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#08121f8c,transparent 55%,#08121f55)}
 .enemy-area:has(.monster-slot){isolation:isolate;grid-template-rows:minmax(0,1fr)}
 .responsive-battle:has(.combat-backdrop){position:relative;isolation:isolate}
-.responsive-battle>.combat-backdrop{grid-column:1/-1;grid-row:1/3;top:calc(-1 * max(6px,env(safe-area-inset-top)));left:calc(-1 * max(12px,env(safe-area-inset-left)));right:calc(-1 * max(12px,env(safe-area-inset-right)));border-radius:0}
+.responsive-battle>.combat-backdrop{grid-column:1/-1;grid-row:1/3;top:calc(-1 * max(6px,var(--inset-top)));left:calc(-1 * max(12px,var(--inset-left)));right:calc(-1 * max(12px,var(--inset-right)));border-radius:0}
 .responsive-battle:has(.combat-backdrop) .game-header{background:linear-gradient(#081a32b3,#081a3255);border-bottom-color:#d6bf7955}
 body[data-stage-theme] .responsive-battle:has(.combat-backdrop) .enemy-area{column-gap:clamp(30px,4vw,76px)}
 .responsive-battle:has(.combat-backdrop) .enemy-info,.responsive-battle:has(.combat-backdrop) .enemy-tactics{padding:14px 20px;border:1px solid #a4b5b74d;border-radius:8px;background:#0c2134b3;text-shadow:0 1px 3px #000}
