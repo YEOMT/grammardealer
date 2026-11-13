@@ -2,7 +2,7 @@ import {APP_VERSION} from '../appVersion.js';
 import {soundButton} from './soundControls.js';
 import './lobby.css';
 import {sceneBackdrop} from '../services/sceneAssets.js';
-import {fullscreenButton} from './viewport.js';
+import {fullscreenButton, startImmersiveFromGesture} from './immersive.js';
 import {applyStageTheme} from './theme.js';
 import { el, button, modal, heading } from './dom.js';
 export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onProfile,onCreateProfile,onSandbox,onSettings,onRecords}={}){
@@ -11,7 +11,7 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
   const modeSelect=el('select',{id:'vocabulary-mode','aria-label':'어휘 수준'},[['BEGINNER','초급 · 익숙한 단어'],['STANDARD','기본 · 어휘 넓히기'],['ADVANCED','심화 · 도전하는 단어'],['FREE','자유 · 모든 어휘']].map(([value,text])=>el('option',{value,text,selected:activeProfile?.settings?.vocabularyMode===value})));
   const seedInput=el('input',{id:'run-seed',type:'text',maxLength:64,placeholder:'비워 두면 무작위', 'aria-label':'선택 시드'});
   const profileSelect=el('select',{'aria-label':'로컬 프로필 선택',onchange:e=>onProfile?.(e.target.value)},el('option',{value:'',text:'새 여행자'}),profiles.map(p=>el('option',{value:p.playerId,text:p.displayName,selected:p.playerId===activeProfile?.playerId})));
-  const setup=el('form',{class:'setup-card',onsubmit:async e=>{e.preventDefault();await onStart?.({displayName:nameInput.value.trim()||'여행자',profileId:activeProfile?.playerId,character:'traveler',difficulty:1,vocabularyMode:modeSelect.value,seed:seedInput.value.trim()||undefined});}},
+  const setup=el('form',{class:'setup-card',onsubmit:async e=>{e.preventDefault();startImmersiveFromGesture(e);await onStart?.({displayName:nameInput.value.trim()||'여행자',profileId:activeProfile?.playerId,character:'traveler',difficulty:1,vocabularyMode:modeSelect.value,seed:seedInput.value.trim()||undefined});}},
     el('div',{class:'setup-heading'},el('span',{class:'eyebrow',text:'YOUR EXPEDITION'}),el('h2',{text:'새로운 원정'})),
     el('div',{class:'traveler-choice'},el('span',{class:'traveler-icon',text:'🧭'}),el('div',{},el('strong',{text:'여행자'}),el('p',{text:'28장의 단어로 시작하는 나만의 문장.'})),el('span',{class:'pill',text:'난이도 1'})),
     el('label',{class:'field'},el('span',{text:'여행자 이름'}),nameInput),
@@ -22,7 +22,7 @@ export function renderLobby(root,{profiles=[],activeProfile,onStart,onLoad,onPro
     button('수동 저장 불러오기',onLoad,'secondary full-width'),
     el('p',{class:'local-note',text:'이 기기에 기록되는 개인 원정 · 계정 없이 플레이'}));
   const preview=el('div',{class:'hero-card-fan','aria-hidden':'true'},[['I','대명사','PRONOUN'],['make','동사','VERB'],['stories','명사','NOUN']].map(([word,pos,type],i)=>el('div',{class:`hero-word-card pos-${type} fan-${i}`},el('span',{text:pos}),el('strong',{text:word}),el('small',{text:'10  ◇'}))));
-  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},soundButton(),fullscreenButton(),button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:APP_VERSION}))),
+  root.replaceChildren(el('header',{class:'topbar lobby-topbar'},el('a',{class:'brand-small',href:'#lobby',text:'SYNTAX ATLAS'}),el('nav',{},soundButton(),fullscreenButton({entry:true}),button('기록',onRecords,'quiet'),button('설정',onSettings,'quiet'),el('span',{class:'version-badge',text:APP_VERSION}))),
     el('main',{class:'lobby'},el('section',{class:'hero'},el('div',{class:'eyebrow hero-eyebrow'},el('span',{class:'tiny-diamond'}),'WORDS BECOME POWER'),el('h1',{},'Syntax',el('br'),el('span',{text:'Atlas'})),el('p',{class:'hero-description',text:'아름다운 지역을 탐험하며 나만의 문장을 만들어가는 모험'}),preview,
     el('div',{class:'chapter-preview'},el('span',{class:'chapter-number',text:'01–10 + FINAL'}),el('div',{},el('span',{class:'eyebrow',text:'FIFTY BATTLES'}),el('h3',{text:'열 지역과 최종 성역을 잇는 모험'}),el('p',{text:'총 50전투 · 통사의 근원 · 마지막 세 전투'}))),el('div',{class:'hero-features'},el('span',{text:'◇ 문장 조합 덱빌딩'}),el('span',{text:'◇ 로컬 싱글 플레이'}))),setup),
     el('footer',{class:'lobby-footer'},el('span',{text:'과거 · 현재 · 미래로 이어지는 문장 모험'}),onSandbox&&button('문장 샌드박스 ↗',onSandbox,'quiet')));

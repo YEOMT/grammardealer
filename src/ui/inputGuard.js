@@ -1,7 +1,7 @@
 /** Gesture ownership survives view replacement; it never mutates a run. */
 const guards=new WeakMap();
 const editable=n=>n?.closest?.('input,textarea,select,[contenteditable=true]');
-const scope=n=>n?.closest?.('#app,dialog.app-dialog,dialog.orientation-gate');
+const scope=n=>n?.closest?.('#app,dialog.app-dialog,dialog.orientation-gate,.fullscreen-help');
 const action=n=>n?.closest?.('button,[role=button],a,summary')??n;
 export const inputRevision=n=>n.closest('[data-input-revision]')?.dataset.inputRevision;
 export function installInputGuard(doc=document,win=window){

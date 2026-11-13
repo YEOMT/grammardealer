@@ -1,13 +1,14 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {handheldLayout,installDeviceLayout} from '../src/ui/deviceLayout.js';
+import {installViewport} from '../src/ui/visualViewport.js';
+import {handheldLayout} from '../src/ui/deviceLayout.js';
 import {installOrientationGate} from '../src/ui/orientation.js';
 
 function viewportFixture(){
  const win=new EventTarget(),doc=new EventTarget(),coarse=new EventTarget(),orientation=new EventTarget(),frames=new Map();let id=0;
  coarse.matches=true;orientation.type='portrait-primary';
  Object.assign(win,{innerWidth:390,innerHeight:844,navigator:{maxTouchPoints:5,userAgent:'iPhone'},screen:{orientation},matchMedia:()=>coarse,requestAnimationFrame:fn=>{frames.set(++id,fn);return id;},cancelAnimationFrame:id=>frames.delete(id)});
- doc.documentElement={dataset:{}};
+ doc.documentElement={style:{setProperty(){}},dataset:{}};
  return {win,doc,coarse,orientation,flush(){const pending=[...frames.values()];frames.clear();for(const fn of pending)fn();},pending:()=>frames.size};
 }
 
@@ -24,7 +25,7 @@ test('handheld view accepts target phones in both orientations, excluding narrow
 test('phone classification recovers when desktop minimum width inflates mobile innerWidth',()=>{
  const f=viewportFixture();f.win.innerWidth=1160;f.win.innerHeight=652;
  Object.assign(f.doc.documentElement,{clientWidth:667,clientHeight:375});
- const cleanup=installDeviceLayout(f.win,f.doc);
+ const cleanup=installViewport(f.win,f.doc);
  try{assert.equal(f.doc.documentElement.dataset.handheld,'true');f.flush();}finally{cleanup();}
 });
 
@@ -32,13 +33,13 @@ test('view classification cancels an in-flight drag before layout change and pub
  const f=viewportFixture(),events=[];
  f.doc.addEventListener('atlas:cancel-drag',()=>events.push(['cancel',f.doc.documentElement.dataset.handheld]));
  f.doc.addEventListener('atlas:viewport',()=>events.push(['viewport',f.doc.documentElement.dataset.handheld]));
- const cleanup=installDeviceLayout(f.win,f.doc);
+ const cleanup=installViewport(f.win,f.doc);
  try{
-  assert.equal(f.doc.documentElement.dataset.handheld,'true');assert.deepEqual(events,[['cancel',undefined]]);
-  f.flush();assert.deepEqual(events,[['cancel',undefined],['viewport','true']]);
-  f.win.dispatchEvent(new Event('resize'));assert.equal(f.pending(),0);
-  f.win.innerWidth=1024;f.win.innerHeight=768;f.win.dispatchEvent(new Event('resize'));
-  assert.equal(f.doc.documentElement.dataset.handheld,'false');assert.deepEqual(events.at(-1),['cancel','true']);
+  assert.equal(f.doc.documentElement.dataset.handheld,'true');assert.deepEqual(events,[['viewport','true']]);
+  f.flush();assert.deepEqual(events,[['viewport','true']]);
+  f.win.dispatchEvent(new Event('resize'));f.flush();assert.deepEqual(events,[['viewport','true']]);
+  f.win.innerWidth=1024;f.win.innerHeight=768;f.win.dispatchEvent(new Event('resize'));f.flush();
+  assert.equal(f.doc.documentElement.dataset.handheld,'false');assert.deepEqual(events.at(-2),['cancel','true']);
   f.flush();assert.deepEqual(events.at(-1),['viewport','false']);
  }finally{cleanup();}
  f.win.innerWidth=844;f.win.innerHeight=390;f.win.dispatchEvent(new Event('resize'));f.coarse.dispatchEvent(new Event('change'));
@@ -75,7 +76,7 @@ test('orientation escape survives screen rendering, then rearms only after a lan
 
 test('refused orientation request leaves manual continuation and does not repeat fullscreen requests',async t=>{
  const f=orientationFixture(t);f.flush();f.primary.dispatchEvent(new Event('click'));
- await Promise.resolve();await Promise.resolve();f.flush();
+ await new Promise(resolve=>setImmediate(resolve));f.flush();
  assert.equal(f.gate.open,true);assert.equal(f.counts().requests,1);assert.equal(f.counts().locks,0);
  assert.match(f.status.textContent,/직접|기기를 가로/);
  f.doc.dispatchEvent(new Event('atlas:viewport'));f.flush();assert.equal(f.counts().requests,1);

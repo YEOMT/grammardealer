@@ -3,9 +3,9 @@ body:has(.panorama-preparation){--preparation-nav-height:66px}
 body:has(.panorama-preparation) .preparation-topbar{height:var(--preparation-nav-height);min-height:0;flex:none}
 body .intro-page.battle-preparation.panorama-preparation{
   --preparation-details-space:min(336px,calc(var(--viewport-height) * .45));
-  --preparation-art-limit:calc(var(--viewport-height) - var(--preparation-nav-height) - var(--preparation-details-space) - env(safe-area-inset-bottom));
+  --preparation-art-limit:calc(var(--viewport-height) - var(--preparation-nav-height) - var(--preparation-details-space) - var(--inset-bottom));
   height:calc(var(--viewport-height) - var(--preparation-nav-height));
-  max-width:none;width:100%;padding:0 0 max(8px,env(safe-area-inset-bottom));margin:0;
+  max-width:none;width:100%;padding:0 0 max(8px,var(--inset-bottom));margin:0;
   display:flex;flex-direction:column;gap:0;
   background:var(--stage-gradient,linear-gradient(160deg,#21362b,#11251e));overflow:clip;
 }
@@ -34,19 +34,19 @@ body .intro-page.battle-preparation.panorama-preparation{
 .panorama-preparation .preparation-boss summary{cursor:pointer;color:#efd6a1;font-size:13px;line-height:1.4;padding:3px 0}
 .panorama-preparation .preparation-boss .boss-rule{font-size:13px;line-height:1.45;margin:5px 0}
 .panorama-preparation .preparation-resources{font-size:13px;line-height:1.4;margin:8px 0 0;text-align:center}
-.panorama-preparation .preparation-actions.reward-footer{margin:0 0 auto;padding:6px max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));min-height:0;gap:10px;align-items:center;flex:none}
+.panorama-preparation .preparation-actions.reward-footer{margin:0 0 auto;padding:6px max(12px,var(--inset-right)) 0 max(12px,var(--inset-left));min-height:0;gap:10px;align-items:center;flex:none}
 .panorama-preparation .preparation-actions button{min-height:42px;padding:8px 22px}
 html[data-handheld=true] body:has(.panorama-preparation){--preparation-nav-height:28px}
-html[data-handheld=true] body:has(.panorama-preparation) .preparation-topbar{height:28px;padding:0 max(8px,env(safe-area-inset-right)) 0 max(8px,env(safe-area-inset-left));gap:5px}
+html[data-handheld=true] body:has(.panorama-preparation) .preparation-topbar{height:28px;padding:0 max(8px,var(--inset-right)) 0 max(8px,var(--inset-left));gap:5px}
 html[data-handheld=true] .preparation-topbar .brand-small{font-size:10px;letter-spacing:.2px;line-height:1.1;max-width:50%;white-space:normal}
 html[data-handheld=true] .preparation-topbar nav{gap:1px}
 html[data-handheld=true] .preparation-topbar nav button{min-height:26px;padding:2px 7px;font-size:11px}
 html[data-handheld=true] body .intro-page.battle-preparation.panorama-preparation{
   /* At the target landscape sizes: 120px guide, 20px gap, 44px controls, 4px inset. */
   --preparation-details-space:min(188px,calc(var(--viewport-height) * .55));
-  padding-bottom:max(4px,env(safe-area-inset-bottom));
+  padding-bottom:max(4px,var(--inset-bottom));
 }
-html[data-handheld=true] .panorama-preparation .preparation-scroll{flex:1 1 0;margin:0;padding:5px max(12px,env(safe-area-inset-right)) 4px max(12px,env(safe-area-inset-left))}
+html[data-handheld=true] .panorama-preparation .preparation-scroll{flex:1 1 0;margin:0;padding:5px max(12px,var(--inset-right)) 4px max(12px,var(--inset-left))}
 html[data-handheld=true] .panorama-preparation .preparation-identity{margin-bottom:4px;gap:7px}
 html[data-handheld=true] .panorama-preparation .preparation-identity h1{font-size:17px}
 html[data-handheld=true] .panorama-preparation .preparation-identity small{font-size:11px}

@@ -1,5 +1,6 @@
 import {runeCatalog} from './runes.js';
-import {fullscreenButton,cardPager} from './viewport.js';
+import {cardPager} from './viewport.js';
+import {fullscreenButton,linkSettings} from './immersive.js';
 import {CORRIDOR_GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
 import {NOMINAL_GUIDE,NOMINAL_CATALOG} from '../data/grammarGuideData.js';
 import {SNOW_GRAMMAR_DISPLAY as GRAMMAR_DISPLAY,EMBER_GRAMMAR_DISPLAY,WATERWAYS_GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
@@ -188,7 +189,7 @@ export function openSettings(settings = {}, onChange, onGuide) {
   const mute = el('input', { type: 'checkbox', checked: Boolean(value.muted), 'aria-label': '음소거', onchange: event => update({ muted: event.target.checked }) });
   const reduced = el('input', { type: 'checkbox', checked: Boolean(value.effectsOff), 'aria-label': '효과 감소', onchange: event => update({ effectsOff: event.target.checked }) });
   let view;
-  const controls = el('div', { class: 'settings-grid' },fullscreenButton(),
+  const controls = el('div', { class: 'settings-grid' },fullscreenButton(),linkSettings(),
     el('label', {}, '연출 속도', speed),
     el('label', {}, '효과음 음량', el('div', { class: 'dialog-actions' }, volume, volumeLabel)),
     el('label',{},'배경음악',el('div',{class:'dialog-actions'},bgmVolume,bgmLabel)),
