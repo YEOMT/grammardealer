@@ -1,3 +1,7 @@
+# 0.13.1 링크 접속과 가시 영역 인계
+
+기준 main은 `cf4d46f0f94cd2a7db3d887320f808530209b8e2`이다. 앱/패키지는 0.13.1이며 원정·언어·저장 계약은 0.12.1이다. 휴대기기에서 원정 첫 시작이나 상단 버튼의 실제 제스처로 전체화면을 요청한다. 주소창이 남으면 가시 영역의 높이에 맞춰 배치하고 아주 낮은 창에서는 전투를 세로로 스크롤할 수 있다. [명세](../spec/v0.13.1/Syntax_Atlas_v0.13.1_Immersive_Link_Responsive_Spec.md) · [AC01~32 및 실제 검사](IMMERSIVE_LINK_0.13.1_REPORT.md)
+
 # 0.13.0 현재 인계
 
 기준 main `aa28555b51a37daf9245a1d2e9b49f2eb5cedeae`(PR #30), 브랜치 `codex/v0.13.0-panorama-mobile`. [이번 구현 계약](../spec/v0.13.0/Syntax_Atlas_v0.13.0_Panorama_Mobile_Spec.md)과 [실제 검사·한계](PANORAMA_MOBILE_0.13.0_REPORT.md)를 확인한다. 앱/패키지만0.13.0이며 원정·언어·점수·저장은0.12.1 그대로다.
