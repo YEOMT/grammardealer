@@ -8,7 +8,7 @@ import { pick, assertStream } from './rng.js';
 export const FINALE_TENSES = Object.freeze(['PRESENT_SIMPLE','PAST_SIMPLE','PRESENT_PROGRESSIVE','PRESENT_PERFECT','FUTURE_WILL']);
 export const FINALE_GRAMMARS = Object.freeze(['PASSIVE','INFINITIVE','EXTRAPOSITION','RELATIVE','COUNTERFACTUAL']);
 const tenseLabels={PRESENT_SIMPLE:'현재 단순',PAST_SIMPLE:'과거 단순',PRESENT_PROGRESSIVE:'현재진행',PRESENT_PERFECT:'현재완료',FUTURE_WILL:'will 미래'};
-const grammarLabels={PASSIVE:'수동태',INFINITIVE:'to부정사',EXTRAPOSITION:'가주어·진주어',RELATIVE:'관계절',COUNTERFACTUAL:'가정법'};
+const grammarLabels={PASSIVE:'수동태',INFINITIVE:'to부정사',EXTRAPOSITION:'가주어·진주어',RELATIVE:'관계절',COUNTERFACTUAL:'가정법',PARTICIPIAL_ACTIVE:'현재분사 분사구문',PARTICIPIAL_PASSIVE:'과거분사 분사구문'};
 const cleanVP=v=>v?.chainWellFormed&&!(v.issueIds??[]).length;
 const unique=xs=>[...new Set(xs)];
 export function finaleTaskLabel(task){return !task?'과제 없음':task.type==='FRAME'?`주절 ${frameLabel(task.target)}`:task.type==='GRAMMAR'?grammarLabels[task.target]:task.type==='OWNED_VERB'?`동사 ${task.lemma}`:tenseLabels[task.target]??task.target;}
@@ -49,6 +49,7 @@ export function matchFinaleTask(task,analysis,{comboEligibility=null,submittedCa
  if(task.target==='INFINITIVE')matched=hits.filter(h=>h.tag==='CLAUSE.INFINITIVE'&&(analysis.nodes??[]).some(n=>n.id===h.scopeNodeId));
  if(task.target==='RELATIVE')matched=hits.filter(h=>h.tag.startsWith('CLAUSE.RELATIVE.')&&(analysis.relativeClauses??[]).some(r=>r.id===h.relativeClauseId&&r.validity==='VALID'&&!(r.ownIssueIds??[]).length&&r.antecedentNodeId));
  if(task.target==='COUNTERFACTUAL')matched=hits.filter(h=>['CORRIDOR.UNREAL_PRESENT','CORRIDOR.UNREAL_PAST'].includes(h.tag)&&(analysis.corridorStructures??[]).some(r=>r.id===h.corridorEvidenceId&&r.validity==='VALID'&&r.conditionClauseId&&r.resultClauseId));
+ if(['PARTICIPIAL_ACTIVE','PARTICIPIAL_PASSIVE'].includes(task.target))matched=hits.filter(h=>h.tag===`CLAUSE.PARTICIPIAL.${task.target.slice('PARTICIPIAL_'.length)}`&&(analysis.participialAdjuncts??[]).some(r=>r.id===h.participialAdjunctId&&r.validity==='VALID'&&!(r.issueIds??[]).length&&r.mainClauseId===analysis.mainClauseId&&r.controllerSubjectNodeId&&Number.isInteger(r.commaBoundary?.gapIndex)));
  if(task.target==='EXTRAPOSITION'){
   matched=(analysis.nominalStructures??[]).filter(r=>r.validity==='VALID'&&!(r.ownIssueIds??[]).length&&['EXTRAPOSED_SUBJECT_TO','EXTRAPOSED_SUBJECT_THAT'].includes(r.kind)&&r.dummySubjectCardId&&r.clauseIds?.length&&(r.kind!=='EXTRAPOSED_SUBJECT_TO'||!comboEligibility||comboEligibility.unlocks.includes('pack.infinitive')));
  }
@@ -71,20 +72,20 @@ export function buildFinaleTaskPool(activeCardIds,cardInstances,{registry=regist
  }
  const all=[...rows,...virtual],byId=new Map(all.map(r=>[r.id,r])),support=new Set(virtual.map(r=>r.id)),pool={FRAME:[],GRAMMAR:[],OWNED_VERB:[],TENSE:[],search:{checks:0,maxChecks,exhausted:false}},seen=new Set(),found=new Map();
  const slot=(r,f)=>({cardInstanceId:r.id,selection:{formId:f.id}}),forms=(r,p)=>r.forms.filter(p),baseForm=r=>r.forms.find(f=>f.grammaticalFeatures?.tense==='BASE'||f.id.endsWith('.present'));
- const grammarTargets=[...Object.keys(FRAME_KEYS).map(k=>({type:'FRAME',target:FRAME_KEYS[k]})),...FINALE_GRAMMARS.map(target=>({type:'GRAMMAR',target})),...FINALE_TENSES.map(target=>({type:'TENSE',target})),...rows.filter(r=>r.lexeme.pos==='VERB'&&!['will','can'].includes(r.lexeme.lemma)).map(r=>({type:'OWNED_VERB',target:r.lexeme.id,lemma:r.lexeme.lemma}))];
+ const grammarTargets=[...Object.keys(FRAME_KEYS).map(k=>({type:'FRAME',target:FRAME_KEYS[k]})),...[...FINALE_GRAMMARS,...(registry.participialAdjunctPolicy?['PARTICIPIAL_ACTIVE','PARTICIPIAL_PASSIVE']:[])].map(target=>({type:'GRAMMAR',target})),...FINALE_TENSES.map(target=>({type:'TENSE',target})),...rows.filter(r=>r.lexeme.pos==='VERB'&&!['will','can'].includes(r.lexeme.lemma)).map(r=>({type:'OWNED_VERB',target:r.lexeme.id,lemma:r.lexeme.lemma}))];
  const candidates=unique(grammarTargets.map(t=>`${t.type}:${t.target}`)).map(key=>grammarTargets.find(t=>`${t.type}:${t.target}`===key));
  let phaseLimit=maxChecks;
- function accept(slots,known=null){
+ function accept(slots,known=null,punctuation=[]){
   if(slots.length>24||new Set(slots.map(s=>s.cardInstanceId)).size!==slots.length||slots.filter(s=>support.has(s.cardInstanceId)).length>1)return null;
-  const key=slots.map(s=>s.cardInstanceId+':'+s.selection.formId).join('|');if(seen.has(key)||pool.search.checks>=phaseLimit)return null;seen.add(key);pool.search.checks++;
-  const snapshot=known?.snapshot??createSentenceSnapshot(slots,instances,{sentenceId:`finale.witness.${pool.search.checks}`,languageVersion:registry.languagePolicyVersion??registry.version});
+  const key=slots.map(s=>s.cardInstanceId+':'+s.selection.formId).join('|')+(punctuation.length?JSON.stringify(punctuation):'');if(seen.has(key)||pool.search.checks>=phaseLimit)return null;seen.add(key);pool.search.checks++;
+  const snapshot=known?.snapshot??createSentenceSnapshot(slots,instances,{sentenceId:`finale.witness.${pool.search.checks}`,languageVersion:registry.languagePolicyVersion??registry.version,punctuation});
   const analysis=known?.analysis??analyzeSentence(snapshot,registry);if(analysis.status!=='VALID')return null;
   const missing=slots.find(s=>support.has(s.cardInstanceId)),supportCardDefId=missing?instances[missing.cardInstanceId].cardDefId:null;
   for(const task of candidates){
    if(supportCardDefId&&['TENSE','OWNED_VERB'].includes(task.type))continue;
    const key=task.type+':'+task.target,previous=found.get(key);if(previous&&!previous.supportCardDefId)continue;
    if(!matchFinaleTask(task,analysis,{comboEligibility,submittedCards:snapshot.orderedTokens}))continue;
-   const row={...task,supportCardDefId,witnessSlots:structuredClone(slots),witnessCardDefIds:slots.map(s=>instances[s.cardInstanceId].cardDefId)};
+   const row={...task,supportCardDefId,witnessSlots:structuredClone(slots),witnessCardDefIds:slots.map(s=>instances[s.cardInstanceId].cardDefId),...(punctuation.length?{witnessPunctuation:structuredClone(punctuation)}:{})};
    found.set(key,row);
   }
   return {slots,analysis,snapshot};
@@ -107,6 +108,18 @@ export function buildFinaleTaskPool(activeCardIds,cardInstances,{registry=regist
  const compact=[...new Map(bases.map(b=>[b.analysis.mainFrameId+':'+b.analysis.clauses.find(c=>c.id===b.analysis.mainClauseId).verbCardId,b])).values()].slice(0,40);
  const basic=[...compact];phaseLimit=Math.floor(maxChecks*.27);
  for(const b of compact){const c=b.analysis.clauses.find(c=>c.id===b.analysis.mainClauseId),at=b.slots.findIndex(s=>s.cardInstanceId===c.verbCardId);for(const sub of subjects.slice(0,8)){const v=byId.get(c.verbCardId);for(const f of v.forms.filter(f=>f.grammaticalFeatures?.tense==='PRESENT')){const expanded=accept([...sub,slot(v,f),...b.slots.slice(at+1)]);if(expanded)basic.push(expanded);}}}
+ if(registry.participialAdjunctPolicy){
+  phaseLimit=Math.floor(maxChecks*.34);
+  // Registered valency tails with an actual -ing form; no duplicated controller subject.
+  // The reusable comma is metadata, not a support card or a witness slot.
+  activeSearch:for(const prefix of compact){
+   const c=prefix.analysis.clauses.find(c=>c.id===prefix.analysis.mainClauseId),at=prefix.slots.findIndex(s=>s.cardInstanceId===c.verbCardId),v=byId.get(c.verbCardId),ing=v?.forms.find(f=>f.id.endsWith('.ing'));
+   if(!ing||at<0)continue;
+   const adjunct=[slot(v,ing),...prefix.slots.slice(at+1)];
+   for(const main of basic){accept([...adjunct,...main.slots],null,[{kind:'COMMA',gapIndex:adjunct.length}]);if(found.get('GRAMMAR:PARTICIPIAL_ACTIVE')?.supportCardDefId===null)break activeSearch;}
+  }
+  passiveSearch:for(const v of verbs.filter(v=>v.lexeme.senseIds.some(id=>registry.senseById[id]?.frameBindings.some(b=>b.passiveAlternatives?.some(p=>p.frameId==='frame.sv'&&!p.requiredPreposition))))){const pp=v.forms.find(f=>f.id.endsWith('.pp'));if(pp)for(const main of basic){accept([slot(v,pp),...main.slots],null,[{kind:'COMMA',gapIndex:1}]);if(found.get('GRAMMAR:PARTICIPIAL_PASSIVE')?.supportCardDefId===null)break passiveSearch;}}
+ }
  phaseLimit=Math.floor(maxChecks*.44);
  for(const b of basic){
   const c=b.analysis.clauses.find(c=>c.id===b.analysis.mainClauseId),at=b.slots.findIndex(s=>s.cardInstanceId===c.verbCardId),v=byId.get(c.verbCardId);if(at<0||!v)continue;

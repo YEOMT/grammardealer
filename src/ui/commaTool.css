@@ -1,0 +1,24 @@
+/* The tool has no card identity and consumes only a small hand-dock column. */
+body[data-stage-theme] .responsive-battle.comma-enabled .hand-section{grid-template-columns:72px minmax(0,1fr) 48px 72px}
+.responsive-battle.comma-enabled .hand-section>.pile-discard{grid-column:4}
+.comma-dock{grid-column:3;grid-row:2;align-self:center;min-width:0;position:relative;z-index:2}
+.comma-tool{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:48px;min-width:44px;height:76px;padding:3px;color:#fff0cf;background:linear-gradient(#704a2d,#3e291d);border:1px solid #af8659;border-radius:8px;font-size:12px;touch-action:none}
+.comma-symbol{font:700 43px/.8 Georgia,serif;height:37px}
+.comma-tool[aria-pressed=true]{outline:2px solid #fff0cf;outline-offset:1px}
+.comma-controls{position:absolute;right:calc(100% + 6px);bottom:0;width:min(340px,58vw);padding:4px;border:1px solid #af8659;border-radius:7px;background:#30251bf5;box-shadow:0 3px 12px #0008;color:#fff0cf;display:flex;flex-wrap:wrap;gap:4px;z-index:30}
+.comma-controls[hidden]{display:none}.comma-controls>span{flex-basis:100%;font-size:12px}.comma-controls button{min-height:40px;padding:6px 10px;font-size:12px}
+.comma-gap-list{display:flex;flex-wrap:wrap;gap:8px}.comma-gap-list button{min-height:44px}
+body[data-stage-theme] .responsive-battle.comma-enabled .combat-sentence{--sentence-column-gap:10px;padding-inline:12px}
+.responsive-battle.comma-enabled .sentence-row{gap:10px}
+.responsive-battle.comma-enabled .word-card[data-zone=sentence]{position:relative;overflow:visible}
+.comma-marker{position:absolute;right:-10px;top:10%;width:10px;min-width:0;height:28px;min-height:0;padding:0;border:0;background:none;color:#fff0cf;text-shadow:0 1px 2px #000;font:700 29px/1 Georgia,serif;z-index:3;touch-action:none}
+.comma-marker.comma-before{right:auto;left:-10px}.comma-marker:disabled{opacity:1}
+.comma-drop-before::before,.comma-drop-after::after{position:absolute;top:0;bottom:0;width:2px;content:'';background:#fff0cf;pointer-events:none}.comma-drop-before::before{left:-6px}.comma-drop-after::after{right:-6px}
+.comma-ghost{position:fixed;z-index:2000;width:34px;height:40px;transform:translate(-50%,-50%);color:#fff0cf;background:#704a2de8;border:1px solid #af8659;border-radius:6px;text-align:center;font:700 40px/.8 Georgia,serif;pointer-events:none}
+.comma-placing .word-card[data-zone=sentence] .card-body{cursor:crosshair}
+.clause-threads{font-size:12px;line-height:1.5;white-space:normal;color:#f0d9a6}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle.comma-enabled .hand-section{grid-template-columns:40px minmax(0,1fr) 44px 40px}
+html[data-handheld=true] .comma-tool{width:44px;height:64px;font-size:10px}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle.comma-enabled .combat-sentence{column-gap:10px;row-gap:4px;padding-inline:12px}
+html[data-handheld=true] .comma-marker{top:0;font-size:27px}
+html[data-handheld=true] .clause-threads{font-size:10px}

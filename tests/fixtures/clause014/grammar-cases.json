@@ -1,0 +1,414 @@
+{
+  "purpose": "설계상 기대값. 실행완료본이나 배포용 테스트 화면이 아님.",
+  "targetPolicy": "0.14.0 (proposed)",
+  "referenceCommit": "cc3b75da280aa93366fa75636c3c970d68621a2a",
+  "executionStatus": "NOT_RUN",
+  "setupRequirements": [
+    "등록된실제카드와선택형을사용한다. 없는단어를임의성공처리하지말고셋업오류로보고한다.",
+    "같은철자의반복은서로다른실물카드ID를사용한다. 대명사/조동사자동복제금지.",
+    "대소문자와마침표는기존문장표시정책을따른다. 쉼표는실제punctuation배열로보존한다.",
+    "requiredNewHits가빈정상회귀사례는새분사태그가없어야한다. 미해금사례는분석증거와점수자격을분리해확인한다.",
+    "expectedAnalysis는목표분류다. G29처럼기존세부오류분류가있으면의미를보존해대응시키고그이유를남긴다.",
+    "UNSUPPORTED사례는새범위의한계를검사한다. 최신코드가정상지원하면그기능을제거하지않는다."
+  ],
+  "cases": [
+    {
+      "id": "G01",
+      "sentence": "Seeing you, I smiled.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.ACTIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "분사부의 행위자는 주절 I, 주절은 과거.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G02",
+      "sentence": "Seeing you, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.ACTIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "주절은 현재. -ing 자체의 시제 없음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G03",
+      "sentence": "Running, I am happy.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.ACTIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "자동사-ing의 기본형. 동명사 주어나 진행형으로 오인 금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G04",
+      "sentence": "Reading a book, she smiled.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.ACTIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "분사부 목적어 검사, 주절 she에 연결.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G05",
+      "sentence": "Helped by you, I smiled.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.PASSIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "정상 p.p. 수동 부사적 분사구문.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G06",
+      "sentence": "Helped, I smiled.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.PASSIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "by행위자가 없어도 정상.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G07",
+      "sentence": "Made by you, the game is good.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.PASSIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "과거와p.p.가 같은 표면형 made를 문맥에서 판정.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G08",
+      "sentence": "Read by you, the book is good.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.PASSIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "표면형 read를과거분사로선택할 수 있어야 함. 글자만으로현재로강제하지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G09",
+      "sentence": "Helped by you, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.PASSIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "주절현재. 딥스트럭처과거과제의성공근거가아님.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G10",
+      "sentence": "Because I am happy, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존이유부사절+쉼표. 새분사구문아님.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G11",
+      "sentence": "When I see you, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존시간부사절+쉼표.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G12",
+      "sentence": "If I have time, I will help you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "현실조건절. 가능성의실은해제하지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G13",
+      "sentence": "If I had time, I would help you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존가정법과거근거필수. 가능성의실.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G14",
+      "sentence": "I would help you if I had time.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "쉼표없는결과절선행가정법을보존.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G15",
+      "sentence": "If I had seen you, I would have helped you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존가정법과거완료근거. have등의반복은별개실물사본.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G16",
+      "sentence": "I would have helped you if I had seen you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "결과절선행가정법과거완료. 쉼표강제금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G17",
+      "sentence": "I smile, and you run.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "두독립절+등위접속사. LINK관련기존증거.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G18",
+      "sentence": "I smile because I am happy.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존정상후치부사절보존.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G19",
+      "sentence": "If I had time I would help you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존무쉼표유한조건절지원의호환사례. 새구조보상과무관.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G20",
+      "sentence": "Seeing you, I would smile if I had time.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [
+        "CLAUSE.PARTICIPIAL.ACTIVE"
+      ],
+      "newParticipleLearningUnlocked": true,
+      "note": "분사구문+후치조건절. 주절결과절I에연결. 두독립근거를혼합하지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G21",
+      "sentence": "I, like games.",
+      "expectedAnalysis": "VALID_WITH_ISSUES",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "쉼표위치오류. 정상단어구조는보존,×0.90한번.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G22",
+      "sentence": "I like games,",
+      "expectedAnalysis": "VALID_WITH_ISSUES",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "문장끝의불필요한쉼표. 위치오류한번.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G23",
+      "sentence": ", I like games.",
+      "expectedAnalysis": "VALID_WITH_ISSUES",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "문장처음표식. 위치오류한번.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G24",
+      "sentence": "Seeing you I smile.",
+      "expectedAnalysis": "VALID_WITH_ISSUES",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "새분사구문경계가유일하게분석될때진단만. 새콤보/공략불가.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G25",
+      "sentence": "I smile, you run.",
+      "expectedAnalysis": "INVALID_CORE",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "교육용범위의comma splice. 둘중하나만골라유효공격으로만들지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G26",
+      "sentence": "Seeing you, I happy.",
+      "expectedAnalysis": "INVALID_CORE",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "주절동사없음. 쉼표가보충하지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G27",
+      "sentence": "Seen you, I smile.",
+      "expectedAnalysis": "INVALID_CORE",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "수동분사부에잘못된직접목적어를두는구조.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G28",
+      "sentence": "Smiled by you, I ran.",
+      "expectedAnalysis": "INVALID_CORE",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "smile의자동사용법을수동으로허용하지않음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G29",
+      "sentence": "Helped by I, she smiled.",
+      "expectedAnalysis": "INVALID_CORE",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "전치사뒤대명사격오류. 기존진단세분화가있으면유효성계약에맞추되분사성공증거는금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G30",
+      "sentence": "I am running.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "진행형만. 새부사적분사구문금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G31",
+      "sentence": "I like reading.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "동명사목적어만. 새분사구문금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G32",
+      "sentence": "The smiling student runs.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "분사의명사수식만. 새분사구문금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G33",
+      "sentence": "I was helped by you.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "수동태본절만. 새분사구문금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G34",
+      "sentence": "I am tired.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존형용사tired. p.p.형태추측금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G35",
+      "sentence": "I had read the book.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존과거완료. 가능성의실해제불가.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G36",
+      "sentence": "Help me.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존긍정명령문보존. 추가명령문배율없음.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G37",
+      "sentence": "It is kind of you to help me.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존가주어of구문회귀보호.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G38",
+      "sentence": "I remember that you like games.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "기존내용절회귀보호.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G39",
+      "sentence": "I smile, seeing you.",
+      "expectedAnalysis": "UNSUPPORTED",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "후치분사구문은유효한영어일수있으나이번필수신규범위밖. 기존지원이라면보존,틀렸다고단정금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G40",
+      "sentence": "Having seen you, I smiled.",
+      "expectedAnalysis": "UNSUPPORTED",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": true,
+      "note": "완료분사구문은이번범위밖. 틀린영어라는안내금지.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G41",
+      "sentence": "Seeing you, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": false,
+      "note": "15~42에서사용가능형태로성립:정상문장인정,새분사콤보/학습근거는해금전제외.",
+      "executionStatus": "NOT_RUN"
+    },
+    {
+      "id": "G42",
+      "sentence": "Helped by you, I smile.",
+      "expectedAnalysis": "VALID",
+      "requiredNewHits": [],
+      "newParticipleLearningUnlocked": false,
+      "note": "43에서과거분사학습아직미해금:정상문장인정,새p.p.배율/공략자격없음.",
+      "executionStatus": "NOT_RUN"
+    }
+  ]
+}

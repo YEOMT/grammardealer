@@ -1,3 +1,5 @@
+import {validateClauseThreadsRun} from './clauseThreadsState.js';
+import {validateCommaTool} from './commaTool.js';
 import {validateFinaleRun} from './finaleState.js';
 import {validateForesightRun} from '../engine/foresight.js';
 import {validateLibraryTurnEnds} from '../engine/libraryTurnEnd.js';
@@ -68,7 +70,7 @@ export function assertRunInvariants(run, registry) {
     if (registry) assert(Boolean(cardDefinition(card,run.version)), 'unknown card definition');
   }
   validateFinaleRun(run,{verifyWitnesses:false});
-  validateTemporaryCards(run);validateLibraryTurnEnds(run);validateForesightRun(run);
+  validateClauseThreadsRun(run);validateCommaTool(run);validateTemporaryCards(run);validateLibraryTurnEnds(run);validateForesightRun(run);
   if (run.combat) {assertCombatInvariants(run.activeCardIds, run.combat, run.cardInstances);assertCardTypes(run);validateOperationHistory(run);validateTurnHandSeal(run);}
   if (run.economy) assert(nonnegative(run.economy.gold), 'invalid gold');
   if (run.rng) assertRng(run.rng);

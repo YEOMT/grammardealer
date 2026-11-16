@@ -1,0 +1,440 @@
+{
+  "baseCommit": "cc3b75da280aa93366fa75636c3c970d68621a2a",
+  "appVersion": "0.14.0",
+  "ruleset": "syntax-atlas.0.14.0",
+  "runtime": {
+    "node": "24.19.0",
+    "npm": "11.17.0",
+    "playwright": "1.51.1",
+    "chromium": "134.0.6998.35"
+  },
+  "scope": "Local unit/data/build; Chromium assigned-state UI. Not natural 50 battles or physical devices.",
+  "commands": [
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-16T08:58:26.668002+00:00",
+      "finishedAt": "2026-11-16T09:01:43.079653+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v014/integration-unit/command.log",
+      "logSha256": "e460b3a1d9f695c61818e87523f40b4a9c693ffa42eb6677898fbe1057a80c1c"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/clause-tool.test.js",
+        "tests/clause014-language.test.js",
+        "tests/clause-campaign014.test.js",
+        "tests/device-input.test.js",
+        "tests/polish0121.test.js",
+        "tests/text-shop-flow.test.js"
+      ],
+      "startedAt": "2026-11-16T09:03:11.853559+00:00",
+      "finishedAt": "2026-11-16T09:03:13.901131+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/focused-integrated/command.log",
+      "logSha256": "6d124e74fa50900857ed0f4fb1f40e69956212d197983f03ef29bca2f7fabb84"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-16T09:10:11.838955+00:00",
+      "finishedAt": "2026-11-16T09:13:31.757667+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/final-unit/command.log",
+      "logSha256": "e6a905f39c4fc4564e45a71c25ff1dea90baa502d397acfd594449ae1ba7defa"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-11-16T09:13:42.867522+00:00",
+      "finishedAt": "2026-11-16T09:13:44.734612+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v014/final-data/command.log",
+      "logSha256": "2d88f7e008dc98df5ac01e510aa0bb29c70d3b33547f43779de89281f4b9342e"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-16T09:15:16.940925+00:00",
+      "finishedAt": "2026-11-16T09:18:36.019125+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/final-unit-2/command.log",
+      "logSha256": "e86b0d666f4ee44230c8e7c06ed756634cb2139c4610e1ec8b52be98373ce9b2"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-11-16T09:18:50.909287+00:00",
+      "finishedAt": "2026-11-16T09:18:52.860441+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/final-data-2/command.log",
+      "logSha256": "2ec5d6e7adb4a96e732e23b3389a91f8cdf9e9ca335b1bfa90f6ed02d7e10b72"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-16T09:18:54.318882+00:00",
+      "finishedAt": "2026-11-16T09:18:57.926842+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/final-build/command.log",
+      "logSha256": "fd37a9c1ce00ae01a548085b9c51200f2242713473175554e1dd83d966a5a300"
+    },
+    {
+      "command": [
+        "node",
+        "tests/panorama-mobile-browser.mjs",
+        "--section=card-rune-input",
+        "--no-captures"
+      ],
+      "startedAt": "2026-11-16T09:17:33.823488+00:00",
+      "finishedAt": "2026-11-16T09:17:36.775550+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v014/old-card-rune-command-final/command.log",
+      "logSha256": "d3457883373bcee7b0843cd70e9592f21936e1e4f4cfa9fa2a53a99187f48529"
+    }
+  ],
+  "browser": {
+    "commaPC": {
+      "scope": "Assigned real card snapshots, controller commands and Chromium browser input; not natural campaign or physical iOS/Android.",
+      "checks": [
+        {
+          "name": "pc-tool-and-actual-attacks",
+          "status": "PASS",
+          "evidence": {
+            "nativePointerPlacement": true,
+            "drag": true,
+            "cancellation": true,
+            "actualAttack": "qa.waterways.comma.ui.0:battle.43:attack.1",
+            "wordCount": 4,
+            "commaPenalty": [
+              {
+                "eventId": "qa.waterways.comma.ui.0:battle.43:attack.1:score.5",
+                "phase": "ACCURACY",
+                "sourceType": "GRAMMAR",
+                "sourceId": "PUNCTUATION.COMMA",
+                "labelKo": "쉼표 위치 오류 · −11",
+                "operation": "MULTIPLY",
+                "operand": {
+                  "num": 9,
+                  "den": 10
+                },
+                "before": 108,
+                "after": 97,
+                "evidenceRefs": [
+                  "issue.punctuation.0"
+                ],
+                "highlightCardIds": [
+                  "qa.corridor.0",
+                  "qa.corridor.1"
+                ],
+                "reasonKo": "쉼표가 문장 성분을 끊고 있습니다."
+              }
+            ],
+            "fxSamples": 199
+          }
+        }
+      ],
+      "captures": [
+        "pc-comma.png"
+      ],
+      "errors": []
+    },
+    "commaMobile": {
+      "scope": "Assigned real card snapshots, controller commands and Chromium browser input; not natural campaign or physical iOS/Android.",
+      "checks": [
+        {
+          "name": "mobile-24-boundaries-and-cancellation",
+          "status": "PASS",
+          "evidence": {
+            "rows": [
+              8,
+              8,
+              8
+            ],
+            "wordCount": 24,
+            "markerAtLastWord": true,
+            "twoPointerCancelledWithoutCommand": true,
+            "viewportPreserved": true,
+            "tool": {
+              "x": 750,
+              "y": 312,
+              "width": 44,
+              "height": 64
+            },
+            "handBottom": [
+              8,
+              8,
+              8,
+              8,
+              8,
+              8
+            ]
+          }
+        }
+      ],
+      "captures": [
+        "mobile-24-comma.png"
+      ],
+      "errors": []
+    },
+    "commaAnchor": {
+      "scope": "Assigned real card snapshots, controller commands and Chromium browser input; not natural campaign or physical iOS/Android.",
+      "checks": [
+        {
+          "name": "anchor-edit-and-pc-twelve",
+          "status": "PASS",
+          "evidence": {
+            "anchorFollowsReorder": true,
+            "swapKeepsBoundary": true,
+            "returnRetrievesMarker": true,
+            "rows": [
+              12,
+              12
+            ],
+            "fullscreenDragHost": true
+          }
+        }
+      ],
+      "captures": [],
+      "errors": []
+    },
+    "campaign43to48": {
+      "mode": "DESIGNATED_LEGAL_DECK_UI",
+      "note": "Existing physical cards assigned to hand before each submission; no enemy HP, score, rules or turn edits. Real UI forms, comma placement, submission, presentation, reward skip and next-battle commands, then current boss-reward-first final shop/entry/48 start. Not natural acquisition/playthrough.",
+      "viewport": {
+        "width": 1366,
+        "height": 768
+      },
+      "results": [
+        {
+          "battle": 43,
+          "text": "seeing you, I have read books",
+          "status": "VALID",
+          "power": 9220,
+          "loss": 2500,
+          "hp": 0,
+          "threads": [],
+          "comma": [
+            {
+              "kind": "COMMA",
+              "gapIndex": 2
+            }
+          ]
+        },
+        {
+          "battle": 44,
+          "text": "helped by you, I have read books",
+          "status": "VALID",
+          "power": 10636,
+          "loss": 2900,
+          "hp": 0,
+          "threads": [],
+          "comma": [
+            {
+              "kind": "COMMA",
+              "gapIndex": 3
+            }
+          ]
+        },
+        {
+          "battle": 45,
+          "text": "if I worked I would read books",
+          "status": "VALID",
+          "power": 8456,
+          "loss": 3300,
+          "hp": 0,
+          "threads": [],
+          "comma": []
+        },
+        {
+          "battle": 46,
+          "text": "if I had worked I would have read books",
+          "status": "VALID",
+          "power": 11690,
+          "loss": 3800,
+          "hp": 0,
+          "threads": [],
+          "comma": []
+        },
+        {
+          "battle": 47,
+          "text": "seeing you, I have read books",
+          "status": "VALID",
+          "power": 13172,
+          "loss": 4999,
+          "hp": 1,
+          "threads": [
+            "ACTIVE"
+          ],
+          "comma": [
+            {
+              "kind": "COMMA",
+              "gapIndex": 2
+            }
+          ]
+        },
+        {
+          "battle": 47,
+          "text": "helped by you, I have read books",
+          "status": "VALID",
+          "power": 15195,
+          "loss": 0,
+          "hp": 1,
+          "threads": [
+            "PASSIVE"
+          ],
+          "comma": [
+            {
+              "kind": "COMMA",
+              "gapIndex": 3
+            }
+          ]
+        },
+        {
+          "battle": 47,
+          "text": "if I worked I would read books",
+          "status": "VALID",
+          "power": 12080,
+          "loss": 1,
+          "hp": 0,
+          "threads": [
+            "COUNTERFACTUAL"
+          ],
+          "comma": []
+        }
+      ],
+      "boundary": {
+        "state": "REWARD",
+        "battle": 47,
+        "valid": true,
+        "receipts": 3,
+        "settlements": 5
+      },
+      "shop": {
+        "policy": "BOSS_REWARD_FIRST_V1",
+        "stage": "stage.final",
+        "id": "shop.qa.waterways.clause.browser.route.stage.final",
+        "count": 6,
+        "stableOnRerender": true
+      },
+      "finale": {
+        "battle": 48,
+        "id": "FINALE_SURFACE",
+        "hp": 5000,
+        "turns": 6,
+        "shopCount": 6,
+        "closed": true,
+        "valid": true,
+        "taskPlan": [
+          {
+            "type": "GRAMMAR",
+            "target": "INFINITIVE",
+            "supportCardDefId": null,
+            "witnessWords": 5,
+            "punctuation": []
+          },
+          {
+            "type": "FRAME",
+            "target": "SVC",
+            "supportCardDefId": null,
+            "witnessWords": 3,
+            "punctuation": []
+          }
+        ]
+      },
+      "errors": [],
+      "natural50": "NOT RUN",
+      "realMobile": "NOT RUN"
+    },
+    "legacyCardRune": {
+      "scope": "Actual seeded opening/save/input plus explicitly assigned views/card layouts; Chromium touch emulation, not physical devices or a natural 50-battle run. IDs identify coverage references, not full independent certification of every clause.",
+      "checks": [
+        {
+          "name": "card-rune-input",
+          "ids": [
+            "B10",
+            "B11",
+            "B12",
+            "B13",
+            "B14",
+            "B18"
+          ],
+          "status": "PASS",
+          "evidence": {
+            "discarded": [
+              "starter.01",
+              "starter.08"
+            ],
+            "exchangesSpent": 1,
+            "turnsSpent": 0,
+            "multitouchCancelled": true
+          }
+        }
+      ],
+      "errors": [],
+      "captures": [],
+      "browser": "134.0.6998.35",
+      "status": "PASS",
+      "notRun": [
+        "physical iOS/Android/Kakao touch, rotation and audio listening",
+        "natural 50-battle playthrough"
+      ]
+    }
+  },
+  "finalUnit": {
+    "tests": 1995,
+    "pass": 1995,
+    "fail": 0,
+    "skip": 0
+  },
+  "finalData": {
+    "checks": 3668,
+    "status": "PASS"
+  },
+  "buildFiles": [
+    {
+      "path": "index.html",
+      "sha256": "0232913a22e7776b712aa158f4dd9b87b305da4aa2ec95fe1aa206bfa3c853f4"
+    },
+    {
+      "path": "assets/index-CFswTP7y.js",
+      "sha256": "f7d5e502261e89183f3a8a06dffffbd5afda589ee7f7fb8c40c291397cd00309"
+    },
+    {
+      "path": "assets/index-BqflzsVu.css",
+      "sha256": "33b8ec6a27f22af340592b022bc7d012c933421a9cb0771ff8fe2c60c7608d48"
+    }
+  ],
+  "notRun": [
+    "natural 50-battle expedition",
+    "physical iOS/Android touch and rotation",
+    "physical audio listening",
+    "Kakao/Instagram device access",
+    "all browser/device combinations"
+  ]
+}

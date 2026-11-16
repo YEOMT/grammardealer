@@ -22,7 +22,9 @@ export const RECOVERY_VERSIONS=Object.freeze({...PATCH0101_VERSIONS,game:'0.10.2
 export const FINALE_VERSIONS=Object.freeze({...RECOVERY_VERSIONS,game:'0.11.0',save:'0.11.0'});
 export const LEARNING012_VERSIONS=Object.freeze({...FINALE_VERSIONS,game:'0.12.0',save:'0.12.0',language:'0.12.0',generator:'0.12.0',presentation:'0.12.0'});
 export const POLISH0121_VERSIONS=Object.freeze({...LEARNING012_VERSIONS,game:'0.12.1',save:'0.12.1',language:'0.12.1',generator:'0.12.1',presentation:'0.12.1'});
-export const VERSIONS = POLISH0121_VERSIONS;
+// A new submission/campaign contract. Existing generators and economy stay frozen.
+export const CLAUSE014_VERSIONS=Object.freeze({...POLISH0121_VERSIONS,game:'0.14.0',save:'0.14.0',language:'0.14.0',comboEligibility:'0.14.0',learningRecord:'0.14.0',campaign:'0.14.0',ruleset:'syntax-atlas.0.14.0'});
+export const VERSIONS = CLAUSE014_VERSIONS;
 export const clone = value => structuredClone(value);
 export function deepFreeze(value) {if(value&&typeof value==='object'&&!Object.isFrozen(value)){Object.freeze(value);Object.values(value).forEach(deepFreeze);}return value;}
 export function requireInteger(value,name,min=0,max=Number.MAX_SAFE_INTEGER) {if(!Number.isSafeInteger(value)||value<min||value>max)throw new TypeError(`${name}: invalid integer`);return value;}

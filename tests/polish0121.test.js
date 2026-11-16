@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import {registryForVersion,formsForCard,createSentenceSnapshot,makeToken} from '../src/data/language/index.js';
 import {snapshotFromText,analyzeSentence} from '../src/engine/grammar/index.js';
 import {generateStarterDeck,validateStarterDeck} from '../src/game/deck.js';
-import {RunController} from '../src/game/runController.js';
+import {RunController} from './helpers/legacy-0121-controller.js';
 import {newProfile,validateRunState} from '../src/services/localStore.js';
 import {eligibleRewardCards} from '../src/game/rewards.js';
 import {visibleForms,formLabel} from '../src/ui/formView.js';

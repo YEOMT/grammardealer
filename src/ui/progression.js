@@ -152,8 +152,9 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
     el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),el('small',{text:next.kind==='NORMAL'?'일반 전투':'보스 전투'})),el('section',{class:'preparation-guide'},
       el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),el('p',{text:'뜻: '+g.meaningKo}),
       g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{class:'preparation-effect',text:'전투 효과: '+g.effectLabel}),
+      g.noticeKo&&el('small',{class:'preparation-notice',text:g.noticeKo}),
       g.boss.length>0&&el('details',{class:'preparation-boss'},el('summary',{text:g.boss[0].split(/[.!?。]\s*/)[0]+' · 공략 상세'}),...g.boss.map(text=>el('small',{class:'boss-rule',text}))),
-      ['0.12.0','0.12.1'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{class:'preparation-notice',text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'})),
+      ['0.12.0','0.12.1','0.14.0'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{class:'preparation-notice',text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'})),
       el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`})),
     el('div',{class:'reward-footer preparation-actions'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
   const cleanup=()=>{panorama.cleanup();if(preparationViews.get(root)===cleanup)preparationViews.delete(root);};

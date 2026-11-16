@@ -2,7 +2,7 @@ import {el,button,modal} from './dom.js';
 import {applyStageTheme} from './theme.js';
 import {finaleTaskLabel} from '../game/finaleTasks.js';
 import {runeForVersion} from '../data/runes.js';
-import {FINALE_RULESET_ID,LOCAL_LEADERBOARD_LABEL,LOCAL_LEADERBOARD_NOTICE,MEMORY_LEADERBOARD_NOTICE} from '../services/clearLeaderboard.js';
+import {rulesetForVersion,LOCAL_LEADERBOARD_LABEL,LOCAL_LEADERBOARD_NOTICE,MEMORY_LEADERBOARD_NOTICE} from '../services/clearLeaderboard.js';
 
 /** Displays committed mechanics only; never evaluates the player's edited sentence. */
 export function finaleStatusText(bossState,run){
@@ -25,15 +25,18 @@ function recordRow(record,rank){
     el('summary',{},el('strong',{text:`${rank}  ${record.displayName}`}),el('span',{class:'finale-ranking-line',text:`${best.finalPower.toLocaleString()}점 · ${best.sentenceText}`})),
     el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} / 50 · 실제 제출 문장`}));
 }
-export async function openClearLeaderboard(repository,{profile,memory=false}={}){
+export async function openClearLeaderboard(repository,{profile,memory=false,version='0.14.0'}={}){
+  const rulesetId=rulesetForVersion(version);
   const local=repository.mode==='LOCAL',sessionOnly=memory||repository.persistence==='MEMORY';
   const content=el('section',{class:'finale-leaderboard','aria-live':'polite'},el('p',{text:'클리어 기록을 읽는 중입니다.'}));
   const view=modal(local?LOCAL_LEADERBOARD_LABEL:'공용 클리어 랭킹',content,{wide:true});
   if(!local&&repository.connected===false){content.replaceChildren(el('p',{text:'공용 랭킹 미연결'}));return view;}
   try{
-    const [entries,own]=await Promise.all([repository.listTop({rulesetId:FINALE_RULESET_ID,limit:20}),profile?.playerId?repository.getOwnBest({playerKey:profile.playerId,rulesetId:FINALE_RULESET_ID}):null]);
+    const [entries,own]=await Promise.all([repository.listTop({rulesetId,limit:20}),profile?.playerId?repository.getOwnBest({playerKey:profile.playerId,rulesetId}):null]);
     const position=own?entries.findIndex(entry=>entry.playerId===own.playerId):-1;
     content.replaceChildren(...[
+      el('p',{class:'helper',text:version==='0.14.0'?'0.14 쉼표·분사구문 규칙':'이전 규칙 · 당시 점수 보존'}),
+      button(version==='0.14.0'?'이전 규칙 랭킹':'0.14 규칙 랭킹',()=>{view.close();openClearLeaderboard(repository,{profile,memory,version:version==='0.14.0'?'0.12.1':'0.14.0'});},'quiet'),
       el('p',{class:'helper',text:local?LOCAL_LEADERBOARD_NOTICE:'공용 서비스에서 제공하는 클리어 기록입니다.'}),
       sessionOnly&&el('p',{class:'helper finale-memory-notice',text:MEMORY_LEADERBOARD_NOTICE}),
       own&&el('p',{class:'finale-own-rank',text:position>=0?`클리어 완료 · 현재 ${position+1}위 · 개인 최고 ${own.bestAttackSnapshot.finalPower.toLocaleString()}점`:'클리어 완료 · 현재 Top20 밖'}),

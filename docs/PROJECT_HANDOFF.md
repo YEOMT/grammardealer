@@ -1,3 +1,11 @@
+# 0.14.0 쉼표·분사구문 인계
+
+기준 main은 `cc3b75da280aa93366fa75636c3c970d68621a2a`, 작업 브랜치는 `codex/v0.14.0-clause-comma`다. [유일한 본명세](../spec/v0.14.0/Syntax_Atlas_v0.14.0_Clause_Comma_Spec.md)와 [32개 인수 조건·실행 결과](CLAUSE_COMMA_0.14.0_REPORT.md)를 확인한다.
+
+새 run/save/language/campaign은 0.14.0, ruleset은 `syntax-atlas.0.14.0`이다. 기존 generator 0.12.1과 grammar capability core 0.10.0을 그대로 상속한다. 구원정/공격/최고 기록은 승격하거나 재계산하지 않는다. 신규 도구는 WORD가 아니며 `combat.punctuation.comma`의 왼쪽 카드 ID를 제출 snapshot의 gapIndex로 고정한다. 47의 실 상태는 실제 공격 영수증으로 검증하고, 보상 제거/연마 뒤에도 당시 카드·룬 스냅샷을 보존한다. 구버전 47은 기존 예견이다.
+
+두 분사구문 ×1.60과 쉼표 오류 ×0.90은 제안 초기값이다. 자연 원정 승률을 측정한 값이 아니다. 43~47 브라우저 검사는 지정 덱/지정 상태이며 자연 50전투·실기기 터치/청취와 구분한다. 아래 과거 인계는 보존한다.
+
 # 0.13.1 링크 접속과 가시 영역 인계
 
 기준 main은 `cf4d46f0f94cd2a7db3d887320f808530209b8e2`이다. 앱/패키지는 0.13.1이며 원정·언어·저장 계약은 0.12.1이다. 휴대기기에서 원정 첫 시작이나 상단 버튼의 실제 제스처로 전체화면을 요청한다. 주소창이 남으면 가시 영역의 높이에 맞춰 배치하고 아주 낮은 창에서는 전투를 세로로 스크롤할 수 있다. [명세](../spec/v0.13.1/Syntax_Atlas_v0.13.1_Immersive_Link_Responsive_Spec.md) · [AC01~32 및 실제 검사](IMMERSIVE_LINK_0.13.1_REPORT.md)

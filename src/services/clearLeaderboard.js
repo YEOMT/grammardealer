@@ -1,25 +1,28 @@
+import {formatSentence,validatePunctuation} from '../punctuation.js';
 import {assertSerializable,clone,requireId,requireInteger} from '../contracts.js';
 
 export const FINALE_RULESET_ID='syntax-atlas.0.11.0';
+export const CLAUSE_RULESET_ID='syntax-atlas.0.14.0';
+export const rulesetForVersion=version=>version==='0.14.0'?CLAUSE_RULESET_ID:FINALE_RULESET_ID;
 export const LOCAL_LEADERBOARD_LABEL='이 기기의 클리어 랭킹';
 export const LOCAL_LEADERBOARD_NOTICE='동일한 브라우저와 사이트의 프로필 기록만 표시합니다. 공용 랭킹은 연결되지 않았습니다.';
 export const MEMORY_LEADERBOARD_NOTICE='이번 세션 기록 — 브라우저를 닫으면 사라질 수 있음';
 const text=(value,name,max)=>{if(typeof value!=='string'||!value.trim()||value.length>max)throw Error(`${name} 정보가 잘못되었습니다.`);return value;};
 const fields=(value,allowed,name)=>{if(!value||Object.getPrototypeOf(value)!==Object.prototype||Object.keys(value).some(key=>!allowed.includes(key)))throw Error(`${name} 형식이 잘못되었습니다.`);};
-export const isRecordEligibleRun=run=>['0.11.0','0.12.0','0.12.1'].includes(run?.version)&&!run.tutorialSession?.active&&!run.config?.qaFixture&&!run.config?.practice&&!run.config?.sandbox&&!run.qaFixture;
+export const isRecordEligibleRun=run=>['0.11.0','0.12.0','0.12.1','0.14.0'].includes(run?.version)&&!run.tutorialSession?.active&&!run.config?.qaFixture&&!run.config?.practice&&!run.config?.sandbox&&!run.qaFixture;
 export const finaleClearId=(runId,rulesetId=FINALE_RULESET_ID)=>`${requireId(runId,'runId')}:${requireId(rulesetId,'rulesetId')}:FINAL50_CLEAR`;
 export const clearStorageKey=clearId=>`finale:clear:${clearId}`;
 export const bestStorageKey=(playerId,rulesetId)=>`finale:best:${JSON.stringify([playerId,rulesetId])}`;
 export const FINALE_SEQUENCE_KEY='finale:sequence';
 
 /** Immutable evidence from this accepted attack, independent of the recent-12 cache. */
-export function buildBestAttackSnapshot({run,resolution,actionSequence=run?.revision,rulesetId=FINALE_RULESET_ID,allowQA=false}){
-  const qa=allowQA&&['0.11.0','0.12.0','0.12.1'].includes(run?.version)&&(run.config?.qaFixture===true||run.qaFixture===true)&&!run.tutorialSession?.active&&!run.config?.practice&&!run.config?.sandbox;
+export function buildBestAttackSnapshot({run,resolution,actionSequence=run?.revision,rulesetId=rulesetForVersion(run?.version),allowQA=false}){
+  const qa=allowQA&&['0.11.0','0.12.0','0.12.1','0.14.0'].includes(run?.version)&&(run.config?.qaFixture===true||run.qaFixture===true)&&!run.tutorialSession?.active&&!run.config?.practice&&!run.config?.sandbox;
   if((!isRecordEligibleRun(run)&&!qa)||!resolution?.accepted||resolution.visualBasis?.synthetic||!['VALID','VALID_WITH_ISSUES'].includes(resolution.status??resolution.analysis?.status)||resolution.finalPower<=0)return null;
   const submittedTokens=resolution.sentenceSnapshot.orderedTokens.map((token,position)=>({cardDefId:token.cardDefId,lexemeId:token.lexemeId,selectedFormId:token.selectionId??token.selectedFormId,surface:token.surface,position}));
   const snapshot={rulesetId,campaignVersion:run.version,languageVersion:resolution.versions?.language??resolution.sentenceSnapshot.languageVersion,scorePolicyVersion:resolution.versions?.balance??run.versions?.balance??run.version,runId:run.runId,attackId:resolution.attackId,battleNumber:run.progress.battleNumber,stageId:run.progress.stageId,
     ...(resolution.phaseId?{phaseId:resolution.phaseId}:{}),finalPower:resolution.finalPower,actualHpLoss:resolution.actualHpLoss,overkill:resolution.overkill,
-    ...(resolution.preventedDamage!==undefined?{preventedBySeal:resolution.preventedDamage}:{}),...(qa?{qaFixture:true}:{}),submittedTokens,sentenceText:submittedTokens.map(t=>t.surface).join(' '),recordedActionSequence:actionSequence};
+    ...(resolution.preventedDamage!==undefined?{preventedBySeal:resolution.preventedDamage}:{}),...(qa?{qaFixture:true}:{}),submittedTokens,...(run.version==='0.14.0'?{punctuation:clone(resolution.sentenceSnapshot.punctuation??[])}:{}),sentenceText:formatSentence(resolution.sentenceSnapshot),recordedActionSequence:actionSequence};
   validateBestAttackSnapshot(snapshot);return clone(snapshot);
 }
 export function updateBestAttackSnapshot(previous,candidate){
@@ -28,9 +31,9 @@ export function updateBestAttackSnapshot(previous,candidate){
   return clone(!previous||candidate.finalPower>previous.finalPower?candidate:previous);
 }
 export function validateBestAttackSnapshot(snapshot){
-  assertSerializable(snapshot);fields(snapshot,['rulesetId','campaignVersion','languageVersion','scorePolicyVersion','runId','attackId','battleNumber','stageId','phaseId','finalPower','actualHpLoss','overkill','preventedBySeal','submittedTokens','sentenceText','recordedActionSequence','qaFixture'],'최고 공격');
+  assertSerializable(snapshot);fields(snapshot,['rulesetId','campaignVersion','languageVersion','scorePolicyVersion','runId','attackId','battleNumber','stageId','phaseId','finalPower','actualHpLoss','overkill','preventedBySeal','submittedTokens','punctuation','sentenceText','recordedActionSequence','qaFixture'],'최고 공격');
   for(const field of ['rulesetId','campaignVersion','languageVersion','scorePolicyVersion','runId','attackId','stageId'])requireId(snapshot[field],field);
-  if(!['0.11.0','0.12.0','0.12.1'].includes(snapshot.campaignVersion))throw Error('클리어 기록의 원정 버전이 다릅니다.');
+  if(!['0.11.0','0.12.0','0.12.1','0.14.0'].includes(snapshot.campaignVersion))throw Error('클리어 기록의 원정 버전이 다릅니다.');
   if(snapshot.qaFixture!==undefined&&snapshot.qaFixture!==true)throw Error('QA 기록 구분이 잘못되었습니다.');
   if(snapshot.phaseId!==undefined)requireId(snapshot.phaseId,'phaseId');
   requireInteger(snapshot.battleNumber,'battleNumber',1,50);requireInteger(snapshot.recordedActionSequence,'recordedActionSequence',0);
@@ -38,10 +41,11 @@ export function validateBestAttackSnapshot(snapshot){
   if(snapshot.preventedBySeal!==undefined)requireInteger(snapshot.preventedBySeal,'preventedBySeal',0,snapshot.finalPower);
   if(!Array.isArray(snapshot.submittedTokens)||snapshot.submittedTokens.length<1||snapshot.submittedTokens.length>24)throw Error('제출 카드 기록이 잘못되었습니다.');
   snapshot.submittedTokens.forEach((token,index)=>{fields(token,['cardDefId','lexemeId','selectedFormId','surface','position'],'제출 카드');for(const field of ['cardDefId','lexemeId','selectedFormId'])requireId(token[field],field);text(token.surface,'surface',100);if(token.position!==index)throw Error('제출 카드 순서가 잘못되었습니다.');});
-  text(snapshot.sentenceText,'sentenceText',2423);if(snapshot.sentenceText!==snapshot.submittedTokens.map(t=>t.surface).join(' '))throw Error('점수와 실제 제출 문장이 일치하지 않습니다.');
+  if(snapshot.campaignVersion==='0.14.0'){if(snapshot.rulesetId!==CLAUSE_RULESET_ID||snapshot.languageVersion!=='0.14.0')throw Error('새 원정의 기록 정책이 다릅니다.');validatePunctuation(snapshot.punctuation,snapshot.submittedTokens.length);}else if(snapshot.punctuation!==undefined||snapshot.rulesetId===CLAUSE_RULESET_ID)throw Error('구원정 기록의 문장부호 정책이 다릅니다.');
+  text(snapshot.sentenceText,'sentenceText',2425);if(snapshot.sentenceText!==formatSentence(snapshot))throw Error('점수와 실제 제출 문장이 일치하지 않습니다.');
   return true;
 }
-export function buildClearRecord({runId,playerId,displayName,rulesetId=FINALE_RULESET_ID,campaignVersion='0.11.0',bestAttackSnapshot,completionEvidence,eligible=false}){
+export function buildClearRecord({runId,playerId,displayName,campaignVersion='0.11.0',rulesetId=rulesetForVersion(campaignVersion),bestAttackSnapshot,completionEvidence,eligible=false}){
   if(!eligible)return null;
   const record={clearId:finaleClearId(runId,rulesetId),runId,playerId,displayName,rulesetId,campaignVersion,bestAttackSnapshot:clone(bestAttackSnapshot),completionEvidence:clone(completionEvidence),verificationLevel:'LOCAL_UNVERIFIED'};
   validateClearRecord(record);return record;
@@ -49,7 +53,7 @@ export function buildClearRecord({runId,playerId,displayName,rulesetId=FINALE_RU
 export function validateClearRecord(record){
   assertSerializable(record);fields(record,['clearId','runId','playerId','displayName','rulesetId','campaignVersion','bestAttackSnapshot','completionEvidence','verificationLevel','storedSequence'],'클리어 기록');
   for(const field of ['runId','playerId','rulesetId','campaignVersion'])requireId(record[field],field);text(record.displayName,'displayName',30);
-  if(!['0.11.0','0.12.0','0.12.1'].includes(record.campaignVersion)||record.clearId!==finaleClearId(record.runId,record.rulesetId)||record.verificationLevel!=='LOCAL_UNVERIFIED')throw Error('지원하지 않는 클리어 기록입니다.');
+  if(!['0.11.0','0.12.0','0.12.1','0.14.0'].includes(record.campaignVersion)||record.clearId!==finaleClearId(record.runId,record.rulesetId)||record.verificationLevel!=='LOCAL_UNVERIFIED')throw Error('지원하지 않는 클리어 기록입니다.');
   validateBestAttackSnapshot(record.bestAttackSnapshot);if(record.bestAttackSnapshot.qaFixture)throw Error('지정 덱 QA 기록은 랭킹에 등록하지 않습니다.');if(record.bestAttackSnapshot.runId!==record.runId||record.bestAttackSnapshot.rulesetId!==record.rulesetId||record.bestAttackSnapshot.campaignVersion!==record.campaignVersion)throw Error('대표 공격과 클리어 원정이 다릅니다.');
   const evidence=record.completionEvidence,receipts=evidence?.phaseClearReceipts;
   fields(evidence,['boundary','phaseClearReceipts'],'클리어 근거');

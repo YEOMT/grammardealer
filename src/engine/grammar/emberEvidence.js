@@ -29,7 +29,7 @@ export function emberEvidence({tokens,nodes,clauses,clauseSources,vpRows,nonfini
  for(const {node,source}of nonfiniteSources){
   const n=source.nonfinite;if(!['ING','PP'].includes(n.formKind))continue;
   const c=clauses.find(c=>c.nodeId===node.id),bad=excluded(node.cardIds);
-  add(source.head,n.formKind,n.interpretation==='GERUND'?'GERUND':n.function,{phraseCardIds:node.cardIds,targetHeadCardId:at(n.controllerHead),parentClauseId:c?.parentClauseId??c?.id,sourceVerbSenseId:source.clauseData.senseId,invalid:bad});
+  add(source.head,n.formKind,n.interpretation==='GERUND'?'GERUND':n.function,{phraseCardIds:node.cardIds,targetHeadCardId:at(n.controllerHead),parentClauseId:source.adjunct?clauses.find(c=>c.role==='MAIN')?.id??null:c?.parentClauseId??c?.id,sourceVerbSenseId:source.clauseData.senseId,invalid:bad});
  }
  for(const [source,id]of sourceNodes)if(source.participleState){
   const node=nodes.find(n=>n.id===id),owner=clauses.find(c=>c.subjectComplementNodeId===id);
