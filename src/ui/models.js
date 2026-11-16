@@ -30,7 +30,7 @@ export function operationText(model){
   const effects={SUPPLY:`${count}장 뽑기`,SEARCH:`단어 ${count}장 선택`,NOUN_SEARCH:`명사·대명사 최대 ${count}장`,VERB_SEARCH:`동사 최대 ${count}장`,ADJECTIVE_SEARCH:`형용사 최대 ${count}장`,CONNECTOR_SEARCH:`연결어 최대 ${count}장`,RECYCLE:`버린 카드 무작위 ${count}장`};
   const effect=effects[spec.type];
   if(!effect)throw new Error('Unknown operation display type: '+spec.type);
-  return {effect,limit:model.temporary?'이번 전투 한정':spec.afterUseDestination==='DISCARD'?'사용 후 버린 더미 · 다시 뽑아 재사용':'전투당 1회',polish:spec.polishMax?`연마 최대 +${spec.polishMax}`:'연마 불가'};
+  return {effect,limit:model.temporary?'이번 전투 한정':spec.afterUseDestination==='DISCARD'?'사용 후 버린 카드 · 다시 뽑아 재사용':'전투당 1회',polish:spec.polishMax?`연마 최대 +${spec.polishMax}`:'연마 불가'};
 }
 export function operationPolishPreview(model){
   const before=operationText(model),next={...model,polish:model.polish+1,operation:operationSpec(model.definition.id,model.polish+1,model.lifetime,model.version)};

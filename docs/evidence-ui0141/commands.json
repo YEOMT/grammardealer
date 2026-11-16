@@ -1,0 +1,79 @@
+[
+  {
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-11-16T11:43:07.554005+00:00",
+    "finishedAt": "2026-11-16T11:46:21.992483+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-unit2/command.log",
+    "logSha256": "a62f4fb102452bd1397810915808c5b8929fff8fdc75a578f0ec65b45858ee62"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-11-16T11:38:59.783036+00:00",
+    "finishedAt": "2026-11-16T11:39:02.926124+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-data/command.log",
+    "logSha256": "faaf49467cb090ab116aa306241fe3da705279b613f4eb7cf2f8c114a520c4ae"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-11-16T11:46:22.196109+00:00",
+    "finishedAt": "2026-11-16T11:46:23.911358+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-build3/command.log",
+    "logSha256": "b49f8a19f5842f859097c525ebb4a418051cb8940eae1f2b9b622e8ab1324e83"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs"
+    ],
+    "startedAt": "2026-11-16T11:42:09.838990+00:00",
+    "finishedAt": "2026-11-16T11:42:28.835690+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-browser2/command.log",
+    "logSha256": "d556d81a783fbcb8c6ed14339052b2761002093f6deb69b5a00d57ee19d39a5e"
+  },
+  {
+    "command": [
+      "node",
+      "tests/comma-browser.mjs",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-16T11:42:56.860160+00:00",
+    "finishedAt": "2026-11-16T11:43:10.185927+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-comma/command.log",
+    "logSha256": "f1b159511725fba92f18437b5208586f8d570d9905895c1906dd473c6463fcfc"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs",
+      "--section=T5-image-ready-delay-failure-life",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-16T11:46:01.308425+00:00",
+    "finishedAt": "2026-11-16T11:46:03.933368+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0141/final-image404/command.log",
+    "logSha256": "1a4038fec92ccb31f19ceb6ef1cc0d657b1adefac4f3e0b14e306f7b2eb09795"
+  }
+]

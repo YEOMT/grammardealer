@@ -1,4 +1,5 @@
 import {assetUrl} from './assets.js';
+import {prepareImages} from './imagePreparation.js';
 
 // Original user files. Presentation metadata never enters a RunState or RNG stream.
 export const SCENE_ASSETS = Object.freeze({
@@ -21,13 +22,20 @@ export const MONSTER_ASSETS=Object.freeze({
 export const sceneAssetUrl=path=>path?assetUrl('file',{file:path}):null;
 const warned=new Set();
 export function warnAsset(url){if(!warned.has(url)){warned.add(url);console.warn('Optional scene asset unavailable:',url);}}
+export function prepareSceneImages(scene,enemyId,kind='combat'){
+ const art=MONSTER_ASSETS[enemyId];
+ return prepareImages(`${scene}:${enemyId??''}:${kind}`,{background:sceneAssetUrl(SCENE_ASSETS[scene]?.[kind]),idle:sceneAssetUrl(art?.idle),hit:sceneAssetUrl(art?.hit)});
+}
 
 /** Backgrounds paint behind existing boxes; their natural dimensions cannot affect layout. */
-export function sceneBackdrop(parent,scene,kind,{full=false}={}){
+export function sceneBackdrop(parent,scene,kind,{full=false,prepared=prepareSceneImages(scene,null,kind)}={}){
   const art=SCENE_ASSETS[scene],url=sceneAssetUrl(art?.[kind]);if(!url)return;
   const layer=parent.ownerDocument.createElement('div');layer.className=full?'scene-backdrop scene-backdrop-full':'scene-backdrop';layer.setAttribute('aria-hidden','true');
   layer.style.backgroundPosition=art.position;parent.prepend(layer);
-  const image=new Image();image.onload=()=>{if(layer.isConnected){layer.style.backgroundImage=`url("${url}")`;layer.dataset.ready='true';}};
-  image.onerror=()=>{if(layer.isConnected)warnAsset(url);};image.src=url;
+  let alive=true;layer.cleanup=()=>{alive=false;};
+  Promise.all([prepared.assets.background.promise,prepared.gate]).then(([ok])=>{
+    if(!alive||!layer.isConnected)return;
+    if(ok){layer.style.backgroundImage=`url("${url}")`;layer.dataset.ready='true';}else warnAsset(url);
+  });
   return layer;
 }

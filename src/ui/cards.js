@@ -58,7 +58,7 @@ export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRe
   return view;
 }
 /** Pointer capture + one pointer + 8px threshold. Zones and stable IDs are supplied by the caller. */
-export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
+export function bindCardDrag(container, onDrop, { enabled = () => true, canDrop = () => true } = {}) {
   const doc=container.ownerDocument,guard=installInputGuard(doc,doc.defaultView);
   let active = null,disposed=false;
   const cleanup = (cancelled=true) => {
@@ -83,13 +83,15 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
       const cards = [...zone.querySelectorAll('.word-card')].filter(n=>!n.hidden);
       return { zone, card, targetZone: zone.dataset.cardZone, targetCardId: card.dataset.cardId, index: Number(card.dataset.absoluteIndex??cards.indexOf(card)) + (offset > .5 ? 1 : 0), mode, after: offset > .5 };
     }
-    const cards = [...zone.querySelectorAll('.word-card')].filter(n=>!n.hidden);
+    const area=zone.getBoundingClientRect();
+    const cards = [...zone.querySelectorAll('.word-card')].filter(n=>{const r=n.getBoundingClientRect();return !n.hidden&&r.bottom>area.top&&r.top<area.bottom&&r.right>area.left&&r.left<area.right;});
     if (!cards.length) return { zone, targetZone: zone.dataset.cardZone, index: 0, mode: 'INSERT' };
     let nearest = cards[0], distance = Infinity;
     for (const candidate of cards) { const rect=candidate.getBoundingClientRect(); const dx=Math.max(rect.left-x,0,x-rect.right),dy=Math.max(rect.top-y,0,y-rect.bottom); const d=dx*dx+dy*dy; if(d<distance){distance=d;nearest=candidate;} }
     const rect=nearest.getBoundingClientRect(), after=x>=rect.left+rect.width/2;
     return { zone, card:nearest, targetZone:zone.dataset.cardZone, targetCardId:nearest.dataset.cardId, index:Number(nearest.dataset.absoluteIndex??cards.indexOf(nearest))+(after?1:0), mode:'INSERT', after };
   };
+  const permittedTarget=(x,y)=>{const t=targetAt(x,y);return t&&canDrop({cardId:active.id,sourceZone:active.zone,targetZone:t.targetZone,targetCardId:t.targetCardId,index:t.index,mode:t.mode})?t:null;};
   const down = e => {
     if (active || disposed || guard.blocked || !enabled() || doc.querySelector('dialog[open]') || e.button !== 0 || e.target.closest('button')) return;
     const body = e.target.closest('.card-body'), node = body?.closest('.word-card');
@@ -109,14 +111,14 @@ export function bindCardDrag(container, onDrop, { enabled = () => true } = {}) {
     if (!active.dragging) return;
     e.preventDefault(); active.ghost.style.left=`${e.clientX-active.offsetX}px`; active.ghost.style.top=`${e.clientY-active.offsetY}px`;
     container.querySelectorAll('.drop-before,.drop-after,.drop-replace,.drop-zone-active').forEach(n => n.classList.remove('drop-before','drop-after','drop-replace','drop-zone-active'));
-    active.target = targetAt(e.clientX,e.clientY);
+    active.target = permittedTarget(e.clientX,e.clientY);
     if (active.target) { const t=active.target; t.zone.classList.add('drop-zone-active'); t.card?.classList.add(t.mode==='SWAP'?'drop-replace':t.after?'drop-after':'drop-before'); }
   };
   const up = e => {
     if (!active || e.pointerId !== active.pointerId) return;
     if(!valid()){cleanup();return;}
     const saved = active;
-    const target=saved.dragging?targetAt(e.clientX,e.clientY):null;
+    const target=saved.dragging?permittedTarget(e.clientX,e.clientY):null;
     if (saved.dragging) { e.preventDefault();guard.suppress(saved.pointerId); }
     cleanup(false);
     if (saved.dragging && target) onDrop({cardId:saved.id,sourceZone:saved.zone,targetZone:target.targetZone,targetCardId:target.targetCardId,index:target.index,mode:target.mode});
@@ -134,7 +136,7 @@ function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useC
  const body=el('div',{class:'card-body',role:'button',tabIndex:0,'aria-label':model.surface+' · 운영 · '+copy.effect+' · '+copy.limit,title:copy.effect+' · '+copy.limit},
    el('div',{class:'card-topline'},el('span',{text:'운영 · '+RARITY_LABELS[model.rarity]}),el('span',{class:model.polish?'polish-badge':'',text:model.polish?`+${model.polish}`:''})),
    el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-limit',text:model.temporary?'전투당 1회':model.operation.afterUseDestination==='DISCARD'?'다시 뽑아 재사용':'전투당 1회'}));
- const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 더미로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'})]);
+ const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 카드로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'})]);
  body.addEventListener('click',explain);body.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();explain();}});node.append(body);
  if(onSelect){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline operation-footer'},button('사용',e=>{e.stopPropagation();onUse?.();},'operation-use',{disabled:readonly||useDisabled||!onUse,'aria-label':model.surface+' 사용',title:useDisabled?'현재 유효 대상이나 손패 빈자리가 없습니다.':copy.effect,onpointerdown:e=>e.stopPropagation()}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{disabled:readonly,'aria-label':model.surface+' 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation()})));}
  return node;

@@ -1,0 +1,18 @@
+{
+  "scope": "Chromium assigned real cards/controller/presentation, pointer and emulated touch; physical devices NOT RUN",
+  "checks": [
+    {
+      "name": "T5-image-ready-delay-failure-life",
+      "status": "PASS",
+      "evidence": {
+        "boss": "boss.stage1",
+        "bodyHeight": 295.15999999999997,
+        "delayedDeadNeverRevived": true,
+        "stageReserved": true,
+        "failureFallback": true
+      }
+    }
+  ],
+  "captures": [],
+  "errors": []
+}

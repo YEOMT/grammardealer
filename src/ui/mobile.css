@@ -1,6 +1,5 @@
+.mobile-battle-menu{display:none}
 /* Only handheld view geometry. Existing assets, palette, card identity and commands stay shared. */
-.mobile-battle-hud,.mobile-battle-menu,.mobile-target{display:none}
-.responsive-battle .enemy-tactics>.mobile-target{display:none}
 /* Keep a wide tablet's three-column layout, without its former 1160px page floor. */
 @media(min-width:1001px) and (max-width:1159px){
  body[data-stage-theme] .game-shell.responsive-battle{min-width:0;--board-width:calc(100vw - 278px)}
@@ -58,7 +57,6 @@ html[data-handheld=true] .responsive-battle .stage-path{grid-column:1;justify-se
 html[data-handheld=true] .responsive-battle .stage-path h1{font-size:12px;white-space:nowrap}
 html[data-handheld=true] .responsive-battle .header-actions{grid-column:2;gap:3px;align-items:center}
 html[data-handheld=true] .responsive-battle .header-actions button{min-height:28px;padding:3px 5px;font-size:11px;min-width:0;width:auto}
-html[data-handheld=true] .mobile-battle-hud{display:block;font-size:11px;white-space:nowrap;color:#f5eac8}
 html[data-handheld=true] .mobile-battle-menu{display:block}
 html[data-handheld=true] .responsive-battle .enemy-area{touch-action:pan-y}
 html[data-handheld=true] #app .rune-info{touch-action:pan-y}
@@ -73,7 +71,6 @@ html[data-handheld=true] .responsive-battle .enemy-hp{font-size:11px;margin:2px 
 html[data-handheld=true] .responsive-battle .enemy-info .hp-track{height:7px}
 html[data-handheld=true] .responsive-battle .enemy-avatar{font-size:56px}
 html[data-handheld=true] .responsive-battle .enemy-tactics .region-bonus{font-size:10px;margin:0;padding:0}
-html[data-handheld=true] .responsive-battle .enemy-tactics>.mobile-target{display:block;font-size:12px;color:#f5e5b1}
 html[data-handheld=true] .responsive-battle .enemy-area button{min-height:24px;padding:2px 4px;font-size:10px}
 html[data-handheld=true] .responsive-battle :is(.boss-veil,.frost-crystals,.boss-seal-status,.relative-seal,.foresight-memory,.normal-resistance,.finale-status,.library-turn-status,.dust-counter,.ember-scale){font-size:10px;line-height:1.2;margin:2px 0;max-width:100%;white-space:normal}
 html[data-handheld=true] .responsive-battle .golem-phases{gap:3px}

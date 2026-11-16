@@ -1,5 +1,5 @@
 import {createScoreOverlay} from '../ui/scoreOverlay.js';
-import {scoreFeedback} from './scoreFeedback.js';
+import {scoreFeedback,scoreFeedbackLabel} from './scoreFeedback.js';
 import {monsterViewFor} from '../ui/monsterArt.js';
 import {finaleStatusText} from '../ui/finale.js';
 import {meaningfulComboEvent,runeFeel} from './comboFeel.js';
@@ -174,7 +174,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   const scoreEffects=createScoreEffects(root,()=>({score:overlay.number,label:overlay.label}));
   let current = null, settings = {}, animations = [],effectNodes=[],lungeAnimation=null,attackBody=null,attackLayer=null,visualSnapshot=null;
   const fallbacks=new Set();
-  let coreAnimations=[],viewportKey=null,viewportHost=null;
+  let coreAnimations=[],viewportKey=null,viewportHost=null,errorTimer=null;
   const viewportSignature=()=>{const s=find(root,'sentence')?.getBoundingClientRect(),v=root.ownerDocument.defaultView?.visualViewport;return [s?.x,s?.y,s?.width,s?.height,v?.width,v?.height,v?.offsetLeft,v?.offsetTop].join('|');};
   const text = (name, value) => { overlay.text(name,value);const node = find(root, name); if (node) {node.textContent = String(value);if(name==='score')node.style.setProperty('--score-digits',String(String(value).length));} };
   const animate = (node, frames, duration, fill='none') => {
@@ -226,8 +226,9 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const clearCore=()=>{for(const cleanup of [...fallbacks])cleanup();attackLayer?.remove();attackLayer=null;attackBody?.remove();attackBody=null;const sentence=find(root,'sentence');if(sentence)sentence.style.opacity='';};
   const clearHighlights = () => {
+    clearTimeout(errorTimer);errorTimer=null;
     scoreEffects.clearEvidence();
-    root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse'));
+    root.querySelectorAll('.presentation-highlight,.presentation-rune-pulse,.grammar-error').forEach(node => node.classList.remove('presentation-highlight', 'presentation-rune-pulse','grammar-error'));
     root.querySelectorAll('[data-clause-group],[data-content-object],.connector-bridge').forEach(n=>{delete n.dataset.clauseGroup;delete n.dataset.contentObject;n.classList.remove('connector-bridge');});
     root.querySelectorAll('[data-presentation-role]').forEach(node => node.remove());
     root.querySelectorAll('[data-argument-role]').forEach(node=>{delete node.dataset.argumentRole;node.classList.remove('argument-start','argument-end');});
@@ -320,10 +321,15 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       if(event.sourceId==='boss.skyShield.release')animate(find(root,'boss-veil'),[{filter:'brightness(2)',transform:'scale(1.08)'},{filter:'brightness(1)',transform:'scale(1)'}],500);
       const label=event.sourceId==='stage.01'?(event.labelKo??event.phase).replace('기본 문형','1·2·3형식'):(event.labelKo??event.phase);
       // Show only this committed effect; the full timeline remains in attack records.
-      const feedback=scoreFeedback(event),amount=feedback.amount;
-      text('label',feedback.delta<0?`${feedback.kind==='defense'?'🛡 ':''}${event.before} → ${event.after} · ${amount} · ${label}`:amount&&!label.includes(amount)?`${label} · ${amount}`:label); text('score', event.after);
+      const feedback=scoreFeedback(event);
+      text('label',scoreFeedbackLabel(event,label)); text('score', event.after);
       const score = find(root, 'score'); if (score) { score.title = `${event.before} → ${event.after}`; score.dataset.before = String(event.before); score.dataset.after = String(event.after); }
       scoreEffects.score(event,combo);overlay.score(event);
+      if(feedback.kind==='grammar-loss'){
+        for(const id of event.highlightCardIds??[]){const card=findCard(root,id);if(card){card.classList.remove('presentation-highlight');card.classList.add('grammar-error');}}
+        if(event.sourceId==='PUNCTUATION.COMMA')root.querySelector('.comma-marker')?.classList.add('grammar-error');
+        errorTimer=setTimeout(()=>root.querySelectorAll('.grammar-error').forEach(n=>n.classList.remove('grammar-error')),350);
+      }
       audio?.play?.(feedback.delta<0?(feedback.kind==='defense'?'blocked':'penalty'):event.phase==='CARD_BASE'?'card':'score', { step, intensity });
     },
     highlight(cardIds, roles = [], argumentsByNode=[]) {
@@ -367,7 +373,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
       animate(node,[{transform:'translate(0,0) scale(.5)',opacity:.7},{transform:`translate(${dx*.45}px,${dy*.5-55}px) scale(${Math.min(1.12,.7+.25*weight)})`,opacity:1},{transform:`translate(${dx}px,${dy}px) scale(.3)`,opacity:.1}],duration);
     },
     turnEnd(receipt){showHp(receipt.hpAfterTurnEnd);const hp=find(root,'hp');if(hp&&receipt.actualHeal>0)hp.style.color='#a4e8a1';const label=receipt.suppressed?'명사절 · 가주어 적중 — 이번 턴 회복 저지':receipt.actualHeal?`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 +${receipt.actualHeal}`:`${receipt.bossId==='FINALE_SURFACE'?'서피스 스트럭처':'꿈의 도서관장'} 회복 0 · 최대 체력`;text('label',label);text('library-turn-end',label);root.dataset.corePhase='TURN_END';},
-    setPower(power) { text('power', `${power} 위력`); text('score', power); },
+    setPower(power) { overlay.restoreHeat();text('power', `${power} 위력`); text('score', power); },
     charge({ duration, intensity }) {
       root.dataset.corePhase='CHARGE';
       text('label', '힘을 모읍니다'); audio?.play?.('charge', { intensity });

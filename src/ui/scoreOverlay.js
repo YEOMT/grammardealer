@@ -24,6 +24,7 @@ export function createScoreOverlay(root){
   score(event){if(!host)return;const state=heat.apply(event);if(state.duplicate)return;const feedback=scoreFeedback(event);host.dataset.feedback=feedback.kind;tier(state.value);
    if(state.burst&&!settings.effectsOff&&!settings.reducedMotion){burst?.cancel();burst=host.animate([{filter:'brightness(1)'},{filter:'brightness(1.65)',offset:.35},{filter:'brightness(1)'}],{duration:300,easing:'ease-out'});burst.finished.catch(()=>{});}
   },
+  restoreHeat(){if(host)delete host.dataset.feedback;number?.style.removeProperty('color');number?.style.removeProperty('text-shadow');},
   position,clear,
  };
 }
