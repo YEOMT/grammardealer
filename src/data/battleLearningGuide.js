@@ -10,7 +10,7 @@ const TOPICS={
  'stage.01':[
   ['1·2·3형식','S + V / S + V + C / S + V + O','주어와 동사를 중심으로 문장을 완성합니다.'],
   ['2형식','S + V + C','보어는 주어의 상태나 정체를 설명합니다.'],
-  ['1·2·3형식 복습','S + V / S + V + C / S + V + O','완성한 문장으로 공격해 적의 체력을 모두 줄이세요.']],
+  ['1·2·3형식','S + V / S + V + C / S + V + O','완성한 문장으로 공격해 적의 체력을 모두 줄이세요.']],
  'stage.02':Array.from({length:4},()=>['4형식','S + V + IO + DO','간접목적어는 받는 대상, 직접목적어는 전달되는 것을 나타냅니다.']),
  'stage.03':[
   ['과거시제','S + 과거형 동사','과거에 일어난 일을 나타냅니다.'],
@@ -80,7 +80,7 @@ export function battleLearningGuide(run){
  if(run.progress.stageId==='stage.final'){const i=run.progress.roundIndex;return {title:['서피스 스트럭처','딥 스트럭처','유니버셜 그래머'][i],pattern:['두 겹의 방어막','공격 룬과 손패 봉인','최후의 문장'][i],description:['현재 과제를 풀어 방어막을 한 겹씩 해제하세요.','주절의 시제 과제로 봉인된 룬을 되찾으세요.','모든 방해가 사라졌습니다. 가장 강한 문장으로 공격하세요.'][i],bonus:'최종전 · 지역 배율 ×1',bonusHelp:['최종 세 전투에는 지역 추가 배율이 없습니다. 문법·룬과 각 보스의 실제 조건은 그대로 적용합니다.'],boss:[['서로 다른 두 과제 · 한 공격에 한 겹만 해제합니다.','방어막이 남으면 HP 1 보호. 마지막 해제 공격부터 격파할 수 있습니다.','살아 있는 턴 종료마다 최대 400 회복합니다.'],['서피스 스트럭처의 실제 기여도가 높은 공격 룬을 최대 두 번 봉인합니다.','시제 과제 성공 공격부터 룬 복구와 해방 ×1.25가 적용됩니다.','매 턴 손패 단어 최대 두 장은 배치만 금지합니다. 교환은 가능합니다.'],['6턴 동안 순수 화력으로 HP 10000을 줄이세요.','마지막 턴도 HP 0이면 즉시 원정 클리어입니다.']][i]};}
  const stage=stageForRun(run),[title,pattern,description]=(clausePolicy(run)&&stage.id==='stage.10'?CLAUSE_TOPICS:TOPICS[stage.id])[run.progress.roundIndex];
  const multiplier=stage.regionMultiplier;
- return {title,pattern,description,bonusHelp:regionBonusHelp(stage,run),bonus:`지역 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id??(clausePolicy(run)?stage.rounds[run.progress.roundIndex].bossMechanic?.id:null)]??null,
+ return {title,pattern,description,bonusHelp:regionBonusHelp(stage,run),bonus:`지역 점수 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id??(clausePolicy(run)?stage.rounds[run.progress.roundIndex].bossMechanic?.id:null)]??null,
   detail:clausePolicy(run)&&stage.id==='stage.10'?'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다. 반복 단어에는 서로 다른 실물 사본이 필요합니다.\n현실 조건절도 지원합니다. had + p.p.는 과거완료이며 가정법 과거완료의 조건절에서도 사용합니다.':clausePolicy(run)&&stage.id==='stage.04'&&run.progress.roundIndex===2?'Because I am happy, I smile.\n앞 부사절 뒤에 쉼표를 놓아 보세요. 기존 무쉼표 부사절·조건절도 사용할 수 있습니다.':stage.id==='stage.05'&&run.progress.roundIndex===1?'명사를 꾸미는 형용사적 용법: I have a book to read.\n행동의 목적을 나타내는 부사적 용법: I went to the park to read.':null};
 }
 
@@ -99,13 +99,13 @@ function regionBonusHelp(stage,run){
   'stage.10':['정상 조건절·가정법·과거완료가 점수 근거로 인정될 때 적용합니다. 현재완료진행만으로는 지역 보너스를 받지 않습니다.']
  };
  if(clausePolicy(run)&&stage.id==='stage.10')conditions['stage.10']=['학습한 정상 현재분사·과거분사 분사구문과 기존 조건절·가정법·과거완료가 점수 근거로 인정될 때 적용합니다. 현재완료진행만으로는 지역 보너스를 받지 않습니다.'];
- return [`지역 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${stage.regionMultiplier.num/stage.regionMultiplier.den}`,...conditions[stage.id], '카드를 놓는 동안에는 판정하지 않습니다. 제출 후 실제 분석으로 결정하며 지역 배율은 중복 적용하지 않습니다.'];
+ return [`지역 점수 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${stage.regionMultiplier.num/stage.regionMultiplier.den}`,...conditions[stage.id], '카드를 놓는 동안에는 판정하지 않습니다. 제출 후 실제 분석으로 결정하며 지역 배율은 중복 적용하지 않습니다.'];
 }
 
 
 export function preparationGuide(run){
  const g=battleLearningGuide(run),stage=stageForRun(run);
- if(clausePolicy(run)&&stage.id==='stage.10')return {targetLabel:g.title,patternKo:g.pattern,meaningKo:g.description,example:['Seeing you, I smiled.','Helped by you, I smiled.','If I had time, I would help you.','If I had seen you, I would have helped you.'][run.progress.roundIndex]??null,effectLabel:run.progress.roundIndex<4?`${g.title} 사용 시 보너스 배율 적용`:g.bonus,boss:g.boss?.slice(0,2)??[],noticeKo:'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다.'};
+ if(clausePolicy(run)&&stage.id==='stage.10')return {targetLabel:g.title,patternKo:g.pattern,meaningKo:run.progress.roundIndex<4?g.description:null,example:['Seeing you, I smiled.','Helped by you, I smiled.','If I had time, I would help you.','If I had seen you, I would have helped you.'][run.progress.roundIndex]??null,effectLabel:run.progress.roundIndex<4?`${g.title} 사용 시 보너스 배율 적용`:g.bonus,boss:g.boss?.slice(0,2)??[],noticeKo:run.progress.roundIndex===4?'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다.':null};
  if(stage.id==='stage.02')return {targetLabel:'4형식',patternKo:'주어 + 동사 + 간접목적어 + 직접목적어',meaningKo:'~에게 ~를 주다.',example:'I give you a book.',effectLabel:'4형식 문장 사용 시 보너스 배율 적용',boss:g.boss?.slice(0,2)??[]};
  const examples={
   'stage.01':['I run.','She is kind.','I read books.'],
@@ -118,5 +118,5 @@ export function preparationGuide(run){
   'stage.09':['I know what you like.','I know where you work.','I know whether you work.','It is easy to run.'],
   'stage.10':['If you run I will run.','If I had time I would run.','I had worked.','If I had worked I would have helped you.'],
  };
- return {targetLabel:g.title,patternKo:g.pattern,meaningKo:g.description,example:clausePolicy(run)&&stage.id==='stage.04'&&run.progress.roundIndex===2?'Because I am happy, I smile.':examples[stage.id]?.[run.progress.roundIndex]??null,effectLabel:stage.id==='stage.final'?'지역 추가 배율 없음':g.bonus,boss:g.boss?.slice(0,2)??[]};
+ return {targetLabel:g.title,patternKo:g.pattern,meaningKo:({'to부정사의 명사적 용법':'~하는 것','동명사':'~하는 것','관계대명사 what':'~하는 것','whether 명사절':'~인지 아닌지'})[g.title]??null,example:clausePolicy(run)&&stage.id==='stage.04'&&run.progress.roundIndex===2?'Because I am happy, I smile.':examples[stage.id]?.[run.progress.roundIndex]??null,effectLabel:stage.id==='stage.final'?'지역 추가 배율 없음':g.bonus,boss:g.boss?.slice(0,2)??[]};
 }

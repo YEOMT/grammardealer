@@ -147,7 +147,7 @@ function showHelp(trigger) {
 function label(node) {
   const active = !!fullscreenHost(document);
   const standalone = displayMode(window) === 'standalone';
-  node.textContent = active ? '전체화면 종료' : node.dataset.entry && !standalone ? '가로 전체화면 시작' : '전체화면';
+  node.textContent = active ? '전체화면 종료' : '전체화면';
   node.setAttribute('aria-pressed', String(active));
   node.title = standalone && !active ? '홈 화면 앱 · 전체화면 전환' : node.textContent;
 }

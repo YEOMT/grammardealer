@@ -1,4 +1,5 @@
-import {preparationGuide} from '../data/battleLearningGuide.js';
+import {regionBonusSummary} from './targetGrammar.js';
+import {preparationGuide,battleLearningGuide} from '../data/battleLearningGuide.js';
 import {panoramaPreview} from './panoramaPreview.js';
 import './panorama.css';
 import {soundButton} from './soundControls.js';
@@ -17,7 +18,7 @@ import { isMixedOffer } from '../game/rewards.js';
 import { wordCard } from './cards.js';
 import { cardModel, operationPolishPreview, runeDescription as describeRuneForUI } from './models.js';
 import {applyStageTheme} from './theme.js';
-import {campaignBattleCount,hasPolishCampaign} from '../data/campaignFeatures.js';
+import {hasPolishCampaign} from '../data/campaignFeatures.js';
 import { runeForVersion } from '../data/runes.js';
 import { stageForRun, roundsForRun } from '../data/stages.js';
 import { STAGE2_VEIL_HINT } from '../data/stage2.js';
@@ -66,10 +67,10 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, on
 export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
   applyStageTheme(state);
   root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
-    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE · ${state.progress.battleNumber} / ${campaignBattleCount(state)}`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageDisplayName(stageForRun(state))+' 클리어'}),
+    el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageDisplayName(stageForRun(state))+' 클리어'}),
     el('p',{text:state.progress.stageId==='stage.10'?'마지막 준비 상점과 최종 세 전투가 기다립니다.':state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 꿈의 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
-    el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'장착 룬'),metric(state.economy.gold,'골드')),
-    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.10'?'최종전으로':state.progress.stageId==='stage.09'?'별의 회랑으로':state.progress.stageId==='stage.08'?'몽환의 대서고로':state.progress.stageId==='stage.07'?'고대의 수로도시로':state.progress.stageId==='stage.06'?'잿불 동굴로':state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('여기서 저장',onSaves,'secondary'))));
+    el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'나의 룬'),metric(state.economy.gold,'골드')),
+    el('div',{class:'reward-footer'},button(state.progress.stageId==='stage.10'?'최종전으로':state.progress.stageId==='stage.09'?'별의 회랑으로':state.progress.stageId==='stage.08'?'몽환의 대서고로':state.progress.stageId==='stage.07'?'고대의 수로도시로':state.progress.stageId==='stage.06'?'잿불 동굴로':state.progress.stageId==='stage.05'?'거울의 설원으로':state.progress.stageId==='stage.04'?'소원의 사막으로':state.progress.stageId==='stage.03'?'이음의 하늘섬으로':state.progress.stageId==='stage.02'?'시간의 협곡으로':'전달의 항구로',onNext,'primary',{id:'next-stage'}),button('저장',onSaves,'secondary'))));
 }
 
 /** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
@@ -147,16 +148,15 @@ export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } 
   const g=preparationGuide(preview),panorama=panoramaPreview(state.progress.stageId,next,enemyDisplayName(next));
   const top=nav({onLobby,onSaves,onDeck});top.classList.add('preparation-topbar');
   top.querySelector('.brand-small').classList.add('eyebrow');
-  top.querySelector('.brand-small').textContent=`${stageDisplayName(stageForRun(state))} · 다음 전투 ${next.battleNumber} / ${campaignBattleCount(state)}`;
+  top.querySelector('.brand-small').textContent=`${stageDisplayName(stageForRun(state))} · 다음 전투`;
   root.replaceChildren(top,el('main',{class:'intro-page battle-preparation panorama-preparation'},panorama.element,
-    el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),el('small',{text:next.kind==='NORMAL'?'일반 전투':'보스 전투'})),el('section',{class:'preparation-guide'},
-      el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),el('p',{text:'뜻: '+g.meaningKo}),
-      g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{class:'preparation-effect',text:'전투 효과: '+g.effectLabel}),
+    el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),el('small',{class:next.kind==='NORMAL'?'':'preparation-boss-badge',text:next.kind==='NORMAL'?'일반 전투':'BOSS'})),el('section',{class:'preparation-guide'},
+      el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),g.meaningKo&&el('p',{text:'뜻: '+g.meaningKo}),
+      g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{class:'preparation-effect',text:'지역 점수 보너스: '+regionBonusSummary(battleLearningGuide(preview))}),
       g.noticeKo&&el('small',{class:'preparation-notice',text:g.noticeKo}),
-      g.boss.length>0&&el('details',{class:'preparation-boss'},el('summary',{text:g.boss[0].split(/[.!?。]\s*/)[0]+' · 공략 상세'}),...g.boss.map(text=>el('small',{class:'boss-rule',text}))),
-      ['0.12.0','0.12.1','0.14.0'].includes(state.version)&&state.progress.stageId==='stage.01'&&el('small',{class:'preparation-notice',text:'명령문은 주어 you를 생략하고 동사 원형으로 시작합니다. 실제 주어 카드나 시제 과제 근거는 만들지 않습니다.'})),
+      g.boss.length>0&&el('details',{class:'preparation-boss'},el('summary',{text:g.boss[0].split(/[.!?。]\s*/)[0]+' · 공략 상세'}),...g.boss.map(text=>el('small',{class:'boss-rule',text})))),
       el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`})),
-    el('div',{class:'reward-footer preparation-actions'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('여기서 저장',onSaves,'secondary'))));
+    el('div',{class:'reward-footer preparation-actions'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('저장',onSaves,'secondary'))));
   const cleanup=()=>{panorama.cleanup();if(preparationViews.get(root)===cleanup)preparationViews.delete(root);};
   preparationViews.set(root,cleanup);return cleanup;
 }

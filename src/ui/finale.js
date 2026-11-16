@@ -23,7 +23,7 @@ function recordRow(record,rank){
   const best=record.bestAttackSnapshot;
   return el('details',{class:'finale-ranking-entry',dataset:{playerId:record.playerId,clearId:record.clearId}},
     el('summary',{},el('strong',{text:`${rank}  ${record.displayName}`}),el('span',{class:'finale-ranking-line',text:`${best.finalPower.toLocaleString()}점 · ${best.sentenceText}`})),
-    el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} / 50 · 실제 제출 문장`}));
+    el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} · 실제 제출 문장`}));
 }
 export async function openClearLeaderboard(repository,{profile,memory=false,version='0.14.0'}={}){
   const rulesetId=rulesetForVersion(version);
@@ -41,7 +41,7 @@ export async function openClearLeaderboard(repository,{profile,memory=false,vers
       sessionOnly&&el('p',{class:'helper finale-memory-notice',text:MEMORY_LEADERBOARD_NOTICE}),
       own&&el('p',{class:'finale-own-rank',text:position>=0?`클리어 완료 · 현재 ${position+1}위 · 개인 최고 ${own.bestAttackSnapshot.finalPower.toLocaleString()}점`:'클리어 완료 · 현재 Top20 밖'}),
       own&&position<0&&el('p',{class:'finale-full-sentence',text:`개인 최고 ${own.bestAttackSnapshot.finalPower.toLocaleString()}점 · ${own.bestAttackSnapshot.sentenceText}`}),
-      entries.length?el('div',{class:'finale-ranking-list'},entries.map((entry,index)=>recordRow(entry,index+1))):el('p',{text:'아직 등록된 50전투 클리어 기록이 없습니다.'}),
+      entries.length?el('div',{class:'finale-ranking-list'},entries.map((entry,index)=>recordRow(entry,index+1))):el('p',{text:'아직 등록된 원정 클리어 기록이 없습니다.'}),
       local&&el('small',{class:'helper',text:'기기 내 기록이며 외부 변조를 검증한 공용 기록이 아닙니다.'})].filter(Boolean));
   }catch(error){content.replaceChildren(el('p',{text:`클리어 기록을 읽지 못했습니다. ${error.message}`}));}
   return view;
@@ -52,12 +52,12 @@ export function renderFinalClear(root,state,{onLobby,onSaves,onLeaderboard}={}){
   const qa=state.config?.qaFixture===true,best=qa?state.finale?.qaBestAttackSnapshot:state.finale?.bestAttackSnapshot;
   const nav=el('header',{class:'topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),el('nav',{},onSaves&&button('저장',onSaves,'quiet'),onLobby&&button('로비',onLobby,'quiet')));
   root.replaceChildren(nav,el('main',{class:'result-page finale-clear'},
-    el('span',{class:'eyebrow',text:'UNIVERSAL GRAMMAR DEFEATED'}),el('h1',{text:'원정 클리어 · 50 / 50'}),
+    el('span',{class:'eyebrow',text:'UNIVERSAL GRAMMAR DEFEATED'}),el('h1',{text:'원정 클리어'}),
     el('p',{text:'서피스 스트럭처 · 딥 스트럭처 · 유니버셜 그래머를 모두 넘어섰습니다.'}),
     qa&&el('p',{class:'finale-qa-notice',text:'지정 덱 QA · 랭킹 제외'}),
     el('section',{class:'panel finale-best-attack'},el('h2',{text:'이번 원정 최고의 한 문장'}),
-      best?el('div',{},el('strong',{class:'finale-best-power',text:`${best.finalPower.toLocaleString()}점`}),el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} / 50 · 최종 위력 기준`})):el('p',{text:'보존된 실제 최고 문장 기록이 없습니다.'})),
-    el('p',{class:'helper',text:qa?'이 지정 상태의 결과는 개인 클리어 랭킹에 등록하지 않습니다.':'실제 최고 문장과 50전투 완료 기록을 이 기기의 클리어 랭킹에서 확인할 수 있습니다.'}),
+      best?el('div',{},el('strong',{class:'finale-best-power',text:`${best.finalPower.toLocaleString()}점`}),el('p',{class:'finale-full-sentence',text:best.sentenceText}),el('small',{text:`달성 전투 ${best.battleNumber} · 최종 위력 기준`})):el('p',{text:'보존된 실제 최고 문장 기록이 없습니다.'})),
+    el('p',{class:'helper',text:qa?'이 지정 상태의 결과는 개인 클리어 랭킹에 등록하지 않습니다.':'실제 최고 문장과 원정 완료 기록을 이 기기의 클리어 랭킹에서 확인할 수 있습니다.'}),
     el('p',{class:'helper',text:'공용 랭킹 미연결'}),
     el('div',{class:'reward-footer'},onLeaderboard&&button(LOCAL_LEADERBOARD_LABEL,onLeaderboard,'primary',{id:'finale-leaderboard'}),onSaves&&button('완료 상태 저장',onSaves,'secondary',{id:'save-final-clear'}),onLobby&&button('로비로',onLobby,'secondary',{id:'finale-lobby'}))));
 }

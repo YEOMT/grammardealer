@@ -1,0 +1,85 @@
+{
+  "scope": "isolated Chromium UI and assigned states; physical device NOT RUN",
+  "checks": [
+    {
+      "name": "T1-lobby-profile",
+      "status": "PASS",
+      "evidence": {
+        "existingName": "여행자 B",
+        "mode": "ADVANCED",
+        "missingNameSameId": "qa.empty"
+      }
+    },
+    {
+      "name": "T2-preparation-information",
+      "status": "PASS",
+      "evidence": [
+        {
+          "stageId": "stage.01",
+          "title": "1·2·3형식",
+          "commands": [
+            true,
+            true
+          ]
+        },
+        {
+          "stageId": "stage.10",
+          "title": "현재분사 분사구문",
+          "commands": [
+            true,
+            true
+          ]
+        },
+        {
+          "stageId": "stage.final",
+          "title": "유니버셜 그래머",
+          "commands": [
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "name": "T3-hand-actions",
+      "status": "PASS",
+      "evidence": {
+        "crossPageSelection": true,
+        "toggleAndEscape": true,
+        "exchange": [
+          4,
+          3
+        ],
+        "turns": 5,
+        "nonDefaultLimit": "2/5"
+      }
+    },
+    {
+      "name": "T4-runes-layout",
+      "status": "PASS",
+      "evidence": [
+        {
+          "w": 1280,
+          "h": 720,
+          "mobile": false
+        },
+        {
+          "w": 1024,
+          "h": 768,
+          "mobile": false
+        },
+        {
+          "w": 844,
+          "h": 390,
+          "mobile": true
+        },
+        {
+          "w": 844,
+          "h": 310,
+          "mobile": true
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

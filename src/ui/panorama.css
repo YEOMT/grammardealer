@@ -55,3 +55,5 @@ html[data-handheld=true] .panorama-preparation .preparation-guide strong{font-si
 html[data-handheld=true] .panorama-preparation .preparation-guide p,html[data-handheld=true] .panorama-preparation .preparation-boss summary,html[data-handheld=true] .panorama-preparation .preparation-guide .boss-rule{font-size:12px}
 html[data-handheld=true] .panorama-preparation .preparation-actions.reward-footer{margin:20px 0 0;padding-top:0;gap:8px}
 html[data-handheld=true] .panorama-preparation .preparation-actions button{min-height:44px;padding:4px 18px;font-size:13px}
+
+.preparation-identity .preparation-boss-badge{color:#ff796f;font-weight:800}

@@ -1,3 +1,7 @@
+# 0.14.2 문구·프로필 인계
+
+PR #36을 포함한 main `2082aff8a5c24b290901f300f2c844ffdc402d00`에서 시작했다. 앱만 0.14.2, 내부 계약은 0.14.0이다. 표시 번역은 `ui/displayText.js`, 지역 요약은 `ui/targetGrammar.js`, 해석 틀은 `data/battleLearningGuide.js`에 있다. 기존 이름 보존은 로비와 startRun 양쪽에서 처리하며 저장 스키마를 바꾸지 않는다. [이번 실제 검사](COPY_CLARITY_0.14.2_REPORT.md). 아래 과거 기록은 보존한다.
+
 # 0.14.1 UI 피드백 인계
 
 기준 main `c19c8a78da6ee4a849a7123ecd200c0a608762d9`, 브랜치 `codex/v0.14.1-ui-feedback-polish`. 앱/패키지만 0.14.1이며 `contracts.js`와 모든 원정·언어·저장 정책은 변경하지 않았다. [이번 명세](../spec/v0.14.1/Syntax_Atlas_v0.14.1_UI_Feedback_Polish_Spec.md) · [실행 결과와 범위](UI_FEEDBACK_0.14.1_REPORT.md).

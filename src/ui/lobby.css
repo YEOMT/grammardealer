@@ -26,3 +26,6 @@
 .lobby .chapter-preview p,.lobby .hero-features{color:#e4eee5;text-shadow:0 1px 4px #06182c}
 .lobby-footer{color:#e0e9df;background:linear-gradient(90deg,#0c263499,#0c263466);border-top-color:#d8c48b44;padding-inline:12px}
 #app:has(>.lobby)>.scene-backdrop-full::after{background:linear-gradient(90deg,#081b3b38,transparent 55%,#081b3b20)}
+
+.lobby .region-name-list{display:flex;flex-wrap:wrap;gap:8px 14px;padding:12px;min-height:0;font-size:13px}
+.lobby input[readonly]{cursor:default}

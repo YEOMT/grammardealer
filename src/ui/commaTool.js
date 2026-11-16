@@ -21,7 +21,7 @@ export function attachCommaTool(shell, combat, {command, locked=false}={}) {
   function toggle(){if(locked)return;if(!cards().length){toast('단어를 먼저 놓아 주세요.');return;}setPlacing(!placing);}
   function put(gap){const nodes=cards();if(!nodes.length)return;setPlacing(false);command({type:'SET_COMMA',afterCardInstanceId:gap===0?null:nodes[gap-1].dataset.cardId});}
   function chooseGap(){setPlacing(false);let view;view=modal('쉼표 위치',[
-    el('p',{text:'문법 검사는 공격 확정 뒤에 진행합니다. 원하는 단어 경계를 선택하세요.'}),
+    el('p',{text:'문법 검사는 공격 뒤에 진행합니다. 원하는 단어 경계를 선택하세요.'}),
     el('div',{class:'comma-gap-list'},button('문장 맨 앞',()=>{view.close();put(0);},'secondary'),...cards().map((card,i)=>button(`${i+1}. ${card.querySelector('.card-word').textContent} 뒤`,()=>{view.close();put(i+1);},'secondary')))
   ]);}
   function markerMenu(){if(locked)return;setPlacing(true);}

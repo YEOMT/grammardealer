@@ -36,7 +36,7 @@ try{
   for(const [width,height,mobile]of [[1280,720,false],[1024,768,false],[844,390,true]]){
    await boot({width,height,mobile});await page.waitForFunction(()=>document.querySelector('.monster-image[data-ready=true]'));
    await expect(page.getByRole('button',{name:'목표 문법',exact:true})).toHaveCount(1);
-   await expect(page.locator('.enemy-tactics')).toContainText('지역 보너스');await expect(page.locator('.region-bonus')).toContainText('×1.25');
+   await expect(page.locator('.enemy-tactics')).toContainText('지역 점수 보너스');await expect(page.locator('.region-bonus')).toContainText('×1.25');
    await expect(page.locator('.pile-button').first()).toContainText('뽑을 카드');await expect(page.locator('.pile-discard')).toContainText('버린 카드');assert.ok((await page.locator('.rune-slot.empty').allTextContents()).every(t=>t==='비어 있음'));
    assert.equal(await page.locator('.mobile-resources').isVisible(),mobile);await expect(page.locator('.game-header .mobile-battle-hud')).toHaveCount(0);
    const before=await state();await page.getByRole('button',{name:'목표 문법',exact:true}).click();await expect(page.locator('dialog[open]')).toContainText('이번 전투');await expect(page.locator('dialog[open]')).toContainText('제출 후');await close();assert.deepEqual(await state(),before);

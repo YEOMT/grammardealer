@@ -1,0 +1,65 @@
+[
+  {
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-11-16T12:45:58.865407+00:00",
+    "finishedAt": "2026-11-16T12:49:15.529401+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0142/unit-final/command.log",
+    "logSha256": "80e013ed7fd23b5ac863796ddb4c7bad28671ec06257f4c612c10019e4bee4b1"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-11-16T12:49:15.753859+00:00",
+    "finishedAt": "2026-11-16T12:49:16.965345+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0142/build-final/command.log",
+    "logSha256": "7f8ba96f1de746f32933fa816fb2824aac3e6f2b81da349e5e6791eb6343be77"
+  },
+  {
+    "command": [
+      "node",
+      "tests/copy-clarity-browser.mjs"
+    ],
+    "startedAt": "2026-11-16T12:44:43.658409+00:00",
+    "finishedAt": "2026-11-16T12:44:51.819750+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0142/copy-final/command.log",
+    "logSha256": "63c98e93438466fde3077ca3f05bc9c5793286950ec15092f82805e47a8ccb6a"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-16T12:45:13.344583+00:00",
+    "finishedAt": "2026-11-16T12:45:31.557648+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0142/feedback-final/command.log",
+    "logSha256": "d556d81a783fbcb8c6ed14339052b2761002093f6deb69b5a00d57ee19d39a5e"
+  },
+  {
+    "command": [
+      "node",
+      "tests/comma-browser.mjs",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-16T12:46:30.041980+00:00",
+    "finishedAt": "2026-11-16T12:46:43.465898+00:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v0142/comma-final2/command.log",
+    "logSha256": "f1b159511725fba92f18437b5208586f8d570d9905895c1906dd473c6463fcfc"
+  }
+]

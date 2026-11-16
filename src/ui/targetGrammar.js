@@ -8,10 +8,13 @@ import {EMBER_HINT} from '../data/stage7.js';
 import {WATERWAYS_HINT} from '../data/stage8.js';
 import {el,modal} from './dom.js';
 export const regionBonusSummary=guide=>{
- const text=guide.bonus.replace(/^지역 보너스 · /,'').replace('최종전 · 지역 배율 ×1','추가 배율 없음');
- // Long enumerations stay complete in the help window; the summary keeps its real multiplier.
+ if(guide.bonus==='최종전 · 지역 배율 ×1')return '없음';
+ const text=guide.bonus.replace(/^지역 (?:점수 )?보너스 · /,'');
  const match=text.match(/^(.*?) (×[\d.]+)$/);
- return match&&match[1].length>14?`학습 구문 ${match[2]}`:text;
+ if(!match)return text;
+ const target=guide.title==='운명의 직조자'&&match[1].includes('분사구문')?'분사구문·가정법':guide.title;
+ const grammaticalTargets=['현재분사 분사구문','과거분사 분사구문','가정법 과거','가정법 과거완료','분사구문·가정법'];
+ return grammaticalTargets.includes(target)?`${target} ${match[2]}`:text;
 };
 /** Static, versioned curriculum only; no parser, controller or edited-sentence access. */
 export function openTargetGrammar(state){
@@ -20,7 +23,7 @@ export function openTargetGrammar(state){
  return modal('목표 문법',[
   el('h3',{text:'이번 전투: '+p.targetLabel}),
   ...[['형태',p.patternKo],['뜻',p.meaningKo],['예문',p.example]].filter(([,text])=>text).map(([label,text])=>el('p',{text:label+': '+text})),
-  el('h3',{text:'지역 보너스'}),...g.bonusHelp.map(text=>el('p',{text})),
+  el('h3',{text:'지역 점수 보너스'}),...g.bonusHelp.map(text=>el('p',{text:text.replace(/^지역 점수 보너스 · /,'')})),
   ...(g.detail?[el('h3',{text:'추가 설명'}),...g.detail.split('\n').map(text=>el('p',{text}))]:[]),
   ...(g.boss?[el('h3',{text:'보스 공략'}),...g.boss.map(text=>el('p',{text}))]:[]),
   ...(hint?[el('h3',{text:'지역 공략 참고'}),el('p',{text:hint})]:[])
