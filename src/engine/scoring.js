@@ -1,3 +1,5 @@
+import {CLAUSE_INITIAL,PARTICIPIAL_LABELS} from '../data/clausePolicy.js';
+import {completeWordStructure} from './punctuation.js';
 import {corridorScoreEvidence} from './grammar/corridorEvidence.js';
 import {CORRIDOR_LABELS} from '../data/corridorPolicy.js';
 import { SCORE_BALANCE, scoreBalanceForVersion } from '../data/balance.js';
@@ -89,7 +91,7 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
       operation: 'ADD', operand: -penalty, evidenceRefs: [issue.id], highlightCardIds: issue.cardIds ?? [] });
   }
   if (score < 0) emit({ phase: 'ACCURACY', sourceType: 'SYSTEM', sourceId: 'ZERO_FLOOR', labelKo: '기본 점수 최저 0', operation: 'CLAMP_ZERO', operand: 0 });
-  if (analysis.status === 'VALID' && !(analysis.issues ?? []).length && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
+  if (completeWordStructure(analysis) && !excluded.size) emit({ phase: 'COMPLETE_BONUS', sourceType: 'GRAMMAR',
     sourceId: 'COMPLETE_SENTENCE', labelKo: '완전한 문장!', operation: 'ADD', operand: balance.completeBonus,
     evidenceRefs: [frameHit.id], highlightCardIds: scoringCards.map((card) => card.instanceId) });
   if(frameMultiplier)emit({ phase: 'MAIN_FRAME', sourceType: 'GRAMMAR', sourceId: frameHit.tag, labelKo: ['0.5.0','0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)&&frameId==='frame.svoc'?`${FRAME_LABELS[frameId]} ×${frameMultiplier.num/frameMultiplier.den}`:['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0'].includes(analysis.grammarVersion)&&analysis.clauses?.some(c=>c.parentClauseId===null&&c.role==='COORDINATE')?'첫 번째 절 · '+({'frame.sv':'1형식','frame.svc.adj':'2형식','frame.svc.np':'2형식','frame.svo':'3형식','frame.svoo':'4형식','frame.svoc':'5형식'})[frameId]:balance.completeBonus===30&&frameId==='frame.svoo'?'주절 · 4형식! ×2.2':FRAME_LABELS[frameId], operation: 'MULTIPLY',
@@ -99,6 +101,10 @@ export function scoreAttack(analysis, cards, { attackId = 'attack.sandbox', bala
     emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:({'TIME.PAST':'과거','TIME.PROGRESSIVE':'진행','TIME.PERFECT':'완료','TIME.FUTURE_WILL':'will 미래'})[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});
   }
   for(const [tag,operand]of Object.entries(balance.corridorMultipliers??{})){const evidence=hits.filter(h=>h.tag===tag);if(evidence.length)emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:CORRIDOR_LABELS[tag],operation:'MULTIPLY',operand,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))]});}
+  if(analysis.languagePolicyVersion==='0.14.0')for(const [tag,label]of Object.entries(PARTICIPIAL_LABELS)){
+    const evidence=hits.filter(h=>h.tag===tag&&h.validity==='VALID'&&h.bonusEligible!==false);if(!evidence.length)continue;
+    emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:tag,labelKo:`${label} ×1.6`,operation:'MULTIPLY',operand:CLAUSE_INITIAL.participialMultiplier,evidenceRefs:evidence.map(h=>h.id),highlightCardIds:[...new Set(evidence.flatMap(h=>h.cardIds))],punctuation:analysis.punctuation});
+  }
   const passiveHits=hits.filter(h=>h.tag==='VOICE.PASSIVE'&&h.validity==='VALID'&&h.bonusEligible!==false);
   if(balance.passiveMultiplier&&passiveHits.length)emit({phase:'CONSTRUCTIONS',sourceType:'GRAMMAR',sourceId:'VOICE.PASSIVE',labelKo:'수동태 ×1.8',operation:'MULTIPLY',operand:balance.passiveMultiplier,evidenceRefs:passiveHits.map(h=>h.id),highlightCardIds:[...new Set(passiveHits.flatMap(h=>h.cardIds))]});
   // Only grammar-proven nominal/infinitival roles qualify; never count surface suffixes.

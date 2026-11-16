@@ -8,7 +8,10 @@ export const snapshotFromSlots=createSentenceSnapshot;
  */
 export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',registry=defaultRegistry}={}) {
  if(typeof text!=='string')throw new TypeError('Fixture text must be a string');
- const words=text.trim().replace(['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean);
+ const punctuation=[];
+ const input=registry.participialAdjunctPolicy?text.replace(/,/g,' , '):text;
+ let wordCount=0;
+ const words=input.trim().replace(!registry.participialAdjunctPolicy&&['0.4.0','0.5.0','0.6.0','0.6.1','0.7.0','0.8.0','0.9.0','0.10.0'].includes(registry.version)?/[,.!?]/g:/[.!?]+$/g,'').split(/\s+/).filter(Boolean).filter(w=>{if(registry.participialAdjunctPolicy&&w===','){punctuation.push({kind:'COMMA',gapIndex:wordCount});return false;}wordCount++;return true;});
  const orderedTokens=words.map((word,position)=>{
   const matches=registry.forms.filter(f=>f.surface.toLowerCase()===word.toLowerCase()&&(!registry.lexemeById[f.lexemeId].secondaryOnly||registry.languagePolicyVersion));
   const lexemeIds=[...new Set(matches.map(f=>f.lexemeId))];
@@ -18,14 +21,14 @@ export function snapshotFromText(text,{sentenceId='fixture',prefix='fixture',reg
   const def=linked||registry.cards.find(c=>c.lexemeId===selected.lexemeId);
   return makeToken(`${prefix}.${position}`,def.id,selected.id,position,registry);
  });
- return {schemaVersion:1,sentenceId,languageVersion:registry.languagePolicyVersion??registry.version,orderedTokens,...(['0.8.0','0.9.0','0.10.0'].includes(registry.version)&&/[.!?]\s*\S/.test(text)?{fixtureMultipleSentences:true}:{}),...(/[?]/.test(text)&&!['0.8.0','0.9.0','0.10.0'].includes(registry.version)?{fixtureCapabilityId:'cap.question'}:{})};
+ return {schemaVersion:registry.participialAdjunctPolicy?2:1,...(registry.participialAdjunctPolicy?{punctuation}:{}),sentenceId,languageVersion:registry.languagePolicyVersion??registry.version,orderedTokens,...(['0.8.0','0.9.0','0.10.0'].includes(registry.version)&&/[.!?]\s*\S/.test(text)?{fixtureMultipleSentences:true}:{}),...(/[?]/.test(text)&&!['0.8.0','0.9.0','0.10.0'].includes(registry.version)?{fixtureCapabilityId:'cap.question'}:{})};
 }
-const fingerprint=(tokens)=>{
+const fingerprint=(tokens,punctuation=[])=>{
  let value=2166136261;
- for(const char of tokens.map(t=>`${t.cardInstanceId}:${t.lexemeId}:${t.selectionId}:${t.surface}`).join('|')){value^=char.charCodeAt(0);value=Math.imul(value,16777619);}
+ for(const char of tokens.map(t=>`${t.cardInstanceId}:${t.lexemeId}:${t.selectionId}:${t.surface}`).join('|')+(punctuation.length?'#'+JSON.stringify(punctuation):'')){value^=char.charCodeAt(0);value=Math.imul(value,16777619);}
  return (value>>>0).toString(16).padStart(8,'0');
 };
-const emptyResult=(snapshot)=>({schemaVersion:1,grammarVersion:GRAMMAR_VERSION,inputFingerprint:fingerprint(snapshot?.orderedTokens??[]),
+const emptyResult=(snapshot)=>({schemaVersion:1,grammarVersion:GRAMMAR_VERSION,inputFingerprint:fingerprint(snapshot?.orderedTokens??[],snapshot?.punctuation??[]),
  status:'ENGINE_ERROR',rootNodeId:null,mainClauseId:null,mainFrameId:null,nodes:[],clauses:[],resolvedTokenRoles:[],grammarHits:[],hits:[],issues:[],evidenceMarks:[],ambiguities:[],
  coverage:{consumedCardIds:[],issueAffectedCardIds:[],unlicensedCardIds:[]},excludedCardIds:[],diagnostics:{},messageKo:''});
 /** Pure, bounded analysis of registered current-tense card tokens.
@@ -38,7 +41,9 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{histo
  try {
   if(!snapshot||!Array.isArray(snapshot.orderedTokens))throw new TypeError('Malformed SentenceSnapshot');
   result={...emptyResult(snapshot),grammarVersion:languageRegistry.version??GRAMMAR_VERSION};
-  if(snapshot.schemaVersion!==1)throw new TypeError('Unsupported snapshot schema');
+  if(snapshot.schemaVersion!==1&&!(languageRegistry.participialAdjunctPolicy&&snapshot.schemaVersion===2))throw new TypeError('Unsupported snapshot schema');
+  const punctuation=snapshot.punctuation??[];
+  if(!Array.isArray(punctuation)||punctuation.length>1||punctuation.some(p=>p.kind!=='COMMA'||!Number.isInteger(p.gapIndex)||p.gapIndex<0||p.gapIndex>snapshot.orderedTokens.length)||punctuation.length&&!languageRegistry.participialAdjunctPolicy)throw new TypeError('Invalid punctuation snapshot');
   const maximum=languageRegistry.maxSentenceCards===24?24:16;
   if(snapshot.orderedTokens.length>maximum)return {...result,status:'UNSUPPORTED',messageKo:`문장 카드 한도는 ${maximum}장입니다.`,diagnostics:{limit:'MAX_TOKENS',maximum}};
   const ids=new Set();
@@ -61,7 +66,7 @@ export function analyzeSentence(snapshot,languageRegistry=defaultRegistry,{histo
   });
   if((snapshot.fixtureCapabilityId&&!(['0.8.0','0.9.0','0.10.0'].includes(languageRegistry.version)&&snapshot.fixtureCapabilityId==='cap.question'))||tokens.some(t=>t.unsupported))return {...result,status:'UNSUPPORTED',messageKo:'이 원정의 문법 범위에서는 아직 판정하지 않습니다.',diagnostics:{capabilityId:snapshot.fixtureCapabilityId??tokens.find(t=>t.unsupported)?.unsupportedCapabilityId??'cap.unregistered.lexeme'}};
   if(['0.8.0','0.9.0','0.10.0'].includes(languageRegistry.version)&&snapshot.fixtureMultipleSentences)return {...result,status:'INVALID_CORE',messageKo:'한 문장씩 제출하세요.'};
-  const parsed=parseSupportedClause(tokens,languageRegistry,{historicalReceipt});
+  const parsed=parseSupportedClause(tokens,languageRegistry,{historicalReceipt,punctuation});
   result={...result,...parsed};
   if(languageRegistry.languagePolicyVersion)result.languagePolicyVersion=languageRegistry.languagePolicyVersion;
   if(languageRegistry.adjectiveModifierPolicy&&!historicalReceipt)result.adjectiveModifierPolicy=languageRegistry.adjectiveModifierPolicy;

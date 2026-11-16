@@ -239,6 +239,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
   };
   const showBossState=state=>{
     if(state?.id==='FATE_FORESIGHT')text('foresight-memory','예견 · 직전 문형 '+frameLabel(state.rememberedFrame));
+    if(state?.id==='FATE_CLAUSE_THREADS')text('clause-threads',Object.entries({ACTIVE:'행동',PASSIVE:'흔적',COUNTERFACTUAL:'가능성'}).map(([key,label])=>`${label} ${state.threads[key]?'●':'○'}`).join(' · '));
     if(state?.id?.startsWith('FINALE_')){const n=find(root,'finale-status');if(n)n.textContent=finaleStatusText(state);}
     if(state?.id==='DUAL_RELATIVE_SEAL'){const n=find(root,'relative-seal');if(n){n.dataset.unlocked=String(state.unlocked);n.textContent=state.unlocked?'청동 인장 해제 · 처치 가능':'청동 인장 · HP 1 보호';}}
     if(state?.id==='EMBER_SCALE_SHIELD'){const n=find(root,'ember-scale');if(n){n.dataset.active=String(state.active);n.textContent=state.active?'검댕 비늘 · 피해 75% 감소':'검댕 비늘 해제';}}

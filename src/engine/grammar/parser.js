@@ -4,10 +4,12 @@ import {verbPhrases} from './verbPhrase.js';
 import {isIngForm} from '../../data/language/desertLanguage.js';
 /* Bounded phrase/valency parser. It composes registered NP/AP/PP constituents;
    no answer strings, permutation search, inserted words, or semantic plausibility scoring. */
-const LABELS={RELATIVE_MARKER_ANTECEDENT:'선행사에 맞는 관계사를 확인하세요.',COMPARISON_FORM_MISMATCH:'이 단어의 비교 형태를 확인하세요.',DOUBLE_COMPARISON_MARKING:'비교 표지를 두 번 붙이지 않습니다.',AS_REQUIRES_POSITIVE_DEGREE:'as와 as 사이에는 원급을 씁니다.',SUPERLATIVE_FORM_OR_DETERMINER:'최상급 형태와 the 또는 소유 한정사를 확인하세요.',COMPARISON_STANDARD_REQUIRED:'비교 기준을 완성하세요.',ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
+const LABELS={COMMA_POSITION:'쉼표가 문장 성분을 끊고 있습니다.',COMMA_MISSING:'분사구문 뒤에 쉼표를 넣어 주세요.',COMMA_SPLICE:'두 독립절 사이에는 접속사가 필요합니다.',PARTICIPIAL_STRUCTURE:'분사구문과 완전한 주절의 연결을 확인하세요.',RELATIVE_MARKER_ANTECEDENT:'선행사에 맞는 관계사를 확인하세요.',COMPARISON_FORM_MISMATCH:'이 단어의 비교 형태를 확인하세요.',DOUBLE_COMPARISON_MARKING:'비교 표지를 두 번 붙이지 않습니다.',AS_REQUIRES_POSITIVE_DEGREE:'as와 as 사이에는 원급을 씁니다.',SUPERLATIVE_FORM_OR_DETERMINER:'최상급 형태와 the 또는 소유 한정사를 확인하세요.',COMPARISON_STANDARD_REQUIRED:'비교 기준을 완성하세요.',ASPECT_USAGE:'know의 기본 뜻은 보통 진행형으로 쓰지 않습니다.',AUXILIARY_FORM_REQUIRED:'조동사 뒤의 동사 형태를 확인하세요.',INFINITIVE_BASE_REQUIRED:'부정사에는 동사 원형을 사용하세요.',BE_FORM_REQUIRED:'be동사 형태를 선택하세요: am / is / are.',SUBJECT_VERB_AGREEMENT:'주어-동사 일치를 확인하세요.',DETERMINER_REQUIRED:'단수 명사 앞에 한정사가 필요합니다.',DETERMINER_NUMBER_AGREEMENT:'한정사와 명사의 수가 맞지 않습니다.',ARTICLE_FORM:'a/an 형태를 확인하세요.',ARTICLE_COUNTABILITY_MISMATCH:'셀 수 없는 명사에는 a/an을 쓰지 않습니다.',PRONOUN_CASE:'대명사의 격을 확인하세요.',INVALID_ADVERB_TARGET:'이 very는 동사를 직접 수식할 수 없습니다.',MISSING_FINITE_VERB:'동사가 필요합니다.',CORE_WORD_ORDER:'문장 순서를 확인하세요.',MISSING_REQUIRED_COMPLEMENT:'동사에 필요한 목적어나 보어가 없습니다.',MISSING_SUBJECT:'주어가 필요합니다.'};
 const LIMITS={work:12000,depth:4,candidates:128};
 
-export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={}) {
+export function parseSupportedClause(tokens,registry,{historicalReceipt=false,punctuation=[]}={}) {
+ const clause014=registry.participialAdjunctPolicy&&!historicalReceipt;
+ const comma=punctuation[0]?.gapIndex??null;
  const corridor=registry.version==='0.10.0',library=corridor||registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0';
  const polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6';
@@ -34,7 +36,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  const issue=(code,indices)=>({code,cardIds:indices.map(i=>tok(i).cardInstanceId),causeId:`${code}:${indices.map(i=>tok(i).cardInstanceId).join('|')}`,messageKo:LABELS[code]});
  const phrase=(kind,start,end,head,more={})=>({kind,start,end,head,features:{},issues:[],hits:[],roles:[],children:[],...more});
  const isDegree=(i)=>tok(i)?.lex.pos==='ADVERB'&&tok(i)?.sense.adverbPolicy?.degree;
- const advAllowed=(i,position)=>{const l=usageFor(i,'ADVERB');return l?registry.senseById[l.senseIds[0]].adverbPolicy?.positions?.includes(position):registry.languagePolicyVersion==='0.12.1'&&tok(i)?.sense.adverbPolicy?.additive&&position==='END';};
+ const advAllowed=(i,position)=>{const l=usageFor(i,'ADVERB');return l?registry.senseById[l.senseIds[0]].adverbPolicy?.positions?.includes(position):['0.12.1','0.14.0'].includes(registry.languagePolicyVersion)&&tok(i)?.sense.adverbPolicy?.additive&&position==='END';};
  const ppStart=(i)=>hasRole(i,'PREPOSITION');
  const merge=(a,b,extra={})=>({...a,...extra,issues:[...a.issues,...b.issues],hits:[...a.hits,...b.hits],roles:[...a.roles,...b.roles],children:[...a.children,b],...(desert?{interpretationPriority:(a.interpretationPriority??0)+(b.interpretationPriority??0)}:{})});
 
@@ -245,11 +247,11 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  }
  function advPhrase(i){return phrase('AdvP',i,i+1,i,{hits:[hit('MODIFIER.ADVERB',i,i+1)],roles:[role(i,'ADVERB')]});}
  function parseAdvPAtom(start,position) {
-  if(registry.languagePolicyVersion==='0.12.1'&&tok(start)?.sense.adverbPolicy?.additive&&position==='END'&&!hasRole(start+1,'ADJECTIVE')&&!hasRole(start+1,'ADVERB'))return advPhrase(start);
+  if(['0.12.1','0.14.0'].includes(registry.languagePolicyVersion)&&tok(start)?.sense.adverbPolicy?.additive&&position==='END'&&!hasRole(start+1,'ADJECTIVE')&&!hasRole(start+1,'ADVERB'))return advPhrase(start);
   const compared=comparisonPhrase(start,{kind:'AdvP',position,depth:1});if(compared!==null)return compared.sort((a,b)=>b.end-a.end)[0]??null;
   tick();let p=start;
   while(isDegree(p))p++;
-  if(p>start&&advAllowed(p,position)&&(['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p))||registry.languagePolicyVersion==='0.12.1'&&word(p)==='hard'))return phrase('AdvP',start,p+1,p,{
+  if(p>start&&advAllowed(p,position)&&(['quickly','slowly','carefully','clearly','well','often','fast'].includes(word(p))||['0.12.1','0.14.0'].includes(registry.languagePolicyVersion)&&word(p)==='hard'))return phrase('AdvP',start,p+1,p,{
    hits:Array.from({length:p-start+1},(_,n)=>hit('MODIFIER.ADVERB',start+n,start+n+1)),
    roles:Array.from({length:p-start+1},(_,n)=>role(start+n,'ADVERB')),
   });
@@ -533,7 +535,74 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
   if(out.length>limits.candidates){const e=new Error('CLAUSE_LINK_CANDIDATES');e.code='ENGINE_LIMIT';throw e;}
   rangeMemo.set(key,out);return out;
  }
- const candidates=[...parseRange(0,tokens.length),...(waterways?waterwaysQuestion(0,tokens.length,0,false):[])];
+ // A preposed nonfinite adjunct is attached to a real matrix subject, never
+ // an invented finite clause or a token inserted to satisfy valency.
+ const ordinary=[...parseRange(0,tokens.length),...(waterways?waterwaysQuestion(0,tokens.length,0,false):[])];
+ const adjunctCandidates=[];
+ const scans=(node,predicate)=>predicate(node)||(node.children??[]).some(n=>scans(n,predicate));
+ if(clause014&&(ingAt(0)||ppAt(0))){
+  if(ingAt(0)&&word(0)==='having'&&ppAt(1)&&comma!==null)return unsupported('cap.participial.perfect');
+  for(let boundary=1;boundary<tokens.length-1;boundary++)for(const main of parseRange(boundary,tokens.length,{depth:0})){
+   if(!main.subject||main.mood==='IMPERATIVE'||scans(main.tree,n=>n.nominal?.kind.startsWith('EXTRAPOSED_SUBJECT')))continue;
+   for(const kind of [...(ingAt(0)?['ING']:[]),...(ppAt(0)?['PP']:[])])for(const original of desertNonfinite(0,boundary,0,{kind,interpretation:'PARTICIPLE',function:'ADVERBIAL_ADJUNCT',controller:main.subject})){
+    // The simple prefix must itself have a licensed argument structure. A
+    // multi-verb perfect/progressive adjunct is outside this bounded feature.
+    const prefixVp=original.children.find(n=>n.verbPhrase)?.verbPhrase;
+    if(!prefixVp||prefixVp.lexicalIndex!==0||prefixVp.auxiliaries.length)continue;
+    const tag='CLAUSE.PARTICIPIAL.'+(kind==='PP'?'PASSIVE':'ACTIVE');
+    const raw={...hit(tag,0,boundary),validity:'VALID',bonusEligible:true,comboImplemented:true};
+    const prefix={...original,kind:'PARTICIPIAL_ADJUNCT',hits:[...original.hits.filter(h=>!['PARTICIPLE.PRESENT','PARTICIPLE.PAST'].includes(h.tag)),raw],nonfinite:{...original.nonfinite,interpretation:'ADJUNCT'},adjunct:{voice:kind==='PP'?'PASSIVE':'ACTIVE',boundary,controllerHead:main.subject.head,formKind:kind}};
+    const children=[prefix,main.tree],issues=issueUnique([...prefix.issues,...main.issues]);
+    const tree=phrase('PARTICIPIAL_CONNECTION',0,tokens.length,main.verbIndex,{children,issues,hits:children.flatMap(n=>n.hits),roles:children.flatMap(n=>n.roles)});
+    adjunctCandidates.push({...main,chunks:[prefix,...main.chunks],tree,issues,adjunctBoundary:boundary,compositionPriority:-1});
+   }
+  }
+ }
+ let candidates=ordinary;
+ if(clause014){
+  if(comma!==null&&comma>0&&comma<tokens.length){
+   // Explicit-subject absolutes and adjuncts with an implicit/dummy matrix
+   // controller are valid-English possibilities outside this feature's scope.
+   const right=parseRange(comma,tokens.length);
+   for(const subject of parseNP(0,'SUBJECT',{allowPostPP:false,allowRelative:false})){
+    const start=subject.end,kind=ingAt(start)?'ING':ppAt(start)?'PP':null;
+    if(kind&&start<comma&&right.length&&desertNonfinite(start,comma,0,{kind,interpretation:'PARTICIPLE',function:'ADVERBIAL_ADJUNCT',controller:subject}).length)return unsupported('cap.participial.absolute');
+   }
+   const prefixKind=ingAt(0)?'ING':ppAt(0)?'PP':null;
+   if(prefixKind&&desertNonfinite(0,comma,0,{kind:prefixKind,interpretation:'PARTICIPLE',function:'ADVERBIAL_ADJUNCT'}).length){
+    if(right.some(r=>scans(r.tree,n=>n.nominal?.kind.startsWith('EXTRAPOSED_SUBJECT'))))return unsupported('cap.participial.dummy.controller');
+    if(tok(comma)?.lex.pos==='VERB'&&word(comma)===tok(comma).lex.lemma.toLowerCase()){
+     const subject={start:comma,end:comma,head:null,kind:'IMPLICIT_SUBJECT',features:{person:2,number:'ANY'},issues:[],hits:[],roles:[],children:[]};
+     if(predicateSingle(comma,subject,tokens.length,0,{finite:false}).some(r=>!r.issues.length))return unsupported('cap.participial.imperative.controller');
+    }
+   }
+  }
+  const matching=adjunctCandidates.filter(c=>c.adjunctBoundary===comma);
+  const uniqueBoundaries=new Set(adjunctCandidates.map(c=>c.adjunctBoundary));
+  if(matching.length)candidates=matching;
+  else if(adjunctCandidates.length&&uniqueBoundaries.size===1&&!ordinary.some(c=>!c.issues.length))candidates=adjunctCandidates;
+  // A comma cannot manufacture a conjunction. Validate both sides, rather
+  // than dropping either clause or removing the punctuation before parsing.
+  if(comma!==null&&comma>0&&comma<tokens.length&&!matching.length){
+   const left=parseRange(0,comma),right=parseRange(comma,tokens.length);
+   if(left.some(c=>!c.issues.length)&&right.some(c=>!c.issues.length))return invalid('COMMA_SPLICE');
+   if(left.some(c=>!c.issues.length)&&(ingAt(comma)||ppAt(comma))&&nonfiniteOptions(comma,tokens.length,0,{kind:ppAt(comma)?'PP':'ING',interpretation:'PARTICIPLE',function:'ADVERBIAL_ADJUNCT'}).some(n=>n.end===tokens.length))return unsupported('cap.participial.postposed');
+   if((ingAt(0)||ppAt(0))&&!candidates.length)return invalid('PARTICIPIAL_STRUCTURE');
+   if(!candidates.length&&left.length&&right.length)return invalid('COMMA_SPLICE');
+  }
+  // Punctuation diagnostics are attached to each actual full parse before
+  // selection; only a uniquely parsed missing boundary can be recovered.
+  candidates=candidates.map(candidate=>{
+   const validGap=comma!==null&&scans(candidate.tree,n=>n.adjunct?.boundary===comma||n.kind==='CLAUSE_COORDINATION'&&n.connectorIndex===comma||n.kind==='ADVERBIAL_CONNECTION'&&n.children[0]?.kind==='CONNECTOR'&&n.children[1]?.end===comma);
+   const missing=candidate.adjunctBoundary!==undefined&&comma===null;
+   if((comma===null||validGap)&&!missing)return candidate;
+   const indices=[Math.max(0,(comma??candidate.adjunctBoundary)-1),Math.min(tokens.length-1,comma??candidate.adjunctBoundary)];
+   const problem={...issue(missing?'COMMA_MISSING':'COMMA_POSITION',[...new Set(indices)]),punctuation:true,recoverable:true,gapIndex:comma};
+   const issues=issueUnique([...candidate.issues,problem]);
+   return {...candidate,issues,tree:{...candidate.tree,issues}};
+  });
+ }
+
  if(!candidates.length&&registry.imperativePolicy&&!historicalReceipt&&tokens[0]?.lex.pos==='VERB'&&tokens[0].surface.toLowerCase()===tokens[0].lex.lemma.toLowerCase()&&!['will','can'].includes(tokens[0].lex.lemma)){
   // A zero-width grammatical controller, never an inserted token/card or evidence node.
   const subject={start:0,end:0,head:null,kind:'IMPLICIT_SUBJECT',features:{person:2,number:'ANY'},issues:[],hits:[],roles:[],children:[]};
@@ -557,7 +626,7 @@ export function parseSupportedClause(tokens,registry,{historicalReceipt=false}={
  // Declarative perfect/causative and coordinated clauses keep their existing priorities.
  const imperativeTie=c=>c.mood==='IMPERATIVE'&&c.internalFrame==='frame.svoc.bare'? -1:0;
  candidates.sort((a,b)=>(a.mood==='IMPERATIVE'&&b.mood==='IMPERATIVE'?(a.issues.length-b.issues.length||imperativeTie(a)-imperativeTie(b)):0)||(corridor?nominalIfs(b)-nominalIfs(a):0)||(waterways?whObjects(b)-whObjects(a):0)||(desert?(a.interpretationPriority??0)-(b.interpretationPriority??0):0)||a.issues.length-b.issues.length||(corridor?implicitRelatives(a)-implicitRelatives(b):0)||(sky?((a.compositionPriority??2)-(b.compositionPriority??2)):0)||desertAttachmentPriority(a)-desertAttachmentPriority(b)||(learning?((priority.indexOf(a.internalFrame)<0?priority.length:priority.indexOf(a.internalFrame))-(priority.indexOf(b.internalFrame)<0?priority.length:priority.indexOf(b.internalFrame))||a.senseId.localeCompare(b.senseId)):0));
- const best=candidates[0];if(sky)return skyEvidence(best,{tokens,registry,candidateCount:candidates.length,workUnits:work,limits});const recovered=best.issues.length>0;
+ const best=candidates[0];if(sky)return skyEvidence(best,{tokens,registry,candidateCount:candidates.length,workUnits:work,limits,punctuation});const recovered=best.issues.length>0;
  const issues=best.issues.map((i,n)=>({...i,id:`issue.${n}`}));
  const unlicensed=[...new Set(issues.filter(i=>i.code==='INVALID_ADVERB_TARGET').flatMap(i=>i.cardIds))];
  const nodes=[];

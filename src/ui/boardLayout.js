@@ -10,11 +10,11 @@ const MOBILE_COLUMNS = 8;
 const MOBILE_GAP = 4;
 
 /** Handheld CSS lays the physical cards out continuously across the desktop row wrappers. */
-export function mobileBoardLayout({width, height, count}) {
+export function mobileBoardLayout({width, height, count, columnGap=MOBILE_GAP}) {
   const rowSlots = Math.max(1, Math.min(count, MOBILE_COLUMNS));
   const lines = Math.ceil(count / MOBILE_COLUMNS);
-  const fullSlot = (width - MOBILE_GAP * (MOBILE_COLUMNS - 1)) / MOBILE_COLUMNS;
-  const availableSlot = (width - MOBILE_GAP * (rowSlots - 1)) / rowSlots;
+  const fullSlot = (width - columnGap * (MOBILE_COLUMNS - 1)) / MOBILE_COLUMNS;
+  const availableSlot = (width - columnGap * (rowSlots - 1)) / rowSlots;
   const cardWidth = Math.max(1, Math.min(Math.max(88, fullSlot), availableSlot));
 
   const formHeight = 24;
@@ -50,7 +50,8 @@ export function observeBoard(zone){
    const css = getComputedStyle(zone);
    const horizontalPadding = parseFloat(css.paddingLeft) + parseFloat(css.paddingRight);
    const height = zone.clientHeight - parseFloat(css.paddingTop) - parseFloat(css.paddingBottom);
-   const measure = () => mobileBoardLayout({width: zone.clientWidth - horizontalPadding, height, count: cards.length});
+   const columnGap = parseFloat(css.getPropertyValue('--sentence-column-gap')) || MOBILE_GAP;
+   const measure = () => mobileBoardLayout({width: zone.clientWidth - horizontalPadding, height, count: cards.length, columnGap});
    let layout = measure();
    const hadScrollControls = !controls.hidden;
    controls.hidden = !layout.overflow;
@@ -59,7 +60,7 @@ export function observeBoard(zone){
 
    // clientWidth is rounded. Also cap at the fractional CSS content width so an eighth card
    // can never wrap just because the measured board width rounded up.
-   const widthLimit = `calc((100% - ${(layout.rowSlots - 1) * MOBILE_GAP}px) / ${layout.rowSlots})`;
+   const widthLimit = `calc((100% - ${(layout.rowSlots - 1) * columnGap}px) / ${layout.rowSlots})`;
    zone.style.setProperty('--mobile-card-width', `min(${layout.cardWidth}px, ${widthLimit})`);
    zone.style.setProperty('--mobile-card-height', layout.cardHeight + 'px');
    zone.style.setProperty('--mobile-form-height', layout.formHeight + 'px');
@@ -82,7 +83,8 @@ export function observeBoard(zone){
   const count=cards.length,rows=Math.max(1,Math.ceil(count/12)),columns=Math.min(12,Math.max(1,count));
   const target=count<=5?1.25:count<=9?1.15:count<=11?1.06:1;
   const padding=parseFloat(css.paddingLeft)+parseFloat(css.paddingRight),gap=parseFloat(css.rowGap)||0;
-  const scale=Math.min(target,(zone.clientWidth-padding-(columns-1)*4)/(columns*base),(zone.clientHeight-padding-(rows-1)*gap)/(rows*height));
+  const columnGap=parseFloat(css.getPropertyValue('--sentence-column-gap'))||4;
+  const scale=Math.min(target,(zone.clientWidth-padding-(columns-1)*columnGap)/(columns*base),(zone.clientHeight-padding-(rows-1)*gap)/(rows*height));
   zone.style.setProperty('--board-scale',String(Math.max(.1,scale)));zone.dataset.sizeBand=String(target);
  };
  // Parent/rune-rail size can change without a window resize. No game callbacks are involved.

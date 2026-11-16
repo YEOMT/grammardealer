@@ -35,10 +35,10 @@ test('device: unchanged viewport notifications preserve gesture; real size/host 
  let cancels=0;doc.addEventListener('atlas:cancel-drag',()=>cancels++);const cleanup=installViewport(win,doc);
  try{win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,0);win.innerHeight=800;win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,1);win.dispatchEvent(new Event('resize'));nextFrame();assert.equal(cancels,1);doc.fullscreenElement={};doc.dispatchEvent(new Event('fullscreenchange'));nextFrame();assert.equal(cancels,2);}finally{cleanup();}
 });
-test('device: release labels are distinct from unchanged content contracts',async()=>{
+test('device: release label and explicit clause campaign contract retain the 28-word deck',async()=>{
  const fs=await import('node:fs/promises');const pkg=JSON.parse(await fs.readFile(new URL('../package.json',import.meta.url)));
- assert.equal(APP_VERSION,'0.13.1');assert.equal(pkg.version,APP_VERSION);
+ assert.equal(APP_VERSION,'0.14.0');assert.equal(pkg.version,APP_VERSION);
  const {RunController}=await import('../src/game/runController.js');
  const c=new RunController();assert.equal(c.dispatch({type:'NEW_RUN',config:{seed:'device.version'}}).ok,true);const run=c.getState();
- assert.equal(run.version,'0.12.1');assert.equal(run.activeCardIds.length,28);
+ assert.equal(run.version,'0.14.0');assert.equal(run.contentVersions.language,'0.14.0');assert.equal(run.contentVersions.generator,'0.12.1');assert.equal(run.activeCardIds.length,28);
 });

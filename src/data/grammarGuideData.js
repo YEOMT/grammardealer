@@ -2,6 +2,8 @@ import {isIngForm} from './language/desertLanguage.js';
 import {CORRIDOR_GRAMMAR_DISPLAY} from './grammarDisplay.js';
 // Fixed review draft, not a claim of teacher approval. Examples are never player achievements.
 export const GRAMMAR_GUIDE = {
+ 'CLAUSE.PARTICIPIAL.ACTIVE':{label:'현재분사 분사구문',description:'동사-ing … 뒤에 쉼표와 완전한 주절을 둡니다. 분사부의 생략된 주어는 주절 주어와 연결됩니다. 진행형·동명사·명사 수식과 구분합니다.',examples:[]},
+ 'CLAUSE.PARTICIPIAL.PASSIVE':{label:'과거분사 분사구문',description:'수동이 가능한 동사의 p.p. … 뒤에 쉼표와 완전한 주절을 둡니다. 주절 주어가 그 동작을 받으며 by + 행위자는 선택 사항입니다. p.p. 자체로 과거시제가 되지 않습니다.',examples:[]},
  ...Object.fromEntries(CORRIDOR_GRAMMAR_DISPLAY.filter(g=>g.tag.startsWith('CORRIDOR.')).map(g=>[g.tag,{label:g.titleKo,description:g.shortDescriptionKo,examples:[]}])),
  'PARTICIPLE.PAST':{label:'과거분사',description:'p.p.형이 명사를 수식하거나 목적어의 상태를 설명할 수 있습니다. 과거 시제나 완료·수동태와 구분합니다.',examples:[]},
  'VOICE.PASSIVE':{label:'수동태',description:'be + p.p.로 주어가 동작의 대상임을 나타냅니다. 본동사의 원래 문형과 남은 목적어·보어를 함께 확인합니다.',examples:[]},
@@ -60,8 +62,8 @@ export const PRONOUN_MEANINGS={
  it:['그것(주어)','그것을/그것에게','그것의'],we:['우리(주어)','우리를/우리에게','우리의'],they:['그들/그것들(주어)','그들을/그들에게','그들의'],
 };
 export const ING_FORM_GUIDE='-ing형은 문장 속 쓰임에 따라 동명사·분사로 사용되고, be와 결합해 진행형을 만들 수 있습니다.';
-export const NONFINITE_INTERPRETATIONS={INFINITIVE:'to부정사',GERUND:'동명사',PARTICIPLE:'현재분사'};
-export const NONFINITE_FUNCTIONS={SUBJECT:'주어',OBJECT:'목적어',SUBJECT_COMPLEMENT:'주격보어',PREPOSITION_OBJECT:'전치사의 목적어',NOUN_MODIFIER:'명사 수식',PURPOSE:'목적 표현',ADJECTIVE_COMPLEMENT:'형용사 연결',OBJECT_COMPLEMENT:'목적격보어'};
+export const NONFINITE_INTERPRETATIONS={INFINITIVE:'to부정사',GERUND:'동명사',PARTICIPLE:'현재분사',ADJUNCT:'분사구문'};
+export const NONFINITE_FUNCTIONS={SUBJECT:'주어',OBJECT:'목적어',SUBJECT_COMPLEMENT:'주격보어',PREPOSITION_OBJECT:'전치사의 목적어',NOUN_MODIFIER:'명사 수식',PURPOSE:'목적 표현',ADJECTIVE_COMPLEMENT:'형용사 연결',OBJECT_COMPLEMENT:'목적격보어',ADVERBIAL_ADJUNCT:'주절 주어에 연결'};
 export function nonfiniteLabel(phrase){return [phrase.interpretation==='PARTICIPLE'&&phrase.formKind==='PP'?'과거분사':NONFINITE_INTERPRETATIONS[phrase.interpretation],NONFINITE_FUNCTIONS[phrase.function]].filter(Boolean).join(' · ');}
 export function formMeaning(word,form){if(isIngForm(form))return '-ing형';const group=PRONOUN_MEANINGS[word.lemma];if(!group)return form.labelKo;return group[{NOMINATIVE:0,OBJECTIVE:1,POSSESSIVE_DETERMINER:2}[form.grammaticalFeatures.case]]??'대명사 형태';}
 export function verbUsage(word){

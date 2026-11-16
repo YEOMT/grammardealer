@@ -1,11 +1,12 @@
+import {addClausePunctuationEvidence} from './clausePunctuationEvidence.js';
 import {addCorridorEvidence} from './corridorEvidence.js';
 import {emberEvidence} from './emberEvidence.js';
 /** Serialize the parser's constituent tree. No token insertion, state, unlocks or arithmetic. */
-export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limits}){
+export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limits,punctuation=[]}){
  const corridor=registry.version==='0.10.0',library=corridor||registry.version==='0.9.0',waterways=library||registry.version==='0.8.0',ember=waterways||registry.version==='0.7.0',polish061=ember||registry.version==='0.6.1';
  const snow=ember||registry.validationScope==='snow.0.6',desert=snow||registry.validationScope==='desert.0.5';
  const ids=(start,end)=>tokens.slice(start,end).map(t=>t.cardInstanceId),at=i=>tokens[i]?.cardInstanceId??null;
- const issues=[...new Map(best.issues.map(i=>[i.causeId,i])).values()].map((i,n)=>({...i,id:`issue.${n}`}));
+ const issues=[...new Map(best.issues.filter(i=>!i.punctuation).map(i=>[i.causeId,i])).values()].map((i,n)=>({...i,id:`issue.${n}`}));
  const invalidMarkers=snow?(best.tree.hits??[]).filter(h=>/^(COMPARISON|DEGREE)\./.test(h.tag)&&h.bonusEligible===false).flatMap(h=>h.markerCardIds??[]):[];
  const unlicensed=[...new Set([...invalidMarkers,...issues.filter(i=>i.code==='INVALID_ADVERB_TARGET').flatMap(i=>i.cardIds)])],recovered=issues.length>0;
  const nodes=[],clauses=[],vpRows=[],sourceNodes=new Map(),clauseSources=new Map(),nonfiniteSources=[];
@@ -16,11 +17,14 @@ export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limit
   const record={id,type:node.kind,cardIds:node.cardIndices?node.cardIndices.map(at):ids(node.start,node.end),headCardId:at(node.head),scopeNodeId:parentId,connector,grammaticalRole:node.npRole??null,children:[],...(node.linkRole?{linkRole:node.linkRole}:{}),...(node.features?{grammaticalFeatures:node.features}:{}),...(node.gapRole?{gapRole:node.gapRole,antecedentCardId:at(node.antecedentHead)}:{})};
   nodes.push(record);sourceNodes.set(node,id);let clauseId=parentClauseId,nextLevel=level;
   if(node.nonfinite)nonfiniteSources.push({node:record,source:node});
-  if(node.clauseData){const c=node.clauseData,isMain=c.verbIndex===mainVerb&&!clauses.some(x=>x.id==='clause.main');clauseId=isMain?'clause.main':`clause.${clauses.length}`;
+  if(node.clauseData&&!node.adjunct){const c=node.clauseData,isMain=c.verbIndex===mainVerb&&!clauses.some(x=>x.id==='clause.main');clauseId=isMain?'clause.main':`clause.${clauses.length}`;
    const clause={id:clauseId,nodeId:id,parentClauseId,level,role:isMain?'MAIN':node.clauseRole&&node.clauseRole!=='MAIN'?node.clauseRole:inheritedRole,frameId:c.frameId,internalFrameId:c.internalFrame,...(c.mood?{mood:c.mood,implicitSubject:c.implicitSubject}:{}),verbCardId:at(c.verbIndex),subjectNodeId:null,objectNodeId:null,indirectObjectNodeId:null,directObjectNodeId:null};clauses.push(clause);clauseSources.set(clause,c);record.clauseId=clauseId;nextLevel=level+1;
   }
   if(node.verbPhrase)vpRows.push({node:record,vp:node.verbPhrase,clauseId});
-  if(node.kind==='ADVERBIAL_CONNECTION'){
+  if(node.kind==='PARTICIPIAL_CONNECTION'){
+   const matrix=node.children[1],before=clauses.length,matrixId=walk(matrix,id,clauseId,nextLevel,inheritedRole),matrixClause=clauses[before];
+   record.children=[walk(node.children[0],id,matrixClause.id,matrixClause.level+1,'ADJUNCT'),matrixId].filter(Boolean);
+  }else if(node.kind==='ADVERBIAL_CONNECTION'){
    const dependent=node.children.find(c=>c.clauseRole==='ADVERBIAL'),matrix=node.children.find(c=>c!==dependent&&c.kind!=='CONNECTOR'),before=clauses.length,matrixId=walk(matrix,id,clauseId,nextLevel,node.childClauseRole??inheritedRole),matrixClause=clauses[before];
    record.children=node.children.map(child=>child===matrix?matrixId:walk(child,id,child===dependent?matrixClause.id:clauseId,child===dependent?matrixClause.level+1:nextLevel,node.childClauseRole??inheritedRole)).filter(Boolean);
   }else record.children=(node.children??[]).map(child=>walk(child,id,clauseId,nextLevel,node.childClauseRole??inheritedRole)).filter(Boolean);return id;
@@ -69,5 +73,6 @@ export function skyEvidence(best,{tokens,registry,candidateCount,workUnits,limit
  }
  const formUses=ember?emberEvidence({tokens,nodes,clauses,clauseSources,vpRows,nonfiniteSources,grammarHits,issues,sourceNodes}):null;
  const result={...(library?{nominalStructures}:{}),...(waterways?{relativeClauses,questionClauses,embeddedQuestions}:{}),...(ember?{formUses}:{}),status:recovered?'VALID_WITH_ISSUES':'VALID',rootNodeId,mainClauseId:'clause.main',mainScoreClauseId:'clause.main',primaryScoringClauseId:'clause.main',mainFrameId:best.frameId,nodes,clauses,structures,...(desert?{nonfinitePhrases}:{}),resolvedTokenRoles:roles,grammarHits,issues,verbPhrases,evidenceMarks:grammarHits.map(h=>({evidenceKey:h.evidenceKey,cardIds:h.cardIds})),ambiguities:candidateCount>1?[{type:'EQUIVALENT_FULL_COVERAGE_ANALYSES',candidateCount,normalizedTo:best.frameId,selectionPolicy:'fewest-issues/outer-coordination/registered-content/fixed-school-frame',noteKo:'같은 카드를 모두 설명하는 문법 분석 중 고정된 구조 우선순위를 사용합니다.'}]:[],coverage:{consumedCardIds:tokens.map(t=>t.cardInstanceId),issueAffectedCardIds:[...new Set(issues.flatMap(i=>i.cardIds))],unlicensedCardIds:unlicensed},diagnostics:{workUnits,candidateCount,limits},messageKo:recovered?'문장 구조 확인':'완전한 문장!'};
- return corridor?addCorridorEvidence(result,tokens):result;
+ const analyzed=corridor?addCorridorEvidence(result,tokens):result;
+ return registry.participialAdjunctPolicy?addClausePunctuationEvidence(analyzed,{tokens,sourceNodes,best,punctuation}):analyzed;
 }

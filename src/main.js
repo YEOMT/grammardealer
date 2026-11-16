@@ -57,7 +57,7 @@ function persistFinalClear(next,record){
  saveQueue=saveQueue.catch(()=>{}).then(()=>leaderboard().upsertClear(snapshot,{profile:frozen})).catch(async error=>{rankingSessionFallback=true;await sessionLeaderboard.upsertClear(snapshot);toast(`클리어는 완료했습니다. 기록은 이번 세션에 보존합니다: ${error.message}`);});return saveQueue;
 }
 function newController(){controller=new RunController({profile,onProfileEvent:(event,next)=>{if(event.type==='FINAL50_CLEAR')void persistFinalClear(next,event.clearRecord);else void persistProfile(next);}});}
-function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,memory:!store.available||rankingSessionFallback}));}
+function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,version:controller?.getState()?.version??'0.14.0',memory:!store.available||rankingSessionFallback}));}
 function changeRoute(route){if(location.hash===`#${route}`)render();else location.hash=route;}
 async function startRun(config,{sameSeed=false}={}){
   if(starting||presenting)return;starting=true;void audio.unlock();
@@ -79,6 +79,7 @@ async function runCommand(command){
   }
   if(result.noRender)return result;
   const after=controller.getState();
+  if(result.commaUnlockedNow)toast('쉼표로 앞 절과 뒤 문장을 구분해 보세요. 반복해서 사용할 수 있어요.');
   for(const stageId of ['stage.03','stage.05'])if(!before.entryGrants?.[stageId]&&after.entryGrants?.[stageId]){
     const words=after.entryGrants[stageId].cardDefIds.map(id=>registry.lexemeById[registry.cardById[id]?.lexemeId]?.lemma??id);
     toast(words.length?'입장 준비 · '+words.join(' · ')+' 획득':'입장 준비 · 필요한 재료를 이미 보유하고 있습니다.');

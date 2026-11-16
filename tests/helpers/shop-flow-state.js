@@ -1,5 +1,5 @@
 import {assignSentence} from './waterways-state.js';
-import {RunController} from '../../src/game/runController.js';
+import {RunController} from './legacy-0121-controller.js';
 import {newProfile} from '../../src/services/localStore.js';
 import {stageForRun} from '../../src/data/stages.js';
 import {cleanupTemporaryCards} from '../../src/game/temporaryCards.js';

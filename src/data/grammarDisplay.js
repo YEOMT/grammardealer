@@ -149,3 +149,8 @@ export const CORRIDOR_GRAMMAR_DISPLAY=Object.freeze([...WATERWAYS_GRAMMAR_DISPLA
  {order:320,tag:'CORRIDOR.UNREAL_PAST',titleKo:'가정법 과거완료',pattern:'if + had + p.p., would / could + have + p.p.',shortDescriptionKo:'p.p.는 과거분사입니다. 실현되지 않은 과거의 조건과 결과를 가정합니다. 같은 조건 구문의 과거·완료·절 연결 보너스를 대신합니다.'},
  {order:330,tag:'CORRIDOR.PRESENT_PERFECT_PROGRESSIVE',titleKo:'현재완료진행',pattern:'have / has + been + -ing',shortDescriptionKo:'과거부터 현재까지 이어진 행동을 나타냅니다. 같은 동사구의 완료·진행 보너스를 대신합니다. 별의 회랑 지역 보너스 대상은 아닙니다.'}
 ]);
+
+export const CLAUSE_GRAMMAR_DISPLAY=Object.freeze([...CORRIDOR_GRAMMAR_DISPLAY,
+ {order:340,tag:'CLAUSE.PARTICIPIAL.ACTIVE',titleKo:'현재분사 분사구문',pattern:'동사-ing …, 주어 + 동사 …',shortDescriptionKo:'주절 주어가 하는 동작을 문장 앞에 덧붙입니다. 분사부의 목적어·보어와 완전한 주절을 확인합니다. -ing 자체는 현재시제가 아닙니다.'},
+ {order:350,tag:'CLAUSE.PARTICIPIAL.PASSIVE',titleKo:'과거분사 분사구문',pattern:'과거분사 …, 주어 + 동사 …',shortDescriptionKo:'주절 주어가 받는 동작을 문장 앞에 덧붙입니다. by 행위자는 선택 사항이며 수동이 가능한 동사 용법이어야 합니다. 과거분사 자체는 과거시제가 아닙니다.'}
+]);
