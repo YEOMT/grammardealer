@@ -25,7 +25,7 @@
 
 /* 0.1.1: selection is a separate control; the word remains the assembly hit target. */
 .word-card .card-select{position:absolute;right:0;bottom:0;width:44px;height:44px;min-height:44px;padding:0;border:0;background:transparent;color:#3c5947;box-shadow:none;font-size:22px;touch-action:manipulation;z-index:2}
-.word-card .card-select:hover{background:#43614422}.word-card .card-select[aria-pressed=true]{color:#123a27;background:#d9bf72aa}.selectable-card .card-footline{padding-right:32px;min-height:23px}.selectable-card .card-body{padding-bottom:8px}.exchange-row{min-height:44px}.exchange-row #clear-card-selection{font-size:12px;padding:7px 10px}
+.word-card .card-select:hover{background:#43614422}.word-card .card-select[aria-pressed=true]{color:#123a27;background:#d9bf72aa}.selectable-card .card-footline{padding-right:32px;min-height:23px}.selectable-card .card-body{padding-bottom:8px}.exchange-row{min-height:44px}
 /* Three frozen mixed offers over the completed battlefield. */
 .reward-backdrop {filter:brightness(.45);pointer-events:none}
 .reward-access {position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:5}

@@ -7,7 +7,7 @@ export function handPageWindow({count,width,cardWidth,gap=5,page=0,pageSize=10,m
  const size=Math.max(1,Math.min(pageSize,mobile?7:pageSize,Math.floor((width+gap)/(cardWidth+gap)))),pages=Math.max(1,Math.ceil(count/size));
  const current=Math.max(0,Math.min(page,pages-1));return {size,pages,page:current,start:current*size,end:Math.min(count,(current+1)*size)};
 }
-export function cardPager(zone,{label,selected=()=>0,pageSize=10,memory={page:0}}={}){
+export function cardPager(zone,{label,title,selected=()=>0,pageSize=10,memory={page:0}}={}){
  const nav=document.createElement('div');nav.className='card-pager';
  const prev=button('‹',()=>{document.dispatchEvent(new Event('atlas:cancel-drag'));memory.page--;update();},'quiet',{'aria-label':'이전 손패 페이지'}),next=button('›',()=>{document.dispatchEvent(new Event('atlas:cancel-drag'));memory.page++;update();},'quiet',{'aria-label':'다음 손패 페이지'});
  const status=document.createElement('span');status.setAttribute('aria-live','polite');
@@ -20,7 +20,9 @@ export function cardPager(zone,{label,selected=()=>0,pageSize=10,memory={page:0}
   cards.forEach((n,i)=>{n.hidden=i<start||i>=end;n.dataset.absoluteIndex=String(i);});
   zone.style.setProperty('--visible-cards',String(end-start||1));
   zone.dataset.page=String(page);zone.dataset.pageSize=String(size);
-  status.textContent=`${label} ${page+1} / ${pages} · 전체 ${cards.length}장${selected()?` · 선택 ${selected()}장`:''}`;
+  status.replaceChildren();
+  if(title){const heading=document.createElement('span');heading.className='pager-hand-title';heading.textContent=title();status.append(heading);}
+  const pageNumber=document.createElement('span');pageNumber.textContent=title?(pages>1?`${page+1}/${pages}`:''):`${label} ${page+1} / ${pages} · 전체 ${cards.length}장${selected()?` · 선택 ${selected()}장`:''}`;status.append(pageNumber);
   prev.disabled=page===0;next.disabled=page===pages-1;
  };
  // Paging reacts to committed renders and viewport changes, not animated content.

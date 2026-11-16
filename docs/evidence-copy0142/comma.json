@@ -1,0 +1,86 @@
+{
+  "scope": "Assigned real card snapshots, controller commands and Chromium browser input; not natural campaign or physical iOS/Android.",
+  "checks": [
+    {
+      "name": "pc-tool-and-actual-attacks",
+      "status": "PASS",
+      "evidence": {
+        "nativePointerPlacement": true,
+        "drag": true,
+        "cancellation": true,
+        "actualAttack": "qa.waterways.comma.ui.0:battle.43:attack.1",
+        "wordCount": 4,
+        "commaPenalty": [
+          {
+            "eventId": "qa.waterways.comma.ui.0:battle.43:attack.1:score.5",
+            "phase": "ACCURACY",
+            "sourceType": "GRAMMAR",
+            "sourceId": "PUNCTUATION.COMMA",
+            "labelKo": "쉼표 위치 오류 · −11",
+            "operation": "MULTIPLY",
+            "operand": {
+              "num": 9,
+              "den": 10
+            },
+            "before": 108,
+            "after": 97,
+            "evidenceRefs": [
+              "issue.punctuation.0"
+            ],
+            "highlightCardIds": [
+              "qa.corridor.0",
+              "qa.corridor.1"
+            ],
+            "reasonKo": "쉼표가 문장 성분을 끊고 있습니다."
+          }
+        ],
+        "fxSamples": 201
+      }
+    },
+    {
+      "name": "mobile-24-boundaries-and-cancellation",
+      "status": "PASS",
+      "evidence": {
+        "rows": [
+          8,
+          8,
+          8
+        ],
+        "wordCount": 24,
+        "markerAtLastWord": true,
+        "twoPointerCancelledWithoutCommand": true,
+        "viewportPreserved": true,
+        "tool": {
+          "x": 750,
+          "y": 315,
+          "width": 44,
+          "height": 58
+        },
+        "handBottom": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ]
+      }
+    },
+    {
+      "name": "anchor-edit-and-pc-twelve",
+      "status": "PASS",
+      "evidence": {
+        "anchorFollowsReorder": true,
+        "swapKeepsBoundary": true,
+        "returnRetrievesMarker": true,
+        "rows": [
+          12,
+          12
+        ],
+        "fullscreenDragHost": true
+      }
+    }
+  ],
+  "captures": [],
+  "errors": []
+}

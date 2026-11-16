@@ -63,7 +63,7 @@ async function startRun(config,{sameSeed=false}={}){
   if(starting||presenting)return;starting=true;void audio.unlock();
   try{
     if(!profile||config.profileId!==profile.playerId){const p=newProfile(config.displayName||'여행자');p.settings={...sessionSettings,vocabularyMode:config.vocabularyMode||'BEGINNER'};await persistProfile(p);}
-    else {profile={...profile,displayName:config.displayName||profile.displayName,settings:{...profile.settings,vocabularyMode:config.vocabularyMode||profile.settings.vocabularyMode}};await persistProfile(profile);}
+    else {profile={...profile,displayName:profile.displayName?.trim()?profile.displayName:(config.displayName||'여행자'),settings:{...profile.settings,vocabularyMode:config.vocabularyMode||profile.settings.vocabularyMode}};await persistProfile(profile);}
     newController();const result=controller.dispatch({type:'NEW_RUN',config:{character:'traveler',difficulty:1,vocabularyMode:config.vocabularyMode||'BEGINNER',...(config.seed?{seed:config.seed}:{})},profile});
     if(!result.ok){toast(result.message);return;}selected.clear();changeRoute('game');
   }finally{starting=false;}

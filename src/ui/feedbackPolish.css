@@ -12,3 +12,15 @@ html[data-handheld=true] .responsive-battle .enemy-tactics .region-bonus{margin:
 .word-card.grammar-error,.comma-marker.grammar-error{outline:2px solid #ed775e;outline-offset:1px;box-shadow:inset 0 0 0 2px #ed775e66,0 0 7px #ed775e88}
 .score-overlay[data-feedback="grammar-loss"] .score-overlay-label{color:#ff8b75!important;font-weight:750}
 .score-overlay[data-feedback="defense"] .score-overlay-label{color:#b1cbdd}
+
+/* Copy-only follow-up: retain the stage and hand dock geometry. */
+.responsive-battle .enemy-tactics{align-self:center;gap:4px}
+.battle-target-guide{display:flex;flex-direction:column;align-items:flex-start;gap:4px}
+body[data-stage-theme] .responsive-battle .battle-target-guide .region-bonus{margin:0;white-space:normal}
+.rune-title{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rune-title>span:last-child{margin-left:auto}
+.rune-title .rune-help{min-width:30px;min-height:30px;width:30px;height:30px;padding:0;border:0;position:relative;font-size:12px}
+.rune-help::before{content:'';position:absolute;width:18px;height:18px;border:1px solid currentColor;border-radius:50%;left:5px;top:5px}
+.pager-hand-title{display:none}
+html[data-handheld=true] .pager-hand-title{display:inline;margin-right:12px}
+.enemy-label{overflow-wrap:anywhere}

@@ -19,7 +19,7 @@ export function attachTutorial(root,state,command){const t=state.tutorial;if(!t?
  be?'be 카드의 「형태」를 눌러 주어에 맞는 am / is / are를 직접 선택하세요.':'be를 조합대에 올리면 형태 버튼이 생깁니다. 이미 다른 곳으로 옮겼다면 다른 합법 문장으로 계속해도 됩니다.',
  state.combat.exchangesRemaining?'남은 손패의 ○를 체크한 뒤 버리기를 누르세요. 같은 수만큼 보충하고 교환만 1회 줄어듭니다.':'남은 교환이 없습니다. 가이드를 건너뛰거나 현재 카드로 자유롭게 계속할 수 있습니다.',
  state.combat.handIds.length>=state.combat.rulesSnapshot.handLimit?'손패가 가득 찼습니다. 카드 일부를 조합대로 옮긴 뒤 준비하면 빈자리만큼 받습니다. 준비는 실제 턴을 씁니다.':'문장은 조합대에 그대로 둔 채 「준비」를 한 번 눌러 보세요. 행동 1턴을 쓰고 다음 턴 카드를 받습니다.',
- '공격 확정을 누르면 제출 직전에 점수가 만들어지는 순서를 한 번 설명합니다. 결과는 확정 후에만 공개됩니다.',
+ '공격을 누르면 제출 직전에 점수가 만들어지는 순서를 한 번 설명합니다. 결과는 확정 후에만 공개됩니다.',
  '적 HP와 남은 턴을 확인하세요. 이제 자유롭게 문장을 만드세요.'
  ];
  const target=root.querySelector(selectors[step]||'#attack-submit')||root.querySelector('.combat-actions');target?.classList.add('tutorial-target');

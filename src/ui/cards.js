@@ -53,7 +53,7 @@ export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRe
     const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...[['원급','POSITIVE'],['비교급','COMPARATIVE'],['최상급','SUPERLATIVE']].map(([label,degree])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>f.grammaticalFeatures.degree===degree?[buttons[i]]:[])))));
   }
   const extras = el('div', { class: 'dialog-actions wrap' }, onMoveLeft && button('← 왼쪽으로', () => { view.close(); onMoveLeft(); }, 'secondary'), onMoveRight && button('오른쪽으로 →', () => { view.close(); onMoveRight(); }, 'secondary'), onSwap && button('손패와 맞교환', () => { view.close(); onSwap(); }, 'secondary'), onCopy && button('한 장 복사', () => { view.close(); onCopy(); }, 'secondary'), onRemove && button('카드 회수', () => { view.close(); onRemove(); }, 'secondary'));
-  view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 확정 뒤에 진행합니다.' }), choices,forms.some(f=>isIngForm(f))&&el('p',{class:'helper ing-form-guide',text:ING_FORM_GUIDE}), extras]);
+  view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 뒤에 진행합니다.' }), choices,forms.some(f=>isIngForm(f))&&el('p',{class:'helper ing-form-guide',text:ING_FORM_GUIDE}), extras]);
   view.dialog.classList.add('form-dialog');
   return view;
 }
