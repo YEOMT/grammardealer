@@ -1,3 +1,9 @@
+# 0.14.1 UI 피드백 인계
+
+기준 main `c19c8a78da6ee4a849a7123ecd200c0a608762d9`, 브랜치 `codex/v0.14.1-ui-feedback-polish`. 앱/패키지만 0.14.1이며 `contracts.js`와 모든 원정·언어·저장 정책은 변경하지 않았다. [이번 명세](../spec/v0.14.1/Syntax_Atlas_v0.14.1_UI_Feedback_Polish_Spec.md) · [실행 결과와 범위](UI_FEEDBACK_0.14.1_REPORT.md).
+
+`targetGrammar`는 기존 정적 안내를 모으며, 휴대폰 자원도 retained 전투 정보 갱신에 포함한다. `cardFeedback`/presentation은 성공한 명령·확정 이벤트의 카드 ID만 표시한다. `imagePreparation`은 최대 두 장면의 URL 요청을 합치고 각 view가 cleanup을 소유한다. 준비 완료는 게임 명령이나 생존 상태를 바꾸지 않는다. 아래 과거 인계와 증거는 보존한다.
+
 # 0.14.0 쉼표·분사구문 인계
 
 기준 main은 `cc3b75da280aa93366fa75636c3c970d68621a2a`, 작업 브랜치는 `codex/v0.14.0-clause-comma`다. [유일한 본명세](../spec/v0.14.0/Syntax_Atlas_v0.14.0_Clause_Comma_Spec.md)와 [32개 인수 조건·실행 결과](CLAUSE_COMMA_0.14.0_REPORT.md)를 확인한다.

@@ -16,7 +16,7 @@ const pos=async n=>{const r=await n.boundingBox();assert.ok(r);return{x:r.x+r.wi
 async function capture(name){if(process.argv.includes('--no-captures'))return;await page.screenshot({path:`${out}/${name}.png`});report.captures.push(name+'.png');}
 async function boot(mobile=false){
  await context?.close();context=await browser.newContext({viewport:mobile?{width:844,height:390}:{width:1366,height:768},hasTouch:mobile,isMobile:mobile,deviceScaleFactor:1});page=await context.newPage();page.setDefaultTimeout(8000);page.on('pageerror',e=>report.errors.push(e.message));
- await page.goto('http://127.0.0.1:5173/?debug=1#lobby');await page.locator('#start-run').waitFor();
+ await page.goto((process.env.SB_BASE_URL||'http://127.0.0.1:5173/')+'?debug=1#lobby');await page.locator('#start-run').waitFor();
  await page.evaluate(async()=>{
   const f=await import('/tests/helpers/corridor-state.js'),{renderCombat}=await import('/src/ui/combat.js'),p=await import('/src/engine/presentation.js'),{openRecentAttack,openRecords}=await import('/src/ui/overlays.js');
   window.q={f,p,root:document.querySelector('#app'),selected:new Set(),count:0,events:[],
@@ -35,7 +35,7 @@ try{
   await page.locator('.comma-tool').click();await page.getByRole('button',{name:'취소',exact:true}).click();assert.deepEqual((await state()).combat.punctuation,s.combat.punctuation);
   await page.locator('.comma-tool').click();await page.getByRole('button',{name:'회수',exact:true}).click();await expect(marker()).toHaveCount(0);
   const target=await card(1).boundingBox();await drag(await pos(page.locator('.comma-tool')),{x:target.x+target.width-2,y:target.y+20});await expect(marker()).toHaveCount(1);
-  await capture('pc-comma');await page.locator('#attack-submit').click();await page.waitForFunction(()=>q.resolution&&!q.presenting);s=await state();
+  const bar=await marker().boundingBox(),word=await card(1).boundingBox();assert.ok(Math.abs(bar.height-word.height)<1);assert.ok(bar.width<word.width/2);await capture('pc-comma');await page.locator('#attack-submit').click();await page.waitForFunction(()=>q.resolution&&!q.presenting);s=await state();
   const r=await page.evaluate(()=>q.resolution);assert.equal(r.analysis.status,'VALID');assert.deepEqual(r.sentenceSnapshot.punctuation,[{kind:'COMMA',gapIndex:2}]);assert.equal(s.combat.turnsRemaining,initial.combat.turnsRemaining-1);assert.equal(s.stats.history.filter(x=>x.attackId===r.attackId).length,1);assert.equal(s.combat.punctuation.comma,null);await expect(page.locator('.comma-tool')).toBeVisible();
   const fx=await page.evaluate(()=>q.fx);assert.ok(fx.some(x=>x.phase==='CHARGE'&&x.copies===r.sentenceSnapshot.orderedTokens.length&&x.commas===1),JSON.stringify(fx));assert.ok(fx.some(x=>x.phase==='LUNGE'&&x.copies===r.sentenceSnapshot.orderedTokens.length));
   await page.getByRole('button',{name:'공격 기록',exact:true}).click();await expect(page.locator('dialog[open] summary .player-sentence')).toContainText('seeing you, I smiled');await page.locator('dialog[open] .dialog-header button').click();

@@ -5,3 +5,10 @@ export function scoreFeedback(event){
  const amount=delta<0?`−${-delta}`:event.operation==='ADD'&&event.operand>0?`+${event.operand}`:event.operation==='MULTIPLY'&&event.operand?.den?`×${event.operand.num/event.operand.den}`:'';
  return {kind,delta,amount,color:({'grammar-loss':'#ff956d',defense:'#b1cbdd',loss:'#ddd0b6',neutral:'#c6d4ce',card:'#f5e6b6',combo:'#ffe3a0',rune:'#fff0ca'})[kind]};
 }
+
+/** Receipt numbers only; labels which already contain the loss must not print it twice. */
+export function scoreFeedbackLabel(event,label=event.labelKo??event.phase){
+ const {delta,kind,amount}=scoreFeedback(event);
+ const detail=amount&&!label.includes(amount)?`${label} · ${amount}`:label;
+ return delta<0?`${kind==='defense'?'🛡 ':''}${event.before} → ${event.after} · ${detail}`:detail;
+}

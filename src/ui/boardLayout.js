@@ -46,6 +46,10 @@ export function observeBoard(zone){
  // Count is frozen for this render (including a submitted presentation snapshot).
  const update=()=>{
   zone.style.removeProperty('--board-scale');
+  zone.querySelectorAll('.sentence-row').forEach(row=>row.style.removeProperty('--board-scale'));
+  cards.forEach(card=>card.style.removeProperty('--mobile-card-width'));
+  const commaSpace=parseFloat(getComputedStyle(zone).getPropertyValue('--comma-space'))||0;
+  const hasComma=card=>card.classList.contains('comma-anchor-after')||card.classList.contains('comma-anchor-before');
   if(document.documentElement.dataset.handheld==='true'){
    const css = getComputedStyle(zone);
    const horizontalPadding = parseFloat(css.paddingLeft) + parseFloat(css.paddingRight);
@@ -62,6 +66,11 @@ export function observeBoard(zone){
    // can never wrap just because the measured board width rounded up.
    const widthLimit = `calc((100% - ${(layout.rowSlots - 1) * columnGap}px) / ${layout.rowSlots})`;
    zone.style.setProperty('--mobile-card-width', `min(${layout.cardWidth}px, ${widthLimit})`);
+   // Reserve only the marked boundary, not another WORD slot or gaps in every row.
+   for(let start=0;start<cards.length;start+=MOBILE_COLUMNS){
+    const group=cards.slice(start,start+MOBILE_COLUMNS);
+    if(group.some(hasComma))for(const card of group)card.style.setProperty('--mobile-card-width',`min(${layout.cardWidth}px, calc((100% - ${(group.length-1)*columnGap+commaSpace}px) / ${group.length}))`);
+   }
    zone.style.setProperty('--mobile-card-height', layout.cardHeight + 'px');
    zone.style.setProperty('--mobile-form-height', layout.formHeight + 'px');
    zone.dataset.mobileColumns = String(layout.columns);
@@ -86,6 +95,10 @@ export function observeBoard(zone){
   const columnGap=parseFloat(css.getPropertyValue('--sentence-column-gap'))||4;
   const scale=Math.min(target,(zone.clientWidth-padding-(columns-1)*columnGap)/(columns*base),(zone.clientHeight-padding-(rows-1)*gap)/(rows*height));
   zone.style.setProperty('--board-scale',String(Math.max(.1,scale)));zone.dataset.sizeBand=String(target);
+  for(const row of zone.querySelectorAll('.sentence-row'))if([...row.children].some(hasComma)){
+   const n=row.children.length;
+   row.style.setProperty('--board-scale',String(Math.max(.1,Math.min(scale,(zone.clientWidth-padding-(n-1)*columnGap-commaSpace)/(n*base)))));
+  }
  };
  // Parent/rune-rail size can change without a window resize. No game callbacks are involved.
  const resize=typeof ResizeObserver==='function'?new ResizeObserver(()=>{if(document.documentElement.dataset.handheld==='true')update();}):null;resize?.observe(zone);

@@ -29,7 +29,7 @@ export function attachCommaTool(shell, combat, {command, locked=false}={}) {
   let marker=null;
   if(anchor){
     const nodes=cards(),host=anchor.afterCardInstanceId===null?nodes[0]:nodes.find(n=>n.dataset.cardId===anchor.afterCardInstanceId);
-    if(host){marker=button(',',markerMenu,'comma-marker',{'aria-label':'배치된 쉼표 · 이동 또는 회수',disabled:locked,dataset:{commaAnchor:anchor.afterCardInstanceId??'START'}});marker.classList.toggle('comma-before',anchor.afterCardInstanceId===null);host.append(marker);}
+    if(host){marker=button('',markerMenu,'comma-marker',{'aria-label':'배치된 쉼표 · 이동 또는 회수',disabled:locked,dataset:{commaAnchor:anchor.afterCardInstanceId??'START'}});marker.append(el('span',{text:',','aria-hidden':'true'}));marker.classList.toggle('comma-before',anchor.afterCardInstanceId===null);host.classList.add(anchor.afterCardInstanceId===null?'comma-anchor-before':'comma-anchor-after');host.append(marker);}
   }
   const gapAt=(x,y)=>{
     const zone=sentence.getBoundingClientRect();

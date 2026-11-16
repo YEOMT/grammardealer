@@ -27,7 +27,7 @@ function zoneOf(state, id) {
   if (!combat) return '원정 덱';
   if (combat.handIds.includes(id)) return '손패';
   if (combat.sentenceSlots.some(slot => slot.cardInstanceId === id)) return '문장 조합대';
-  if (combat.drawIds.includes(id)) return '드로우';
+  if (combat.drawIds.includes(id)) return '뽑을 카드';
   if (combat.discardIds.includes(id)) return '버린 카드';
   if(combat.exhaustedIds?.includes(id))return '사용 완료';
   return '원정 덱';
@@ -51,7 +51,7 @@ export function openDeck(state, kind = 'all') {
     const def = registry.cardById[state.cardInstances[id]?.cardDefId];
     if (def) countByLexeme.set(def.lexemeId, (countByLexeme.get(def.lexemeId) ?? 0) + 1);
   }
-  const title = isDraw ? `드로우 ${models.length}장 · 순서는 공개하지 않음` : isDiscard ? `버린 카드 ${models.length}장` : isExhausted ? `사용 완료 ${models.length}장 · 다음 전투에 복귀` : `나의 덱 ${models.length}장`;
+  const title = isDraw ? `뽑을 카드 ${models.length}장 · 순서는 공개하지 않음` : isDiscard ? `버린 카드 ${models.length}장` : isExhausted ? `사용 완료 ${models.length}장 · 다음 전투에 복귀` : `나의 덱 ${models.length}장`;
   const grid = el('div', { class: 'deck-grid' }, models.map((model, index) => el('div', { class: 'deck-entry' },
     wordCard(model, { readonly: true }),
     el('small', { text: `${isDiscard && index === 0 ? '최근 버린 카드 · ' : ''}${zoneOf(state, model.id)} · ${model.cardKind==='OPERATION'?'운영 · '+operationText(model).limit:(model.temporary?'이번 전투 전용 · 영구 보유 ':'같은 단어 보유 ')+(countByLexeme.get(model.lexemeId)??0)+'장'}` }),

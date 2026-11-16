@@ -37,7 +37,7 @@ test('device: unchanged viewport notifications preserve gesture; real size/host 
 });
 test('device: release label and explicit clause campaign contract retain the 28-word deck',async()=>{
  const fs=await import('node:fs/promises');const pkg=JSON.parse(await fs.readFile(new URL('../package.json',import.meta.url)));
- assert.equal(APP_VERSION,'0.14.0');assert.equal(pkg.version,APP_VERSION);
+ assert.equal(APP_VERSION,'0.14.1');assert.equal(pkg.version,APP_VERSION);
  const {RunController}=await import('../src/game/runController.js');
  const c=new RunController();assert.equal(c.dispatch({type:'NEW_RUN',config:{seed:'device.version'}}).ok,true);const run=c.getState();
  assert.equal(run.version,'0.14.0');assert.equal(run.contentVersions.language,'0.14.0');assert.equal(run.contentVersions.generator,'0.12.1');assert.equal(run.activeCardIds.length,28);

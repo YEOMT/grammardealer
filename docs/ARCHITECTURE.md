@@ -1,3 +1,13 @@
+# 0.14.1 표시 경계
+
+- `ui/targetGrammar.js`는 버전별 기존 안내를 읽는 모달이다. 해석·보상·RNG를 호출하지 않는다. 모바일 자원은 header가 아닌 retained `enemy-tactics`에 표시한다.
+- 쉼표는 여전히 WORD 외부 anchor다. `boardLayout`은 쉼표가 있는 행의 경계 공간만 예약한다. 기존 8/12 단어 묶음·스크롤·24단어 한도를 바꾸지 않는다.
+- 기존 pointer hit-test/guard가 INSERT와 SWAP을 정한다. CSS 경계 바는 layout에 참여하지 않고 ghost를 바꾸지 않는다. 상태상 불가능한 대상에는 안내하지 않는다.
+- `cardFeedback`은 성공한 SET_FORM 뒤 새 DOM의 ID를 찾는다. `scoreFeedbackLabel`/presentation은 확정 감소량을 한 번 표시하고 오류 근거만 강조한다. 계산기는 변경하지 않는다.
+- `services/imagePreparation.js`는 현재/인접 최대 두 장면의 진행 중 URL을 공유한다. decode 실패 시 유효 intrinsic 크기를 확인한다. 배경+idle 표시 묶음은 최대 600ms이며 명령·입력은 기다리지 않는다. monster/panorama는 원래 bounds/fit 후 표시하고 view cleanup/생존 상태를 유지한다. hit의 늦은 도착이 피격을 재실행하지 않는다.
+
+[실제 검사](UI_FEEDBACK_0.14.1_REPORT.md). 아래 기존 구조는 유지한다.
+
 # 0.14.0 문장부호와 새 정책
 
 - `punctuation.js`는 WORD 외부의 쉼표 위치/문자열 표현만 소유한다. `game/commaTool.js`는 해금·앵커 정리·저장 불변조건을 담당한다. 위치 변경도 RunController 명령으로만 커밋한다.

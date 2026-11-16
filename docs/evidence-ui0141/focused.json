@@ -1,0 +1,152 @@
+{
+  "scope": "Chromium assigned real cards/controller/presentation, pointer and emulated touch; physical devices NOT RUN",
+  "checks": [
+    {
+      "name": "T1-info-resources-retained",
+      "status": "PASS",
+      "evidence": [
+        {
+          "width": 1280,
+          "height": 720,
+          "mobile": false,
+          "retained": true,
+          "resources": [
+            5,
+            3,
+            0
+          ]
+        },
+        {
+          "width": 1024,
+          "height": 768,
+          "mobile": false,
+          "retained": true,
+          "resources": [
+            5,
+            3,
+            0
+          ]
+        },
+        {
+          "width": 844,
+          "height": 390,
+          "mobile": true,
+          "retained": true,
+          "resources": [
+            5,
+            3,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "name": "T3-insert-swap-cancel",
+      "status": "PASS",
+      "evidence": {
+        "boundaryBar": {
+          "content": "\"\"",
+          "width": "3px",
+          "color": "rgba(119, 188, 242, 0.65)"
+        },
+        "noLayoutShift": true,
+        "swapPreserved": true,
+        "oneCommand": true,
+        "fullRejected": true,
+        "cancellation": true
+      }
+    },
+    {
+      "name": "T4-form-and-committed-loss",
+      "status": "PASS",
+      "evidence": {
+        "formSuccessOnly": true,
+        "results": [
+          {
+            "text": "I like games",
+            "status": "VALID_WITH_ISSUES",
+            "power": 67,
+            "eventCount": 8,
+            "effects": {
+              "effectsOff": true
+            },
+            "once": true
+          },
+          {
+            "text": "Seeing you I smiled",
+            "status": "VALID",
+            "power": 151,
+            "eventCount": 11,
+            "effects": {
+              "reducedMotion": true
+            },
+            "once": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "T5-image-ready-delay-failure-life",
+      "status": "PASS",
+      "evidence": {
+        "boss": "boss.stage1",
+        "bodyHeight": 295.15999999999997,
+        "delayedDeadNeverRevived": true,
+        "stageReserved": true,
+        "failureFallback": true
+      }
+    },
+    {
+      "name": "T6-mobile-visible-area-and-comma",
+      "status": "PASS",
+      "evidence": {
+        "normal": {
+          "bar": [
+            688.96875,
+            147,
+            16,
+            60
+          ],
+          "word": [
+            615.625,
+            147,
+            70.34375,
+            60
+          ],
+          "zone": [
+            82.203125,
+            144,
+            636.796875,
+            134
+          ]
+        },
+        "visibleHeight": 310,
+        "wordCount": 24,
+        "columns": 8,
+        "tool": {
+          "x": 750,
+          "y": 315,
+          "width": 44,
+          "height": 58
+        }
+      }
+    },
+    {
+      "name": "T7-current-and-legacy-save",
+      "status": "PASS",
+      "evidence": {
+        "currentVersion": "0.14.0",
+        "commaAndAllStateExact": true,
+        "legacyVersion": "0.8.0",
+        "legacyExact": true
+      }
+    }
+  ],
+  "captures": [
+    "tablet-info.png",
+    "punctuation-loss.png",
+    "boss-preparation.png",
+    "phone-comma.png"
+  ],
+  "errors": []
+}
