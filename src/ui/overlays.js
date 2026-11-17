@@ -37,7 +37,7 @@ function zoneOf(state, id) {
 export function openDeck(state, kind = 'all') {
   if (!state) return modal('나의 덱', small('원정을 시작하면 카드를 확인할 수 있습니다.'));
   const normalized = String(kind).toLowerCase();
-  if(normalized==='all')return openDictionary(state,{ownedOnly:true});
+  if(normalized==='all')return openDictionary(state,{ownedOnly:true,mode:'management'});
   const isExhausted=normalized==='exhausted';
   const isDraw = ['draw', 'drawids'].includes(normalized), isDiscard = ['discard', 'discardids'].includes(normalized);
   const ids = [...(isDraw ? state.combat?.drawIds ?? [] : isDiscard ? state.combat?.discardIds ?? [] : isExhausted ? state.combat?.exhaustedIds??[] : state.activeCardIds)];
@@ -61,7 +61,7 @@ export function openDeck(state, kind = 'all') {
 }
 
 /** Only words encountered during this run are visible, including words removed later. */
-export function openDictionary(state,{ownedOnly=false}={}) {
+export function openDictionary(state,{ownedOnly=false,mode='dictionary'}={}) {
   const registry=registryForVersion(state?.version);
   const ids = state?.vocabulary?.encounteredLexemeIds ?? [];
   const words = [...new Set(ids)].map(id => registry.lexemeById[id]).filter(Boolean).sort((a, b) => a.lemma.localeCompare(b.lemma, 'en'));
@@ -84,19 +84,19 @@ export function openDictionary(state,{ownedOnly=false}={}) {
       const dual=(registry.cards.find(c=>c.lexemeId===word.id)?.secondaryLexemeIds??[]).length>0;
       const notes=[...(dual?(definition.dualUsage?[definition.dualUsage.description,...definition.dualUsage.examples,...secondary.map(l=>l.usageNoteKo)]:['동사: 돕다 / 명사: 도움(셀 수 없는 명사)','I help you. / I need more help.','명사 도움은 기본형 help로 씁니다. 활용형은 기존 동사 용법을 따릅니다.']):[]),tips[word.lemma]??(word.pos==='VERB'&&!['will','can'].includes(word.lemma)&&!registry.languagePolicyVersion?null:word.usageNoteKo)].filter(Boolean);
       if(word.pos==='NOUN')notes.push(({COUNT:'가산명사: 단수에는 한정사를 쓰고, 복수형도 사용할 수 있습니다.',MASS:'불가산명사: 이 게임의 뜻에서는 a/an과 복수형을 사용하지 않습니다.',BOTH:'가산·불가산 용법: 종류·개별 사례는 a/an 또는 복수형, 일반 개념·물질은 무관사 단수형을 사용할 수 있습니다.'})[senses[0]?.countability]);
-      return el('article', { class: 'dictionary-entry' },
-        el('strong', { class:'word-heading', text: word.lemma }), el('span', { class: `badge pos-${word.pos}`, text: ` · ${POS_LABELS[word.pos] ?? '단어'}` }),
-        el('p',{text:word.glossKo||'뜻 확인 중'}),el('p',{text:owned.length?`보유 ${owned.length}장`:'현재 보유하지 않음'}),
+      return el('article', { class: 'dictionary-entry dictionary-word',dataset:{dictionaryMode:mode} },
+        el('div',{class:'dictionary-word-heading'},el('div',{},el('strong',{class:'word-heading',text:word.lemma}),el('small',{class:`dictionary-pos pos-${word.pos}`,text:POS_LABELS[word.pos]??'단어'})),el('strong',{class:'dictionary-gloss',text:word.glossKo||'뜻 확인 중'})),
+        mode==='management'&&el('p',{text:owned.length?`보유 ${owned.length}장`:'현재 보유하지 않음'}),
         el('small', { text: `허용 형태: ${visibleForms(word.pos,forms).map(form => `${form.surface} (${form.aliasForms?.map(f=>formMeaning(word,f)).join('·')??(form.grammaticalFeatures?.tense==='PAST_PARTICIPLE'?formLabel(form):formMeaning(word,form))})`).join(' · ') || '0.1에서는 제공하지 않음'}` }),
         ...notes.filter(Boolean).map(note => el('small', { text: note })),
-        el('small',{text:'희귀도: '+({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'}[registry.cards.find(c=>c.lexemeId===word.id)?.rarity]??'단어')+' · 카드 기본점수 10 · 연마 단계마다 +5 · 최대 +3'}),...polishSummary.map(text=>el('small',{text})),
+        mode==='management'&&el('small',{text:'희귀도: '+({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'}[registry.cards.find(c=>c.lexemeId===word.id)?.rarity]??'단어')+' · 카드 기본점수 10 · 연마 단계마다 +5 · 최대 +3'}),...(mode==='management'?polishSummary.map(text=>el('small',{text})):[]),
       );
     }));
     if (!filtered.length) grid.append(small(words.length ? '검색 결과가 없습니다.' : '원정을 시작하면 만난 단어가 여기에 남습니다.'));
   };
   search.addEventListener('input', render); render();
-  return modal(ownedOnly?'나의 덱 · 단어 사전':'원정 사전', [small('이번 원정에서 소개·획득하거나 보상으로 공개된 단어입니다. 카드를 제거해도 사전에는 남습니다.'),
-    el('div', { class: 'dialog-actions wrap' }, filter, search, count), grid, operationSection(state)], { wide: true });
+  return modal(mode==='management'?'나의 덱 · 단어 사전':'원정 사전', [small('이번 원정에서 소개·획득하거나 보상으로 공개된 단어입니다. 카드를 제거해도 사전에는 남습니다.'),
+    el('div', { class: 'dialog-actions wrap' }, filter, search, count), grid, mode==='management'&&operationSection(state)], { wide: true });
 }
 
 function learningBlock(record){
@@ -140,7 +140,7 @@ function attackRecord(resolution) {
 export function openRecords(profile, state) {
   state??={version:'0.14.0'};
   const historical=profile;
-  profile=reviewProfileLearning(profileRecordsForVersion(profile??{},state?.version));
+  profile=reviewProfileLearning(profileRecordsForVersion(profile??{},state?.version,state?.playFeedbackPolicy));
   const records=profile.grammarRecords??{};
   const summary=el('div',{class:'record-grid'},...[[profile.bestAttack??0,'최고 공격위력'],[profile.totalActualDamage??0,'누적 실제 피해'],[profile.qualifiedRunIds?.length??0,'초원 완료 원정']].map(([value,label])=>el('div',{},el('strong',{text:number(value)}),el('span',{text:label}))));
   const available=[...(state?.version==='0.14.0'?CLAUSE_GRAMMAR_DISPLAY:['0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(state?.version)||(profile.highestCompletedStage??0)>=10?CORRIDOR_GRAMMAR_DISPLAY:state?.milestoneIds?.includes('STAGE7_CLEAR')||(profile.highestCompletedStage??0)>=7?WATERWAYS_GRAMMAR_DISPLAY:state?.milestoneIds?.includes('STAGE6_CLEAR')||(profile.highestCompletedStage??0)>=6?EMBER_GRAMMAR_DISPLAY:GRAMMAR_DISPLAY)].sort((a,b)=>a.order-b.order).map(g=>[g.tag,g]);

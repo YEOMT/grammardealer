@@ -1,3 +1,4 @@
+import {resolveFateThreads} from './fateThreads.js';
 import {hasValidatedSubject,isVerifiedImperative} from './clauseSubject.js';
 import {resolveSurface,evaluateDeepRelease,measureRuneContributions} from './finale.js';
 import {resolveClauseThreads} from './clauseThreads.js';
@@ -97,8 +98,8 @@ export function resolveEncounter(analysis, postRuneScore, enemy, {
   if(seal){bossStateAfter=seal.bossStateAfter;const labelKo=seal.unlockedNow?'같은 문장의 두 관계절 · 이중 연결 인장 해제':bossStateAfter.unlocked?'이중 연결 인장 해제됨':'이중 연결 인장 · 체력 1 보호';bossEffects.push({id:'boss.dualRelativeSeal',synthetic:false,labelKo,...seal});emit({phase:'BOSS',sourceType:'BOSS',sourceId:'boss.dualRelativeSeal',labelKo,operation:'SET',operand:score,evidenceRefs:seal.unlockedNow?[bossStateAfter.unlockWitness.subjectRelativeId,bossStateAfter.unlockWitness.objectRelativeId]:[],highlightCardIds:seal.unlockedNow?[...new Set(originalAnalysis.relativeClauses.filter(r=>[bossStateAfter.unlockWitness.subjectRelativeId,bossStateAfter.unlockWitness.objectRelativeId].includes(r.id)).flatMap(r=>r.cardIds))]:[],bossStateBefore,bossStateAfter});}
   const foresight=bossStateBefore?.id==='FATE_FORESIGHT'?resolveForesight(originalAnalysis,score,enemy,{attackId,eligibleAnalysis:analysis}):null;
   if(foresight){bossStateAfter=foresight.bossStateAfter;bossEffects.push({id:'boss.foresight',synthetic:false,...foresight});emit({phase:'BOSS',sourceType:'BOSS',sourceId:'boss.foresight',labelKo:foresight.labelKo,operation:'SET',operand:foresight.finalPower,evidenceRefs:foresight.evidenceRefs,highlightCardIds:foresight.highlightCardIds,bossStateBefore,bossStateAfter});}
-  const threads=bossStateBefore?.id==='FATE_CLAUSE_THREADS'?resolveClauseThreads(originalAnalysis,score,enemy,{attackId,eligibleAnalysis:analysis}):null;
-  if(threads){bossStateAfter=threads.bossStateAfter;bossEffects.push({id:'boss.clauseThreads',synthetic:false,...threads});emit({phase:'BOSS',sourceType:'BOSS',sourceId:'boss.clauseThreads',labelKo:threads.labelKo,operation:'SET',operand:score,evidenceRefs:threads.evidenceRefs,highlightCardIds:threads.highlightCardIds,bossStateBefore,bossStateAfter});}
+  const threads=bossStateBefore?.id==='FATE_FORESIGHT_THREADS'?resolveFateThreads(originalAnalysis,score,enemy,{attackId,eligibleAnalysis:analysis}):bossStateBefore?.id==='FATE_CLAUSE_THREADS'?resolveClauseThreads(originalAnalysis,score,enemy,{attackId,eligibleAnalysis:analysis}):null;
+  if(threads){bossStateAfter=threads.bossStateAfter;bossEffects.push({id:'boss.clauseThreads',synthetic:false,...threads});emit({phase:'BOSS',sourceType:'BOSS',sourceId:'boss.clauseThreads',labelKo:threads.labelKo,operation:'SET',operand:threads.finalPower,evidenceRefs:threads.evidenceRefs,highlightCardIds:threads.highlightCardIds,bossStateBefore,bossStateAfter});}
   emit({ phase: 'FINAL_POWER', sourceType: 'SYSTEM', sourceId: 'FINAL_POWER', labelKo: '최종 공격력', operation: 'SET', operand: score });
   const finalPower = score;
   const actualHpLoss = threads?threads.actualHpLoss:surface?surface.actualHpLoss:seal?seal.actualHpLoss:frost?frost.actualHpLoss:golem?golem.actualHpLoss:Math.min(enemyHpBefore, finalPower);

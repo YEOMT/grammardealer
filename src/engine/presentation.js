@@ -1,3 +1,4 @@
+import {fateStatusText} from './fateThreads.js';
 import {createScoreOverlay} from '../ui/scoreOverlay.js';
 import {scoreFeedback,scoreFeedbackLabel} from './scoreFeedback.js';
 import {monsterViewFor} from '../ui/monsterArt.js';
@@ -239,6 +240,7 @@ export function createDOMPresentation(root, { audio, hpMax } = {}) {
     const fill = find(root, 'hp-fill'); if (fill) { fill.style.width = `${clamp(value / Math.max(1, max), 0, 1) * 100}%`; fill.setAttribute('aria-valuenow', String(value)); }
   };
   const showBossState=state=>{
+    if(state?.id==='FATE_FORESIGHT_THREADS')text('fate-threads',fateStatusText(state));
     if(state?.id==='FATE_FORESIGHT')text('foresight-memory','예견 · 직전 문형 '+frameLabel(state.rememberedFrame));
     if(state?.id==='FATE_CLAUSE_THREADS')text('clause-threads',Object.entries({ACTIVE:'행동',PASSIVE:'흔적',COUNTERFACTUAL:'가능성'}).map(([key,label])=>`${label} ${state.threads[key]?'●':'○'}`).join(' · '));
     if(state?.id?.startsWith('FINALE_')){const n=find(root,'finale-status');if(n)n.textContent=finaleStatusText(state);}

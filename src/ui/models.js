@@ -1,3 +1,4 @@
+import {scoreBalanceForVersion} from '../data/balance.js';
 import {operationSpec} from '../data/operationSpec.js';
 import {cardDefinition,cardKind} from '../data/cardCatalog.js';
 import { registryForVersion, formsForCard, lexemeForCard } from '../data/language/index.js';
@@ -14,7 +15,7 @@ export function cardModel(instance, selection = null, version='0.3.0') {
   const forms = formsForCard(instance,{registry});
   const selectedId = selection?.formId || selection?.selectionId || selection;
   const form = registry.formById[selectedId] || forms.find(f => f.id === lexeme.defaultFormId) || forms[0];
-  return { id: instance.instanceId, cardKind:'WORD', temporary:instance.temporary, lexemeId: lexeme.id, surface: form?.surface || lexeme.lemma, pos: lexeme.pos, baseScore: card.baseScore, polish: instance.polishLevel || 0, rarity: card.rarity, glossKo: lexeme.glossKo, formId: form?.id, forms, lexeme, definition: card, secondaryLexemes:(card.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id]) };
+  return { id: instance.instanceId, version, cardKind:'WORD', temporary:instance.temporary, lexemeId: lexeme.id, surface: form?.surface || lexeme.lemma, pos: lexeme.pos, baseScore: card.baseScore, polish: instance.polishLevel || 0, rarity: card.rarity, glossKo: lexeme.glossKo, formId: form?.id, forms, lexeme, definition: card, secondaryLexemes:(card.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id]) };
 }
 export function runeDescription(rune, level = 1, version='0.3.0') {
   if(!Number.isInteger(level)||level<1||level>3)return '지원하지 않는 레벨';
@@ -37,3 +38,6 @@ export function operationPolishPreview(model){
   const after=operationText(next);
   return before.effect===after.effect?`${before.effect} · ${before.limit} → ${after.limit}`:`${before.effect} → ${after.effect} · ${after.limit}`;
 }
+
+export function cardDisplayScore(model,level=model.polish??0){return (model.baseScore??10)+level*scoreBalanceForVersion(model.version).polishPerLevel;}
+export function polishPreview(model){return model.cardKind==='OPERATION'?operationPolishPreview(model):`카드 점수 ${cardDisplayScore(model)} → ${cardDisplayScore(model,model.polish+1)}`;}

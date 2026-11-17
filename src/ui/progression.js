@@ -16,7 +16,7 @@ import { el, button, heading, modal, confirmDialog, toast } from './dom.js';
 import { renderCombat } from './combat.js';
 import { isMixedOffer } from '../game/rewards.js';
 import { wordCard } from './cards.js';
-import { cardModel, operationPolishPreview, runeDescription as describeRuneForUI } from './models.js';
+import { cardModel, polishPreview, runeDescription as describeRuneForUI } from './models.js';
 import {applyStageTheme} from './theme.js';
 import {hasPolishCampaign} from '../data/campaignFeatures.js';
 import { runeForVersion } from '../data/runes.js';
@@ -201,7 +201,7 @@ export function renderReward(root,state,handlers={}){
   function showReplacement(choice){modal('교체할 룬을 선택하세요',[el('p',{text:'취소하면 세 후보와 기존 룬이 그대로 유지됩니다.'}),el('div',{class:'reward-choices'},state.runes.orderedInstanceIds.map(id=>{const r=state.runes.instances[id],def=runeForVersion(r.runeId,state.version);return el('section',{class:'reward-choice'},el('h3',{text:`${def.nameKo} Lv.${r.level}`}),el('p',{text:runeDescription(def,r.level)}),button('이 룬과 교체',()=>choose(choice,{replaceRuneInstanceId:id}),'primary'));})),button('교체 취소',showChoices,'secondary')],{wide:true,onClose:()=>{}});}
   function showTargets(choice){const polish=choice.serviceKind==='POLISH';modal(polish?'연마할 카드 한 장 선택':'제거할 카드 한 장 선택',[
     el('p',{text:polish?(hasPolishCampaign(state)?'단어는 단계마다 기본 점수 +5, 최대 +3. 운영은 효과를 강화하며 최대 +1입니다.':'연마 단계 +1 · 기본 10점에 단계마다 +5점. 최대 +3.'):'선택한 실제 카드만 제거합니다. 기본 문장 경로를 잃으면 추가 확인을 요청합니다.'}),
-    el('div',{class:'reward-target-grid'},choice.targetCardIds.map(id=>{const instance=state.cardInstances[id],model=cardModel(instance,null,state.version);return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&model.cardKind==='OPERATION'&&el('p',{text:operationPolishPreview(model)}),button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>choose(choice,{targetCardInstanceId:id}),'primary'));})),
+    el('div',{class:'reward-target-grid'},choice.targetCardIds.map(id=>{const instance=state.cardInstances[id],model=cardModel(instance,null,state.version);return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&el('p',{text:polishPreview(model)}),button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>choose(choice,{targetCardInstanceId:id}),'primary'));})),
     button('대상 선택 취소 · 원래 보상',showChoices,'secondary',{id:'cancel-reward-target'})],{wide:true});}
   function showChoices(){const summary=state.combat.victorySummary;
     modal(offer.firstRuneIntro?'첫 룬을 선택하세요':'전투 승리 · 보상 하나를 선택하세요',[

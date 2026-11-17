@@ -1,3 +1,5 @@
+import {hasPlayFeedback,validatePlayFeedbackPolicy} from '../data/playFeedbackPolicy.js';
+import {initialFateThreads} from '../engine/fateThreads.js';
 import {registryForVersion} from '../data/language/index.js';
 import {analyzeSentence} from '../engine/grammar/index.js';
 import {resolveAttack} from '../engine/stage.js';
@@ -11,13 +13,13 @@ const keys=['attackId','runId','battleId','sentenceSnapshot','cardScoringSnapsho
 export function clauseThreadReceipt(resolution){return Object.fromEntries(keys.filter(k=>resolution[k]!==undefined).map(k=>[k,structuredClone(resolution[k])]));}
 
 export function validateClauseThreadsRun(run){
- const c=run.combat;if(!c)return true;
+ validatePlayFeedbackPolicy(run);const c=run.combat;if(!c)return true;
  const expected=run.version==='0.14.0'&&run.progress.stageId==='stage.10'&&run.progress.roundIndex===4;
  const fail=()=>{throw Error('Invalid clause threads receipt chain');};
- if(!expected){if(c.enemyState.bossMechanic?.id==='FATE_CLAUSE_THREADS'||c.clauseThreadReceipts!==undefined||c.clauseThreadRuneBaseline!==undefined||c.clauseThreadCardBaseline!==undefined)fail();return true;}
+ if(!expected){if(['FATE_CLAUSE_THREADS','FATE_FORESIGHT_THREADS'].includes(c.enemyState.bossMechanic?.id)||c.clauseThreadReceipts!==undefined||c.clauseThreadRuneBaseline!==undefined||c.clauseThreadCardBaseline!==undefined)fail();return true;}
  if(c.enemyState.maxHp!==5000||!Array.isArray(c.clauseThreadReceipts)||c.clauseThreadReceipts.length>c.rulesSnapshot.turnLimit||!c.clauseThreadRuneBaseline||!c.clauseThreadCardBaseline)fail();
  if(!c.settled&&Object.entries(c.clauseThreadRuneBaseline).some(([id,r])=>!same(r,run.runes?.instances?.[id])))fail();
- let boss=initialClauseThreads(),hp=5000;const seen=new Set(),registry=registryForVersion(run.version),eligibility=comboEligibility(run);
+ let boss=hasPlayFeedback(run)?initialFateThreads():initialClauseThreads(),hp=5000;const seen=new Set(),registry=registryForVersion(run.version),eligibility=comboEligibility(run);
  for(const r of c.clauseThreadReceipts){
   if(!r.attackId||seen.has(r.attackId)||r.runId!==run.runId||r.battleId!==c.enemyState.id||r.enemyHpBefore!==hp||r.sentenceSnapshot?.languageVersion!=='0.14.0'||!same(r.comboEligibility,eligibility))fail();seen.add(r.attackId);
   const tokens=r.sentenceSnapshot.orderedTokens;

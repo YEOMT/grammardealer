@@ -163,7 +163,7 @@ export function createRewardOffer(run,profile){
     while(choices.length<3){const pool=eligibleRunes(run).filter(r=>!selectedRunes.has(r.id));if(!pool.length){if(!['0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version))throw Error('Rune introduction requires three valid runes');trace.push({kind:'INTRO_POOL_EXHAUSTED'});break;}const r=chooseRune(run,pool,trace);selectedRunes.add(r.id);choices.push(runeChoice(r,'UNLOCKED_IMPLEMENTED_ALL'));trace.push({kind:'INTRO_ELIGIBILITY_FALLBACK',runeId:r.id});}
   }else{
     const intro=battleNumber===1&&run.tutorial?.isIntroRun;
-    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version) : null);
+    const encounter = run.combat?.enemyState ?? (['0.2.0','0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version) ? getEncounter(run.progress.stageId,run.progress.roundIndex,run.version,run.playFeedbackPolicy) : null);
     const boss = encounter ? encounter.kind==='REGIONAL_BOSS' : battleNumber===3;
     const baseWeights=intro?{CARD_COMMON:100}:boss?REWARD_BALANCE.regionalBoss:REWARD_BALANCE.normal;
     for(let index=0;index<3;index++){

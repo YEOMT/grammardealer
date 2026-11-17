@@ -333,25 +333,27 @@ export function createBattlePiles({ activeCardIds, cardInstances, stream, initia
 }
 
 /** Draw into a proposed state clone. Excess requested cards are not recorded as future credit. */
-export function drawCards(piles, count, handLimit, stream) {
+export function drawCards(piles, count, handLimit, stream, movements=null) {
   if (!Number.isSafeInteger(count) || count < 0 || !Number.isSafeInteger(handLimit) || handLimit < 1) throw new RangeError('Invalid draw request');
   assertStream(stream);
   const actual = Math.min(count, Math.max(0, handLimit - piles.handIds.length));
   const drawn = [];
   for (let i = 0; i < actual; i += 1) {
     if (!piles.drawIds.length && piles.discardIds.length) {
+      movements?.push({type:'RESHUFFLE',count:piles.discardIds.length});
       piles.drawIds = shuffle(stream, piles.discardIds);
       piles.discardIds = [];
     }
     if (!piles.drawIds.length) break;
     const id = piles.drawIds.shift();
     piles.handIds.push(id); drawn.push(id);
+    if(movements){const last=movements.at(-1);if(last?.type==='DRAW')last.ids.push(id);else movements.push({type:'DRAW',ids:[id]});}
   }
   return drawn;
 }
 
 /** Validates before any mutation/RNG call. Invalid exchange leaves all input state untouched. */
-export function exchangeCards(piles, selectedIds, handLimit, stream) {
+export function exchangeCards(piles, selectedIds, handLimit, stream, movements=null) {
   if (!Array.isArray(selectedIds) || !selectedIds.length || new Set(selectedIds).size !== selectedIds.length ||
       selectedIds.some(id => !piles.handIds.includes(id)) || !Number.isSafeInteger(piles.exchangesRemaining) || piles.exchangesRemaining <= 0) {
     return { ok: false, reason: 'INVALID_EXCHANGE', drawnIds: [] };
@@ -362,7 +364,8 @@ export function exchangeCards(piles, selectedIds, handLimit, stream) {
   piles.handIds = piles.handIds.filter(id => !selected.has(id));
   piles.discardIds = [...selectedIds].reverse().concat(piles.discardIds);
   piles.exchangesRemaining -= 1;
-  return { ok: true, drawnIds: drawCards(piles, selectedIds.length, handLimit, stream) };
+  movements?.push({type:'DISCARD',ids:[...selectedIds]});
+  return { ok: true, drawnIds: drawCards(piles, selectedIds.length, handLimit, stream, movements) };
 }
 
 /** Remove only submitted sentence cards; unplayed hand cards stay in hand. */

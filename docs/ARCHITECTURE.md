@@ -1,3 +1,13 @@
+# 0.15.0 정책과 일회성 표시
+
+- `data/playFeedbackPolicy.js`의 선택적 정책은 NEW_RUN에서만 생성한다. 원정과 contentManifest의 일치 여부를 로드 시 검사한다. 기존 language/deck/HP/economy 계약은 상속하고 구저장을 자동 승격하지 않는다.
+- `engine/fateThreads.js`는 기존 실제 주절/분사구문/가정법 근거를 받아 예견, 두 실, HP 하한, 피해를 순서대로 한 번 계산한다. `clauseThreadsState`는 정책별 resolver로 전용 영수증을 재검증한다. 상태 커밋은 계속 RunController 단독이다.
+- `guidedTutorial`의 명시적 새 순서는 숨은 메뉴/점수 gate를 포함하지 않는다. 구세션은 옛 순서다. `guidedCoach`는 현재 보이는 대상과 손패 페이지를 사용하며 카드/RNG를 변경하지 않는다.
+- `deck`의 선택적 collector는 실제 DISCARD/RESHUFFLE/DRAW 순서만 기록한다. Controller가 성공한 명령 결과에 actionKey와 revision을 붙이고 `cardMovement`가 복사본만 재생한다. 원정 저장에 모션 로그를 누적하지 않는다. 취소/이탈/viewport 변화는 표시만 정리한다.
+- `transactionFeedback`은 성공한 명령의 실제 전후 상태를 사용한다. 강제 완료 모달 없이 해당 상품/사본과 골드 변화를 표시한다. `models.polishPreview`가 상점/보상/상세의 전후 표시를 공유하며 사전 모드는 관리 수치를 숨긴다.
+
+[실제 검사와 범위](PLAY_FEEDBACK_0.15.0_REPORT.md). 아래 구조는 이전 정책과 함께 보존한다.
+
 # 0.14.1 표시 경계
 
 - `ui/targetGrammar.js`는 버전별 기존 안내를 읽는 모달이다. 해석·보상·RNG를 호출하지 않는다. 모바일 자원은 header가 아닌 retained `enemy-tactics`에 표시한다.
