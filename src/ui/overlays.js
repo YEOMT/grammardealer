@@ -5,7 +5,7 @@ import {fullscreenButton,linkSettings} from './immersive.js';
 import {CORRIDOR_GRAMMAR_DISPLAY,CLAUSE_GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
 import {NOMINAL_GUIDE,NOMINAL_CATALOG} from '../data/grammarGuideData.js';
 import {SNOW_GRAMMAR_DISPLAY as GRAMMAR_DISPLAY,EMBER_GRAMMAR_DISPLAY,WATERWAYS_GRAMMAR_DISPLAY} from '../data/grammarDisplay.js';
-import {visibleForms,formLabel} from './formView.js';
+import {visibleForms,formLabel,dictionaryForms} from './formView.js';
 import {isIngForm} from '../data/language/desertLanguage.js';
 import {CLAUSE_ROLES,LINK_ROLES,CLAUSE_GUIDE,RELATIVE_ROLE_LABELS,QUESTION_ROLE_LABELS} from '../data/grammarGuideData.js';
 import {learningRecord,reviewProfileLearning,studentStatus,displayLearningRecord} from '../engine/learningRecords.js';
@@ -35,9 +35,9 @@ function zoneOf(state, id) {
 
 /** Read-only pile inspection. Draw is sorted by visible words and never exposes RNG or draw indices. */
 export function openDeck(state, kind = 'all') {
-  if (!state) return modal('나의 덱', small('원정을 시작하면 카드를 확인할 수 있습니다.'));
+  if (!state) return openDictionary(state);
   const normalized = String(kind).toLowerCase();
-  if(normalized==='all')return openDictionary(state,{ownedOnly:true,mode:'management'});
+  if(normalized==='all')return openDictionary(state);
   const isExhausted=normalized==='exhausted';
   const isDraw = ['draw', 'drawids'].includes(normalized), isDiscard = ['discard', 'discardids'].includes(normalized);
   const ids = [...(isDraw ? state.combat?.drawIds ?? [] : isDiscard ? state.combat?.discardIds ?? [] : isExhausted ? state.combat?.exhaustedIds??[] : state.activeCardIds)];
@@ -61,42 +61,33 @@ export function openDeck(state, kind = 'all') {
 }
 
 /** Only words encountered during this run are visible, including words removed later. */
-export function openDictionary(state,{ownedOnly=false,mode='dictionary'}={}) {
+export function openDictionary(state) {
   const registry=registryForVersion(state?.version);
-  const ids = state?.vocabulary?.encounteredLexemeIds ?? [];
-  const words = [...new Set(ids)].map(id => registry.lexemeById[id]).filter(Boolean).sort((a, b) => a.lemma.localeCompare(b.lemma, 'en'));
-  const search = el('input', { type: 'search', placeholder: '영단어 또는 뜻 찾기', 'aria-label': '원정 사전 검색' });
-  const count = el('span', { class: 'muted', text: `${words.length}개 단어` });
-  const grid = el('div', { class: 'dictionary-grid' });
-  const filter=el('select',{'aria-label':'단어 목록',onchange:()=>{ownedOnly=filter.value==='owned';render();}},el('option',{value:'owned',text:'보유 카드',selected:ownedOnly}),el('option',{value:'encountered',text:'이번 원정에서 만난 단어',selected:!ownedOnly}));
-  const render = () => {
-    const term = search.value.trim().toLocaleLowerCase();
-    const filtered = words.filter(word => (!ownedOnly||state.activeCardIds.some(id=>registry.cardById[state.cardInstances[id]?.cardDefId]?.lexemeId===word.id))).filter(word => `${word.lemma} ${word.glossKo} ${(registry.cards.find(c=>c.lexemeId===word.id)?.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id].glossKo).join(' ')}`.toLocaleLowerCase().includes(term));
-    count.textContent = `${filtered.length} / ${words.length}개 단어`;
-    grid.replaceChildren(...filtered.map(word => {
-      const senses = word.senseIds.map(id => registry.senseById[id]).filter(Boolean);
-      const definition=registry.cards.find(c=>c.lexemeId===word.id);
-      const secondary=(definition?.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id]);
-      const forms = [...word.formIds,...(registry.languagePolicyVersion?secondary.flatMap(l=>l.formIds):[])].map(id => registry.formById[id]).filter(form => form?.runtimeReady);
-      const owned=Object.values(state?.cardInstances??{}).filter(c=>state.activeCardIds.includes(c.instanceId)&&registry.cardById[c.cardDefId]?.lexemeId===word.id);
-      const polishSummary=[0,1,2,3].map(level=>{const count=owned.filter(c=>c.polishLevel===level).length;return count?`연마 +${level}: 기본 10 + 연마 ${level*5} = ${10+level*5}점 · ${count}장`:null;}).filter(Boolean);
+  const words=[...new Set(state?.vocabulary?.encounteredLexemeIds??[])].map(id=>registry.lexemeById[id]).filter(Boolean).sort((a,b)=>a.lemma.localeCompare(b.lemma,'en'));
+  const search=el('input',{type:'search',placeholder:'영단어 또는 뜻 찾기','aria-label':'원정 사전 검색'});
+  const count=el('span',{class:'dictionary-count',role:'status'}),grid=el('div',{class:'dictionary-grid'});
+  const definition=word=>registry.cards.find(c=>c.lexemeId===word.id);
+  const secondary=word=>(definition(word)?.secondaryLexemeIds??[]).map(id=>registry.lexemeById[id]).filter(Boolean);
+  const render=()=>{
+    const term=search.value.trim().toLocaleLowerCase();
+    const filtered=words.filter(word=>[word,...secondary(word)].some(w=>`${w.lemma} ${w.glossKo}`.toLocaleLowerCase().includes(term)));
+    count.textContent=term?`검색 결과 ${filtered.length}개`:`${words.length}개`;
+    grid.replaceChildren(...filtered.map(word=>{
+      const def=definition(word),others=secondary(word),senses=word.senseIds.map(id=>registry.senseById[id]).filter(Boolean);
+      const forms=[...word.formIds,...(registry.languagePolicyVersion?others.flatMap(w=>w.formIds):[])].map(id=>registry.formById[id]).filter(f=>f?.runtimeReady);
       const tips={want:'want + to V / 목적어 + to V',need:'need + to V / 목적어 + to V; need + -ing는 ~될 필요가 있다는 뜻도 있습니다.',enjoy:'enjoy 뒤에는 동명사(-ing)를 씁니다.',finish:'finish 뒤에는 명사나 동명사(-ing)를 씁니다.',give:'give + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',show:'show + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',send:'send + 간접목적어 + 직접목적어 / 직접목적어 + to + 대상',make:'make + 간접목적어 + 직접목적어 / 직접목적어 + for + 대상',to:'명사구 앞 전치사 / 동사 원형 앞 부정사 표지',that:'지시 한정사·대명사 / 관계절·내용 목적어절 연결'};
-      const dual=(registry.cards.find(c=>c.lexemeId===word.id)?.secondaryLexemeIds??[]).length>0;
-      const notes=[...(dual?(definition.dualUsage?[definition.dualUsage.description,...definition.dualUsage.examples,...secondary.map(l=>l.usageNoteKo)]:['동사: 돕다 / 명사: 도움(셀 수 없는 명사)','I help you. / I need more help.','명사 도움은 기본형 help로 씁니다. 활용형은 기존 동사 용법을 따릅니다.']):[]),tips[word.lemma]??(word.pos==='VERB'&&!['will','can'].includes(word.lemma)&&!registry.languagePolicyVersion?null:word.usageNoteKo)].filter(Boolean);
+      const notes=[...(others.length?(def.dualUsage?[def.dualUsage.description,...def.dualUsage.examples,...others.map(w=>w.usageNoteKo)]:['동사: 돕다 / 명사: 도움(셀 수 없는 명사)','I help you. / I need more help.','명사 도움은 기본형 help로 씁니다. 활용형은 기존 동사 용법을 따릅니다.']):[]),tips[word.lemma]??(word.pos==='VERB'&&!['will','can'].includes(word.lemma)&&!registry.languagePolicyVersion?null:word.usageNoteKo)].filter(Boolean);
       if(word.pos==='NOUN')notes.push(({COUNT:'가산명사: 단수에는 한정사를 쓰고, 복수형도 사용할 수 있습니다.',MASS:'불가산명사: 이 게임의 뜻에서는 a/an과 복수형을 사용하지 않습니다.',BOTH:'가산·불가산 용법: 종류·개별 사례는 a/an 또는 복수형, 일반 개념·물질은 무관사 단수형을 사용할 수 있습니다.'})[senses[0]?.countability]);
-      return el('article', { class: 'dictionary-entry dictionary-word',dataset:{dictionaryMode:mode} },
-        el('div',{class:'dictionary-word-heading'},el('div',{},el('strong',{class:'word-heading',text:word.lemma}),el('small',{class:`dictionary-pos pos-${word.pos}`,text:POS_LABELS[word.pos]??'단어'})),el('strong',{class:'dictionary-gloss',text:word.glossKo||'뜻 확인 중'})),
-        mode==='management'&&el('p',{text:owned.length?`보유 ${owned.length}장`:'현재 보유하지 않음'}),
-        el('small', { text: `허용 형태: ${visibleForms(word.pos,forms).map(form => `${form.surface} (${form.aliasForms?.map(f=>formMeaning(word,f)).join('·')??(form.grammaticalFeatures?.tense==='PAST_PARTICIPLE'?formLabel(form):formMeaning(word,form))})`).join(' · ') || '0.1에서는 제공하지 않음'}` }),
-        ...notes.filter(Boolean).map(note => el('small', { text: note })),
-        mode==='management'&&el('small',{text:'희귀도: '+({COMMON:'일반',UNCOMMON:'고급',RARE:'희귀'}[registry.cards.find(c=>c.lexemeId===word.id)?.rarity]??'단어')+' · 카드 기본점수 10 · 연마 단계마다 +5 · 최대 +3'}),...(mode==='management'?polishSummary.map(text=>el('small',{text})):[]),
-      );
+      return el('article',{class:'dictionary-entry dictionary-word',dataset:{dictionaryMode:'dictionary'}},
+        el('div',{class:`dictionary-word-heading pos-${word.pos}`},el('strong',{class:'word-heading',text:word.lemma}),el('strong',{class:'dictionary-gloss',text:word.glossKo||'뜻 확인 중'}),el('small',{class:'dictionary-pos',text:POS_LABELS[word.pos]??'단어'})),
+        ...others.map(w=>el('div',{class:`dictionary-secondary pos-${w.pos}`},el('small',{class:'dictionary-pos',text:POS_LABELS[w.pos]??'단어'}),el('span',{text:w.glossKo}))),
+        el('div',{class:'dictionary-forms'},...dictionaryForms(word,forms).map(f=>el('span',{class:'dictionary-form'},f.label&&el('small',{text:f.label}),el('span',{text:f.surfaces})))),
+        notes.filter(Boolean).length>0&&el('details',{class:'dictionary-usage'},el('summary',{text:'용법'}),...[...new Set(notes.filter(Boolean))].map(text=>el('p',{text}))));
     }));
-    if (!filtered.length) grid.append(small(words.length ? '검색 결과가 없습니다.' : '원정을 시작하면 만난 단어가 여기에 남습니다.'));
+    if(!filtered.length)grid.append(small(words.length?'검색 결과가 없습니다.':'원정을 시작하면 만난 단어가 여기에 남습니다.'));
   };
-  search.addEventListener('input', render); render();
-  return modal(mode==='management'?'나의 덱 · 단어 사전':'원정 사전', [small('이번 원정에서 소개·획득하거나 보상으로 공개된 단어입니다. 카드를 제거해도 사전에는 남습니다.'),
-    el('div', { class: 'dialog-actions wrap' }, filter, search, count), grid, mode==='management'&&operationSection(state)], { wide: true });
+  search.addEventListener('input',render);render();
+  return modal('사전',[el('div',{class:'dictionary-toolbar'},search,count),grid],{size:'dictionary'});
 }
 
 function learningBlock(record){
@@ -177,32 +168,25 @@ export function openRecentAttack(state) {
 
 /** Emits a new settings value; caller owns profile persistence and AudioManager configuration. */
 export function openSettings(settings = {}, onChange, onGuide) {
-  let value = { speed: 1, sfxVolume: 45, bgmVolume:100, muted: false, effectsOff: false, ...settings };
-  const update = patch => {
-    value = { ...value, ...patch };
-    try { Promise.resolve(onChange?.({ ...value })).catch(error => toast(`설정을 저장하지 못했습니다: ${error.message}`)); }
-    catch (error) { toast(`설정을 바꾸지 못했습니다: ${error.message}`); }
+  let value={speed:1,sfxVolume:45,bgmVolume:100,muted:false,effectsOff:false,...settings};
+  const update=patch=>{value={...value,...patch};try{Promise.resolve(onChange?.({...value})).catch(error=>toast(`설정을 저장하지 못했습니다: ${error.message}`));}catch(error){toast(`설정을 바꾸지 못했습니다: ${error.message}`);}};
+  const volumeRow=(key,label,aria)=>{
+    const output=el('output',{text:`${value[key]}%`});
+    const input=el('input',{type:'range',min:0,max:100,step:1,value:value[key],'aria-label':aria,oninput:e=>{const n=Number(e.target.value);output.textContent=`${n}%`;update({[key]:n});}});
+    return el('label',{class:'settings-row'},el('span',{text:label}),input,output);
   };
-  const speed = el('select', { 'aria-label': '연출 속도', onchange: event => update({ speed: Number(event.target.value) }) },
-    [1, 1.5, 2].map(speed => el('option', { value: String(speed), text: `${speed}×`, selected: value.speed === speed })));
-  const volumeLabel = el('span', { text: `${value.sfxVolume}%` });
-  const volume = el('input', { type: 'range', min: 0, max: 100, step: 1, value: value.sfxVolume, 'aria-label': '효과음 음량', oninput: event => {
-    const sfxVolume = Number(event.target.value); volumeLabel.textContent = `${sfxVolume}%`; update({ sfxVolume });
-  } });
-  const bgmLabel=el('span',{text:`${value.bgmVolume}%`});
-  const bgmVolume=el('input',{type:'range',min:0,max:100,step:1,value:value.bgmVolume,'aria-label':'배경음악 음량',oninput:event=>{const bgmVolume=Number(event.target.value);bgmLabel.textContent=`${bgmVolume}%`;update({bgmVolume});}});
-  const mute = el('input', { type: 'checkbox', checked: Boolean(value.muted), 'aria-label': '음소거', onchange: event => update({ muted: event.target.checked }) });
-  const reduced = el('input', { type: 'checkbox', checked: Boolean(value.effectsOff), 'aria-label': '효과 감소', onchange: event => update({ effectsOff: event.target.checked }) });
+  const toggle=(key,label)=>{
+    const text=el('span',{class:'toggle-value',text:value[key]?'켜짐':'꺼짐','aria-hidden':'true'});
+    const input=el('input',{type:'checkbox',checked:!!value[key],'aria-label':label,onchange:e=>{text.textContent=e.target.checked?'켜짐':'꺼짐';update({[key]:e.target.checked});}});
+    return el('label',{class:'settings-row settings-toggle'},el('span',{text:label}),input,text);
+  };
+  const speed=el('select',{'aria-label':'연출 속도',onchange:e=>update({speed:Number(e.target.value)})},[1,1.5,2].map(n=>el('option',{value:String(n),text:`${n}×`,selected:value.speed===n})));
+  const links=linkSettings();links.querySelector('summary').textContent='홈 화면·접속 안내';
   let view;
-  const controls = el('div', { class: 'settings-grid' },fullscreenButton(),linkSettings(),
-    el('label', {}, '연출 속도', speed),
-    el('label', {}, '효과음 음량', el('div', { class: 'dialog-actions' }, volume, volumeLabel)),
-    el('label',{},'배경음악',el('div',{class:'dialog-actions'},bgmVolume,bgmLabel)),
-    el('label', {}, '음소거', mute), el('label', {}, '효과 감소', reduced),
-    small('장식 효과를 줄입니다. 공격·피격 표시는 유지됩니다.'),globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches&&small('기기의 동작 줄이기를 적용 중입니다.'),
-    onGuide && button('튜토리얼 다시 보기', () => { view.close(); onGuide(); }, 'secondary'),
-  );
-  view = modal('설정', controls); return view;
+  const groups=el('div',{class:'settings-groups'},
+    el('section',{class:'settings-group'},el('h3',{text:'소리'}),volumeRow('bgmVolume','배경음악','배경음악 음량'),volumeRow('sfxVolume','효과음','효과음 음량'),toggle('muted','음소거')),
+    el('section',{class:'settings-group'},el('h3',{text:'화면·연출'}),el('div',{class:'settings-row'},el('span',{text:'화면'}),fullscreenButton()),el('label',{class:'settings-row'},el('span',{text:'연출 속도'}),speed),toggle('effectsOff','효과 감소'),small('공격·피격 표시는 유지됩니다.'),globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches&&small('기기의 동작 줄이기를 적용 중입니다.')));
+  view=modal('설정',[groups,el('div',{class:'settings-footer'},onGuide&&button('튜토리얼 다시 보기',()=>{view.close();onGuide();},'secondary'),links)],{size:'settings'});return view;
 }
 
 /** Three manual slots, transaction completion before success, and validated load through caller. */

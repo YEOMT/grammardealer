@@ -19,3 +19,25 @@ export function visibleForms(pos,forms){
  }
  return groups;
 }
+
+/** Compact dictionary labels; forms remain registry-owned and past/p.p. never merge. */
+export function dictionaryForms(word,forms){
+ const visible=visibleForms(word.pos,forms);
+ if(visible.length===1&&visible[0].surface===word.lemma&&!['VERB','PRONOUN','NOUN'].includes(word.pos))return [];
+ const groups=new Map();
+ for(const form of visible){
+  const f=form.grammaticalFeatures??{};
+  let label=form.aliasForms?.map(x=>x.labelKo).join('·')??form.labelKo??'';
+  if(label!=='복수 / 3인칭 단수'){
+   if(f.tense==='PAST_PARTICIPLE')label='p.p.';
+   else if(f.tense==='PRESENT_PARTICIPLE'||form.surface.endsWith('ing')&&f.aspect==='PROGRESSIVE')label='-ing';
+   else if(f.tense==='PAST')label='과거';
+   else if(f.tense==='BASE'||f.tense==='PRESENT'&&f.number==='NON_3_SINGULAR')label='원형';
+   else if(word.lemma==='be'&&['am','is','are'].includes(form.surface))label='현재';
+   else if(f.tense==='PRESENT'&&f.number==='SINGULAR')label='3인칭 단수';
+  }
+  if(label===form.surface||label==='기본형'||label==='연결어')label='';
+  const values=groups.get(label)??new Set();values.add(form.surface);groups.set(label,values);
+ }
+ return [...groups].map(([label,surfaces])=>({label,surfaces:[...surfaces].join(' · ')}));
+}

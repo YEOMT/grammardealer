@@ -1,0 +1,54 @@
+/* Purpose-specific modals. Other dialogs and the battle geometry keep their sizes. */
+.app-dialog[data-size]{--dialog-width:720px;width:min(var(--dialog-width),calc(var(--visual-width,100vw) - var(--safe-left,0px) - var(--safe-right,0px) - 24px));max-width:var(--dialog-width);max-height:calc(var(--visual-height,100dvh) - var(--safe-top,0px) - var(--safe-bottom,0px) - 24px)}
+.app-dialog[data-size][open]{display:flex;flex-direction:column}
+.app-dialog[data-size]>.dialog-header{flex:none}
+.app-dialog[data-size]>.dialog-body{min-height:0;max-height:none;overflow:auto;padding:20px 24px}
+.app-dialog[data-size=settings]{--dialog-width:560px}
+.app-dialog[data-size=dictionary]{--dialog-width:1080px}
+.app-dialog[data-size=dictionary] .dictionary-toolbar{display:flex;gap:14px;align-items:center;position:sticky;top:-20px;background:#18362b;padding:0 0 12px;z-index:1}
+.dictionary-toolbar input{min-width:0;flex:1;font-size:16px;min-height:44px}
+.dictionary-count{flex:none;font-size:13px;color:var(--muted)}
+.app-dialog[data-size=dictionary] .dictionary-grid{margin-top:0;gap:14px;align-items:start}
+.app-dialog[data-size=dictionary] .dictionary-entry{padding:16px;min-width:0;min-height:0}
+.app-dialog[data-size=dictionary] .dictionary-word-heading{display:grid;grid-template-columns:minmax(112px,auto) minmax(0,1fr);align-items:baseline;gap:3px 16px;margin:0 0 8px;border-left:3px solid var(--pos);padding-left:10px}
+.app-dialog[data-size=dictionary] .word-heading{font-size:23px;line-height:1.35;white-space:nowrap;overflow-wrap:normal}
+.app-dialog[data-size=dictionary] .dictionary-gloss{font-family:inherit;font-size:20px;line-height:1.45;color:var(--cream);overflow-wrap:break-word;word-break:keep-all}
+.app-dialog[data-size=dictionary] .dictionary-pos{grid-column:1/-1;color:var(--pos);font-size:13px;line-height:1.4;margin:0}
+.dictionary-secondary{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;padding-left:10px;border-left:3px solid var(--pos);margin:8px 0;font-size:17px}
+.app-dialog[data-size=dictionary] .dictionary-secondary .dictionary-pos{grid-column:auto}
+.dictionary-forms{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:10px;font-size:15px;line-height:1.5}
+.dictionary-form{display:inline-flex;gap:5px;align-items:baseline;white-space:nowrap}
+.app-dialog[data-size=dictionary] .dictionary-form small{display:inline;margin:0;color:var(--muted);font-size:13px}
+.dictionary-usage{margin-top:8px;font-size:14px;line-height:1.6}
+.dictionary-usage summary,.app-dialog[data-size=grammar] summary{cursor:pointer;min-height:40px;display:list-item;padding:8px 0;color:var(--gold)}
+.app-dialog[data-size=dictionary] .dictionary-usage p{font-size:14px;line-height:1.6;margin:4px 0}
+.target-heading{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;margin-bottom:14px}
+.target-heading h3{font-size:26px;color:var(--gold)}
+.target-multiplier{font-size:14px;color:var(--muted)}
+.target-pattern{display:flex;flex-wrap:wrap;gap:3px 6px;padding:14px;background:#0d261c;border:1px solid var(--line);border-radius:8px;font-size:19px;line-height:1.6}
+.app-dialog[data-size=grammar] .target-meaning{font-size:16px;line-height:1.65;margin:10px 0}
+.target-example{font-family:Georgia,serif;font-size:25px;line-height:1.5;margin:18px 0;color:var(--cream)}
+.target-conditions,.target-boss{border-top:1px solid var(--line);padding-top:14px;margin-top:14px;font-size:16px;line-height:1.65}
+.target-conditions h4,.target-boss h4{margin-bottom:6px;font-size:16px;color:var(--gold)}
+.target-conditions details,.target-boss-preview{font-size:15px;line-height:1.65}
+.target-conditions p,.target-boss p{margin:6px 0}
+.settings-groups{display:grid;gap:18px}
+.settings-group{display:grid;gap:8px;min-width:0}
+.settings-group h3{font-size:16px;color:var(--gold);margin-bottom:2px}
+.settings-row{display:grid;grid-template-columns:100px minmax(0,1fr) 48px;align-items:center;gap:10px;min-height:44px;font-size:14px}
+.settings-row input[type=range]{min-width:0;width:100%;padding:0}
+.settings-row output{text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
+.settings-row select,.settings-row .fullscreen-toggle{grid-column:2/4;justify-self:end;min-width:100px;min-height:44px}
+.settings-toggle input{appearance:none;justify-self:end;width:40px;height:24px;min-height:0;padding:2px;border:1px solid var(--line);border-radius:14px;background:#0d261c;cursor:pointer}
+.settings-toggle input::before{content:'';display:block;width:18px;height:18px;border-radius:50%;background:var(--muted)}
+.settings-toggle input:checked{background:#66592f;border-color:var(--gold)}
+.settings-toggle input:checked::before{transform:translateX(15px);background:var(--cream)}
+.app-dialog[data-size=settings] .fullscreen-toggle{border:1px solid var(--line);border-radius:8px;background:#193c30;padding:8px 14px}
+.settings-toggle .toggle-value{font-size:13px;text-align:right}
+.settings-group>.muted{font-size:12px;line-height:1.5;margin:0}
+.settings-footer{margin-top:16px;display:grid;gap:8px;font-size:13px}
+.settings-footer>button{justify-self:center;min-height:44px}
+.settings-footer details{margin:0;line-height:1.6}
+@media(max-width:760px){.app-dialog[data-size=dictionary] .dictionary-grid{grid-template-columns:1fr}.app-dialog[data-size]>.dialog-body{padding:16px}.app-dialog[data-size=dictionary] .dictionary-toolbar{top:-16px}}
+@media(min-width:720px) and (max-height:550px){.app-dialog[data-size=settings]{--dialog-width:780px}.settings-groups{grid-template-columns:1fr 1fr;gap:20px}.settings-row{grid-template-columns:80px minmax(0,1fr) 42px;gap:8px}}
+@media(max-width:480px){.app-dialog[data-size=dictionary] .dictionary-word-heading{grid-template-columns:1fr}.app-dialog[data-size=dictionary] .dictionary-pos{grid-row:2}.dictionary-gloss{grid-row:3}.dictionary-secondary{grid-template-columns:80px minmax(0,1fr)}.settings-row{grid-template-columns:84px minmax(0,1fr) 42px;gap:8px}}

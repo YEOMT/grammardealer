@@ -1,0 +1,171 @@
+{
+  "scope": "Chromium real tutorial UI plus assigned controller/browser states; physical devices NOT RUN",
+  "checks": [
+    {
+      "name": "A-boss-policy-and-display",
+      "status": "PASS",
+      "evidence": [
+        {
+          "power": 7846,
+          "loss": 4999,
+          "hp": 1,
+          "blocked": false,
+          "threads": {
+            "PARTICIPIAL": {
+              "attackId": "qa.waterways.corridor.assigned:battle.47:attack.1",
+              "evidenceRefs": [
+                "hit.structure.0",
+                "participial.0"
+              ]
+            },
+            "COUNTERFACTUAL": null
+          },
+          "text": "예견 · 3형식 | 분사구문 ● · 가정법 ○",
+          "settlements": 0
+        },
+        {
+          "power": 0,
+          "loss": 0,
+          "hp": 1,
+          "blocked": true,
+          "threads": {
+            "PARTICIPIAL": {
+              "attackId": "qa.waterways.corridor.assigned:battle.47:attack.1",
+              "evidenceRefs": [
+                "hit.structure.0",
+                "participial.0"
+              ]
+            },
+            "COUNTERFACTUAL": null
+          },
+          "text": "예견 · 3형식 | 분사구문 ● · 가정법 ○",
+          "settlements": 0
+        },
+        {
+          "power": 7233,
+          "loss": 1,
+          "hp": 0,
+          "blocked": false,
+          "threads": {
+            "PARTICIPIAL": {
+              "attackId": "qa.waterways.corridor.assigned:battle.47:attack.1",
+              "evidenceRefs": [
+                "hit.structure.0",
+                "participial.0"
+              ]
+            },
+            "COUNTERFACTUAL": {
+              "attackId": "qa.waterways.corridor.assigned:battle.47:attack.3",
+              "evidenceRefs": [
+                "hit.corridor.0"
+              ]
+            }
+          },
+          "text": "예견 · 3형식 | 분사구문 ● · 가정법 ●",
+          "settlements": 1
+        }
+      ]
+    },
+    {
+      "name": "B-real-combat-first-tutorial",
+      "status": "PASS",
+      "evidence": [
+        {
+          "viewport": [
+            1280,
+            720
+          ],
+          "status": "REWARD",
+          "restoredCards": 28,
+          "gold": 5
+        },
+        {
+          "viewport": [
+            844,
+            390
+          ],
+          "status": "REWARD",
+          "restoredCards": 28,
+          "gold": 5
+        }
+      ]
+    },
+    {
+      "name": "C-dictionary-form-management",
+      "status": "PASS",
+      "evidence": {
+        "glossToRight": true,
+        "posBelow": true
+      }
+    },
+    {
+      "name": "D-ordered-card-motion",
+      "status": "PASS",
+      "evidence": {
+        "events": [
+          {
+            "type": "DISCARD",
+            "ids": [
+              "starter.01",
+              "starter.10"
+            ]
+          },
+          {
+            "type": "RESHUFFLE",
+            "count": 20
+          },
+          {
+            "type": "DRAW",
+            "ids": [
+              "starter.23",
+              "starter.22"
+            ]
+          }
+        ],
+        "phases": [
+          "DISCARD",
+          "RESHUFFLE",
+          "DRAW"
+        ],
+        "samples": 55,
+        "page": "1"
+      }
+    },
+    {
+      "name": "E-shop-polish-success-and-failure",
+      "status": "PASS",
+      "evidence": {
+        "ok": false,
+        "unchanged": true,
+        "gold": 86,
+        "polished": true
+      }
+    },
+    {
+      "name": "F-motion-abort-speed-effects-viewport",
+      "status": "PASS",
+      "evidence": {
+        "fullscreen": {
+          "host": true,
+          "status": "INTERRUPTED",
+          "copies": 0,
+          "moving": false
+        },
+        "mobile": {
+          "counts": [
+            0,
+            0
+          ],
+          "moving": false,
+          "exchanges": 3,
+          "previousExchanges": 4,
+          "off": "SKIPPED",
+          "phase": "EDIT"
+        }
+      }
+    }
+  ],
+  "captures": [],
+  "errors": [],
+  "status": "PASS"
+}

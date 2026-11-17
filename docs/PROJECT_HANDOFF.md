@@ -1,3 +1,13 @@
+# 0.15.1 R2 인계
+
+작업 시작 최신 main은 `d7d86e1f3e508e9b4beb31ec6deafdf440a2a0d1`(PR #38), 브랜치는 `codex/v0.15.1-interface-cohesion`이다. 시작 작업 트리는 깨끗했고 이전 브랜치·원본 ZIP·기존 증거를 보존했다. [R2 구현 계약](../spec/v0.15.1/Syntax_Atlas_v0.15.1_Interface_Cohesion_Spec.md)과 [실제 검사·한계](INTERFACE_COHESION_0.15.1_REPORT.md)를 우선한다. R1의 통합 카드 창/내 덱 탭은 사용하지 않는다.
+
+앱만 0.15.1이다. 아래 0.15.0의 원정/언어/저장/직조자/실습/카드 이동 정책은 유지한다. 일반 `내 덱` 진입과 관리 모드만 사전으로 대체했다. `openDeck('all')`의 역사적 호출은 사전으로 연결하며 실제 뽑기/버리기/사용 완료 묶음은 기존 데이터를 그대로 읽는다. 구 실습의 내부 `deck` 단계는 보이는 사전으로 진행해 저장 정책을 바꾸지 않는다.
+
+`presentationRegion`은 상점의 장소만 정한다. 상품 대상 `shop.stageId`는 그대로이며 4/8지역 선택도 다음 지역 준비로 표시한다. `firstPreparation`의 owner/run/stage/encounter/revision 게이트는 UI 메모리만 사용한다. 확인할 때 기존 시작 명령 한 번을 보내고, 저장 허용·셔플·지급·보스 과제는 기존 Controller가 담당한다. 새로고침으로 준비 하위 화면이 사라지면 원래 입장 화면에서 다시 준비할 수 있다. 활성 전투 저장을 초기화하지 않는다.
+
+아래는 과거 인계이며, 사전/내 덱 UI 설명이 충돌하면 위 R2를 따른다.
+
 # 0.15.0 플레이 피드백 인계
 
 작업 시작 main은 `baefec39ef9a725a060d41c3977febca4517a4eb`(v0.14.2), 브랜치는 `codex/v0.15.0-play-feedback`이다. [구현 계약](../spec/v0.15.0/Syntax_Atlas_v0.15.0_Play_Feedback_Spec.md)과 [실제 검사·남은 한계](PLAY_FEEDBACK_0.15.0_REPORT.md)를 우선한다. 이전 인계·원본 ZIP·실행 증거는 보존한다.

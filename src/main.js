@@ -18,6 +18,8 @@ import './ui/input.css';
 import './ui/mobile.css';
 import './ui/mobileBoard.css';
 import './ui/visibleLayout.css';
+import './ui/interfaceCohesion.css';
+import {createFirstPreparationGate,firstPreparationContext} from './ui/firstPreparation.js';
 import {installInputGuard} from './ui/inputGuard.js';
 import { renderLobby } from './ui/lobby.js';
 import { renderSandbox } from './ui/sandbox.js';
@@ -37,6 +39,7 @@ import { LocalStore, newProfile, applyProfileEvent } from './services/localStore
 installViewport();syncFullscreenButtons();installOrientationGate();
 const musicDirector=createMusicDirector(audio);
 const root=document.querySelector('#app');
+const firstPreparation=createFirstPreparationGate();
 const store=new LocalStore({registry});
 const sessionLeaderboard=new MemoryLeaderboardRepository();
 let rankingSessionFallback=false;
@@ -59,7 +62,7 @@ function persistFinalClear(next,record){
  const frozen=structuredClone(next),snapshot=structuredClone(record);
  saveQueue=saveQueue.catch(()=>{}).then(()=>leaderboard().upsertClear(snapshot,{profile:frozen})).catch(async error=>{rankingSessionFallback=true;await sessionLeaderboard.upsertClear(snapshot);toast(`클리어는 완료했습니다. 기록은 이번 세션에 보존합니다: ${error.message}`);});return saveQueue;
 }
-function newController(){controller=new RunController({profile,onProfileEvent:(event,next)=>{if(event.type==='FINAL50_CLEAR')void persistFinalClear(next,event.clearRecord);else void persistProfile(next);}});}
+function newController(){firstPreparation.clear();controller=new RunController({profile,onProfileEvent:(event,next)=>{if(event.type==='FINAL50_CLEAR')void persistFinalClear(next,event.clearRecord);else void persistProfile(next);}});}
 function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,version:controller?.getState()?.playFeedbackPolicy?'0.15.0':controller?.getState()?.version??'0.15.0',memory:!store.available||rankingSessionFallback}));}
 function changeRoute(route){if(location.hash===`#${route}`)render();else location.hash=route;}
 async function startRun(config,{sameSeed=false}={}){
@@ -145,6 +148,7 @@ async function presentResolution(before,resolution){
 function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(isGuided(state)){confirmDialog('튜토리얼 나가기','완료나 보상 없이 로비로 돌아갑니다.','튜토리얼 나가기',()=>interruptTutorial('exit'));return;}if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
 function openOverlay(kind){
   if(presenting)return;const state=controller?.getState();
+  if(kind==='dictionary'&&isGuided(state)&&!isCombatFirst(state)&&tutorialPanel(state.tutorialSession.step)==='deck')kind='deck';
   if(isGuided(state)&&!isCombatFirst(state)&&['dictionary','deck','draw','discard'].includes(kind)){
    const result=controller.dispatch(tutorialCommand(state,{type:'TUTORIAL_PANEL_OPEN',kind}));if(!result.ok){toast(result.message);return;}
    const panel=kind==='dictionary'?openDictionary(state):openDeck(state,kind==='deck'?'all':kind);
@@ -166,6 +170,8 @@ function render(){
   if(presenting){if(location.hash!=='#game')location.hash='game';return;}
   if(controller?.operationRequest)controller.dispatch({type:'CANCEL_OPERATION'});
   const state=controller?.getState();
+  if(location.hash!=='#game')firstPreparation.clear();
+  const preparation=firstPreparation.current(controller,state);
   const inBattle=location.hash==='#game'&&state?.status==='BATTLE';
   if(!inBattle){cleanup();cleanup=()=>{};combatView=null;combatOwner=null;}
   document.querySelectorAll('dialog.app-dialog').forEach(d=>d.close());applySettings();
@@ -174,12 +180,16 @@ function render(){
   }
   queueMicrotask(()=>musicDirector.sync(location.hash,controller?.getState(),controller));
   if(location.hash==='#game'&&state){
-    if(state.status==='STAGE_INTRO'){renderIntro(root,state,{onStart:()=>runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'}),onLobby:leaveToLobby,onDeck:()=>openOverlay('deck'),onRecords:()=>openOverlay('records'),onSaves:()=>openOverlay('saves'),onChooseConnector:payload=>runCommand({type:'CHOOSE_STAGE4_CONNECTOR',...payload}),onChooseWaterways:payload=>runCommand({type:'CHOOSE_STAGE8_WORD',...payload})});return;}
-    if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
-    if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
+    if(state.status==='STAGE_INTRO'){
+      const owner=controller,valid=()=>owner===controller&&location.hash==='#game'&&controller.getState().runId===state.runId&&controller.getState().revision===state.revision;
+      if(preparation){cleanup=renderBetween(root,state,{first:true,encounterIndex:preparation.encounterIndex,onNext:()=>{if(!valid())return;const cmd=firstPreparation.take(owner,controller.getState());if(cmd)runCommand(cmd);},onBack:()=>{if(valid()){firstPreparation.clear();render();}},onDictionary:()=>openOverlay('dictionary'),onSettings:()=>openOverlay('settings'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby});return;}
+      cleanup=renderIntro(root,state,{onStart:()=>{if(!valid())return;if(firstPreparationContext(state)){firstPreparation.open(owner,state);render();}else runCommand({type:state.progress.stageId==='stage.01'?'START_BATTLE':'ENTER_STAGE'});},onLobby:leaveToLobby,onDictionary:()=>openOverlay('dictionary'),onSaves:()=>openOverlay('saves'),onChooseConnector:payload=>runCommand({type:'CHOOSE_STAGE4_CONNECTOR',...payload}),onChooseWaterways:payload=>runCommand({type:'CHOOSE_STAGE8_WORD',...payload})});return;
+    }
+    if(state.status==='STAGE_CLEAR'){renderStageClear(root,state,{onNext:()=>runCommand({type:'NEXT_STAGE'}),onSaves:()=>openOverlay('saves'),onDictionary:()=>openOverlay('dictionary'),onLobby:leaveToLobby});return;}
+    if(state.status==='SHOP'){cleanup=renderShop(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDictionary:()=>openOverlay('dictionary'),onRecords:()=>openOverlay('records'),onLobby:leaveToLobby});return;}
     if(state.status==='BATTLE'){showCombat(state);return;}
-    if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
-    if(state.status==='BETWEEN_BATTLES'){cleanup=renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDeck:()=>openOverlay('deck'),onLobby:leaveToLobby});return;}
+    if(state.status==='REWARD'){cleanup=renderReward(root,state,{command:runCommand,onSaves:()=>openOverlay('saves'),onDictionary:()=>openOverlay('dictionary'),onLobby:leaveToLobby});return;}
+    if(state.status==='BETWEEN_BATTLES'){cleanup=renderBetween(root,state,{onNext:()=>runCommand({type:'NEXT_BATTLE'}),onSaves:()=>openOverlay('saves'),onDictionary:()=>openOverlay('dictionary'),onLobby:leaveToLobby});return;}
     if(state.clearKind==='FINAL_CLEAR'&&state.status==='CONTENT_COMPLETE'){renderFinalClear(root,state,{onLobby:leaveToLobby,onSaves:()=>openOverlay('saves'),onLeaderboard:showClearLeaderboard});return;}
     if(state.status==='CONTENT_COMPLETE'||state.status==='DEFEAT'){renderResult(root,state,{onNew:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,vocabularyMode:state.config.vocabularyMode}),onRetrySeed:()=>startRun({displayName:profile.displayName,profileId:profile.playerId,...state.config}),onLoad:()=>openOverlay('saves'),onSaves:()=>openOverlay('saves'),onLobby:leaveToLobby,onRecords:()=>openOverlay('records')});return;}
   }
