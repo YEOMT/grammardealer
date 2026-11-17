@@ -21,11 +21,12 @@ export function openTargetGrammar(state){
  const g=battleLearningGuide(state),p=preparationGuide(state);
  const hint={'stage.02':STAGE2_VEIL_HINT,'stage.03':TIME_GOLEM_HINT,'stage.04':SKY_SHIELD_HINT,'stage.05':TURN_HAND_SEAL_HINT,'stage.06':FROST_HINT,'stage.07':EMBER_HINT,'stage.08':WATERWAYS_HINT}[state.progress.stageId];
  return modal('목표 문법',[
-  el('h3',{text:'이번 전투: '+p.targetLabel}),
-  ...[['형태',p.patternKo],['뜻',p.meaningKo],['예문',p.example]].filter(([,text])=>text).map(([label,text])=>el('p',{text:label+': '+text})),
-  el('h3',{text:'지역 점수 보너스'}),...g.bonusHelp.map(text=>el('p',{text:text.replace(/^지역 점수 보너스 · /,'')})),
-  ...(g.detail?[el('h3',{text:'추가 설명'}),...g.detail.split('\n').map(text=>el('p',{text}))]:[]),
-  ...(g.boss?[el('h3',{text:'보스 공략'}),...g.boss.map(text=>el('p',{text}))]:[]),
-  ...(hint?[el('h3',{text:'지역 공략 참고'}),el('p',{text:hint})]:[])
- ]);
+  el('div',{class:'target-heading'},el('h3',{text:p.targetLabel}),el('span',{class:'target-multiplier',text:'지역 점수 보너스 · '+regionBonusSummary(g)})),
+  p.patternKo&&el('div',{class:'target-pattern'},...p.patternKo.split(' + ').map((text,i)=>el('span',{text:(i?'+ ':'')+text}))),
+  p.meaningKo&&el('p',{class:'target-meaning',text:p.meaningKo}),
+  p.example&&el('blockquote',{class:'target-example',text:p.example}),
+  el('section',{class:'target-conditions'},el('h4',{text:'보너스 조건'}),el('p',{text:g.bonusHelp[1]??g.bonusHelp[0]}),
+    el('details',{},el('summary',{text:'자세한 조건'}),...g.bonusHelp.filter((_,i)=>i!==1).map(text=>el('p',{text})),...(!g.boss&&g.detail?g.detail.split('\n').map(text=>el('p',{text})):[]))),
+  g.boss?el('section',{class:'target-boss'},el('h4',{text:'보스 공략'}),...g.boss.map(text=>el('p',{text}))):hint&&el('details',{class:'target-boss-preview'},el('summary',{text:'지역 보스 미리보기'}),el('p',{text:hint}))
+ ],{size:'grammar'});
 }

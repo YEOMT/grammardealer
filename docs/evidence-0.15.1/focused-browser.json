@@ -1,0 +1,88 @@
+{
+  "scope": "Chromium isolated profiles, real app actions and explicitly assigned transition states; physical devices NOT RUN",
+  "checks": [
+    {
+      "name": "A-dictionary-menu-piles",
+      "status": "PASS",
+      "evidence": {
+        "englishTop": 420.375,
+        "glossTop": 420.375,
+        "posTop": 454.421875,
+        "englishBottom": 451.421875,
+        "colour": "rgb(213, 110, 101)"
+      }
+    },
+    {
+      "name": "B-target-and-settings",
+      "status": "PASS",
+      "evidence": {
+        "x": 440,
+        "y": 131.5,
+        "w": 560,
+        "h": 637,
+        "vw": 1440,
+        "vh": 900,
+        "overflow": false
+      }
+    },
+    {
+      "name": "C-shop-place-and-load",
+      "status": "PASS",
+      "evidence": {
+        "place": "stage.01",
+        "target": "stage.02"
+      }
+    },
+    {
+      "name": "D-real-first-preparation-and-save",
+      "status": "PASS",
+      "evidence": {
+        "revisionDelta": 1,
+        "savedCards": 28
+      }
+    },
+    {
+      "name": "E-assigned-entry-paths",
+      "status": "PASS",
+      "evidence": [
+        {
+          "stage": "stage.03",
+          "battle": 8
+        },
+        {
+          "stage": "stage.04",
+          "battle": 13
+        },
+        {
+          "stage": "stage.08",
+          "battle": 33
+        },
+        {
+          "stage": "stage.final",
+          "battle": 48
+        }
+      ]
+    },
+    {
+      "name": "F-short-viewport-modal-lifecycle",
+      "status": "PASS",
+      "evidence": {
+        "viewport": [
+          844,
+          310
+        ],
+        "inputRecovered": true
+      }
+    }
+  ],
+  "captures": [
+    "battle-menu.png",
+    "dictionary-pc.png",
+    "target-grammar.png",
+    "settings-pc.png",
+    "shop-after-boss.png",
+    "first-preparation-mobile.png"
+  ],
+  "errors": [],
+  "status": "PASS"
+}

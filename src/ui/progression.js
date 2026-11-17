@@ -1,10 +1,11 @@
+import {resolvePresentationRegion} from '../services/presentationRegion.js';
 import {regionBonusSummary} from './targetGrammar.js';
 import {preparationGuide,battleLearningGuide} from '../data/battleLearningGuide.js';
 import {panoramaPreview} from './panoramaPreview.js';
 import './panorama.css';
 import {soundButton} from './soundControls.js';
 import {sceneBackdrop} from '../services/sceneAssets.js';
-import {enemyDisplayName,stageDisplayName} from './displayText.js';
+import {enemyDisplayName,enemyEnglishName,stageDisplayName} from './displayText.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {introViewport} from './viewport.js';
 import {runeReadiness} from './runes.js';
@@ -23,13 +24,13 @@ import { runeForVersion } from '../data/runes.js';
 import { stageForRun, roundsForRun } from '../data/stages.js';
 import { STAGE2_VEIL_HINT } from '../data/stage2.js';
 
-const nav = ({ onLobby, onSaves, onDeck } = {}) => el('header', { class: 'topbar' },
+const nav = ({ onLobby, onSaves, onDictionary, onSettings } = {}) => el('header', { class: 'topbar' },
   el('span', { class: 'brand-small', text: 'SYNTAX ATLAS' }),
-  el('nav', {}, soundButton(), onDeck && button('내 덱', onDeck, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
+  el('nav', {}, soundButton(), onDictionary && button('사전', onDictionary, 'quiet'), onSaves && button('저장', onSaves, 'quiet'), onSettings && button('설정', onSettings, 'quiet'), onLobby && button('로비', onLobby, 'quiet')));
 const metric = (value, label) => el('div', {}, el('strong', { text: value }), el('span', { text: label }));
 
 export const HARBOR_BOSS_HINT = STAGE2_VEIL_HINT;
-export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, onChooseConnector, onChooseWaterways } = {}) {
+export function renderIntro(root, state, { onStart, onLobby, onDictionary, onSaves, onChooseConnector, onChooseWaterways } = {}) {
   applyStageTheme(state);
   const stage=stageForRun(state),stageId=state.progress.stageId;
   const choice=hasPolishCampaign(state)&&stageId==='stage.04'&&state.entryChoice?.pending?state.entryChoice:null;
@@ -57,16 +58,18 @@ export function renderIntro(root, state, { onStart, onLobby, onDeck, onSaves, on
     view.dialog.classList.add('entry-choice-dialog');
   };
   const preparing=usesPostBossShop(state)&&!!(choice||cityChoice);
-  root.replaceChildren(nav({onLobby,onDeck,onSaves}),el('main',{class:preparing?'shop-page harbor-page shop-entry-preparation':'intro-page'},
+  const placeId=resolvePresentationRegion(state),place=stageForRun({...state,progress:{...state.progress,stageId:placeId}});
+  root.replaceChildren(nav({onLobby,onDictionary,onSaves}),el('main',{class:preparing?'shop-page harbor-page shop-entry-preparation':'intro-page'},
     preparing&&el('span',{class:'eyebrow',text:'다음 지역 준비 상점'}),
-    el('h1',{text:preparing?stageDisplayName(stage)+' · 상점 입장 준비':stageDisplayName(stage)}),el('p',{text:preparing?'입장 카드를 선택하면 이번 상점의 상품을 확인할 수 있습니다.':introductions[stageId]}),
+    el('h1',{text:preparing?stageDisplayName(place)+' · 상점 입장 준비':stageDisplayName(stage)}),el('p',{text:preparing?stageDisplayName(stage)+' 준비 · 입장 카드를 선택하면 상점의 상품을 확인할 수 있습니다.':introductions[stageId]}),
     el('div',{class:preparing?'shop-footer':'intro-footer'},button(choice||cityChoice?'입장 카드 선택':stageDisplayName(stage)+'에 들어가기',choice||cityChoice?openChoice:onStart,'primary start-button',{id:stageId==='stage.01'?'start-battle':'enter-stage'}))));
-  if(!preparing){introViewport(root.querySelector('.intro-page'));sceneBackdrop(root,stageId,'entry',{full:true});}
+  if(!preparing)introViewport(root.querySelector('.intro-page'));
+  const background=sceneBackdrop(root,placeId,'entry',{full:true});return()=>background?.cleanup();
 }
 
-export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
+export function renderStageClear(root,state,{onNext,onSaves,onDictionary,onLobby}={}){
   applyStageTheme(state);
-  root.replaceChildren(nav({onLobby,onSaves,onDeck}),el('main',{class:'intro-page'},
+  root.replaceChildren(nav({onLobby,onSaves,onDictionary}),el('main',{class:'intro-page'},
     el('span',{class:'eyebrow',text:`CHAPTER ${state.progress.stageId.slice(-2)} COMPLETE`}),el('div',{class:'intro-art',text:'🌄'}),el('h1',{text:stageDisplayName(stageForRun(state))+' 클리어'}),
     el('p',{text:state.progress.stageId==='stage.10'?'마지막 준비 상점과 최종 세 전투가 기다립니다.':state.progress.stageId==='stage.09'?'별의 회랑으로 향합니다. 상점과 일반전 보상으로 보스 공략을 준비하세요.':state.progress.stageId==='stage.08'?'몽환의 대서고로 향합니다. 일반전 보상으로 영구 덱을 준비하세요. 꿈의 도서관장 전투에는 빙정과 무료 지원이 없습니다.':state.progress.stageId==='stage.07'?'관계절 콤보와 수로도시 단어 보상 풀이 열렸습니다. 고대의 수로도시로 향합니다.':state.progress.stageId==='stage.06'?'분사 수식·수동태·사역과 지각 콤보가 열렸습니다. 잿불 동굴로 향합니다.':state.progress.stageId==='stage.05'?'비교·정도 콤보가 열렸습니다. 거울의 설원으로 향합니다.':state.progress.stageId==='stage.04'?'to부정사·동명사·기본5형식 콤보가 열렸습니다. 소원의 사막으로 향합니다.':state.progress.stageId==='stage.03'?'절 연결 콤보와 네 번째 룬 슬롯이 열렸습니다. 이음의 하늘섬으로 향합니다.':state.progress.stageId==='stage.02'?'과거·진행·완료·will 미래 콤보가 해금되었습니다. 시간의 협곡으로 향합니다.':'4형식 콤보가 활성화되고 토파즈 룬 후보가 열렸습니다.\n지금의 덱·룬·골드를 가지고 전달의 항구로 향합니다.'}),
     el('div',{class:'record-grid'},metric(state.activeCardIds.length,'현재 덱'),metric(state.runes.orderedInstanceIds.length,'나의 룬'),metric(state.economy.gold,'골드')),
@@ -74,7 +77,7 @@ export function renderStageClear(root,state,{onNext,onSaves,onDeck,onLobby}={}){
 }
 
 /** Reward presentation reads frozen choices. All gameplay changes are controller commands. */
-function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } = {}) {
+function renderLegacyReward(root, state, { command, onSaves, onDictionary, onLobby } = {}) {
   applyStageTheme(state);
   const runeDescription=(r,l)=>describeRuneForUI(r,l,state.version);
   const offer = state.reward;
@@ -131,7 +134,7 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
       choice.reasonKo && el('small', { text: choice.reasonKo }),
       button(action, () => choose(choice.choiceId), choice.disabled ? 'secondary' : 'primary', { disabled: choice.disabled, 'aria-label': `${model.surface} ${action}` }));
   });
-  root.replaceChildren(nav({ onLobby, onSaves, onDeck }), el('main', { class: 'reward-page' },
+  root.replaceChildren(nav({ onLobby, onSaves, onDictionary }), el('main', { class: 'reward-page' },
     el('div', { class: 'reward-heading' }, el('span', { class: 'eyebrow', text: `이전 버전 저장 · BATTLE 1-${state.progress.battleNumber} · VICTORY` }),
       el('h1', { text: titles[offer.type] }), el('p', { text: description[offer.type] }), el('small', { text: `현재 골드 ${state.economy.gold} · 승리 골드 정산 완료` })),
     offer.emptyReasonKo && el('p', { class: 'panel body-copy', text: offer.emptyReasonKo.replaceAll('재화','골드') }),
@@ -140,23 +143,23 @@ function renderLegacyReward(root, state, { command, onSaves, onDeck, onLobby } =
 }
 
 const preparationViews=new WeakMap();
-export function renderBetween(root, state, { onNext, onSaves, onDeck, onLobby } = {}) {
+export function renderBetween(root, state, { onNext, onSaves, onDictionary, onSettings, onLobby, onBack, first=false, encounterIndex=state.progress.roundIndex+1 } = {}) {
   preparationViews.get(root)?.();
   applyStageTheme(state);
-  const next=roundsForRun(state)[state.progress.roundIndex+1];
-  const preview={...state,progress:{...state.progress,roundIndex:state.progress.roundIndex+1,battleNumber:next.battleNumber},combat:{enemyState:next}};
+  const next=roundsForRun(state)[encounterIndex];
+  const preview={...state,progress:{...state.progress,roundIndex:encounterIndex,battleNumber:next.battleNumber},combat:{enemyState:next}};
   const g=preparationGuide(preview),panorama=panoramaPreview(state.progress.stageId,next,enemyDisplayName(next));
-  const top=nav({onLobby,onSaves,onDeck});top.classList.add('preparation-topbar');
+  const top=nav({onLobby,onSaves,onDictionary,onSettings});top.classList.add('preparation-topbar');
   top.querySelector('.brand-small').classList.add('eyebrow');
-  top.querySelector('.brand-small').textContent=`${stageDisplayName(stageForRun(state))} · 다음 전투`;
+  top.querySelector('.brand-small').textContent=`${stageDisplayName(stageForRun(state))} · ${first?'전투 준비':'다음 전투'}`;
   root.replaceChildren(top,el('main',{class:'intro-page battle-preparation panorama-preparation'},panorama.element,
-    el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),el('small',{class:next.kind==='NORMAL'?'':'preparation-boss-badge',text:next.kind==='NORMAL'?'일반 전투':'BOSS'})),el('section',{class:'preparation-guide'},
+    el('div',{class:'preparation-scroll'},el('div',{class:'preparation-identity'},el('h1',{text:enemyDisplayName(next)}),enemyEnglishName(next)&&el('small',{text:enemyEnglishName(next)}),el('small',{class:next.kind==='NORMAL'?'':'preparation-boss-badge',text:next.kind==='NORMAL'?'일반 전투':'BOSS'})),el('section',{class:'preparation-guide'},
       el('strong',{text:'목표 문법: '+g.targetLabel}),el('p',{text:'형태: '+g.patternKo}),g.meaningKo&&el('p',{text:'뜻: '+g.meaningKo}),
       g.example&&el('p',{class:'preparation-example',text:'예문: '+g.example}),el('p',{class:'preparation-effect',text:'지역 점수 보너스: '+regionBonusSummary(battleLearningGuide(preview))}),
       g.noticeKo&&el('small',{class:'preparation-notice',text:g.noticeKo}),
       g.boss.length>0&&el('details',{class:'preparation-boss'},el('summary',{text:g.boss[0].split(/[.!?。]\s*/)[0]+' · 공략 상세'}),...g.boss.map(text=>el('small',{class:'boss-rule',text})))),
       el('p',{class:'preparation-resources',text:`덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length}개 · ${state.economy.gold} 골드`})),
-    el('div',{class:'reward-footer preparation-actions'},button('다음 전투',onNext,'primary',{id:'next-battle'}),button('저장',onSaves,'secondary'))));
+    el('div',{class:'reward-footer preparation-actions'},onBack&&button('지역 입장으로',onBack,'secondary',{id:'preparation-back'}),button(first?'전투 시작':'다음 전투',onNext,'primary',{id:first?'first-battle-start':'next-battle'}),button('저장',onSaves,'secondary'))));
   const cleanup=()=>{panorama.cleanup();if(preparationViews.get(root)===cleanup)preparationViews.delete(root);};
   preparationViews.set(root,cleanup);return cleanup;
 }
@@ -181,11 +184,11 @@ export function renderResult(root, state, { onNew, onRetrySeed, onLoad, onSaves,
 export function renderReward(root,state,handlers={}){
   if(!isMixedOffer(state.reward)){renderLegacyReward(root,state,handlers);return ()=>{};}
   const runeDescription=(r,l)=>describeRuneForUI(r,l,state.version);
-  const {command,onSaves,onDeck,onLobby}=handlers,offer=state.reward;
+  const {command,onSaves,onDictionary,onLobby}=handlers,offer=state.reward;
   const backdrop=renderCombat(root,state,{locked:true,openOverlay:()=>{}});
   backdrop.element.classList.remove('presentation-locked');
   backdrop.element.classList.add('reward-backdrop');
-  const access=el('div',{class:'reward-access'},button('보상 다시 열기',showChoices,'primary'),button('저장',onSaves,'secondary'),button('내 덱',onDeck,'secondary'),button('로비',onLobby,'quiet'));
+  const access=el('div',{class:'reward-access'},button('보상 다시 열기',showChoices,'primary'),button('저장',onSaves,'secondary'),button('사전',onDictionary,'secondary'),button('로비',onLobby,'quiet'));
   root.append(access);
   let pending=false;
   async function choose(choice,options={}){
@@ -212,7 +215,7 @@ export function renderReward(root,state,handlers={}){
         if(choice.kind==='SERVICE')return el('section',{class:'reward-choice service-choice',dataset:{choiceId:choice.choiceId,serviceKind:choice.serviceKind}},el('div',{class:'service-symbol',text:choice.serviceKind==='POLISH'?'✦':'−'}),el('h3',{text:choice.serviceKind==='POLISH'?'카드 연마':'카드 제거'}),el('p',{text:choice.serviceKind==='POLISH'?'보유 카드 한 장을 +1 연마합니다.':'보유 카드 한 장을 덱에서 제거합니다.'}),button('대상 선택',()=>showTargets(choice),'primary'));
         const model=cardModel({instanceId:choice.choiceId,cardDefId:choice.cardDefId,polishLevel:0},null,state.version);return el('section',{class:'reward-choice',dataset:{choiceId:choice.choiceId}},wordCard(model,{readonly:true}),el('p',{text:model.descriptionKo??model.glossKo}),button('이 카드 선택',()=>choose(choice),'primary'));
       })),
-      el('div',{class:'reward-footer'},button(`건너뛰기 · +${offer.skipGold} 골드`,()=>choose('SKIP'),'secondary',{id:'skip-reward'}),button('저장',onSaves,'quiet'),button('내 덱',onDeck,'quiet'))],{wide:true});
+      el('div',{class:'reward-footer'},button(`건너뛰기 · +${offer.skipGold} 골드`,()=>choose('SKIP'),'secondary',{id:'skip-reward'}),button('저장',onSaves,'quiet'),button('사전',onDictionary,'quiet'))],{wide:true});
   }
   showChoices();return backdrop.cleanup;
 }

@@ -27,10 +27,11 @@ export function downloadJson(filename, data) {
   const url = URL.createObjectURL(new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' }));
   const link = el('a', { href: url, download: filename }); link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
-export function modal(title, content, { wide = false, onClose, closeable = true } = {}) {
+export function modal(title, content, { wide = false, size, onClose, closeable = true } = {}) {
   document.dispatchEvent(new Event('atlas:cancel-drag'));
   document.querySelectorAll('dialog.app-dialog').forEach(d => d.close());
   const dialog = el('dialog', { class: `app-dialog ${wide ? 'wide' : ''}` });
+  if(['settings','grammar','dictionary'].includes(size))dialog.dataset.size=size;
   const close = () => dialog.close();
   const header = el('header', { class: 'dialog-header' }, el('h2', { text: title }), closeable && button('닫기 ×', close, 'quiet', { 'aria-label': `${title} 닫기` }));
   dialog.append(header, el('div', { class: 'dialog-body' }, content));

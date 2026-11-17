@@ -1,0 +1,101 @@
+{
+  "environment": "Windows; Node 24.19.0; npm 11.17.0; Playwright 1.51.1 Chromium 134",
+  "runs": [
+    {
+      "runId": "unit-final",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-17T11:14:56.718351+00:00",
+      "finishedAt": "2026-11-17T11:18:14.718467+00:00",
+      "exitCode": 1,
+      "status": "FAIL",
+      "log": ".local-validation/v0151/unit-final/command.log",
+      "logSha256": "49d76bdfef706ceb8ab3c76ed9c2629542239e1926159388242bf428f17ed507"
+    },
+    {
+      "runId": "unit-complete",
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-17T11:20:50.027184+00:00",
+      "finishedAt": "2026-11-17T11:24:09.192592+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/unit-complete/command.log",
+      "logSha256": "77f9f5367d755c14e2749d5fe53d95aabe0e1d51d8e41f8aefef3b57a3fb9c0d"
+    },
+    {
+      "runId": "data-final",
+      "command": [
+        "npm.cmd",
+        "run",
+        "validate:data"
+      ],
+      "startedAt": "2026-11-17T11:24:32.010797+00:00",
+      "finishedAt": "2026-11-17T11:24:33.867457+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/data-final/command.log",
+      "logSha256": "3cbf39fd3fe6c538d911e9512c0803da364f8b656468cfba02638dcddfae0ec3"
+    },
+    {
+      "runId": "build-final",
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-17T11:24:42.991028+00:00",
+      "finishedAt": "2026-11-17T11:24:45.244857+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/build-final/command.log",
+      "logSha256": "b2c28ddd43dc176333c0a0f46600c9340335ed34e373b3e737e28a0ffad15218"
+    },
+    {
+      "runId": "audio-focus",
+      "command": [
+        "node",
+        "--test",
+        "tests/scene-audio.test.js",
+        "tests/interface-cohesion0151.test.js"
+      ],
+      "startedAt": "2026-11-17T11:19:39.887186+00:00",
+      "finishedAt": "2026-11-17T11:19:41.235281+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/audio-focus/command.log",
+      "logSha256": "9a629eb9e796497e73b6ca8551799083ddff7ff44581e9ecdcbb090b086e8988"
+    },
+    {
+      "runId": "browser-complete",
+      "command": [
+        "node",
+        "tests/interface-cohesion0151-browser.mjs"
+      ],
+      "startedAt": "2026-11-17T11:20:27.240413+00:00",
+      "finishedAt": "2026-11-17T11:20:42.865704+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/browser-complete/command.log",
+      "logSha256": "06b0779cd82afc4268d171335cc54d281527b69f3867be4daa68b90c41b2d1e9"
+    },
+    {
+      "runId": "play-feedback-regression",
+      "command": [
+        "node",
+        "tests/play-feedback015-browser.mjs",
+        "--no-captures"
+      ],
+      "startedAt": "2026-11-17T11:12:59.565927+00:00",
+      "finishedAt": "2026-11-17T11:13:57.780752+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/v0151/play-feedback-regression/command.log",
+      "logSha256": "adade9e8da40b5e28a83fcc35127b15673bcaa5db575bd3b1acc1ceb067e6bb6"
+    }
+  ]
+}

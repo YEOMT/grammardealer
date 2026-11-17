@@ -16,7 +16,9 @@ test('music context: boss reward/shop/choices retain source region, actual intro
   const run={version:'0.11.0',config:{shopFlowPolicy:SHOP_FLOW_POLICY},progress:{stageId:'stage.01'},status:'REWARD'};
   assert.equal(resolveMusicContext('#lobby',run),'lobby');assert.equal(resolveMusicContext('#game',run),'stage.01');
   for(const [next,previous]of [['stage.02','stage.01'],['stage.04','stage.03'],['stage.06','stage.05'],['stage.08','stage.07'],['stage.10','stage.09'],['stage.final','stage.10']]){
-    run.progress.stageId=next;run.status='SHOP';assert.equal(resolveMusicContext('#game',run),previous);
+    // The shared place resolver also reads the frozen supply target. Do not carry
+    // the previous iteration's closed shop into a different region's SHOP state.
+    run.progress.stageId=next;run.status='SHOP';run.shop={stageId:next,closed:false};assert.equal(resolveMusicContext('#game',run),previous);
     run.status='STAGE_INTRO';run.shop={stageId:next,closed:true};run.combat=null;assert.equal(resolveMusicContext('#game',run),next);
   }
   for(const [stage,field,previous]of [['stage.04','entryChoice','stage.03'],['stage.08','waterwaysEntryChoice','stage.07']]){

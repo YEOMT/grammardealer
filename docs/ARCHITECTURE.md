@@ -1,3 +1,12 @@
+# 0.15.1 R2 표시와 준비 경계
+
+- `services/presentationRegion.js`: 현행 보스 뒤 상점/4·8지역 선택의 장소를 도출한다. `theme`, `shop`, `progression`, `musicContext`가 공유한다. legacy 지역 시작 상점은 대상 지역 그대로다. 오디오 엔진·fade-out → BGM 1초 무음 → fade-in은 변경하지 않는다.
+- `ui/firstPreparation.js`: Controller owner와 run/stage/encounter/revision을 묶은 일회성 UI 게이트. 현행 일반 첫 전투에만 적용한다. 미리보기는 `roundsForRun`/정적 안내를 읽으며 dispatch·셔플·지급·상점 생성 없이 표시한다. 확인 시 기존 명령을 소비한다.
+- `ui/dom.js`의 선택적 size와 `interfaceCohesion.css`: 사전 1080 / 문법 720 / 설정 560px 상한. 가시 영역·safe area와 기존 top-layer 배치를 재사용하며 다른 팝업 폭은 변경하지 않는다. 짧은 가로 설정은 두 그룹을 병렬 배치하고 본문 한 곳이 스크롤한다.
+- `ui/overlays.js`의 사전은 원정에서 만난 lexeme만 읽는다. `formView.dictionaryForms`는 표시 중복만 묶고 원본 형태 ID/언어 데이터를 수정하지 않는다. 하단 카드 묶음은 실제 해당 영역만 읽고 뽑기 순서는 공개하지 않는다.
+
+[검사·대표 화면](INTERFACE_COHESION_0.15.1_REPORT.md). 아래 기존 엔진/저장 경계는 유지한다.
+
 # 0.15.0 정책과 일회성 표시
 
 - `data/playFeedbackPolicy.js`의 선택적 정책은 NEW_RUN에서만 생성한다. 원정과 contentManifest의 일치 여부를 로드 시 검사한다. 기존 language/deck/HP/economy 계약은 상속하고 구저장을 자동 승격하지 않는다.
