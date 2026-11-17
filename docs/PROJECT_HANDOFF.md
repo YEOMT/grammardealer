@@ -1,3 +1,11 @@
+# 0.15.0 플레이 피드백 인계
+
+작업 시작 main은 `baefec39ef9a725a060d41c3977febca4517a4eb`(v0.14.2), 브랜치는 `codex/v0.15.0-play-feedback`이다. [구현 계약](../spec/v0.15.0/Syntax_Atlas_v0.15.0_Play_Feedback_Spec.md)과 [실제 검사·남은 한계](PLAY_FEEDBACK_0.15.0_REPORT.md)를 우선한다. 이전 인계·원본 ZIP·실행 증거는 보존한다.
+
+앱만 0.15.0이며 원정/언어/덱/경제의 기본 버전은 0.14.0이다. `NEW_RUN`이 `playFeedbackPolicy`를 run과 contentManifest에 함께 기록한다. 없는 구저장에는 추가하지 않는다. 새 직조자는 `FATE_FORESIGHT_THREADS`, 랭킹/새 공격은 `syntax-atlas.0.15.0`으로 구분한다. 구 예견·세 실과 기존 영수증은 원래 해석을 유지한다.
+
+새 튜토리얼만 `guided.combat-first.v1`의 명시적 행동 순서를 사용한다. 기존 저장의 안내/gate는 유지하며 완료 프로필에 실습을 다시 강제하지 않는다. 교환/턴 넘기기의 `cardMovement`는 커밋된 명령 결과에만 붙는 일회성 표시 자료다. 표시를 위해 카드·RNG·골드·피해를 다시 커밋하지 않는다. 사전 모드와 내 덱 관리 모드를 구분한다. 아래는 과거 인계다.
+
 # 0.14.2 문구·프로필 인계
 
 PR #36을 포함한 main `2082aff8a5c24b290901f300f2c844ffdc402d00`에서 시작했다. 앱만 0.14.2, 내부 계약은 0.14.0이다. 표시 번역은 `ui/displayText.js`, 지역 요약은 `ui/targetGrammar.js`, 해석 틀은 `data/battleLearningGuide.js`에 있다. 기존 이름 보존은 로비와 startRun 양쪽에서 처리하며 저장 스키마를 바꾸지 않는다. [이번 실제 검사](COPY_CLARITY_0.14.2_REPORT.md). 아래 과거 기록은 보존한다.

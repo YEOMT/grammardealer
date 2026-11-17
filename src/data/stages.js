@@ -1,3 +1,5 @@
+import {hasPlayFeedback} from './playFeedbackPolicy.js';
+import {initialFateThreads} from '../engine/fateThreads.js';
 import {STAGE_FINAL} from './finalePolicy.js';
 import {STAGE10,STAGE10_CLAUSE} from './stage10.js';
 import {STAGE9} from './stage9.js';
@@ -33,7 +35,7 @@ export function stageForRun(run) {
   if (stage?.id===STAGE4.id&&!hasSkyCampaign(run))throw new RangeError('Stage 4 requires a 0.4 campaign');
   if(stage?.id===STAGE5.id&&!hasDesertCampaign(run))throw new RangeError('Stage 5 requires a 0.5 campaign');
   if (!stage || stage.id === STAGE2.id && !isCurrentCampaign(run)||stage.id===STAGE3.id&&!['0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run?.version)) throw new RangeError('Unsupported stage for this campaign version');
-  if(run.version==='0.14.0'&&stage.id===STAGE10.id)return STAGE10_CLAUSE;
+  if(run.version==='0.14.0'&&stage.id===STAGE10.id)return hasPlayFeedback(run)?{...STAGE10_CLAUSE,rounds:STAGE10_CLAUSE.rounds.map((r,i)=>i===4?{...r,bossMechanic:initialFateThreads()}:r)}:STAGE10_CLAUSE;
   if(['0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version))return hasFinaleCampaign(run)&&stage.id===STAGE10.id?{...PATCH0101_STAGES[stage.id],exitStatus:'STAGE_CLEAR',nextStageImplemented:true}:PATCH0101_STAGES[stage.id];
   if(hasLibraryCampaign(run))return LIBRARY_STAGES[stage.id];
   return ['0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run?.version)?(POLISH_STAGES[stage.id]??stage):stage;
@@ -42,9 +44,9 @@ export const getStageForRun = stageForRun;
 export function roundsForRun(run) {
   const stage=stageForRun(run);return stage.id === STAGE1.id ? stageRoundsForRun(run) : stage.rounds;
 }
-export function getEncounter(stageId, roundIndex, gameVersion = '0.2.0') {
+export function getEncounter(stageId, roundIndex, gameVersion = '0.2.0', playFeedbackPolicy) {
   if (stageId === STAGE1.id) return getStage1Encounter(roundIndex, gameVersion);
-  const stage=stageForRun({version:gameVersion,progress:{stageId}});
+  const stage=stageForRun({version:gameVersion,playFeedbackPolicy,progress:{stageId}});
   if (!Number.isInteger(roundIndex) || roundIndex < 0 || roundIndex >= stage.rounds.length) throw new RangeError('Invalid stage round index');
   const round = clone(stage.rounds[roundIndex]);
   return { ...round, hpMax: round.hp, stageId };

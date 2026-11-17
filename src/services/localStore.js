@@ -1,3 +1,4 @@
+import {validatePlayFeedbackPolicy,hasPlayFeedback,PLAY_FEEDBACK_RULESET} from '../data/playFeedbackPolicy.js';
 import {validateClauseThreadsRun} from '../game/clauseThreadsState.js';
 import {validateCommaTool} from '../game/commaTool.js';
 import {formatSentence} from '../punctuation.js';
@@ -49,7 +50,7 @@ export function newProfile(displayName) {
   return {version:SAVE_VERSION,playerId:uniqueId('player'),displayName:String(displayName).trim().slice(0,30)||'여행자',settings:{speed:1,sfxVolume:45,muted:false,effectsOff:false},firstRuneIntroSeen:false,guideSeen:false,qualifiedRunIds:[],appliedAttackIds:[],grammarRecords:{},bestAttack:0,totalActualDamage:0,unlocks:[],storyClearCount:0};
 }
 /** Display only the selected ruleset; historical aggregates are not upgraded. */
-export function profileRecordsForVersion(profile,version){return version==='0.14.0'?{...profile,grammarRecords:{},nominalRecords:{},recentSubmissions:[],bestAttack:0,totalActualDamage:0,...profile.rulesetRecords?.[CLAUSE_RULESET_ID]}:profile;}
+export function profileRecordsForVersion(profile,version,playFeedbackPolicy){return version==='0.14.0'?{...profile,grammarRecords:{},nominalRecords:{},recentSubmissions:[],bestAttack:0,totalActualDamage:0,...profile.rulesetRecords?.[hasPlayFeedback({version,playFeedbackPolicy})?PLAY_FEEDBACK_RULESET:CLAUSE_RULESET_ID]}:profile;}
 /** Profile events are idempotent; replay/sandbox never calls this reducer. */
 export function applyProfileEvent(profile,event) {
   if(event.type==='GUIDED_TUTORIAL_SKIPPED'&&event.version==='0.2.1')return {...clone(profile),guidedTutorialSkippedVersion:event.version};
@@ -60,7 +61,7 @@ export function applyProfileEvent(profile,event) {
   if(['GUIDE_COMPLETED','GUIDE_SKIPPED'].includes(event.type)){p.guideSeen=true;p.tutorial={tutorialVersion:event.tutorialVersion,completed:event.type==='GUIDE_COMPLETED',skipped:event.type==='GUIDE_SKIPPED',actions:event.actions,reason:event.reason};}
   if(event.type==='ATTACK'&&!p.appliedAttackIds.includes(event.resolution.attackId)){
     const r=event.resolution;p.appliedAttackIds.push(r.attackId);
-    const target=r.sentenceSnapshot.languageVersion==='0.14.0'?((p.rulesetRecords??={})[CLAUSE_RULESET_ID]??={rulesetId:CLAUSE_RULESET_ID,grammarRecords:{},bestAttack:0,totalActualDamage:0}):p;target.bestAttack=Math.max(target.bestAttack,r.finalPower);target.totalActualDamage+=r.actualHpLoss;
+    const target=r.sentenceSnapshot.languageVersion==='0.14.0'?((p.rulesetRecords??={})[r.rulesetId===PLAY_FEEDBACK_RULESET?PLAY_FEEDBACK_RULESET:CLAUSE_RULESET_ID]??={rulesetId:r.rulesetId===PLAY_FEEDBACK_RULESET?PLAY_FEEDBACK_RULESET:CLAUSE_RULESET_ID,grammarRecords:{},bestAttack:0,totalActualDamage:0}):p;target.bestAttack=Math.max(target.bestAttack,r.finalPower);target.totalActualDamage+=r.actualHpLoss;
     const sentence=formatSentence(r.sentenceSnapshot)+'.';
     target.recentSubmissions=[learningRecord(r),...(target.recentSubmissions??[])].slice(0,12);
     // Educational uses are independent of combo unlocks and never add scoring tags.
@@ -121,7 +122,7 @@ export function validateRunState(run,registry) {
   record(run,'저장');
   if(!registry?.cardById||!registry?.formById)fail('단어 데이터가 준비되지 않았습니다.');
   if(!supportedVersion(run.version))fail('지원하지 않는 저장 버전입니다.');
-  registry=registryForVersion(run.version);validateTutorial(run);validateCommaTool(run);
+  validatePlayFeedbackPolicy(run);registry=registryForVersion(run.version);validateTutorial(run);validateCommaTool(run);
   const finale=hasFinaleCampaign(run),corridor=hasCorridorCampaign(run),library=hasLibraryCampaign(run),waterways=hasWaterwaysCampaign(run),ember=hasEmberCampaign(run),snow=hasSnowCampaign(run),desert=hasDesertCampaign(run),sky=hasSkyCampaign(run),currentCampaign=isCurrentCampaign(run),time=hasTimeCampaign(run);
   const runeInScope=id=>Boolean(runeForVersion(id,run.version)?.runtimeReady)&&(!currentCampaign||run.contentManifest?.runeIds?.includes(id))&&(['0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version)||id!=='rune.svoo'||currentCampaign&&[...(run.eligibility?.runStartUnlockBaseline??[]),...(run.eligibility?.runOwnUnlocks??[])].includes(id));
   if(typeof run.runId!=='string'||!run.runId||run.runId.length>200)fail('원정 ID가 없습니다.');
@@ -212,12 +213,12 @@ export function validateRunState(run,registry) {
     if(typeof c.battleDirty!=='boolean')fail('전투 저장 지점이 잘못되었습니다.');
     if(!c.battleDirty&&(c.turnIndex!==1||c.turnsRemaining!==rules.turnLimit||c.actionSequence!==0))fail('초기 전투 지점이 잘못되었습니다.');
     requireInteger(c.enemyState?.hp,'hp');requireInteger(c.enemyState?.maxHp,'maxHp',1);
-    const encounter=getEncounter(progress.stageId,progress.roundIndex,run.version);
+    const encounter=getEncounter(progress.stageId,progress.roundIndex,run.version,run.playFeedbackPolicy);
     if(c.enemyState.maxHp!==encounter.hpMax||c.enemyState.hp>c.enemyState.maxHp)fail('잘못된 적 HP입니다.');
     if(currentCampaign){
       if(c.enemyState.id!==encounter.id||c.enemyState.stageId!==progress.stageId||c.enemyState.kind!==encounter.kind)fail('잘못된 적 정의입니다.');
       if(progress.stageId==='stage.final')validateFinaleRun(run);
-      else if(encounter.bossMechanic?.id==='FATE_CLAUSE_THREADS')validateClauseThreadsRun(run);
+      else if(['FATE_CLAUSE_THREADS','FATE_FORESIGHT_THREADS'].includes(encounter.bossMechanic?.id))validateClauseThreadsRun(run);
       else if(encounter.bossMechanic?.id==='FATE_FORESIGHT')validateForesightRun(run);
       else if(encounter.bossMechanic?.id==='LIBRARY_REGENERATION')validateLibraryTurnEnds(run);
       else if(encounter.bossMechanic?.id==='DUAL_RELATIVE_SEAL'){validateDualRelativeSeal(c.enemyState);validateRelativeSealReceipt(run);}

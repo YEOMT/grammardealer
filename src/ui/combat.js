@@ -1,3 +1,4 @@
+import {fateStatusText} from '../engine/fateThreads.js';
 import {flashFormChange,clearFormFeedback} from './cardFeedback.js';
 import './feedbackPolish.css';
 import {openTargetGrammar,regionBonusSummary} from './targetGrammar.js';
@@ -71,6 +72,7 @@ export function renderCombat(root,state,{command,openOverlay,selected=new Set(),
   if(finale)enemyArea.querySelector('.enemy-info').append(el('p',{class:'finale-status',dataset:{presentation:'finale-status'},role:'status','aria-live':'polite',text:finaleStatusText(enemy.bossMechanic,state)}));
   const resistance=normalResistanceRatio(state.version,state.progress.stageId,enemy.kind);
   if(resistance)enemyArea.querySelector('.enemy-info').append(el('span',{class:'normal-resistance',text:`일반전 저항 ${Math.round(100*(resistance.den-resistance.num)/resistance.den)}% · 지역 점수 보너스 후 적용`}));
+  if(enemy.bossMechanic?.id==='FATE_FORESIGHT_THREADS')enemyArea.querySelector('.enemy-info').append(el('span',{class:'clause-threads',dataset:{presentation:'fate-threads'},role:'status','aria-live':'polite',text:fateStatusText(enemy.bossMechanic)}));
   if(enemy.bossMechanic?.id==='FATE_FORESIGHT')enemyArea.querySelector('.enemy-info').append(el('span',{class:'foresight-memory',dataset:{presentation:'foresight-memory'},role:'status','aria-live':'polite',text:'예견 · 직전 문형 '+frameLabel(enemy.bossMechanic.rememberedFrame)}));
   if(enemy.bossMechanic?.id==='FATE_CLAUSE_THREADS')enemyArea.querySelector('.enemy-info').append(el('span',{class:'clause-threads',dataset:{presentation:'clause-threads'},role:'status','aria-live':'polite',text:Object.entries({ACTIVE:'행동',PASSIVE:'흔적',COUNTERFACTUAL:'가능성'}).map(([key,label])=>`${label} ${enemy.bossMechanic.threads[key]?'●':'○'}`).join(' · ')}));
   if(library){const r=combat.libraryTurnEnds?.at(-1);enemyArea.append(el('div',{class:'library-turn-status',role:'status','aria-live':'polite',dataset:{presentation:'library-turn-end'},text:enemy.bossMechanic?(r?r.killed?'꿈의 도서관장 격파':r.suppressed?'이전 턴 회복 저지':r.actualHeal?`이전 턴 회복 +${r.actualHeal}`:'이전 턴 회복 0':'턴 종료 회복 · 최대 1000'):'빙정은 이번 전투에서만 사용합니다.'}));}

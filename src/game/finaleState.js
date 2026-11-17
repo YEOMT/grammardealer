@@ -5,7 +5,7 @@ import {comboEligibility} from '../engine/comboEligibility.js';
 import {buildFinaleTaskPool,createSurfacePlan,createDeepTaskPlan,matchFinaleTask} from './finaleTasks.js';
 import {chooseRuneSealTargets,resolveSurfaceTurnEnd} from '../engine/finale.js';
 import {issueFinaleFrost} from './finaleCards.js';
-import {buildBestAttackSnapshot,updateBestAttackSnapshot,validateBestAttackSnapshot,validateClearRecord,isRecordEligibleRun} from '../services/clearLeaderboard.js';
+import {buildBestAttackSnapshot,updateBestAttackSnapshot,validateBestAttackSnapshot,validateClearRecord,isRecordEligibleRun,rulesetForRun} from '../services/clearLeaderboard.js';
 
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 const fail=message=>{throw Error('Finale state: '+message);};
@@ -76,7 +76,7 @@ export function validateFinaleRun(run,{verifyWitnesses=true}={}){
  const f=run.finale;if(f?.version!=='0.11.0'||f.bossPolicyVersion!=='0.11.0'||!Array.isArray(f.phaseClearReceipts)||f.phaseClearReceipts.length>3||!f.runeContributions||typeof f.runeContributions!=='object')fail('policy');
  for(const value of Object.values(f.runeContributions))if(!Number.isSafeInteger(value)||value<0)fail('contribution');
  for(const [i,r]of f.phaseClearReceipts.entries())if(r.runId!==run.runId||r.battleNumber!==48+i||r.settlementId!==`${run.runId}:${48+i}:VICTORY`||!run.settlementIds.includes(r.settlementId))fail('phase receipt');
- for(const name of ['bestAttackSnapshot','qaBestAttackSnapshot'])if(f[name]){validateBestAttackSnapshot(f[name]);if(f[name].runId!==run.runId||f[name].battleNumber>run.progress.battleNumber||f[name].finalPower>run.stats.bestAttack)fail('best attack reference');}
+ for(const name of ['bestAttackSnapshot','qaBestAttackSnapshot'])if(f[name]){validateBestAttackSnapshot(f[name]);if(f[name].rulesetId!==rulesetForRun(run)||f[name].runId!==run.runId||f[name].battleNumber>run.progress.battleNumber||f[name].finalPower>run.stats.bestAttack)fail('best attack reference');}
  if(run.config.qaFixture&&f.bestAttackSnapshot)fail('QA in real records');
  if(f.bestAttackSnapshot?.qaFixture||f.qaBestAttackSnapshot&&(!run.config.qaFixture||f.qaBestAttackSnapshot.qaFixture!==true))fail('mixed QA evidence');
  if(f.clearRecord){

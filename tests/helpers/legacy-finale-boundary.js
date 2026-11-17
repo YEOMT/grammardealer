@@ -3,6 +3,7 @@
  */
 export function removeFinaleFromHistoricalFixture(state){
  if(state.version==='0.11.0')throw Error('Historical fixture must select its original version first');
+ delete state.playFeedbackPolicy;delete state.contentManifest.playFeedbackPolicy;if(state.tutorialSession)delete state.tutorialSession.policy;
  delete state.finale;
  delete state.config.shopFlowPolicy;
  state.contentManifest.stageIds=state.contentManifest.stageIds.filter(id=>id!=='stage.final');

@@ -1,3 +1,4 @@
+import {battleLearningGuide} from '../data/battleLearningGuide.js';
 import {soundButton} from './soundControls.js';
 import {usesPostBossShop} from '../game/shopFlow.js';
 import {shopViewport} from './viewport.js';
@@ -10,7 +11,7 @@ import {SKY_SHIELD_HINT} from '../data/stage4.js';
 import {runeView,bindRuneDrag,runeReadiness} from './runes.js';
 import { el, button, modal, confirmDialog } from './dom.js';
 import { wordCard } from './cards.js';
-import { cardModel, operationPolishPreview, runeDescription as describeRuneForUI } from './models.js';
+import { cardModel, polishPreview, runeDescription as describeRuneForUI } from './models.js';
 import { runeForVersion } from '../data/runes.js';
 import { HARBOR_BOSS_HINT } from './progression.js';
 
@@ -62,7 +63,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
       el('p',{text:polish?(['0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(state.version)?'8 골드 · 단어 최대 +3, 영구 운영 최대 +1. 이 상점에서 한 번 사용할 수 있습니다.':'8 골드 · 한 카드 +1, 최대 +3. 이 상점에서 한 번 사용할 수 있습니다.'):'선택한 실제 카드 한 장을 제거합니다. 확정 전에는 골드와 서비스 횟수를 사용하지 않습니다.'}),
       el('div',{class:'reward-target-grid'},ids.map(id=>{
         const model=cardModel(state.cardInstances[id],null,state.version);
-        return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&model.cardKind==='OPERATION'&&el('p',{class:'operation-polish-preview',text:operationPolishPreview(model)}),
+        return el('section',{class:'reward-target',dataset:{targetId:id}},wordCard(model,{readonly:true,compact:true}),polish&&el('p',{class:'operation-polish-preview',text:polishPreview(model)}),
           button(polish?`+${model.polish} → +${model.polish+1}`:'이 카드 제거',()=>service(kind,id),'primary'));
       })),!ids.length&&el('p',{text:'현재 선택할 수 있는 카드가 없습니다.'}),
       button('대상 선택 취소 · 상점으로',()=>view.close(),'secondary',{id:'cancel-shop-target'})],{wide:true});
@@ -77,7 +78,7 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
         !item.purchased&&level>0&&el('small',{text:`현재: ${runeDescription(def,level)}`}),el('p',{text:`${item.purchased?'구매 효과':'획득 후'}: ${runeDescription(def,item.purchased?item.offeredLevel:nextLevel)}`}),el('small',{text:runeReadiness(item.runeId,state)})];
     }else{
       const model=cardModel({instanceId:`shop.preview.${item.itemId}`,cardDefId:item.cardDefId,polishLevel:0},null,state.version);
-      detail=[wordCard(model,{readonly:true}),el('p',{text:item.role==='LOCAL_SYNTAX_RELEVANT'?(snow?'비교·정도에 사용할 단어 카드 한 장':sky?'절 연결에 사용할 단어 카드 한 장':'항구 문장에 사용할 단어 카드 한 장'):(model.cardKind==='OPERATION'?'손패에서 사용하는 운영 카드':'현재 지원하는 단어 카드 한 장')}),el('small',{text:model.descriptionKo??model.glossKo})];
+      detail=[wordCard(model,{readonly:true}),el('p',{text:item.role==='LOCAL_SYNTAX_RELEVANT'?(snow?'비교·정도에 사용할 단어 카드 한 장':sky?'절 연결에 사용할 단어 카드 한 장':'항구 문장에 사용할 단어 카드 한 장'):(model.cardKind==='OPERATION'?'손패에서 사용하는 운영 카드':'덱에 추가할 단어 카드')}),el('small',{text:model.descriptionKo??model.glossKo})];
     }
     return el('article',{class:'shop-item panel',dataset:{itemId:item.itemId,itemKind:item.kind,purchased:String(item.purchased)}},...detail,
       el('strong',{class:'shop-price',text:item.purchased?'구매 완료':`${item.price} 골드`}),
@@ -92,18 +93,18 @@ export function renderShop(root,state,{command,onDeck,onDictionary,onRecords,onS
   root.replaceChildren(el('header',{class:'topbar shop-topbar'},el('span',{class:'brand-small',text:'SYNTAX ATLAS'}),
     el('nav',{},soundButton(),button('내 덱',onDeck,'quiet'),button('단어 사전',onDictionary,'quiet'),button('도감',onRecords,'quiet'),button('저장',onSaves,'quiet'),button('로비',onLobby,'quiet'))),
     el('main',{class:'shop-page harbor-page'},
-      el('header',{class:'shop-heading'},el('div',{},el('span',{class:'eyebrow',text:finale?'FINAL · LAST SHOP':corridor?'CHAPTER 10 · FIFTH SHOP':waterways?'CHAPTER 08 · FOURTH SHOP':snow?'CHAPTER 06 · THIRD SHOP':sky?'CHAPTER 04 · SECOND SHOP':'CHAPTER 02 · FIRST SHOP'}),el('h1',{text:finale?'통사의 근원 · 마지막 준비 상점':corridor?'별의 회랑 · 다섯 번째 상점':waterways?'고대의 수로도시 · 네 번째 상점':snow?'거울의 설원 · 세 번째 상점':sky?'이음의 하늘섬 · 두 번째 상점':'전달의 항구 · 첫 상점'})),
+      el('header',{class:'shop-heading'},el('div',{},el('h1',{text:finale?'통사의 근원 · 마지막 준비 상점':corridor?'별의 회랑 · 다섯 번째 상점':waterways?'고대의 수로도시 · 네 번째 상점':snow?'거울의 설원 · 세 번째 상점':sky?'이음의 하늘섬 · 두 번째 상점':'전달의 항구 · 첫 상점'})),
         el('div',{class:'shop-resources'},el('strong',{text:`${gold} 골드`,dataset:{shopGold:String(gold)}}),el('span',{text:`현재 덱 ${state.activeCardIds.length}장 · 룬 ${state.runes.orderedInstanceIds.length} / ${state.runes.slotLimit}`}))),
-      el('details',{class:'shop-boss-hint'},el('summary',{text:finale?'최종 세 전투':corridor?'운명의 직조자 · 예견':waterways?'고대 수호대장 · 이중 연결 인장':snow?'거울뿔 사슴 · 빙결핵 5개':sky?'하늘길의 문지기 · 연결의 보호막':'항구 수문장 · 보호 장막 공략'}),el('p',{text:finale?'두 겹의 방어막 → 룬과 단어 봉인 → 순수 화력전. 각 전투는 새 6턴이며 중간 보상과 상점은 없습니다.':corridor?FORESIGHT_HINT:waterways?WATERWAYS_HINT:snow?FROST_HINT:sky?SKY_SHIELD_HINT:HARBOR_BOSS_HINT}),el('small',{text:finale?'상품과 가격은 이 방문에 고정됩니다. 추가 무료 영구 카드는 없습니다.':corridor?'보스전에는 빙정이나 무료 지원을 지급하지 않습니다.':waterways?'여러 공격의 실적은 누적하지 않습니다. 같은 문장의 두 절이 필요합니다.':snow?'일반 영구 카드는 결정을 깨지 않습니다. 특정 비교 문장 순서는 필요하지 않습니다.':sky?'단어·구 연결과 관계절은 연결의 보호막을 해제하지 않습니다.':'SVO+to/for는 3형식으로 장막을 해제하지 않습니다.'})),
+      el('details',{class:'shop-boss-hint'},el('summary',{text:finale?'최종 세 전투':corridor?'운명의 직조자':waterways?'고대 수호대장 · 이중 연결 인장':snow?'거울뿔 사슴 · 빙결핵 5개':sky?'하늘길의 문지기 · 연결의 보호막':'항구 수문장 · 보호 장막 공략'}),el('p',{text:finale?'두 겹의 방어막 → 룬과 단어 봉인 → 순수 화력전. 각 전투는 새 6턴이며 중간 보상과 상점은 없습니다.':corridor?battleLearningGuide({...state,combat:null,progress:{...state.progress,stageId:shop.stageId,roundIndex:4}}).boss.join(' '):waterways?WATERWAYS_HINT:snow?FROST_HINT:sky?SKY_SHIELD_HINT:HARBOR_BOSS_HINT}),el('small',{text:finale?'추가 무료 영구 카드는 없습니다.':corridor?'보스전에는 빙정이나 무료 지원을 지급하지 않습니다.':waterways?'여러 공격의 실적은 누적하지 않습니다. 같은 문장의 두 절이 필요합니다.':snow?'일반 영구 카드는 결정을 깨지 않습니다. 특정 비교 문장 순서는 필요하지 않습니다.':sky?'단어·구 연결과 관계절은 연결의 보호막을 해제하지 않습니다.':'SVO+to/for는 3형식으로 장막을 해제하지 않습니다.'})),
       state.runes.orderedInstanceIds.length>0&&el('details',{class:'shop-equipped'},el('summary',{text:'현재 장착 룬 설명'}),
         el('div',{class:'shop-equipped-grid'},state.runes.orderedInstanceIds.map((id,index)=>runeView(state.runes.instances[id],{index,total:state.runes.orderedInstanceIds.length,run:state,version:state.version,onOrder:orderRunes})))),
       grant&&!finale&&el('section',{class:`entry-grant ${animateGrant?'entry-grant-arriving':''}`,dataset:{entryGrantId:grant.entryGrantId}},
         el('div',{},el('strong',{text:waterways&&grant.choice==='NONE'?'입장 선택 완료 · 받지 않기':snow?'전투 한정 빙정 공급 준비 완료':grant.cardInstanceIds.length?`입장 준비 완료 · ${grant.cardInstanceIds.length}장이 덱에 들어갔습니다`:'입장 준비 완료 · 필요한 동사와 연결 카드가 이미 있습니다'}),
-          el('p',{text:snow?'빙정 WORD는 각 전투 시작에 임시 공급됩니다. 영구 덱은 늘어나지 않습니다.':postBoss?'입장 지급은 이번 원정에서 한 번입니다. 지역 입장 후 첫 전투에서 덱을 섞습니다.':'입장 지급은 이번 원정에서 한 번입니다. 상점을 나올 때 전체 덱을 섞습니다.'}),grant.warningKo&&el('p',{class:'entry-warning',text:grant.warningKo})),
+          el('p',{text:snow?'빙정은 매 전투에 잠시 제공되며 영구 덱은 늘어나지 않습니다.':postBoss?'입장 지급은 이번 원정에서 한 번입니다. 지역 입장 후 첫 전투에서 덱을 섞습니다.':'입장 지급은 이번 원정에서 한 번입니다. 상점을 나올 때 전체 덱을 섞습니다.'}),grant.warningKo&&el('p',{class:'entry-warning',text:grant.warningKo})),
         el('div',{class:'entry-grant-cards'},grant.cardInstanceIds.filter(id=>state.cardInstances[id]).map(id=>wordCard(cardModel(state.cardInstances[id],null,state.version),{readonly:true,compact:true})))),
       el('section',{class:'shop-inventory','aria-label':'고정된 상점 상품'},inventory),
       el('section',{class:'shop-services','aria-label':'상점 서비스'},services),
-      el('footer',{class:'shop-footer'},el('p',{class:'helper',text:'상품은 다시 열어도 바뀌지 않습니다. 상점을 나가면 이번 방문은 끝납니다.'}),
+      el('footer',{class:'shop-footer'},el('p',{class:'helper',text:'상점을 나가면 이번 방문은 끝납니다.'}),
         button(postBoss?'상점 나가기 · 다음 지역으로':'상점 나가기 · 첫 전투',()=>confirmDialog('상점을 나가시겠습니까?',postBoss?'이 방문은 끝나며 다시 돌아올 수 없습니다. 다음 지역 입장 화면으로 이동합니다.':'이 방문은 끝나며 다시 돌아올 수 없습니다. 현재 덱을 섞고 '+(finale?'최종전':corridor?'별의 회랑':waterways?'수로도시':snow?'설원':sky?'하늘섬':'항구')+' 첫 전투를 시작합니다.',postBoss?'다음 지역으로':'전투 시작',()=>transaction('LEAVE_SHOP',{})),'primary',{id:'leave-shop'}))));
   const viewportCleanup=shopViewport(root.querySelector('.shop-page')),dragCleanup=bindRuneDrag(root.querySelector('.shop-equipped-grid')??root,orderRunes,{enabled:()=>!pending});
   return()=>{viewportCleanup();dragCleanup();};

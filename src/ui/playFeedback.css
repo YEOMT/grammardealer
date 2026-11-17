@@ -1,0 +1,15 @@
+.dictionary-word-heading{display:flex;align-items:center;gap:18px;margin-bottom:10px}
+.dictionary-word-heading>div{display:flex;flex-direction:column;gap:4px}
+.dictionary-word-heading .dictionary-pos{font-size:12px;opacity:.8}
+.dictionary-gloss{font-size:18px;color:var(--text,#f4ecd4);font-weight:600}
+.card-transfer-layer{position:fixed;inset:0;z-index:15000;pointer-events:none;overflow:visible}
+.transfer-copy{position:absolute!important;pointer-events:none!important;margin:0!important;min-width:0!important;min-height:0!important}
+.transfer-card-back{display:grid;place-items:center;background:#16394c;color:#e8cf86;border:1px solid #e8cf86;border-radius:8px}
+.transfer-awaiting{visibility:hidden!important}
+.purchase-feedback{animation:purchase-feedback 650ms ease-out}
+.shop-resources{position:relative}
+.shop-resources .gold-change{position:absolute;right:0;top:0;font-size:14px;line-height:1.6;white-space:nowrap;background:#18352c;color:#f3eacb;border-radius:4px;padding:1px 4px}
+.polish-feedback{position:relative;margin:8px auto;padding:8px 16px;border:1px solid #b9ce83;border-radius:8px;background:#18352c;color:#f3eacb;max-width:640px;text-align:center}
+@keyframes purchase-feedback{0%,45%{outline:2px solid #e4c575;filter:brightness(1.24)}100%{outline-color:transparent;filter:none}}
+@media(max-width:960px){.dictionary-gloss{font-size:16px}.dictionary-word-heading{gap:12px}}
+@media(prefers-reduced-motion:reduce){.purchase-feedback{animation:none;outline:1px solid #e4c575}}

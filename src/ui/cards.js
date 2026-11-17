@@ -1,5 +1,5 @@
 import {CRYSTAL_WORDS} from '../game/mirrorSnowfield.js';
-import {operationText} from './models.js';
+import {operationText,cardDisplayScore,polishPreview} from './models.js';
 import {visibleForms,formLabel} from './formView.js';
 import {isIngForm} from '../data/language/desertLanguage.js';
 import { el, button, modal } from './dom.js';
@@ -14,19 +14,19 @@ export function wordCard(model, { zone, onActivate, onForm, onSelect, selected =
   if(model.cardKind==='OPERATION')return operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useCount,useDisabled});
   const node = el('article', { class: `word-card pos-${model.pos || 'NOUN'} rarity-${model.rarity} polish-${model.polish||0} ${selected ? 'selected' : ''} ${compact ? 'compact' : ''} ${sealed?'turn-sealed':''}`, dataset: { cardId: model.id, lexemeId: model.lexemeId, zone: zone || 'readonly',sealed:String(sealed) } });
   const body = el('div', { class: 'card-body', role: readonly ? 'group' : 'button', tabIndex: readonly ? -1 : 0, 'aria-disabled':sealed?'true':null, 'aria-label': `${model.surface}, ${POS_LABELS[model.pos] || model.pos}${model.polish ? `, 연마 ${model.polish}` : ''}${sealed?', '+TURN_HAND_SEAL_LABEL+' · 교환 가능':readonly ? '' : ', Enter로 이동'}` },
-    el('div', { class: 'card-topline' }, el('span', { class: 'pos-label', text: POS_LABELS[model.pos] || model.pos }), el('span', { class: 'card-value', text: `${(model.baseScore ?? 10)+(model.polish||0)*5}` })),
+    el('div', { class: 'card-topline' }, el('span', { class: 'pos-label', text: POS_LABELS[model.pos] || model.pos }), el('span', { class: 'card-value', text: `${cardDisplayScore(model)}` })),
     el('strong', { class: `card-word ${model.surface?.length > 10 ? 'long-word' : ''}`, text: model.surface, style: `--fit-factor:${Math.max(1,model.surface.length * .66)}` }),
-    el('div', { class: 'card-footline' }, el('span', { text: RARITY_LABELS[model.rarity] || '일반' }), el('span', { class:model.polish?'polish-badge':'',text: model.polish ? `✦ +${model.polish}` : '◇',title:`기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}` })));
+    el('div', { class: 'card-footline' }, el('span', { text: RARITY_LABELS[model.rarity] || '일반' }), el('span', { class:model.polish?'polish-badge':'',text: model.polish ? `✦ +${model.polish}` : '◇',title:`기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${cardDisplayScore(model)}` })));
   if (!readonly) {
     body.addEventListener('click', () => onActivate?.(model.id));
     body.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onActivate?.(model.id); } });
   }
-  node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${(model.baseScore??10)+(model.polish||0)*5}점`;
+  node.title=`${model.surface} · 기본 ${model.baseScore??10} + 연마 ${(model.polish||0)*5} = ${cardDisplayScore(model)}점`;
   node.append(body);
   const dual=model.secondaryLexemes?.length>0;
   if(dual){node.classList.add('dual-usage-card');const label=body.querySelector('.pos-label');label.replaceChildren(el('span',{class:'dual-usage-badge',text:model.definition.dualUsage?.label??'동·명'}));}
   if((dual||model.temporary)&&['hand','sentence'].includes(zone)){
-    const details=()=>modal(model.surface+' · 카드 상세',[
+    const details=()=>modal(model.surface+' · 카드 상세',[el('p',{text:`카드 점수 ${cardDisplayScore(model)} · 연마 +${model.polish}`}),model.polish<3&&!model.temporary&&el('p',{text:polishPreview(model)}),
       ...(dual?[el('p',{text:model.definition.dualUsage?.description??'동사: 돕다 / 명사: 도움(셀 수 없는 명사)'}),...(model.definition.dualUsage?.examples??['I help you.','I need more help.']).map(text=>el('p',{text})),el('p',{text:'실제 용법은 표면형과 문장 구조로 제출 후 판정합니다.'})]:[]),
       ...(model.temporary?[el('p',{text:'이번 전투 한정 WORD입니다. 일반 단어처럼 조합·교환·보급·탐색할 수 있습니다. 공격 제출 시 깨지고 전투가 끝나면 사라집니다.'}),el('p',{text:model.temporary.source==='MIRROR_SNOWFIELD'&&CRYSTAL_WORDS.has(model.definition.id.slice(5))?'거울뿔 사슴전에서 문법적으로 성립한 양수 피해 공격에 사용하면 이 빙정 사본이 핵 하나를 깹니다. 비교 문장일 필요는 없습니다.':'지원용 빙정입니다. 빙결핵을 깨지 않습니다.'})]:[])]);
     body.append(button('ⓘ',e=>{e.stopPropagation();details();},'card-info',{'aria-label':model.surface+' 카드 상세',onpointerdown:e=>e.stopPropagation(),onkeydown:e=>e.stopPropagation()}));
@@ -47,13 +47,13 @@ export function formMenu(model, forms, onSelect, { onMoveLeft, onMoveRight, onRe
   const choices = el('div', { class: 'form-choices' }, forms.map(form => { const duplicate = forms.filter(f => f.surface === form.surface).length > 1; const choice = button('', () => { view.close(); onSelect(form.id || form.formId); }, `form-choice ${form.aliasFormIds.includes(model.formId) ? 'current' : ''}`, { 'aria-label': `형태 ${form.surface}${duplicate ? ` · ${form.labelKo}` : ''}`, dataset: { formId: form.id || form.formId,formAliases:form.aliasFormIds.join(' ') } }); choice.append(el('strong', { text: form.surface }), el('small', { text: form.id==='form.be.base'?'원형':isIngForm(form)?'-ing형':formLabel(form) || '기본형' })); return choice; }));
   if(forms.some(f=>f.grammaticalFeatures.tense==='PAST')){
     const groups=[['현재 / 원형',f=>!isIngForm(f)&&!['PAST','PAST_PARTICIPLE'].includes(f.grammaticalFeatures.tense)],['과거',f=>f.grammaticalFeatures.tense==='PAST'],['과거분사(p.p.)',f=>f.grammaticalFeatures.tense==='PAST_PARTICIPLE'],['-ing형',f=>isIngForm(f)]];
-    const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...groups.map(([label,match])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>match(f)?[buttons[i]]:[])))));
+    const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...groups.filter(([,match])=>forms.some(match)).map(([label,match])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>match(f)?[buttons[i]]:[])))));
   }
   if(['ADJECTIVE','ADVERB'].includes(model.pos)&&forms.some(f=>f.grammaticalFeatures.degree==='COMPARATIVE')){
-    const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...[['원급','POSITIVE'],['비교급','COMPARATIVE'],['최상급','SUPERLATIVE']].map(([label,degree])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>f.grammaticalFeatures.degree===degree?[buttons[i]]:[])))));
+    const buttons=[...choices.children];choices.classList.add('grouped-forms');choices.replaceChildren(...[['원급','POSITIVE'],['비교급','COMPARATIVE'],['최상급','SUPERLATIVE']].filter(([,degree])=>forms.some(f=>f.grammaticalFeatures.degree===degree)).map(([label,degree])=>el('section',{class:'form-group'},el('h3',{text:label}),el('div',{class:'form-choices'},...forms.flatMap((f,i)=>f.grammaticalFeatures.degree===degree?[buttons[i]]:[])))));
   }
   const extras = el('div', { class: 'dialog-actions wrap' }, onMoveLeft && button('← 왼쪽으로', () => { view.close(); onMoveLeft(); }, 'secondary'), onMoveRight && button('오른쪽으로 →', () => { view.close(); onMoveRight(); }, 'secondary'), onSwap && button('손패와 맞교환', () => { view.close(); onSwap(); }, 'secondary'), onCopy && button('한 장 복사', () => { view.close(); onCopy(); }, 'secondary'), onRemove && button('카드 회수', () => { view.close(); onRemove(); }, 'secondary'));
-  view = modal(`${model.surface} · 형태 선택`, [el('p', { class: 'muted', text: '카드 한 장의 형태만 바꿉니다. 문장 검사는 공격 뒤에 진행합니다.' }), choices,forms.some(f=>isIngForm(f))&&el('p',{class:'helper ing-form-guide',text:ING_FORM_GUIDE}), extras]);
+  view = modal(`${model.surface} · 형태 선택`, [choices, extras]);
   view.dialog.classList.add('form-dialog');
   return view;
 }
@@ -136,7 +136,7 @@ function operationCard(model,{zone,onSelect,selected,readonly,compact,onUse,useC
  const body=el('div',{class:'card-body',role:'button',tabIndex:0,'aria-label':model.surface+' · 운영 · '+copy.effect+' · '+copy.limit,title:copy.effect+' · '+copy.limit},
    el('div',{class:'card-topline'},el('span',{text:'운영 · '+RARITY_LABELS[model.rarity]}),el('span',{class:model.polish?'polish-badge':'',text:model.polish?`+${model.polish}`:''})),
    el('strong',{class:'operation-name',text:model.surface}),el('small',{class:'operation-limit',text:model.temporary?'전투당 1회':model.operation.afterUseDestination==='DISCARD'?'다시 뽑아 재사용':'전투당 1회'}));
- const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 카드로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'})]);
+ const explain=()=>modal(model.surface+' · 운영',[el('p',{text:copy.effect+' · '+copy.limit}),el('p',{text:model.temporary?'사용 후 사용 완료로 이동하며 전투 종료 시 사라집니다. 영구 소유와 빙결핵 파괴에 포함되지 않습니다.':model.operation.afterUseDestination==='DISCARD'?'효과를 해결한 뒤 버린 카드로 이동합니다. 나중에 같은 카드를 다시 뽑으면 사용할 수 있습니다.':'사용 후 사용 완료로 이동하고 다음 전투에 돌아옵니다.'}),el('p',{text:copy.polish+' · 턴과 교환을 소모하지 않습니다.'}),model.polish<model.operation.polishMax&&!model.temporary&&el('p',{text:polishPreview(model)})]);
  body.addEventListener('click',explain);body.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();explain();}});node.append(body);
  if(onSelect){node.classList.add('selectable-card');node.append(el('div',{class:'card-footline operation-footer'},button('사용',e=>{e.stopPropagation();onUse?.();},'operation-use',{disabled:readonly||useDisabled||!onUse,'aria-label':model.surface+' 사용',title:useDisabled?'현재 유효 대상이나 손패 빈자리가 없습니다.':copy.effect,onpointerdown:e=>e.stopPropagation()}),button(selected?'✓':'□',e=>{e.stopPropagation();onSelect(model.id);},'card-select',{disabled:readonly,'aria-label':model.surface+' 버리기 선택','aria-pressed':String(selected),onpointerdown:e=>e.stopPropagation()})));}
  return node;

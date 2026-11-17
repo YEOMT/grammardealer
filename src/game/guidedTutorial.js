@@ -1,8 +1,11 @@
+import {hasPlayFeedback,COMBAT_FIRST_TUTORIAL} from '../data/playFeedbackPolicy.js';
 import {clone} from '../contracts.js';
 import {registry} from '../data/language/index.js';
 import {assertRng} from './rng.js';
 import {createStream} from './rng.js';
 
+export const COMBAT_FIRST_STEPS=Object.freeze([1,2,3,4,5,7,8,9,10,11,12,13,20,21,22,23,24,25,29,31]);
+export const isCombatFirst=run=>run?.tutorialSession?.policy===COMBAT_FIRST_TUTORIAL;
 export const GUIDED_VERSION='0.2.1';
 export const TUTORIAL_CARDS=Object.freeze(['be','happy','run','really','small','good','i','he','very','fast','run','book','a','be','you','they','like','go','come','give','show','dog','cat','music','friend','the','in','with'].map(x=>`card.${x}`));
 export const tutorialCardId=index=>`tutorial.021.${String(index).padStart(2,'0')}`;
@@ -10,7 +13,7 @@ export const isGuided=run=>run?.tutorialSession?.active===true;
 export function installTutorial(run,previous=null){
  const parked=previous?.parked??Object.fromEntries(['activeCardIds','cardInstances','vocabulary','rng','openingFrames','stats'].map(key=>[key,clone(run[key])]));
  const attempt=(previous?.attempt??0)+1;
- run.tutorialSession={version:GUIDED_VERSION,active:true,attempt,sessionId:`${run.runId}:tutorial:${attempt}`,step:1,completedSteps:[],panel:null,selectedIds:[],attackId:null,attackCount:0,parked,drawStream:createStream(`${run.config.seed}:tutorial`)};
+ run.tutorialSession={...((previous?previous.policy===COMBAT_FIRST_TUTORIAL:hasPlayFeedback(run))?{policy:COMBAT_FIRST_TUTORIAL}:{}),version:GUIDED_VERSION,active:true,attempt,sessionId:`${run.runId}:tutorial:${attempt}`,step:1,completedSteps:[],panel:null,selectedIds:[],attackId:null,attackCount:0,parked,drawStream:createStream(`${run.config.seed}:tutorial`)};
  run.activeCardIds=TUTORIAL_CARDS.map((_,i)=>tutorialCardId(i));
  run.cardInstances=Object.fromEntries(TUTORIAL_CARDS.map((cardDefId,i)=>{if(!registry.cardById[cardDefId])throw Error(`Missing tutorial card ${cardDefId}`);const instanceId=tutorialCardId(i);return[instanceId,{instanceId,cardDefId,polishLevel:0,specialEffectId:null}];}));
  run.vocabulary={...clone(parked.vocabulary),encounteredLexemeIds:[...new Set(TUTORIAL_CARDS.map(id=>registry.cardById[id].lexemeId))]};
@@ -36,7 +39,7 @@ export function guidedAllowed(run,cmd){
  if(['TUTORIAL_RESTART','TUTORIAL_EXIT'].includes(cmd.type))return cmd.sessionId===t.sessionId&&cmd.confirmed===true;
  if(cmd.type==='FINISH_PRESENTATION')return cmd.attackId===t.attackId&&[12,29].includes(s);
  if(cmd.sessionId!==t.sessionId||cmd.cueId!==`T${String(s).padStart(2,'0')}`)return false;
- if(cmd.type==='TUTORIAL_ACK')return ackSteps.has(s);
+ if(cmd.type==='TUTORIAL_ACK')return isCombatFirst(run)?[1,13,31].includes(s):ackSteps.has(s);
  if([26,27,28].includes(s))return cmd.type==='TUTORIAL_GATE_ACK'&&cmd.attackId===t.attackId;
  if(tutorialPanel(s))return cmd.kind===tutorialPanel(s)&&(cmd.type==='TUTORIAL_PANEL_OPEN'?!t.panel:cmd.type==='TUTORIAL_PANEL_CLOSE'&&t.panel===cmd.kind);
  if(s===7)return cmd.type==='TUTORIAL_SELECT'&&cmd.cardId===id(2)&&c.handIds.includes(id(2));
@@ -57,13 +60,14 @@ export function recordGuided(run,cmd){
  if(cmd.type==='TUTORIAL_PANEL_CLOSE')t.panel=null;
  if(cmd.type==='SUBMIT'){t.attackId=run.combat.pendingAttackId;t.attackCount++;}
  if(t.step===20&&run.combat.sentenceSlots.length<3)return;
- t.completedSteps.push(t.step);t.step++;
+ t.completedSteps.push(t.step);t.step=isCombatFirst(run)?COMBAT_FIRST_STEPS[COMBAT_FIRST_STEPS.indexOf(t.step)+1]:t.step+1;
 }
 export function tutorialCommand(run,command){const t=run.tutorialSession;return isGuided(run)?{...command,sessionId:t.sessionId,cueId:`T${String(t.step).padStart(2,'0')}`,expectedRevision:run.revision}:command;}
 
 /** Stored tutorial starts are deterministic plain data, not a profile-dependent re-roll. */
 export function validateTutorial(run){
  const t=run.tutorialSession;if(!t)return true;
+ if(t.policy!==undefined&&(!isCombatFirst(run)||!hasPlayFeedback(run)))throw Error('Invalid tutorial policy');
  const fail=()=>{throw Error('잘못된 고정 튜토리얼 저장입니다.');};
  if(!['0.2.1','0.2.2','0.3.0','0.4.0','0.5.0','0.5.1','0.6.0','0.6.1','0.7.0','0.8.0','0.8.1','0.9.0','0.10.0','0.10.1','0.10.2','0.11.0','0.12.0','0.12.1','0.14.0'].includes(run.version)||t.version!==GUIDED_VERSION||!Number.isInteger(t.attempt)||t.attempt<1||t.sessionId!==`${run.runId}:tutorial:${t.attempt}`)fail();
  if(!t.active&&t.endReason==='SKIPPED'){if(t.step<1||t.step>31||t.parked||t.skipReceipt!==`${t.sessionId}:skip`||run.activeCardIds.some(x=>x.startsWith('tutorial.021.')))fail();return true;}
@@ -76,7 +80,8 @@ export function validateTutorial(run){
  if(Object.keys(p.cardInstances).length!==28||p.activeCardIds.some(x=>{const c=p.cardInstances[x];return c.instanceId!==x||!registry.cardById[c.cardDefId]?.starterEligible||c.polishLevel!==0||c.specialEffectId!==null;}))fail();
  if(p.openingFrames.length||p.stats.attacks!==0||!Array.isArray(p.vocabulary.encounteredLexemeIds))fail();
  if(JSON.stringify(run.rng)!==JSON.stringify(p.rng))fail();
- if(!Array.isArray(t.completedSteps)||t.completedSteps.length!==t.step-1||t.completedSteps.some((x,i)=>x!==i+1))fail();
+ const expected=isCombatFirst(run)?COMBAT_FIRST_STEPS.slice(0,COMBAT_FIRST_STEPS.indexOf(t.step)):Array.from({length:t.step-1},(_,i)=>i+1);
+ if(isCombatFirst(run)&&!COMBAT_FIRST_STEPS.includes(t.step)||!Array.isArray(t.completedSteps)||JSON.stringify(t.completedSteps)!==JSON.stringify(expected))fail();
  if(t.step===1&&run.combat){if(t.attackCount!==0||t.attackId!==null||t.lastAttack||t.selectedIds?.length||t.panel!==null||JSON.stringify(t.drawStream)!==JSON.stringify(createStream(`${run.config.seed}:tutorial`)))fail();const expected=tutorialPiles(run);for(const key of ['handIds','drawIds','sentenceSlots','discardIds'])if(JSON.stringify(run.combat[key])!==JSON.stringify(expected[key]))fail();if(run.combat.enemyState.hp!==77||run.combat.turnsRemaining!==6||run.combat.exchangesRemaining!==1)fail();}
  return true;
 }

@@ -1,0 +1,64 @@
+[
+  {
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-11-17T17:57:05.346262+09:00",
+    "finishedAt": "2026-11-17T18:02:03.42804+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v015/final-unit-2/command.log",
+    "logSha256": "4c31b7c39815816ad7111c26f50c44b2fc639c2c7eee1d40a18c854c87080eec"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "validate:data"
+    ],
+    "startedAt": "2026-11-17T18:03:06.465164+09:00",
+    "finishedAt": "2026-11-17T18:03:09.657222+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v015/final-data/command.log",
+    "logSha256": "5e716efc8d9d3506af7e30839d2063f74b4dbf9600732568561da5cbc04e6888"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-11-17T18:03:19.289634+09:00",
+    "finishedAt": "2026-11-17T18:03:28.075632+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v015/final-build/command.log",
+    "logSha256": "2ba0f3736fef4efc2770db692156bed26e8428a42d4c97fc4dd147ae90ed1141"
+  },
+  {
+    "command": [
+      "node",
+      "tests/play-feedback015-browser.mjs"
+    ],
+    "startedAt": "2026-11-17T17:51:35.671894+09:00",
+    "finishedAt": "2026-11-17T17:52:43.587911+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v015/browser-final/command.log",
+    "logSha256": "4e367f6899340f01f72b6bc7f00f2adc0ca9ad35e18573b7960046aa7c8b9125"
+  },
+  {
+    "command": [
+      "node",
+      "tests/patch-reward-browser.mjs"
+    ],
+    "startedAt": "2026-11-17T17:53:32.550283+09:00",
+    "finishedAt": "2026-11-17T17:53:36.509001+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/v015/reward-ui/command.log",
+    "logSha256": "5c6207fe294d37eac42fc41ed10a0460585f1bbe9a3e6c1beb4a704e3ad6922c"
+  }
+]

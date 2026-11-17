@@ -1,0 +1,314 @@
+{
+  "purpose": "순수 통합 보스 판정의 미실행 경계값 설계. 게임 문법 판정 성공 또는 실제 플레이 통과의 증거가 아니다.",
+  "notes": [
+    "모든 validMain/participle/counterfactual 입력은 실제 게임에서는 검증된 분석 근거에서 산출해야 한다. 사용자 입력 문자열/태그를 믿지 않는다.",
+    "B11은 순수 resolver의 조건 조합이다. 현재 parser가 두 구조를 동시에 지원한다고 주장하지 않으며, 이를 위해 새 문법을 만들지 않는다.",
+    "문장 불성립·분석 오류·PREPARE는 기존 경로에서 처리하며 실/기억을 갱신하지 않는 별도 회귀가 필요하다.",
+    "중복 attackId·구버전 저장·공격 영수증 검증은 수치 표 외의 필수 검사다."
+  ],
+  "cases": [
+    {
+      "id": "B01",
+      "description": "첫 현재분사 공격, 분사실만 해제",
+      "hp": 5000,
+      "power": 1200,
+      "memory": null,
+      "frame": "SV",
+      "validMain": true,
+      "participle": "ACTIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SV",
+        "unlocked": [
+          "PARTICIPIAL"
+        ],
+        "hpAfter": 3800,
+        "finalPower": 1200,
+        "actualHpLoss": 1200,
+        "killed": false
+      }
+    },
+    {
+      "id": "B02",
+      "description": "같은 문형 분사구문은 차단, 해제 없음",
+      "hp": 5000,
+      "power": 1200,
+      "memory": "SV",
+      "frame": "SV",
+      "validMain": true,
+      "participle": "ACTIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": true,
+        "memory": "SV",
+        "unlocked": [],
+        "hpAfter": 5000,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "killed": false
+      }
+    },
+    {
+      "id": "B03",
+      "description": "문형 변경한 과거분사로 분사실 해제",
+      "hp": 5000,
+      "power": 2000,
+      "memory": "SV",
+      "frame": "SVO",
+      "validMain": true,
+      "participle": "PASSIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SVO",
+        "unlocked": [
+          "PARTICIPIAL"
+        ],
+        "hpAfter": 3000,
+        "finalPower": 2000,
+        "actualHpLoss": 2000,
+        "killed": false
+      }
+    },
+    {
+      "id": "B04",
+      "description": "가정법은 같은 문형 우회",
+      "hp": 3000,
+      "power": 4000,
+      "memory": "SVO",
+      "frame": "SVO",
+      "validMain": true,
+      "participle": null,
+      "counterfactual": true,
+      "threads": {
+        "PARTICIPIAL": true,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SVO",
+        "unlocked": [
+          "COUNTERFACTUAL"
+        ],
+        "hpAfter": 0,
+        "finalPower": 4000,
+        "actualHpLoss": 3000,
+        "killed": true
+      }
+    },
+    {
+      "id": "B05",
+      "description": "현실 조건절은 가정법 우회/실 정답 아님",
+      "hp": 3000,
+      "power": 1000,
+      "memory": "SVO",
+      "frame": "SVO",
+      "validMain": true,
+      "participle": null,
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": true,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": true,
+        "memory": "SVO",
+        "unlocked": [],
+        "hpAfter": 3000,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "killed": false
+      }
+    },
+    {
+      "id": "B06",
+      "description": "HP1에서 다른 실 남아도 분사실 해제",
+      "hp": 1,
+      "power": 800,
+      "memory": "SVO",
+      "frame": "SV",
+      "validMain": true,
+      "participle": "ACTIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SV",
+        "unlocked": [
+          "PARTICIPIAL"
+        ],
+        "hpAfter": 1,
+        "finalPower": 800,
+        "actualHpLoss": 0,
+        "killed": false
+      }
+    },
+    {
+      "id": "B07",
+      "description": "HP1 마지막 실 해제와 즉시 격파",
+      "hp": 1,
+      "power": 800,
+      "memory": "SVO",
+      "frame": "SV",
+      "validMain": true,
+      "participle": "PASSIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": true
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SV",
+        "unlocked": [
+          "PARTICIPIAL"
+        ],
+        "hpAfter": 0,
+        "finalPower": 800,
+        "actualHpLoss": 1,
+        "killed": true
+      }
+    },
+    {
+      "id": "B08",
+      "description": "두 실 완료 후 예견은 유지",
+      "hp": 900,
+      "power": 1800,
+      "memory": "SV",
+      "frame": "SV",
+      "validMain": true,
+      "participle": null,
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": true,
+        "COUNTERFACTUAL": true
+      },
+      "expect": {
+        "blocked": true,
+        "memory": "SV",
+        "unlocked": [],
+        "hpAfter": 900,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "killed": false
+      }
+    },
+    {
+      "id": "B09",
+      "description": "일반 고점으로 실을 우회하여 격파 불가",
+      "hp": 5000,
+      "power": 10000,
+      "memory": null,
+      "frame": "SVO",
+      "validMain": true,
+      "participle": null,
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SVO",
+        "unlocked": [],
+        "hpAfter": 1,
+        "finalPower": 10000,
+        "actualHpLoss": 4999,
+        "killed": false
+      }
+    },
+    {
+      "id": "B10",
+      "description": "0위력은 기억/실 갱신 안 함",
+      "hp": 1000,
+      "power": 0,
+      "memory": "SVO",
+      "frame": "SV",
+      "validMain": true,
+      "participle": "ACTIVE",
+      "counterfactual": false,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SVO",
+        "unlocked": [],
+        "hpAfter": 1000,
+        "finalPower": 0,
+        "actualHpLoss": 0,
+        "killed": false
+      }
+    },
+    {
+      "id": "B11",
+      "description": "두 근거가 실제 분석에 동시에 있을 때 둘 다 해제 가능(순수 계산 경계값)",
+      "hp": 1000,
+      "power": 1200,
+      "memory": "SV",
+      "frame": "SV",
+      "validMain": true,
+      "participle": "ACTIVE",
+      "counterfactual": true,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SV",
+        "unlocked": [
+          "PARTICIPIAL",
+          "COUNTERFACTUAL"
+        ],
+        "hpAfter": 0,
+        "finalPower": 1200,
+        "actualHpLoss": 1000,
+        "killed": true
+      }
+    },
+    {
+      "id": "B12",
+      "description": "순서를 바꿔 가정실부터 해제, 분사실은 계속 필요",
+      "hp": 1000,
+      "power": 1800,
+      "memory": "SV",
+      "frame": "SVO",
+      "validMain": true,
+      "participle": null,
+      "counterfactual": true,
+      "threads": {
+        "PARTICIPIAL": false,
+        "COUNTERFACTUAL": false
+      },
+      "expect": {
+        "blocked": false,
+        "memory": "SVO",
+        "unlocked": [
+          "COUNTERFACTUAL"
+        ],
+        "hpAfter": 1,
+        "finalPower": 1800,
+        "actualHpLoss": 999,
+        "killed": false
+      }
+    }
+  ]
+}

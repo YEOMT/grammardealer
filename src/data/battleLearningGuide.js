@@ -1,3 +1,4 @@
+import {hasPlayFeedback} from './playFeedbackPolicy.js';
 import {stageForRun} from './stages.js';
 // Fixed curriculum, never inferred from the sentence currently being edited.
 const TOPICS={
@@ -65,6 +66,7 @@ const CLAUSE_TOPICS=[
 ];
 const clausePolicy=run=>run.version==='0.14.0';
 export const BOSS_SUMMARIES={
+ FATE_FORESIGHT_THREADS:['직전 유효 공격과 같은 주절 문형은 예견에 막힙니다. 정상 가정법은 예견을 우회합니다.','분사구문(현재·과거분사 중 하나)과 가정법(과거·과거완료 중 하나)으로 두 실을 순서 없이 풉니다.','남은 실이 있으면 HP 1 보호. 마지막 해제 공격부터 격파 가능하며 두 실을 푼 뒤에도 예견은 유지됩니다. 보스전 무료 지원은 없습니다.'],
  FATE_CLAUSE_THREADS:['현재분사 분사구문은 행동, 과거분사 분사구문은 흔적, 가정법은 가능성의 실을 풉니다.','세 실은 순서 없이 공격 사이에 누적됩니다. 남은 실이 있으면 HP 1을 보호합니다.','마지막 실을 푸는 공격부터 격파할 수 있습니다. 보스전 빙정 지원은 없습니다.'],
  FATE_FORESIGHT:['직조자는 직전 공격의 주절 문형을 기억합니다.','같은 문형으로 다시 공격하면 피해를 줄 수 없습니다.','가정법 공격은 예견을 무시합니다.'],
  LIBRARY_REGENERATION:['턴이 끝날 때 체력을 최대 1000 회복합니다.','정상 명사절 또는 가주어·진주어로 피해를 주면 이번 턴의 회복을 저지합니다.','체력을 0으로 만들면 즉시 격파합니다. 이 전투에는 빙정 지원이 없습니다.'],
@@ -80,8 +82,8 @@ export function battleLearningGuide(run){
  if(run.progress.stageId==='stage.final'){const i=run.progress.roundIndex;return {title:['서피스 스트럭처','딥 스트럭처','유니버셜 그래머'][i],pattern:['두 겹의 방어막','공격 룬과 손패 봉인','최후의 문장'][i],description:['현재 과제를 풀어 방어막을 한 겹씩 해제하세요.','주절의 시제 과제로 봉인된 룬을 되찾으세요.','모든 방해가 사라졌습니다. 가장 강한 문장으로 공격하세요.'][i],bonus:'최종전 · 지역 배율 ×1',bonusHelp:['최종 세 전투에는 지역 추가 배율이 없습니다. 문법·룬과 각 보스의 실제 조건은 그대로 적용합니다.'],boss:[['서로 다른 두 과제 · 한 공격에 한 겹만 해제합니다.','방어막이 남으면 HP 1 보호. 마지막 해제 공격부터 격파할 수 있습니다.','살아 있는 턴 종료마다 최대 400 회복합니다.'],['서피스 스트럭처의 실제 기여도가 높은 공격 룬을 최대 두 번 봉인합니다.','시제 과제 성공 공격부터 룬 복구와 해방 ×1.25가 적용됩니다.','매 턴 손패 단어 최대 두 장은 배치만 금지합니다. 교환은 가능합니다.'],['6턴 동안 순수 화력으로 HP 10000을 줄이세요.','마지막 턴도 HP 0이면 즉시 원정 클리어입니다.']][i]};}
  const stage=stageForRun(run),[title,pattern,description]=(clausePolicy(run)&&stage.id==='stage.10'?CLAUSE_TOPICS:TOPICS[stage.id])[run.progress.roundIndex];
  const multiplier=stage.regionMultiplier;
- return {title,pattern,description,bonusHelp:regionBonusHelp(stage,run),bonus:`지역 점수 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[run.combat?.enemyState?.bossMechanic?.id??(clausePolicy(run)?stage.rounds[run.progress.roundIndex].bossMechanic?.id:null)]??null,
-  detail:clausePolicy(run)&&stage.id==='stage.10'?'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다. 반복 단어에는 서로 다른 실물 사본이 필요합니다.\n현실 조건절도 지원합니다. had + p.p.는 과거완료이며 가정법 과거완료의 조건절에서도 사용합니다.':clausePolicy(run)&&stage.id==='stage.04'&&run.progress.roundIndex===2?'Because I am happy, I smile.\n앞 부사절 뒤에 쉼표를 놓아 보세요. 기존 무쉼표 부사절·조건절도 사용할 수 있습니다.':stage.id==='stage.05'&&run.progress.roundIndex===1?'명사를 꾸미는 형용사적 용법: I have a book to read.\n행동의 목적을 나타내는 부사적 용법: I went to the park to read.':null};
+ return {title,pattern:hasPlayFeedback(run)&&stage.id==='stage.10'&&run.progress.roundIndex===4?'예견과 두 실':pattern,description:hasPlayFeedback(run)&&stage.id==='stage.10'&&run.progress.roundIndex===4?'같은 주절 문형은 예견에 막힙니다. 분사구문과 가정법으로 두 실을 풉니다.':description,bonusHelp:regionBonusHelp(stage,run),bonus:`지역 점수 보너스 · ${clausePolicy(run)&&stage.id==='stage.10'?'분사구문·조건·가정법·과거완료':TARGETS[stage.id]} ×${multiplier.num/multiplier.den}`,boss:BOSS_SUMMARIES[stage.rounds[run.progress.roundIndex].bossMechanic?.id]??null,
+  detail:hasPlayFeedback(run)&&stage.id==='stage.10'?'영구 덱으로 분사구문 한 종류와 가정법 한 종류를 준비하세요. 같은 주절 문형은 예견에 막히며 정상 가정법은 우회합니다.':clausePolicy(run)&&stage.id==='stage.10'?'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다. 반복 단어에는 서로 다른 실물 사본이 필요합니다.\n현실 조건절도 지원합니다. had + p.p.는 과거완료이며 가정법 과거완료의 조건절에서도 사용합니다.':clausePolicy(run)&&stage.id==='stage.04'&&run.progress.roundIndex===2?'Because I am happy, I smile.\n앞 부사절 뒤에 쉼표를 놓아 보세요. 기존 무쉼표 부사절·조건절도 사용할 수 있습니다.':stage.id==='stage.05'&&run.progress.roundIndex===1?'명사를 꾸미는 형용사적 용법: I have a book to read.\n행동의 목적을 나타내는 부사적 용법: I went to the park to read.':null};
 }
 
 // Fixed curriculum only. Never inspect a sentence being edited.
@@ -105,7 +107,7 @@ function regionBonusHelp(stage,run){
 
 export function preparationGuide(run){
  const g=battleLearningGuide(run),stage=stageForRun(run);
- if(clausePolicy(run)&&stage.id==='stage.10')return {targetLabel:g.title,patternKo:g.pattern,meaningKo:run.progress.roundIndex<4?g.description:null,example:['Seeing you, I smiled.','Helped by you, I smiled.','If I had time, I would help you.','If I had seen you, I would have helped you.'][run.progress.roundIndex]??null,effectLabel:run.progress.roundIndex<4?`${g.title} 사용 시 보너스 배율 적용`:g.bonus,boss:g.boss?.slice(0,2)??[],noticeKo:run.progress.roundIndex===4?'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다.':null};
+ if(clausePolicy(run)&&stage.id==='stage.10')return {targetLabel:g.title,patternKo:g.pattern,meaningKo:run.progress.roundIndex<4?g.description:null,example:['Seeing you, I smiled.','Helped by you, I smiled.','If I had time, I would help you.','If I had seen you, I would have helped you.'][run.progress.roundIndex]??null,effectLabel:run.progress.roundIndex<4?`${g.title} 사용 시 보너스 배율 적용`:g.bonus,boss:g.boss?.slice(0,2)??[],noticeKo:run.progress.roundIndex===4?(hasPlayFeedback(run)?'영구 덱으로 분사구문과 가정법을 준비하세요.':'보스에서는 영구 덱으로 두 분사구문과 가정법을 사용해야 합니다.'):null};
  if(stage.id==='stage.02')return {targetLabel:'4형식',patternKo:'주어 + 동사 + 간접목적어 + 직접목적어',meaningKo:'~에게 ~를 주다.',example:'I give you a book.',effectLabel:'4형식 문장 사용 시 보너스 배율 적용',boss:g.boss?.slice(0,2)??[]};
  const examples={
   'stage.01':['I run.','She is kind.','I read books.'],

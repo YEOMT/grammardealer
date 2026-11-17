@@ -1,9 +1,11 @@
+import {hasPlayFeedback,PLAY_FEEDBACK_RULESET} from '../data/playFeedbackPolicy.js';
 import {formatSentence,validatePunctuation} from '../punctuation.js';
 import {assertSerializable,clone,requireId,requireInteger} from '../contracts.js';
 
 export const FINALE_RULESET_ID='syntax-atlas.0.11.0';
 export const CLAUSE_RULESET_ID='syntax-atlas.0.14.0';
-export const rulesetForVersion=version=>version==='0.14.0'?CLAUSE_RULESET_ID:FINALE_RULESET_ID;
+export const rulesetForVersion=version=>version==='0.15.0'?PLAY_FEEDBACK_RULESET:version==='0.14.0'?CLAUSE_RULESET_ID:FINALE_RULESET_ID;
+export const rulesetForRun=run=>hasPlayFeedback(run)?PLAY_FEEDBACK_RULESET:rulesetForVersion(run?.version);
 export const LOCAL_LEADERBOARD_LABEL='이 기기의 클리어 랭킹';
 export const LOCAL_LEADERBOARD_NOTICE='동일한 브라우저와 사이트의 프로필 기록만 표시합니다. 공용 랭킹은 연결되지 않았습니다.';
 export const MEMORY_LEADERBOARD_NOTICE='이번 세션 기록 — 브라우저를 닫으면 사라질 수 있음';
@@ -16,7 +18,7 @@ export const bestStorageKey=(playerId,rulesetId)=>`finale:best:${JSON.stringify(
 export const FINALE_SEQUENCE_KEY='finale:sequence';
 
 /** Immutable evidence from this accepted attack, independent of the recent-12 cache. */
-export function buildBestAttackSnapshot({run,resolution,actionSequence=run?.revision,rulesetId=rulesetForVersion(run?.version),allowQA=false}){
+export function buildBestAttackSnapshot({run,resolution,actionSequence=run?.revision,rulesetId=rulesetForRun(run),allowQA=false}){
   const qa=allowQA&&['0.11.0','0.12.0','0.12.1','0.14.0'].includes(run?.version)&&(run.config?.qaFixture===true||run.qaFixture===true)&&!run.tutorialSession?.active&&!run.config?.practice&&!run.config?.sandbox;
   if((!isRecordEligibleRun(run)&&!qa)||!resolution?.accepted||resolution.visualBasis?.synthetic||!['VALID','VALID_WITH_ISSUES'].includes(resolution.status??resolution.analysis?.status)||resolution.finalPower<=0)return null;
   const submittedTokens=resolution.sentenceSnapshot.orderedTokens.map((token,position)=>({cardDefId:token.cardDefId,lexemeId:token.lexemeId,selectedFormId:token.selectionId??token.selectedFormId,surface:token.surface,position}));
@@ -41,7 +43,7 @@ export function validateBestAttackSnapshot(snapshot){
   if(snapshot.preventedBySeal!==undefined)requireInteger(snapshot.preventedBySeal,'preventedBySeal',0,snapshot.finalPower);
   if(!Array.isArray(snapshot.submittedTokens)||snapshot.submittedTokens.length<1||snapshot.submittedTokens.length>24)throw Error('제출 카드 기록이 잘못되었습니다.');
   snapshot.submittedTokens.forEach((token,index)=>{fields(token,['cardDefId','lexemeId','selectedFormId','surface','position'],'제출 카드');for(const field of ['cardDefId','lexemeId','selectedFormId'])requireId(token[field],field);text(token.surface,'surface',100);if(token.position!==index)throw Error('제출 카드 순서가 잘못되었습니다.');});
-  if(snapshot.campaignVersion==='0.14.0'){if(snapshot.rulesetId!==CLAUSE_RULESET_ID||snapshot.languageVersion!=='0.14.0')throw Error('새 원정의 기록 정책이 다릅니다.');validatePunctuation(snapshot.punctuation,snapshot.submittedTokens.length);}else if(snapshot.punctuation!==undefined||snapshot.rulesetId===CLAUSE_RULESET_ID)throw Error('구원정 기록의 문장부호 정책이 다릅니다.');
+  if(snapshot.campaignVersion==='0.14.0'){if(![CLAUSE_RULESET_ID,PLAY_FEEDBACK_RULESET].includes(snapshot.rulesetId)||snapshot.languageVersion!=='0.14.0')throw Error('새 원정의 기록 정책이 다릅니다.');validatePunctuation(snapshot.punctuation,snapshot.submittedTokens.length);}else if(snapshot.punctuation!==undefined||[CLAUSE_RULESET_ID,PLAY_FEEDBACK_RULESET].includes(snapshot.rulesetId))throw Error('구원정 기록의 문장부호 정책이 다릅니다.');
   text(snapshot.sentenceText,'sentenceText',2425);if(snapshot.sentenceText!==formatSentence(snapshot))throw Error('점수와 실제 제출 문장이 일치하지 않습니다.');
   return true;
 }

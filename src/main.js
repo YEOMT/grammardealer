@@ -1,9 +1,12 @@
+import {captureCardMovement,presentCardMovement} from './ui/cardMovement.js';
+import {showTransactionFeedback} from './ui/transactionFeedback.js';
+import './ui/playFeedback.css';
 import {openClearLeaderboard,renderFinalClear} from './ui/finale.js';
 import {LocalLeaderboardRepository,MemoryLeaderboardRepository} from './services/clearLeaderboard.js';
 import {installOrientationGate} from './ui/orientation.js';
 import {installViewport,syncFullscreenButtons} from './ui/viewport.js';
 import {presentOperation} from './ui/operationPresentation.js';
-import {isGuided,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
+import {isGuided,isCombatFirst,tutorialCommand,tutorialPanel} from './game/guidedTutorial.js';
 import {attachGuidedCoach,showScoreGate,skipTutorialButton} from './ui/guidedCoach.js';
 import {wordCard} from './ui/cards.js';
 import {cardModel,operationPolishPreview} from './ui/models.js';
@@ -57,7 +60,7 @@ function persistFinalClear(next,record){
  saveQueue=saveQueue.catch(()=>{}).then(()=>leaderboard().upsertClear(snapshot,{profile:frozen})).catch(async error=>{rankingSessionFallback=true;await sessionLeaderboard.upsertClear(snapshot);toast(`클리어는 완료했습니다. 기록은 이번 세션에 보존합니다: ${error.message}`);});return saveQueue;
 }
 function newController(){controller=new RunController({profile,onProfileEvent:(event,next)=>{if(event.type==='FINAL50_CLEAR')void persistFinalClear(next,event.clearRecord);else void persistProfile(next);}});}
-function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,version:controller?.getState()?.version??'0.14.0',memory:!store.available||rankingSessionFallback}));}
+function showClearLeaderboard(){void saveQueue.finally(()=>openClearLeaderboard(leaderboard(),{profile,version:controller?.getState()?.playFeedbackPolicy?'0.15.0':controller?.getState()?.version??'0.15.0',memory:!store.available||rankingSessionFallback}));}
 function changeRoute(route){if(location.hash===`#${route}`)render();else location.hash=route;}
 async function startRun(config,{sameSeed=false}={}){
   if(starting||presenting)return;starting=true;void audio.unlock();
@@ -70,7 +73,7 @@ async function startRun(config,{sameSeed=false}={}){
 }
 async function runCommand(command){
   if(presenting)return{ok:false,message:'공격 연출 중입니다.'};
-  void audio.unlock();const before=controller.getState();if(['CHOOSE_STAGE4_CONNECTOR','CHOOSE_STAGE8_WORD'].includes(command.type))command={...command,expectedRevision:before.revision,commandId:`entry.choice.${before.runId}.${before.revision}`};const result=controller.dispatch(command.sessionId?command:tutorialCommand(before,command));
+  void audio.unlock();const before=controller.getState();const movementBefore=['EXCHANGE','PREPARE'].includes(command.type)?captureCardMovement(root):null;if(['CHOOSE_STAGE4_CONNECTOR','CHOOSE_STAGE8_WORD'].includes(command.type))command={...command,expectedRevision:before.revision,commandId:`entry.choice.${before.runId}.${before.revision}`};const result=controller.dispatch(command.sessionId?command:tutorialCommand(before,command));
   if(!result.ok){
     if(result.needsTutorialExplanation){explainFirstAttack(()=>{controller.dispatch({type:'ACK_ATTACK_GUIDE'});runCommand(command);});return result;}
     if(result.needsConfirmation&&command.type==='PREPARE')confirmDialog('마지막 행동 턴','이대로 넘기면 패배합니다. 마지막 턴을 준비에 사용하시겠습니까?','턴 넘기기',()=>runCommand({...command,confirmed:true}));
@@ -86,8 +89,17 @@ async function runCommand(command){
   }
   if(result.operationEffect){await presentOperationResult(before,result.operationEffect);return result;}
   if(['CLEAR_SENTENCE','ADD_CARD','RETURN_CARD','SET_FORM','SWAP_CARDS','REORDER_SENTENCE','EXCHANGE','UNDO'].includes(command.type))audio.play('card');
-  if(result.rewardEffect){
-    const e=result.rewardEffect;presenting=true;let view;view=modal('연마 완료',[el('div',{class:'polish-result'},wordCard(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.afterLevel},null,before.version),{readonly:true}),el('h3',{text:`연마 +${e.beforeLevel} → +${e.afterLevel}`}),el('p',{text:e.beforeOperation?operationPolishPreview(cardModel({instanceId:e.cardInstanceId,cardDefId:e.cardDefId,polishLevel:e.beforeLevel},null,before.version)):`카드 점수 ${e.beforeScore} → ${e.afterScore} · 기본 10 + 연마 ${e.afterLevel*5}`}),button('확인',()=>{view.close();presenting=false;render();},'primary',{id:'confirm-polish-result'}))],{closeable:false});return result;
+  if(result.rewardEffect||['SHOP_BUY','SHOP_SERVICE'].includes(command.type)){
+    document.querySelectorAll('dialog.app-dialog').forEach(d=>d.close());
+    render();showTransactionFeedback(root,before,after,result,command);return result;
+  }
+  if(result.cardMovement){
+    const epoch=++presentationEpoch,owner=controller;presenting=true;presentationAbort=new AbortController();
+    selected.clear();showCombat(after,{locked:true});
+    try{await presentCardMovement(root,result.cardMovement,movementBefore,{signal:presentationAbort.signal,speed:settings().speed,effectsOff:settings().effectsOff,reducedMotion:matchMedia('(prefers-reduced-motion: reduce)').matches});}
+    finally{if(epoch===presentationEpoch&&owner===controller){presentationAbort=null;presenting=false;render();}}
+    if(result.turnEndReceipt?.actualHeal)toast('턴 종료 회복 +'+result.turnEndReceipt.actualHeal);
+    return result;
   }
   if(result.resolution){
     await presentResolution(before,result.resolution);
@@ -116,7 +128,7 @@ async function interruptTutorial(mode){
 async function presentResolution(before,resolution){
  selected.clear();presenting=true;showCombat(before,{locked:true});combatView.beginPresentation();
  const epoch=++presentationEpoch,owner=controller;const guided=isGuided(before);if(guided){const skip=skipTutorialButton(interruptTutorial);skip.id='guided-skip-live';skip.classList.add('tutorial-skip-live');combatView.element.append(skip);}presentationAbort=new AbortController();const signal=presentationAbort.signal;
- const waitForGate=guided&&controller.getState().tutorialSession.attackCount===2?async gate=>{
+ const waitForGate=guided&&!isCombatFirst(before)&&controller.getState().tutorialSession.attackCount===2?async gate=>{
   const current=controller.getState();if(!isGuided(current)||current.tutorialSession.completedSteps.includes(Number(gate.cueId.slice(1))))return;
   return showScoreGate(root,gate,{signal,onInterrupt:interruptTutorial,confirm:()=>controller.dispatch({...tutorialCommand(current,{type:'TUTORIAL_GATE_ACK',attackId:gate.attackId}),cueId:gate.cueId}).ok});
  }:undefined;
@@ -133,7 +145,7 @@ async function presentResolution(before,resolution){
 function leaveToLobby(){if(presenting)return;const state=controller?.getState();if(isGuided(state)){confirmDialog('튜토리얼 나가기','완료나 보상 없이 로비로 돌아갑니다.','튜토리얼 나가기',()=>interruptTutorial('exit'));return;}if(state?.status==='BATTLE')confirmDialog('로비로 돌아가기','진행 중인 원정은 수동 저장한 지점까지만 다시 불러올 수 있습니다. 로비로 돌아가시겠습니까?','로비로',()=>changeRoute('lobby'));else changeRoute('lobby');}
 function openOverlay(kind){
   if(presenting)return;const state=controller?.getState();
-  if(isGuided(state)&&['dictionary','deck','draw','discard'].includes(kind)){
+  if(isGuided(state)&&!isCombatFirst(state)&&['dictionary','deck','draw','discard'].includes(kind)){
    const result=controller.dispatch(tutorialCommand(state,{type:'TUTORIAL_PANEL_OPEN',kind}));if(!result.ok){toast(result.message);return;}
    const panel=kind==='dictionary'?openDictionary(state):openDeck(state,kind==='deck'?'all':kind);
    const opened=controller.getState();panel.dialog.addEventListener('close',()=>{const r=controller.dispatch(tutorialCommand(opened,{type:'TUTORIAL_PANEL_CLOSE',kind}));if(r.ok)render();},{once:true});return panel;
