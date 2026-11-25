@@ -105,6 +105,13 @@ export function renderCombat(root,state,{command,openOverlay,selected=new Set(),
     else if(node.matches('.boss-veil,.library-turn-status'))enemyArea.querySelector('.enemy-info').append(node);
   }
   const dustCounter=tactics.querySelector('.dust-counter');if(dustCounter)enemyArea.querySelector('.enemy-info').append(dustCounter);
+  // Keep basic HP readable while only a long, live boss status may scroll.
+  const enemyInfo=enemyArea.querySelector('.enemy-info');
+  const vitals=el('div',{class:'enemy-vitals'}),mechanics=el('div',{class:'enemy-mechanics'});
+  for(const node of [...enemyInfo.children]){
+    (node.matches('.enemy-label,h2,.hp-track,.enemy-hp')?vitals:mechanics).append(node);
+  }
+  enemyInfo.append(vitals,mechanics);
   // The live mechanic indicators remain by HP; help opens without occupying layout space.
   tactics.replaceChildren(el('div',{class:'mobile-resources','aria-label':'전투 자원'},
     ...[['남은 턴',`${combat.turnsRemaining}/${rules.turnLimit}`],['교환',`${combat.exchangesRemaining}회`],['골드',String(state.economy.gold)]].map(([label,value])=>el('div',{},el('span',{text:label}),el('strong',{text:value})))),
@@ -142,7 +149,7 @@ export function renderCombat(root,state,{command,openOverlay,selected=new Set(),
     if (!phases) return;
     const {handheld,portable} = document.documentElement.dataset;
     const inHpPanel = handheld === 'true' || (portable === 'true' && stage.clientHeight < 200);
-    const host = inHpPanel ? stage.querySelector('.enemy-info') : stage;
+    const host = inHpPanel ? stage.querySelector('.enemy-mechanics') : stage;
     if (phases.parentElement !== host) host.append(phases);
   };
   placePhases();document.addEventListener('atlas:viewport',placePhases);

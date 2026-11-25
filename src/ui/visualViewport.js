@@ -14,6 +14,7 @@ export function installViewport(win=window, doc=document) {
   const root = doc.documentElement;
   const visual = win.visualViewport;
   const pointer = win.matchMedia?.('(pointer: coarse)');
+  const anyPointer = win.matchMedia?.('(any-pointer: coarse)');
   const app = doc.getElementById?.('app');
   const listeners = [];
   let frame = 0, previous, lastUnfocused, zoomed = false;
@@ -36,7 +37,7 @@ export function installViewport(win=window, doc=document) {
     }
     const handheld = portable && handheldLayout({
       touchPoints: win.navigator.maxTouchPoints, coarse: true,
-      width: layoutWidth, height: lastUnfocused.height
+      width: layoutWidth
     });
     // Classify from the layout viewport even when a former desktop minimum width
     // has caused the browser to zoom out during rotation.
@@ -91,6 +92,7 @@ export function installViewport(win=window, doc=document) {
   listen(app, ['scroll']);
   listen(win.screen?.orientation, ['change']);
   listen(pointer, ['change']);
+  if (anyPointer !== pointer) listen(anyPointer, ['change']);
   listen(doc, ['fullscreenchange','webkitfullscreenchange','fullscreenerror','visibilitychange','focusin','focusout']);
   update();
   const dispose = () => {

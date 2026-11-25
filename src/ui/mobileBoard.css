@@ -20,19 +20,40 @@ html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-s
 }
 html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) :is(.card-topline,.card-footline){display:none}
 html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-word{
- /* Match the hand's 90% content-width budget, including on narrower board tiles. */
- font-size:min(22px,calc((var(--mobile-hand-card-width) - 2px) * .9 / var(--fit-factor,3)))!important;
+ /* Share measured word metrics with the hand, including narrower board tiles. */
+ font-size:var(--measured-word-size,22px)!important;
  width:max-content;max-width:none;line-height:1.05;margin:0!important;text-align:center;white-space:nowrap;
- scale:var(--mobile-word-fit,1) 1;
+ scale:var(--measured-word-scale,1) 1;
 }
 html[data-handheld=true] body[data-stage-theme] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .form-button{
- flex:0 0 var(--mobile-form-height,24px);height:var(--mobile-form-height,24px);min-height:0;font-size:11px;padding:0 2px;line-height:1;
+ flex:0 0 var(--mobile-form-height,28px);height:var(--mobile-form-height,28px);min-height:0;font-size:11px;padding:0 2px;line-height:1;
 }
 html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-info{
- top:100%;right:0;width:22px;height:24px;min-height:24px;line-height:24px;
+ top:100%;right:0;width:28px;height:28px;min-height:28px;line-height:28px;
 }
-html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-motion:has(.card-info)>.form-button{width:calc(100% - 22px)}
+html[data-handheld=true] :is(.responsive-battle .combat-sentence,.drag-ghost[data-zone=sentence]) .card-motion:has(.card-info)>.form-button{width:calc(100% - 28px)}
 html[data-handheld=true] .responsive-battle .combat-sentence .empty-board-grid{
- width:100%;height:100%;min-height:0;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:4px;
+ width:100%;height:100%;min-height:0;grid-template-columns:repeat(var(--mobile-columns,8),minmax(0,1fr));grid-template-rows:repeat(var(--mobile-max-rows,3),minmax(0,1fr));gap:4px;
 }
 html[data-handheld=true] .responsive-battle .hand-page-row>button{min-height:42px;min-width:32px;padding:0;touch-action:none}
+
+/* Real font metrics replace the conservative letter-count rule only on touch layouts. */
+html[data-portable=true] body[data-stage-theme] :is(.responsive-battle .word-card,.drag-ghost) .card-word{
+ font-size:var(--measured-word-size,22px)!important;
+ scale:var(--measured-word-scale,1) 1;
+ width:max-content;max-width:none;justify-self:center;align-self:center;text-align:center;transform-origin:center;
+}
+html[data-portable=true][data-handheld=false] body[data-stage-theme] .responsive-battle .combat-sentence .sentence-row{
+ height:calc(var(--board-body) * var(--board-scale,1) + var(--form-height) + 6px);
+}
+html[data-portable=true][data-handheld=false] body[data-stage-theme] .responsive-battle .combat-sentence .card-body{
+ display:grid;grid-template:minmax(0,1fr) / minmax(0,1fr);place-items:center;padding-inline:0;
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .combat-sentence :is(.card-topline,.card-footline){display:none}
+html[data-portable=true][data-handheld=false] .responsive-battle .combat-sentence .form-button{
+ height:var(--form-height);min-height:var(--form-height);font-size:12px;
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .combat-sentence .card-info{
+ top:100%;right:0;width:28px;height:var(--form-height);min-height:var(--form-height);line-height:var(--form-height);
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .combat-sentence .card-motion:has(.card-info)>.form-button{width:calc(100% - 28px)}

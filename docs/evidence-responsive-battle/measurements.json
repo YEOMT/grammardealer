@@ -1,0 +1,699 @@
+{
+  "baseline": "ca43cb371c17e12669163da3cd7699406ddc941b",
+  "scope": "Assigned real cards/controller in Chromium touch emulation. Physical touch/audio/fullscreen NOT RUN.",
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "A-visible-budget-and-long-words",
+      "acs": [
+        "AC01",
+        "AC02",
+        "AC03",
+        "AC04",
+        "AC06",
+        "AC19",
+        "AC20"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "B-counts-scroll-touch-targets",
+      "acs": [
+        "AC07",
+        "AC08",
+        "AC09",
+        "AC10",
+        "AC11",
+        "AC12"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "C-safe-area-modal-and-pc",
+      "acs": [
+        "AC05",
+        "AC14",
+        "AC18",
+        "AC22",
+        "AC23"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "D-width-input-comma-attack",
+      "acs": [
+        "AC08",
+        "AC15",
+        "AC16",
+        "AC17",
+        "AC21"
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "E-boss-vitals-and-mechanic-scroll",
+      "acs": [
+        "AC02",
+        "AC11",
+        "AC18"
+      ],
+      "status": "PASS"
+    }
+  ],
+  "measurementColumns": [
+    "layoutWidth",
+    "layoutHeight",
+    "visibleHeight",
+    "columns",
+    "stageHeight",
+    "appScrollHeight",
+    "fontSizes_information_remember_necessary",
+    "minimumHandBottomGap",
+    "actualTextWidths",
+    "cardBodyWidths"
+  ],
+  "measurements": [
+    [
+      1024,
+      768,
+      678,
+      12,
+      201.891,
+      678,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        59.766,
+        59.766,
+        59.766
+      ]
+    ],
+    [
+      1194,
+      834,
+      734,
+      12,
+      251,
+      734,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        58.862,
+        59.506,
+        57.962
+      ],
+      [
+        61.25,
+        61.25,
+        61.25
+      ]
+    ],
+    [
+      1024,
+      600,
+      510,
+      12,
+      107,
+      510,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        60,
+        60,
+        60
+      ]
+    ],
+    [
+      844,
+      390,
+      310,
+      8,
+      60,
+      310,
+      [
+        12,
+        12.9,
+        13.8
+      ],
+      8,
+      [
+        67.618,
+        67.688,
+        67.25
+      ],
+      [
+        71.844,
+        71.844,
+        71.844
+      ]
+    ],
+    [
+      915,
+      412,
+      312,
+      8,
+      60,
+      312,
+      [
+        12.5,
+        14.4,
+        15.3
+      ],
+      8,
+      [
+        74.853,
+        75.828,
+        74.844
+      ],
+      [
+        79.984,
+        79.984,
+        79.984
+      ]
+    ],
+    [
+      667,
+      375,
+      295,
+      6,
+      54,
+      295,
+      [
+        12,
+        12.4,
+        13.2
+      ],
+      8,
+      [
+        64.699,
+        64.969,
+        64.203
+      ],
+      [
+        69.484,
+        69.484,
+        69.484
+      ]
+    ],
+    [
+      1008,
+      432,
+      352,
+      8,
+      71,
+      352,
+      [
+        14.4,
+        16.6,
+        17.7
+      ],
+      8,
+      [
+        87.141,
+        87.781,
+        87.016
+      ],
+      [
+        91.5,
+        91.5,
+        91.5
+      ]
+    ],
+    [
+      1024,
+      768,
+      700,
+      12,
+      218,
+      700,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        60,
+        60,
+        60
+      ]
+    ],
+    [
+      1024,
+      768,
+      678,
+      12,
+      201.891,
+      678,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        59.766,
+        59.766,
+        59.766
+      ]
+    ],
+    [
+      1024,
+      768,
+      650,
+      12,
+      185.406,
+      650,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        60,
+        60,
+        60
+      ]
+    ],
+    [
+      1024,
+      768,
+      640,
+      12,
+      179.812,
+      640,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        59.844,
+        59.844,
+        59.844
+      ]
+    ],
+    [
+      1024,
+      768,
+      639,
+      12,
+      179.25,
+      639,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        60,
+        60,
+        60
+      ]
+    ],
+    [
+      1024,
+      768,
+      620,
+      12,
+      168.609,
+      620,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        59.656,
+        59.656,
+        59.656
+      ]
+    ],
+    [
+      1024,
+      768,
+      768,
+      12,
+      285,
+      768,
+      [
+        12,
+        12,
+        12
+      ],
+      8,
+      [
+        57.889,
+        58.523,
+        57.004
+      ],
+      [
+        60,
+        60,
+        60
+      ]
+    ]
+  ],
+  "touchTargets": {
+    "check": {
+      "x": 157,
+      "y": 266,
+      "w": 32,
+      "h": 32,
+      "right": 189,
+      "bottom": 298
+    },
+    "discard": {
+      "x": 711.390625,
+      "y": 196,
+      "w": 82.609375,
+      "h": 30,
+      "right": 794,
+      "bottom": 226
+    },
+    "form": {
+      "x": 320.59375,
+      "y": 145.5,
+      "w": 86,
+      "h": 28,
+      "right": 406.59375,
+      "bottom": 173.5
+    },
+    "rune": {
+      "x": 752,
+      "y": -90,
+      "w": 30,
+      "h": 30,
+      "right": 782,
+      "bottom": -60
+    }
+  },
+  "attackAndViewport": {
+    "widthAnchorPreserved": true,
+    "dragCancelAndRecovery": true,
+    "comma24LastForm": true,
+    "attack": {
+      "power": 45,
+      "hp": 2455,
+      "settlements": 1
+    },
+    "fullscreen": "assigned browser rejection; physical device NOT RUN"
+  },
+  "bossScroll": [
+    {
+      "w": 1024,
+      "h": 768,
+      "v": 678,
+      "parent": "enemy-area",
+      "phases": {
+        "x": 182,
+        "y": 151.890625,
+        "width": 660,
+        "height": 76
+      }
+    },
+    {
+      "w": 844,
+      "h": 390,
+      "v": 310,
+      "parent": "enemy-mechanics",
+      "clip": {
+        "x": 557.078125,
+        "y": 51,
+        "width": 272.921875,
+        "height": 32
+      },
+      "last": {
+        "x": 557.078125,
+        "y": 56,
+        "width": 272.921875,
+        "height": 27
+      },
+      "vitals": {
+        "x": 557.078125,
+        "y": 29,
+        "width": 272.921875,
+        "height": 22
+      }
+    }
+  ],
+  "ghostCheck": {
+    "name": "D-width-input-comma-attack",
+    "acs": [
+      "AC08",
+      "AC15",
+      "AC16",
+      "AC17",
+      "AC21"
+    ],
+    "status": "PASS",
+    "evidence": {
+      "widthAnchorPreserved": true,
+      "dragCancelAndRecovery": true,
+      "ghosts": [
+        {
+          "kind": "phone-hand",
+          "pairs": [
+            {
+              "selector": ".card-body",
+              "source": {
+                "width": 86,
+                "height": 38,
+                "fontSize": "15px",
+                "fontFamily": "Inter, Pretendard, \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+                "fontWeight": "400",
+                "letterSpacing": "normal",
+                "scale": "none"
+              },
+              "clone": {
+                "width": 88.44125366210938,
+                "height": 43.906463623046875,
+                "fontSize": "15px",
+                "fontFamily": "Inter, Pretendard, \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+                "fontWeight": "400",
+                "letterSpacing": "normal",
+                "scale": "none"
+              },
+              "expectedRotated": {
+                "width": 88.441251,
+                "height": 43.906491
+              }
+            },
+            {
+              "selector": ".card-word",
+              "source": {
+                "width": 68.421875,
+                "height": 23.09375,
+                "fontSize": "22px",
+                "fontFamily": "Georgia, \"Times New Roman\", serif",
+                "fontWeight": "700",
+                "letterSpacing": "-0.3px",
+                "scale": "1"
+              },
+              "clone": {
+                "width": 69.86614990234375,
+                "height": 27.81036376953125,
+                "fontSize": "22px",
+                "fontFamily": "Georgia, \"Times New Roman\", serif",
+                "fontWeight": "700",
+                "letterSpacing": "-0.3px",
+                "scale": "1"
+              },
+              "expectedRotated": {
+                "width": 69.866138484375,
+                "height": 27.8103641484375
+              }
+            }
+          ]
+        },
+        {
+          "kind": "tablet-board",
+          "pairs": [
+            {
+              "selector": ".card-body",
+              "source": {
+                "width": 59.765625,
+                "height": 42,
+                "fontSize": "15px",
+                "fontFamily": "Inter, Pretendard, \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+                "fontWeight": "400",
+                "letterSpacing": "normal",
+                "scale": "none"
+              },
+              "clone": {
+                "width": 62.53422546386719,
+                "height": 46.06562805175781,
+                "fontSize": "15px",
+                "fontFamily": "Inter, Pretendard, \"Noto Sans KR\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+                "fontWeight": "400",
+                "letterSpacing": "normal",
+                "scale": "none"
+              },
+              "expectedRotated": {
+                "width": 62.549808937499996,
+                "height": 46.066728820312505
+              }
+            },
+            {
+              "selector": ".card-word",
+              "source": {
+                "width": 57.889007568359375,
+                "height": 12.59375,
+                "fontSize": "12px",
+                "fontFamily": "Georgia, \"Times New Roman\", serif",
+                "fontWeight": "700",
+                "letterSpacing": "-0.3px",
+                "scale": "0.803143 1"
+              },
+              "clone": {
+                "width": 58.613975524902344,
+                "height": 16.600341796875,
+                "fontSize": "12px",
+                "fontFamily": "Georgia, \"Times New Roman\", serif",
+                "fontWeight": "700",
+                "letterSpacing": "-0.3px",
+                "scale": "0.803143 1"
+              },
+              "expectedRotated": {
+                "width": 58.626485867797854,
+                "height": 16.60120618144226
+              }
+            }
+          ]
+        }
+      ],
+      "comma24LastForm": true,
+      "attack": {
+        "power": 45,
+        "hp": 2455,
+        "settlements": 1
+      },
+      "fullscreen": "assigned browser rejection; physical device NOT RUN"
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "npm.cmd",
+        "test"
+      ],
+      "startedAt": "2026-11-25T16:22:27.497433+00:00",
+      "finishedAt": "2026-11-25T16:25:55.406611+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/portable-polish/unit-final/command.log",
+      "logSha256": "a1d8fc39dc3847fa7a52c25336d1c306c8b59e5071e933f0c6fdb0b5044e8396"
+    },
+    {
+      "command": [
+        "npm.cmd",
+        "run",
+        "build"
+      ],
+      "startedAt": "2026-11-25T16:26:28.973392+00:00",
+      "finishedAt": "2026-11-25T16:26:32.063253+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/portable-polish/build-final/command.log",
+      "logSha256": "5574d2e73f953b0b5aef21cc58052c2e0954d0ef30a43ea18fa08ca9b91c9b46"
+    },
+    {
+      "command": [
+        "node",
+        "tests/play-feedback015-browser.mjs",
+        "--section=B-real-combat-first-tutorial",
+        "--no-captures"
+      ],
+      "startedAt": "2026-11-25T16:19:37.678059+00:00",
+      "finishedAt": "2026-11-25T16:20:06.753775+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/portable-polish/tutorial-check/command.log",
+      "logSha256": "d213822918c2b35d9707f79d5c3ba37233c1768c39953968f09df67067ed8535"
+    },
+    {
+      "command": [
+        "node",
+        "tests/play-feedback015-browser.mjs",
+        "--section=F-motion-abort-speed-effects-viewport",
+        "--no-captures"
+      ],
+      "startedAt": "2026-11-25T16:20:58.949586+00:00",
+      "finishedAt": "2026-11-25T16:21:00.765587+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/portable-polish/motion-check/command.log",
+      "logSha256": "10f06a31e6d05b9ca5233da7aec91b129ffab3c863ec0e9eff1dc580270ce051"
+    },
+    {
+      "command": [
+        "node",
+        "tests/ui-feedback0141-browser.mjs",
+        "--section=T6-mobile-visible-area-and-comma",
+        "--no-captures"
+      ],
+      "startedAt": "2026-11-25T16:21:59.461748+00:00",
+      "finishedAt": "2026-11-25T16:22:01.642209+00:00",
+      "exitCode": 0,
+      "status": "PASS",
+      "log": ".local-validation/portable-polish/comma-check/command.log",
+      "logSha256": "7239123ab076dd191ac8a986a8639586a61752d12f787860942c3a04ea6af2c5"
+    }
+  ]
+}

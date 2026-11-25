@@ -2,7 +2,7 @@
 .battle-target-guide{min-width:0}.battle-target-guide>strong{display:block;color:#e8dca7}
 body[data-stage-theme] .responsive-battle .battle-target-guide .region-bonus{margin:4px 0 6px;line-height:1.3}
 html[data-handheld=true] .responsive-battle .enemy-tactics{display:grid;grid-template-columns:64px minmax(0,1fr);column-gap:8px;align-items:center}
-html[data-handheld=true] .mobile-resources{display:grid;gap:5px;font-size:11px;font-variant-numeric:tabular-nums}
+html[data-handheld=true] .mobile-resources{display:grid;gap:0;font-size:11px;line-height:14px;font-variant-numeric:tabular-nums}
 .mobile-resources>div{display:flex;justify-content:space-between;gap:3px;white-space:nowrap}
 html[data-handheld=true] .battle-target-guide{border-left:1px solid #91afbe44;padding-left:7px;font-size:10px}
 html[data-handheld=true] .responsive-battle .enemy-tactics .region-bonus{margin:3px 0;line-height:1.25}
@@ -24,3 +24,9 @@ body[data-stage-theme] .responsive-battle .battle-target-guide .region-bonus{mar
 .pager-hand-title{display:none}
 html[data-handheld=true] .pager-hand-title{display:inline;margin-right:12px}
 .enemy-label{overflow-wrap:anywhere}
+
+/* Two-row guide beside the three resource lines; the target remains one button. */
+html[data-handheld=true] .responsive-battle .battle-target-guide{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 4px;align-items:center;line-height:12px}
+html[data-handheld=true] .battle-target-guide>strong{grid-column:1;grid-row:1}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .battle-target-guide .region-bonus{grid-column:1/-1;grid-row:2;margin:0;line-height:13px}
+html[data-handheld=true] .battle-target-guide .target-grammar{grid-column:2;grid-row:1;min-height:30px;min-width:44px;padding:1px 3px;font-size:10px}
