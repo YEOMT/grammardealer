@@ -20,7 +20,7 @@ body[data-stage-theme] .responsive-battle.comma-enabled .combat-sentence{--sente
 .comma-ghost{position:fixed;z-index:2000;width:34px;height:40px;transform:translate(-50%,-50%);color:#fff0cf;background:#704a2de8;border:1px solid #af8659;border-radius:6px;text-align:center;font:700 40px/.8 Georgia,serif;pointer-events:none}
 .comma-placing .word-card[data-zone=sentence] .card-body{cursor:crosshair}
 .clause-threads{font-size:12px;line-height:1.5;white-space:normal;color:#f0d9a6}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle.comma-enabled .hand-section{grid-template-columns:40px minmax(0,1fr) 44px 40px}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle.comma-enabled .hand-section{grid-template-columns:44px minmax(0,1fr) 44px 72px}
 html[data-handheld=true] .comma-tool{width:44px;height:58px;font-size:10px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle.comma-enabled .combat-sentence{--comma-width:16px;--comma-space:20px;column-gap:4px;row-gap:4px;padding-inline:12px}
 html[data-handheld=true] .comma-marker{--comma-width:16px;--comma-space:20px;font-size:29px}
