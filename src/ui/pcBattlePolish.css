@@ -1,0 +1,165 @@
+/* Desktop presentation only. Keep the shared viewport budget, card metrics,
+   monster fit, score anchor and portable layouts owned by their existing modules. */
+@media (min-width: 1160px) and (min-height: 720px) {
+  html[data-portable=false] body[data-stage-theme] .responsive-battle {
+    --pc-panel-pad: 14px;
+    --pc-panel-edge: color-mix(in srgb, var(--battle-edge) 75%, var(--gold) 25%);
+    --pc-panel-light: inset 0 1px 0 #f4e4ae12, 0 4px 12px #0003;
+  }
+
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .game-header {
+    padding-inline: 10px;
+    align-items: center;
+    border-radius: 7px;
+    border-bottom: 1px solid #d6bf7955;
+    background: linear-gradient(180deg, #0a222ee6, #102c34c9);
+  }
+  html[data-portable=false] .responsive-battle .brand-small {
+    color: #ead7a6;
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+  html[data-portable=false] .responsive-battle .stage-path h1 { color: #ece3cd; }
+  html[data-portable=false] .responsive-battle .header-actions { gap: 8px; }
+  html[data-portable=false] .responsive-battle .header-actions button { color: #e9e4d4; }
+
+  html[data-portable=false] body[data-stage-theme] .responsive-battle :is(.enemy-info,.enemy-tactics) {
+    min-height: 132px;
+    padding: 16px 20px;
+    align-self: center;
+    border: 1px solid var(--pc-panel-edge);
+    border-radius: 10px;
+    background: linear-gradient(145deg, #10282fe8, var(--battle-surface));
+    box-shadow: var(--pc-panel-light);
+  }
+  html[data-portable=false] .responsive-battle .battle-target-guide { gap: 8px; }
+  html[data-portable=false] .responsive-battle .battle-target-guide > strong { font-size: 14px; }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .battle-target-guide .region-bonus { font-size: 14px; }
+  html[data-portable=false] .responsive-battle .enemy-tactics button { color: #eee7d2; }
+  html[data-portable=false] .responsive-battle .enemy-label { color: #bccfc9; letter-spacing: 1.5px; }
+  html[data-portable=false] .responsive-battle .enemy-info h2 { margin-block: 5px 8px; }
+  html[data-portable=false] .responsive-battle .enemy-hp { font-size: 14px; font-variant-numeric: tabular-nums; }
+
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .combat-middle {
+    grid-template-columns: minmax(136px,1fr) calc(var(--board-width) + 22px) minmax(174px,1fr);
+    column-gap: 10px;
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle :is(.status-panel,.sentence-area,.rune-panel) {
+    border-color: var(--pc-panel-edge);
+    border-radius: 12px;
+    background: linear-gradient(160deg, #ffffff04, #00000010), var(--battle-surface);
+    box-shadow: var(--pc-panel-light);
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle :is(.status-panel,.rune-panel) {
+    padding: var(--pc-panel-pad);
+    gap: 8px;
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .sentence-area { grid-template-columns: minmax(0,1fr); }
+  html[data-portable=false] .responsive-battle :is(.status-label,.rune-title,.board-heading) {
+    font-size: 14px;
+    color: #e8dca7;
+  }
+  html[data-portable=false] .responsive-battle .board-heading { padding-inline: 4px; }
+  html[data-portable=false] .responsive-battle .sentence-count { color: #becfc5; font-variant-numeric: tabular-nums; }
+  html[data-portable=false] .responsive-battle .turn-count { font-size: 40px; margin: 4px 0 6px; line-height: 1; }
+  html[data-portable=false] .responsive-battle .turn-count small { font-size: 16px; color: #aebfb6; }
+  html[data-portable=false] .responsive-battle .turn-pips { gap: 5px; }
+  html[data-portable=false] .responsive-battle .resource-row { padding: 7px 0; font-size: 14px; }
+  html[data-portable=false] .responsive-battle .resource-row strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+  html[data-portable=false] .responsive-battle .status-nav { gap: 6px; margin-top: auto; }
+  html[data-portable=false] .responsive-battle .status-nav button {
+    min-height: 38px;
+    border-color: #8faaa177;
+    background: linear-gradient(#29423b99, #142e30cc);
+    font-size: 13px;
+  }
+  html[data-portable=false] .responsive-battle .status-nav > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+  html[data-portable=false] .responsive-battle .rune-title { min-height: 26px; flex-wrap: nowrap; }
+  html[data-portable=false] .responsive-battle .rune-title > span { color: #bdcec7; font-size: 12px; }
+  html[data-portable=false] .responsive-battle .rune-slot { padding: 7px; border-radius: 8px; }
+  html[data-portable=false] .responsive-battle .rune-slot-head { gap: 5px; }
+  html[data-portable=false] .responsive-battle .rune-effect { line-height: 1.35; }
+  html[data-portable=false] .responsive-battle .rune-slot.empty {
+    min-height: 54px;
+    justify-content: center;
+    border-style: solid;
+    background: #09192266;
+    color: #9eafb0;
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .rune-panel:has(> .rune-slot:nth-of-type(5)) {
+    padding: 10px;
+    gap: 4px;
+  }
+  html[data-portable=false] .responsive-battle .rune-panel:has(> .rune-slot:nth-of-type(5)) .rune-slot { padding-block: 4px; }
+  html[data-portable=false] .responsive-battle .combat-sentence {
+    border-color: #829d8e55;
+    background: #081e252e;
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .combat-actions { gap: 10px; }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .combat-actions button {
+    min-width: 128px;
+    padding-inline: 18px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .combat-actions #attack-submit {
+    min-width: 178px;
+    border: 1px solid #ebd18b;
+    box-shadow: inset 0 1px #fff5d45c, 0 2px 5px #0003;
+  }
+
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .hand-section {
+    padding-inline: 12px;
+    border: 1px solid var(--pc-panel-edge);
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff03, #071a232e);
+    box-shadow: var(--pc-panel-light);
+  }
+  html[data-portable=false] .responsive-battle .hand-title { padding-left: 38px; color: #d6d3b5; }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .hand-cards { gap: 8px; }
+  html[data-portable=false] .responsive-battle .hand-section > .pile-button {
+    height: calc(var(--hand-card-height) - 10px);
+    border-radius: 8px;
+    border-color: #94a66a;
+    background: linear-gradient(150deg, #344c35cc, #122f2bd9);
+  }
+  html[data-portable=false] .responsive-battle .pile-button strong { font-size: 28px; font-variant-numeric: tabular-nums; }
+  html[data-portable=false] .responsive-battle .hand-page-row > button {
+    border-color: #8ba49d55;
+    background: #122a2b80;
+  }
+  html[data-portable=false] .responsive-battle :is(.status-nav,.combat-actions,.header-actions) button:focus-visible {
+    outline: 2px solid #f4dc96;
+    outline-offset: 2px;
+  }
+}
+
+/* A short PC window keeps the existing stage/board/hand height budget. */
+@media (min-width: 1160px) and (min-height: 720px) and (max-height: 760px) {
+  html[data-portable=false] body[data-stage-theme] .responsive-battle { --pc-panel-pad: 10px; }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle :is(.enemy-info,.enemy-tactics) {
+    min-height: 112px;
+    padding: 8px 14px;
+  }
+  html[data-portable=false] .responsive-battle .battle-target-guide { gap: 5px; }
+  html[data-portable=false] .responsive-battle .turn-count { font-size: 34px; }
+  html[data-portable=false] .responsive-battle .resource-row { padding-block: 4px; }
+  html[data-portable=false] .responsive-battle .status-nav button { min-height: 30px; }
+  html[data-portable=false] .responsive-battle .rune-slot { padding: 5px; }
+  html[data-portable=false] .responsive-battle .rune-slot.empty { min-height: 44px; }
+  html[data-portable=false] body[data-stage-theme] .responsive-battle .rune-panel:has(> .rune-slot:nth-of-type(5)) {
+    padding: 6px 8px;
+    gap: 3px;
+  }
+  html[data-portable=false] .responsive-battle .rune-panel:has(> .rune-slot:nth-of-type(5)) .rune-slot { padding-block: 2px; }
+}
+
+/* At tall desktop heights, the original art is grounded well below the row's
+   center. Align the plaques near its body; short windows keep safe centering. */
+@media (min-width: 1160px) and (min-height: 900px) {
+  html[data-portable=false] body[data-stage-theme] .responsive-battle:has(.monster-slot) :is(.enemy-info,.enemy-tactics) {
+    align-self: end;
+    margin-bottom: 56px;
+  }
+}

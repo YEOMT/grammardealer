@@ -19,6 +19,7 @@ import './ui/mobile.css';
 import './ui/mobileBoard.css';
 import './ui/visibleLayout.css';
 import './ui/interfaceCohesion.css';
+import './ui/pcBattlePolish.css';
 import {createFirstPreparationGate,firstPreparationContext} from './ui/firstPreparation.js';
 import {installInputGuard} from './ui/inputGuard.js';
 import { renderLobby } from './ui/lobby.js';

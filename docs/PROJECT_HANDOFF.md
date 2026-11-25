@@ -1,3 +1,7 @@
+# PC 전투 UI 폴리싱 인계
+
+PR #39 병합 main `13f84736551bc33e2589d82f5b00e865dc9c49f1`을 기준으로 PC 표시만 정돈했다. `ui/pcBattlePolish.css`는 비휴대기기 1160×720 이상 전투에만 적용하며 공유 viewport 예산·카드/몬스터 치수·상태/저장 정책은 변경하지 않는다. [전후 화면·검사·한계](PC_BATTLE_POLISH_REPORT.md). 아래 0.15.1 기능은 그대로 유지한다.
+
 # 0.15.1 R2 인계
 
 작업 시작 최신 main은 `d7d86e1f3e508e9b4beb31ec6deafdf440a2a0d1`(PR #38), 브랜치는 `codex/v0.15.1-interface-cohesion`이다. 시작 작업 트리는 깨끗했고 이전 브랜치·원본 ZIP·기존 증거를 보존했다. [R2 구현 계약](../spec/v0.15.1/Syntax_Atlas_v0.15.1_Interface_Cohesion_Spec.md)과 [실제 검사·한계](INTERFACE_COHESION_0.15.1_REPORT.md)를 우선한다. R1의 통합 카드 창/내 덱 탭은 사용하지 않는다.
