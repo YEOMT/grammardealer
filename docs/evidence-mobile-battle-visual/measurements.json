@@ -1,0 +1,505 @@
+{
+  "scope": "Chromium assigned real-card states; physical device NOT RUN",
+  "measurements": [
+    {
+      "phase": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "visibleHeight": 390,
+      "stageHeight": 109,
+      "middleHeight": 140,
+      "handHeight": 107,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "8",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "before",
+      "viewport": [
+        844,
+        390
+      ],
+      "visibleHeight": 310,
+      "stageHeight": 60,
+      "middleHeight": 109,
+      "handHeight": 107,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "8",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "before",
+      "viewport": [
+        667,
+        375
+      ],
+      "visibleHeight": 295,
+      "stageHeight": 54,
+      "middleHeight": 100,
+      "handHeight": 107,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "6",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "before",
+      "viewport": [
+        1024,
+        768
+      ],
+      "visibleHeight": 678,
+      "stageHeight": 201.890625,
+      "middleHeight": 275.109375,
+      "handHeight": 153,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "12",
+      "cardFont": "22px",
+      "elements": {
+        ".game-header": {
+          "x": 12,
+          "y": 0,
+          "w": 1000,
+          "h": 28,
+          "bottom": 28,
+          "right": 1012
+        },
+        ".enemy-area": {
+          "x": 12,
+          "y": 32,
+          "w": 1000,
+          "h": 201.890625,
+          "bottom": 233.890625,
+          "right": 1012
+        },
+        ".enemy-info": {
+          "x": 612.953125,
+          "y": 92.4375,
+          "w": 260,
+          "h": 81,
+          "bottom": 173.4375,
+          "right": 872.953125
+        },
+        ".enemy-info h2": {
+          "x": 623.953125,
+          "y": 101.4375,
+          "w": 238,
+          "h": 24,
+          "bottom": 125.4375,
+          "right": 861.953125
+        },
+        ".enemy-hp": {
+          "x": 623.953125,
+          "y": 143.4375,
+          "w": 238,
+          "h": 19,
+          "bottom": 162.4375,
+          "right": 861.953125
+        },
+        ".enemy-tactics": {
+          "x": 151.046875,
+          "y": 83.640625,
+          "w": 260,
+          "h": 98.59375,
+          "bottom": 182.234375,
+          "right": 411.046875
+        },
+        ".region-bonus": {
+          "x": 160.046875,
+          "y": 115.640625,
+          "w": 87.453125,
+          "h": 21.59375,
+          "bottom": 137.234375,
+          "right": 247.5
+        },
+        ".target-grammar": {
+          "x": 160.046875,
+          "y": 145.234375,
+          "w": 61.53125,
+          "h": 30,
+          "bottom": 175.234375,
+          "right": 221.578125
+        },
+        ".combat-middle": {
+          "x": 12,
+          "y": 237.890625,
+          "w": 1000,
+          "h": 275.109375,
+          "bottom": 513,
+          "right": 1012
+        },
+        ".combat-sentence": {
+          "x": 115,
+          "y": 295.6875,
+          "w": 782,
+          "h": 172.3125,
+          "bottom": 468,
+          "right": 897
+        },
+        ".combat-actions": {
+          "x": 115,
+          "y": 469,
+          "w": 782,
+          "h": 40,
+          "bottom": 509,
+          "right": 897
+        },
+        ".hand-section": {
+          "x": 12,
+          "y": 517,
+          "w": 1000,
+          "h": 153,
+          "bottom": 670,
+          "right": 1012
+        },
+        ".hand-page-row": {
+          "x": 90,
+          "y": 550,
+          "w": 844,
+          "h": 120,
+          "bottom": 670,
+          "right": 934
+        },
+        ".rune-panel": {
+          "x": 904,
+          "y": 237.890625,
+          "w": 108,
+          "h": 275.109375,
+          "bottom": 513,
+          "right": 1012
+        },
+        "#attack-submit": {
+          "x": 457.953125,
+          "y": 469,
+          "w": 120,
+          "h": 40,
+          "bottom": 509,
+          "right": 577.953125
+        },
+        "#clear-sentence": {
+          "x": 352.546875,
+          "y": 469,
+          "w": 97.40625,
+          "h": 40,
+          "bottom": 509,
+          "right": 449.953125
+        },
+        ".prepare-button": {
+          "x": 585.953125,
+          "y": 469,
+          "w": 73.484375,
+          "h": 40,
+          "bottom": 509,
+          "right": 659.4375
+        },
+        "#discard-selected": {
+          "x": 841.15625,
+          "y": 518,
+          "w": 92.84375,
+          "h": 32,
+          "bottom": 550,
+          "right": 934
+        }
+      },
+      "firstCard": {
+        "x": 124.40625,
+        "y": 300.84375,
+        "w": 61.765625,
+        "h": 78,
+        "bottom": 378.84375,
+        "right": 186.171875
+      },
+      "font": "22px"
+    },
+    {
+      "phase": "before",
+      "viewport": [
+        1440,
+        900
+      ],
+      "visibleHeight": 900,
+      "stageHeight": 277,
+      "middleHeight": 354,
+      "handHeight": 191,
+      "handBottomGaps": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "columns": "12",
+      "cardFont": "23px",
+      "elements": {
+        ".game-header": {
+          "x": 12,
+          "y": 6,
+          "w": 1416,
+          "h": 38,
+          "bottom": 44,
+          "right": 1428
+        },
+        ".enemy-area": {
+          "x": 12,
+          "y": 52,
+          "w": 1416,
+          "h": 277,
+          "bottom": 329,
+          "right": 1428
+        },
+        ".enemy-info": {
+          "x": 857.59375,
+          "y": 135,
+          "w": 300,
+          "h": 132,
+          "bottom": 267,
+          "right": 1157.59375
+        },
+        ".enemy-info h2": {
+          "x": 878.59375,
+          "y": 172,
+          "w": 258,
+          "h": 28.796875,
+          "bottom": 200.796875,
+          "right": 1136.59375
+        },
+        ".enemy-hp": {
+          "x": 878.59375,
+          "y": 222.796875,
+          "w": 258,
+          "h": 20,
+          "bottom": 242.796875,
+          "right": 1136.59375
+        },
+        ".enemy-tactics": {
+          "x": 282.40625,
+          "y": 134.8125,
+          "w": 300,
+          "h": 132.1875,
+          "bottom": 267,
+          "right": 582.40625
+        },
+        ".region-bonus": {
+          "x": 303.40625,
+          "y": 183.8125,
+          "w": 102.03125,
+          "h": 24.1875,
+          "bottom": 208,
+          "right": 405.4375
+        },
+        ".target-grammar": {
+          "x": 303.40625,
+          "y": 220,
+          "w": 61.53125,
+          "h": 30,
+          "bottom": 250,
+          "right": 364.9375
+        },
+        ".combat-middle": {
+          "x": 12,
+          "y": 337,
+          "w": 1416,
+          "h": 354,
+          "bottom": 691,
+          "right": 1428
+        },
+        ".combat-sentence": {
+          "x": 253.609375,
+          "y": 428,
+          "w": 932.765625,
+          "h": 212,
+          "bottom": 640,
+          "right": 1186.375
+        },
+        ".combat-actions": {
+          "x": 249.609375,
+          "y": 644,
+          "w": 940.765625,
+          "h": 40,
+          "bottom": 684,
+          "right": 1190.375
+        },
+        ".hand-section": {
+          "x": 12,
+          "y": 699,
+          "w": 1416,
+          "h": 191,
+          "bottom": 890,
+          "right": 1428
+        },
+        ".hand-page-row": {
+          "x": 103,
+          "y": 766,
+          "w": 1234,
+          "h": 120,
+          "bottom": 886,
+          "right": 1337
+        },
+        ".rune-panel": {
+          "x": 1207.375,
+          "y": 337,
+          "w": 220.625,
+          "h": 354,
+          "bottom": 691,
+          "right": 1428
+        },
+        "#attack-submit": {
+          "x": 630.984375,
+          "y": 644,
+          "w": 178,
+          "h": 40,
+          "bottom": 684,
+          "right": 808.984375
+        },
+        "#clear-sentence": {
+          "x": 492.984375,
+          "y": 644,
+          "w": 128,
+          "h": 40,
+          "bottom": 684,
+          "right": 620.984375
+        },
+        ".prepare-button": {
+          "x": 818.984375,
+          "y": 644,
+          "w": 128,
+          "h": 40,
+          "bottom": 684,
+          "right": 946.984375
+        },
+        "#discard-selected": {
+          "x": 1235.6875,
+          "y": 704,
+          "w": 113.3125,
+          "h": 42,
+          "bottom": 746,
+          "right": 1349
+        }
+      },
+      "firstCard": {
+        "x": 260.640625,
+        "y": 435,
+        "w": 72.890625,
+        "h": 94,
+        "bottom": 529,
+        "right": 333.53125
+      },
+      "font": "23px"
+    },
+    {
+      "phase": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "visibleHeight": 390,
+      "stageHeight": 123,
+      "middleHeight": 140,
+      "handHeight": 93,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "8",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "after",
+      "viewport": [
+        844,
+        390
+      ],
+      "visibleHeight": 310,
+      "stageHeight": 74,
+      "middleHeight": 109,
+      "handHeight": 93,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "8",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "after",
+      "viewport": [
+        667,
+        375
+      ],
+      "visibleHeight": 295,
+      "stageHeight": 68,
+      "middleHeight": 100,
+      "handHeight": 93,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "6",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "after",
+      "viewport": [
+        1024,
+        768
+      ],
+      "visibleHeight": 678,
+      "stageHeight": 201.890625,
+      "middleHeight": 275.109375,
+      "handHeight": 153,
+      "handBottomGaps": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "columns": "12",
+      "cardFont": "22px"
+    },
+    {
+      "phase": "after",
+      "viewport": [
+        1440,
+        900
+      ],
+      "visibleHeight": 900,
+      "stageHeight": 277,
+      "middleHeight": 354,
+      "handHeight": 191,
+      "handBottomGaps": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "columns": "12",
+      "cardFont": "23px"
+    }
+  ]
+}

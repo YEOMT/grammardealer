@@ -10,7 +10,15 @@ export function runeView(instance,{index=0,total=1,onOrder,readonly=false,entry=
  const rune=runeForVersion(instance.runeId,version);
  const node=el('div',{class:`rune-slot ${entry&&rune.scope==='AT_BATTLE_RULES_SNAPSHOT'?'utility-entry':''}`,dataset:{runeId:rune.id,runeInstanceId:instance.instanceId,runeIndex:String(index),rarity:rune.rarity,level:String(instance.level)},style:`--rune-color:${rune.color}`});
  const info=()=>modal(`${rune.nameKo} · Lv.${instance.level}`,[el('p',{text:rune.conditionDescriptionKo}),el('p',{text:runeReadiness(rune.id,run)}),...[1,2,3].map(level=>el('p',{text:`Lv.${level} · ${describeRune(rune.id,level,version)}`}))]);
- node.append(el('div',{class:'rune-slot-head'},el('span',{class:'rune-order-number',text:index+1}),el('span',{class:'rune-gem'+(rune.id==='rune.longSentence'&&rune.rarity==='RARE'?' diamond-gem':''),text:'◆'}),button(`${rune.nameKo} · Lv.${instance.level}`,info,'rune-info',{disabled:readonly})),el('div',{class:'rune-effect',text:describeRune(rune.id,instance.level,version)}));
+ const orderToggle=button('',()=>{
+  const expanded=node.classList.toggle('rune-order-open');
+  orderToggle.setAttribute('aria-expanded',String(expanded));
+  node.closest('.rune-panel')?.dispatchEvent(new Event('scroll'));
+ },'rune-order-toggle',{'aria-label':`${index+1}번 ${rune.nameKo} 순서 조절`,'aria-expanded':'false',disabled:readonly});
+ orderToggle.append(el('span',{text:`${index+1} ↕`,'aria-hidden':'true'}),el('span',{class:'rune-toggle-gem'+(rune.id==='rune.longSentence'&&rune.rarity==='RARE'?' diamond-gem':''),text:'◆','aria-hidden':'true'}));
+ const infoButton=button('',info,'rune-info',{disabled:readonly});
+ infoButton.append(el('span',{class:'rune-name',text:rune.nameKo}),el('span',{class:'rune-level',text:` · Lv.${instance.level}`}));
+ node.append(el('div',{class:'rune-slot-head'},el('span',{class:'rune-order-number',text:index+1}),orderToggle,el('span',{class:'rune-gem'+(rune.id==='rune.longSentence'&&rune.rarity==='RARE'?' diamond-gem':''),text:'◆'}),infoButton),el('div',{class:'rune-effect',text:describeRune(rune.id,instance.level,version)}));
  if(run?.combat?.enemyState?.bossMechanic?.sealedRuneInstanceId===instance.instanceId){node.classList.add('rune-sealed');node.append(el('small',{class:'rune-seal-label',text:'봉인 중 · 시제 과제로 해제'}));}
  const move=to=>{if(!readonly&&!document.querySelector('dialog[open]'))onOrder?.(index,to);};
  node.append(el('div',{class:'rune-order-controls'},button('▲',()=>move(index-1),'rune-up',{'aria-label':`${rune.nameKo} 위로`,disabled:readonly||index===0}),button('▼',()=>move(index+1),'rune-down',{'aria-label':`${rune.nameKo} 아래로`,disabled:readonly||index===total-1}),button('⠿',()=>{},'rune-drag-handle',{'aria-label':`${rune.nameKo} 끌어서 순서 변경 · 방향키도 사용 가능`,disabled:readonly,onkeydown:e=>{if(['ArrowUp','ArrowDown'].includes(e.key)){e.preventDefault();const to=index+(e.key==='ArrowUp'?-1:1);if(to>=0&&to<total)move(to);}}})));

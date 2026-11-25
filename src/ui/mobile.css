@@ -44,14 +44,14 @@ html[data-handheld=true] .lobby-footer{height:22px;min-height:22px;margin:0 12px
 html[data-handheld=true] .lobby-footer button{font-size:10px;min-height:20px;padding:1px 5px}
 
 html[data-handheld=true] body[data-stage-theme] .game-shell.responsive-battle{
- --hand-body:38px;--hand-foot:32px;--hand-card-height:76px;--hand-height:107px;
+ --hand-body:38px;--hand-foot:32px;--hand-card-height:76px;--hand-height:93px;
  --score-height:22px;--mobile-middle:140px;--mobile-action-rail:clamp(62px,8.2vw,76px);
  min-width:0;width:100%;max-width:none;min-height:0;height:var(--viewport-height);
  padding:4px max(6px,var(--inset-right)) max(8px,var(--inset-bottom)) max(6px,var(--inset-left));
  gap:2px;grid-template-columns:minmax(0,1fr);
  grid-template-rows:28px minmax(44px,1fr) var(--mobile-middle) var(--hand-height);
 }
-html[data-handheld=true] .responsive-battle .game-header{padding:0;grid-template-columns:minmax(0,1fr) auto;gap:5px;min-height:0}
+html[data-handheld=true] .responsive-battle .game-header{padding:0 3px;grid-template-columns:minmax(0,1fr) auto;gap:5px;min-height:0;border-bottom:1px solid #d6bf7955;text-shadow:0 1px 3px #071a27}
 html[data-handheld=true] .responsive-battle .brand-small{display:none}
 html[data-handheld=true] .responsive-battle .stage-path{grid-column:1;justify-self:start;font-size:11px;gap:3px}
 html[data-handheld=true] .responsive-battle .stage-path h1{font-size:12px;white-space:nowrap}
@@ -61,10 +61,10 @@ html[data-handheld=true] .mobile-battle-menu{display:block}
 html[data-handheld=true] .responsive-battle .enemy-area{touch-action:pan-y}
 html[data-handheld=true] #app .rune-info{touch-action:pan-y}
 html[data-handheld=true] .responsive-battle>.combat-backdrop{top:-4px;left:calc(-1 * max(6px,var(--inset-left)));right:calc(-1 * max(6px,var(--inset-right)))}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .enemy-area{grid-template-columns:minmax(0,1.25fr) minmax(64px,.6fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);column-gap:8px;padding:0 2px;align-items:center;align-content:stretch;min-height:0}
-html[data-handheld=true] .responsive-battle .enemy-info,html[data-handheld=true] .responsive-battle .enemy-tactics{max-width:290px;width:100%;padding:3px 6px!important;max-height:100%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;box-sizing:border-box}
-html[data-handheld=true] .responsive-battle .enemy-info{justify-self:start}
-html[data-handheld=true] .responsive-battle .enemy-tactics{justify-self:end}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .enemy-area{grid-template-columns:minmax(0,1fr) minmax(76px,.7fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);column-gap:8px;padding:0 6px;align-items:center;align-content:stretch;min-height:0}
+html[data-handheld=true] .responsive-battle .enemy-info,html[data-handheld=true] .responsive-battle .enemy-tactics{width:100%;padding:6px 8px!important;max-height:100%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;box-sizing:border-box;border:1px solid color-mix(in srgb,var(--battle-edge) 80%,#d8c88b 20%);border-radius:9px;background:linear-gradient(145deg,#102e34e6,#0b232ac9);box-shadow:inset 0 1px #e1efdf16,0 3px 8px #00171e40}
+html[data-handheld=true] .responsive-battle .enemy-info{justify-self:start;max-width:250px}
+html[data-handheld=true] .responsive-battle .enemy-tactics{justify-self:end;max-width:280px}
 html[data-handheld=true] .responsive-battle .enemy-label{display:none}
 html[data-handheld=true] .responsive-battle .enemy-info h2{font-size:14px;margin:0 0 3px}
 html[data-handheld=true] .responsive-battle .enemy-hp{font-size:11px;margin:2px 0}
@@ -91,8 +91,11 @@ html[data-handheld=true] .responsive-battle .status-panel{display:none!important
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .sentence-area{
  position:relative;min-width:0;min-height:0;padding:2px;
  grid-template-columns:var(--mobile-action-rail) minmax(0,1fr);grid-template-rows:minmax(0,1fr);
- gap:4px;align-content:stretch;
+ gap:4px;align-content:stretch;border-radius:11px;
+ background:linear-gradient(160deg,var(--battle-surface),#081d21df);
+ box-shadow:inset 0 1px #d7e7d51a,0 2px 5px #00141444;
 }
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-sentence{border-style:solid;border-color:color-mix(in srgb,var(--battle-edge) 78%,transparent);border-radius:9px;background:#071c2029}
 html[data-handheld=true] .responsive-battle .board-heading{display:none}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .sentence-area .score-stage{position:absolute;left:calc(var(--mobile-action-rail) + 6px);right:2px;bottom:100%;width:auto;height:22px;max-height:22px;min-height:0;z-index:2;pointer-events:none}
 html[data-handheld=true] .responsive-battle .battle-learning-guide{display:none}
@@ -103,26 +106,34 @@ html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-actio
 }
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-actions button{
  width:100%;min-width:0;height:100%;min-height:0;padding:2px;
- font-size:12px;line-height:1.15;white-space:normal;word-break:keep-all;
+ font-size:12px;line-height:1.15;white-space:normal;word-break:keep-all;border-radius:8px;
+ box-shadow:inset 0 1px #edf1d529,0 1px 2px #00131866;
 }
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-actions #attack-submit{min-width:0}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .rune-panel{padding:3px;gap:4px;overflow:auto;touch-action:pan-y;overscroll-behavior:contain}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-actions #attack-submit{min-width:0;font-weight:750}
+html[data-handheld=true] .responsive-battle .combat-actions #attack-submit:not(:disabled){border-color:#f4dd98;background:linear-gradient(#f3d985,#d9b961);color:#20302a;box-shadow:inset 0 1px #fff4c2aa,0 1px 5px #c3a64c33}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .rune-panel{padding:2px;gap:2px;overflow:auto;touch-action:pan-y;overscroll-behavior:contain}
 html[data-handheld=true] .responsive-battle .rune-title{font-size:10px;gap:2px;flex:none}
 html[data-handheld=true] .responsive-battle .rune-hint{display:none}
-html[data-handheld=true] .responsive-battle .rune-slot{min-height:70px;flex:none;padding:3px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:2px}
-html[data-handheld=true] .responsive-battle .rune-slot-head{display:grid;grid-template-columns:12px minmax(0,1fr);gap:2px}
-html[data-handheld=true] .responsive-battle .rune-order-number{font-size:10px}
-html[data-handheld=true] .responsive-battle .rune-gem{font-size:14px;grid-row:1;grid-column:2}
-html[data-handheld=true] .responsive-battle .rune-info{grid-column:1/-1;min-height:24px;font-size:10px;padding:0;text-align:left;word-break:keep-all}
+.rune-order-toggle{display:none}
+html[data-handheld=true] .responsive-battle .rune-slot{min-height:32px;flex:none;padding:0 2px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto;gap:2px}
+html[data-handheld=true] .responsive-battle .rune-slot-head{display:grid;grid-template-columns:30px minmax(0,1fr);gap:3px;align-items:center}
+html[data-handheld=true] .responsive-battle :is(.rune-order-number,.rune-gem){display:none}
+html[data-handheld=true] .responsive-battle .rune-order-toggle{display:grid;grid-template-rows:13px 13px;place-items:center;min-width:30px;width:30px;min-height:30px;height:30px;padding:1px;border:0;background:transparent;color:#e7dcbf;font-size:10px;line-height:1}
+html[data-handheld=true] .responsive-battle .rune-toggle-gem{color:var(--rune-color);font-size:13px;line-height:1}
+html[data-handheld=true] .responsive-battle .rune-toggle-gem.diamond-gem{min-width:13px;width:13px;height:13px}
+html[data-handheld=true] .responsive-battle .rune-info{grid-column:2;min-height:30px;font-size:10px;line-height:1.15;padding:0;text-align:left;word-break:keep-all;overflow-wrap:anywhere}
+html[data-handheld=true] .responsive-battle .rune-level{display:block;font-size:9px;white-space:nowrap}
 html[data-handheld=true] .responsive-battle .rune-effect{display:none}
-html[data-handheld=true] .responsive-battle .rune-order-controls{grid-column:1;grid-row:2;display:grid;grid-template-columns:repeat(2,30px);gap:2px;justify-content:space-between}
+html[data-handheld=true] .responsive-battle .rune-order-controls{grid-column:1;grid-row:3;display:none;grid-template-columns:repeat(2,30px);gap:2px;justify-content:space-between}
+html[data-handheld=true] .responsive-battle .rune-order-open .rune-order-controls{display:grid}
+html[data-handheld=true] .responsive-battle .rune-seal-label{grid-column:1;grid-row:2;margin:0;font-size:9px;line-height:1.2}
 html[data-handheld=true] .responsive-battle .rune-order-controls .rune-drag-handle{grid-column:1/-1;justify-self:center}
 html[data-handheld=true] .responsive-battle .rune-order-controls button{height:30px;min-height:30px;min-width:28px;width:28px}
 html[data-handheld=true] .responsive-battle .rune-slot.empty{min-height:30px;font-size:10px}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);min-height:0;padding:0;grid-template-columns:40px minmax(0,1fr) 40px;grid-template-rows:30px 76px;column-gap:4px;row-gap:0}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);min-height:0;padding:0;grid-template-columns:44px minmax(0,1fr) 72px;grid-template-rows:16px 76px;column-gap:4px;row-gap:0;border-top-color:color-mix(in srgb,var(--battle-edge) 75%,#d6c48d 25%);background:linear-gradient(#0b202421,transparent)}
 html[data-handheld=true] .responsive-battle .hand-center{grid-row:1/3;align-self:start}
 html[data-handheld=true] .responsive-battle .hand-title{display:none}
-html[data-handheld=true] .responsive-battle .card-pager{height:30px;line-height:30px;font-size:10px;margin:0 34px}
+html[data-handheld=true] .responsive-battle .card-pager{height:16px;line-height:16px;font-size:10px;margin:0 34px;color:#e6ebdb}
 html[data-handheld=true] .responsive-battle .hand-page-row{grid-template-columns:30px minmax(0,1fr) 30px;gap:4px;height:76px;min-height:76px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards{height:76px;min-height:76px;gap:4px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .word-card{--card-w:var(--mobile-hand-card-width);width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex-basis:var(--card-w)}
@@ -131,10 +142,11 @@ html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .
 html[data-handheld=true] .responsive-battle .hand-cards .card-topline{font-size:9px}
 html[data-handheld=true] .responsive-battle .hand-cards .card-footline{height:32px;min-height:32px;padding:1px 33px 1px 3px;font-size:9px}
 html[data-handheld=true] .responsive-battle .hand-cards .card-select{width:32px;height:32px;min-height:32px}
-html[data-handheld=true] .responsive-battle .exchange-row{right:44px;top:0;transform:none;min-height:30px;margin:0;gap:4px}
-html[data-handheld=true] .responsive-battle .exchange-row button,html[data-handheld=true] .responsive-battle #discard-selected{min-height:30px;height:30px;font-size:11px;padding:2px 6px}
-html[data-handheld=true] .responsive-battle .pile-button{grid-row:2;min-width:0;min-height:58px;padding:2px;gap:3px;font-size:8px;align-self:center}
-html[data-handheld=true] .responsive-battle .pile-button strong{font-size:18px}
+html[data-handheld=true] .responsive-battle .exchange-row{right:0;top:0;transform:none;min-height:30px;width:72px;margin:0;gap:0;z-index:2}
+html[data-handheld=true] .responsive-battle .exchange-row button,html[data-handheld=true] .responsive-battle #discard-selected{width:100%;min-height:30px;height:30px;font-size:11px;line-height:12px;padding:1px 2px;white-space:normal;word-break:keep-all;border-radius:7px}
+html[data-handheld=true] .responsive-battle .pile-button{grid-row:2;width:44px;max-width:100%;min-width:0;height:42px;min-height:42px;padding:2px;gap:1px;font-size:9px;line-height:10px;align-self:center;justify-self:center;border-radius:8px;box-shadow:inset 0 1px #dbe6b02b,2px 2px #173e30,3px 3px #95a85b66}
+html[data-handheld=true] .responsive-battle .pile-button strong{font-size:19px;line-height:20px}
+html[data-handheld=true] .responsive-battle .hand-page-row>button{border-color:var(--battle-edge);background:#102b2cb3;box-shadow:inset 0 1px #edf1d514}
 html[data-handheld=true] .score-overlay{--heat-base:24px}
 html[data-handheld=true] .score-overlay-label{font-size:11px;max-width:65vw}
 html[data-handheld=true] .app-dialog[open]{max-height:calc(var(--viewport-height) - 12px);max-width:calc(100vw - 16px);margin:auto;padding:0}
