@@ -1,0 +1,69 @@
+[
+  {
+    "command": [
+      "npm.cmd",
+      "test"
+    ],
+    "startedAt": "2026-11-25T22:50:56.219503+09:00",
+    "finishedAt": "2026-11-25T22:52:18.491471+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/pc-polish/final-unit/command.log",
+    "logSha256": "1c3047a5d8c66c47e64313467cbed9d5f3f9851bb9403f26ee25fd3a93a2a694"
+  },
+  {
+    "command": [
+      "npm.cmd",
+      "run",
+      "build"
+    ],
+    "startedAt": "2026-11-25T22:52:18.677115+09:00",
+    "finishedAt": "2026-11-25T22:52:21.29549+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/pc-polish/build/command.log",
+    "logSha256": "b311a35dc3f276e0c240f2236d176fbbe2b061c67f6567837970ce5d702ef255"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs",
+      "--section=T3-insert-swap-cancel",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-25T22:48:10.997593+09:00",
+    "finishedAt": "2026-11-25T22:48:14.136185+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/pc-polish/insert/command.log",
+    "logSha256": "0e4e8e0aa9695d0f27c85f2ebe4590b0ce65ab568e39db32d2f9d5238e8a7e0e"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs",
+      "--section=T4-form-and-committed-loss",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-25T22:48:14.316118+09:00",
+    "finishedAt": "2026-11-25T22:48:23.410413+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/pc-polish/form/command.log",
+    "logSha256": "fd42b9ce2f3b0f4bdcb8fc16fe4a554031a733f66dc16deab756768caa6dd963"
+  },
+  {
+    "command": [
+      "node",
+      "tests/ui-feedback0141-browser.mjs",
+      "--section=T6-mobile-visible-area-and-comma",
+      "--no-captures"
+    ],
+    "startedAt": "2026-11-25T22:48:23.585477+09:00",
+    "finishedAt": "2026-11-25T22:48:25.581742+09:00",
+    "exitCode": 0,
+    "status": "PASS",
+    "log": ".local-validation/pc-polish/mobile-comma/command.log",
+    "logSha256": "7239123ab076dd191ac8a986a8639586a61752d12f787860942c3a04ea6af2c5"
+  }
+]
