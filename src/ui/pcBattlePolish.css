@@ -1,6 +1,6 @@
 /* Desktop presentation only. Keep the shared viewport budget, card metrics,
    monster fit, score anchor and portable layouts owned by their existing modules. */
-@media (min-width: 1160px) and (min-height: 720px) {
+@media (min-width: 1200px) and (min-height: 720px) {
   html[data-portable=false] body[data-stage-theme] .responsive-battle {
     --pc-panel-pad: 14px;
     --pc-panel-edge: color-mix(in srgb, var(--battle-edge) 75%, var(--gold) 25%);
@@ -136,7 +136,7 @@
 }
 
 /* A short PC window keeps the existing stage/board/hand height budget. */
-@media (min-width: 1160px) and (min-height: 720px) and (max-height: 760px) {
+@media (min-width: 1200px) and (min-height: 720px) and (max-height: 760px) {
   html[data-portable=false] body[data-stage-theme] .responsive-battle { --pc-panel-pad: 10px; }
   html[data-portable=false] body[data-stage-theme] .responsive-battle :is(.enemy-info,.enemy-tactics) {
     min-height: 112px;
@@ -157,7 +157,7 @@
 
 /* At tall desktop heights, the original art is grounded well below the row's
    center. Align the plaques near its body; short windows keep safe centering. */
-@media (min-width: 1160px) and (min-height: 900px) {
+@media (min-width: 1200px) and (min-height: 900px) {
   html[data-portable=false] body[data-stage-theme] .responsive-battle:has(.monster-slot) :is(.enemy-info,.enemy-tactics) {
     align-self: end;
     margin-bottom: 56px;

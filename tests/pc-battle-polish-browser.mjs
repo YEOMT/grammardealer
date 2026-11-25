@@ -99,7 +99,7 @@ async function stableLayouts(w,h) {
   return result;
 }
 try {
-  for (const [w,h,touch] of [[1920,1080,false],[1440,900,false],[1280,720,false],[1024,768,true],[844,390,true]]) {
+  for (const [w,h,touch] of [[1920,1080,false],[1440,900,false],[1280,720,false],[1200,720,false],[1024,768,true],[844,390,true]]) {
     await check(`layout-${w}x${h}`, async () => {
       await boot(w,h,touch);
       const result=await measure();
@@ -123,6 +123,26 @@ try {
     });
   }
   if(phase==='after') {
+    await check('narrow-desktop-keeps-original-layout',async()=>{
+      const rows=[];
+      for(const height of [720,900]) for(const width of [1159,1160,1180,1199]) {
+        await boot(width,height);
+        const withPolish=await measure();
+        // Compare the actual base stylesheet in the same viewport, without a
+        // local baseline file. Some pre-existing narrow layouts can overflow;
+        // this desktop polish must neither add width nor move their controls.
+        await page.evaluate(()=>{
+          const sheet=[...document.styleSheets].find(s=>s.ownerNode?.dataset.viteDevId?.endsWith('/pcBattlePolish.css'));
+          if(!sheet)throw new Error('Desktop stylesheet not found');
+          sheet.disabled=true;
+        });
+        await settle();
+        try {assert.deepEqual(withPolish,await measure(),`${width}x${height} must retain the base layout`);}
+        finally {await page.evaluate(()=>{[...document.styleSheets].find(s=>s.ownerNode?.dataset.viteDevId?.endsWith('/pcBattlePolish.css')).disabled=false;});}
+        rows.push({width,height,unchanged:true});
+      }
+      return rows;
+    });
     await check('hand-page-selection-return-and-runes',async()=>{
       await boot(1280,720);await assignCount(2,14);
       const original=await state();

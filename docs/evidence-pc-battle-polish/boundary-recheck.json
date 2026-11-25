@@ -1,0 +1,131 @@
+{
+  "sourceCommit": "1dd335dd1d8c0b68e89ac01cff0bebca2c8ff3bb",
+  "change": "Desktop threshold 1200px",
+  "checks": [
+    {
+      "name": "layout-1920x1080",
+      "status": "PASS"
+    },
+    {
+      "name": "layout-1440x900",
+      "status": "PASS"
+    },
+    {
+      "name": "layout-1280x720",
+      "status": "PASS"
+    },
+    {
+      "name": "layout-1200x720",
+      "status": "PASS"
+    },
+    {
+      "name": "layout-1024x768",
+      "status": "PASS"
+    },
+    {
+      "name": "layout-844x390",
+      "status": "PASS"
+    },
+    {
+      "name": "narrow-desktop-keeps-original-layout",
+      "status": "PASS"
+    },
+    {
+      "name": "hand-page-selection-return-and-runes",
+      "status": "PASS"
+    },
+    {
+      "name": "normal-attack-retained-view-and-score",
+      "status": "PASS"
+    },
+    {
+      "name": "boss-safe-body-and-four-runes",
+      "status": "PASS"
+    }
+  ],
+  "boundary": [
+    {
+      "width": 1159,
+      "height": 720,
+      "unchanged": true
+    },
+    {
+      "width": 1160,
+      "height": 720,
+      "unchanged": true
+    },
+    {
+      "width": 1180,
+      "height": 720,
+      "unchanged": true
+    },
+    {
+      "width": 1199,
+      "height": 720,
+      "unchanged": true
+    },
+    {
+      "width": 1159,
+      "height": 900,
+      "unchanged": true
+    },
+    {
+      "width": 1160,
+      "height": 900,
+      "unchanged": true
+    },
+    {
+      "width": 1180,
+      "height": 900,
+      "unchanged": true
+    },
+    {
+      "width": 1199,
+      "height": 900,
+      "unchanged": true
+    }
+  ],
+  "browserErrors": [],
+  "finalVerification": {
+    "unit": {
+      "command": "npm.cmd test",
+      "exitCode": 0,
+      "tests": 2026,
+      "passed": 2026,
+      "failed": 0,
+      "skipped": 0,
+      "logSha256": "45D13CA6C424129DA6A7BF606E7E03B7FDAF9133014BC2DB64BC66600653E6DB"
+    },
+    "build": {
+      "command": "npm.cmd run build",
+      "exitCode": 0,
+      "logSha256": "E354A4F77F8D64B3A9CD13FAEE0152435BA10AE15B48F226B2882AE32B3F26EC"
+    },
+    "browser": {
+      "command": "node tests/pc-battle-polish-browser.mjs",
+      "exitCode": 0,
+      "checks": 10,
+      "resultSha256": "D9CB6E34B840093810CBFE5BAC9E91675F4651AC1D50E125596F7DDB4FA1FF82"
+    },
+    "inputChecks": [
+      {
+        "section": "T3-insert-swap-cancel",
+        "status": "PASS",
+        "exitCode": 0,
+        "resultSha256": "434180193A83B6F452DD280B4FC06225DFE671991527C678D8D017FEFCCAF4B1"
+      },
+      {
+        "section": "T4-form-and-committed-loss",
+        "status": "PASS",
+        "exitCode": 0,
+        "resultSha256": "71C7B2B62F14EE21A46DDA87A736247543C4686F9A20500910DDB8C71F9E6071"
+      },
+      {
+        "section": "T6-mobile-visible-area-and-comma",
+        "status": "PASS",
+        "exitCode": 0,
+        "resultSha256": "CE3B596CAE54BA5D975F20789A35D3DD0268FEDAC2491AC6E0E016617D9176F8"
+      }
+    ]
+  }
+}

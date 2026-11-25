@@ -1,6 +1,6 @@
 # PC 전투 UI 폴리싱 인계
 
-PR #39 병합 main `13f84736551bc33e2589d82f5b00e865dc9c49f1`을 기준으로 PC 표시만 정돈했다. `ui/pcBattlePolish.css`는 비휴대기기 1160×720 이상 전투에만 적용하며 공유 viewport 예산·카드/몬스터 치수·상태/저장 정책은 변경하지 않는다. [전후 화면·검사·한계](PC_BATTLE_POLISH_REPORT.md). 아래 0.15.1 기능은 그대로 유지한다.
+PR #39 병합 main `13f84736551bc33e2589d82f5b00e865dc9c49f1`을 기준으로 PC 표시만 정돈했다. `ui/pcBattlePolish.css`는 비휴대기기 1200×720 이상 전투에만 적용하며 공유 viewport 예산·카드/몬스터 치수·상태/저장 정책은 변경하지 않는다. [전후 화면·검사·한계](PC_BATTLE_POLISH_REPORT.md). 아래 0.15.1 기능은 그대로 유지한다.
 
 # 0.15.1 R2 인계
 
