@@ -44,7 +44,7 @@ html[data-handheld=true] .lobby-footer{height:22px;min-height:22px;margin:0 12px
 html[data-handheld=true] .lobby-footer button{font-size:10px;min-height:20px;padding:1px 5px}
 
 html[data-handheld=true] body[data-stage-theme] .game-shell.responsive-battle{
- --hand-body:44px;--hand-foot:26px;--hand-card-height:76px;--hand-height:99px;
+ --hand-body:38px;--hand-foot:32px;--hand-card-height:76px;--hand-height:107px;
  --score-height:22px;--mobile-middle:140px;--mobile-action-rail:clamp(62px,8.2vw,76px);
  min-width:0;width:100%;max-width:none;min-height:0;height:var(--viewport-height);
  padding:4px max(6px,var(--inset-right)) max(8px,var(--inset-bottom)) max(6px,var(--inset-left));
@@ -61,14 +61,19 @@ html[data-handheld=true] .mobile-battle-menu{display:block}
 html[data-handheld=true] .responsive-battle .enemy-area{touch-action:pan-y}
 html[data-handheld=true] #app .rune-info{touch-action:pan-y}
 html[data-handheld=true] .responsive-battle>.combat-backdrop{top:-4px;left:calc(-1 * max(6px,var(--inset-left)));right:calc(-1 * max(6px,var(--inset-right)))}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .enemy-area{grid-template-columns:minmax(0,1fr) minmax(80px,.7fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);column-gap:16px;padding:2px 10px;align-items:center;align-content:stretch;min-height:0}
-html[data-handheld=true] .responsive-battle .enemy-info,html[data-handheld=true] .responsive-battle .enemy-tactics{max-width:230px;width:100%;padding:4px 8px!important;max-height:100%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;box-sizing:border-box}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .enemy-area{grid-template-columns:minmax(0,1.25fr) minmax(64px,.6fr) minmax(0,1fr);grid-template-rows:minmax(0,1fr);column-gap:8px;padding:0 2px;align-items:center;align-content:stretch;min-height:0}
+html[data-handheld=true] .responsive-battle .enemy-info,html[data-handheld=true] .responsive-battle .enemy-tactics{max-width:290px;width:100%;padding:3px 6px!important;max-height:100%;overflow:auto;overscroll-behavior:contain;touch-action:pan-y;box-sizing:border-box}
 html[data-handheld=true] .responsive-battle .enemy-info{justify-self:start}
 html[data-handheld=true] .responsive-battle .enemy-tactics{justify-self:end}
 html[data-handheld=true] .responsive-battle .enemy-label{display:none}
 html[data-handheld=true] .responsive-battle .enemy-info h2{font-size:14px;margin:0 0 3px}
 html[data-handheld=true] .responsive-battle .enemy-hp{font-size:11px;margin:2px 0}
 html[data-handheld=true] .responsive-battle .enemy-info .hp-track{height:7px}
+/* Reserve a readable status row without scrolling the boss name or current HP. */
+html[data-handheld=true] .responsive-battle .enemy-info:has(.enemy-mechanics:not(:empty)) .enemy-vitals{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1px 4px}
+html[data-handheld=true] .responsive-battle .enemy-info:has(.enemy-mechanics:not(:empty)) :is(h2,.enemy-hp){margin:0;line-height:16px}
+html[data-handheld=true] .responsive-battle .enemy-info:has(.enemy-mechanics:not(:empty)) .enemy-hp{grid-column:2;grid-row:1;align-self:center}
+html[data-handheld=true] .responsive-battle .enemy-info:has(.enemy-mechanics:not(:empty)) .enemy-vitals>.hp-track{grid-column:1/-1;grid-row:2;height:5px;margin:0}
 html[data-handheld=true] .responsive-battle .enemy-avatar{font-size:56px}
 html[data-handheld=true] .responsive-battle .enemy-tactics .region-bonus{font-size:10px;margin:0;padding:0}
 html[data-handheld=true] .responsive-battle .enemy-area button{min-height:24px;padding:2px 4px;font-size:10px}
@@ -81,7 +86,7 @@ html[data-handheld=true] .responsive-battle .enemy-info .golem-phase .hp-track{g
 html[data-handheld=true] .responsive-battle .golem-phase{padding:2px}
 html[data-handheld=true] .responsive-battle .golem-phase-label,html[data-handheld=true] .responsive-battle .golem-phase-hp{font-size:9px}
 html[data-handheld=true] .responsive-battle .golem-phase .hp-track{height:4px}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-middle{grid-template-columns:minmax(0,1fr) 82px;gap:4px;min-height:0;height:100%}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-middle{grid-template-columns:minmax(0,1fr) 94px;gap:4px;min-height:0;height:100%}
 html[data-handheld=true] .responsive-battle .status-panel{display:none!important}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .sentence-area{
  position:relative;min-width:0;min-height:0;padding:2px;
@@ -104,29 +109,30 @@ html[data-handheld=true] body[data-stage-theme] .responsive-battle .combat-actio
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .rune-panel{padding:3px;gap:4px;overflow:auto;touch-action:pan-y;overscroll-behavior:contain}
 html[data-handheld=true] .responsive-battle .rune-title{font-size:10px;gap:2px;flex:none}
 html[data-handheld=true] .responsive-battle .rune-hint{display:none}
-html[data-handheld=true] .responsive-battle .rune-slot{min-height:70px;flex:none;padding:3px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 26px;gap:2px}
+html[data-handheld=true] .responsive-battle .rune-slot{min-height:70px;flex:none;padding:3px;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto;gap:2px}
 html[data-handheld=true] .responsive-battle .rune-slot-head{display:grid;grid-template-columns:12px minmax(0,1fr);gap:2px}
 html[data-handheld=true] .responsive-battle .rune-order-number{font-size:10px}
 html[data-handheld=true] .responsive-battle .rune-gem{font-size:14px;grid-row:1;grid-column:2}
 html[data-handheld=true] .responsive-battle .rune-info{grid-column:1/-1;min-height:24px;font-size:10px;padding:0;text-align:left;word-break:keep-all}
 html[data-handheld=true] .responsive-battle .rune-effect{display:none}
-html[data-handheld=true] .responsive-battle .rune-order-controls{grid-column:1;grid-row:2;flex-direction:row;justify-content:space-between}
-html[data-handheld=true] .responsive-battle .rune-order-controls button{height:26px;min-height:26px;min-width:23px;width:23px}
+html[data-handheld=true] .responsive-battle .rune-order-controls{grid-column:1;grid-row:2;display:grid;grid-template-columns:repeat(2,30px);gap:2px;justify-content:space-between}
+html[data-handheld=true] .responsive-battle .rune-order-controls .rune-drag-handle{grid-column:1/-1;justify-self:center}
+html[data-handheld=true] .responsive-battle .rune-order-controls button{height:30px;min-height:30px;min-width:28px;width:28px}
 html[data-handheld=true] .responsive-battle .rune-slot.empty{min-height:30px;font-size:10px}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-section{height:99px;min-height:0;padding:0;grid-template-columns:40px minmax(0,1fr) 40px;grid-template-rows:22px 76px;column-gap:4px;row-gap:0}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-section{height:var(--hand-height);min-height:0;padding:0;grid-template-columns:40px minmax(0,1fr) 40px;grid-template-rows:30px 76px;column-gap:4px;row-gap:0}
 html[data-handheld=true] .responsive-battle .hand-center{grid-row:1/3;align-self:start}
 html[data-handheld=true] .responsive-battle .hand-title{display:none}
-html[data-handheld=true] .responsive-battle .card-pager{height:22px;line-height:22px;font-size:10px;margin:0 34px}
+html[data-handheld=true] .responsive-battle .card-pager{height:30px;line-height:30px;font-size:10px;margin:0 34px}
 html[data-handheld=true] .responsive-battle .hand-page-row{grid-template-columns:30px minmax(0,1fr) 30px;gap:4px;height:76px;min-height:76px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards{height:76px;min-height:76px;gap:4px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .word-card{--card-w:var(--mobile-hand-card-width);width:var(--card-w);min-width:var(--card-w);max-width:var(--card-w);flex-basis:var(--card-w)}
-html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .card-body{height:44px;min-height:44px;padding:2px 4px}
+html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .card-body{height:38px;min-height:38px;padding:1px 4px}
 html[data-handheld=true] body[data-stage-theme] .responsive-battle .hand-cards .card-word{font-size:min(22px,calc(90cqw / var(--fit-factor,3)))!important;margin:0!important}
-html[data-handheld=true] .responsive-battle .hand-cards .card-topline{font-size:8px}
-html[data-handheld=true] .responsive-battle .hand-cards .card-footline{height:26px;min-height:26px;padding:1px 29px 1px 3px;font-size:8px}
-html[data-handheld=true] .responsive-battle .hand-cards .card-select{width:28px;height:26px;min-height:26px}
-html[data-handheld=true] .responsive-battle .exchange-row{right:44px;top:0;transform:none;min-height:22px;margin:0;gap:4px}
-html[data-handheld=true] .responsive-battle .exchange-row button,html[data-handheld=true] .responsive-battle #discard-selected{min-height:22px;height:22px;font-size:10px;padding:2px 6px}
+html[data-handheld=true] .responsive-battle .hand-cards .card-topline{font-size:9px}
+html[data-handheld=true] .responsive-battle .hand-cards .card-footline{height:32px;min-height:32px;padding:1px 33px 1px 3px;font-size:9px}
+html[data-handheld=true] .responsive-battle .hand-cards .card-select{width:32px;height:32px;min-height:32px}
+html[data-handheld=true] .responsive-battle .exchange-row{right:44px;top:0;transform:none;min-height:30px;margin:0;gap:4px}
+html[data-handheld=true] .responsive-battle .exchange-row button,html[data-handheld=true] .responsive-battle #discard-selected{min-height:30px;height:30px;font-size:11px;padding:2px 6px}
 html[data-handheld=true] .responsive-battle .pile-button{grid-row:2;min-width:0;min-height:58px;padding:2px;gap:3px;font-size:8px;align-self:center}
 html[data-handheld=true] .responsive-battle .pile-button strong{font-size:18px}
 html[data-handheld=true] .score-overlay{--heat-base:24px}
@@ -180,4 +186,3 @@ html[data-handheld=true] .record-grid>div{padding:8px}
 html[data-handheld=true] .record-grid strong{font-size:22px}
 html[data-handheld=true] .guided-coach{max-width:calc(100vw - 24px);max-height:calc(var(--viewport-height) - 18px);overflow:auto;touch-action:pan-y;font-size:12px}
 html[data-handheld=true] .guided-coach .guided-actions{flex-wrap:wrap}
-@media(max-height:340px){html[data-handheld=true] body[data-stage-theme] .game-shell.responsive-battle{--mobile-middle:114px;grid-template-rows:28px minmax(34px,1fr) var(--mobile-middle) var(--hand-height)}}

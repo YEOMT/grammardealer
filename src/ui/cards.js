@@ -106,6 +106,16 @@ export function bindCardDrag(container, onDrop, { enabled = () => true, canDrop 
     if (!active.dragging && Math.hypot(e.clientX-active.startX,e.clientY-active.startY) >= 8) {
       active.dragging = true; active.node.classList.add('drag-source');
       const rect = active.node.getBoundingClientRect(); active.ghost = active.node.cloneNode(true);
+      if(doc.documentElement.dataset.portable==='true'){
+        // The fixed ghost leaves the board/hand ancestors. Freeze only its visible
+        // child geometry; keep the existing root size, pointer offset and transform.
+        const parts='.card-motion,.card-body,.card-topline,.card-footline,.card-word,.form-button,.card-info,.card-select';
+        const copies=active.ghost.querySelectorAll(parts);
+        active.node.querySelectorAll(parts).forEach((part,index)=>{
+          const style=getComputedStyle(part);
+          for(const name of ['display','width','height','min-height','padding','margin','gap','grid-template-rows','grid-template-columns','justify-content','align-items','align-self','font-size','line-height','position','top','right','bottom'])copies[index].style.setProperty(name,style.getPropertyValue(name));
+        });
+      }
       active.ghost.classList.add('drag-ghost'); active.ghost.inert=true; active.ghost.setAttribute('aria-hidden','true'); active.ghost.style.width=`${rect.width}px`; active.ghost.style.height=`${rect.height}px`; active.ghost.removeAttribute('data-card-id');(doc.fullscreenElement??doc.body).append(active.ghost);
     }
     if (!active.dragging) return;

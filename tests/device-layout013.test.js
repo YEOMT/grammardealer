@@ -1,7 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {installViewport} from '../src/ui/visualViewport.js';
-import {handheldLayout} from '../src/ui/deviceLayout.js';
+import {handheldLayout,portableInput} from '../src/ui/deviceLayout.js';
+import {handPageForLayout} from '../src/ui/viewport.js';
 import {installOrientationGate} from '../src/ui/orientation.js';
 
 function viewportFixture(){
@@ -27,6 +28,34 @@ test('phone classification recovers when desktop minimum width inflates mobile i
  Object.assign(f.doc.documentElement,{clientWidth:667,clientHeight:375});
  const cleanup=installViewport(f.win,f.doc);
  try{assert.equal(f.doc.documentElement.dataset.handheld,'true');f.flush();}finally{cleanup();}
+});
+
+test('touch layout uses available width instead of the 1000px phone or height cliff',()=>{
+ for(const width of [667,820,999,1000,1001,1008,1023])for(const height of [295,432,639,640,768,1024]){
+  assert.equal(handheldLayout({width,height,touchPoints:5,coarse:true}),true);
+ }
+ for(const width of [1024,1194])for(const height of [510,600,639,640,678,834]){
+  assert.equal(handheldLayout({width,height,touchPoints:5,coarse:true}),false);
+ }
+ const hybrid={navigator:{maxTouchPoints:5,userAgent:'Desktop'},matchMedia:query=>({matches:query==='(any-pointer: coarse)'})};
+ assert.equal(portableInput(hybrid),true,'connecting a mouse must not remove touch target sizing');
+ assert.equal(portableInput({...hybrid,navigator:{maxTouchPoints:0,userAgent:'Desktop'}}),false);
+});
+
+test('hand page capacity changes retain a physical card while height-only updates and deliberate paging remain stable',()=>{
+ const cardIds=Array.from({length:14},(_,i)=>'card.'+i);
+ const memory={page:1,size:10,anchorId:'card.10'};
+ const portrait=handPageForLayout({cardIds,memory,width:310,cardWidth:88,mobile:true});
+ assert.equal(portrait.size,3);assert.ok(portrait.start<=10&&portrait.end>10);
+ assert.deepEqual(memory,{page:1,size:10,anchorId:'card.10'},'query must not mutate view or game memory');
+ const stable={page:portrait.page,size:portrait.size,anchorId:cardIds[portrait.start]};
+ assert.deepEqual(handPageForLayout({cardIds,memory:stable,width:310,cardWidth:88,mobile:true}),portrait);
+ const wide=handPageForLayout({cardIds,memory:stable,width:900,cardWidth:88,mobile:false});
+ assert.ok(wide.start<=9&&wide.end>9);
+ const next=handPageForLayout({cardIds,memory:{...stable,page:0},preserveAnchor:false,width:900,cardWidth:88,mobile:false});
+ assert.equal(next.page,0);
+ const missing=handPageForLayout({cardIds:cardIds.slice(0,5),memory,width:310,cardWidth:88,mobile:true});
+ assert.equal(missing.page,1);assert.equal(missing.end,5);
 });
 
 test('view classification cancels an in-flight drag before layout change and publishes one deferred viewport event',()=>{

@@ -71,7 +71,8 @@ test('invalid samples and pinch zoom retain the last layout; keyboard changes on
     Object.assign(f.win,{innerWidth:820,innerHeight:650});
     Object.assign(f.visual,{width:820,height:530});
     resize();
-    assert.equal(f.doc.documentElement.dataset.handheld,'false');
+    // Narrow split windows now reuse the eight-column layout, regardless of height.
+    assert.equal(f.doc.documentElement.dataset.handheld,'true');
     assert.equal(f.styles.get('--visual-width'),'820px');
     f.doc.hidden = true;
     f.visual.height = 490;resize();

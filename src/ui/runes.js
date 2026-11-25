@@ -19,6 +19,11 @@ export function runeView(instance,{index=0,total=1,onOrder,readonly=false,entry=
 /** Dedicated vertical handle; DOM order stays unchanged until controller acceptance. */
 export function bindRuneDrag(panel,onOrder,{enabled=()=>true}={}){
  const guard=installInputGuard(panel.ownerDocument,panel.ownerDocument.defaultView);let active=null,disposed=false;
+ let scrollFrame=0;
+ const scrollHint=()=>{scrollFrame=0;if(!disposed)panel.dataset.moreBelow=String(document.documentElement.dataset.portable==='true'&&panel.scrollTop+panel.clientHeight<panel.scrollHeight-2);};
+ const scheduleHint=()=>{if(!scrollFrame)scrollFrame=requestAnimationFrame(scrollHint);};
+ const resize=typeof ResizeObserver==='function'?new ResizeObserver(scheduleHint):null;
+ resize?.observe(panel);panel.addEventListener('scroll',scheduleHint,{passive:true});document.addEventListener('atlas:viewport',scheduleHint);scheduleHint();
  const clear=(cancelled=true)=>{if(active){const a=active;active=null;if(cancelled)guard.suppress(a.id);try{a.handle.releasePointerCapture(a.id);}catch{}}panel.querySelectorAll('.rune-drop-before,.rune-drop-after,.rune-drag-source').forEach(n=>n.classList.remove('rune-drop-before','rune-drop-after','rune-drag-source'));};
  const valid=()=>active&&!disposed&&active.node.isConnected&&enabled()&&!guard.blocked&&!document.querySelector('dialog[open]')&&active.revision===inputRevision(panel);
  const down=e=>{const handle=e.target.closest('.rune-drag-handle');if(active||disposed||guard.blocked||!handle||handle.disabled||e.button!==0||!enabled()||document.querySelector('dialog[open]'))return;const node=handle.closest('[data-rune-index]');active={handle,node,id:e.pointerId,x:e.clientX,y:e.clientY,revision:inputRevision(panel),from:Number(node.dataset.runeIndex),to:null,moved:false};try{handle.setPointerCapture(e.pointerId);}catch{clear();}};
@@ -35,5 +40,5 @@ export function bindRuneDrag(panel,onOrder,{enabled=()=>true}={}){
  const cancel=e=>{if(!e.pointerId||e.pointerId===active?.id)clear();};
  const escape=e=>{if(e.key==='Escape')clear();};
  panel.addEventListener('pointerdown',down);panel.addEventListener('pointermove',move);panel.addEventListener('pointerup',up);panel.addEventListener('pointercancel',cancel);panel.addEventListener('lostpointercapture',cancel);window.addEventListener('scroll',cancel,true);document.addEventListener('atlas:cancel-drag',cancel);window.addEventListener('keydown',escape);
- return()=>{disposed=true;clear();panel.removeEventListener('pointerdown',down);panel.removeEventListener('pointermove',move);panel.removeEventListener('pointerup',up);panel.removeEventListener('pointercancel',cancel);panel.removeEventListener('lostpointercapture',cancel);window.removeEventListener('scroll',cancel,true);document.removeEventListener('atlas:cancel-drag',cancel);window.removeEventListener('keydown',escape);};
+ return()=>{disposed=true;clear();resize?.disconnect();cancelAnimationFrame(scrollFrame);panel.removeEventListener('scroll',scheduleHint);document.removeEventListener('atlas:viewport',scheduleHint);panel.removeEventListener('pointerdown',down);panel.removeEventListener('pointermove',move);panel.removeEventListener('pointerup',up);panel.removeEventListener('pointercancel',cancel);panel.removeEventListener('lostpointercapture',cancel);window.removeEventListener('scroll',cancel,true);document.removeEventListener('atlas:cancel-drag',cancel);window.removeEventListener('keydown',escape);};
 }

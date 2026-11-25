@@ -34,27 +34,84 @@ html[data-portable=true] #app {
   overflow: auto;
 }
 
-/* Spend free height on scenery first. Below the usable minimum the app scrolls. */
+/* Compact chrome continuously; basic HUD stays readable before scenery grows.
+   Width owns columns/pages. None of these visible-height budgets change width. */
 html[data-handheld=true] body[data-stage-theme] .game-shell.responsive-battle {
-  --mobile-middle: clamp(108px, calc(var(--viewport-height) - 204px), 140px);
-  grid-template-rows: 28px minmax(44px,1fr) var(--mobile-middle) var(--hand-height);
-  min-height: calc(90px + var(--mobile-middle) + var(--hand-height));
+  --mobile-middle: clamp(100px, calc(var(--viewport-height) - 201px), 140px);
+  grid-template-rows: 26px minmax(54px,1fr) var(--mobile-middle) var(--hand-height);
+  min-height: calc(88px + var(--mobile-middle) + var(--hand-height));
+  padding-top: 0;
+  row-gap: 0;
 }
-html[data-portable=true][data-handheld=false][data-compact-height=true] .game-shell.responsive-battle {
-  --board-body: 48px;
-  --form-height: 24px;
-  --score-height: 48px;
+html[data-portable=true][data-handheld=false] body[data-stage-theme] .game-shell.responsive-battle {
+  --board-body: clamp(22px, calc(22px + (var(--viewport-height) - 510px) * .12), 44px);
+  --form-height: 30px;
+  --board-gap: 6px;
+  --sentence-column-gap: 2px;
+  --board-pad: 4px;
+  --score-height: clamp(8px, calc(8px + (var(--viewport-height) - 510px) * .1), 28px);
   --action-height: 34px;
-  --hand-body: 62px;
-  min-height: calc(var(--middle-height) + var(--hand-height) + 174px);
-  grid-template-rows: 32px minmax(96px,1fr) var(--middle-height) var(--hand-height);
+  --hand-body: clamp(62px, calc(62px + (var(--viewport-height) - 510px) * .1), 78px);
+  --hand-height: calc(var(--hand-card-height) + 33px);
+  min-height: calc(var(--middle-height) + var(--hand-height) + 144px);
+  grid-template-rows: 28px minmax(96px,1fr) var(--middle-height) var(--hand-height);
+  row-gap: 4px;
+  padding-block: 0 8px;
+}
+html[data-portable=true][data-handheld=false] body[data-stage-theme] .responsive-battle .hand-section {
+  padding: 0;
+  grid-template-rows: 32px var(--hand-card-height);
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .sentence-row { column-gap:var(--sentence-column-gap); }
+html[data-portable=true][data-handheld=false] .responsive-battle .hand-title { display:none; }
+html[data-portable=true][data-handheld=false] .responsive-battle .pager-hand-title { display:inline; margin-right:12px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .card-pager { height:32px; line-height:32px; }
+html[data-portable=true] .responsive-battle .card-pager { margin-bottom:0; }
+html[data-portable=true][data-handheld=false] .responsive-battle .exchange-row { transform:none; margin:0; }
+html[data-portable=true][data-handheld=false] .responsive-battle #discard-selected { height:32px; min-height:32px; padding:3px 8px; font-size:12px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .hand-cards .card-select { width:36px; height:36px; min-height:36px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .status-nav button { min-height:32px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-label { display:none; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-info h2 { font-size:20px; margin:2px 0 4px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-info .hp-track { margin-block:3px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-area button { min-height:30px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-tactics { padding:6px 8px!important; }
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-info { padding:6px 10px!important; }
+html[data-portable=true] .responsive-battle .rune-title { flex-wrap:nowrap; gap:2px; font-size:10px; }
+html[data-portable=true] .responsive-battle .rune-title>strong { white-space:nowrap; }
+html[data-portable=true] .responsive-battle .rune-title>span:last-child { white-space:nowrap; font-size:9px; }
+html[data-portable=true] .responsive-battle .rune-title .rune-help { width:30px; min-width:30px; height:30px; }
+html[data-portable=true][data-handheld=false] .responsive-battle .rune-slot {
+  grid-template-columns:minmax(0,1fr); gap:4px; flex:none;
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .rune-order-controls {
+  grid-column:1; grid-row:3; flex-direction:row; justify-content:space-between;
+}
+html[data-portable=true] .responsive-battle .rune-order-controls button {
+  width:30px; min-width:30px; height:30px; min-height:30px;
 }
 html[data-portable=true][data-handheld=false] body[data-stage-theme] .responsive-battle .enemy-area {
   grid-template-rows: minmax(0,1fr);
   align-content: stretch;
   touch-action: pan-y;
 }
-html[data-portable=true][data-handheld=false] .responsive-battle :is(.enemy-info,.enemy-tactics) {
+.enemy-vitals,.enemy-mechanics { display:contents; }
+html[data-portable=true] .responsive-battle .enemy-info {
+  display:flex;
+  flex-direction:column;
+  max-height:100%;
+  min-height:0;
+  overflow:visible;
+}
+html[data-portable=true] .responsive-battle .enemy-vitals { display:block; flex:none; }
+html[data-portable=true] .responsive-battle .enemy-mechanics {
+  display:block;
+  min-height:0;
+  overflow-y:auto;
+  touch-action:pan-y;
+  overscroll-behavior:contain;
+}
+html[data-portable=true][data-handheld=false] .responsive-battle .enemy-tactics {
   max-height: 100%;
   min-height: 0;
   overflow-y: auto;
@@ -64,16 +121,22 @@ html[data-portable=true] .enemy-info .golem-phases { grid-template-columns: minm
 html[data-portable=true] .enemy-info .golem-phase-label { min-height: 0; }
 @media (max-width:1159px) {
   html[data-portable=true][data-handheld=false] .game-shell.responsive-battle {
-    --board-width: calc(var(--viewport-width) - 278px);
+    --board-width: calc(var(--viewport-width) - 242px);
     min-width: 0;
   }
   html[data-portable=true][data-handheld=false] .responsive-battle .combat-middle {
-    grid-template-columns: 100px minmax(0,1fr) 132px;
+    grid-template-columns: 88px minmax(0,1fr) 108px;
   }
 }
 
 html[data-portable=true] .intro-page.responsive-intro { overflow-y: auto; }
 html[data-portable=true] .responsive-battle .rune-panel { touch-action: pan-y; overscroll-behavior: contain; }
+html[data-portable=true] .responsive-battle .rune-panel[data-more-below=true]::after {
+  content:'↓'; position:sticky; bottom:0; align-self:flex-end;
+  flex:none; height:16px; line-height:16px; width:24px; margin-top:-16px;
+  text-align:center; color:#f4e2ac; background:#122c30e6; border-radius:8px;
+  pointer-events:none;
+}
 html[data-portable=true] #app .rune-panel .rune-info { touch-action: pan-y; }
 html[data-portable=true] .panorama-preparation .preparation-scroll { min-height: min(72px,24vh); }
 html[data-portable=true] body .panorama-preparation { min-height: 164px; }
